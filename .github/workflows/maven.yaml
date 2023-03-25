@@ -11,8 +11,8 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
-        java: [ 11, 17 ]
+        os: [ubuntu-latest]
+        java: [ 11 ]
     runs-on: ${{ matrix.os }}   
     name: OS ${{ matrix.os }} Java ${{ matrix.java }} compile
     steps:
