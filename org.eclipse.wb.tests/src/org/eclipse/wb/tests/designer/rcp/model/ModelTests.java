@@ -39,7 +39,6 @@ import org.junit.runners.Suite.SuiteClasses;
     FormsTests.class, 
     TheRcpTests.class, 
     E4Tests.class,
-
 })
 public class ModelTests {
 }

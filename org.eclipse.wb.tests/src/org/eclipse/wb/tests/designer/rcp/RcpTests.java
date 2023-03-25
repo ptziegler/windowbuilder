@@ -34,7 +34,6 @@ import org.junit.runners.Suite.SuiteClasses;
     // NebulaTests.class,
     Swing2SwtTests.class,
     GefTests.class,
-    
 })
 public class RcpTests {
 }
