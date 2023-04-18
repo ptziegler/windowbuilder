@@ -100,25 +100,6 @@ public class ContentDescriberTest extends AbstractJavaTest {
     }
   }
 
-  ////////////////////////////////////////////////////////////////////////////
-  //
-  // AWT/Swing
-  //
-  ////////////////////////////////////////////////////////////////////////////
-  public void test_AWT_Applet() throws Exception {
-    IFile file =
-        setFileContentSrc(
-            "test/Test.java",
-            getSourceDQ(
-                "package test;",
-                "import java.applet.Applet;",
-                "public class Test extends Applet {",
-                "  // filler",
-                "}"));
-    waitForContentType();
-    assertTrue(isDesignerType(file));
-  }
-
   public void test_Swing() throws Exception {
     IFile file =
         setFileContentSrc(

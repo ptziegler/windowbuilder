@@ -27,8 +27,8 @@ import java.awt.EventQueue;
 import java.awt.Frame;
 import java.awt.Toolkit;
 
-import javax.swing.JApplet;
 import javax.swing.JComponent;
+import javax.swing.JFrame;
 import javax.swing.RootPaneContainer;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -268,18 +268,14 @@ public abstract class EmbeddedSwingComposite extends Composite {
     // http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4982522)
     // 3) The Swing implementation further narrows the options by expecting that the
     // top of the hierarchy be a JFrame, JDialog, JWindow, or JApplet. See javax.swing.PopupFactory.
-    // All this drives the choice of JApplet for the top level Swing component. It is the
-    // only single component that satisfies all the above. This does not imply that
-    // we have a true applet; in particular, there is no notion of an applet lifecycle in this
-    // context.
-    JApplet applet = new JApplet();
+    JFrame jframe = new JFrame();
     // In JRE 1.4, the JApplet makes itself a focus cycle root. This
     // interferes with the focus handling installed on the parent frame, so
     // change it back to a non-root here.
     // TODO: consider moving the focus policy from the Frame down to the JApplet
-    applet.setFocusCycleRoot(false);
-    frame.add(applet);
-    return applet;
+    jframe.setFocusCycleRoot(false);
+    frame.add(jframe);
+    return jframe;
   }
 
   /**

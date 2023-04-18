@@ -145,12 +145,6 @@ public class ParseFactory extends AbstractParseFactory {
   private static void addRootMethods(List<MethodDeclaration> rootMethods,
       Class<?> superClass,
       TypeDeclaration typeDeclaration) {
-    if (ReflectionUtils.isSuccessorOf(superClass, "java.applet.Applet")) {
-      MethodDeclaration initMethod = AstNodeUtils.getMethodBySignature(typeDeclaration, "init()");
-      if (initMethod != null) {
-        rootMethods.add(initMethod);
-      }
-    }
     // add Action methods
     for (MethodDeclaration method : typeDeclaration.getMethods()) {
       IMethodBinding methodBinding = AstNodeUtils.getMethodBinding(method);

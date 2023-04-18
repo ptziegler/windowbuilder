@@ -29,13 +29,11 @@ import org.eclipse.wb.internal.swing.gef.GefMessages;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.internal.swing.model.component.menu.JMenuBarInfo;
 
-import javax.swing.JApplet;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 
 /**
- * {@link LayoutEditPolicy} allowing drop {@link JMenuBarInfo} on {@link JFrame}, {@link JDialog} or
- * {@link JApplet}.
+ * {@link LayoutEditPolicy} allowing drop {@link JMenuBarInfo} on {@link JFrame}, {@link JDialog}
  *
  * @author scheglov_ke
  * @coverage swing.gef.policy

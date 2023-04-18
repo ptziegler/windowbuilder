@@ -23,7 +23,6 @@ import org.eclipse.swt.graphics.Image;
 
 import org.apache.commons.lang.StringUtils;
 
-import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Container;
@@ -129,13 +128,7 @@ public final class SwingScreenshotMaker {
       // prepare location of component image on window image
       Point componentLocation;
       {
-        Point p_component;
-        if (m_component instanceof Applet) {
-          // Applet reports "screen location" as (0,0), but we want location on "window"
-          p_component = SwingUtils.getScreenLocation(m_component.getParent());
-        } else {
-          p_component = SwingUtils.getScreenLocation(m_component);
-        }
+        Point p_component = SwingUtils.getScreenLocation(m_component);
         // continue
         Point p_window = SwingUtils.getScreenLocation(m_window);
         componentLocation = new Point(p_component.x - p_window.x, p_component.y - p_window.y);

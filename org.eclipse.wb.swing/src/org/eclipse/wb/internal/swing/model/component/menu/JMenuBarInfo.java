@@ -34,7 +34,6 @@ import java.awt.Component;
 import java.awt.Container;
 import java.util.List;
 
-import javax.swing.JApplet;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -123,7 +122,7 @@ public final class JMenuBarInfo extends ContainerInfo implements IAdaptable {
   ////////////////////////////////////////////////////////////////////////////
   /**
    * Adds this {@link JMenuBarInfo} to given {@link ContainerInfo}, such as {@link JFrame},
-   * {@link JDialog} and {@link JApplet}.
+   * {@link JDialog}.
    */
   public void command_CREATE(ContainerInfo container) throws Exception {
     AssociationObject association =

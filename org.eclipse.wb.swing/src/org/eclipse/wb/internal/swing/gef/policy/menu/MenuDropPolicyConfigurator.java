@@ -16,7 +16,6 @@ import org.eclipse.wb.gef.core.policies.EditPolicy;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 
-import javax.swing.JApplet;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
@@ -35,8 +34,7 @@ public final class MenuDropPolicyConfigurator implements IEditPartConfigurator {
       Class<?> componentClass = container.getDescription().getComponentClass();
       if (JFrame.class.isAssignableFrom(componentClass)
           || JInternalFrame.class.isAssignableFrom(componentClass)
-          || JDialog.class.isAssignableFrom(componentClass)
-          || JApplet.class.isAssignableFrom(componentClass)) {
+          || JDialog.class.isAssignableFrom(componentClass)) {
         editPart.installEditPolicy(new MenuBarDropLayoutEditPolicy(container));
       }
     }
