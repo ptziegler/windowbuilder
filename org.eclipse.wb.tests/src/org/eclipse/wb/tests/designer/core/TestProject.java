@@ -14,6 +14,7 @@ import com.google.common.collect.Lists;
 
 import org.eclipse.wb.internal.core.utils.check.Assert;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
+import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -92,6 +93,8 @@ public class TestProject {
     //
     createOutputFolder(binFolder);
     createSourceFolder();
+
+    DesignerTestCase.waitEventLoop(25, 0);
   }
 
   public TestProject(IProject project) {
@@ -292,6 +295,8 @@ public class TestProject {
     } catch (Throwable e) {
       e.printStackTrace();
     }
+
+    DesignerTestCase.waitEventLoop(25, 0);
   }
 
   ////////////////////////////////////////////////////////////////////////////
@@ -324,7 +329,11 @@ public class TestProject {
 
   public ICompilationUnit createUnit(IPackageFragment pack, String cuName, String source)
       throws JavaModelException {
-    return pack.createCompilationUnit(cuName, source, false, null);
+    try {
+      return pack.createCompilationUnit(cuName, source, false, null);
+    } finally {
+      DesignerTestCase.waitEventLoop(25, 0);
+    }
   }
 
   /**
