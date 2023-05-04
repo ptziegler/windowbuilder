@@ -207,7 +207,6 @@ public final class BroadcastSupport {
             .subclass(listenerClass)
             .method(ElementMatchers.any())
             .intercept(MethodDelegation.to(new MethodInterceptor() {
-              @Override
               @RuntimeType
               public Object intercept(@Origin Method method, @AllArguments Object[] args) throws Throwable {
                 // Iterate over a local copy due to a potential ConcurrentModificationException
