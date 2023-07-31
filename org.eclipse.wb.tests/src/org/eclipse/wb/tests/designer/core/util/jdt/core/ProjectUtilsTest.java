@@ -40,8 +40,7 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaCore;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
+import org.assertj.core.api.Assertions;
 import org.osgi.framework.Bundle;
 
 import java.io.File;
@@ -387,7 +386,7 @@ public class ProjectUtilsTest extends AbstractJavaTest {
 			IType type = m_javaProject.findType(managerClassName);
 			assertNotNull(type);
 			IPath fullPath = type.getUnderlyingResource().getFullPath();
-			assertThat(fullPath.toPortableString()).contains("/myProject/src/");
+			Assertions.assertThat(fullPath.toPortableString()).contains("/myProject/src/");
 		}
 		// no "manager" in main project
 		assertFalse(getFileSrc(managerPath).exists());
@@ -466,15 +465,15 @@ public class ProjectUtilsTest extends AbstractJavaTest {
 			m_testProject.addExternalJar(managerJar);
 			{
 				IType managerType = m_javaProject.findType(managerClassName);
-				assertThat(managerType).isNotNull();
-				assertThat(managerType.getFields()).isEmpty();
+				Assertions.assertThat(managerType).isNotNull();
+				Assertions.assertThat(managerType.getFields()).isEmpty();
 			}
 			// no changes, because "manager" is in binary
 			ProjectUtils.ensureResourceType(m_javaProject, testBundle.getBundle(), managerClassName);
 			{
 				IType managerType = m_javaProject.findType(managerClassName);
-				assertThat(managerType).isNotNull();
-				assertThat(managerType.getFields()).isEmpty();
+				Assertions.assertThat(managerType).isNotNull();
+				Assertions.assertThat(managerType.getFields()).isEmpty();
 			}
 		} finally {
 			testBundle.dispose();
@@ -661,7 +660,7 @@ public class ProjectUtilsTest extends AbstractJavaTest {
 			// PDE manifest also updated
 			{
 				String manifest = getFileContent("META-INF/MANIFEST.MF");
-				assertThat(manifest).contains("Bundle-ClassPath: .,\n myClasses.jar\n");
+				Assertions.assertThat(manifest).contains("Bundle-ClassPath: .,\n myClasses.jar\n");
 			}
 		} finally {
 			testBundle.dispose();
@@ -759,7 +758,7 @@ public class ProjectUtilsTest extends AbstractJavaTest {
 		// initially has JRE_CONTAINER and "src"
 		{
 			IClasspathEntry[] rawClasspath = m_javaProject.getRawClasspath();
-			assertThat(rawClasspath).hasSize(2);
+			Assertions.assertThat(rawClasspath).hasSize(2);
 			assertEquals(
 					"org.eclipse.jdt.launching.JRE_CONTAINER",
 					rawClasspath[0].getPath().toPortableString());
@@ -776,7 +775,7 @@ public class ProjectUtilsTest extends AbstractJavaTest {
 		// has only JRE_CONTAINER
 		{
 			IClasspathEntry[] rawClasspath = m_javaProject.getRawClasspath();
-			assertThat(rawClasspath).hasSize(1);
+			Assertions.assertThat(rawClasspath).hasSize(1);
 			assertEquals(
 					"org.eclipse.jdt.launching.JRE_CONTAINER",
 					rawClasspath[0].getPath().toPortableString());
@@ -835,7 +834,7 @@ public class ProjectUtilsTest extends AbstractJavaTest {
 			// (System property is 'org.eclipse.tycho.surefire.osgibooter.uitest')
 			pathEnds = Expectations.get("target/work/data/" + expectedLocation, new StrValue[] {});
 		}
-		assertThat(osLocation).endsWith(pathEnds);
+		Assertions.assertThat(osLocation).endsWith(pathEnds);
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -849,7 +848,7 @@ public class ProjectUtilsTest extends AbstractJavaTest {
 	public void test_findFiles_oneProject() throws Exception {
 		IFile file = setFileContent("folder/1.txt", "");
 		List<IFile> files = ProjectUtils.findFiles(m_testProject.getJavaProject(), "folder/1.txt");
-		assertThat(files).containsOnly(file);
+		Assertions.assertThat(files).containsOnly(file);
 	}
 
 	/**
@@ -867,7 +866,7 @@ public class ProjectUtilsTest extends AbstractJavaTest {
 			IFile file_2 = setFileContent(myProject.getProject(), "folder/1.txt", "");
 			// assert files
 			List<IFile> files = ProjectUtils.findFiles(m_testProject.getJavaProject(), "folder/1.txt");
-			assertThat(files).containsOnly(file_1, file_2);
+			Assertions.assertThat(files).containsOnly(file_1, file_2);
 		} finally {
 			myProject.dispose();
 		}
@@ -888,7 +887,7 @@ public class ProjectUtilsTest extends AbstractJavaTest {
 		IFile file = setFileContent(m_testProject.getProject(), "folder/1.txt", "");
 		// assert files
 		List<IFile> files = ProjectUtils.findFiles(m_testProject.getJavaProject(), "folder/1.txt");
-		assertThat(files).containsOnly(file);
+		Assertions.assertThat(files).containsOnly(file);
 	}
 
 	////////////////////////////////////////////////////////////////////////////

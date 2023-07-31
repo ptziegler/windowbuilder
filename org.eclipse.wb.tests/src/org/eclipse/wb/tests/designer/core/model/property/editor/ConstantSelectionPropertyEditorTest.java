@@ -27,7 +27,7 @@ import org.eclipse.jdt.core.dom.SimpleName;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.swt.widgets.Shell;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 import java.util.Set;
@@ -230,7 +230,7 @@ public class ConstantSelectionPropertyEditorTest extends SwingModelTest {
 		assertNull(getField());
 		assertNull(getType());
 		assertNull(getText());
-		assertThat(getFields()).isEmpty();
+		Assertions.assertThat(getFields()).isEmpty();
 	}
 
 	/**
@@ -246,7 +246,7 @@ public class ConstantSelectionPropertyEditorTest extends SwingModelTest {
 		assertNull(getField());
 		assertNull(getType());
 		assertNull(getText());
-		assertThat(getFields()).isEmpty();
+		Assertions.assertThat(getFields()).isEmpty();
 	}
 
 	/**
@@ -271,7 +271,7 @@ public class ConstantSelectionPropertyEditorTest extends SwingModelTest {
 		// check possible fields
 		{
 			List<IField> fields = getFields();
-			assertThat(fields).hasSize(2);
+			Assertions.assertThat(fields).hasSize(2);
 			assertEquals("ID_1", fields.get(0).getElementName());
 			assertEquals("ID_4", fields.get(1).getElementName());
 		}
@@ -314,7 +314,7 @@ public class ConstantSelectionPropertyEditorTest extends SwingModelTest {
 		// check possible fields
 		{
 			List<IField> fields = getFields();
-			assertThat(fields).hasSize(2);
+			Assertions.assertThat(fields).hasSize(2);
 			assertEquals("ID_1", fields.get(0).getElementName());
 			assertEquals("ID_4", fields.get(1).getElementName());
 		}
@@ -389,7 +389,7 @@ public class ConstantSelectionPropertyEditorTest extends SwingModelTest {
 		// only "String" fields should be returned
 		{
 			List<IField> fields = getFields();
-			assertThat(fields).hasSize(2);
+			Assertions.assertThat(fields).hasSize(2);
 			assertEquals("LOCAL_ID", fields.get(0).getElementName());
 			assertEquals("LOCAL_ID2", fields.get(1).getElementName());
 		}
@@ -430,7 +430,7 @@ public class ConstantSelectionPropertyEditorTest extends SwingModelTest {
 			typeNames.add(type.getFullyQualifiedName());
 		}
 		// validate IType's names
-		assertThat(typeNames).containsOnly("test.PrefConstants", "test.Test");
+		Assertions.assertThat(typeNames).containsOnly("test.PrefConstants", "test.Test");
 	}
 
 	/**
@@ -450,7 +450,7 @@ public class ConstantSelectionPropertyEditorTest extends SwingModelTest {
 			typeNames.add(type.getFullyQualifiedName());
 		}
 		// validate IType's names
-		assertThat(typeNames).containsOnly("test.PrefConstants");
+		Assertions.assertThat(typeNames).containsOnly("test.PrefConstants");
 	}
 
 	/**
@@ -477,7 +477,7 @@ public class ConstantSelectionPropertyEditorTest extends SwingModelTest {
 			typeNames.add(type.getFullyQualifiedName());
 		}
 		// validate IType's names
-		assertThat(typeNames).containsOnly("test.PrefConstants", "test.Test");
+		Assertions.assertThat(typeNames).containsOnly("test.PrefConstants", "test.Test");
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -502,7 +502,7 @@ public class ConstantSelectionPropertyEditorTest extends SwingModelTest {
 		// check items
 		{
 			List<String> items = getComboPropertyItems();
-			assertThat(items).containsExactly("ID_1", "ID_4");
+			Assertions.assertThat(items).containsExactly("ID_1", "ID_4");
 		}
 		// select current item
 		{

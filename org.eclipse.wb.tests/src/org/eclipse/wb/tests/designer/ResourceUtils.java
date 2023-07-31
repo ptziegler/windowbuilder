@@ -18,10 +18,9 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jdt.core.JavaModelException;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
+import org.assertj.core.api.Assertions;
 import org.osgi.framework.Bundle;
 
 import java.io.FileNotFoundException;
@@ -55,7 +54,7 @@ public class ResourceUtils {
 	public static void resources2project(TestProject project, String path, String[] skipEntries)
 			throws IOException, CoreException, JavaModelException, Exception {
 		Enumeration<URL> pathEntries = m_testBundle.findEntries(path, "*", true);
-		assertThat(pathEntries).isNotNull();
+		Assertions.assertThat(pathEntries).isNotNull();
 		while (pathEntries.hasMoreElements()) {
 			URL entryURL = pathEntries.nextElement();
 			String entryPathBase = entryURL.getPath();

@@ -30,9 +30,8 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.part.ViewPart;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.NotImplementedException;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link ViewPartInfo}.
@@ -101,12 +100,12 @@ public class ViewPartTest extends RcpModelTest {
 		part.refresh();
 		assertNoErrors(part);
 		// check bounds
-		assertThat(part.getBounds().width).isEqualTo(600);
-		assertThat(part.getBounds().height).isEqualTo(500);
-		assertThat(parentComposite.getBounds().width).isGreaterThan(300);
-		assertThat(parentComposite.getBounds().height).isGreaterThan(30);
-		assertThat(container.getBounds().width).isGreaterThan(300);
-		assertThat(container.getBounds().height).isGreaterThan(300);
+		Assertions.assertThat(part.getBounds().width).isEqualTo(600);
+		Assertions.assertThat(part.getBounds().height).isEqualTo(500);
+		Assertions.assertThat(parentComposite.getBounds().width).isGreaterThan(300);
+		Assertions.assertThat(parentComposite.getBounds().height).isGreaterThan(30);
+		Assertions.assertThat(container.getBounds().width).isGreaterThan(300);
+		Assertions.assertThat(container.getBounds().height).isGreaterThan(300);
 		// check IMenuPopupInfo for MenuManager
 		{
 			MenuManagerInfo manager = part.getChildren(MenuManagerInfo.class).get(0);
@@ -117,8 +116,8 @@ public class ViewPartTest extends RcpModelTest {
 			assertSame(manager, popupObject.getToolkitModel());
 			// presentation
 			assertNull(popupObject.getImageDescriptor());
-			assertThat(popupObject.getBounds().width).isGreaterThan(10);
-			assertThat(popupObject.getBounds().height).isGreaterThan(10);
+			Assertions.assertThat(popupObject.getBounds().width).isGreaterThan(10);
+			Assertions.assertThat(popupObject.getBounds().height).isGreaterThan(10);
 			// menu
 			assertSame(MenuObjectInfoUtils.getMenuInfo(manager), popupObject.getMenu());
 			assertSame(popupObject.getMenu().getPolicy(), popupObject.getPolicy());
@@ -127,10 +126,10 @@ public class ViewPartTest extends RcpModelTest {
 		{
 			ToolBarManagerInfo manager = part.getChildren(ToolBarManagerInfo.class).get(0);
 			Rectangle bounds = manager.getBounds();
-			assertThat(bounds.x).isGreaterThan(200);
-			assertThat(bounds.y).isGreaterThan(0).isLessThan(10);
-			assertThat(bounds.width).isGreaterThan(100).isLessThan(200);
-			assertThat(bounds.height).isGreaterThan(20).isLessThan(30);
+			Assertions.assertThat(bounds.x).isGreaterThan(200);
+			Assertions.assertThat(bounds.y).isGreaterThan(0).isLessThan(10);
+			Assertions.assertThat(bounds.width).isGreaterThan(100).isLessThan(200);
+			Assertions.assertThat(bounds.height).isGreaterThan(20).isLessThan(30);
 		}
 	}
 
@@ -339,7 +338,7 @@ public class ViewPartTest extends RcpModelTest {
 		assertTrue(extensionProperty.getCategory().isSystem());
 		// sub-properties
 		Property[] subProperties = getSubProperties(extensionProperty);
-		assertThat(subProperties).hasSize(3);
+		Assertions.assertThat(subProperties).hasSize(3);
 		{
 			Property nameProperty = subProperties[0];
 			assertEquals("name", nameProperty.getTitle());

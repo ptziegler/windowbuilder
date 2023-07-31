@@ -16,7 +16,7 @@ import org.eclipse.wb.internal.core.utils.execution.RunnableEx;
 import org.eclipse.wb.internal.rcp.model.rcp.ExtensionElementProperty;
 import org.eclipse.wb.internal.rcp.model.rcp.PdeUtils;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Tests for {@link ExtensionElementProperty}.
@@ -108,7 +108,7 @@ public class ExtensionElementPropertyTest extends AbstractPdeTest {
 		property.setValue(Property.UNKNOWN_VALUE);
 		assertFalse(property.isModified());
 		assertEquals("defaultValue", property.getValue());
-		assertThat(getPluginXML()).contains("id=\"id_1\"").contains("class=\"C_1\"").doesNotContain("value=");
+		Assertions.assertThat(getPluginXML()).contains("id=\"id_1\"").contains("class=\"C_1\"").doesNotContain("value=");
 	}
 
 	public void test_remoteAttribute_whenSetDefaultValue() throws Exception {
@@ -128,7 +128,7 @@ public class ExtensionElementPropertyTest extends AbstractPdeTest {
 		property.setValue("defaultValue");
 		assertFalse(property.isModified());
 		assertEquals("defaultValue", property.getValue());
-		assertThat(getPluginXML()).contains("id=\"id_1\"").contains("class=\"C_1\"").doesNotContain("value=");
+		Assertions.assertThat(getPluginXML()).contains("id=\"id_1\"").contains("class=\"C_1\"").doesNotContain("value=");
 	}
 
 	private ExtensionElementProperty<String> createPropertyWithDefaults() {

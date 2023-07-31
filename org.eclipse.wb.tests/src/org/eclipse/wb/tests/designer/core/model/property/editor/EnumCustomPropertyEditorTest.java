@@ -16,7 +16,7 @@ import org.eclipse.wb.internal.core.utils.GenericsUtils;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link EnumCustomPropertyEditor}.
@@ -44,7 +44,7 @@ public class EnumCustomPropertyEditorTest extends SwingModelTest {
 			MyEnum[] enumValues =
 					(MyEnum[]) ReflectionUtils.invokeMethod2(editor, "getElements", Property.class, null);
 			String[] enumStrings = GenericsUtils.getEnumStrings(enumValues);
-			assertThat(enumStrings).isEqualTo(new String[]{"A", "B", "C"});
+			Assertions.assertThat(enumStrings).isEqualTo(new String[]{"A", "B", "C"});
 		}
 	}
 
@@ -59,7 +59,7 @@ public class EnumCustomPropertyEditorTest extends SwingModelTest {
 			MyEnum[] enumValues =
 					(MyEnum[]) ReflectionUtils.invokeMethod2(editor, "getElements", Property.class, null);
 			String[] enumStrings = GenericsUtils.getEnumStrings(enumValues);
-			assertThat(enumStrings).isEqualTo(new String[]{"A", "C"});
+			Assertions.assertThat(enumStrings).isEqualTo(new String[]{"A", "C"});
 		}
 	}
 }

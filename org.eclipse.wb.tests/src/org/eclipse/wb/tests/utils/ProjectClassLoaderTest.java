@@ -33,9 +33,8 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.io.FileUtils;
+import org.assertj.core.api.Assertions;
 
 import java.io.File;
 import java.util.List;
@@ -432,7 +431,7 @@ public class ProjectClassLoaderTest extends SwingModelTest {
 	////////////////////////////////////////////////////////////////////////////
 	public void test_addSourceLocations_normalProject() throws Exception {
 		List<String> locations = getSourceLocations();
-		assertThat(locations).containsExactly(workspaceLocation + "/TestProject/src");
+		Assertions.assertThat(locations).containsExactly(workspaceLocation + "/TestProject/src");
 	}
 
 	@DisposeProjectAfter
@@ -440,7 +439,7 @@ public class ProjectClassLoaderTest extends SwingModelTest {
 		m_project.delete(true, null);
 		// check locations
 		List<String> locations = getSourceLocations();
-		assertThat(locations).isEmpty();
+		Assertions.assertThat(locations).isEmpty();
 	}
 
 	@DisposeProjectAfter
@@ -448,7 +447,7 @@ public class ProjectClassLoaderTest extends SwingModelTest {
 		ProjectUtils.removeNature(m_project, JavaCore.NATURE_ID);
 		// check locations
 		List<String> locations = getSourceLocations();
-		assertThat(locations).isEmpty();
+		Assertions.assertThat(locations).isEmpty();
 	}
 
 	@DisposeProjectAfter
@@ -456,7 +455,7 @@ public class ProjectClassLoaderTest extends SwingModelTest {
 		String newProjectLocation = moveProjectIntoWorkspaceSubFolder();
 		// check locations
 		List<String> locations = getSourceLocations();
-		assertThat(locations).containsExactly(newProjectLocation + "/src");
+		Assertions.assertThat(locations).containsExactly(newProjectLocation + "/src");
 	}
 
 	@DisposeProjectAfter
@@ -471,7 +470,7 @@ public class ProjectClassLoaderTest extends SwingModelTest {
 			ProjectUtils.requireProject(myJavaProject, m_javaProject);
 			// check locations
 			List<String> locations = getSourceLocations();
-			assertThat(locations).containsExactly(
+			Assertions.assertThat(locations).containsExactly(
 					workspaceLocation + "/TestProject/src",
 					workspaceLocation + "/myProject/src");
 		} finally {
@@ -496,7 +495,7 @@ public class ProjectClassLoaderTest extends SwingModelTest {
 						"</classpath>"));
 		// check locations
 		List<String> locations = getSourceLocations();
-		assertThat(locations).containsExactly(workspaceLocation + "/TestProject");
+		Assertions.assertThat(locations).containsExactly(workspaceLocation + "/TestProject");
 	}
 
 	/**
@@ -543,7 +542,7 @@ public class ProjectClassLoaderTest extends SwingModelTest {
 	////////////////////////////////////////////////////////////////////////////
 	public void test_addOutputLocations_normalProject() throws Exception {
 		List<String> locations = getOutputLocations();
-		assertThat(locations).containsExactly(workspaceLocation + "/TestProject/bin");
+		Assertions.assertThat(locations).containsExactly(workspaceLocation + "/TestProject/bin");
 	}
 
 	@DisposeProjectAfter
@@ -551,7 +550,7 @@ public class ProjectClassLoaderTest extends SwingModelTest {
 		m_project.delete(true, null);
 		// check locations
 		List<String> locations = getOutputLocations();
-		assertThat(locations).isEmpty();
+		Assertions.assertThat(locations).isEmpty();
 	}
 
 	@DisposeProjectAfter
@@ -559,7 +558,7 @@ public class ProjectClassLoaderTest extends SwingModelTest {
 		ProjectUtils.removeNature(m_project, JavaCore.NATURE_ID);
 		// check locations
 		List<String> locations = getOutputLocations();
-		assertThat(locations).isEmpty();
+		Assertions.assertThat(locations).isEmpty();
 	}
 
 	@DisposeProjectAfter
@@ -567,7 +566,7 @@ public class ProjectClassLoaderTest extends SwingModelTest {
 		String newProjectLocation = moveProjectIntoWorkspaceSubFolder();
 		// check locations
 		List<String> locations = getOutputLocations();
-		assertThat(locations).containsExactly(newProjectLocation + "/bin");
+		Assertions.assertThat(locations).containsExactly(newProjectLocation + "/bin");
 	}
 
 	@DisposeProjectAfter
@@ -582,7 +581,7 @@ public class ProjectClassLoaderTest extends SwingModelTest {
 			ProjectUtils.requireProject(myJavaProject, m_javaProject);
 			// check locations
 			List<String> locations = getOutputLocations();
-			assertThat(locations).containsExactly(
+			Assertions.assertThat(locations).containsExactly(
 					workspaceLocation + "/TestProject/bin",
 					workspaceLocation + "/myProject/bin");
 		} finally {

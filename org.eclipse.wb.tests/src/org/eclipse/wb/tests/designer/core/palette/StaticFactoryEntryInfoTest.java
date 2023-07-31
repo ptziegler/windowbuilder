@@ -26,7 +26,7 @@ import org.eclipse.wb.tests.designer.tests.Activator;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.jface.resource.ImageDescriptor;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Tests for {@link StaticFactoryEntryInfo}.
@@ -275,7 +275,7 @@ public class StaticFactoryEntryInfoTest extends AbstractPaletteTest {
 		assertEquals(0, m_lastState.getWarnings().size());
 		assertFalse(entry.initialize(null, panel));
 		// no warnings
-		assertThat(m_lastState.getWarnings()).isEmpty();
+		Assertions.assertThat(m_lastState.getWarnings()).isEmpty();
 	}
 
 	/**
@@ -300,7 +300,7 @@ public class StaticFactoryEntryInfoTest extends AbstractPaletteTest {
 		assertEquals(0, m_lastState.getWarnings().size());
 		assertFalse(entry.initialize(null, panel));
 		// no warnings
-		assertThat(m_lastState.getWarnings()).isEmpty();
+		Assertions.assertThat(m_lastState.getWarnings()).isEmpty();
 	}
 
 	/**

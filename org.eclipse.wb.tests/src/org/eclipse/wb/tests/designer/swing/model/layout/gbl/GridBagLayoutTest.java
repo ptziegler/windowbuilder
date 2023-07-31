@@ -36,7 +36,7 @@ import org.eclipse.draw2d.geometry.Interval;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.jface.preference.IPreferenceStore;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.awt.Component;
 import java.awt.Container;
@@ -412,8 +412,8 @@ public class GridBagLayoutTest extends AbstractGridBagLayoutTest {
 		Rectangle cells = gridInfo.getComponentCells(button);
 		Rectangle cellsRectangle = gridInfo.getCellsRectangle(cells);
 		assertEquals(new Rectangle(0, 0, 2, 1), cells);
-		assertThat(cellsRectangle.x).isEqualTo(0);
-		assertThat(cellsRectangle.width).isGreaterThan(400);
+		Assertions.assertThat(cellsRectangle.x).isEqualTo(0);
+		Assertions.assertThat(cellsRectangle.width).isGreaterThan(400);
 	}
 
 	/**
@@ -448,8 +448,8 @@ public class GridBagLayoutTest extends AbstractGridBagLayoutTest {
 		Rectangle cells = gridInfo.getComponentCells(button);
 		Rectangle cellsRectangle = gridInfo.getCellsRectangle(cells);
 		assertEquals(new Rectangle(0, 0, 1, 2), cells);
-		assertThat(cellsRectangle.y).isEqualTo(0);
-		assertThat(cellsRectangle.height).isGreaterThan(250);
+		Assertions.assertThat(cellsRectangle.y).isEqualTo(0);
+		Assertions.assertThat(cellsRectangle.height).isGreaterThan(250);
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -727,11 +727,11 @@ public class GridBagLayoutTest extends AbstractGridBagLayoutTest {
 		IGridInfo gridInfo = layout.getGridInfo();
 		{
 			Interval[] intervals = gridInfo.getColumnIntervals();
-			assertThat(intervals).hasSize(2);
+			Assertions.assertThat(intervals).hasSize(2);
 		}
 		{
 			Interval[] intervals = gridInfo.getRowIntervals();
-			assertThat(intervals).hasSize(2);
+			Assertions.assertThat(intervals).hasSize(2);
 		}
 	}
 
@@ -783,10 +783,10 @@ public class GridBagLayoutTest extends AbstractGridBagLayoutTest {
 		// "button" should be fully visible
 		Rectangle frameBounds = frame.getAbsoluteBounds();
 		Rectangle buttonBounds = button.getAbsoluteBounds();
-		assertThat(frameBounds.getTopLeft().x).isLessThanOrEqualTo(buttonBounds.getTopLeft().x);
-		assertThat(frameBounds.getTopLeft().y).isLessThanOrEqualTo(buttonBounds.getTopLeft().y);
-		assertThat(frameBounds.getBottomRight().x).isGreaterThanOrEqualTo(buttonBounds.getBottomRight().x);
-		assertThat(frameBounds.getBottomRight().y).isGreaterThanOrEqualTo(buttonBounds.getBottomRight().y);
+		Assertions.assertThat(frameBounds.getTopLeft().x).isLessThanOrEqualTo(buttonBounds.getTopLeft().x);
+		Assertions.assertThat(frameBounds.getTopLeft().y).isLessThanOrEqualTo(buttonBounds.getTopLeft().y);
+		Assertions.assertThat(frameBounds.getBottomRight().x).isGreaterThanOrEqualTo(buttonBounds.getBottomRight().x);
+		Assertions.assertThat(frameBounds.getBottomRight().y).isGreaterThanOrEqualTo(buttonBounds.getBottomRight().y);
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -2735,8 +2735,8 @@ public class GridBagLayoutTest extends AbstractGridBagLayoutTest {
 			assertEquals(2, gridInfo.getRowCount());
 		}
 		// dimensions
-		assertThat(layout.getColumns()).hasSize(2);
-		assertThat(layout.getRows()).hasSize(2);
+		Assertions.assertThat(layout.getColumns()).hasSize(2);
+		Assertions.assertThat(layout.getRows()).hasSize(2);
 	}
 
 	/**
@@ -2831,6 +2831,6 @@ public class GridBagLayoutTest extends AbstractGridBagLayoutTest {
 		GridBagLayoutInfo layout = (GridBagLayoutInfo) panel.getLayout();
 		ComponentInfo button = getJavaInfoByName("button");
 		//
-		assertThat(layout.getComponents()).containsExactly(button);
+		Assertions.assertThat(layout.getComponents()).containsExactly(button);
 	}
 }

@@ -40,9 +40,8 @@ import org.eclipse.jface.action.MenuManager;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.ArrayUtils;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -123,10 +122,10 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 			assertEquals(1, rowIntervals.length);
 			// check that even when column/row is empty, it still has some size
 			{
-				assertThat(columnIntervals[2].length()).isGreaterThan(18);
+				Assertions.assertThat(columnIntervals[2].length()).isGreaterThan(18);
 				assertFalse(columnIntervals[0].isEmpty());
 				//
-				assertThat(rowIntervals[0].length()).isGreaterThan(18);
+				Assertions.assertThat(rowIntervals[0].length()).isGreaterThan(18);
 				assertFalse(rowIntervals[0].isEmpty());
 			}
 		}
@@ -360,10 +359,10 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 		assertEquals(new Insets(0, 0, 0, 0), gridInfo.getInsets());
 		// check virtual for columns/rows
 		{
-			assertThat(gridInfo.getVirtualColumnSize()).isGreaterThan(18);
-			assertThat(gridInfo.getVirtualColumnGap()).isGreaterThan(3);
-			assertThat(gridInfo.getVirtualRowSize()).isGreaterThan(18);
-			assertThat(gridInfo.getVirtualRowGap()).isGreaterThan(3);
+			Assertions.assertThat(gridInfo.getVirtualColumnSize()).isGreaterThan(18);
+			Assertions.assertThat(gridInfo.getVirtualColumnGap()).isGreaterThan(3);
+			Assertions.assertThat(gridInfo.getVirtualRowSize()).isGreaterThan(18);
+			Assertions.assertThat(gridInfo.getVirtualRowGap()).isGreaterThan(3);
 		}
 		// component cells
 		Rectangle cells = gridInfo.getComponentCells(button);

@@ -45,10 +45,9 @@ import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jdt.core.dom.Statement;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
+import org.assertj.core.api.Assertions;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
@@ -131,7 +130,7 @@ public class CodeUtilsTest extends AbstractJavaTest {
 		String[] b = {"b", "bb"};
 		String[] c = {"c", "cc"};
 		String[] result = CodeUtils.join(a, b, c);
-		assertThat(result).isEqualTo(new String[]{"a", "aa", "b", "bb", "c", "cc"});
+		Assertions.assertThat(result).isEqualTo(new String[]{"a", "aa", "b", "bb", "c", "cc"});
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -291,7 +290,7 @@ public class CodeUtilsTest extends AbstractJavaTest {
 	public void test_getSourceContainers_notJavaProject() throws Exception {
 		ProjectUtils.removeNature(m_project, JavaCore.NATURE_ID);
 		List<IContainer> sourceContainers = CodeUtils.getSourceContainers(m_javaProject, true);
-		assertThat(sourceContainers).isEmpty();
+		Assertions.assertThat(sourceContainers).isEmpty();
 	}
 
 	/**
@@ -301,7 +300,7 @@ public class CodeUtilsTest extends AbstractJavaTest {
 		IJavaProject javaProject = m_testProject.getJavaProject();
 		// by default we create "src" source folder
 		List<IContainer> sourceContainers = CodeUtils.getSourceContainers(javaProject, true);
-		assertThat(sourceContainers).hasSize(1);
+		Assertions.assertThat(sourceContainers).hasSize(1);
 		assertEquals("/TestProject/src", sourceContainers.get(0).getFullPath().toString());
 	}
 
@@ -320,7 +319,7 @@ public class CodeUtilsTest extends AbstractJavaTest {
 		m_testProject.addSourceFolder("/TestProject");
 		// assert that source container is project itself
 		List<IContainer> sourceContainers = CodeUtils.getSourceContainers(m_javaProject, true);
-		assertThat(sourceContainers).hasSize(1);
+		Assertions.assertThat(sourceContainers).hasSize(1);
 		assertEquals("/TestProject", sourceContainers.get(0).getFullPath().toString());
 	}
 
@@ -337,7 +336,7 @@ public class CodeUtilsTest extends AbstractJavaTest {
 			ProjectUtils.requireProject(m_javaProject, myJavaProject);
 			// assert that both "TestProject" and "myProject" source folders returned
 			List<IContainer> sourceContainers = CodeUtils.getSourceContainers(m_javaProject, true);
-			assertThat(sourceContainers).hasSize(2);
+			Assertions.assertThat(sourceContainers).hasSize(2);
 			assertEquals("/TestProject/src", sourceContainers.get(0).getFullPath().toString());
 			assertEquals("/myProject/src", sourceContainers.get(1).getFullPath().toString());
 		} finally {
@@ -361,7 +360,7 @@ public class CodeUtilsTest extends AbstractJavaTest {
 			ProjectUtils.requireProject(myJavaProject, m_javaProject);
 			// still two source folders
 			List<IContainer> sourceContainers = CodeUtils.getSourceContainers(m_javaProject, true);
-			assertThat(sourceContainers).hasSize(2);
+			Assertions.assertThat(sourceContainers).hasSize(2);
 			assertEquals("/TestProject/src", sourceContainers.get(0).getFullPath().toString());
 			assertEquals("/myProject/src", sourceContainers.get(1).getFullPath().toString());
 		} finally {
@@ -375,7 +374,7 @@ public class CodeUtilsTest extends AbstractJavaTest {
 		m_testProject.addSourceFolder("/TestProject/src2");
 		// ...but "src2" does not exist, so it is not returned
 		List<IContainer> sourceContainers = CodeUtils.getSourceContainers(m_javaProject, true);
-		assertThat(sourceContainers).hasSize(1);
+		Assertions.assertThat(sourceContainers).hasSize(1);
 		assertEquals("/TestProject/src", sourceContainers.get(0).getFullPath().toString());
 	}
 
@@ -393,7 +392,7 @@ public class CodeUtilsTest extends AbstractJavaTest {
 			// check that we have containers for project itself and its fragment
 			List<IContainer> sourceContainers =
 					CodeUtils.getSourceContainers(m_testProject.getJavaProject(), true);
-			assertThat(sourceContainers).hasSize(2);
+			Assertions.assertThat(sourceContainers).hasSize(2);
 			assertEquals("/TestProject/src", sourceContainers.get(0).getFullPath().toString());
 			assertEquals("/TestProject_ru/src", sourceContainers.get(1).getFullPath().toString());
 		} finally {
@@ -416,7 +415,7 @@ public class CodeUtilsTest extends AbstractJavaTest {
 			waitForAutoBuild();
 			// fragment is not Java project, so we have container only for project itself
 			List<IContainer> sourceContainers = CodeUtils.getSourceContainers(m_javaProject, true);
-			assertThat(sourceContainers).hasSize(1);
+			Assertions.assertThat(sourceContainers).hasSize(1);
 			assertEquals("/TestProject/src", sourceContainers.get(0).getFullPath().toString());
 		} finally {
 			fragmentProject.dispose();
@@ -439,7 +438,7 @@ public class CodeUtilsTest extends AbstractJavaTest {
 		// without fragment
 		List<IContainer> sourceContainers =
 				CodeUtils.getSourceContainers(m_testProject.getJavaProject(), true);
-		assertThat(sourceContainers).hasSize(1);
+		Assertions.assertThat(sourceContainers).hasSize(1);
 		assertEquals("/TestProject/src", sourceContainers.get(0).getFullPath().toString());
 	}
 
@@ -611,7 +610,7 @@ public class CodeUtilsTest extends AbstractJavaTest {
 						"}"));
 		// search
 		List<IJavaElement> references = CodeUtils.searchReferences(targetType);
-		assertThat(references).hasSize(1);
+		Assertions.assertThat(references).hasSize(1);
 		// check IField
 		IField fieldElement = (IField) references.get(0);
 		assertEquals("myTarget", fieldElement.getElementName());
@@ -643,7 +642,7 @@ public class CodeUtilsTest extends AbstractJavaTest {
 						"}"));
 		// search
 		List<IJavaElement> references = CodeUtils.searchReferences(targetType);
-		assertThat(references).hasSize(1);
+		Assertions.assertThat(references).hasSize(1);
 		// check IField
 		IAnnotation annotation = (IAnnotation) references.get(0);
 		assertEquals("MyAnnotation", annotation.getElementName());
@@ -679,7 +678,7 @@ public class CodeUtilsTest extends AbstractJavaTest {
 								"}")).getTypes()[0];
 		// search
 		List<IJavaElement> references = CodeUtils.searchReferences(targetField);
-		assertThat(references).hasSize(1);
+		Assertions.assertThat(references).hasSize(1);
 		// check IMethod
 		{
 			IMethod methodElement = (IMethod) references.get(0);
@@ -1049,7 +1048,7 @@ public class CodeUtilsTest extends AbstractJavaTest {
 		//
 		List<IMethod> methods =
 				CodeUtils.findMethods(aType, ImmutableList.of("foo()", "bar()", "baz()"));
-		assertThat(methods).hasSize(3);
+		Assertions.assertThat(methods).hasSize(3);
 		assertEquals("foo", methods.get(0).getElementName());
 		assertEquals("bar", methods.get(1).getElementName());
 		assertSame(null, methods.get(2));

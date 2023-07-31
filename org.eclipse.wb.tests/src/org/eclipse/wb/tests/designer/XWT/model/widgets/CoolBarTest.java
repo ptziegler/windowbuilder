@@ -24,8 +24,6 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.widgets.CoolBar;
 import org.eclipse.swt.widgets.CoolItem;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.assertj.core.api.Assertions;
 
 /**
@@ -87,7 +85,7 @@ public class CoolBarTest extends XwtModelTest {
 		// prepare
 		CoolItemInfo item_1 = getObjectByName("item_1");
 		CoolItemInfo item_2 = getObjectByName("item_2");
-		assertThat(toolBar.getItems()).containsExactly(item_1, item_2);
+		Assertions.assertThat(toolBar.getItems()).containsExactly(item_1, item_2);
 		// item_1
 		{
 			// bounds

@@ -32,12 +32,12 @@ import org.eclipse.wb.tests.designer.core.TestBundle;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.resource.ImageDescriptor;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.data.MapEntry.entry;
 
 import org.apache.commons.digester3.Digester;
 import org.apache.commons.digester3.Rule;
 import org.apache.commons.lang.ArrayUtils;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 import java.util.Map;
@@ -89,7 +89,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 		// toolkit
 		assertSame(RcpToolkitDescription.INSTANCE, description.getToolkit());
 		// presentation
-		assertThat(description.getDescription()).isNotEmpty();
+		Assertions.assertThat(description.getDescription()).isNotEmpty();
 		{
 			ImageDescriptor icon = description.getIcon();
 			assertNotNull(icon);
@@ -339,7 +339,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 		// parameters as Map
 		{
 			Map<String, String> parameters = description.getParameters();
-			assertThat(parameters).contains(
+			Assertions.assertThat(parameters).contains(
 					entry("parameter_1", "AAA"),
 					entry("parameter_2", "BBB"),
 					entry("parameter_3", ""));
@@ -409,7 +409,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 		ComponentDescription description = getMyDescription();
 		// creations
 		List<CreationDescription> creations = description.getCreations();
-		assertThat(creations).hasSize(1);
+		Assertions.assertThat(creations).hasSize(1);
 		// single CreationDescription
 		{
 			CreationDescription creation = creations.get(0);
@@ -421,7 +421,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 			// attributes
 			{
 				List<CreationAttributeDescription> attributes = creation.getAttributes();
-				assertThat(attributes).hasSize(2);
+				Assertions.assertThat(attributes).hasSize(2);
 				{
 					CreationAttributeDescription attribute = attributes.get(0);
 					assertEquals("ns1", attribute.getNamespace());
@@ -449,7 +449,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 		ComponentDescription description = getMyDescription();
 		// creations
 		List<CreationDescription> creations = description.getCreations();
-		assertThat(creations).hasSize(1);
+		Assertions.assertThat(creations).hasSize(1);
 		// "my" CreationDescription
 		{
 			CreationDescription creation = description.getCreation("my");
@@ -464,7 +464,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 			// attributes
 			{
 				List<CreationAttributeDescription> attributes = creation.getAttributes();
-				assertThat(attributes).hasSize(0);
+				Assertions.assertThat(attributes).hasSize(0);
 			}
 		}
 		// no such creation
@@ -483,7 +483,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 		assertNotNull(creation);
 		assertEquals("Some description", creation.getDescription());
 		// it should be in all creations
-		assertThat(description.getCreations()).containsExactly(creation);
+		Assertions.assertThat(description.getCreations()).containsExactly(creation);
 	}
 
 	/**
@@ -500,7 +500,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 		ComponentDescription description = getMyDescription();
 		// check
 		CreationDescription creation = description.getCreation("withParameters");
-		assertThat(creation.getParameters()).contains(
+		Assertions.assertThat(creation.getParameters()).contains(
 				entry("name_1", "value_1"),
 				entry("name_2", "value_2"));
 	}

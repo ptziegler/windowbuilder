@@ -18,7 +18,7 @@ import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.swt.widgets.Control;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -54,7 +54,7 @@ public class GridLayoutSelectionActionsTest extends RcpModelTest {
 		// prepare actions
 		List<Object> actions = getSelectionActions();
 		// no actions
-		assertThat(actions).isEmpty();
+		Assertions.assertThat(actions).isEmpty();
 	}
 
 	public void test_selectionActions() throws Exception {
@@ -255,6 +255,6 @@ public class GridLayoutSelectionActionsTest extends RcpModelTest {
 		// prepare actions: button
 		List<Object> actions = getSelectionActions(button);
 		// no actions
-		assertThat(actions).isEmpty();
+		Assertions.assertThat(actions).isEmpty();
 	}
 }

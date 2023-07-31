@@ -37,9 +37,8 @@ import org.eclipse.jdt.core.dom.Type;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.ArrayUtils;
+import org.assertj.core.api.Assertions;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
@@ -168,7 +167,7 @@ public class BindingsTest extends AbstractJavaTest {
 			assertFalse(ourBinding.isGenericType());
 			// type arguments
 			ITypeBinding[] typeArguments = ourBinding.getTypeArguments();
-			assertThat(typeArguments).hasSize(1);
+			Assertions.assertThat(typeArguments).hasSize(1);
 			// single "type argument"
 			{
 				ITypeBinding typeArgument = typeArguments[0];
@@ -182,7 +181,7 @@ public class BindingsTest extends AbstractJavaTest {
 			assertTrue(declarationBinding.isGenericType());
 			// type parameters
 			ITypeBinding[] typeParameters = declarationBinding.getTypeParameters();
-			assertThat(typeParameters).hasSize(1);
+			Assertions.assertThat(typeParameters).hasSize(1);
 			// single "type parameter"
 			{
 				ITypeBinding typeParameter = typeParameters[0];
@@ -228,7 +227,7 @@ public class BindingsTest extends AbstractJavaTest {
 		ITypeBinding copy_1 = context.get(binding_1);
 		ITypeBinding copy_2 = context.get(binding_2);
 		// check
-		assertThat(copy_1).isNotSameAs(copy_2);
+		Assertions.assertThat(copy_1).isNotSameAs(copy_2);
 	}
 
 	/**
@@ -266,9 +265,9 @@ public class BindingsTest extends AbstractJavaTest {
 		ITypeBinding copy_2 = context.get(binding_2, true);
 		ITypeBinding copy_3 = context.get(binding_3, true);
 		// check bindings
-		assertThat(copy_1).isNotSameAs(copy_0);
-		assertThat(copy_2).isNotSameAs(copy_0);
-		assertThat(copy_2).isNotSameAs(copy_1);
+		Assertions.assertThat(copy_1).isNotSameAs(copy_0);
+		Assertions.assertThat(copy_2).isNotSameAs(copy_0);
+		Assertions.assertThat(copy_2).isNotSameAs(copy_1);
 		assert_TypeBinding_names(copy_0, "test.G", "test.G");
 		assert_TypeBinding_names(copy_1, "test.G", "test.G<java.lang.Double>");
 		assert_TypeBinding_names(copy_2, "test.G", "test.G<java.lang.Integer>");

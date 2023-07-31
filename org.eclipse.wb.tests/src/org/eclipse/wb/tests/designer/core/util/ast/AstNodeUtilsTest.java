@@ -62,8 +62,6 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.ArrayUtils;
 import org.assertj.core.api.Assertions;
 
@@ -319,24 +317,24 @@ public class AstNodeUtilsTest extends AbstractJavaTest {
 		ITypeBinding binding_1 = getNode("marker_1", ClassInstanceCreation.class).resolveTypeBinding();
 		ITypeBinding binding_2 = getNode("marker_2", ClassInstanceCreation.class).resolveTypeBinding();
 		ITypeBinding binding_3 = getNode("marker_3", ClassInstanceCreation.class).resolveTypeBinding();
-		assertThat(binding_1).isNotSameAs(binding_2);
+		Assertions.assertThat(binding_1).isNotSameAs(binding_2);
 		// check base class names
 		{
 			String name_1 = AstNodeUtils.getFullyQualifiedName(binding_1, false);
 			String name_2 = AstNodeUtils.getFullyQualifiedName(binding_2, false);
-			assertThat(name_1).isEqualTo("test.G");
-			assertThat(name_2).isEqualTo("test.G");
-			assertThat(name_1).isEqualTo(name_2);
+			Assertions.assertThat(name_1).isEqualTo("test.G");
+			Assertions.assertThat(name_2).isEqualTo("test.G");
+			Assertions.assertThat(name_1).isEqualTo(name_2);
 		}
 		// check class names with generics
 		{
 			String name_1 = AstNodeUtils.getFullyQualifiedName(binding_1, false, true);
 			String name_2 = AstNodeUtils.getFullyQualifiedName(binding_2, false, true);
 			String name_3 = AstNodeUtils.getFullyQualifiedName(binding_3, false, true);
-			assertThat(name_1).isEqualTo("test.G");
-			assertThat(name_2).isEqualTo("test.G<java.lang.Double>");
-			assertThat(name_3).isEqualTo("test.G<java.lang.Integer>");
-			assertThat(name_1).isNotEqualTo(name_2);
+			Assertions.assertThat(name_1).isEqualTo("test.G");
+			Assertions.assertThat(name_2).isEqualTo("test.G<java.lang.Double>");
+			Assertions.assertThat(name_3).isEqualTo("test.G<java.lang.Integer>");
+			Assertions.assertThat(name_1).isNotEqualTo(name_2);
 		}
 	}
 
@@ -510,32 +508,32 @@ public class AstNodeUtilsTest extends AbstractJavaTest {
 		// no type argument
 		{
 			ITypeBinding argument = AstNodeUtils.getTypeBindingArgument(binding_1, 0);
-			assertThat(argument).isNotNull();
+			Assertions.assertThat(argument).isNotNull();
 			String argumentName = AstNodeUtils.getFullyQualifiedName(argument, false);
-			assertThat(argumentName).isEqualTo("java.lang.Number");
+			Assertions.assertThat(argumentName).isEqualTo("java.lang.Number");
 		}
 		// Double as type argument
 		{
 			ITypeBinding argument = AstNodeUtils.getTypeBindingArgument(binding_2, 0);
-			assertThat(argument).isNotNull();
+			Assertions.assertThat(argument).isNotNull();
 			String argumentName = AstNodeUtils.getFullyQualifiedName(argument, false);
-			assertThat(argumentName).isEqualTo("java.lang.Double");
+			Assertions.assertThat(argumentName).isEqualTo("java.lang.Double");
 		}
 		// ask WrapperSub
 		{
 			// ask 0-th type argument directly
 			{
 				ITypeBinding argument = AstNodeUtils.getTypeBindingArgument(binding_3, 0);
-				assertThat(argument).isNotNull();
+				Assertions.assertThat(argument).isNotNull();
 				String argumentName = AstNodeUtils.getFullyQualifiedName(argument, false);
-				assertThat(argumentName).isEqualTo("java.lang.String");
+				Assertions.assertThat(argumentName).isEqualTo("java.lang.String");
 			}
 			// ask 0-th type argument of Wrapper
 			{
 				ITypeBinding argument = AstNodeUtils.getTypeBindingArgument(binding_3, "test.Wrapper", 0);
-				assertThat(argument).isNotNull();
+				Assertions.assertThat(argument).isNotNull();
 				String argumentName = AstNodeUtils.getFullyQualifiedName(argument, false);
-				assertThat(argumentName).isEqualTo("java.lang.Float");
+				Assertions.assertThat(argumentName).isEqualTo("java.lang.Float");
 			}
 			// no such base class
 			try {
@@ -1290,7 +1288,7 @@ public class AstNodeUtilsTest extends AbstractJavaTest {
 			actualSignatures.add(getMethodSignature(methodBinding));
 		}
 		// expected
-		assertThat(actualSignatures).contains(expectedSignatures);
+		Assertions.assertThat(actualSignatures).contains(expectedSignatures);
 		// un-expected
 		for (String unExpectedSignature : unExpectedSignatures) {
 			assertFalse("" + actualSignatures, actualSignatures.contains(unExpectedSignature));
@@ -1366,7 +1364,7 @@ public class AstNodeUtilsTest extends AbstractJavaTest {
 			actualNames.add(field.getName());
 		}
 		// expected
-		assertThat(actualNames).contains(expectedNames);
+		Assertions.assertThat(actualNames).contains(expectedNames);
 		// un-expected
 		for (String unExpectedSignature : unExpectedNames) {
 			assertFalse("" + actualNames, actualNames.contains(unExpectedSignature));
@@ -1397,21 +1395,21 @@ public class AstNodeUtilsTest extends AbstractJavaTest {
 			int index = m_lastEditor.getSource().indexOf("foo =");
 			Expression fooNode = (Expression) m_lastEditor.getEnclosingNode(index);
 			Expression fieldAccess = AstNodeUtils.getFieldAssignment(fooNode);
-			assertThat(fieldAccess).isNull();
-			assertThat(AstNodeUtils.getFieldAccessName(fooNode)).isNull();
-			assertThat(AstNodeUtils.getFieldAccessQualifier(fooNode)).isNull();
+			Assertions.assertThat(fieldAccess).isNull();
+			Assertions.assertThat(AstNodeUtils.getFieldAccessName(fooNode)).isNull();
+			Assertions.assertThat(AstNodeUtils.getFieldAccessQualifier(fooNode)).isNull();
 		}
 		// foo.m_value = 1, valid
 		{
 			int index = m_lastEditor.getSource().indexOf("oo.");
 			ASTNode fooNode = m_lastEditor.getEnclosingNode(index);
 			Expression fieldAccess = AstNodeUtils.getFieldAssignment(fooNode);
-			assertThat(fieldAccess).isNotNull().isInstanceOf(QualifiedName.class);
-			assertThat(fieldAccess.getParent()).isInstanceOf(Assignment.class);
+			Assertions.assertThat(fieldAccess).isNotNull().isInstanceOf(QualifiedName.class);
+			Assertions.assertThat(fieldAccess.getParent()).isInstanceOf(Assignment.class);
 			assertEquals("m_value", AstNodeUtils.getFieldAccessName(fieldAccess).getIdentifier());
 			{
 				Expression qualifier = AstNodeUtils.getFieldAccessQualifier(fieldAccess);
-				assertThat(qualifier).isInstanceOf(SimpleName.class);
+				Assertions.assertThat(qualifier).isInstanceOf(SimpleName.class);
 				assertEquals("foo", m_lastEditor.getSource(qualifier));
 			}
 		}
@@ -1435,12 +1433,12 @@ public class AstNodeUtilsTest extends AbstractJavaTest {
 			int index = m_lastEditor.getSource().indexOf("().");
 			ASTNode objectNode = m_lastEditor.getEnclosingNode(index);
 			Expression fieldAccess = AstNodeUtils.getFieldAssignment(objectNode);
-			assertThat(fieldAccess).isNotNull().isInstanceOf(FieldAccess.class);
-			assertThat(fieldAccess.getParent()).isInstanceOf(Assignment.class);
+			Assertions.assertThat(fieldAccess).isNotNull().isInstanceOf(FieldAccess.class);
+			Assertions.assertThat(fieldAccess.getParent()).isInstanceOf(Assignment.class);
 			assertEquals("m_value", AstNodeUtils.getFieldAccessName(fieldAccess).getIdentifier());
 			{
 				Expression qualifier = AstNodeUtils.getFieldAccessQualifier(fieldAccess);
-				assertThat(qualifier).isInstanceOf(ClassInstanceCreation.class);
+				Assertions.assertThat(qualifier).isInstanceOf(ClassInstanceCreation.class);
 				assertEquals("new MyObject()", m_lastEditor.getSource(qualifier));
 			}
 		}
@@ -1594,9 +1592,9 @@ public class AstNodeUtilsTest extends AbstractJavaTest {
 		assertSame(AstNodeUtils.getParentType(fooMethod), testType);
 		MethodDeclaration toStringMethod =
 				AstNodeUtils.getEnclosingMethod(this.<ASTNode>getNode("toString"));
-		assertThat(toStringMethod.getParent()).isInstanceOf(AnonymousClassDeclaration.class);
-		assertThat(AstNodeUtils.getEnclosingType(toStringMethod)).isSameAs(testType);
-		assertThat(AstNodeUtils.getParentType(toStringMethod)).isInstanceOf(TypeDeclaration.class);
+		Assertions.assertThat(toStringMethod.getParent()).isInstanceOf(AnonymousClassDeclaration.class);
+		Assertions.assertThat(AstNodeUtils.getEnclosingType(toStringMethod)).isSameAs(testType);
+		Assertions.assertThat(AstNodeUtils.getParentType(toStringMethod)).isInstanceOf(TypeDeclaration.class);
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -2096,7 +2094,7 @@ public class AstNodeUtilsTest extends AbstractJavaTest {
 		Expression argument = DomGenerics.arguments(invocation).get(0);
 		assertTrue(AstNodeUtils.isVariable(argument));
 		Expression expression = AstNodeUtils.getActualVariableExpression(argument);
-		assertThat(expression.toString()).isEqualTo(actualExpression);
+		Assertions.assertThat(expression.toString()).isEqualTo(actualExpression);
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -2118,7 +2116,7 @@ public class AstNodeUtilsTest extends AbstractJavaTest {
 		MethodDeclaration[] methods = typeDeclaration.getMethods();
 		//
 		List<MethodInvocation> invocations = AstNodeUtils.getMethodInvocations(methods[1]);
-		assertThat(invocations).hasSize(2);
+		Assertions.assertThat(invocations).hasSize(2);
 		{
 			List<Statement> statementList = DomGenerics.statements(methods[0].getBody());
 			Statement statements[] = statementList.toArray(new Statement[statementList.size()]);
@@ -2150,7 +2148,7 @@ public class AstNodeUtilsTest extends AbstractJavaTest {
 		MethodDeclaration[] methods = typeDeclaration.getMethods();
 		//
 		List<MethodInvocation> invocations = AstNodeUtils.getMethodInvocations(methods[1]);
-		assertThat(invocations).hasSize(1);
+		Assertions.assertThat(invocations).hasSize(1);
 		{
 			List<Statement> statementList = DomGenerics.statements(methods[0].getBody());
 			Statement statements[] = statementList.toArray(new Statement[statementList.size()]);
@@ -2174,7 +2172,7 @@ public class AstNodeUtilsTest extends AbstractJavaTest {
 		assertNull(AstNodeUtils.getMethodBinding(method));
 		// ...so, we can not find its invocations
 		List<MethodInvocation> invocations = AstNodeUtils.getMethodInvocations(method);
-		assertThat(invocations).isEmpty();
+		Assertions.assertThat(invocations).isEmpty();
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -2343,7 +2341,7 @@ public class AstNodeUtilsTest extends AbstractJavaTest {
 		MethodDeclaration[] methods = typeDeclaration.getMethods();
 		//
 		List<ConstructorInvocation> invocations = AstNodeUtils.getConstructorInvocations(methods[1]);
-		assertThat(invocations).hasSize(1);
+		Assertions.assertThat(invocations).hasSize(1);
 		{
 			ConstructorInvocation expected =
 					(ConstructorInvocation) m_lastEditor.getEnclosingNode("this(1)");
@@ -2367,7 +2365,7 @@ public class AstNodeUtilsTest extends AbstractJavaTest {
 		assertNull(AstNodeUtils.getMethodBinding(method));
 		// ...so, we can not find its invocations
 		List<ConstructorInvocation> invocations = AstNodeUtils.getConstructorInvocations(method);
-		assertThat(invocations).isEmpty();
+		Assertions.assertThat(invocations).isEmpty();
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -2389,7 +2387,7 @@ public class AstNodeUtilsTest extends AbstractJavaTest {
 		MethodDeclaration[] methods = typeDeclaration.getMethods();
 		//
 		List<ClassInstanceCreation> invocations = AstNodeUtils.getClassInstanceCreations(methods[0]);
-		assertThat(invocations).isEmpty();
+		Assertions.assertThat(invocations).isEmpty();
 	}
 
 	/**
@@ -2409,7 +2407,7 @@ public class AstNodeUtilsTest extends AbstractJavaTest {
 		MethodDeclaration[] methods = typeDeclaration.getMethods();
 		//
 		List<ClassInstanceCreation> invocations = AstNodeUtils.getClassInstanceCreations(methods[0]);
-		assertThat(invocations).hasSize(2);
+		Assertions.assertThat(invocations).hasSize(2);
 		Assertions.<ASTNode>assertThat(invocations).containsOnly(
 				m_lastEditor.getEnclosingNode("new Test(1)"),
 				m_lastEditor.getEnclosingNode("new Test(2)"));
@@ -2436,7 +2434,7 @@ public class AstNodeUtilsTest extends AbstractJavaTest {
 						"}");
 		MethodDeclaration[] methods = typeDeclaration.getMethods();
 		List<MethodDeclaration> constructors = AstNodeUtils.getConstructors(typeDeclaration);
-		assertThat(constructors).containsOnly(methods[0], methods[2]);
+		Assertions.assertThat(constructors).containsOnly(methods[0], methods[2]);
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -2460,7 +2458,7 @@ public class AstNodeUtilsTest extends AbstractJavaTest {
 		TypeDeclaration foo = typeDeclaration.getTypes()[0];
 		//
 		List<ClassInstanceCreation> invocations = AstNodeUtils.getClassInstanceCreations(foo);
-		assertThat(invocations).isEmpty();
+		Assertions.assertThat(invocations).isEmpty();
 	}
 
 	/**
@@ -2481,7 +2479,7 @@ public class AstNodeUtilsTest extends AbstractJavaTest {
 		TypeDeclaration foo = typeDeclaration.getTypes()[0];
 		//
 		List<ClassInstanceCreation> invocations = AstNodeUtils.getClassInstanceCreations(foo);
-		assertThat(invocations).hasSize(2);
+		Assertions.assertThat(invocations).hasSize(2);
 		Assertions.<ASTNode>assertThat(invocations).containsExactly(getNode("new Foo(1)"), getNode("new Foo(2)"));
 	}
 
@@ -3214,7 +3212,7 @@ public class AstNodeUtilsTest extends AbstractJavaTest {
 		//
 		List<String> signatures =
 				AstNodeUtils.getMethodSignatures(ImmutableList.of(methods[0], methods[1]));
-		assertThat(signatures).hasSize(2).isEqualTo(
+		Assertions.assertThat(signatures).hasSize(2).isEqualTo(
 				ImmutableList.of("foo()", "bar(int,java.lang.String)"));
 	}
 
@@ -3654,16 +3652,16 @@ public class AstNodeUtilsTest extends AbstractJavaTest {
 		FieldDeclaration field_2 = typeDeclaration.getFields()[1];
 		List<FieldDeclaration> fields = Lists.newArrayList(field_1, field_2);
 		// initial state
-		assertThat(fields).containsExactly(field_1, field_2);
+		Assertions.assertThat(fields).containsExactly(field_1, field_2);
 		// remove dangling, nothing changed
 		AstNodeUtils.removeDanglingNodes(fields);
-		assertThat(fields).containsExactly(field_1, field_2);
+		Assertions.assertThat(fields).containsExactly(field_1, field_2);
 		// remove "field_1", our fields are not changed
 		m_lastEditor.removeBodyDeclaration(field_1);
-		assertThat(fields).containsExactly(field_1, field_2);
+		Assertions.assertThat(fields).containsExactly(field_1, field_2);
 		// remove dangling, so "field_1"
 		AstNodeUtils.removeDanglingNodes(fields);
-		assertThat(fields).containsExactly(field_2);
+		Assertions.assertThat(fields).containsExactly(field_2);
 	}
 
 	////////////////////////////////////////////////////////////////////////////

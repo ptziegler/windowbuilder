@@ -27,7 +27,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for basic parsing and {@link ControlInfo}.
@@ -144,7 +144,7 @@ public class ControlTest extends XwtModelTest {
 		// has "Style" property
 		Property property = shell.getPropertyByTitle("Style");
 		assertNotNull(property);
-		assertThat(property.getEditor()).isInstanceOf(StylePropertyEditor.class);
+		Assertions.assertThat(property.getEditor()).isInstanceOf(StylePropertyEditor.class);
 		assertEquals(true, property.getCategory().isSystem());
 		// no default value
 		assertEquals(0, property.getValue());

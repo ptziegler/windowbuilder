@@ -25,7 +25,7 @@ import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.internal.swing.model.layout.FlowLayoutInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.awt.Component;
 import java.io.ByteArrayOutputStream;
@@ -235,7 +235,7 @@ public class ImplicitFactoryCreationSupportTest extends SwingModelTest {
 			Property contentProperty = PropertyUtils.getByPath(component, "Factory/content");
 			assertNotNull(contentProperty);
 			Property[] contentProperties = getSubProperties(contentProperty);
-			assertThat(contentProperties).isEqualTo(button.getProperties());
+			Assertions.assertThat(contentProperties).isEqualTo(button.getProperties());
 		}
 	}
 
@@ -315,7 +315,7 @@ public class ImplicitFactoryCreationSupportTest extends SwingModelTest {
 		// ...and check properties
 		{
 			Property[] properties = newButton.getProperties();
-			assertThat(properties.length).isGreaterThan(10);
+			Assertions.assertThat(properties.length).isGreaterThan(10);
 		}
 	}
 
@@ -416,7 +416,7 @@ public class ImplicitFactoryCreationSupportTest extends SwingModelTest {
 		// ...and check properties
 		{
 			Property[] properties = newButton.getProperties();
-			assertThat(properties.length).isGreaterThan(10);
+			Assertions.assertThat(properties.length).isGreaterThan(10);
 		}
 	}
 

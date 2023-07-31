@@ -19,7 +19,7 @@ import org.eclipse.wb.internal.swing.model.component.JToolBarSeparatorCreationSu
 import org.eclipse.wb.internal.swing.model.component.JToolBarSeparatorInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import javax.swing.JToolBar;
 
@@ -230,7 +230,7 @@ public class InvocationVoidAssociationTest extends SwingModelTest {
 		ContainerInfo bar = (ContainerInfo) panel.getChildrenComponents().get(0);
 		ComponentInfo button_1 = bar.getChildrenComponents().get(0);
 		ComponentInfo button_2 = bar.getChildrenComponents().get(1);
-		assertThat(button_2.getAssociation()).isInstanceOf(InvocationVoidAssociation.class);
+		Assertions.assertThat(button_2.getAssociation()).isInstanceOf(InvocationVoidAssociation.class);
 		// move "button_2" before "button_1"
 		JavaInfoUtils.move(button_2, null, bar, button_1);
 		assertEditor(

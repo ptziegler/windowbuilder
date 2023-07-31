@@ -43,9 +43,8 @@ import org.eclipse.jdt.core.dom.IMethodBinding;
 import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jface.preference.FieldEditor;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.ArrayUtils;
+import org.assertj.core.api.Assertions;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -150,7 +149,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 						"    }",
 						"  }",
 						"}");
-		assertThat(panel.getCreationSupport()).isInstanceOf(ConstructorCreationSupport.class);
+		Assertions.assertThat(panel.getCreationSupport()).isInstanceOf(ConstructorCreationSupport.class);
 		// delete
 		assertTrue(panel.getAssociation().canDelete());
 		assertTrue(panel.getCreationSupport().canDelete());
@@ -245,7 +244,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 			Property parentProperty = PropertyUtils.getByPath(button, "Constructor/parent");
 			assertNotNull(parentProperty);
 			Property[] parentProperties = getSubProperties(parentProperty);
-			assertThat(parentProperties).isEqualTo(panel.getProperties());
+			Assertions.assertThat(parentProperties).isEqualTo(panel.getProperties());
 		}
 	}
 
@@ -991,7 +990,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 		Class<?> clazz = JButton.class;
 		CreationSupport creationSupport = new ConstructorCreationSupport();
 		JavaInfoUtils.createJavaInfo(m_lastEditor, clazz, creationSupport);
-		assertThat(creationSupport.getAssociation()).isNull();
+		Assertions.assertThat(creationSupport.getAssociation()).isNull();
 	}
 
 	/**
@@ -1021,7 +1020,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 		Class<?> clazz = m_lastLoader.loadClass("test.MyButton");
 		CreationSupport creationSupport = new ConstructorCreationSupport();
 		JavaInfoUtils.createJavaInfo(m_lastEditor, clazz, creationSupport);
-		assertThat(creationSupport.getAssociation()).isInstanceOf(ConstructorParentAssociation.class);
+		Assertions.assertThat(creationSupport.getAssociation()).isInstanceOf(ConstructorParentAssociation.class);
 	}
 
 	////////////////////////////////////////////////////////////////////////////

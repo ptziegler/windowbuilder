@@ -17,7 +17,7 @@ import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.internal.core.xml.model.property.GenericPropertyImpl;
 import org.eclipse.wb.internal.core.xml.model.property.accessor.MethodExpressionAccessor;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.lang.reflect.Method;
 
@@ -65,7 +65,7 @@ public class MethodExpressionAccessorTest extends AbstractCoreTest {
 						tooltipProvider,
 						"getText(org.eclipse.wb.internal.core.model.property.Property)",
 						property);
-		assertThat(tooltip).isEqualTo("My JavaDoc text.");
+		Assertions.assertThat(tooltip).isEqualTo("My JavaDoc text.");
 	}
 
 	public void test_getX_noValue() throws Exception {

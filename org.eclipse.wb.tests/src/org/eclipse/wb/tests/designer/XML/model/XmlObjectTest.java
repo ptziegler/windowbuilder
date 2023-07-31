@@ -26,9 +26,8 @@ import org.eclipse.wb.tests.designer.XML.model.description.AbstractCoreTest;
 
 import org.eclipse.swt.widgets.Shell;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.ArrayUtils;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -233,17 +232,17 @@ public class XmlObjectTest extends AbstractCoreTest {
 		// implicit layout + "composite"
 		{
 			List<XmlObjectInfo> children = shell.getChildrenXML();
-			assertThat(children).hasSize(1 + 1).contains(composite);
+			Assertions.assertThat(children).hasSize(1 + 1).contains(composite);
 		}
 		// implicit layout + "button_1" + "button_2"
 		{
 			List<XmlObjectInfo> children = composite.getChildrenXML();
-			assertThat(children).hasSize(1 + 2).contains(button_1, button_2);
+			Assertions.assertThat(children).hasSize(1 + 2).contains(button_1, button_2);
 		}
 		// no children for "button_1"
 		{
 			List<XmlObjectInfo> children = button_1.getChildrenXML();
-			assertThat(children).isEmpty();
+			Assertions.assertThat(children).isEmpty();
 		}
 	}
 
@@ -259,7 +258,7 @@ public class XmlObjectTest extends AbstractCoreTest {
 		XmlObjectInfo shell = parse("<Shell/>");
 		Property[] properties = shell.getProperties();
 		String[] titles = PropertyUtils.getTitles(properties);
-		assertThat(titles).contains("text", "enabled");
+		Assertions.assertThat(titles).contains("text", "enabled");
 	}
 
 	/**
@@ -351,8 +350,8 @@ public class XmlObjectTest extends AbstractCoreTest {
 			assertSame(shell.getDescription().getIcon(), presentation.getIcon());
 		}
 		assertEquals("Shell", presentation.getText());
-		assertThat(presentation.getChildrenTree()).isEmpty();
-		assertThat(presentation.getChildrenGraphical()).isEmpty();
+		Assertions.assertThat(presentation.getChildrenTree()).isEmpty();
+		Assertions.assertThat(presentation.getChildrenGraphical()).isEmpty();
 	}
 
 	////////////////////////////////////////////////////////////////////////////

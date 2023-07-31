@@ -54,7 +54,7 @@ import org.eclipse.jdt.core.dom.TryStatement;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 import org.eclipse.jdt.core.dom.VariableDeclarationStatement;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.awt.Component;
 import java.util.List;
@@ -709,7 +709,7 @@ public class JavaInfoTest extends SwingModelTest {
 						"}");
 		ComponentInfo button = panel.getChildrenComponents().get(0);
 		List<MethodInvocation> invocations = button.getMethodInvocations();
-		assertThat(invocations).isNotEmpty();
+		Assertions.assertThat(invocations).isNotEmpty();
 	}
 
 	public void test_removeMethodInvocations() throws Exception {
@@ -846,7 +846,7 @@ public class JavaInfoTest extends SwingModelTest {
 		ComponentInfo button = panel.getChildrenComponents().get(0);
 		// all assignments
 		List<Assignment> assignments = button.getFieldAssignments();
-		assertThat(assignments).hasSize(2);
+		Assertions.assertThat(assignments).hasSize(2);
 		assertEquals("button.m_value1 = 1", m_lastEditor.getSource(assignments.get(0)));
 		assertEquals("button.m_value2 = 2", m_lastEditor.getSource(assignments.get(1)));
 	}
@@ -878,11 +878,11 @@ public class JavaInfoTest extends SwingModelTest {
 						"}");
 		ComponentInfo button = panel.getChildrenComponents().get(0);
 		// no such field
-		assertThat(button.getFieldAssignments("noSuchField")).isEmpty();
+		Assertions.assertThat(button.getFieldAssignments("noSuchField")).isEmpty();
 		// existing assignments
 		{
 			List<Assignment> assignments = button.getFieldAssignments("m_value");
-			assertThat(assignments).hasSize(2);
+			Assertions.assertThat(assignments).hasSize(2);
 			assertEquals("button.m_value = 1", m_lastEditor.getSource(assignments.get(0)));
 			assertEquals("button.m_value = 2", m_lastEditor.getSource(assignments.get(1)));
 		}
@@ -923,11 +923,11 @@ public class JavaInfoTest extends SwingModelTest {
 						"}");
 		ComponentInfo button = panel.getChildrenComponents().get(0);
 		// no such field
-		assertThat(button.getFieldAssignments("noSuchField")).isEmpty();
+		Assertions.assertThat(button.getFieldAssignments("noSuchField")).isEmpty();
 		// existing assignment
 		{
 			List<Assignment> assignments = button.getFieldAssignments("m_value");
-			assertThat(assignments).hasSize(1);
+			Assertions.assertThat(assignments).hasSize(1);
 			assertEquals("new MyButton(this).m_value = 1", m_lastEditor.getSource(assignments.get(0)));
 		}
 	}
@@ -1329,7 +1329,7 @@ public class JavaInfoTest extends SwingModelTest {
 						"  }",
 						"}");
 		ComponentInfo button = panel.getChildrenComponents().get(0);
-		assertThat(button.getPropertyByTitle("foo")).isNull();
+		Assertions.assertThat(button.getPropertyByTitle("foo")).isNull();
 	}
 
 	/**
@@ -1354,7 +1354,7 @@ public class JavaInfoTest extends SwingModelTest {
 						"  public Test() {",
 						"  }",
 						"}");
-		assertThat(panel.getPropertyByTitle("foo")).isNotNull();
+		Assertions.assertThat(panel.getPropertyByTitle("foo")).isNotNull();
 	}
 
 	/**
@@ -1386,7 +1386,7 @@ public class JavaInfoTest extends SwingModelTest {
 						"  }",
 						"}");
 		// initially "panel" has properties
-		assertThat(panel.getProperties()).isNotEmpty();
+		Assertions.assertThat(panel.getProperties()).isNotEmpty();
 		// add allProperties() listener
 		panel.addBroadcastListener(new ObjectInfoAllProperties() {
 			@Override
@@ -1396,7 +1396,7 @@ public class JavaInfoTest extends SwingModelTest {
 				}
 			}
 		});
-		assertThat(panel.getProperties()).isEmpty();
+		Assertions.assertThat(panel.getProperties()).isEmpty();
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -1520,9 +1520,9 @@ public class JavaInfoTest extends SwingModelTest {
 		ComponentInfo buttonC = childrenComponents.get(2);
 		ComponentInfo buttonD = childrenComponents.get(3);
 		// check visibility
-		assertThat(childrenComponents).contains(buttonA, buttonB, buttonC, buttonD);
-		assertThat(panel.getPresentation().getChildrenTree()).containsOnly(buttonA, buttonC);
-		assertThat(panel.getPresentation().getChildrenGraphical()).containsOnly(buttonA, buttonB);
+		Assertions.assertThat(childrenComponents).contains(buttonA, buttonB, buttonC, buttonD);
+		Assertions.assertThat(panel.getPresentation().getChildrenTree()).containsOnly(buttonA, buttonC);
+		Assertions.assertThat(panel.getPresentation().getChildrenGraphical()).containsOnly(buttonA, buttonB);
 	}
 
 	////////////////////////////////////////////////////////////////////////////

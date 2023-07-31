@@ -19,7 +19,7 @@ import org.eclipse.wb.internal.swing.swingx.JXTaskPaneInfo;
 
 import org.eclipse.jdt.core.dom.CompilationUnit;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.awt.Component;
 import java.util.List;
@@ -57,12 +57,12 @@ public class JXTaskPaneTest extends SwingxModelTest {
 						"}");
 		panel.refresh();
 		//
-		assertThat(ActionContainerInfo.getActions(panel).size()).isEqualTo(1);
+		Assertions.assertThat(ActionContainerInfo.getActions(panel).size()).isEqualTo(1);
 		List<JXTaskPaneInfo> children = panel.getChildren(JXTaskPaneInfo.class);
-		assertThat(children.size()).isEqualTo(1);
+		Assertions.assertThat(children.size()).isEqualTo(1);
 		// check JXTaskPane
 		JXTaskPaneInfo pane = children.get(0);
-		assertThat(pane.getChildrenComponents().size()).isEqualTo(2);// ContentPane & action Component
+		Assertions.assertThat(pane.getChildrenComponents().size()).isEqualTo(2);// ContentPane & action Component
 	}
 
 	/**

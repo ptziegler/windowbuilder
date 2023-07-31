@@ -21,7 +21,7 @@ import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.jdt.core.dom.Expression;
 import org.eclipse.jdt.core.dom.StringLiteral;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.awt.BorderLayout;
 
@@ -382,7 +382,7 @@ public class SourceAbstractSpecialTest extends AbstractNlsTest {
 		FieldSource fieldSource;
 		{
 			AbstractSource[] sources = support.getSources();
-			assertThat(sources).hasSize(1);
+			Assertions.assertThat(sources).hasSize(1);
 			fieldSource = (FieldSource) sources[0];
 		}
 		// do replace source/key
@@ -428,7 +428,7 @@ public class SourceAbstractSpecialTest extends AbstractNlsTest {
 		FieldSource fieldSource;
 		{
 			AbstractSource[] sources = support.getSources();
-			assertThat(sources).hasSize(1);
+			Assertions.assertThat(sources).hasSize(1);
 			fieldSource = (FieldSource) sources[0];
 		}
 		// do replace source/key

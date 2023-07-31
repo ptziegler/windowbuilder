@@ -17,7 +17,7 @@ import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
 import org.eclipse.swt.widgets.Table;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for "big" SWT {@link Table}.
@@ -56,7 +56,7 @@ public class TableTest extends RcpModelTest {
 						"}");
 		shell.refresh();
 		TableInfo table = (TableInfo) shell.getChildrenControls().get(0);
-		assertThat(table.getChildren(TableCursorInfo.class)).hasSize(1);
+		Assertions.assertThat(table.getChildren(TableCursorInfo.class)).hasSize(1);
 		assertTrue(table.hasTableCursor());
 	}
 

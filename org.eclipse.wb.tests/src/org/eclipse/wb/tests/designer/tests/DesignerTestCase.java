@@ -52,10 +52,9 @@ import org.eclipse.ui.texteditor.spelling.SpellingService;
 
 import junit.framework.TestCase;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
+import org.assertj.core.api.Assertions;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -298,9 +297,9 @@ public class DesignerTestCase extends TestCase {
 	 */
 	public static void assertRGB(RGB rgb, int red, int green, int blue) {
 		String message = rgb.toString();
-		assertThat(rgb.red).describedAs(message).isEqualTo(red);
-		assertThat(rgb.green).describedAs(message).isEqualTo(green);
-		assertThat(rgb.blue).describedAs(message).isEqualTo(blue);
+		Assertions.assertThat(rgb.red).describedAs(message).isEqualTo(red);
+		Assertions.assertThat(rgb.green).describedAs(message).isEqualTo(green);
+		Assertions.assertThat(rgb.blue).describedAs(message).isEqualTo(blue);
 	}
 
 	////////////////////////////////////////////////////////////////////////////

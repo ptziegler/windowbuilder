@@ -23,7 +23,7 @@ import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
 import org.eclipse.swt.custom.StackLayout;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -130,7 +130,7 @@ public class StackLayoutTest extends RcpModelTest {
 		// only "button_1" is in "graphical children"
 		{
 			List<ObjectInfo> children = shell.getPresentation().getChildrenGraphical();
-			assertThat(children).containsExactly(button_1);
+			Assertions.assertThat(children).containsExactly(button_1);
 		}
 	}
 
@@ -151,8 +151,8 @@ public class StackLayoutTest extends RcpModelTest {
 		// StackLayout is "flow container"
 		List<FlowContainer> canvasContainers = new FlowContainerFactory(layout, true).get();
 		List<FlowContainer> treeContainers = new FlowContainerFactory(layout, false).get();
-		assertThat(canvasContainers).isNotEmpty();
-		assertThat(treeContainers).isNotEmpty();
+		Assertions.assertThat(canvasContainers).isNotEmpty();
+		Assertions.assertThat(treeContainers).isNotEmpty();
 	}
 
 	public void test_flowContainer_CREATE_asFirst() throws Exception {

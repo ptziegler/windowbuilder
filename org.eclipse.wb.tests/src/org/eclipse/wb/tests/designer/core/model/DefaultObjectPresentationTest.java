@@ -19,7 +19,7 @@ import org.eclipse.wb.internal.core.model.presentation.DefaultObjectPresentation
 import org.eclipse.wb.internal.core.model.presentation.IObjectPresentation;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -87,7 +87,7 @@ public class DefaultObjectPresentationTest extends DesignerTestCase {
 		});
 		// check "tree children"
 		List<ObjectInfo> children = parent.getPresentation().getChildrenTree();
-		assertThat(children).containsExactly(child_2, child_3, child_1);
+		Assertions.assertThat(children).containsExactly(child_2, child_3, child_1);
 	}
 
 	/**
@@ -140,6 +140,6 @@ public class DefaultObjectPresentationTest extends DesignerTestCase {
 		});
 		// check "graphical children"
 		List<ObjectInfo> children = parent.getPresentation().getChildrenGraphical();
-		assertThat(children).containsExactly(child_2, child_3, child_1);
+		Assertions.assertThat(children).containsExactly(child_2, child_3, child_1);
 	}
 }

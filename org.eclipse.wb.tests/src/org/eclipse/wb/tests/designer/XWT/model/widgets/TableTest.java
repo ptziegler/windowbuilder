@@ -25,7 +25,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -68,7 +68,7 @@ public class TableTest extends XwtModelTest {
 		TableInfo table = getObjectByName("table");
 		// prepare items
 		List<TableItemInfo> items = table.getItems();
-		assertThat(items).hasSize(2);
+		Assertions.assertThat(items).hasSize(2);
 		assertEquals(2, items.size());
 		TableItemInfo item_1 = items.get(0);
 		TableItemInfo item_2 = items.get(1);
@@ -137,12 +137,12 @@ public class TableTest extends XwtModelTest {
 		refresh();
 		TableInfo table = getObjectByName("table");
 		// no items initially
-		assertThat(table.getItems()).isEmpty();
+		Assertions.assertThat(table.getItems()).isEmpty();
 		// add new TableItem
 		TableItemInfo newItem = createObject("org.eclipse.swt.widgets.TableItem");
 		flowContainer_CREATE(table, newItem, null);
 		// check result
-		assertThat(table.getItems()).containsExactly(newItem);
+		Assertions.assertThat(table.getItems()).containsExactly(newItem);
 		assertXML(
 				"// filler filler filler filler filler",
 				"// filler filler filler filler filler",
@@ -176,7 +176,7 @@ public class TableTest extends XwtModelTest {
 		int aiTop = table.getClientAreaInsets().top;
 		// prepare columns
 		List<TableColumnInfo> columns = table.getColumns();
-		assertThat(columns).hasSize(2);
+		Assertions.assertThat(columns).hasSize(2);
 		// check bounds
 		{
 			TableColumnInfo column_1 = columns.get(0);
@@ -229,7 +229,7 @@ public class TableTest extends XwtModelTest {
 		TableColumnInfo newColumn = createObject("org.eclipse.swt.widgets.TableColumn");
 		flowContainer_CREATE(table, newColumn, null);
 		// check result
-		assertThat(table.getColumns()).containsExactly(newColumn);
+		Assertions.assertThat(table.getColumns()).containsExactly(newColumn);
 		assertXML(
 				"// filler filler filler filler filler",
 				"// filler filler filler filler filler",
@@ -252,13 +252,13 @@ public class TableTest extends XwtModelTest {
 		TableInfo table = getObjectByName("table");
 		// prepare columns
 		List<TableColumnInfo> columns = table.getColumns();
-		assertThat(columns).hasSize(2);
+		Assertions.assertThat(columns).hasSize(2);
 		TableColumnInfo column_1 = columns.get(0);
 		TableColumnInfo column_2 = columns.get(1);
 		// move column
 		flowContainer_MOVE(table, column_2, column_1);
 		// check result
-		assertThat(table.getColumns()).containsExactly(column_2, column_1);
+		Assertions.assertThat(table.getColumns()).containsExactly(column_2, column_1);
 		assertXML(
 				"// filler filler filler filler filler",
 				"<Shell>",
@@ -286,7 +286,7 @@ public class TableTest extends XwtModelTest {
 		// move column_1 before column_2
 		flowContainer_MOVE(table_2, column_1, column_2);
 		// check result
-		assertThat(table_2.getColumns()).containsExactly(column_1, column_2);
+		Assertions.assertThat(table_2.getColumns()).containsExactly(column_1, column_2);
 		assertXML(
 				"// filler filler filler filler filler",
 				"<Shell>",

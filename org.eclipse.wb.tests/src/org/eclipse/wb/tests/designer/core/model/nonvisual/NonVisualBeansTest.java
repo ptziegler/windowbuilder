@@ -25,7 +25,7 @@ import org.eclipse.wb.tests.designer.swing.SwingTestUtils;
 
 import org.eclipse.draw2d.geometry.Point;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -84,7 +84,7 @@ public class NonVisualBeansTest extends SwingModelTest {
 				"    {new: java.util.ArrayList} {field-initializer: m_testBean} {/new ArrayList()/}");
 		// check association
 		JavaInfo bean = getNVO(panel);
-		assertThat(bean.getAssociation()).isInstanceOf(NonVisualAssociation.class);
+		Assertions.assertThat(bean.getAssociation()).isInstanceOf(NonVisualAssociation.class);
 	}
 
 	public void test_swingBean() throws Exception {
@@ -258,7 +258,7 @@ public class NonVisualBeansTest extends SwingModelTest {
 				"    {new: javax.swing.JButton} {field-initializer: m_button} {/new JButton()/}");
 		panel.refresh();
 		ComponentInfo button = (ComponentInfo) getNVO(panel);
-		assertThat(button.getAssociation()).isInstanceOf(NonVisualAssociation.class);
+		Assertions.assertThat(button.getAssociation()).isInstanceOf(NonVisualAssociation.class);
 		// move "button" to "panel"
 		((FlowLayoutInfo) panel.getLayout()).move(button, null);
 		assertEditor(
@@ -273,7 +273,7 @@ public class NonVisualBeansTest extends SwingModelTest {
 				"  {implicit-layout: java.awt.FlowLayout} {implicit-layout} {}",
 				"  {NonVisualBeans}",
 				"  {new: javax.swing.JButton} {field-initializer: m_button} {/new JButton()/ /add(m_button)/}");
-		assertThat(button.getAssociation()).isInstanceOf(InvocationChildAssociation.class);
+		Assertions.assertThat(button.getAssociation()).isInstanceOf(InvocationChildAssociation.class);
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -307,7 +307,7 @@ public class NonVisualBeansTest extends SwingModelTest {
 		test_nonVisual(panel);
 		// check association
 		JavaInfo bean = getNVO(panel);
-		assertThat(bean.getAssociation()).isInstanceOf(NonVisualAssociation.class);
+		Assertions.assertThat(bean.getAssociation()).isInstanceOf(NonVisualAssociation.class);
 	}
 
 	public void test_lazy_CREATE() throws Exception {
@@ -357,7 +357,7 @@ public class NonVisualBeansTest extends SwingModelTest {
 	private static NonVisualBeanInfo test_nonVisual(ContainerInfo panel) throws Exception {
 		JavaInfo child = getNVO(panel);
 		// check association
-		assertThat(child.getAssociation()).isInstanceOf(NonVisualAssociation.class);
+		Assertions.assertThat(child.getAssociation()).isInstanceOf(NonVisualAssociation.class);
 		// prepare NVO information
 		NonVisualBeanInfo beanInfo = NonVisualBeanInfo.getNonVisualInfo(child);
 		assertNotNull(beanInfo);
@@ -373,7 +373,7 @@ public class NonVisualBeansTest extends SwingModelTest {
 		assertNotNull(container);
 		// prepare NVO-s
 		List<JavaInfo> children = container.getChildren(JavaInfo.class);
-		assertThat(children).hasSize(1);
+		Assertions.assertThat(children).hasSize(1);
 		return children.get(0);
 	}
 }

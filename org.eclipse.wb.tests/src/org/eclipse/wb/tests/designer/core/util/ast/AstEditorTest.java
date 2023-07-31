@@ -83,11 +83,11 @@ import org.eclipse.jdt.core.formatter.DefaultCodeFormatterConstants;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.ui.ide.IDE;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -1031,14 +1031,14 @@ public class AstEditorTest extends AbstractJavaTest {
 		String unitContent = m_lastModelUnit.getBuffer().getContents();
 		String fileContent = getFileContentSrc("test/Test.java");
 		if (bufferEquals) {
-			assertThat(unitContent).isEqualTo(expected);
+			Assertions.assertThat(unitContent).isEqualTo(expected);
 		} else {
-			assertThat(unitContent).isNotEqualTo(expected);
+			Assertions.assertThat(unitContent).isNotEqualTo(expected);
 		}
 		if (fileEquals) {
-			assertThat(fileContent).isEqualTo(expected);
+			Assertions.assertThat(fileContent).isEqualTo(expected);
 		} else {
-			assertThat(fileContent).isNotEqualTo(expected);
+			Assertions.assertThat(fileContent).isNotEqualTo(expected);
 		}
 	}
 
@@ -1167,7 +1167,7 @@ public class AstEditorTest extends AbstractJavaTest {
 			m_lastEditor.getSource(-1, 1);
 			fail();
 		} catch (Throwable e) {
-			assertThat(e).isExactlyInstanceOf(BadLocationException.class);
+			Assertions.assertThat(e).isExactlyInstanceOf(BadLocationException.class);
 		}
 	}
 
@@ -1355,7 +1355,7 @@ public class AstEditorTest extends AbstractJavaTest {
 			m_lastEditor.getChar(-1);
 			fail();
 		} catch (Throwable e) {
-			assertThat(e).isExactlyInstanceOf(BadLocationException.class);
+			Assertions.assertThat(e).isExactlyInstanceOf(BadLocationException.class);
 		}
 	}
 
@@ -1407,7 +1407,7 @@ public class AstEditorTest extends AbstractJavaTest {
 			m_lastEditor.getLineNumber(-1);
 			fail();
 		} catch (Throwable e) {
-			assertThat(e).isExactlyInstanceOf(BadLocationException.class);
+			Assertions.assertThat(e).isExactlyInstanceOf(BadLocationException.class);
 		}
 	}
 
@@ -1441,7 +1441,7 @@ public class AstEditorTest extends AbstractJavaTest {
 			m_lastEditor.getLineBegin(-1);
 			fail();
 		} catch (Throwable e) {
-			assertThat(e).isExactlyInstanceOf(BadLocationException.class);
+			Assertions.assertThat(e).isExactlyInstanceOf(BadLocationException.class);
 		}
 	}
 
@@ -1476,7 +1476,7 @@ public class AstEditorTest extends AbstractJavaTest {
 			m_lastEditor.getLineEnd(-1);
 			fail();
 		} catch (Throwable e) {
-			assertThat(e).isExactlyInstanceOf(BadLocationException.class);
+			Assertions.assertThat(e).isExactlyInstanceOf(BadLocationException.class);
 		}
 	}
 
@@ -2076,18 +2076,18 @@ public class AstEditorTest extends AbstractJavaTest {
 			assertEquals(ICoreExceptionConstants.AST_PARSE_ERROR, methodDE.getCode());
 			{
 				String[] parameters = methodDE.getParameters();
-				assertThat(parameters).hasSize(2);
+				Assertions.assertThat(parameters).hasSize(2);
 				{
 					String source = parameters[0];
-					assertThat(source).doesNotContain("class Test");
-					assertThat(source).contains("void foo() {");
-					assertThat(source).contains("somethingBadA();");
-					assertThat(source).contains("somethingBadB();");
+					Assertions.assertThat(source).doesNotContain("class Test");
+					Assertions.assertThat(source).contains("void foo() {");
+					Assertions.assertThat(source).contains("somethingBadA();");
+					Assertions.assertThat(source).contains("somethingBadB();");
 				}
 				{
 					String problems = parameters[1];
-					assertThat(problems).contains("The method somethingBadA() is undefined for the type Test");
-					assertThat(problems).contains("The method somethingBadB() is undefined for the type Test");
+					Assertions.assertThat(problems).contains("The method somethingBadA() is undefined for the type Test");
+					Assertions.assertThat(problems).contains("The method somethingBadB() is undefined for the type Test");
 				}
 			}
 			// ASTNode "parse error" is cause
@@ -2095,13 +2095,13 @@ public class AstEditorTest extends AbstractJavaTest {
 			assertEquals(ICoreExceptionConstants.AST_PARSE_ERROR, nodeDE.getCode());
 			{
 				String[] parameters = nodeDE.getParameters();
-				assertThat(parameters).hasSize(2);
+				Assertions.assertThat(parameters).hasSize(2);
 				{
 					String source = parameters[0];
-					assertThat(source).contains("class Test");
-					assertThat(source).contains("void foo() {");
-					assertThat(source).contains("somethingBadA();");
-					assertThat(source).contains("somethingBadB();");
+					Assertions.assertThat(source).contains("class Test");
+					Assertions.assertThat(source).contains("void foo() {");
+					Assertions.assertThat(source).contains("somethingBadA();");
+					Assertions.assertThat(source).contains("somethingBadB();");
 				}
 			}
 		}
@@ -3109,7 +3109,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		Comment comment_1;
 		{
 			List<Comment> commentList = m_lastEditor.getCommentList();
-			assertThat(commentList).hasSize(2);
+			Assertions.assertThat(commentList).hasSize(2);
 			comment_0 = commentList.get(0);
 			comment_1 = commentList.get(1);
 		}
@@ -3121,7 +3121,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		// check comments
 		{
 			List<Comment> commentList = m_lastEditor.getCommentList();
-			assertThat(commentList).hasSize(1).containsExactly(comment_1);
+			Assertions.assertThat(commentList).hasSize(1).containsExactly(comment_1);
 			assertEquals("// comment 1", m_lastEditor.getSource(comment_1));
 		}
 	}
@@ -4589,18 +4589,18 @@ public class AstEditorTest extends AbstractJavaTest {
 			assertEquals(ICoreExceptionConstants.AST_PARSE_ERROR, statementDE.getCode());
 			{
 				String[] parameters = statementDE.getParameters();
-				assertThat(parameters).hasSize(2);
-				assertThat(parameters[0]).contains("somethingBad();");
-				assertThat(parameters[1]).contains("The method somethingBad() is undefined");
+				Assertions.assertThat(parameters).hasSize(2);
+				Assertions.assertThat(parameters[0]).contains("somethingBad();");
+				Assertions.assertThat(parameters[1]).contains("The method somethingBad() is undefined");
 			}
 			// ASTNode "parse error" is cause
 			DesignerException nodeDE = (DesignerException) statementDE.getCause();
 			assertEquals(ICoreExceptionConstants.AST_PARSE_ERROR, nodeDE.getCode());
 			{
 				String[] parameters = nodeDE.getParameters();
-				assertThat(parameters).hasSize(2);
-				assertThat(parameters[0]).contains("somethingBad();");
-				assertThat(parameters[1]).contains("The method somethingBad() is undefined");
+				Assertions.assertThat(parameters).hasSize(2);
+				Assertions.assertThat(parameters[0]).contains("somethingBad();");
+				Assertions.assertThat(parameters[1]).contains("The method somethingBad() is undefined");
 			}
 		}
 	}
@@ -7287,7 +7287,7 @@ public class AstEditorTest extends AbstractJavaTest {
 			m_lastEditor.getChar(-1);
 			fail();
 		} catch (Throwable e) {
-			assertThat(e).isExactlyInstanceOf(BadLocationException.class);
+			Assertions.assertThat(e).isExactlyInstanceOf(BadLocationException.class);
 		}
 	}
 

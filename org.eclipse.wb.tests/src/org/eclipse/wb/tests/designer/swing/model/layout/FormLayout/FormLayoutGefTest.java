@@ -24,7 +24,7 @@ import org.eclipse.wb.tests.gef.GraphicalRobot;
 
 import com.jgoodies.forms.layout.FormLayout;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.awt.GridBagLayout;
 import java.util.List;
@@ -127,9 +127,9 @@ public class FormLayoutGefTest extends SwingGefTest {
 		canvas.moveTo(panel, 0.5, 0.5).click();
 		// no exceptions
 		String source = m_lastEditor.getSource();
-		assertThat(source).contains("new FormLayout(");
-		assertThat(source).contains("new ColumnSpec[] {");
-		assertThat(source).contains("new RowSpec[] {");
+		Assertions.assertThat(source).contains("new FormLayout(");
+		Assertions.assertThat(source).contains("new ColumnSpec[] {");
+		Assertions.assertThat(source).contains("new RowSpec[] {");
 	}
 
 	////////////////////////////////////////////////////////////////////////////

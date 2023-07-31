@@ -29,7 +29,7 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.preference.IPreferenceStore;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link AbsoluteLayoutInfo}.
@@ -74,7 +74,7 @@ public class AbsoluteLayoutTest extends XwtModelTest {
 				"<Shell>",
 				"  implicit-layout: absolute");
 		AbsoluteLayoutInfo layout = (AbsoluteLayoutInfo) composite.getLayout();
-		assertThat(layout.getProperties()).isEmpty();
+		Assertions.assertThat(layout.getProperties()).isEmpty();
 	}
 
 	public void test_onRemove() throws Exception {
@@ -132,7 +132,7 @@ public class AbsoluteLayoutTest extends XwtModelTest {
 		LayoutInfo layout = composite.getLayout();
 		// layout should be "null"
 		assertSame(null, composite.getComposite().getLayout());
-		assertThat(layout).isInstanceOf(AbsoluteLayoutInfo.class);
+		Assertions.assertThat(layout).isInstanceOf(AbsoluteLayoutInfo.class);
 		// check CreationSupport
 		{
 			CreationSupport creationSupport = layout.getCreationSupport();
@@ -389,8 +389,8 @@ public class AbsoluteLayoutTest extends XwtModelTest {
 		waitEventLoop(1);
 		// check
 		Rectangle bounds = button.getModelBounds();
-		assertThat(bounds.width).isEqualTo(1);
-		assertThat(bounds.height).isEqualTo(2);
+		Assertions.assertThat(bounds.width).isEqualTo(1);
+		Assertions.assertThat(bounds.height).isEqualTo(2);
 	}
 
 	/**
@@ -411,8 +411,8 @@ public class AbsoluteLayoutTest extends XwtModelTest {
 		waitEventLoop(1);
 		// check
 		Rectangle bounds = button.getBounds();
-		assertThat(bounds.width).isGreaterThan(50);
-		assertThat(bounds.height).isGreaterThan(20);
+		Assertions.assertThat(bounds.width).isGreaterThan(50);
+		Assertions.assertThat(bounds.height).isGreaterThan(20);
 	}
 
 	/**
@@ -433,8 +433,8 @@ public class AbsoluteLayoutTest extends XwtModelTest {
 		waitEventLoop(1);
 		// check
 		Rectangle bounds = button.getBounds();
-		assertThat(bounds.width).isGreaterThan(10);
-		assertThat(bounds.height).isGreaterThan(20);
+		Assertions.assertThat(bounds.width).isGreaterThan(10);
+		Assertions.assertThat(bounds.height).isGreaterThan(20);
 	}
 
 	/**
@@ -456,8 +456,8 @@ public class AbsoluteLayoutTest extends XwtModelTest {
 		waitEventLoop(1);
 		// check
 		Rectangle bounds = button.getBounds();
-		assertThat(bounds.width).isEqualTo(1);
-		assertThat(bounds.height).isEqualTo(2);
+		Assertions.assertThat(bounds.width).isEqualTo(1);
+		Assertions.assertThat(bounds.height).isEqualTo(2);
 	}
 
 	/**

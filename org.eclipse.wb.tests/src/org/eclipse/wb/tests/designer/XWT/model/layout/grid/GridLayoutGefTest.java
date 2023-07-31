@@ -26,7 +26,7 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Control;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Tests for {@link GridLayout} in GEF.
@@ -153,12 +153,12 @@ public class GridLayoutGefTest extends XwtGefTest {
 		GraphicalEditPart buttonPart = canvas.getEditPart(button);
 		// select "button", so show grid selection
 		canvas.select(button);
-		assertThat(buttonPart.getEditPolicy(EditPolicy.SELECTION_ROLE)).isInstanceOf(
+		Assertions.assertThat(buttonPart.getEditPolicy(EditPolicy.SELECTION_ROLE)).isInstanceOf(
 				GridSelectionEditPolicy.class);
 		// set "exclude"
 		GridLayoutInfo.getGridData(button).getPropertyByTitle("exclude").setValue(true);
 		assertNoLoggedExceptions();
-		assertThat(buttonPart.getEditPolicy(EditPolicy.SELECTION_ROLE)).isInstanceOf(
+		Assertions.assertThat(buttonPart.getEditPolicy(EditPolicy.SELECTION_ROLE)).isInstanceOf(
 				NonResizableSelectionEditPolicy.class);
 		assertXML(
 				"// filler filler filler filler filler",

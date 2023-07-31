@@ -23,7 +23,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.widgets.TreeColumn;
 import org.eclipse.swt.widgets.TreeItem;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -61,12 +61,12 @@ public class TreeTest extends XwtModelTest {
 		refresh();
 		// prepare items
 		List<TreeItemInfo> items = tree.getItems();
-		assertThat(items).hasSize(2);
+		Assertions.assertThat(items).hasSize(2);
 		TreeItemInfo item_1 = items.get(0);
 		TreeItemInfo item_2 = items.get(1);
 		// no sub-items
-		assertThat(item_1.getItems()).isEmpty();
-		assertThat(item_2.getItems()).isEmpty();
+		Assertions.assertThat(item_1.getItems()).isEmpty();
+		Assertions.assertThat(item_2.getItems()).isEmpty();
 		// check bounds
 		Insets tableInsets = tree.getClientAreaInsets();
 		{
@@ -74,10 +74,10 @@ public class TreeTest extends XwtModelTest {
 			Rectangle modelBounds = item_1.getModelBounds();
 			{
 				assertNotNull(modelBounds);
-				assertThat(modelBounds.x).isGreaterThan(10); // some space for tree line
-				assertThat(modelBounds.y).isEqualTo(0);
-				assertThat(modelBounds.width).isGreaterThan(50);
-				assertThat(modelBounds.height).isGreaterThan(15).isLessThan(30);
+				Assertions.assertThat(modelBounds.x).isGreaterThan(10); // some space for tree line
+				Assertions.assertThat(modelBounds.y).isEqualTo(0);
+				Assertions.assertThat(modelBounds.width).isGreaterThan(50);
+				Assertions.assertThat(modelBounds.height).isGreaterThan(15).isLessThan(30);
 			}
 			// "shot" bounds
 			Rectangle bounds = item_1.getBounds();
@@ -114,9 +114,9 @@ public class TreeTest extends XwtModelTest {
 		TreeItemInfo item_1 = getObjectByName("item_1");
 		TreeItemInfo item_2 = getObjectByName("item_2");
 		// check hierarchy
-		assertThat(tree.getItems()).containsExactly(item_1);
-		assertThat(item_1.getItems()).containsExactly(item_2);
-		assertThat(item_2.getItems()).isEmpty();
+		Assertions.assertThat(tree.getItems()).containsExactly(item_1);
+		Assertions.assertThat(item_1.getItems()).containsExactly(item_2);
+		Assertions.assertThat(item_2.getItems()).isEmpty();
 	}
 
 	public void test_TreeItem_addToTree() throws Exception {
@@ -127,11 +127,11 @@ public class TreeTest extends XwtModelTest {
 						"// filler filler filler filler filler",
 						"<Tree/>");
 		// no items initially
-		assertThat(tree.getItems()).isEmpty();
+		Assertions.assertThat(tree.getItems()).isEmpty();
 		// add new TreeItem
 		TreeItemInfo newItem = createObject("org.eclipse.swt.widgets.TreeItem");
 		flowContainer_CREATE(tree, newItem, null);
-		assertThat(tree.getItems()).containsExactly(newItem);
+		Assertions.assertThat(tree.getItems()).containsExactly(newItem);
 		assertXML(
 				"// filler filler filler filler filler",
 				"// filler filler filler filler filler",
@@ -153,7 +153,7 @@ public class TreeTest extends XwtModelTest {
 		TreeItemInfo item_2 = getObjectByName("item_2");
 		// do move
 		flowContainer_MOVE(tree, item_2, item_1);
-		assertThat(tree.getItems()).containsExactly(item_2, item_1);
+		Assertions.assertThat(tree.getItems()).containsExactly(item_2, item_1);
 		assertXML(
 				"// filler filler filler filler filler",
 				"<Tree>",
@@ -174,11 +174,11 @@ public class TreeTest extends XwtModelTest {
 		refresh();
 		// prepare existing TreeItem
 		TreeItemInfo existingItem = getObjectByName("existingItem");
-		assertThat(existingItem.getItems()).isEmpty();
+		Assertions.assertThat(existingItem.getItems()).isEmpty();
 		// add new TreeItem
 		TreeItemInfo newItem = createObject("org.eclipse.swt.widgets.TreeItem");
 		flowContainer_CREATE(existingItem, newItem, null);
-		assertThat(existingItem.getItems()).containsExactly(newItem);
+		Assertions.assertThat(existingItem.getItems()).containsExactly(newItem);
 		assertXML(
 				"// filler filler filler filler filler",
 				"<Tree>",
@@ -204,9 +204,9 @@ public class TreeTest extends XwtModelTest {
 		TreeItemInfo item_2 = getObjectByName("item_2");
 		// do move
 		flowContainer_MOVE(item_1, item_2, null);
-		assertThat(tree.getItems()).containsExactly(item_1);
-		assertThat(item_1.getItems()).containsExactly(item_2);
-		assertThat(item_2.getItems()).isEmpty();
+		Assertions.assertThat(tree.getItems()).containsExactly(item_1);
+		Assertions.assertThat(item_1.getItems()).containsExactly(item_2);
+		Assertions.assertThat(item_2.getItems()).isEmpty();
 		assertXML(
 				"// filler filler filler filler filler",
 				"<Tree>",
@@ -238,7 +238,7 @@ public class TreeTest extends XwtModelTest {
 		TreeColumnInfo column_1 = getObjectByName("column_1");
 		TreeColumnInfo column_2 = getObjectByName("column_2");
 		// check Tree columns
-		assertThat(tree.getColumns()).containsExactly(column_1, column_2);
+		Assertions.assertThat(tree.getColumns()).containsExactly(column_1, column_2);
 		// check bounds
 		{
 			// "model" bounds
@@ -247,7 +247,7 @@ public class TreeTest extends XwtModelTest {
 			assertEquals(BORDER_WIDTH, modelBounds.x);
 			assertEquals(BORDER_WIDTH, modelBounds.y);
 			assertEquals(50, modelBounds.width);
-			assertThat(modelBounds.height).isGreaterThan(15).isLessThan(25);
+			Assertions.assertThat(modelBounds.height).isGreaterThan(15).isLessThan(25);
 			// "shot" bounds
 			Rectangle bounds = column_1.getBounds();
 			assertEquals(BORDER_WIDTH, bounds.x);
@@ -332,11 +332,11 @@ public class TreeTest extends XwtModelTest {
 						"// filler filler filler filler filler",
 						"<Tree headerVisible='true'/>");
 		// no columns initially
-		assertThat(tree.getColumns()).isEmpty();
+		Assertions.assertThat(tree.getColumns()).isEmpty();
 		// add new TreeColumn
 		TreeColumnInfo newColumn = createObject("org.eclipse.swt.widgets.TreeColumn");
 		flowContainer_CREATE(tree, newColumn, null);
-		assertThat(tree.getColumns()).containsExactly(newColumn);
+		Assertions.assertThat(tree.getColumns()).containsExactly(newColumn);
 		assertXML(
 				"// filler filler filler filler filler",
 				"<Tree headerVisible='true'>",
@@ -356,7 +356,7 @@ public class TreeTest extends XwtModelTest {
 		TreeColumnInfo column_2 = getObjectByName("column_2");
 		// move column
 		flowContainer_MOVE(tree, column_2, column_1);
-		assertThat(tree.getColumns()).containsExactly(column_2, column_1);
+		Assertions.assertThat(tree.getColumns()).containsExactly(column_2, column_1);
 		assertXML(
 				"// filler filler filler filler filler",
 				"<Tree headerVisible='true'>",

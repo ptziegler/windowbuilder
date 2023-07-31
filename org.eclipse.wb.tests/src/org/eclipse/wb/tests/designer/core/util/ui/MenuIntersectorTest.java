@@ -25,7 +25,7 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -158,7 +158,7 @@ public class MenuIntersectorTest extends DesignerTestCase {
 		IAction wrapperAction;
 		{
 			IContributionItem[] items = main.getItems();
-			assertThat(items).hasSize(1);
+			Assertions.assertThat(items).hasSize(1);
 			wrapperAction = ((ActionContributionItem) items[0]).getAction();
 		}
 		// execute IAction using runWithEvent()
@@ -213,7 +213,7 @@ public class MenuIntersectorTest extends DesignerTestCase {
 		IAction wrapperAction;
 		{
 			IContributionItem[] items = main.getItems();
-			assertThat(items).hasSize(1);
+			Assertions.assertThat(items).hasSize(1);
 			wrapperAction = ((ActionContributionItem) items[0]).getAction();
 		}
 		// execute IAction using run()

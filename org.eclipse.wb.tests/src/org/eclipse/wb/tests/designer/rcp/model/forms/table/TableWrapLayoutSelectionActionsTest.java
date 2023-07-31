@@ -21,7 +21,7 @@ import org.eclipse.wb.tests.designer.rcp.model.forms.AbstractFormsTest;
 
 import org.eclipse.jface.action.IAction;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -75,7 +75,7 @@ public class TableWrapLayoutSelectionActionsTest extends AbstractFormsTest {
 			shell.getBroadcastObject().addSelectionActions(selectedObjects, actions);
 		}
 		// no actions
-		assertThat(actions).isEmpty();
+		Assertions.assertThat(actions).isEmpty();
 	}
 
 	public void test_selectionActions_invalidSelection() throws Exception {
@@ -102,7 +102,7 @@ public class TableWrapLayoutSelectionActionsTest extends AbstractFormsTest {
 			shell.getBroadcastObject().addSelectionActions(selectedObjects, actions);
 		}
 		// no actions
-		assertThat(actions).isEmpty();
+		Assertions.assertThat(actions).isEmpty();
 	}
 
 	public void test_selectionActions_state() throws Exception {

@@ -21,7 +21,7 @@ import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.internal.swing.model.layout.FlowLayoutInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link ComponentOrder}.
@@ -526,7 +526,7 @@ public class ComponentOrderTest extends SwingModelTest {
 		waitForAutoBuild();
 		//
 		ComponentInfo component = createComponent("test.MyButton");
-		assertThat(component.getDescription().getOrder()).isInstanceOf(
+		Assertions.assertThat(component.getDescription().getOrder()).isInstanceOf(
 				ComponentOrderBeforeSibling.class);
 		return component;
 	}

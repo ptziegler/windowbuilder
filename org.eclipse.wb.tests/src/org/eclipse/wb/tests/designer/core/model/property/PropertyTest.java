@@ -40,7 +40,7 @@ import org.eclipse.wb.tests.designer.tests.common.PropertyNoValue;
 
 import org.eclipse.jdt.core.dom.Expression;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.lang.reflect.Method;
 import java.util.List;
@@ -939,7 +939,7 @@ public class PropertyTest extends SwingModelTest {
 								new Class[]{Property.class});
 				getText_method.setAccessible(true);
 				String text = (String) getText_method.invoke(tooltipProvider, new Object[]{property});
-				assertThat(text).contains("this component");
+				Assertions.assertThat(text).contains("this component");
 			}
 		}
 		// initial check

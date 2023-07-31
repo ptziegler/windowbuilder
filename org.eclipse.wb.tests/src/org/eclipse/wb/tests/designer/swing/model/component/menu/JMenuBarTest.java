@@ -30,7 +30,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.ImageData;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -123,24 +123,24 @@ public class JMenuBarTest extends SwingModelTest {
 						"  }",
 				"}"}));
 		barInfo.refresh();
-		assertThat(barInfo.getAssociation()).isInstanceOf(RootAssociation.class);
+		Assertions.assertThat(barInfo.getAssociation()).isInstanceOf(RootAssociation.class);
 		// IMenuInfo
 		IMenuInfo menuObject = MenuObjectInfoUtils.getMenuInfo(barInfo);
 		{
 			ImageDescriptor image = menuObject.getImageDescriptor();
 			assertNotNull(image);
 			ImageData imageData = image.getImageData(100);
-			assertThat(imageData.x).isEqualTo(0);
-			assertThat(imageData.y).isEqualTo(0);
-			assertThat(imageData.width).isGreaterThan(40);
-			assertThat(imageData.height).isGreaterThan(20);
+			Assertions.assertThat(imageData.x).isEqualTo(0);
+			Assertions.assertThat(imageData.y).isEqualTo(0);
+			Assertions.assertThat(imageData.width).isGreaterThan(40);
+			Assertions.assertThat(imageData.height).isGreaterThan(20);
 		}
 		{
 			Rectangle bounds = menuObject.getBounds();
-			assertThat(bounds.x).isEqualTo(0);
-			assertThat(bounds.y).isEqualTo(0);
-			assertThat(bounds.width).isGreaterThan(40);
-			assertThat(bounds.height).isGreaterThan(20);
+			Assertions.assertThat(bounds.x).isEqualTo(0);
+			Assertions.assertThat(bounds.y).isEqualTo(0);
+			Assertions.assertThat(bounds.width).isGreaterThan(40);
+			Assertions.assertThat(bounds.height).isGreaterThan(20);
 		}
 	}
 
@@ -168,20 +168,20 @@ public class JMenuBarTest extends SwingModelTest {
 		barInfo.refresh();
 		IMenuInfo menuObject = MenuObjectInfoUtils.getMenuInfo(barInfo);
 		List<IMenuItemInfo> items = menuObject.getItems();
-		assertThat(items).hasSize(2);
+		Assertions.assertThat(items).hasSize(2);
 		// JMenu "A"
 		{
 			IMenuInfo menu = items.get(0).getMenu();
 			Rectangle bounds = menu.getBounds();
-			assertThat(bounds.width).isGreaterThan(100);
-			assertThat(bounds.height).isGreaterThan(20);
+			Assertions.assertThat(bounds.width).isGreaterThan(100);
+			Assertions.assertThat(bounds.height).isGreaterThan(20);
 		}
 		// JMenu "B"
 		{
 			IMenuInfo menu = items.get(1).getMenu();
 			Rectangle bounds = menu.getBounds();
-			assertThat(bounds.width).isGreaterThan(100);
-			assertThat(bounds.height).isGreaterThan(20);
+			Assertions.assertThat(bounds.width).isGreaterThan(100);
+			Assertions.assertThat(bounds.height).isGreaterThan(20);
 		}
 	}
 

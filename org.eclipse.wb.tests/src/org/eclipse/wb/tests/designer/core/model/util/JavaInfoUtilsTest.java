@@ -71,7 +71,6 @@ import net.bytebuddy.ByteBuddy;
 import net.bytebuddy.implementation.FixedValue;
 import net.bytebuddy.matcher.ElementMatchers;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
@@ -487,16 +486,16 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 						"}");
 		// check single parameters
 		{
-			assertThat(JavaInfoUtils.getParameter(panel, "test.parameter.1")).isEqualTo("value_1");
-			assertThat(JavaInfoUtils.getParameter(panel, "test.parameter.2")).isEqualTo("1000");
-			assertThat(JavaInfoUtils.getParameter(panel, "test.parameter.3")).isNull();
+			Assertions.assertThat(JavaInfoUtils.getParameter(panel, "test.parameter.1")).isEqualTo("value_1");
+			Assertions.assertThat(JavaInfoUtils.getParameter(panel, "test.parameter.2")).isEqualTo("1000");
+			Assertions.assertThat(JavaInfoUtils.getParameter(panel, "test.parameter.3")).isNull();
 		}
 		// check parameters map
 		{
 			Map<String, String> parameters = JavaInfoUtils.getParameters(panel);
-			assertThat(parameters.get("test.parameter.1")).isEqualTo("value_1");
-			assertThat(parameters.get("test.parameter.2")).isEqualTo("1000");
-			assertThat(parameters.get("test.parameter.3")).isNull();
+			Assertions.assertThat(parameters.get("test.parameter.1")).isEqualTo("value_1");
+			Assertions.assertThat(parameters.get("test.parameter.2")).isEqualTo("1000");
+			Assertions.assertThat(parameters.get("test.parameter.3")).isNull();
 		}
 		// set new parameter
 		JavaInfoUtils.setParameter(panel, "test.parameter.3", "true");
@@ -504,9 +503,9 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 		{
 			// check mapped values
 			Map<String, String> parameters = JavaInfoUtils.getParameters(panel);
-			assertThat(parameters.get("test.parameter.1")).isEqualTo("value_1");
-			assertThat(parameters.get("test.parameter.2")).isEqualTo("1000");
-			assertThat(parameters.get("test.parameter.3")).isEqualTo("true");
+			Assertions.assertThat(parameters.get("test.parameter.1")).isEqualTo("value_1");
+			Assertions.assertThat(parameters.get("test.parameter.2")).isEqualTo("1000");
+			Assertions.assertThat(parameters.get("test.parameter.3")).isEqualTo("true");
 		}
 	}
 
@@ -1776,7 +1775,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 				"    }",
 				"  }",
 				"}");
-		assertThat(button.getAssociation()).isInstanceOf(ConstructorParentAssociation.class);
+		Assertions.assertThat(button.getAssociation()).isInstanceOf(ConstructorParentAssociation.class);
 	}
 
 	/**
@@ -1808,7 +1807,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 				"    }",
 				"  }",
 				"}");
-		assertThat(button.getAssociation()).isInstanceOf(ConstructorParentAssociation.class);
+		Assertions.assertThat(button.getAssociation()).isInstanceOf(ConstructorParentAssociation.class);
 	}
 
 	/**
@@ -1844,7 +1843,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 		{
 			CompoundAssociation compoundAssociation = (CompoundAssociation) button.getAssociation();
 			List<Association> associations = compoundAssociation.getAssociations();
-			assertThat(associations).hasSize(2);
+			Assertions.assertThat(associations).hasSize(2);
 			assertEquals("new MyButton(this)", associations.get(0).getSource());
 			assertEquals("add(myButton)", associations.get(1).getSource());
 		}
@@ -2601,13 +2600,13 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 		{
 			List<JavaInfo> components = Lists.<JavaInfo>newArrayList();
 			JavaInfoUtils.sortComponentsByFlow(components);
-			assertThat(components).isEmpty();
+			Assertions.assertThat(components).isEmpty();
 		}
 		// check 1: components already in correct order
 		{
 			List<JavaInfo> components = Lists.<JavaInfo>newArrayList(component_0, component_1);
 			JavaInfoUtils.sortComponentsByFlow(components);
-			assertThat(components).hasSize(2);
+			Assertions.assertThat(components).hasSize(2);
 			assertSame(component_0, components.get(0));
 			assertSame(component_1, components.get(1));
 		}
@@ -2615,7 +2614,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 		{
 			List<JavaInfo> components = Lists.<JavaInfo>newArrayList(component_1, component_0);
 			JavaInfoUtils.sortComponentsByFlow(components);
-			assertThat(components).hasSize(2);
+			Assertions.assertThat(components).hasSize(2);
 			assertSame(component_0, components.get(0));
 			assertSame(component_1, components.get(1));
 		}
@@ -2731,7 +2730,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 			List<ASTNode> nodes = Lists.<ASTNode>newArrayList(statement, fooMethod);
 			ExecutionFlowDescription flowDescription = m_lastState.getFlowDescription();
 			JavaInfoUtils.sortNodesByFlow(flowDescription, true, nodes);
-			assertThat(nodes).hasSize(1).containsOnly(statement);
+			Assertions.assertThat(nodes).hasSize(1).containsOnly(statement);
 		}
 	}
 
@@ -3520,7 +3519,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 		{
 			InstanceFactoryContainerInfo container = InstanceFactoryContainerInfo.get(panel);
 			List<InstanceFactoryInfo> factories = container.getChildrenFactory();
-			assertThat(factories).hasSize(1).contains(exposedFactory);
+			Assertions.assertThat(factories).hasSize(1).contains(exposedFactory);
 		}
 	}
 

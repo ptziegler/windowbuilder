@@ -17,7 +17,7 @@ import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
 
 import org.eclipse.draw2d.geometry.Rectangle;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link TopSelectionEditPolicy}.
@@ -72,8 +72,8 @@ public class TopSelectionEditPolicyTest extends XwtGefTest {
 		// size is reasonable
 		{
 			Rectangle bounds = shell.getBounds();
-			assertThat(bounds.width).isGreaterThan(10);
-			assertThat(bounds.height).isEqualTo(300);
+			Assertions.assertThat(bounds.width).isGreaterThan(10);
+			Assertions.assertThat(bounds.height).isEqualTo(300);
 		}
 	}
 
@@ -92,8 +92,8 @@ public class TopSelectionEditPolicyTest extends XwtGefTest {
 		// size is reasonable
 		{
 			Rectangle bounds = shell.getBounds();
-			assertThat(bounds.width).isEqualTo(450);
-			assertThat(bounds.height).isGreaterThan(10);
+			Assertions.assertThat(bounds.width).isEqualTo(450);
+			Assertions.assertThat(bounds.height).isGreaterThan(10);
 		}
 	}
 }

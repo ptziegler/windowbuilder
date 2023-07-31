@@ -17,7 +17,7 @@ import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Rectangle;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -37,7 +37,7 @@ public class ImageUtilsTest extends DesignerTestCase {
 		Image image = new Image(null, 32, 16);
 		try {
 			byte[] bytes = ImageUtils.getBytesPNG(image);
-			assertThat(bytes.length).isGreaterThan(50);
+			Assertions.assertThat(bytes.length).isGreaterThan(50);
 			// try to use these bytes to load Image
 			{
 				Image loadedImage = new Image(null, new ByteArrayInputStream(bytes));

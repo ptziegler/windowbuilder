@@ -39,9 +39,8 @@ import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Shell;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.ArrayUtils;
+import org.assertj.core.api.Assertions;
 
 import java.util.Collection;
 import java.util.List;
@@ -577,7 +576,7 @@ public class LayoutTest extends XwtModelTest {
 		// sub-properties
 		Property[] subProperties = PropertyUtils.getChildren(layoutProperty);
 		String[] subTitles = PropertyUtils.getTitles(subProperties);
-		assertThat(subTitles).contains("Class", "center", "fill", "spacing", "marginLeft");
+		Assertions.assertThat(subTitles).contains("Class", "center", "fill", "spacing", "marginLeft");
 		// delete
 		layoutProperty.setValue(Property.UNKNOWN_VALUE);
 		assertXML(
@@ -598,7 +597,7 @@ public class LayoutTest extends XwtModelTest {
 		assertEquals("(absolute)", getPropertyText(layoutProperty));
 		// sub-properties
 		Property[] subProperties = PropertyUtils.getChildren(layoutProperty);
-		assertThat(subProperties).isEmpty();
+		Assertions.assertThat(subProperties).isEmpty();
 	}
 
 	/**
@@ -636,7 +635,7 @@ public class LayoutTest extends XwtModelTest {
 					for (MenuItem menuItem : dropDown.getItems()) {
 						itemTexts.add(menuItem.getText());
 					}
-					assertThat(itemTexts).contains("FillLayout", "RowLayout", "GridLayout");
+					Assertions.assertThat(itemTexts).contains("FillLayout", "RowLayout", "GridLayout");
 				}
 			} finally {
 				dropDown.setVisible(false);
@@ -719,7 +718,7 @@ public class LayoutTest extends XwtModelTest {
 			// sub-properties
 			Property[] subProperties = PropertyUtils.getChildren(dataProperty);
 			String[] subTitles = PropertyUtils.getTitles(subProperties);
-			assertThat(subTitles).contains("Class", "exclude", "width", "height");
+			Assertions.assertThat(subTitles).contains("Class", "exclude", "width", "height");
 			// delete
 			dataProperty.setValue(Property.UNKNOWN_VALUE);
 			assertXML(

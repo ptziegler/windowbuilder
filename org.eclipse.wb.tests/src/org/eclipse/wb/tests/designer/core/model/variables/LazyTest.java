@@ -32,9 +32,8 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.Statement;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.StringUtils;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link LazyVariableSupport}.
@@ -801,13 +800,13 @@ public class LazyTest extends AbstractVariableTest {
 			accessor = variable.m_accessor;
 		}
 		// initially no accessor
-		assertThat(flowDescription.getStartMethods()).doesNotContain(accessor);
+		Assertions.assertThat(flowDescription.getStartMethods()).doesNotContain(accessor);
 		// add "accessor" into execution flow
 		flowDescription.addStartMethod(accessor);
-		assertThat(flowDescription.getStartMethods()).contains(accessor);
+		Assertions.assertThat(flowDescription.getStartMethods()).contains(accessor);
 		// delete "button"
 		button.delete();
-		assertThat(flowDescription.getStartMethods()).doesNotContain(accessor);
+		Assertions.assertThat(flowDescription.getStartMethods()).doesNotContain(accessor);
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -915,7 +914,7 @@ public class LazyTest extends AbstractVariableTest {
 						"}");
 		BorderLayoutInfo borderLayout = (BorderLayoutInfo) panel.getLayout();
 		//
-		assertThat(LazyVariableSupportUtils.canConvert(borderLayout)).isTrue();
+		Assertions.assertThat(LazyVariableSupportUtils.canConvert(borderLayout)).isTrue();
 		LazyVariableSupportUtils.convert(borderLayout);
 		// check
 		assertEditor(
@@ -958,9 +957,9 @@ public class LazyTest extends AbstractVariableTest {
 						"  }",
 						"}");
 		JPanelInfo panel = testPanel.getChildren(JPanelInfo.class).get(0);
-		assertThat(panel.getChildren(ComponentInfo.class).size()).isEqualTo(2);
+		Assertions.assertThat(panel.getChildren(ComponentInfo.class).size()).isEqualTo(2);
 		//
-		assertThat(LazyVariableSupportUtils.canConvert(panel)).isTrue();
+		Assertions.assertThat(LazyVariableSupportUtils.canConvert(panel)).isTrue();
 		LazyVariableSupportUtils.convert(panel);
 		// check
 		assertEditor(

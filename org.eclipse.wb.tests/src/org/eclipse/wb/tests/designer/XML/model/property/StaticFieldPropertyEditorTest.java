@@ -26,7 +26,7 @@ import org.eclipse.wb.tests.designer.XML.model.description.AbstractCoreTest;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Shell;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -235,7 +235,7 @@ public class StaticFieldPropertyEditorTest extends AbstractCoreTest {
 
 	private static void assertArrayField_equals(Object editor, String fieldName, Object[] expected) {
 		Object[] actual = (Object[]) ReflectionUtils.getFieldObject(editor, fieldName);
-		assertThat(actual).isEqualTo(expected);
+		Assertions.assertThat(actual).isEqualTo(expected);
 	}
 
 	private void prepareComponent_withField() throws Exception {
@@ -401,7 +401,7 @@ public class StaticFieldPropertyEditorTest extends AbstractCoreTest {
 		// check items
 		{
 			List<String> items = getComboPropertyItems();
-			assertThat(items).containsExactly("LEFT", "CENTER", "RIGHT");
+			Assertions.assertThat(items).containsExactly("LEFT", "CENTER", "RIGHT");
 		}
 		// select current item
 		{
@@ -455,7 +455,7 @@ public class StaticFieldPropertyEditorTest extends AbstractCoreTest {
 		// check items
 		{
 			List<String> items = getComboPropertyItems();
-			assertThat(items).containsExactly("", "LEFT", "RIGHT");
+			Assertions.assertThat(items).containsExactly("", "LEFT", "RIGHT");
 		}
 		// set "*remove"
 		{

@@ -23,7 +23,7 @@ import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.part.ViewPart;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Tests for RCP wizards, such as {@link ViewPart}.
@@ -70,11 +70,11 @@ public class RcpWizardsTest extends RcpModelTest {
 		animate_ViewPart();
 		{
 			String pluginFile = getFileContent("plugin.xml");
-			assertThat(pluginFile).contains("org.eclipse.ui.views");
-			assertThat(pluginFile).contains("<view");
-			assertThat(pluginFile).contains("class=\"test.MyViewPart\"");
-			assertThat(pluginFile).contains("id=\"test.MyViewPart\"");
-			assertThat(pluginFile).contains("name=\"New ViewPart\"");
+			Assertions.assertThat(pluginFile).contains("org.eclipse.ui.views");
+			Assertions.assertThat(pluginFile).contains("<view");
+			Assertions.assertThat(pluginFile).contains("class=\"test.MyViewPart\"");
+			Assertions.assertThat(pluginFile).contains("id=\"test.MyViewPart\"");
+			Assertions.assertThat(pluginFile).contains("name=\"New ViewPart\"");
 		}
 	}
 
@@ -111,11 +111,11 @@ public class RcpWizardsTest extends RcpModelTest {
 		animate_EditorPart();
 		{
 			String pluginFile = getFileContent("plugin.xml");
-			assertThat(pluginFile).contains("org.eclipse.ui.editors");
-			assertThat(pluginFile).contains("<editor");
-			assertThat(pluginFile).contains("class=\"test.MyEditorPart\"");
-			assertThat(pluginFile).contains("id=\"test.MyEditorPart\"");
-			assertThat(pluginFile).contains("name=\"New EditorPart\"");
+			Assertions.assertThat(pluginFile).contains("org.eclipse.ui.editors");
+			Assertions.assertThat(pluginFile).contains("<editor");
+			Assertions.assertThat(pluginFile).contains("class=\"test.MyEditorPart\"");
+			Assertions.assertThat(pluginFile).contains("id=\"test.MyEditorPart\"");
+			Assertions.assertThat(pluginFile).contains("name=\"New EditorPart\"");
 		}
 	}
 

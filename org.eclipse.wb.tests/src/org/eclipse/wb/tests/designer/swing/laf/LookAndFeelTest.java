@@ -25,7 +25,7 @@ import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -440,7 +440,7 @@ public class LookAndFeelTest extends SwingModelTest {
 						"}");
 		LafInfo selectedLAF = LafSupport.getSelectedLAF(panel);
 		if (EnvironmentUtils.IS_LINUX) {
-			assertThat(selectedLAF.getClassName()).isEqualTo("javax.swing.plaf.metal.MetalLookAndFeel");
+			Assertions.assertThat(selectedLAF.getClassName()).isEqualTo("javax.swing.plaf.metal.MetalLookAndFeel");
 		} else {
 			assertInstanceOf(SystemLafInfo.class, selectedLAF);
 		}
@@ -517,7 +517,7 @@ public class LookAndFeelTest extends SwingModelTest {
 	public void test_get_defaultLAF() throws Exception {
 		LafInfo defaultLAF = LafSupport.getDefaultLAF();
 		if (EnvironmentUtils.IS_LINUX) {
-			assertThat(defaultLAF.getClassName()).isEqualTo("javax.swing.plaf.metal.MetalLookAndFeel");
+			Assertions.assertThat(defaultLAF.getClassName()).isEqualTo("javax.swing.plaf.metal.MetalLookAndFeel");
 		} else {
 			assertInstanceOf(SystemLafInfo.class, defaultLAF);
 		}

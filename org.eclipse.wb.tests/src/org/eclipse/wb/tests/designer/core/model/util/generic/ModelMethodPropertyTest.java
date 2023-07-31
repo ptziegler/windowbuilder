@@ -25,7 +25,7 @@ import org.eclipse.wb.internal.core.utils.state.EditorWarning;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -156,7 +156,7 @@ public class ModelMethodPropertyTest extends SwingModelTest {
 			PropertyEditor propertyEditor = property.getEditor();
 			assertInstanceOf(StringListPropertyEditor.class, propertyEditor);
 			String[] strings = (String[]) ReflectionUtils.getFieldObject(propertyEditor, "m_strings");
-			assertThat(strings).isEqualTo(new String[]{"A", "B", "C"});
+			Assertions.assertThat(strings).isEqualTo(new String[]{"A", "B", "C"});
 		}
 	}
 
@@ -175,8 +175,8 @@ public class ModelMethodPropertyTest extends SwingModelTest {
 				"}");
 		// check warnings
 		List<EditorWarning> warnings = m_lastState.getWarnings();
-		assertThat(warnings).hasSize(1);
-		assertThat(warnings.get(0).getMessage()).contains("'getter'");
+		Assertions.assertThat(warnings).hasSize(1);
+		Assertions.assertThat(warnings.get(0).getMessage()).contains("'getter'");
 	}
 
 	public void test_noRequiredParameters_setter() throws Exception {
@@ -189,8 +189,8 @@ public class ModelMethodPropertyTest extends SwingModelTest {
 				"}");
 		// check warnings
 		List<EditorWarning> warnings = m_lastState.getWarnings();
-		assertThat(warnings).hasSize(1);
-		assertThat(warnings.get(0).getMessage()).contains("'setter'");
+		Assertions.assertThat(warnings).hasSize(1);
+		Assertions.assertThat(warnings.get(0).getMessage()).contains("'setter'");
 	}
 
 	public void test_noRequiredParameters_title() throws Exception {
@@ -203,8 +203,8 @@ public class ModelMethodPropertyTest extends SwingModelTest {
 				"}");
 		// check warnings
 		List<EditorWarning> warnings = m_lastState.getWarnings();
-		assertThat(warnings).hasSize(1);
-		assertThat(warnings.get(0).getMessage()).contains("'title'");
+		Assertions.assertThat(warnings).hasSize(1);
+		Assertions.assertThat(warnings.get(0).getMessage()).contains("'title'");
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -222,8 +222,8 @@ public class ModelMethodPropertyTest extends SwingModelTest {
 				"}");
 		// check warnings
 		List<EditorWarning> warnings = m_lastState.getWarnings();
-		assertThat(warnings).hasSize(1);
-		assertThat(warnings.get(0).getMessage()).contains("Invalid").contains("getter");
+		Assertions.assertThat(warnings).hasSize(1);
+		Assertions.assertThat(warnings.get(0).getMessage()).contains("Invalid").contains("getter");
 	}
 
 	public void test_invalidParameter_setter() throws Exception {
@@ -236,7 +236,7 @@ public class ModelMethodPropertyTest extends SwingModelTest {
 				"}");
 		// check warnings
 		List<EditorWarning> warnings = m_lastState.getWarnings();
-		assertThat(warnings).hasSize(1);
-		assertThat(warnings.get(0).getMessage()).contains("Invalid").contains("setter");
+		Assertions.assertThat(warnings).hasSize(1);
+		Assertions.assertThat(warnings.get(0).getMessage()).contains("Invalid").contains("setter");
 	}
 }

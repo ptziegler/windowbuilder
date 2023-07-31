@@ -24,12 +24,12 @@ import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 import org.eclipse.wb.tests.designer.tests.common.PropertyWithTitle;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.clearInvocations;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.mock;
 
 import org.apache.commons.lang.ArrayUtils;
+import org.assertj.core.api.Assertions;
 import org.mockito.InOrder;
 
 import java.util.List;
@@ -56,7 +56,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	public void test_getProperties() throws Exception {
 		ObjectInfo object = new TestObjectInfo();
 		Property[] properties = object.getProperties();
-		assertThat(properties).isEmpty();
+		Assertions.assertThat(properties).isEmpty();
 	}
 
 	/**
@@ -74,7 +74,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 			}
 		};
 		// initially has property
-		assertThat(object.getProperties()).containsOnly(someProperty);
+		Assertions.assertThat(object.getProperties()).containsOnly(someProperty);
 		// add broadcast to remove all properties
 		object.addBroadcastListener(new ObjectInfoAllProperties() {
 			@Override
@@ -82,7 +82,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 				properties.clear();
 			}
 		});
-		assertThat(object.getProperties()).isEmpty();
+		Assertions.assertThat(object.getProperties()).isEmpty();
 	}
 
 	/**
@@ -104,7 +104,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 		};
 		//
 		Property[] properties = object.getProperties();
-		assertThat(properties).hasSize(3);
+		Assertions.assertThat(properties).hasSize(3);
 		assertSame(aProperty, properties[0]);
 		assertSame(bProperty, properties[1]);
 		assertSame(cProperty, properties[2]);
@@ -118,7 +118,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 		ObjectInfo object = new TestObjectInfo();
 		List<Property> properties =
 				(List<Property>) ReflectionUtils.invokeMethod(object, "getPropertyList()");
-		assertThat(properties).isEmpty();
+		Assertions.assertThat(properties).isEmpty();
 	}
 
 	/**
@@ -151,16 +151,16 @@ public class ObjectInfoTest extends DesignerTestCase {
 		// no value initially
 		assertNull(object.getArbitraryValue(object));
 		// empty arbitrary map
-		assertThat(object.getArbitraries()).isEmpty();
+		Assertions.assertThat(object.getArbitraries()).isEmpty();
 		// put value and check
 		object.putArbitraryValue(object, this);
 		assertSame(this, object.getArbitraryValue(object));
 		{
 			// arbitrary map contains only 1 item
 			Map<Object, Object> arbitraries = object.getArbitraries();
-			assertThat(arbitraries).isNotEmpty();
+			Assertions.assertThat(arbitraries).isNotEmpty();
 			Set<Entry<Object, Object>> arbitrariesSet = arbitraries.entrySet();
-			assertThat(arbitrariesSet).hasSize(1);
+			Assertions.assertThat(arbitrariesSet).hasSize(1);
 			Entry<Object, Object> entry = arbitrariesSet.iterator().next();
 			assertSame(object, entry.getKey());
 			assertSame(this, entry.getValue());
@@ -168,7 +168,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 		// remove value and check
 		object.removeArbitraryValue(object);
 		assertNull(object.getArbitraryValue(object));
-		assertThat(object.getArbitraries()).isEmpty();
+		Assertions.assertThat(object.getArbitraries()).isEmpty();
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -188,7 +188,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 		// parent was set
 		assertSame(parent, child.getParent());
 		// but child is not in parent
-		assertThat(parent.getChildren()).isEmpty();
+		Assertions.assertThat(parent.getChildren()).isEmpty();
 	}
 
 	public void test_isRoot() throws Exception {
@@ -412,7 +412,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 		parent.addChild(child_1);
 		parent.addChild(child_2);
 		parent.addChildFirst(child_3);
-		assertThat(parent.getChildren()).containsExactly(child_3, child_1, child_2);
+		Assertions.assertThat(parent.getChildren()).containsExactly(child_3, child_1, child_2);
 	}
 
 	////////////////////////////////////////////////////////////////////////////

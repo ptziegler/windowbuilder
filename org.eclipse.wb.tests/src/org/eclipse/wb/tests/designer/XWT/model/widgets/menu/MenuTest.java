@@ -32,7 +32,7 @@ import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
 
 import org.eclipse.swt.SWT;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.Collections;
 import java.util.List;
@@ -226,7 +226,7 @@ public class MenuTest extends XwtModelTest {
 		assertTrue(menuObject.isHorizontal());
 		{
 			List<IMenuItemInfo> itemObjects = menuObject.getItems();
-			assertThat(itemObjects).hasSize(1);
+			Assertions.assertThat(itemObjects).hasSize(1);
 			assertSame(itemInfos.get(0), itemObjects.get(0).getModel());
 		}
 	}
@@ -838,10 +838,10 @@ public class MenuTest extends XwtModelTest {
 		refresh();
 		MenuInfo menuInfo = getObjectByName("menuBar");
 		// no "item" models
-		assertThat(menuInfo.getItems()).isEmpty();
+		Assertions.assertThat(menuInfo.getItems()).isEmpty();
 		// even empty "menu" has "item" object
 		Object menuObject = menuInfo.getObject();
-		assertThat(MenuSupport.getItems(menuObject)).hasSize(1);
+		Assertions.assertThat(MenuSupport.getItems(menuObject)).hasSize(1);
 	}
 
 	/**
@@ -870,7 +870,7 @@ public class MenuTest extends XwtModelTest {
 		}
 		// items have bounds, but not image
 		List<MenuItemInfo> items = menu.getItems();
-		assertThat(items).hasSize(2);
+		Assertions.assertThat(items).hasSize(2);
 		for (MenuItemInfo item : items) {
 			assertNotNull(item.getModelBounds());
 			assertNull(item.getImage());
@@ -903,7 +903,7 @@ public class MenuTest extends XwtModelTest {
 		assertNotNull(subMenu.getImage());
 		// check items
 		List<MenuItemInfo> items = subMenu.getItems();
-		assertThat(items).hasSize(2);
+		Assertions.assertThat(items).hasSize(2);
 		for (MenuItemInfo item : items) {
 			assertNotNull(item.getModelBounds());
 			assertNull(item.getImage());
@@ -936,6 +936,6 @@ public class MenuTest extends XwtModelTest {
 		// prepare models
 		MenuInfo menu = getObjectByName("menu");
 		ControlInfo button = getObjectByName("button");
-		assertThat(shell.getPresentation().getChildrenGraphical()).containsExactly(menu, button);
+		Assertions.assertThat(shell.getPresentation().getChildrenGraphical()).containsExactly(menu, button);
 	}
 }

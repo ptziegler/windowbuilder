@@ -18,9 +18,8 @@ import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.io.IOUtils;
+import org.assertj.core.api.Assertions;
 
 import java.io.InputStream;
 
@@ -72,7 +71,7 @@ public class ActivatorTest extends DesignerTestCase {
 		assertNotNull(file);
 		try {
 			String s = IOUtils2.readString(file);
-			assertThat(s.length()).isGreaterThan(1024);
+			Assertions.assertThat(s.length()).isGreaterThan(1024);
 		} finally {
 			IOUtils.closeQuietly(file);
 		}
@@ -86,7 +85,7 @@ public class ActivatorTest extends DesignerTestCase {
 			Activator.getFile("noSuch.file");
 		} catch (Throwable e) {
 			String msg = e.getMessage();
-			assertThat(msg).contains("noSuch.file").contains("org.eclipse.wb.xwt");
+			Assertions.assertThat(msg).contains("noSuch.file").contains("org.eclipse.wb.xwt");
 		}
 	}
 
@@ -111,7 +110,7 @@ public class ActivatorTest extends DesignerTestCase {
 			Activator.getImage("noSuch.png");
 		} catch (Throwable e) {
 			String msg = e.getMessage();
-			assertThat(msg).contains("noSuch.png").contains("org.eclipse.wb.xwt");
+			Assertions.assertThat(msg).contains("noSuch.png").contains("org.eclipse.wb.xwt");
 		}
 	}
 
@@ -136,7 +135,7 @@ public class ActivatorTest extends DesignerTestCase {
 			Activator.getImageDescriptor("noSuch.png");
 		} catch (Throwable e) {
 			String msg = e.getMessage();
-			assertThat(msg).contains("noSuch.png").contains("org.eclipse.wb.xwt");
+			Assertions.assertThat(msg).contains("noSuch.png").contains("org.eclipse.wb.xwt");
 		}
 	}
 }

@@ -12,9 +12,8 @@ package org.eclipse.wb.tests.designer.swing.model.layout.MigLayout;
 
 import org.eclipse.wb.internal.swing.MigLayout.model.MigColumnInfo;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.ArrayUtils;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link MigColumnInfo}.
@@ -56,7 +55,7 @@ public class MigColumnTest extends AbstractMigLayoutTest {
 	 * Check for content of {@link MigColumnInfo#ALIGNMENTS_TO_SET}.
 	 */
 	public void test_alignmentsToSet() throws Exception {
-		assertThat(MigColumnInfo.ALIGNMENTS_TO_SET).hasSize(MigColumnInfo.Alignment.values().length - 1);
+		Assertions.assertThat(MigColumnInfo.ALIGNMENTS_TO_SET).hasSize(MigColumnInfo.Alignment.values().length - 1);
 		assertFalse(ArrayUtils.contains(
 				MigColumnInfo.ALIGNMENTS_TO_SET,
 				MigColumnInfo.Alignment.UNKNOWN));

@@ -22,9 +22,8 @@ import org.eclipse.wb.internal.core.xml.model.utils.XmlObjectUtils;
 import org.eclipse.wb.internal.xwt.model.widgets.CompositeInfo;
 import org.eclipse.wb.tests.designer.XML.model.description.AbstractCoreTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.ArrayUtils;
+import org.assertj.core.api.Assertions;
 
 import java.util.Map;
 
@@ -96,16 +95,16 @@ public class XmlObjectUtilsTest extends AbstractCoreTest {
 		XmlObjectInfo panel = parse("<t:MyComponent/>");
 		// check single parameters
 		{
-			assertThat(XmlObjectUtils.getParameter(panel, "test.parameter.1")).isEqualTo("value_1");
-			assertThat(XmlObjectUtils.getParameter(panel, "test.parameter.2")).isEqualTo("1000");
-			assertThat(XmlObjectUtils.getParameter(panel, "test.parameter.3")).isNull();
+			Assertions.assertThat(XmlObjectUtils.getParameter(panel, "test.parameter.1")).isEqualTo("value_1");
+			Assertions.assertThat(XmlObjectUtils.getParameter(panel, "test.parameter.2")).isEqualTo("1000");
+			Assertions.assertThat(XmlObjectUtils.getParameter(panel, "test.parameter.3")).isNull();
 		}
 		// check parameters map
 		{
 			Map<String, String> parameters = XmlObjectUtils.getParameters(panel);
-			assertThat(parameters.get("test.parameter.1")).isEqualTo("value_1");
-			assertThat(parameters.get("test.parameter.2")).isEqualTo("1000");
-			assertThat(parameters.get("test.parameter.3")).isNull();
+			Assertions.assertThat(parameters.get("test.parameter.1")).isEqualTo("value_1");
+			Assertions.assertThat(parameters.get("test.parameter.2")).isEqualTo("1000");
+			Assertions.assertThat(parameters.get("test.parameter.3")).isNull();
 		}
 		// set new parameter
 		XmlObjectUtils.setParameter(panel, "test.parameter.3", "true");
@@ -113,9 +112,9 @@ public class XmlObjectUtilsTest extends AbstractCoreTest {
 		{
 			// check mapped values
 			Map<String, String> parameters = XmlObjectUtils.getParameters(panel);
-			assertThat(parameters.get("test.parameter.1")).isEqualTo("value_1");
-			assertThat(parameters.get("test.parameter.2")).isEqualTo("1000");
-			assertThat(parameters.get("test.parameter.3")).isEqualTo("true");
+			Assertions.assertThat(parameters.get("test.parameter.1")).isEqualTo("value_1");
+			Assertions.assertThat(parameters.get("test.parameter.2")).isEqualTo("1000");
+			Assertions.assertThat(parameters.get("test.parameter.3")).isEqualTo("true");
 		}
 	}
 

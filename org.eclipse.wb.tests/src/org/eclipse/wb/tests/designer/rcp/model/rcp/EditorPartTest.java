@@ -27,9 +27,8 @@ import org.eclipse.ui.menus.IMenuService;
 import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.services.IServiceLocator;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.NotImplementedException;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link EditorPartInfo}.
@@ -80,12 +79,12 @@ public class EditorPartTest extends RcpModelTest {
 		part.refresh();
 		assertNoErrors(part);
 		// check bounds
-		assertThat(part.getBounds().width).isEqualTo(600);
-		assertThat(part.getBounds().height).isEqualTo(500);
-		assertThat(parentComposite.getBounds().width).isGreaterThan(300);
-		assertThat(parentComposite.getBounds().height).isGreaterThan(30);
-		assertThat(container.getBounds().width).isGreaterThan(300);
-		assertThat(container.getBounds().height).isGreaterThan(300);
+		Assertions.assertThat(part.getBounds().width).isEqualTo(600);
+		Assertions.assertThat(part.getBounds().height).isEqualTo(500);
+		Assertions.assertThat(parentComposite.getBounds().width).isGreaterThan(300);
+		Assertions.assertThat(parentComposite.getBounds().height).isGreaterThan(30);
+		Assertions.assertThat(container.getBounds().width).isGreaterThan(300);
+		Assertions.assertThat(container.getBounds().height).isGreaterThan(300);
 	}
 
 	/**
@@ -294,8 +293,8 @@ public class EditorPartTest extends RcpModelTest {
 		assertTrue(extensionProperty.getCategory().isSystem());
 		// sub-properties
 		Property[] subProperties = getSubProperties(extensionProperty);
-		assertThat(subProperties).hasSize(4);
-		assertThat(subProperties).hasOnlyElementsOfType(ExtensionElementProperty.class);
+		Assertions.assertThat(subProperties).hasSize(4);
+		Assertions.assertThat(subProperties).hasOnlyElementsOfType(ExtensionElementProperty.class);
 		{
 			Property nameProperty = subProperties[0];
 			assertEquals("name", nameProperty.getTitle());

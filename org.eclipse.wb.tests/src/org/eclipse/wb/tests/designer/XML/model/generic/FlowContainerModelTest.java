@@ -29,12 +29,12 @@ import org.eclipse.wb.internal.core.xml.model.generic.FlowContainerConfiguration
 import org.eclipse.wb.internal.core.xml.model.generic.FlowContainerFactory;
 import org.eclipse.wb.tests.designer.XML.model.description.AbstractCoreTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.clearInvocations;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import org.assertj.core.api.Assertions;
 import org.mockito.InOrder;
 
 import java.text.MessageFormat;
@@ -66,7 +66,7 @@ public class FlowContainerModelTest extends AbstractCoreTest {
 					{"flowContainer", "true"},
 					{"flowContainer.component", "java.awt.Component"},
 					{"flowContainer.reference", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(configurations.get(0), "alwaysTrue", "direct");
 	}
 
@@ -77,7 +77,7 @@ public class FlowContainerModelTest extends AbstractCoreTest {
 					{"flowContainer.horizontal", "isHorizontal()"},
 					{"flowContainer.component", "java.awt.Component"},
 					{"flowContainer.reference", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(configurations.get(0), "isHorizontal()", "direct");
 	}
 
@@ -96,7 +96,7 @@ public class FlowContainerModelTest extends AbstractCoreTest {
 					{"flowContainer.horizontal", "true"},
 					{"flowContainer.component", "java.awt.Component"},
 					{"flowContainer.reference", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(configurations.get(0), "true", "direct");
 	}
 
@@ -111,7 +111,7 @@ public class FlowContainerModelTest extends AbstractCoreTest {
 					{"flowContainer.x-association", "property myProperty"},
 					{"flowContainer.component", "java.awt.Component"},
 					{"flowContainer.reference", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(configurations.get(0), "true", "property myProperty");
 	}
 
@@ -126,7 +126,7 @@ public class FlowContainerModelTest extends AbstractCoreTest {
 					{"flowContainer.x-association", "inter myName attrA='a a' attrB='b'"},
 					{"flowContainer.component", "java.awt.Component"},
 					{"flowContainer.reference", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(configurations.get(0), "true", "inter myName {attrA=a a, attrB=b}");
 	}
 
@@ -141,7 +141,7 @@ public class FlowContainerModelTest extends AbstractCoreTest {
 			fail();
 		} catch (Throwable e) {
 			Throwable rootCause = DesignerExceptionUtils.getRootCause(e);
-			assertThat(rootCause).isExactlyInstanceOf(AssertionFailedException.class);
+			Assertions.assertThat(rootCause).isExactlyInstanceOf(AssertionFailedException.class);
 		}
 	}
 
@@ -170,7 +170,7 @@ public class FlowContainerModelTest extends AbstractCoreTest {
 					{"flowContainer.horizontal", "true"},
 					{"flowContainer.component", "javax.swing.JButton javax.swing.JTextField"},
 					{"flowContainer.reference", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"true",
@@ -189,7 +189,7 @@ public class FlowContainerModelTest extends AbstractCoreTest {
 					{"flowContainer.defaultReference", "java.awt.Component"},
 					{"flowContainer", "true"},
 					{"flowContainer.horizontal", "true"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"true",
@@ -205,7 +205,7 @@ public class FlowContainerModelTest extends AbstractCoreTest {
 					{"flowContainer.horizontal", "true"},
 					{"flowContainer.component-validator", "isComponentType(java.awt.Component)"},
 					{"flowContainer.reference", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"true",
@@ -240,7 +240,7 @@ public class FlowContainerModelTest extends AbstractCoreTest {
 					{"flowContainer.horizontal", "true"},
 					{"flowContainer.component", "java.awt.Component"},
 					{"flowContainer.reference", "javax.swing.JButton javax.swing.JTextField"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"true",
@@ -256,7 +256,7 @@ public class FlowContainerModelTest extends AbstractCoreTest {
 					{"flowContainer.horizontal", "true"},
 					{"flowContainer.component", "java.awt.Component"},
 					{"flowContainer.reference-validator", "isReferenceType(java.awt.Component)"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"true",
@@ -274,7 +274,7 @@ public class FlowContainerModelTest extends AbstractCoreTest {
 					{"flowContainer", "true"},
 					{"flowContainer.horizontal", "true"},
 					{"flowContainer.component", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"true",
@@ -293,7 +293,7 @@ public class FlowContainerModelTest extends AbstractCoreTest {
 					{"flowContainer.defaultReference", "java.awt.Component"},
 					{"flowContainer", "true"},
 					{"flowContainer.horizontal", "true"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"true",
@@ -317,7 +317,7 @@ public class FlowContainerModelTest extends AbstractCoreTest {
 					{"flowContainer.horizontal", "true"},
 					{"flowContainer.component", "java.awt.Component"},
 					{"flowContainer.reference", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"true",
@@ -336,7 +336,7 @@ public class FlowContainerModelTest extends AbstractCoreTest {
 					{"flowContainer.canvas.horizontal", "true"},
 					{"flowContainer.canvas.component", "java.awt.Component"},
 					{"flowContainer.canvas.reference", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"true",
@@ -355,7 +355,7 @@ public class FlowContainerModelTest extends AbstractCoreTest {
 					{"flowContainer.tree.horizontal", "true"},
 					{"flowContainer.tree.component", "java.awt.Component"},
 					{"flowContainer.tree.reference", "java.awt.Component"},});
-		assertThat(configurations).isEmpty();
+		Assertions.assertThat(configurations).isEmpty();
 	}
 
 	/**
@@ -368,7 +368,7 @@ public class FlowContainerModelTest extends AbstractCoreTest {
 					{"flowContainer.horizontal", "true"},
 					{"flowContainer.component", "java.awt.Component"},
 					{"flowContainer.reference", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 	}
 
 	/**
@@ -381,7 +381,7 @@ public class FlowContainerModelTest extends AbstractCoreTest {
 					{"flowContainer.tree.horizontal", "true"},
 					{"flowContainer.tree.component", "java.awt.Component"},
 					{"flowContainer.tree.reference", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 	}
 
 	/**
@@ -402,7 +402,7 @@ public class FlowContainerModelTest extends AbstractCoreTest {
 					{"flowContainer.5.horizontal", "true"},
 					{"flowContainer.5.component", "javax.swing.JTextField"},
 					{"flowContainer.5.reference", "javax.swing.JTextField"},});
-		assertThat(configurations).hasSize(3);
+		Assertions.assertThat(configurations).hasSize(3);
 		assertConfiguration(
 				configurations.get(0),
 				"true",
@@ -433,7 +433,7 @@ public class FlowContainerModelTest extends AbstractCoreTest {
 					{"flowContainer.horizontal", "true"},
 					{"flowContainer.component", "java.awt.Component"},
 					{"flowContainer.reference", "java.awt.Component"},});
-		assertThat(configurations).hasSize(0);
+		Assertions.assertThat(configurations).hasSize(0);
 	}
 
 	////////////////////////////////////////////////////////////////////////////

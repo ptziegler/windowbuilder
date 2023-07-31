@@ -31,7 +31,7 @@ import org.eclipse.wb.tests.designer.XML.model.description.AbstractCoreTest;
 
 import org.eclipse.swt.SWT;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.lang.reflect.TypeVariable;
 
@@ -192,7 +192,7 @@ public class PropertyTest extends AbstractCoreTest {
 						tooltipProvider,
 						"getText(org.eclipse.wb.internal.core.model.property.Property)",
 						property);
-		assertThat(tooltip).contains("Enables the receiver if the argument").contains(
+		Assertions.assertThat(tooltip).contains("Enables the receiver if the argument").contains(
 				"and disables it otherwise.");
 	}
 

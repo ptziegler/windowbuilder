@@ -35,7 +35,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -106,11 +106,11 @@ public class GridLayoutTest extends XwtModelTest {
 		IObjectPresentation presentation = shell.getPresentation();
 		{
 			List<ObjectInfo> presentationChildren = presentation.getChildrenTree();
-			assertThat(presentationChildren).contains(button).doesNotContain(filler);
+			Assertions.assertThat(presentationChildren).contains(button).doesNotContain(filler);
 		}
 		{
 			List<ObjectInfo> presentationChildren = presentation.getChildrenGraphical();
-			assertThat(presentationChildren).contains(button).doesNotContain(filler);
+			Assertions.assertThat(presentationChildren).contains(button).doesNotContain(filler);
 		}
 	}
 
@@ -133,11 +133,11 @@ public class GridLayoutTest extends XwtModelTest {
 		IObjectPresentation presentation = shell.getPresentation();
 		{
 			List<ObjectInfo> presentationChildren = presentation.getChildrenTree();
-			assertThat(presentationChildren).contains(label);
+			Assertions.assertThat(presentationChildren).contains(label);
 		}
 		{
 			List<ObjectInfo> presentationChildren = presentation.getChildrenGraphical();
-			assertThat(presentationChildren).contains(label);
+			Assertions.assertThat(presentationChildren).contains(label);
 		}
 	}
 
@@ -2208,10 +2208,10 @@ public class GridLayoutTest extends XwtModelTest {
 		GridLayoutInfo layout = getObjectByName("layout");
 		ControlInfo button = getObjectByName("button");
 		// initially "button" is managed
-		assertThat(layout.getControls()).containsOnly(button);
+		Assertions.assertThat(layout.getControls()).containsOnly(button);
 		// exclude "button"
 		GridLayoutInfo.getGridData(button).getPropertyByTitle("exclude").setValue(true);
-		assertThat(layout.getControls()).isEmpty();
+		Assertions.assertThat(layout.getControls()).isEmpty();
 		assertXML(
 				"// filler filler filler filler filler",
 				"<Shell>",
@@ -2249,10 +2249,10 @@ public class GridLayoutTest extends XwtModelTest {
 		refresh();
 		GridLayoutInfo layout = getObjectByName("layout");
 		// initially 2 controls - filler and Button
-		assertThat(shell.getChildrenControls()).hasSize(2);
+		Assertions.assertThat(shell.getChildrenControls()).hasSize(2);
 		// after delete - only Button
 		layout.delete();
-		assertThat(shell.getChildrenControls()).hasSize(1);
+		Assertions.assertThat(shell.getChildrenControls()).hasSize(1);
 		assertXML(
 				"// filler filler filler filler filler",
 				"// filler filler filler filler filler",

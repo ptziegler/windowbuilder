@@ -23,7 +23,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.awt.SWT_AWT;
 import org.eclipse.swt.widgets.Composite;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.awt.Component;
 
@@ -86,10 +86,10 @@ public class SwtAwtTest extends RcpModelTest {
 		{
 			Rectangle frameBounds = frame.getBounds();
 			Rectangle compositeBounds = composite.getBounds();
-			assertThat(frameBounds.x).isEqualTo(0);
-			assertThat(frameBounds.y).isEqualTo(0);
-			assertThat(frameBounds.width).isEqualTo(compositeBounds.width);
-			assertThat(frameBounds.height).isEqualTo(compositeBounds.height);
+			Assertions.assertThat(frameBounds.x).isEqualTo(0);
+			Assertions.assertThat(frameBounds.y).isEqualTo(0);
+			Assertions.assertThat(frameBounds.width).isEqualTo(compositeBounds.width);
+			Assertions.assertThat(frameBounds.height).isEqualTo(compositeBounds.height);
 		}
 		// "frame" is visible
 		{
@@ -117,10 +117,10 @@ public class SwtAwtTest extends RcpModelTest {
 		assertNotNull(frame.getImage());
 		{
 			Rectangle frameBounds = frame.getBounds();
-			assertThat(frameBounds.x).isEqualTo(2);
-			assertThat(frameBounds.y).isEqualTo(2);
-			assertThat(frameBounds.width).isEqualTo(composite.getBounds().width - 2 - 2);
-			assertThat(frameBounds.height).isEqualTo(composite.getBounds().height - 2 - 2);
+			Assertions.assertThat(frameBounds.x).isEqualTo(2);
+			Assertions.assertThat(frameBounds.y).isEqualTo(2);
+			Assertions.assertThat(frameBounds.width).isEqualTo(composite.getBounds().width - 2 - 2);
+			Assertions.assertThat(frameBounds.height).isEqualTo(composite.getBounds().height - 2 - 2);
 		}
 	}
 
@@ -148,8 +148,8 @@ public class SwtAwtTest extends RcpModelTest {
 		assertNotNull(frame.getImage());
 		{
 			Rectangle frameBounds = frame.getBounds();
-			assertThat(frameBounds.x).isEqualTo(0);
-			assertThat(frameBounds.y).isEqualTo(0);
+			Assertions.assertThat(frameBounds.x).isEqualTo(0);
+			Assertions.assertThat(frameBounds.y).isEqualTo(0);
 		}
 	}
 

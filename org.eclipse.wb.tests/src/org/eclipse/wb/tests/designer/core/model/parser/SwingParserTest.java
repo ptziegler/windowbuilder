@@ -37,7 +37,7 @@ import org.eclipse.jdt.core.dom.ClassInstanceCreation;
 import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jdt.core.dom.SuperMethodInvocation;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.awt.Component;
 import java.awt.Container;
@@ -124,8 +124,8 @@ public class SwingParserTest extends SwingModelTest {
 			fail();
 		} catch (Throwable e_) {
 			NoEntryPointError e = (NoEntryPointError) DesignerExceptionUtils.getRootCause(e_);
-			assertThat(e.getEditor()).isNotNull();
-			assertThat(e.getTypeDeclaration()).isNotNull();
+			Assertions.assertThat(e.getEditor()).isNotNull();
+			Assertions.assertThat(e.getTypeDeclaration()).isNotNull();
 		}
 	}
 
@@ -141,8 +141,8 @@ public class SwingParserTest extends SwingModelTest {
 					"}");
 			fail();
 		} catch (NoEntryPointError e) {
-			assertThat(e.getEditor()).isNotNull();
-			assertThat(e.getTypeDeclaration()).isNotNull();
+			Assertions.assertThat(e.getEditor()).isNotNull();
+			Assertions.assertThat(e.getTypeDeclaration()).isNotNull();
 		}
 	}
 
@@ -226,8 +226,8 @@ public class SwingParserTest extends SwingModelTest {
 					"}");
 			fail();
 		} catch (MultipleConstructorsError e) {
-			assertThat(e.getEditor()).isNotNull();
-			assertThat(e.getTypeDeclaration()).isNotNull();
+			Assertions.assertThat(e.getEditor()).isNotNull();
+			Assertions.assertThat(e.getTypeDeclaration()).isNotNull();
 		}
 	}
 
@@ -402,7 +402,7 @@ public class SwingParserTest extends SwingModelTest {
 			fail();
 		} catch (Throwable e_) {
 			Throwable e = DesignerExceptionUtils.getRootCause(e_);
-			assertThat(e).isExactlyInstanceOf(NoEntryPointError.class);
+			Assertions.assertThat(e).isExactlyInstanceOf(NoEntryPointError.class);
 		}
 	}
 
@@ -671,7 +671,7 @@ public class SwingParserTest extends SwingModelTest {
 		// not placeholder
 		{
 			assertFalse(button.isPlaceholder());
-			assertThat(PlaceholderUtils.getExceptions(button)).isEmpty();
+			Assertions.assertThat(PlaceholderUtils.getExceptions(button)).isEmpty();
 		}
 	}
 
@@ -711,19 +711,19 @@ public class SwingParserTest extends SwingModelTest {
 		assertEquals("A", ((JButton) button.getObject()).getText());
 		// ...actual constructor thrown logged exception
 		List<BadNodeInformation> badNodes = m_lastState.getBadRefreshNodes().nodes();
-		assertThat(badNodes).hasSize(1);
+		Assertions.assertThat(badNodes).hasSize(1);
 		{
 			BadNodeInformation badNode = badNodes.get(0);
 			ASTNode node = badNode.getNode();
 			Throwable e = DesignerExceptionUtils.getRootCause(badNode.getException());
 			assertEquals("new MyButton(0)", m_lastEditor.getSource(node));
-			assertThat(e).isExactlyInstanceOf(IllegalStateException.class);
-			assertThat(e.getMessage()).isEqualTo("actual");
+			Assertions.assertThat(e).isExactlyInstanceOf(IllegalStateException.class);
+			Assertions.assertThat(e.getMessage()).isEqualTo("actual");
 		}
 		// not placeholder
 		{
 			assertFalse(button.isPlaceholder());
-			assertThat(PlaceholderUtils.getExceptions(button)).hasSize(1);
+			Assertions.assertThat(PlaceholderUtils.getExceptions(button)).hasSize(1);
 		}
 	}
 
@@ -753,20 +753,20 @@ public class SwingParserTest extends SwingModelTest {
 		panel.refresh();
 		// "MyButton" has placeholder object - JPanel
 		{
-			assertThat(button.getObject()).isInstanceOf(JPanel.class);
+			Assertions.assertThat(button.getObject()).isInstanceOf(JPanel.class);
 			assertTrue(button.isPlaceholder());
-			assertThat(PlaceholderUtils.getExceptions(button)).hasSize(1);
+			Assertions.assertThat(PlaceholderUtils.getExceptions(button)).hasSize(1);
 		}
 		// check logged exceptions
 		List<BadNodeInformation> badNodes = m_lastState.getBadRefreshNodes().nodes();
-		assertThat(badNodes).hasSize(1);
+		Assertions.assertThat(badNodes).hasSize(1);
 		{
 			BadNodeInformation badNode = badNodes.get(0);
 			ASTNode node = badNode.getNode();
 			Throwable e = DesignerExceptionUtils.getRootCause(badNode.getException());
 			assertEquals("new MyButton()", m_lastEditor.getSource(node));
-			assertThat(e).isExactlyInstanceOf(IllegalStateException.class);
-			assertThat(e.getMessage()).isEqualTo("actual");
+			Assertions.assertThat(e).isExactlyInstanceOf(IllegalStateException.class);
+			Assertions.assertThat(e.getMessage()).isEqualTo("actual");
 		}
 	}
 
@@ -804,28 +804,28 @@ public class SwingParserTest extends SwingModelTest {
 		panel.refresh();
 		// "MyButton" has placeholder object - JPanel
 		{
-			assertThat(button.getObject()).isInstanceOf(JPanel.class);
+			Assertions.assertThat(button.getObject()).isInstanceOf(JPanel.class);
 			assertTrue(button.isPlaceholder());
-			assertThat(PlaceholderUtils.getExceptions(button)).hasSize(2);
+			Assertions.assertThat(PlaceholderUtils.getExceptions(button)).hasSize(2);
 		}
 		// check logged exceptions
 		List<BadNodeInformation> badNodes = m_lastState.getBadRefreshNodes().nodes();
-		assertThat(badNodes).hasSize(2);
+		Assertions.assertThat(badNodes).hasSize(2);
 		{
 			BadNodeInformation badNode = badNodes.get(0);
 			ASTNode node = badNode.getNode();
 			Throwable e = DesignerExceptionUtils.getRootCause(badNode.getException());
 			assertEquals("new MyButton(0)", m_lastEditor.getSource(node));
-			assertThat(e).isExactlyInstanceOf(IllegalStateException.class);
-			assertThat(e.getMessage()).isEqualTo("actual");
+			Assertions.assertThat(e).isExactlyInstanceOf(IllegalStateException.class);
+			Assertions.assertThat(e.getMessage()).isEqualTo("actual");
 		}
 		{
 			BadNodeInformation badNode = badNodes.get(1);
 			ASTNode node = badNode.getNode();
 			Throwable e = DesignerExceptionUtils.getRootCause(badNode.getException());
 			assertEquals("new MyButton(0)", m_lastEditor.getSource(node));
-			assertThat(e).isExactlyInstanceOf(IllegalStateException.class);
-			assertThat(e.getMessage()).isEqualTo("default");
+			Assertions.assertThat(e).isExactlyInstanceOf(IllegalStateException.class);
+			Assertions.assertThat(e.getMessage()).isEqualTo("default");
 		}
 	}
 
@@ -913,7 +913,7 @@ public class SwingParserTest extends SwingModelTest {
 						"    Integer integer = new Integer(0);",
 						"  }",
 						"}");
-		assertThat(panel.getChildrenComponents()).isEmpty();
+		Assertions.assertThat(panel.getChildrenComponents()).isEmpty();
 	}
 
 	/**
@@ -931,7 +931,7 @@ public class SwingParserTest extends SwingModelTest {
 						"  public class MyPanel extends JPanel {",
 						"  }",
 						"}");
-		assertThat(panel.getChildrenComponents()).isEmpty();
+		Assertions.assertThat(panel.getChildrenComponents()).isEmpty();
 	}
 
 	/**
@@ -946,7 +946,7 @@ public class SwingParserTest extends SwingModelTest {
 						"    // filler filler filler",
 						"  }",
 						"}");
-		assertThat(component.getDescription().getComponentClass()).isSameAs(Container.class);
+		Assertions.assertThat(component.getDescription().getComponentClass()).isSameAs(Container.class);
 		//
 		component.refresh();
 		assertNoErrors(component);
@@ -1263,11 +1263,11 @@ public class SwingParserTest extends SwingModelTest {
 		// evaluation of anonymous "new ListCellRenderer() {}" causes exception, replaced with "null"
 		{
 			List<BadNodeInformation> badNodes = m_lastState.getBadRefreshNodes().nodes();
-			assertThat(badNodes).hasSize(1);
+			Assertions.assertThat(badNodes).hasSize(1);
 			BadNodeInformation badNode = badNodes.get(0);
 			Throwable rootException = DesignerExceptionUtils.getRootCause(badNode.getException());
-			assertThat(rootException).isExactlyInstanceOf(AnonymousEvaluationError.class);
-			assertThat(m_lastEditor.getSource(badNode.getNode())).startsWith("new ListCellRenderer() {");
+			Assertions.assertThat(rootException).isExactlyInstanceOf(AnonymousEvaluationError.class);
+			Assertions.assertThat(m_lastEditor.getSource(badNode.getNode())).startsWith("new ListCellRenderer() {");
 		}
 		// ...but we ignore "setRenderer(null)", so JComboBox has some valid renderer
 		JComboBox combo = (JComboBox) panel.getChildrenComponents().get(0).getComponent();

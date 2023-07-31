@@ -16,7 +16,6 @@ import org.eclipse.wb.internal.core.model.clipboard.JavaInfoMemento;
 import org.eclipse.wb.internal.core.model.creation.ExposedFieldCreationSupport;
 import org.eclipse.wb.internal.core.model.variable.ExposedFieldVariableSupport;
 import org.eclipse.wb.internal.core.model.variable.LocalUniqueVariableSupport;
-import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.internal.swing.model.layout.FlowLayoutInfo;
@@ -25,7 +24,7 @@ import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 import org.eclipse.jdt.core.dom.QualifiedName;
 import org.eclipse.jdt.core.dom.SimpleName;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import javax.swing.JFrame;
 
@@ -388,13 +387,13 @@ public class ExposedFieldCreationSupportTest extends SwingModelTest {
 		// field "button"
 		{
 			ComponentInfo fieldButton = panel.getChildrenComponents().get(0);
-			assertThat(fieldButton.getVariableSupport()).isInstanceOf(ExposedFieldVariableSupport.class);
+			Assertions.assertThat(fieldButton.getVariableSupport()).isInstanceOf(ExposedFieldVariableSupport.class);
 			assertFalse(fieldButton.isRepresentedBy(useName));
 		}
 		// local "button"
 		{
 			ComponentInfo localButton = panel.getChildrenComponents().get(1);
-			assertThat(localButton.getVariableSupport()).isInstanceOf(LocalUniqueVariableSupport.class);
+			Assertions.assertThat(localButton.getVariableSupport()).isInstanceOf(LocalUniqueVariableSupport.class);
 			assertTrue(localButton.isRepresentedBy(useName));
 		}
 	}

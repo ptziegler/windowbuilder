@@ -28,7 +28,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.graphics.RGB;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.awt.Component;
 import java.awt.Container;
@@ -98,8 +98,8 @@ public class ComponentTest extends SwingModelTest {
 		assertEquals(new Rectangle(0, 0, 0, 0), panel.getBounds());
 		{
 			org.eclipse.swt.graphics.Rectangle imageBounds = panel.getImage().getBounds();
-			assertThat(imageBounds.width).isEqualTo(1);
-			assertThat(imageBounds.height).isEqualTo(1);
+			Assertions.assertThat(imageBounds.width).isEqualTo(1);
+			Assertions.assertThat(imageBounds.height).isEqualTo(1);
 		}
 	}
 

@@ -32,7 +32,7 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Control;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -220,12 +220,12 @@ public class GridLayoutGefTest extends RcpGefTest {
 		GraphicalEditPart buttonPart = canvas.getEditPart(button);
 		// select "button", so show grid selection
 		canvas.select(button);
-		assertThat(buttonPart.getEditPolicy(EditPolicy.SELECTION_ROLE)).isInstanceOf(
+		Assertions.assertThat(buttonPart.getEditPolicy(EditPolicy.SELECTION_ROLE)).isInstanceOf(
 				GridSelectionEditPolicy.class);
 		// set "exclude"
 		GridLayoutInfo.getGridData(button).getPropertyByTitle("exclude").setValue(true);
 		assertNoLoggedExceptions();
-		assertThat(buttonPart.getEditPolicy(EditPolicy.SELECTION_ROLE)).isInstanceOf(
+		Assertions.assertThat(buttonPart.getEditPolicy(EditPolicy.SELECTION_ROLE)).isInstanceOf(
 				NonResizableSelectionEditPolicy.class);
 		assertEditor(
 				"public class Test extends Shell {",
@@ -260,7 +260,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 		ControlInfo filterControl = filteredTree.getChildrenControls().get(0);
 		// select "filterControl" has simple selection policy
 		GraphicalEditPart buttonPart = canvas.getEditPart(filterControl);
-		assertThat(buttonPart.getEditPolicy(EditPolicy.SELECTION_ROLE)).isInstanceOf(
+		Assertions.assertThat(buttonPart.getEditPolicy(EditPolicy.SELECTION_ROLE)).isInstanceOf(
 				NonResizableSelectionEditPolicy.class);
 	}
 
@@ -289,7 +289,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 		{
 			GraphicalEditPart buttonPart = canvas.getEditPart(button);
 			EditPolicy selectionPolicy = buttonPart.getEditPolicy(EditPolicy.SELECTION_ROLE);
-			assertThat(selectionPolicy).isInstanceOf(GridSelectionEditPolicy.class);
+			Assertions.assertThat(selectionPolicy).isInstanceOf(GridSelectionEditPolicy.class);
 		}
 		// drag "button" to "group"
 		canvas.beginDrag(button).dragTo(group, 0.5, 0.5).endDrag();
@@ -311,7 +311,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 		{
 			GraphicalEditPart buttonPart = canvas.getEditPart(button);
 			EditPolicy selectionPolicy = buttonPart.getEditPolicy(EditPolicy.SELECTION_ROLE);
-			assertThat(selectionPolicy).isInstanceOf(NonResizableSelectionEditPolicy.class);
+			Assertions.assertThat(selectionPolicy).isInstanceOf(NonResizableSelectionEditPolicy.class);
 		}
 	}
 

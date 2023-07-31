@@ -33,7 +33,7 @@ import org.eclipse.jface.action.ContributionItem;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.swt.widgets.Menu;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -104,8 +104,8 @@ public class MenuManagerTest extends RcpModelTest {
 		IMenuInfo menuObject = MenuObjectInfoUtils.getMenuInfo(menuManager);
 		// even empty "menuManager" has non-zero size
 		window.refresh();
-		assertThat(menuObject.getBounds().width).isGreaterThan(300);
-		assertThat(menuObject.getBounds().height).isGreaterThan(18);
+		Assertions.assertThat(menuObject.getBounds().width).isGreaterThan(300);
+		Assertions.assertThat(menuObject.getBounds().height).isGreaterThan(18);
 	}
 
 	/**
@@ -144,7 +144,7 @@ public class MenuManagerTest extends RcpModelTest {
 		ActionInfo action_2;
 		{
 			List<ActionInfo> actions = ActionContainerInfo.getActions(window);
-			assertThat(actions).hasSize(2);
+			Assertions.assertThat(actions).hasSize(2);
 			action_1 = actions.get(0);
 			action_2 = actions.get(1);
 		}
@@ -155,7 +155,7 @@ public class MenuManagerTest extends RcpModelTest {
 		ActionContributionItemInfo item_3;
 		{
 			List<ContributionItemInfo> items = menuManager.getChildren(ContributionItemInfo.class);
-			assertThat(items).hasSize(3);
+			Assertions.assertThat(items).hasSize(3);
 			item_1 = (ActionContributionItemInfo) items.get(0);
 			item_2 = (ActionContributionItemInfo) items.get(1);
 			item_3 = (ActionContributionItemInfo) items.get(2);
@@ -169,9 +169,9 @@ public class MenuManagerTest extends RcpModelTest {
 			Rectangle bounds_1 = item_1.getBounds();
 			Rectangle bounds_2 = item_2.getBounds();
 			Rectangle bounds_3 = item_3.getBounds();
-			assertThat(bounds_1.height).isGreaterThanOrEqualTo(18);
-			assertThat(bounds_1.height).isEqualTo(bounds_2.height);
-			assertThat(bounds_1.height).isEqualTo(bounds_3.height);
+			Assertions.assertThat(bounds_1.height).isGreaterThanOrEqualTo(18);
+			Assertions.assertThat(bounds_1.height).isEqualTo(bounds_2.height);
+			Assertions.assertThat(bounds_1.height).isEqualTo(bounds_3.height);
 		}
 		// unsupported adapter
 		assertNull(menuManager.getAdapter(List.class));
@@ -206,14 +206,14 @@ public class MenuManagerTest extends RcpModelTest {
 		{
 			menuInfo = window.getChildren(MenuManagerInfo.class).get(0);
 			List<AbstractComponentInfo> menuItems = menuInfo.getItems();
-			assertThat(menuItems).hasSize(1);
+			Assertions.assertThat(menuItems).hasSize(1);
 			subMenuInfo = (MenuManagerInfo) menuItems.get(0);
 		}
 		// "subMenuInfo" has no items, but still has non-zero bounds
 		{
 			IMenuInfo menuObject = MenuObjectInfoUtils.getMenuInfo(subMenuInfo);
-			assertThat(menuObject.getBounds().width).isGreaterThan(50);
-			assertThat(menuObject.getBounds().height).isGreaterThan(20);
+			Assertions.assertThat(menuObject.getBounds().width).isGreaterThan(50);
+			Assertions.assertThat(menuObject.getBounds().height).isGreaterThan(20);
 		}
 	}
 
@@ -312,7 +312,7 @@ public class MenuManagerTest extends RcpModelTest {
 		ActionContributionItemInfo itemInfo_3;
 		{
 			List<ContributionItemInfo> items = menuInfo.getChildren(ContributionItemInfo.class);
-			assertThat(items).hasSize(3);
+			Assertions.assertThat(items).hasSize(3);
 			itemInfo_1 = (ActionContributionItemInfo) items.get(0);
 			itemInfo_2 = (ActionContributionItemInfo) items.get(1);
 			itemInfo_3 = (ActionContributionItemInfo) items.get(2);
@@ -325,8 +325,8 @@ public class MenuManagerTest extends RcpModelTest {
 			assertSame(menuObject, menuObject.getModel());
 			// presentation
 			assertNull(menuObject.getImageDescriptor());
-			assertThat(menuObject.getBounds().width).isGreaterThan(400);
-			assertThat(menuObject.getBounds().height).isGreaterThan(18);
+			Assertions.assertThat(menuObject.getBounds().width).isGreaterThan(400);
+			Assertions.assertThat(menuObject.getBounds().height).isGreaterThan(18);
 			// access
 			assertTrue(menuObject.isHorizontal());
 		}
@@ -388,14 +388,14 @@ public class MenuManagerTest extends RcpModelTest {
 		{
 			menuInfo = window.getChildren(MenuManagerInfo.class).get(0);
 			List<AbstractComponentInfo> menuItems = menuInfo.getItems();
-			assertThat(menuItems).hasSize(2);
+			Assertions.assertThat(menuItems).hasSize(2);
 			// children of "menuInfo"
 			{
 				itemInfo_1 = (ActionContributionItemInfo) menuItems.get(0);
 				subMenuInfo = (MenuManagerInfo) menuItems.get(1);
 				// child of "subMenuInfo"
 				List<AbstractComponentInfo> subMenuItems = subMenuInfo.getItems();
-				assertThat(subMenuItems).hasSize(1);
+				Assertions.assertThat(subMenuItems).hasSize(1);
 				itemInfo_2 = (ActionContributionItemInfo) subMenuItems.get(0);
 			}
 		}
@@ -405,14 +405,14 @@ public class MenuManagerTest extends RcpModelTest {
 		// check "subMenuInfo"
 		{
 			assertNull(subMenuInfo.getImage());
-			assertThat(subMenuInfo.getBounds().width).isGreaterThan(50);
-			assertThat(subMenuInfo.getBounds().height).isGreaterThan(18);
+			Assertions.assertThat(subMenuInfo.getBounds().width).isGreaterThan(50);
+			Assertions.assertThat(subMenuInfo.getBounds().height).isGreaterThan(18);
 		}
 		// check "itemInfo"
 		{
 			assertNull(itemInfo_1.getImage());
-			assertThat(itemInfo_1.getBounds().width).isGreaterThan(50);
-			assertThat(itemInfo_1.getBounds().height).isGreaterThan(18);
+			Assertions.assertThat(itemInfo_1.getBounds().width).isGreaterThan(50);
+			Assertions.assertThat(itemInfo_1.getBounds().height).isGreaterThan(18);
 		}
 		// check IMenuInfo for "menuInfo"
 		{
@@ -420,13 +420,13 @@ public class MenuManagerTest extends RcpModelTest {
 			assertSame(menuObject, menuObject.getModel());
 			// presentation
 			assertNull(menuObject.getImageDescriptor());
-			assertThat(menuObject.getBounds().width).isGreaterThan(400);
-			assertThat(menuObject.getBounds().height).isGreaterThan(18);
+			Assertions.assertThat(menuObject.getBounds().width).isGreaterThan(400);
+			Assertions.assertThat(menuObject.getBounds().height).isGreaterThan(18);
 			// access
 			assertTrue(menuObject.isHorizontal());
 			// items
 			List<IMenuItemInfo> items = menuObject.getItems();
-			assertThat(items).hasSize(2);
+			Assertions.assertThat(items).hasSize(2);
 			assertSame(subMenuInfo, items.get(1).getModel());
 			// check IMenuItemInfo for "itemInfo_1"
 			{
@@ -436,8 +436,8 @@ public class MenuManagerTest extends RcpModelTest {
 				assertNull(itemObject.getImageDescriptor());
 				assertSame(itemInfo_1.getImage(), itemObject.getImageDescriptor());
 				assertSame(itemInfo_1.getBounds(), itemObject.getBounds());
-				assertThat(itemObject.getBounds().width).isGreaterThan(50);
-				assertThat(itemObject.getBounds().height).isGreaterThan(18);
+				Assertions.assertThat(itemObject.getBounds().width).isGreaterThan(50);
+				Assertions.assertThat(itemObject.getBounds().height).isGreaterThan(18);
 				// menu
 				assertNull(itemObject.getMenu());
 				assertSame(IMenuPolicy.NOOP, itemObject.getPolicy());
@@ -449,8 +449,8 @@ public class MenuManagerTest extends RcpModelTest {
 			assertSame(subMenuInfo, itemObject.getModel());
 			// presentation
 			assertNull(itemObject.getImageDescriptor());
-			assertThat(itemObject.getBounds().width).isGreaterThan(50);
-			assertThat(itemObject.getBounds().height).isGreaterThan(18);
+			Assertions.assertThat(itemObject.getBounds().width).isGreaterThan(50);
+			Assertions.assertThat(itemObject.getBounds().height).isGreaterThan(18);
 			// access
 			assertSame(MenuObjectInfoUtils.getMenuInfo(subMenuInfo), itemObject.getMenu());
 			assertSame(IMenuPolicy.NOOP, itemObject.getPolicy());
@@ -461,13 +461,13 @@ public class MenuManagerTest extends RcpModelTest {
 			assertSame(menuObject, menuObject.getModel());
 			// presentation
 			assertNotNull(menuObject.getImageDescriptor());
-			assertThat(menuObject.getBounds().width).isGreaterThan(50);
-			assertThat(menuObject.getBounds().height).isGreaterThan(18);
+			Assertions.assertThat(menuObject.getBounds().width).isGreaterThan(50);
+			Assertions.assertThat(menuObject.getBounds().height).isGreaterThan(18);
 			// access
 			assertFalse(menuObject.isHorizontal());
 			// items
 			List<IMenuItemInfo> items = menuObject.getItems();
-			assertThat(items).hasSize(1);
+			Assertions.assertThat(items).hasSize(1);
 			assertSame(itemInfo_2, items.get(0).getModel());
 		}
 	}
@@ -726,7 +726,7 @@ public class MenuManagerTest extends RcpModelTest {
 		{
 			menuInfo = window.getChildren(MenuManagerInfo.class).get(0);
 			List<AbstractComponentInfo> menuItems = menuInfo.getItems();
-			assertThat(menuItems).hasSize(2);
+			Assertions.assertThat(menuItems).hasSize(2);
 			// children of "menuInfo"
 			{
 				itemInfo_1 = (ContributionItemInfo) menuItems.get(0);
@@ -805,7 +805,7 @@ public class MenuManagerTest extends RcpModelTest {
 		{
 			menuInfo = window.getChildren(MenuManagerInfo.class).get(0);
 			List<AbstractComponentInfo> menuItems = menuInfo.getItems();
-			assertThat(menuItems).hasSize(2);
+			Assertions.assertThat(menuItems).hasSize(2);
 			// children of "menuInfo"
 			{
 				itemInfo = (ActionContributionItemInfo) menuItems.get(0);
@@ -955,7 +955,7 @@ public class MenuManagerTest extends RcpModelTest {
 		assertFalse(menuPolicy.validatePaste(null));
 		{
 			List<?> objects = menuPolicy.commandPaste(null, null);
-			assertThat(objects).isEmpty();
+			Assertions.assertThat(objects).isEmpty();
 		}
 	}
 }

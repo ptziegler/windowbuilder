@@ -27,7 +27,7 @@ import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
 import org.eclipse.swt.widgets.Control;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -115,7 +115,7 @@ public class ViewFormTest extends RcpModelTest {
 		{
 			CompoundAssociation compoundAssociation = (CompoundAssociation) button.getAssociation();
 			List<Association> associations = compoundAssociation.getAssociations();
-			assertThat(associations).hasSize(2);
+			Assertions.assertThat(associations).hasSize(2);
 			{
 				ConstructorParentAssociation constructorAssociation =
 						(ConstructorParentAssociation) associations.get(0);
@@ -208,7 +208,7 @@ public class ViewFormTest extends RcpModelTest {
 			// no "real" Control's, but in "tree" we have position placeholder children
 			List<ObjectInfo> children = viewForm.getPresentation().getChildrenTree();
 			assertEquals(4, children.size());
-			assertThat(children.get(0)).isInstanceOf(ControlInfo.class);
+			Assertions.assertThat(children.get(0)).isInstanceOf(ControlInfo.class);
 			assertEquals(3, GenericsUtils.select(children, AbstractPositionInfo.class).size());
 			// prepare "content" position
 			AbstractPositionInfo positionContent = (AbstractPositionInfo) children.get(3);
@@ -293,8 +293,8 @@ public class ViewFormTest extends RcpModelTest {
 		// check "tree" children
 		List<ObjectInfo> children = viewForm.getPresentation().getChildrenTree();
 		assertEquals(4, children.size());
-		assertThat(children.get(0)).isSameAs(button);
-		assertThat(children.get(1)).isInstanceOf(AbstractPositionInfo.class);
+		Assertions.assertThat(children.get(0)).isSameAs(button);
+		Assertions.assertThat(children.get(1)).isInstanceOf(AbstractPositionInfo.class);
 	}
 
 	////////////////////////////////////////////////////////////////////////////

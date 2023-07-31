@@ -24,7 +24,7 @@ import org.eclipse.core.runtime.ILogListener;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.swt.widgets.Display;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.beans.Beans;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -56,7 +56,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 		long begin = System.currentTimeMillis();
 		ExecutionUtils.sleep(60);
 		long end = System.currentTimeMillis();
-		assertThat(end - begin).isGreaterThanOrEqualTo(60);
+		Assertions.assertThat(end - begin).isGreaterThanOrEqualTo(60);
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 		long begin = System.nanoTime();
 		ExecutionUtils.waitEventLoop(60);
 		long end = System.nanoTime();
-		assertThat(end - begin).isGreaterThanOrEqualTo(60 * 1000000);
+		Assertions.assertThat(end - begin).isGreaterThanOrEqualTo(60 * 1000000);
 		// executed
 		assertEquals(true, executed.get());
 	}
@@ -97,7 +97,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 			thread.join();
 		}
 		long end = System.nanoTime();
-		assertThat(end - begin).isGreaterThanOrEqualTo(50 * 1000000);
+		Assertions.assertThat(end - begin).isGreaterThanOrEqualTo(50 * 1000000);
 	}
 
 	////////////////////////////////////////////////////////////////////////////

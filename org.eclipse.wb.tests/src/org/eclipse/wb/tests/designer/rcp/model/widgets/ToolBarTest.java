@@ -25,8 +25,6 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.assertj.core.api.Assertions;
 
 import java.util.List;
@@ -188,7 +186,7 @@ public class ToolBarTest extends RcpModelTest {
 		// "button" is set using setControl()
 		assertTrue(item.isSeparator());
 		assertSame(button, item.getControl());
-		assertThat(item.getSimpleContainerChildren()).containsExactly(button);
+		Assertions.assertThat(item.getSimpleContainerChildren()).containsExactly(button);
 		// check that "button" is wide
 		{
 			assertTrue(item.getBounds().width == 200);
@@ -196,10 +194,10 @@ public class ToolBarTest extends RcpModelTest {
 		}
 		// check hierarchy: "button" should be in "item", but not in "toolBar"
 		{
-			assertThat(item.getPresentation().getChildrenTree()).containsExactly(button);
-			assertThat(item.getPresentation().getChildrenGraphical()).containsExactly(button);
-			assertThat(toolBar.getPresentation().getChildrenTree()).containsExactly(item);
-			assertThat(toolBar.getPresentation().getChildrenGraphical()).containsExactly(item);
+			Assertions.assertThat(item.getPresentation().getChildrenTree()).containsExactly(button);
+			Assertions.assertThat(item.getPresentation().getChildrenGraphical()).containsExactly(button);
+			Assertions.assertThat(toolBar.getPresentation().getChildrenTree()).containsExactly(item);
+			Assertions.assertThat(toolBar.getPresentation().getChildrenGraphical()).containsExactly(item);
 		}
 	}
 
@@ -225,13 +223,13 @@ public class ToolBarTest extends RcpModelTest {
 		ToolItemInfo item = toolBar.getItems().get(0);
 		// no control initially
 		assertNull(item.getControl());
-		assertThat(item.getSimpleContainerChildren()).isEmpty();
+		Assertions.assertThat(item.getSimpleContainerChildren()).isEmpty();
 		// set Button on "item"
 		ControlInfo button = BTestUtils.createButton();
 		simpleContainer_CREATE(item, button);
 		// check result
 		assertSame(button, item.getControl());
-		assertThat(item.getSimpleContainerChildren()).containsExactly(button);
+		Assertions.assertThat(item.getSimpleContainerChildren()).containsExactly(button);
 		assertEditor(
 				"public class Test extends Shell {",
 				"  public Test() {",

@@ -21,8 +21,9 @@ import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.data.MapEntry.entry;
+
+import org.assertj.core.api.Assertions;
 
 import java.util.Map;
 
@@ -323,7 +324,7 @@ public class CreationDescriptionLoadingTest extends SwingModelTest {
 		assertEquals(id, creation.getId());
 		assertEquals("MyButton", creation.getName());
 		assertEquals("new test.MyButton()", creation.getSource());
-		assertThat(creation.getParameters()).contains(
+		Assertions.assertThat(creation.getParameters()).contains(
 				entry("name_1", "value_1"),
 				entry("name_2", "value_2"));
 	}

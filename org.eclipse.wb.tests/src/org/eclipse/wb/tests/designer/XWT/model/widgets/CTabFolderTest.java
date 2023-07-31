@@ -24,7 +24,7 @@ import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
 
 import org.eclipse.draw2d.geometry.Rectangle;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -54,7 +54,7 @@ public class CTabFolderTest extends XwtModelTest {
 	public void test_parse_noItem() throws Exception {
 		CTabFolderInfo folder = parse("<CTabFolder/>");
 		refresh();
-		assertThat(folder.getItems()).isEmpty();
+		Assertions.assertThat(folder.getItems()).isEmpty();
 	}
 
 	public void test_parse_withItem_noControl() throws Exception {
@@ -68,13 +68,13 @@ public class CTabFolderTest extends XwtModelTest {
 		refresh();
 		CTabItemInfo item = getObjectByName("item");
 		// hierarchy
-		assertThat(folder.getItems()).containsExactly(item);
+		Assertions.assertThat(folder.getItems()).containsExactly(item);
 		assertSame(null, item.getControl());
 		// presentation
 		{
 			IObjectPresentation presentation = folder.getPresentation();
-			assertThat(presentation.getChildrenTree()).containsExactly(item);
-			assertThat(presentation.getChildrenGraphical()).containsExactly(item);
+			Assertions.assertThat(presentation.getChildrenTree()).containsExactly(item);
+			Assertions.assertThat(presentation.getChildrenGraphical()).containsExactly(item);
 		}
 	}
 
@@ -92,19 +92,19 @@ public class CTabFolderTest extends XwtModelTest {
 		CTabItemInfo item = getObjectByName("item");
 		ControlInfo button = getObjectByName("button");
 		// hierarchy
-		assertThat(folder.getItems()).containsExactly(item);
+		Assertions.assertThat(folder.getItems()).containsExactly(item);
 		assertSame(button, item.getControl());
 		// presentation "folder"
 		{
 			IObjectPresentation presentation = folder.getPresentation();
-			assertThat(presentation.getChildrenTree()).containsExactly(item);
-			assertThat(presentation.getChildrenGraphical()).containsExactly(item, button);
+			Assertions.assertThat(presentation.getChildrenTree()).containsExactly(item);
+			Assertions.assertThat(presentation.getChildrenGraphical()).containsExactly(item, button);
 		}
 		// presentation "item"
 		{
 			IObjectPresentation presentation = item.getPresentation();
-			assertThat(presentation.getChildrenTree()).containsExactly(button);
-			assertThat(presentation.getChildrenGraphical()).isEmpty();
+			Assertions.assertThat(presentation.getChildrenTree()).containsExactly(button);
+			Assertions.assertThat(presentation.getChildrenGraphical()).isEmpty();
 		}
 		// bounds
 		{
@@ -138,7 +138,7 @@ public class CTabFolderTest extends XwtModelTest {
 		ControlInfo button_1 = getObjectByName("button_1");
 		ControlInfo button_2 = getObjectByName("button_2");
 		// hierarchy
-		assertThat(folder.getItems()).containsExactly(item_1, item_2);
+		Assertions.assertThat(folder.getItems()).containsExactly(item_1, item_2);
 		assertSame(button_1, item_1.getControl());
 		assertSame(button_2, item_2.getControl());
 		// presentation
@@ -146,11 +146,11 @@ public class CTabFolderTest extends XwtModelTest {
 			IObjectPresentation presentation = folder.getPresentation();
 			{
 				List<ObjectInfo> children = presentation.getChildrenTree();
-				assertThat(children).containsExactly(item_1, item_2);
+				Assertions.assertThat(children).containsExactly(item_1, item_2);
 			}
 			{
 				List<ObjectInfo> children = presentation.getChildrenGraphical();
-				assertThat(children).containsExactly(item_1, item_2, button_1);
+				Assertions.assertThat(children).containsExactly(item_1, item_2, button_1);
 			}
 		}
 		// bounds

@@ -42,7 +42,7 @@ import org.eclipse.jdt.core.dom.Expression;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Shell;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 import java.util.Locale;
@@ -133,7 +133,7 @@ public class NlsSupportTest extends SwingModelTest {
 		AbstractSource source;
 		{
 			AbstractSource[] sources = nlsSupport.getSources();
-			assertThat(sources).hasSize(1);
+			Assertions.assertThat(sources).hasSize(1);
 			source = sources[0];
 		}
 		//
@@ -271,7 +271,7 @@ public class NlsSupportTest extends SwingModelTest {
 	public void test_NLSSource_getLocales() throws Exception {
 		prepareUsualState();
 		LocaleInfo[] locales = m_support.getLocales();
-		assertThat(locales).hasSize(2);
+		Assertions.assertThat(locales).hasSize(2);
 		assertEquals("(default)", locales[0].getTitle());
 		assertEquals("it", locales[1].getTitle());
 	}
@@ -293,7 +293,7 @@ public class NlsSupportTest extends SwingModelTest {
 							return from.toString();
 						}
 					});
-			assertThat(localeNames).hasSize(4).containsOnly("(default)", "it", "de", "ru_RU");
+			Assertions.assertThat(localeNames).hasSize(4).containsOnly("(default)", "it", "de", "ru_RU");
 		} finally {
 			preferencesRepairer.restore();
 		}
@@ -366,7 +366,7 @@ public class NlsSupportTest extends SwingModelTest {
 		IEditableSupport editableSupport = support.getEditable();
 		// check that we have (possible) editable source
 		List<IEditableSource> editableSources = editableSupport.getEditableSources();
-		assertThat(editableSources).hasSize(1);
+		Assertions.assertThat(editableSources).hasSize(1);
 		IEditableSource editableSource = editableSources.get(0);
 		// not attached, so to source
 		{
@@ -611,8 +611,8 @@ public class NlsSupportTest extends SwingModelTest {
 			ComponentInfo button = createComponent("test.MyButton");
 			Image image = button.getImage();
 			assertNotNull(image);
-			assertThat(image.getBounds().width).isGreaterThan(40);
-			assertThat(image.getBounds().height).isGreaterThan(20);
+			Assertions.assertThat(image.getBounds().width).isGreaterThan(40);
+			Assertions.assertThat(image.getBounds().height).isGreaterThan(20);
 		}
 		// check that NLS state is not changed
 		{

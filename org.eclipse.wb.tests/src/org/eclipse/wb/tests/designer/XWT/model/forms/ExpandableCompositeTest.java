@@ -16,7 +16,7 @@ import org.eclipse.wb.internal.xwt.model.widgets.AbstractPositionInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.ControlInfo;
 import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -109,7 +109,7 @@ public class ExpandableCompositeTest extends XwtModelTest {
 						"<ExpandableComposite/>");
 		// no "real" Control's, but in "tree" we have position placeholder children
 		List<ObjectInfo> children = composite.getPresentation().getChildrenTree();
-		assertThat(children).hasSize(2);
+		Assertions.assertThat(children).hasSize(2);
 		assertEquals("textClient", ObjectInfo.getText(children.get(0)));
 		assertEquals("client", ObjectInfo.getText(children.get(1)));
 	}

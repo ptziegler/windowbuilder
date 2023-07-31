@@ -40,7 +40,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Shell;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.Collections;
 import java.util.List;
@@ -272,10 +272,10 @@ public class EditableSupportTest extends AbstractNlsTest {
 		}
 		// add key
 		editableSource.addKey("newKey", "newValue");
-		assertThat(editableSource.getKeys()).contains("newKey");
+		Assertions.assertThat(editableSource.getKeys()).contains("newKey");
 		{
 			LocaleInfo[] locales = editableSource.getLocales();
-			assertThat(locales).hasSize(2);
+			Assertions.assertThat(locales).hasSize(2);
 			assertEquals("newValue", editableSource.getValue(locales[0], "newKey"));
 			assertEquals("newValue", editableSource.getValue(locales[1], "newKey"));
 		}
@@ -285,15 +285,15 @@ public class EditableSupportTest extends AbstractNlsTest {
 		// checks
 		{
 			String accessor = getFileContentSrc("test/Messages.java");
-			assertThat(accessor).contains("public static String newKey;");
+			Assertions.assertThat(accessor).contains("public static String newKey;");
 		}
 		{
 			String newProperties = getFileContentSrc("test/messages.properties");
-			assertThat(newProperties).contains("newKey=newValue");
+			Assertions.assertThat(newProperties).contains("newKey=newValue");
 		}
 		{
 			String newProperties = getFileContentSrc("test/messages_it.properties");
-			assertThat(newProperties).contains("newKey=newValue");
+			Assertions.assertThat(newProperties).contains("newKey=newValue");
 		}
 	}
 

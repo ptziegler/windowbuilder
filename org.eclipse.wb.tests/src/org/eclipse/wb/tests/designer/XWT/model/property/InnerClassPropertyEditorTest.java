@@ -27,7 +27,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IEditorPart;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link InnerClassPropertyEditor}.
@@ -184,7 +184,7 @@ public class InnerClassPropertyEditorTest extends XwtModelTest {
 		{
 			IType type = m_javaProject.findType("test.ContentProvider_1");
 			assertNotNull(type);
-			assertThat(type.getSource()).contains("public class");
+			Assertions.assertThat(type.getSource()).contains("public class");
 		}
 		// ...and opened
 		{
@@ -235,7 +235,7 @@ public class InnerClassPropertyEditorTest extends XwtModelTest {
 		{
 			IType type = m_javaProject.findType("test.ViewerColumnCellLabelProvider_1");
 			assertNotNull(type);
-			assertThat(type.getSource()).contains("public class");
+			Assertions.assertThat(type.getSource()).contains("public class");
 		}
 		// ...and opened
 		{

@@ -32,7 +32,7 @@ import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -86,8 +86,8 @@ public class ColorPropertyEditorTest extends XwtModelTest {
 			names.add(colorInfo.getName());
 			datas.add(colorInfo.getName());
 		}
-		assertThat(names).contains("COLOR_RED", "COLOR_BLUE");
-		assertThat(datas).contains("COLOR_RED", "COLOR_BLUE");
+		Assertions.assertThat(names).contains("COLOR_RED", "COLOR_BLUE");
+		Assertions.assertThat(datas).contains("COLOR_RED", "COLOR_BLUE");
 		// cached
 		assertSame(colors, ColorSupport.getSystemColors());
 	}
@@ -104,8 +104,8 @@ public class ColorPropertyEditorTest extends XwtModelTest {
 			names.add(colorInfo.getName());
 			datas.add(colorInfo.getData());
 		}
-		assertThat(names).contains("Aqua", "SkyBlue");
-		assertThat(datas).contains("Aqua", "SkyBlue");
+		Assertions.assertThat(names).contains("Aqua", "SkyBlue");
+		Assertions.assertThat(datas).contains("Aqua", "SkyBlue");
 		// cached
 		assertSame(colors, ColorSupport.getNamedColors());
 	}

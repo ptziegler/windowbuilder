@@ -42,7 +42,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -133,11 +133,11 @@ public class GridLayoutTest extends RcpModelTest {
 		IObjectPresentation presentation = shell.getPresentation();
 		{
 			List<ObjectInfo> presentationChildren = presentation.getChildrenTree();
-			assertThat(presentationChildren).contains(button).doesNotContain(filler);
+			Assertions.assertThat(presentationChildren).contains(button).doesNotContain(filler);
 		}
 		{
 			List<ObjectInfo> presentationChildren = presentation.getChildrenGraphical();
-			assertThat(presentationChildren).contains(button).doesNotContain(filler);
+			Assertions.assertThat(presentationChildren).contains(button).doesNotContain(filler);
 		}
 	}
 
@@ -177,7 +177,7 @@ public class GridLayoutTest extends RcpModelTest {
 		IObjectPresentation presentation = shell.getPresentation();
 		{
 			List<ObjectInfo> presentationChildren = presentation.getChildrenTree();
-			assertThat(presentationChildren).contains(label);
+			Assertions.assertThat(presentationChildren).contains(label);
 		}
 	}
 
@@ -199,11 +199,11 @@ public class GridLayoutTest extends RcpModelTest {
 		IObjectPresentation presentation = shell.getPresentation();
 		{
 			List<ObjectInfo> presentationChildren = presentation.getChildrenTree();
-			assertThat(presentationChildren).contains(label);
+			Assertions.assertThat(presentationChildren).contains(label);
 		}
 		{
 			List<ObjectInfo> presentationChildren = presentation.getChildrenGraphical();
-			assertThat(presentationChildren).contains(label);
+			Assertions.assertThat(presentationChildren).contains(label);
 		}
 	}
 
@@ -222,11 +222,11 @@ public class GridLayoutTest extends RcpModelTest {
 		IObjectPresentation presentation = shell.getPresentation();
 		{
 			List<ObjectInfo> presentationChildren = presentation.getChildrenTree();
-			assertThat(presentationChildren).doesNotContain(label);
+			Assertions.assertThat(presentationChildren).doesNotContain(label);
 		}
 		{
 			List<ObjectInfo> presentationChildren = presentation.getChildrenGraphical();
-			assertThat(presentationChildren).doesNotContain(label);
+			Assertions.assertThat(presentationChildren).doesNotContain(label);
 		}
 	}
 
@@ -2027,7 +2027,7 @@ public class GridLayoutTest extends RcpModelTest {
 				"}");
 		// prepare all Control's
 		List<ControlInfo> controls = shell.getChildrenControls();
-		assertThat(controls).hasSize(4);
+		Assertions.assertThat(controls).hasSize(4);
 		// delete "button_01"
 		ControlInfo button_01 = controls.get(2);
 		button_01.delete();
@@ -2857,10 +2857,10 @@ public class GridLayoutTest extends RcpModelTest {
 		GridLayoutInfo layout = (GridLayoutInfo) shell.getLayout();
 		ControlInfo button = shell.getChildrenControls().get(0);
 		// initially "button" is managed
-		assertThat(layout.getControls()).containsOnly(button);
+		Assertions.assertThat(layout.getControls()).containsOnly(button);
 		// exclude "button"
 		GridLayoutInfo.getGridData(button).getPropertyByTitle("exclude").setValue(true);
-		assertThat(layout.getControls()).isEmpty();
+		Assertions.assertThat(layout.getControls()).isEmpty();
 		assertEditor(
 				"class Test extends Shell {",
 				"  Test() {",

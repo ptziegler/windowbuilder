@@ -16,9 +16,8 @@ import org.eclipse.wb.internal.core.utils.xml.parser.QHandlerAdapter;
 import org.eclipse.wb.internal.core.utils.xml.parser.QParser;
 import org.eclipse.wb.tests.designer.core.AbstractJavaProjectTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.StringUtils;
+import org.assertj.core.api.Assertions;
 
 import java.io.StringReader;
 import java.text.MessageFormat;
@@ -178,7 +177,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 		try {
 			parseSource("");
 		} catch (QException e) {
-			assertThat(e.getMessage()).contains("missing end tag");
+			Assertions.assertThat(e.getMessage()).contains("missing end tag");
 		}
 	}
 
@@ -186,7 +185,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 		try {
 			parseSource("");
 		} catch (QException e) {
-			assertThat(e.getMessage()).contains("line 1").contains("column 0");
+			Assertions.assertThat(e.getMessage()).contains("line 1").contains("column 0");
 		}
 	}
 
@@ -194,7 +193,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 		try {
 			parseSource("\n");
 		} catch (QException e) {
-			assertThat(e.getMessage()).contains("line 2").contains("column 0");
+			Assertions.assertThat(e.getMessage()).contains("line 2").contains("column 0");
 		}
 	}
 
@@ -202,7 +201,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 		try {
 			parseSource("\r");
 		} catch (QException e) {
-			assertThat(e.getMessage()).contains("line 2").contains("column 0");
+			Assertions.assertThat(e.getMessage()).contains("line 2").contains("column 0");
 		}
 	}
 
@@ -210,7 +209,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 		try {
 			parseSource("\r\n");
 		} catch (QException e) {
-			assertThat(e.getMessage()).contains("line 2").contains("column 0");
+			Assertions.assertThat(e.getMessage()).contains("line 2").contains("column 0");
 		}
 	}
 
@@ -218,7 +217,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 		try {
 			parseSource("\r \n");
 		} catch (QException e) {
-			assertThat(e.getMessage()).contains("line 3").contains("column 0");
+			Assertions.assertThat(e.getMessage()).contains("line 3").contains("column 0");
 		}
 	}
 
@@ -226,7 +225,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 		try {
 			parseSource("123");
 		} catch (QException e) {
-			assertThat(e.getMessage()).contains("line 1").contains("column 3");
+			Assertions.assertThat(e.getMessage()).contains("line 1").contains("column 3");
 		}
 	}
 
@@ -234,7 +233,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 		try {
 			parseSource("<root/foo");
 		} catch (QException e) {
-			assertThat(e.getMessage()).isEqualTo("Expected > for tag: <root/> near line 1, column 7");
+			Assertions.assertThat(e.getMessage()).isEqualTo("Expected > for tag: <root/> near line 1, column 7");
 		}
 	}
 
@@ -394,7 +393,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 		try {
 			parseSource("<root foo invalid=/>");
 		} catch (QException e) {
-			assertThat(e.getMessage()).isEqualTo("Error in attribute processing near line 1, column 11");
+			Assertions.assertThat(e.getMessage()).isEqualTo("Error in attribute processing near line 1, column 11");
 		}
 	}
 
@@ -402,7 +401,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 		try {
 			parseSource("<root foo=invalid/>");
 		} catch (QException e) {
-			assertThat(e.getMessage()).isEqualTo("Error in attribute processing near line 1, column 11");
+			Assertions.assertThat(e.getMessage()).isEqualTo("Error in attribute processing near line 1, column 11");
 		}
 	}
 

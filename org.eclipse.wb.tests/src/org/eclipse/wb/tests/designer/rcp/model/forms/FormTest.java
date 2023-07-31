@@ -29,7 +29,7 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -92,13 +92,13 @@ public class FormTest extends AbstractFormsTest {
 		{
 			CompositeInfo head = (CompositeInfo) childrenControls.get(0);
 			assertSame(head, form.getHead());
-			assertThat(head.toString()).contains("getHead()");
+			Assertions.assertThat(head.toString()).contains("getHead()");
 			assertFalse(head.hasLayout());
 		}
 		{
 			CompositeInfo body = (CompositeInfo) childrenControls.get(1);
 			assertSame(body, form.getBody());
-			assertThat(body.toString()).contains("getBody()");
+			Assertions.assertThat(body.toString()).contains("getBody()");
 			assertTrue(body.hasLayout());
 		}
 	}
@@ -287,7 +287,7 @@ public class FormTest extends AbstractFormsTest {
 		{
 			assertNotNull(form.getToolBarManager());
 			Rectangle bounds = form.getToolBarManager().getBounds();
-			assertThat(bounds.width).isLessThan(100);
+			Assertions.assertThat(bounds.width).isLessThan(100);
 		}
 	}
 
@@ -313,8 +313,8 @@ public class FormTest extends AbstractFormsTest {
 			IMenuPopupInfo popupInfo = form.getMenuImpl(menuManager);
 			assertSame(menuManager, popupInfo.getModel());
 			Rectangle bounds = popupInfo.getBounds();
-			assertThat(bounds.width).isGreaterThan(10);
-			assertThat(bounds.height).isGreaterThan(10);
+			Assertions.assertThat(bounds.width).isGreaterThan(10);
+			Assertions.assertThat(bounds.height).isGreaterThan(10);
 		}
 	}
 

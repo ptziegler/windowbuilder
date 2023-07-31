@@ -26,7 +26,7 @@ import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
 
 import org.eclipse.swt.SWT;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -77,7 +77,7 @@ public class MenuItemTest extends XwtModelTest {
 		MenuInfo subMenu = getObjectByName("subMenu");
 		// check items
 		List<MenuItemInfo> items = menuBar.getItems();
-		assertThat(items).containsExactly(item_1, item_2);
+		Assertions.assertThat(items).containsExactly(item_1, item_2);
 		// "item_1" has no subMenu
 		assertSame(null, item_1.getSubMenu());
 		// "item_2" has subMenu

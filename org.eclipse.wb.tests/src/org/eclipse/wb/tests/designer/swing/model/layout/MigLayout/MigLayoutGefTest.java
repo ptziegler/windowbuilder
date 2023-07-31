@@ -24,7 +24,7 @@ import org.eclipse.wb.tests.gef.GraphicalRobot;
 
 import net.miginfocom.swing.MigLayout;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.awt.GridBagLayout;
 import java.util.List;
@@ -128,7 +128,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 		canvas.moveTo(panel, 0.5, 0.5).click();
 		// no exceptions
 		String source = m_lastEditor.getSource();
-		assertThat(source).contains("new MigLayout(");
+		Assertions.assertThat(source).contains("new MigLayout(");
 	}
 
 	////////////////////////////////////////////////////////////////////////////

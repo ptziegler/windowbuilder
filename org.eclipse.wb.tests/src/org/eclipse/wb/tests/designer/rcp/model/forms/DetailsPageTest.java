@@ -15,7 +15,7 @@ import org.eclipse.wb.internal.rcp.model.forms.DetailsPageInfo;
 import org.eclipse.ui.forms.IDetailsPage;
 import org.eclipse.ui.forms.IManagedForm;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link DetailsPageInfo}.
@@ -63,8 +63,8 @@ public class DetailsPageTest extends AbstractFormsTest {
 		// refresh
 		page.refresh();
 		assertNoErrors(page);
-		assertThat(page.getBounds().width).isEqualTo(600);
-		assertThat(page.getBounds().height).isEqualTo(500);
+		Assertions.assertThat(page.getBounds().width).isEqualTo(600);
+		Assertions.assertThat(page.getBounds().height).isEqualTo(500);
 		// Set new size.
 		// This test intentionally commented.
 		// ScrolledForm performs re-flow in async, so requires running messages loop,
@@ -72,8 +72,8 @@ public class DetailsPageTest extends AbstractFormsTest {
 		/*{
     	page.getTopBoundsSupport().setSize(450, 300);
     	page.refresh();
-    	assertThat(page.getBounds().width).isEqualTo(450);
-    	assertThat(page.getBounds().height).isEqualTo(300);
+    	Assertions.assertThat(page.getBounds().width).isEqualTo(450);
+    	Assertions.assertThat(page.getBounds().height).isEqualTo(300);
     }*/
 	}
 

@@ -31,9 +31,8 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.dom.StringLiteral;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.StringUtils;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -198,7 +197,7 @@ public class SourceEclipseModernTest extends AbstractNlsTest {
 		assertEditor(frameSource, m_lastEditor);
 		{
 			String accessor = getFileContentSrc("test/Messages.java");
-			assertThat(accessor).contains("public static String newKey;");
+			Assertions.assertThat(accessor).contains("public static String newKey;");
 		}
 	}
 

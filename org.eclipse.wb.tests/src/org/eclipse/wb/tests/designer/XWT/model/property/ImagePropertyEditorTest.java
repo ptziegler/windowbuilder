@@ -24,7 +24,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link ImagePropertyEditor}.
@@ -133,7 +133,7 @@ public class ImagePropertyEditorTest extends XwtModelTest {
 				{
 					TreeItem treeItem = context.getTreeItem("testImage.png");
 					assertNotNull(treeItem);
-					assertThat(treeItem.getParent().getSelection()).containsOnly(treeItem);
+					Assertions.assertThat(treeItem.getParent().getSelection()).containsOnly(treeItem);
 				}
 				// select "Default image"
 				{

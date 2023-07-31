@@ -36,7 +36,7 @@ import org.eclipse.wb.internal.swing.model.layout.GridLayoutInfo;
 import org.eclipse.wb.internal.swing.model.layout.LayoutInfo;
 import org.eclipse.wb.tests.designer.swing.SwingTestUtils;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -127,7 +127,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 						"}");
 		LayoutInfo layout = panel.getLayout();
 		ComponentInfo button = getJavaInfoByName("button");
-		assertThat(layout.getComponents()).containsExactly(button);
+		Assertions.assertThat(layout.getComponents()).containsExactly(button);
 	}
 
 	/**
@@ -153,9 +153,9 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 		assertFalse(oldLayout.isActive());
 		assertTrue(newLayout.isActive());
 		// "oldLayout" does not manage
-		assertThat(oldLayout.getComponents()).isEmpty();
+		Assertions.assertThat(oldLayout.getComponents()).isEmpty();
 		// "newLayout" manages
-		assertThat(newLayout.getComponents()).containsExactly(button);
+		Assertions.assertThat(newLayout.getComponents()).containsExactly(button);
 	}
 
 	////////////////////////////////////////////////////////////////////////////

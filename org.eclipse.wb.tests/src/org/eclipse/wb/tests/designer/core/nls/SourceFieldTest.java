@@ -29,7 +29,7 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.dom.StringLiteral;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -194,7 +194,7 @@ public class SourceFieldTest extends AbstractNlsTest {
 		// check that we have FieldSource
 		{
 			AbstractSource[] sources = support.getSources();
-			assertThat(sources).hasSize(1);
+			Assertions.assertThat(sources).hasSize(1);
 			FieldSource source = (FieldSource) sources[0];
 			assertNotNull(source);
 		}

@@ -18,7 +18,7 @@ import org.eclipse.wb.internal.core.utils.exception.ICoreExceptionConstants;
 import org.eclipse.wb.os.OSSupportError;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link CoreExceptionRewriter}.
@@ -57,7 +57,7 @@ public class CoreExceptionRewriterTest extends DesignerTestCase {
 			DesignerException rewritten =
 					(DesignerException) CoreExceptionRewriter2.INSTANCE.rewrite(wrapper);
 			assertEquals(ICoreExceptionConstants.EVAL_ANONYMOUS, rewritten.getCode());
-			assertThat(rewritten.getParameters()).isEqualTo(new String[]{"msg"});
+			Assertions.assertThat(rewritten.getParameters()).isEqualTo(new String[]{"msg"});
 		}
 	}
 

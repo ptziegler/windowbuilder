@@ -35,7 +35,7 @@ import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Tests for {@link SwtLiveManager}, style access.
@@ -249,7 +249,7 @@ public class LiveComponentsManagerTest extends RcpModelTest {
 			public void logging(IStatus status, String plugin) {
 				assertEquals(IStatus.ERROR, status.getSeverity());
 				Throwable exception = status.getException();
-				assertThat(exception).isExactlyInstanceOf(IllegalStateException.class);
+				Assertions.assertThat(exception).isExactlyInstanceOf(IllegalStateException.class);
 				assertEquals("Problem in getClientArea()", exception.getMessage());
 			}
 		};
@@ -263,8 +263,8 @@ public class LiveComponentsManagerTest extends RcpModelTest {
 			{
 				Image image = newComponent.getImage();
 				assertNotNull(image);
-				assertThat(image.getBounds().width).isEqualTo(200);
-				assertThat(image.getBounds().height).isEqualTo(50);
+				Assertions.assertThat(image.getBounds().width).isEqualTo(200);
+				Assertions.assertThat(image.getBounds().height).isEqualTo(50);
 			}
 		} finally {
 			log.removeLogListener(logListener);
@@ -293,8 +293,8 @@ public class LiveComponentsManagerTest extends RcpModelTest {
 		// get "live" image, from memento
 		{
 			Image image = pasteButton.getImage();
-			assertThat(image.getBounds().width).isEqualTo(200);
-			assertThat(image.getBounds().height).isEqualTo(100);
+			Assertions.assertThat(image.getBounds().width).isEqualTo(200);
+			Assertions.assertThat(image.getBounds().height).isEqualTo(100);
 		}
 	}
 
@@ -539,7 +539,7 @@ public class LiveComponentsManagerTest extends RcpModelTest {
 		ControlInfo newButton = BTestUtils.createButton();
 		// get baseline
 		int liveBaseline = newButton.getBaseline();
-		assertThat(liveBaseline).isNotEqualTo(IBaselineSupport.NO_BASELINE).isPositive();
+		Assertions.assertThat(liveBaseline).isNotEqualTo(IBaselineSupport.NO_BASELINE).isPositive();
 		// drop Button
 		((RowLayoutInfo) shell.getLayout()).command_CREATE(newButton, null);
 		assertEditor(
@@ -553,6 +553,6 @@ public class LiveComponentsManagerTest extends RcpModelTest {
 				"}");
 		// same baseline as "live"
 		int baseline = newButton.getBaseline();
-		assertThat(baseline).isEqualTo(liveBaseline);
+		Assertions.assertThat(baseline).isEqualTo(liveBaseline);
 	}
 }

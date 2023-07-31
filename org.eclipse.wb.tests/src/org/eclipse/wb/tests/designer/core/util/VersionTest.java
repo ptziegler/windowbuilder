@@ -13,7 +13,7 @@ package org.eclipse.wb.tests.designer.core.util;
 import org.eclipse.wb.internal.core.utils.Version;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link Version}.
@@ -97,8 +97,8 @@ public class VersionTest extends DesignerTestCase {
 		final Version version_1 = new Version(3, 5);
 		final Version version_2 = new Version(3, 5);
 		final Version version_3 = new Version(3, 6);
-		assertThat(version_1.hashCode()).isEqualTo(version_2.hashCode());
-		assertThat(version_1.hashCode()).isNotEqualTo(version_3.hashCode());
+		Assertions.assertThat(version_1.hashCode()).isEqualTo(version_2.hashCode());
+		Assertions.assertThat(version_1.hashCode()).isNotEqualTo(version_3.hashCode());
 	}
 
 	////////////////////////////////////////////////////////////////////////////

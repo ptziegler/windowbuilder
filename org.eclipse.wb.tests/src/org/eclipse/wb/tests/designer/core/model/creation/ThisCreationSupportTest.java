@@ -33,7 +33,7 @@ import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -194,7 +194,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 				"}");
 		// no problem with properties
 		panel.getProperties();
-		assertThat(panel.getAssociation()).isInstanceOf(RootAssociation.class);
+		Assertions.assertThat(panel.getAssociation()).isInstanceOf(RootAssociation.class);
 	}
 
 	public void test_delete_hasExposedComponent() throws Exception {
@@ -227,7 +227,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 				"}");
 		// no problem with properties
 		frame.getProperties();
-		assertThat(frame.getAssociation()).isInstanceOf(RootAssociation.class);
+		Assertions.assertThat(frame.getAssociation()).isInstanceOf(RootAssociation.class);
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -274,9 +274,9 @@ public class ThisCreationSupportTest extends SwingModelTest {
 		// check "enabled"
 		GenericProperty enabledProperty = (GenericProperty) panel.getPropertyByTitle("enabled");
 		List<ExpressionAccessor> accessors = getGenericPropertyAccessors(enabledProperty);
-		assertThat(accessors).hasSize(2);
-		assertThat(accessors.get(0)).isInstanceOf(SetterAccessor.class);
-		assertThat(accessors.get(1)).isInstanceOf(SuperConstructorAccessor.class);
+		Assertions.assertThat(accessors).hasSize(2);
+		Assertions.assertThat(accessors.get(0)).isInstanceOf(SetterAccessor.class);
+		Assertions.assertThat(accessors.get(1)).isInstanceOf(SuperConstructorAccessor.class);
 		// change "enabled"
 		enabledProperty.setValue(true);
 		assertEditor(
@@ -387,7 +387,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 		refresh();
 		// check "varArgs" value
 		String[] names = (String[]) ReflectionUtils.getFieldObject(panel.getObject(), "names");
-		assertThat(names).isEqualTo(new String[]{"a", "b", "c"});
+		Assertions.assertThat(names).isEqualTo(new String[]{"a", "b", "c"});
 	}
 
 	/**
@@ -416,7 +416,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 		refresh();
 		// check "varArgs" value
 		String[] names = (String[]) ReflectionUtils.getFieldObject(panel.getObject(), "names");
-		assertThat(names).isEqualTo(new String[]{"a", "b", "c"});
+		Assertions.assertThat(names).isEqualTo(new String[]{"a", "b", "c"});
 	}
 
 	/**

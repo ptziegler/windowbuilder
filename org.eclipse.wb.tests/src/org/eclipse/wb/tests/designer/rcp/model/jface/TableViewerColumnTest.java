@@ -40,10 +40,10 @@ import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.widgets.Table;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+import org.assertj.core.api.Assertions;
 import org.mockito.ArgumentCaptor;
 
 import java.util.List;
@@ -147,14 +147,14 @@ public class TableViewerColumnTest extends RcpModelTest {
 		TableColumnInfo column;
 		{
 			List<TableColumnInfo> tableColumns = table.getColumns();
-			assertThat(tableColumns).hasSize(1);
+			Assertions.assertThat(tableColumns).hasSize(1);
 			column = tableColumns.get(0);
 		}
 		// TableColumn should have TableViewerColumn
 		ViewerColumnInfo columnViewer;
 		{
 			List<JavaInfo> tableColumnChildren = column.getChildrenJava();
-			assertThat(tableColumnChildren).hasSize(1);
+			Assertions.assertThat(tableColumnChildren).hasSize(1);
 			columnViewer = (ViewerColumnInfo) tableColumnChildren.get(0);
 			// association
 			{
@@ -589,7 +589,7 @@ public class TableViewerColumnTest extends RcpModelTest {
 			//
 			verify(designerPageSite).openSourcePosition(positionCapture.capture());
 			// source
-			assertThat(m_lastEditor.getSource()).contains(
+			Assertions.assertThat(m_lastEditor.getSource()).contains(
 					"new TableViewerColumnSorter(tableViewerColumn) {");
 			// assert position
 			{

@@ -25,9 +25,8 @@ import org.eclipse.wb.internal.swing.model.property.editor.font.NullFontInfo;
 import org.eclipse.wb.internal.swing.model.property.editor.font.UiManagerFontInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.StringUtils;
+import org.assertj.core.api.Assertions;
 
 import java.awt.Font;
 
@@ -83,8 +82,8 @@ public class FontPropertyEditorTest extends SwingModelTest {
 			Font font = new Font("Arial", Font.PLAIN, 12);
 			ExplicitFontInfo fontInfo = new ExplicitFontInfo(font);
 			assertSame(font, fontInfo.getFont());
-			assertThat(fontInfo.getText()).matches("\\w+ 12");
-			assertThat(fontInfo.getSource()).matches("new java.awt.Font\\(\"\\w+\", java.awt.Font.PLAIN, 12\\)");
+			Assertions.assertThat(fontInfo.getText()).matches("\\w+ 12");
+			Assertions.assertThat(fontInfo.getSource()).matches("new java.awt.Font\\(\"\\w+\", java.awt.Font.PLAIN, 12\\)");
 			assertEquals(fontInfo.getSource(), fontInfo.getClipboardSource());
 		}
 		// BOLD
@@ -92,8 +91,8 @@ public class FontPropertyEditorTest extends SwingModelTest {
 			Font font = new Font("Arial", Font.BOLD, 12);
 			ExplicitFontInfo fontInfo = new ExplicitFontInfo(font);
 			assertSame(font, fontInfo.getFont());
-			assertThat(fontInfo.getText()).matches("\\w+ 12 Bold");
-			assertThat(fontInfo.getSource()).matches("new java.awt.Font\\(\"\\w+\", java.awt.Font.BOLD, 12\\)");
+			Assertions.assertThat(fontInfo.getText()).matches("\\w+ 12 Bold");
+			Assertions.assertThat(fontInfo.getSource()).matches("new java.awt.Font\\(\"\\w+\", java.awt.Font.BOLD, 12\\)");
 			assertEquals(fontInfo.getSource(), fontInfo.getClipboardSource());
 		}
 		// ITALIC
@@ -101,8 +100,8 @@ public class FontPropertyEditorTest extends SwingModelTest {
 			Font font = new Font("Arial", Font.ITALIC, 12);
 			ExplicitFontInfo fontInfo = new ExplicitFontInfo(font);
 			assertSame(font, fontInfo.getFont());
-			assertThat(fontInfo.getText()).matches("\\w+ 12 Italic");
-			assertThat(fontInfo.getSource()).matches("new java.awt.Font\\(\"\\w+\", java.awt.Font.ITALIC, 12\\)");
+			Assertions.assertThat(fontInfo.getText()).matches("\\w+ 12 Italic");
+			Assertions.assertThat(fontInfo.getSource()).matches("new java.awt.Font\\(\"\\w+\", java.awt.Font.ITALIC, 12\\)");
 			assertEquals(fontInfo.getSource(), fontInfo.getClipboardSource());
 		}
 		// BOLD + ITALIC
@@ -110,8 +109,8 @@ public class FontPropertyEditorTest extends SwingModelTest {
 			Font font = new Font("Arial", Font.BOLD | Font.ITALIC, 12);
 			ExplicitFontInfo fontInfo = new ExplicitFontInfo(font);
 			assertSame(font, fontInfo.getFont());
-			assertThat(fontInfo.getText()).matches("\\w+ 12 Bold Italic");
-			assertThat(fontInfo.getSource())
+			Assertions.assertThat(fontInfo.getText()).matches("\\w+ 12 Bold Italic");
+			Assertions.assertThat(fontInfo.getSource())
 			.matches("new java.awt.Font\\(\"\\w+\", java.awt.Font.BOLD \\| java.awt.Font.ITALIC, 12\\)");
 			assertEquals(fontInfo.getSource(), fontInfo.getClipboardSource());
 		}
@@ -125,8 +124,8 @@ public class FontPropertyEditorTest extends SwingModelTest {
 		UiManagerFontInfo fontInfo = new UiManagerFontInfo("key", font);
 		assertSame(font, fontInfo.getFont());
 		assertEquals("key", fontInfo.getKey());
-		assertThat(fontInfo.getValueText()).matches("\\w+ 12");
-		assertThat(fontInfo.getText()).matches("key, \\w+ 12");
+		Assertions.assertThat(fontInfo.getValueText()).matches("\\w+ 12");
+		Assertions.assertThat(fontInfo.getText()).matches("key, \\w+ 12");
 		assertEquals("javax.swing.UIManager.getFont(\"key\")", fontInfo.getSource());
 		assertEquals(fontInfo.getSource(), fontInfo.getClipboardSource());
 	}

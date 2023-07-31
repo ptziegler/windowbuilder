@@ -25,7 +25,7 @@ import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.StructuredSelection;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
@@ -219,7 +219,7 @@ public class GenericsUtilsTest extends DesignerTestCase {
 		// get String
 		{
 			List<String> stringList = GenericsUtils.<String>cast(objects);
-			assertThat(stringList).containsExactly("111", "222");
+			Assertions.assertThat(stringList).containsExactly("111", "222");
 		}
 	}
 
@@ -254,7 +254,7 @@ public class GenericsUtilsTest extends DesignerTestCase {
 	 * Test for {@link GenericsUtils#singletonList(Object)}.
 	 */
 	public void test_singletonList_1() throws Exception {
-		assertThat(GenericsUtils.singletonList(null)).isEmpty();
+		Assertions.assertThat(GenericsUtils.singletonList(null)).isEmpty();
 	}
 
 	/**
@@ -262,7 +262,7 @@ public class GenericsUtilsTest extends DesignerTestCase {
 	 */
 	public void test_singletonList_2() throws Exception {
 		String element = "theElement";
-		assertThat(GenericsUtils.singletonList(element)).containsExactly(element);
+		Assertions.assertThat(GenericsUtils.singletonList(element)).containsExactly(element);
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -412,7 +412,7 @@ public class GenericsUtilsTest extends DesignerTestCase {
 	 * Test for {@link GenericsUtils#getEnumStrings(Enum...)}.
 	 */
 	public void test_getEnumStrings() throws Exception {
-		assertThat(GenericsUtils.getEnumStrings(MyEnum.A, MyEnum.B)).isEqualTo(new String[]{"A", "B"});
+		Assertions.assertThat(GenericsUtils.getEnumStrings(MyEnum.A, MyEnum.B)).isEqualTo(new String[]{"A", "B"});
 	}
 
 	/**
@@ -431,7 +431,7 @@ public class GenericsUtilsTest extends DesignerTestCase {
 		{
 			MyEnum[] expectedValues = new MyEnum[]{MyEnum.A, MyEnum.B};
 			MyEnum[] actualValues = GenericsUtils.getEnumValues(MyEnum.class, "A", "B");
-			assertThat(actualValues).isEqualTo(expectedValues);
+			Assertions.assertThat(actualValues).isEqualTo(expectedValues);
 		}
 		// bad
 		try {
@@ -452,7 +452,7 @@ public class GenericsUtilsTest extends DesignerTestCase {
 				return t == MyEnum.B || t == MyEnum.C;
 			}
 		});
-		assertThat(actualValues).isEqualTo(expectedValues);
+		Assertions.assertThat(actualValues).isEqualTo(expectedValues);
 	}
 
 	////////////////////////////////////////////////////////////////////////////

@@ -19,7 +19,7 @@ import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
 
 import org.eclipse.draw2d.geometry.Rectangle;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -75,7 +75,7 @@ public class TableViewerTest extends XwtModelTest {
 		int aiTop = table.getClientAreaInsets().top;
 		// columns
 		List<TableViewerColumnInfo> columns = viewer.getColumns();
-		assertThat(columns).hasSize(2);
+		Assertions.assertThat(columns).hasSize(2);
 		{
 			TableViewerColumnInfo column = columns.get(0);
 			assertEquals(new Rectangle(0, 0, 50, COLUMN_HEIGHT), column.getModelBounds());

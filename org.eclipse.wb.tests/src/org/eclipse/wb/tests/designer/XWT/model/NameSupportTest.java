@@ -20,7 +20,7 @@ import org.eclipse.wb.internal.rcp.RcpToolkitDescription;
 import org.eclipse.wb.internal.xwt.model.util.NameSupport;
 import org.eclipse.wb.internal.xwt.model.widgets.ControlInfo;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -62,7 +62,7 @@ public class NameSupportTest extends XwtModelTest {
 		// remove namespace declaration
 		shell.setAttribute("xmlns:x", null);
 		// validate
-		assertThat(NameSupport.getName(button)).isNull();
+		Assertions.assertThat(NameSupport.getName(button)).isNull();
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class NameSupportTest extends XwtModelTest {
 		// has name
 		{
 			String name = NameSupport.getName(button);
-			assertThat(name).isEqualTo("button");
+			Assertions.assertThat(name).isEqualTo("button");
 		}
 		// ...and it is included into presentation text
 		{
@@ -115,7 +115,7 @@ public class NameSupportTest extends XwtModelTest {
 		}
 		// validate
 		String name = NameSupport.getName(button);
-		assertThat(name).isEqualTo("btn");
+		Assertions.assertThat(name).isEqualTo("btn");
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -165,7 +165,7 @@ public class NameSupportTest extends XwtModelTest {
 		//
 		{
 			String name = NameSupport.ensureName(button);
-			assertThat(name).isEqualTo("button");
+			Assertions.assertThat(name).isEqualTo("button");
 		}
 		assertXML(
 				"// filler filler filler filler filler",
@@ -195,8 +195,8 @@ public class NameSupportTest extends XwtModelTest {
 		}
 		// generate and validate
 		String name = NameSupport.ensureName(button);
-		assertThat(name).isEqualTo("button");
-		assertThat(m_lastContext.getContent()).contains("y:Name=\"button\"");
+		Assertions.assertThat(name).isEqualTo("button");
+		Assertions.assertThat(m_lastContext.getContent()).contains("y:Name=\"button\"");
 	}
 
 	/**
@@ -214,7 +214,7 @@ public class NameSupportTest extends XwtModelTest {
 		ControlInfo button = getObjectByName("button");
 		//
 		String name = NameSupport.ensureName(button);
-		assertThat(name).isEqualTo("button_1");
+		Assertions.assertThat(name).isEqualTo("button_1");
 		assertXML(
 				"// filler filler filler filler filler",
 				"// filler filler filler filler filler",
@@ -243,7 +243,7 @@ public class NameSupportTest extends XwtModelTest {
 		ControlInfo component = getObjectByName("myComponent");
 		//
 		String name = NameSupport.ensureName(component);
-		assertThat(name).isEqualTo("testName");
+		Assertions.assertThat(name).isEqualTo("testName");
 		assertXML(
 				"// filler filler filler filler filler",
 				"// filler filler filler filler filler",
@@ -275,7 +275,7 @@ public class NameSupportTest extends XwtModelTest {
 		ControlInfo button = getObjectByName("button");
 		//
 		String name = NameSupport.ensureName(button);
-		assertThat(name).isEqualTo("myButton");
+		Assertions.assertThat(name).isEqualTo("myButton");
 		assertXML(
 				"// filler filler filler filler filler",
 				"// filler filler filler filler filler",
@@ -301,7 +301,7 @@ public class NameSupportTest extends XwtModelTest {
 		ControlInfo button = getObjectByName("button");
 		//
 		String name = NameSupport.ensureName(button);
-		assertThat(name).isEqualTo("button");
+		Assertions.assertThat(name).isEqualTo("button");
 		assertXML(
 				"// filler filler filler filler filler",
 				"<Shell>",

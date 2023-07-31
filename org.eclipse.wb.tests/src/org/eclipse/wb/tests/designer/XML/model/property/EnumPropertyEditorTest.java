@@ -21,7 +21,7 @@ import org.eclipse.wb.internal.core.xml.model.property.editor.EnumPropertyEditor
 import org.eclipse.wb.tests.designer.XML.model.description.AbstractCoreTest;
 import org.eclipse.wb.tests.designer.tests.common.PropertyNoValue;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
@@ -74,7 +74,7 @@ public class EnumPropertyEditorTest extends AbstractCoreTest {
 							"getElements(org.eclipse.wb.internal.core.model.property.Property)",
 							property);
 			String[] enumStrings = GenericsUtils.getEnumStrings(enums);
-			assertThat(enumStrings).isEqualTo(new String[]{"A", "B", "C"});
+			Assertions.assertThat(enumStrings).isEqualTo(new String[]{"A", "B", "C"});
 		}
 	}
 
@@ -108,7 +108,7 @@ public class EnumPropertyEditorTest extends AbstractCoreTest {
 		// check items
 		{
 			List<String> items = getComboPropertyItems();
-			assertThat(items).containsExactly("A", "B", "C");
+			Assertions.assertThat(items).containsExactly("A", "B", "C");
 		}
 		// select current item
 		{
@@ -162,7 +162,7 @@ public class EnumPropertyEditorTest extends AbstractCoreTest {
 		// check items
 		{
 			List<String> items = getComboPropertyItems();
-			assertThat(items).containsExactly("A", "B", "C");
+			Assertions.assertThat(items).containsExactly("A", "B", "C");
 		}
 		// set non-default value
 		{

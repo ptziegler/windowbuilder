@@ -30,7 +30,7 @@ import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.GridLayout;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -78,7 +78,7 @@ public class FormLayoutTest extends XwtModelTest {
 		{
 			Property[] properties = layoutData.getProperties();
 			String[] propertyTitles = PropertyUtils.getTitles(properties);
-			assertThat(propertyTitles).contains("left", "right", "top", "bottom");
+			Assertions.assertThat(propertyTitles).contains("left", "right", "top", "bottom");
 		}
 	}
 
@@ -329,13 +329,13 @@ public class FormLayoutTest extends XwtModelTest {
 		shell.refresh();
 		// tests
 		List<ControlInfo> childrenControls = shell.getChildrenControls();
-		assertThat(childrenControls).hasSize(2);
+		Assertions.assertThat(childrenControls).hasSize(2);
 		ControlInfo button1 = childrenControls.get(0);
 		ControlInfo button2 = childrenControls.get(1);
 		FormDataInfo layoutData = (FormDataInfo) LayoutInfo.getLayoutData(button2);
 		FormAttachmentInfo leftAttachment = layoutData.getAttachment(IPositionConstants.LEFT);
-		assertThat(leftAttachment).isNotNull();
-		assertThat(leftAttachment.getControl()).isSameAs(button1);
+		Assertions.assertThat(leftAttachment).isNotNull();
+		Assertions.assertThat(leftAttachment.getControl()).isSameAs(button1);
 	}
 
 	////////////////////////////////////////////////////////////////////////////

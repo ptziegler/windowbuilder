@@ -35,7 +35,7 @@ import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.ParenthesizedExpression;
 import org.eclipse.jdt.core.dom.Statement;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.awt.Container;
 
@@ -67,7 +67,7 @@ public class EmptyTest extends AbstractVariableTest {
 						"    add(new JButton('button'));",
 						"  }",
 						"}");
-		assertThat(panel.getChildrenComponents()).hasSize(1);
+		Assertions.assertThat(panel.getChildrenComponents()).hasSize(1);
 		//
 		JavaInfo button = panel.getChildrenComponents().get(0);
 		EmptyVariableSupport variableSupport = (EmptyVariableSupport) button.getVariableSupport();

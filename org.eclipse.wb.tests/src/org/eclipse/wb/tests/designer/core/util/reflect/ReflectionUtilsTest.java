@@ -25,9 +25,8 @@ import net.bytebuddy.implementation.FixedValue;
 import net.bytebuddy.implementation.SuperMethodCall;
 import net.bytebuddy.matcher.ElementMatchers;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.SystemUtils;
+import org.assertj.core.api.Assertions;
 
 import java.awt.Component;
 import java.beans.BeanInfo;
@@ -511,7 +510,7 @@ public class ReflectionUtilsTest extends DesignerTestCase {
 			}
 		}
 		Map<String, Method> methods = ReflectionUtils.getMethods(Bar.class);
-		assertThat(methods.values()).contains(
+		Assertions.assertThat(methods.values()).contains(
 				Foo.class.getDeclaredMethod("a"),
 				Foo.class.getDeclaredMethod("b"),
 				Foo.class.getDeclaredMethod("c"),
@@ -528,7 +527,7 @@ public class ReflectionUtilsTest extends DesignerTestCase {
 		abstract class Foo implements Collection<Object> {
 		}
 		Map<String, Method> methods = ReflectionUtils.getMethods(Foo.class);
-		assertThat(methods.values()).contains(Collection.class.getDeclaredMethod("size"));
+		Assertions.assertThat(methods.values()).contains(Collection.class.getDeclaredMethod("size"));
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -802,7 +801,7 @@ public class ReflectionUtilsTest extends DesignerTestCase {
 					.make() //
 					.load(getClass().getClassLoader()) //
 					.getLoaded();
-			assertThat(clazz.getName()).contains("$");
+			Assertions.assertThat(clazz.getName()).contains("$");
 			assertSame(ArrayList.class, ReflectionUtils.getNormalClass(clazz));
 		}
 	}
@@ -833,14 +832,14 @@ public class ReflectionUtilsTest extends DesignerTestCase {
 			// method "size()" was done by ByteBuddy, but exists in ArrayList, so method from ArrayList returned
 			{
 				Method method = ReflectionUtils.getMethodBySignature(clazz, "size()");
-				assertThat(method.toString()).contains("$");
+				Assertions.assertThat(method.toString()).contains("$");
 				assertEquals("public int java.util.ArrayList.size()", ReflectionUtils.toString(method));
 			}
 			// method "__foo__" was generated only in ByteBuddy, so no other method to return
 			{
 				Method method = ReflectionUtils.getMethodBySignature(clazz, "__foo__()");
 				String usualToString = method.toString();
-				assertThat(usualToString).contains("$");
+				Assertions.assertThat(usualToString).contains("$");
 				assertEquals(usualToString, ReflectionUtils.toString(method));
 			}
 		}
@@ -1004,7 +1003,7 @@ public class ReflectionUtilsTest extends DesignerTestCase {
 			ReflectionUtils.invokeMethodEx(new Foo(), "throwException()");
 			fail();
 		} catch (Exception e) {
-			assertThat(e).isExactlyInstanceOf(Exception.class);
+			Assertions.assertThat(e).isExactlyInstanceOf(Exception.class);
 			assertEquals("Bar", e.getMessage());
 		}
 	}
@@ -1187,13 +1186,13 @@ public class ReflectionUtilsTest extends DesignerTestCase {
 		// check that longer constructor is before shorter
 		{
 			Constructor<?>[] constructors = clazz.getDeclaredConstructors();
-			assertThat(constructors[0].getParameterTypes()).hasSize(2);
-			assertThat(constructors[1].getParameterTypes()).hasSize(1);
+			Assertions.assertThat(constructors[0].getParameterTypes()).hasSize(2);
+			Assertions.assertThat(constructors[1].getParameterTypes()).hasSize(1);
 		}
 		// do test
 		{
 			Constructor<?> constructor = ReflectionUtils.getShortestConstructor(clazz);
-			assertThat(constructor.getParameterTypes()).hasSize(1);
+			Assertions.assertThat(constructor.getParameterTypes()).hasSize(1);
 		}
 	}
 
@@ -1218,7 +1217,7 @@ public class ReflectionUtilsTest extends DesignerTestCase {
 			public int e;
 		}
 		List<Field> fields = ReflectionUtils.getFields(Bar.class);
-		assertThat(fields).contains(
+		Assertions.assertThat(fields).contains(
 				Foo.class.getDeclaredField("a"),
 				Foo.class.getDeclaredField("b"),
 				Foo.class.getDeclaredField("c"),
@@ -1506,15 +1505,15 @@ public class ReflectionUtilsTest extends DesignerTestCase {
 		// collections
 		{
 			List<?> o = (List<?>) ReflectionUtils.getDefaultValue(java.util.ArrayList.class);
-			assertThat(o).isEmpty();
+			Assertions.assertThat(o).isEmpty();
 		}
 		{
 			Set<?> o = (Set<?>) ReflectionUtils.getDefaultValue(java.util.HashSet.class);
-			assertThat(o).isEmpty();
+			Assertions.assertThat(o).isEmpty();
 		}
 		{
 			Map<?, ?> o = (Map<?, ?>) ReflectionUtils.getDefaultValue(java.util.HashMap.class);
-			assertThat(o).isEmpty();
+			Assertions.assertThat(o).isEmpty();
 		}
 		// arbitrary Object
 		assertEquals(null, ReflectionUtils.getDefaultValue(System.class));
@@ -1579,9 +1578,9 @@ public class ReflectionUtilsTest extends DesignerTestCase {
 		Map<String, PropertyDescriptor> propertiesMap = getPropertyDescriptorNames(MyButton.class);
 		Set<String> names = propertiesMap.keySet();
 		// setFoo() and getFoo() have different types, so different properties
-		assertThat(names).contains("foo(boolean)", "foo(int)");
+		Assertions.assertThat(names).contains("foo(boolean)", "foo(int)");
 		// but usual JButton properties exist
-		assertThat(names).contains("enabled", "text");
+		Assertions.assertThat(names).contains("enabled", "text");
 	}
 
 	/**
@@ -1641,8 +1640,8 @@ public class ReflectionUtilsTest extends DesignerTestCase {
 		// check properties
 		{
 			Set<String> names = getPropertyDescriptorNames(MyButton.class).keySet();
-			assertThat(names).contains("title");
-			assertThat(names).doesNotContain("title(java.lang.String)");
+			Assertions.assertThat(names).contains("title");
+			Assertions.assertThat(names).doesNotContain("title(java.lang.String)");
 		}
 		// both getter and setter should be accessible
 		{
@@ -1672,8 +1671,8 @@ public class ReflectionUtilsTest extends DesignerTestCase {
 		// check properties
 		{
 			Set<String> names = getPropertyDescriptorNames(MyButton.class).keySet();
-			assertThat(names).contains("title");
-			assertThat(names).doesNotContain("title(java.lang.String)");
+			Assertions.assertThat(names).contains("title");
+			Assertions.assertThat(names).doesNotContain("title(java.lang.String)");
 		}
 		// both getter and setter should be accessible
 		{
@@ -1703,7 +1702,7 @@ public class ReflectionUtilsTest extends DesignerTestCase {
 		// check properties, not IBM
 		{
 			Set<String> names = getPropertyDescriptorNames(MyButton.class).keySet();
-			assertThat(names).contains("enabled", "a");
+			Assertions.assertThat(names).contains("enabled", "a");
 		}
 		// check properties, as if in IBM
 		{
@@ -1711,7 +1710,7 @@ public class ReflectionUtilsTest extends DesignerTestCase {
 			ReflectionUtils.flushPropertyDescriptorsCache(MyButton.class);
 			try {
 				Set<String> names = getPropertyDescriptorNames(MyButton.class).keySet();
-				assertThat(names).contains("enabled").doesNotContain("a");
+				Assertions.assertThat(names).contains("enabled").doesNotContain("a");
 			} finally {
 				EnvironmentUtils.setForcedIBM(false);
 			}
@@ -1735,9 +1734,9 @@ public class ReflectionUtilsTest extends DesignerTestCase {
 		Map<String, PropertyDescriptor> propertiesMap = getPropertyDescriptorNames(MyButton.class);
 		Set<String> names = propertiesMap.keySet();
 		// no property for "get()"
-		assertThat(names).doesNotContain("");
+		Assertions.assertThat(names).doesNotContain("");
 		// but usual JButton properties exist
-		assertThat(names).contains("enabled", "text");
+		Assertions.assertThat(names).contains("enabled", "text");
 	}
 
 	/**
@@ -1756,9 +1755,9 @@ public class ReflectionUtilsTest extends DesignerTestCase {
 		Map<String, PropertyDescriptor> propertiesMap = getPropertyDescriptorNames(MyButton.class);
 		Set<String> names = propertiesMap.keySet();
 		// no property for "getFoo()"
-		assertThat(names).doesNotContain("foo");
+		Assertions.assertThat(names).doesNotContain("foo");
 		// but usual JButton properties exist
-		assertThat(names).contains("enabled", "text");
+		Assertions.assertThat(names).contains("enabled", "text");
 	}
 
 	// XXX
@@ -1813,9 +1812,9 @@ public class ReflectionUtilsTest extends DesignerTestCase {
 				getPropertyDescriptorNames(MyButton_getPropertyDescriptors_ignoreStaticSetters.class);
 		Set<String> names = propertiesMap.keySet();
 		// no property for "setFoo()"
-		assertThat(names).doesNotContain("foo");
+		Assertions.assertThat(names).doesNotContain("foo");
 		// but usual JButton properties exist
-		assertThat(names).contains("enabled", "text");
+		Assertions.assertThat(names).contains("enabled", "text");
 	}
 
 	/**
@@ -1833,10 +1832,10 @@ public class ReflectionUtilsTest extends DesignerTestCase {
 			}
 		}
 		// no duplicates, please
-		assertThat(propertyNames).doesNotHaveDuplicates();
-		assertThat(propertySetters).doesNotHaveDuplicates();
+		Assertions.assertThat(propertyNames).doesNotHaveDuplicates();
+		Assertions.assertThat(propertySetters).doesNotHaveDuplicates();
 		// assert expected names
-		assertThat(propertyNames).contains(expectedNames);
+		Assertions.assertThat(propertyNames).contains(expectedNames);
 	}
 
 	/**
@@ -1950,17 +1949,17 @@ public class ReflectionUtilsTest extends DesignerTestCase {
 		// Object
 		{
 			List<Class<?>> types = ReflectionUtils.getSuperHierarchy(Object.class);
-			assertThat(types).containsExactly(Object.class);
+			Assertions.assertThat(types).containsExactly(Object.class);
 		}
 		// A
 		{
 			List<Class<?>> types = ReflectionUtils.getSuperHierarchy(A.class);
-			assertThat(types).containsExactly(A.class, List.class, Object.class);
+			Assertions.assertThat(types).containsExactly(A.class, List.class, Object.class);
 		}
 		// B
 		{
 			List<Class<?>> types = ReflectionUtils.getSuperHierarchy(B.class);
-			assertThat(types).containsExactly(
+			Assertions.assertThat(types).containsExactly(
 					B.class,
 					Comparable.class,
 					A.class,

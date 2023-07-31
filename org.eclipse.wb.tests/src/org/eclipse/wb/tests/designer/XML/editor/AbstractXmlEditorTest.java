@@ -19,7 +19,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.internal.part.NullEditorInput;
 import org.eclipse.wst.sse.ui.StructuredTextEditor;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link AbstractXmlEditor}.
@@ -70,7 +70,7 @@ public class AbstractXmlEditorTest extends XwtGefTest {
 			editor.init(null, new NullEditorInput());
 			fail();
 		} catch (PartInitException e) {
-			assertThat(e.getMessage()).contains("IFileEditorInput");
+			Assertions.assertThat(e.getMessage()).contains("IFileEditorInput");
 		}
 	}
 }

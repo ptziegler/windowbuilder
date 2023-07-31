@@ -32,9 +32,8 @@ import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
 import org.eclipse.draw2d.geometry.Rectangle;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.StringUtils;
+import org.assertj.core.api.Assertions;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -85,7 +84,7 @@ public class JTabbedPaneTest extends SwingModelTest {
 		//
 		{
 			List<JTabbedPaneTabInfo> tabs = tabbed.getTabs();
-			assertThat(tabs).hasSize(1);
+			Assertions.assertThat(tabs).hasSize(1);
 			JTabbedPaneTabInfo tab = tabs.get(0);
 			//
 			assertSame(tabbed, tab.getPane());
@@ -171,7 +170,7 @@ public class JTabbedPaneTest extends SwingModelTest {
 		JTabbedPaneInfo tabbed = (JTabbedPaneInfo) panel.getChildrenComponents().get(0);
 		assertNoErrors(panel);
 		// ask tabs
-		assertThat(tabbed.getTabs()).isEmpty();
+		Assertions.assertThat(tabbed.getTabs()).isEmpty();
 	}
 
 	/**
@@ -200,7 +199,7 @@ public class JTabbedPaneTest extends SwingModelTest {
 		assertNoErrors(panel);
 		// ask tabs
 		JTabbedPaneInfo tabbed = getJavaInfoByName("tabbed");
-		assertThat(tabbed.getTabs()).isEmpty();
+		Assertions.assertThat(tabbed.getTabs()).isEmpty();
 	}
 
 	/**
@@ -271,12 +270,12 @@ public class JTabbedPaneTest extends SwingModelTest {
 		IObjectPresentation presentation = tabbed.getPresentation();
 		// active component
 		{
-			assertThat(tabbed.getTabs()).isEmpty();
+			Assertions.assertThat(tabbed.getTabs()).isEmpty();
 			assertNull(tabbed.getActiveComponent());
 		}
 		// empty presentation
 		{
-			assertThat(presentation.getChildrenGraphical()).isEmpty();
+			Assertions.assertThat(presentation.getChildrenGraphical()).isEmpty();
 		}
 	}
 
@@ -300,17 +299,17 @@ public class JTabbedPaneTest extends SwingModelTest {
 		ComponentInfo button_1 = tabbed.getChildrenComponents().get(0);
 		ComponentInfo button_2 = tabbed.getChildrenComponents().get(1);
 		// tabs
-		assertThat(tabbed.getTabs()).hasSize(2);
+		Assertions.assertThat(tabbed.getTabs()).hasSize(2);
 		// active component
 		{
 			assertSame(button_1, tabbed.getActiveComponent());
-			assertThat(presentation.getChildrenGraphical()).contains(button_1).doesNotContain(button_2);
+			Assertions.assertThat(presentation.getChildrenGraphical()).contains(button_1).doesNotContain(button_2);
 		}
 		// set new active
 		{
 			tabbed.setActiveComponent(button_2);
 			assertSame(button_2, tabbed.getActiveComponent());
-			assertThat(presentation.getChildrenGraphical()).contains(button_2).doesNotContain(button_1);
+			Assertions.assertThat(presentation.getChildrenGraphical()).contains(button_2).doesNotContain(button_1);
 		}
 	}
 

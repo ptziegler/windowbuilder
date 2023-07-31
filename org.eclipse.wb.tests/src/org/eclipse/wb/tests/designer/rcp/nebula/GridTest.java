@@ -25,7 +25,7 @@ import org.eclipse.nebula.widgets.grid.GridItem;
 
 import net.miginfocom.layout.Grid;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link Grid} items models.
@@ -88,31 +88,31 @@ public class GridTest extends AbstractNebulaTest {
 		GridColumnGroupInfo group = grid.getChildren(GridColumnGroupInfo.class).get(0);
 		{
 			Rectangle bounds = group.getBounds();
-			assertThat(bounds.width).isEqualTo(150);
-			assertThat(bounds.height).isEqualTo(headerHeight);
+			Assertions.assertThat(bounds.width).isEqualTo(150);
+			Assertions.assertThat(bounds.height).isEqualTo(headerHeight);
 		}
 		assertEquals(1, group.getChildren(GridColumnInfo.class).size());
 		// column
 		{
 			GridColumnInfo column = group.getChildren(GridColumnInfo.class).get(0);
 			Rectangle bounds = column.getBounds();
-			assertThat(bounds.width).isEqualTo(150);
-			assertThat(bounds.height).isEqualTo(headerHeight - groupHeaderHeight);
+			Assertions.assertThat(bounds.width).isEqualTo(150);
+			Assertions.assertThat(bounds.height).isEqualTo(headerHeight - groupHeaderHeight);
 		}
 		// item
 		GridItemInfo item = grid.getChildren(GridItemInfo.class).get(0);
 		{
 			Rectangle bounds = item.getBounds();
-			assertThat(bounds.width).isGreaterThan(100);
-			assertThat(bounds.height).isLessThan(25); // collapsed
+			Assertions.assertThat(bounds.width).isGreaterThan(100);
+			Assertions.assertThat(bounds.height).isLessThan(25); // collapsed
 		}
 		assertEquals(1, item.getChildren().size());
 		// subitem
 		{
 			GridItemInfo subItem = item.getChildren(GridItemInfo.class).get(0);
 			Rectangle bounds = subItem.getBounds();
-			assertThat(bounds.width).isGreaterThan(100);
-			assertThat(bounds.height).isEqualTo(0); // parent item collapsed
+			Assertions.assertThat(bounds.width).isGreaterThan(100);
+			Assertions.assertThat(bounds.height).isEqualTo(0); // parent item collapsed
 		}
 	}
 
@@ -155,16 +155,16 @@ public class GridTest extends AbstractNebulaTest {
 		GridItemInfo item = grid.getChildren(GridItemInfo.class).get(0);
 		{
 			Rectangle bounds = item.getBounds();
-			assertThat(bounds.width).isGreaterThan(100);
-			assertThat(bounds.height).isGreaterThan(30); // expanded
+			Assertions.assertThat(bounds.width).isGreaterThan(100);
+			Assertions.assertThat(bounds.height).isGreaterThan(30); // expanded
 		}
 		assertEquals(1, item.getChildren().size());
 		// subitem
 		{
 			GridItemInfo subItem = item.getChildren(GridItemInfo.class).get(0);
 			Rectangle bounds = subItem.getBounds();
-			assertThat(bounds.width).isGreaterThan(100);
-			assertThat(bounds.height).isGreaterThan(15); // parent item expanded
+			Assertions.assertThat(bounds.width).isGreaterThan(100);
+			Assertions.assertThat(bounds.height).isGreaterThan(15); // parent item expanded
 		}
 	}
 

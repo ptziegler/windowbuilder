@@ -27,9 +27,8 @@ import org.eclipse.wb.tests.designer.core.AbstractJavaProjectTest;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.jface.text.Document;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.StringUtils;
+import org.assertj.core.api.Assertions;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -131,31 +130,31 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 					int offset = element.getOffset();
 					int length = element.getLength();
 					String text = context.getText(offset, length);
-					assertThat(text).startsWith("<" + tag);
-					assertThat(text).endsWith("/>");
+					Assertions.assertThat(text).startsWith("<" + tag);
+					Assertions.assertThat(text).endsWith("/>");
 				} else {
 					// open tag
 					{
 						int offset = element.getOpenTagOffset();
 						int length = element.getOpenTagLength();
 						String text = context.getText(offset, length);
-						assertThat(text).startsWith("<" + tag);
-						assertThat(text).endsWith(">");
+						Assertions.assertThat(text).startsWith("<" + tag);
+						Assertions.assertThat(text).endsWith(">");
 					}
 					// close tag
 					{
 						int offset = element.getCloseTagOffset();
 						int length = element.getCloseTagLength();
 						String text = context.getText(offset, length);
-						assertThat(text).isEqualTo("</" + tag + ">");
+						Assertions.assertThat(text).isEqualTo("</" + tag + ">");
 					}
 					// all
 					{
 						int offset = element.getOffset();
 						int length = element.getLength();
 						String text = context.getText(offset, length);
-						assertThat(text).startsWith("<" + tag);
-						assertThat(text).endsWith("</" + tag + ">");
+						Assertions.assertThat(text).startsWith("<" + tag);
+						Assertions.assertThat(text).endsWith("</" + tag + ">");
 					}
 				}
 				// attributes
@@ -174,14 +173,14 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 					int offset = attribute.getNameOffset();
 					int length = attribute.getNameLength();
 					String text = context.getText(offset, length);
-					assertThat(text).isEqualTo(attribute.getName());
+					Assertions.assertThat(text).isEqualTo(attribute.getName());
 				}
 				// value
 				{
 					int offset = attribute.getValueOffset();
 					int length = attribute.getValueLength();
 					String text = context.getText(offset, length);
-					assertThat(text).isEqualTo(attribute.getValue());
+					Assertions.assertThat(text).isEqualTo(attribute.getValue());
 				}
 			}
 
@@ -196,12 +195,12 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				// content
 				String text = context.getText(textNode.getOffset(), textNode.getLength());
 				if (textNode.isCDATA()) {
-					assertThat(text).isEqualTo(textNode.getRawText());
-					assertThat(text).startsWith("<![CDATA[").endsWith("]]>");
-					assertThat(text).contains(textNode.getText());
+					Assertions.assertThat(text).isEqualTo(textNode.getRawText());
+					Assertions.assertThat(text).startsWith("<![CDATA[").endsWith("]]>");
+					Assertions.assertThat(text).contains(textNode.getText());
 				} else {
-					assertThat(text).isEqualTo(textNode.getRawText());
-					assertThat(text).isEqualTo(textNode.getText());
+					Assertions.assertThat(text).isEqualTo(textNode.getRawText());
+					Assertions.assertThat(text).isEqualTo(textNode.getText());
 				}
 			}
 		});
@@ -247,7 +246,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 		// attribute "name" as Object
 		{
 			List<DocumentAttribute> attributes = rootElement.getDocumentAttributes();
-			assertThat(attributes).hasSize(1);
+			Assertions.assertThat(attributes).hasSize(1);
 			//
 			DocumentAttribute attribute = rootElement.getDocumentAttribute("name");
 			assertSame(attribute, attributes.get(0));
@@ -261,7 +260,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 		}
 		// child elements
 		List<DocumentElement> rootChildren = rootElement.getChildren();
-		assertThat(rootChildren).hasSize(1);
+		Assertions.assertThat(rootChildren).hasSize(1);
 		// check "first"
 		{
 			DocumentElement firstElement = rootChildren.get(0);
@@ -272,7 +271,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 			assertTrue(firstElement.isClosed());
 			// no attributes
 			List<DocumentAttribute> attributes = firstElement.getDocumentAttributes();
-			assertThat(attributes).isEmpty();
+			Assertions.assertThat(attributes).isEmpty();
 		}
 		// toString()
 		assertContext(
@@ -415,7 +414,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"</root>");
 		// <description> and <source>
 		List<DocumentElement> children = rootElement.getChildren();
-		assertThat(children).hasSize(2);
+		Assertions.assertThat(children).hasSize(2);
 		// <description>
 		{
 			DocumentElement descriptionElement = children.get(0);
@@ -747,14 +746,14 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"<!-- ==================================== -->",
 				"<root/>");
 		// no attributes initially
-		assertThat(rootElement.getDocumentAttributes()).isEmpty();
+		Assertions.assertThat(rootElement.getDocumentAttributes()).isEmpty();
 		// add attribute as value
 		DocumentAttribute newAttribute = rootElement.setAttribute("name", "value");
 		assertEquals("name", newAttribute.getName());
 		assertEquals("value", newAttribute.getValue());
 		// attribute is in element
 		List<DocumentAttribute> attributes = rootElement.getDocumentAttributes();
-		assertThat(attributes).containsOnly(newAttribute);
+		Assertions.assertThat(attributes).containsOnly(newAttribute);
 		assertContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
 				"<!-- ==================================== -->",
@@ -770,14 +769,14 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"<!-- ==================================== -->",
 				"<root other='attr'/>");
 		// one attribute initially
-		assertThat(rootElement.getDocumentAttributes()).hasSize(1);
+		Assertions.assertThat(rootElement.getDocumentAttributes()).hasSize(1);
 		// add attribute as value
 		DocumentAttribute newAttribute = rootElement.setAttribute("name", "value");
 		assertEquals("name", newAttribute.getName());
 		assertEquals("value", newAttribute.getValue());
 		// attribute is in element
 		List<DocumentAttribute> attributes = rootElement.getDocumentAttributes();
-		assertThat(attributes).contains(newAttribute);
+		Assertions.assertThat(attributes).contains(newAttribute);
 		assertContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
 				"<!-- ==================================== -->",
@@ -793,14 +792,14 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"<!-- ==================================== -->",
 				"<root a='1' b='2'/>");
 		// two attributes initially
-		assertThat(rootElement.getDocumentAttributes()).hasSize(2);
+		Assertions.assertThat(rootElement.getDocumentAttributes()).hasSize(2);
 		// add attribute as value
 		DocumentAttribute newAttribute = rootElement.setAttribute("name", "value");
 		assertEquals("name", newAttribute.getName());
 		assertEquals("value", newAttribute.getValue());
 		// attribute is in element
 		List<DocumentAttribute> attributes = rootElement.getDocumentAttributes();
-		assertThat(attributes).contains(newAttribute);
+		Assertions.assertThat(attributes).contains(newAttribute);
 		assertContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
 				"<!-- ==================================== -->",
@@ -816,12 +815,12 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"<!-- ==================================== -->",
 				"<root/>");
 		// no attributes initially
-		assertThat(rootElement.getDocumentAttributes()).isEmpty();
+		Assertions.assertThat(rootElement.getDocumentAttributes()).isEmpty();
 		// try to add, but "null" value
 		DocumentAttribute newAttribute = rootElement.setAttribute("name", null);
 		assertNull(newAttribute);
 		// still no attributes
-		assertThat(rootElement.getDocumentAttributes()).isEmpty();
+		Assertions.assertThat(rootElement.getDocumentAttributes()).isEmpty();
 		assertContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
 				"<!-- ==================================== -->",
@@ -926,7 +925,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"<root name='value'/>");
 		// initial state
 		List<DocumentAttribute> attributes = rootElement.getDocumentAttributes();
-		assertThat(attributes).hasSize(1);
+		Assertions.assertThat(attributes).hasSize(1);
 		// remove "name" attribute
 		DocumentAttribute attribute = rootElement.getDocumentAttribute("name");
 		assertNotNull(attribute);
@@ -934,7 +933,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 		rootElement.removeDocumentAttribute(attribute);
 		// no attributes
 		attributes = rootElement.getDocumentAttributes();
-		assertThat(attributes).hasSize(0);
+		Assertions.assertThat(attributes).hasSize(0);
 		assertNull(rootElement.getDocumentAttribute("name"));
 		assertContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -954,7 +953,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 		rootElement.setAttribute("name", null);
 		// no attributes
 		List<DocumentAttribute> nodeAttributes = rootElement.getDocumentAttributes();
-		assertThat(nodeAttributes).isEmpty();
+		Assertions.assertThat(nodeAttributes).isEmpty();
 		assertNull(rootElement.getDocumentAttribute("name"));
 		assertContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -984,7 +983,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 		parent.addChild(newChild);
 		// hierarchy
 		assertSame(parent, newChild.getParent());
-		assertThat(parent.getChildren()).contains(newChild);
+		Assertions.assertThat(parent.getChildren()).contains(newChild);
 		// state
 		assertTrue(newChild.isClosed());
 		assertFalse(parent.isClosed());
@@ -1224,8 +1223,8 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 		target.moveChild(element, 0);
 		// hierarchy
 		assertSame(target, element.getParent());
-		assertThat(target.getChildren()).contains(element);
-		assertThat(source.getChildren()).doesNotContain(element);
+		Assertions.assertThat(target.getChildren()).contains(element);
+		Assertions.assertThat(source.getChildren()).doesNotContain(element);
 		assertContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
 				"<!-- ==================================== -->",
@@ -1258,8 +1257,8 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 		target.moveChild(element, 0);
 		// hierarchy
 		assertSame(target, element.getParent());
-		assertThat(target.getChildren()).contains(element);
-		assertThat(source.getChildren()).doesNotContain(element);
+		Assertions.assertThat(target.getChildren()).contains(element);
+		Assertions.assertThat(source.getChildren()).doesNotContain(element);
 		assertContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
 				"<!-- ==================================== -->",
@@ -1291,8 +1290,8 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 		target.moveChild(element, 0);
 		// hierarchy
 		assertSame(target, element.getParent());
-		assertThat(target.getChildren()).contains(element);
-		assertThat(source.getChildren()).doesNotContain(element);
+		Assertions.assertThat(target.getChildren()).contains(element);
+		Assertions.assertThat(source.getChildren()).doesNotContain(element);
 		assertContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
 				"<!-- ==================================== -->",
@@ -1322,7 +1321,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 		source.moveChild(element, 0);
 		// hierarchy
 		assertSame(source, element.getParent());
-		assertThat(source.getChildren()).contains(element);
+		Assertions.assertThat(source.getChildren()).contains(element);
 		assertContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
 				"<!-- ==================================== -->",
@@ -1352,7 +1351,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 		source.moveChild(element, 3);
 		// hierarchy
 		assertSame(source, element.getParent());
-		assertThat(source.getChildren()).contains(element);
+		Assertions.assertThat(source.getChildren()).contains(element);
 		assertContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
 				"<!-- ==================================== -->",
@@ -1385,7 +1384,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 		source.moveChild(element, -1);
 		// hierarchy
 		assertSame(source, element.getParent());
-		assertThat(source.getChildren()).contains(element);
+		Assertions.assertThat(source.getChildren()).contains(element);
 		assertContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
 				"<!-- ==================================== -->",
@@ -1416,8 +1415,8 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 		target.moveChild(element, 0);
 		// hierarchy
 		assertSame(target, element.getParent());
-		assertThat(target.getChildren()).contains(element);
-		assertThat(source.getChildren()).doesNotContain(element);
+		Assertions.assertThat(target.getChildren()).contains(element);
+		Assertions.assertThat(source.getChildren()).doesNotContain(element);
 		assertContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
 				"<!-- ==================================== -->",
@@ -1446,8 +1445,8 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 		target.moveChild(element, 0);
 		// hierarchy
 		assertSame(target, element.getParent());
-		assertThat(target.getChildren()).contains(element);
-		assertThat(source.getChildren()).doesNotContain(element);
+		Assertions.assertThat(target.getChildren()).contains(element);
+		Assertions.assertThat(source.getChildren()).doesNotContain(element);
 		assertContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
 				"<!-- ==================================== -->",
@@ -1477,8 +1476,8 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 		target.moveChild(element, 0);
 		// hierarchy
 		assertSame(target, element.getParent());
-		assertThat(target.getChildren()).contains(element);
-		assertThat(source.getChildren()).doesNotContain(element);
+		Assertions.assertThat(target.getChildren()).contains(element);
+		Assertions.assertThat(source.getChildren()).doesNotContain(element);
 		assertContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
 				"<!-- ==================================== -->",
@@ -1532,7 +1531,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				visitObjects.add(element);
 			}
 		});
-		assertThat(visitObjects).hasSize(6);
+		Assertions.assertThat(visitObjects).hasSize(6);
 		assertSame(rootElement, visitObjects.get(0)); // <root>
 		assertSame(rootElement.getDocumentAttribute("name"), visitObjects.get(1)); // <root name="">
 		assertSame(rootElement.getChildAt(0), visitObjects.get(2)); // <tag>
@@ -1563,7 +1562,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				visitObjects.add(element);
 			}
 		});
-		assertThat(visitObjects).containsExactly(rootElement);
+		Assertions.assertThat(visitObjects).containsExactly(rootElement);
 	}
 
 	/**
@@ -1579,7 +1578,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"</root>");
 		//
 		List<SpecialDocumentNode> specials = rootElement.getChildren(SpecialDocumentNode.class);
-		assertThat(specials).hasSize(2);
+		Assertions.assertThat(specials).hasSize(2);
 		assertEquals("A", specials.get(0).getAttribute("name"));
 		assertEquals("B", specials.get(1).getAttribute("name"));
 	}

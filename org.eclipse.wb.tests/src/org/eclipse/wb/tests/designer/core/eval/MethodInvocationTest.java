@@ -36,7 +36,7 @@ import org.eclipse.jdt.core.dom.ReturnStatement;
 import org.eclipse.jdt.core.dom.ThisExpression;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -158,7 +158,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 		} catch (Throwable e) {
 			{
 				Throwable rootCause = DesignerExceptionUtils.getRootCause(e);
-				assertThat(rootCause).isExactlyInstanceOf(ArithmeticException.class);
+				Assertions.assertThat(rootCause).isExactlyInstanceOf(ArithmeticException.class);
 			}
 			{
 				DesignerException de = DesignerExceptionUtils.getDesignerException(e);
@@ -246,7 +246,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 						"  }",
 						"}");
 		long actual = (Long) evaluateSingleMethod(typeDeclaration, "callMe()");
-		assertThat(actual).isGreaterThan(1200L * 1000L * 1000L * 1000L);
+		Assertions.assertThat(actual).isGreaterThan(1200L * 1000L * 1000L * 1000L);
 	}
 
 	public void test_methodInvocation_invalidArguments() throws Exception {
@@ -598,7 +598,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 						"}");
 		waitForAutoBuild();
 		Object actual = evaluateSingleMethod(typeDeclaration, "root()");
-		assertThat(actual).isNotNull();
+		Assertions.assertThat(actual).isNotNull();
 	}
 
 	public void test_creation_innerNotStatic() throws Exception {
@@ -613,7 +613,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 						"}");
 		waitForAutoBuild();
 		Object actual = evaluateSingleMethod(typeDeclaration, "root()");
-		assertThat(actual).isNull();
+		Assertions.assertThat(actual).isNull();
 	}
 
 	public void test_creation_varArgsDouble() throws Exception {
@@ -1041,7 +1041,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 					fail();
 				} catch (Throwable e_) {
 					Throwable e = DesignerExceptionUtils.getRootCause(e_);
-					assertThat(e).isInstanceOf(IllegalStateException.class);
+					Assertions.assertThat(e).isInstanceOf(IllegalStateException.class);
 				}
 			} finally {
 				testBundle.uninstall();

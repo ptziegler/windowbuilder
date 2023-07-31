@@ -32,7 +32,7 @@ import org.eclipse.jdt.core.dom.ReturnStatement;
 import org.eclipse.jdt.core.dom.Statement;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link FormToolkitAccess}.
@@ -291,7 +291,7 @@ public class FormToolkitAccessTest extends AbstractFormsTest {
 				node = statement;
 			}
 		}
-		assertThat(toolkitAccess.isToolkit(node)).isEqualTo(expectedResult);
+		Assertions.assertThat(toolkitAccess.isToolkit(node)).isEqualTo(expectedResult);
 	}
 
 	////////////////////////////////////////////////////////////////////////////

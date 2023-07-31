@@ -14,7 +14,7 @@ import org.eclipse.wb.internal.rcp.model.jface.PreferencePageInfo;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link PreferencePageInfo}.
@@ -59,16 +59,16 @@ public class PreferencePageTest extends RcpModelTest {
 		// refresh()
 		preferencePage.refresh();
 		// check bounds
-		assertThat(preferencePage.getBounds().width).isEqualTo(600);
-		assertThat(preferencePage.getBounds().height).isEqualTo(500);
-		assertThat(parentComposite.getBounds().width).isGreaterThan(300);
-		assertThat(parentComposite.getBounds().height).isGreaterThan(30);
-		assertThat(container.getBounds().width).isGreaterThan(300);
-		assertThat(container.getBounds().height).isGreaterThan(230);
+		Assertions.assertThat(preferencePage.getBounds().width).isEqualTo(600);
+		Assertions.assertThat(preferencePage.getBounds().height).isEqualTo(500);
+		Assertions.assertThat(parentComposite.getBounds().width).isGreaterThan(300);
+		Assertions.assertThat(parentComposite.getBounds().height).isGreaterThan(30);
+		Assertions.assertThat(container.getBounds().width).isGreaterThan(300);
+		Assertions.assertThat(container.getBounds().height).isGreaterThan(230);
 		// set new bounds
 		preferencePage.getTopBoundsSupport().setSize(500, 400);
 		preferencePage.refresh();
-		assertThat(preferencePage.getBounds().width).isEqualTo(500);
-		assertThat(preferencePage.getBounds().height).isEqualTo(400);
+		Assertions.assertThat(preferencePage.getBounds().width).isEqualTo(500);
+		Assertions.assertThat(preferencePage.getBounds().height).isEqualTo(400);
 	}
 }

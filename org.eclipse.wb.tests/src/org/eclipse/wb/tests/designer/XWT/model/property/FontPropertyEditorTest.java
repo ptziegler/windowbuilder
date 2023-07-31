@@ -25,7 +25,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.TabItem;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link FontPropertyEditor}.
@@ -52,7 +52,7 @@ public class FontPropertyEditorTest extends XwtModelTest {
 	 */
 	public void test_FontSupport_getFontFamilies() throws Exception {
 		String[] families = FontSupport.getFontFamilies();
-		assertThat(families).contains("Segoe UI", "Arial");
+		Assertions.assertThat(families).contains("Segoe UI", "Arial");
 	}
 
 	/**
@@ -164,9 +164,9 @@ public class FontPropertyEditorTest extends XwtModelTest {
 				List styleList = listWidgets.get(1);
 				List sizeList = listWidgets.get(2);
 				// initial state
-				assertThat(familyList.getSelection()).containsOnly("Arial");
-				assertThat(styleList.getSelection()).containsOnly("BOLD");
-				assertThat(sizeList.getSelection()).containsOnly("14");
+				Assertions.assertThat(familyList.getSelection()).containsOnly("Arial");
+				Assertions.assertThat(styleList.getSelection()).containsOnly("BOLD");
+				Assertions.assertThat(sizeList.getSelection()).containsOnly("14");
 				// set new values
 				UiContext.setSelection(familyList, "Verdana");
 				UiContext.setSelection(styleList, "ITALIC");

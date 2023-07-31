@@ -25,11 +25,11 @@ import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.internal.swing.model.layout.FlowLayoutInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import org.assertj.core.api.Assertions;
 import org.mockito.InOrder;
 
 import java.util.List;
@@ -72,7 +72,7 @@ public class CompoundAssociationTest extends SwingModelTest {
 				m_lastEditor.getSource(compoundAssociation.getStatement()));
 		// check sub-associations
 		List<Association> associations = compoundAssociation.getAssociations();
-		assertThat(associations).hasSize(2);
+		Assertions.assertThat(associations).hasSize(2);
 		{
 			ConstructorParentAssociation association = (ConstructorParentAssociation) associations.get(0);
 			assertSame(myButton, association.getJavaInfo());
@@ -174,7 +174,7 @@ public class CompoundAssociationTest extends SwingModelTest {
 			CompoundAssociation compoundAssociation = (CompoundAssociation) myButton.getAssociation();
 			// check sub-associations
 			List<Association> associations = compoundAssociation.getAssociations();
-			assertThat(associations).hasSize(2);
+			Assertions.assertThat(associations).hasSize(2);
 			{
 				ConstructorParentAssociation association =
 						(ConstructorParentAssociation) associations.get(0);

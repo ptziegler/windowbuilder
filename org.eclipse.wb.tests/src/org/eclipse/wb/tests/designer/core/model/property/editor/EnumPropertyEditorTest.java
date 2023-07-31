@@ -20,7 +20,7 @@ import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link EnumPropertyEditor}.
@@ -75,7 +75,7 @@ public class EnumPropertyEditorTest extends SwingModelTest {
 							"getElements(org.eclipse.wb.internal.core.model.property.Property)",
 							property);
 			String[] enumStrings = GenericsUtils.getEnumStrings(enums);
-			assertThat(enumStrings).isEqualTo(new String[]{"A", "B", "C"});
+			Assertions.assertThat(enumStrings).isEqualTo(new String[]{"A", "B", "C"});
 		}
 	}
 
@@ -194,7 +194,7 @@ public class EnumPropertyEditorTest extends SwingModelTest {
 							"getElements(org.eclipse.wb.internal.core.model.property.Property)",
 							property);
 			String[] enumStrings = GenericsUtils.getEnumStrings(enums);
-			assertThat(enumStrings).isEqualTo(new String[]{"A", "B", "C"});
+			Assertions.assertThat(enumStrings).isEqualTo(new String[]{"A", "B", "C"});
 		}
 	}
 

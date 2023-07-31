@@ -71,7 +71,7 @@ import org.eclipse.jdt.core.dom.SuperMethodInvocation;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jface.dialogs.Dialog;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -288,7 +288,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 						"}");
 		// "panel" should have one child component: JButton "clientButton", created in createClient()
 		List<ComponentInfo> components = panel.getChildrenComponents();
-		assertThat(components).hasSize(1);
+		Assertions.assertThat(components).hasSize(1);
 		{
 			ComponentInfo button = components.get(0);
 			assertInstanceOf(ConstructorCreationSupport.class, button.getCreationSupport());
@@ -308,14 +308,14 @@ public class ExecuteOnParseTest extends SwingModelTest {
 			{
 				List<MethodDeclaration> methodsAfter =
 						flowDescription.getBinaryFlowMethodsAfter(constructor.getBody());
-				assertThat(methodsAfter).containsOnly(createClientMethod);
+				Assertions.assertThat(methodsAfter).containsOnly(createClientMethod);
 			}
 			// ...and after refresh()
 			panel.refresh();
 			{
 				List<MethodDeclaration> methodsAfter =
 						flowDescription.getBinaryFlowMethodsAfter(constructor.getBody());
-				assertThat(methodsAfter).containsOnly(createClientMethod);
+				Assertions.assertThat(methodsAfter).containsOnly(createClientMethod);
 			}
 		}
 	}
@@ -354,7 +354,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 		//    1. JButton "clientButton", created in createClient()
 		//    2. JButton "constructorButton", created in Test()
 		List<ComponentInfo> components = panel.getChildrenComponents();
-		assertThat(components).hasSize(2);
+		Assertions.assertThat(components).hasSize(2);
 		{
 			ComponentInfo button = components.get(0);
 			assertInstanceOf(ConstructorCreationSupport.class, button.getCreationSupport());
@@ -402,7 +402,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 		//    1. JButton "clientButton", created in createClient()
 		//    2. JButton "fieldButton", created in field
 		List<ComponentInfo> components = panel.getChildrenComponents();
-		assertThat(components).hasSize(2);
+		Assertions.assertThat(components).hasSize(2);
 		{
 			ComponentInfo button = components.get(0);
 			assertInstanceOf(ConstructorCreationSupport.class, button.getCreationSupport());
@@ -453,7 +453,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 		// "panel" as JavaInfo has only one ComponentInfo
 		{
 			List<ComponentInfo> components = panel.getChildrenComponents();
-			assertThat(components).hasSize(1);
+			Assertions.assertThat(components).hasSize(1);
 			assertEquals("button", components.get(0).getVariableSupport().getName());
 		}
 		// "panel" as Container has two Component's:
@@ -461,7 +461,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 		//    2. JButton, created in local fillPanel()
 		{
 			Component[] components = panel.getContainer().getComponents();
-			assertThat(components).hasSize(2);
+			Assertions.assertThat(components).hasSize(2);
 			{
 				JLabel superJLabel = (JLabel) components[0];
 				assertEquals("super JLabel", superJLabel.getText());
@@ -507,7 +507,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 		// "panel" as JavaInfo has only one ComponentInfo
 		{
 			List<ComponentInfo> components = panel.getChildrenComponents();
-			assertThat(components).hasSize(1);
+			Assertions.assertThat(components).hasSize(1);
 			assertEquals("button", components.get(0).getVariableSupport().getName());
 		}
 		// "panel" as Container has two Component's:
@@ -515,7 +515,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 		//    2. JLabel, created in super.fillPanel()
 		{
 			Component[] components = panel.getContainer().getComponents();
-			assertThat(components).hasSize(2);
+			Assertions.assertThat(components).hasSize(2);
 			{
 				JButton localJButton = (JButton) components[0];
 				assertEquals("local JButton", localJButton.getText());
@@ -841,11 +841,11 @@ public class ExecuteOnParseTest extends SwingModelTest {
 				method_2 = AstNodeUtils.getMethodBySignature(typeDeclaration, "method_2()");
 			}
 			// trace should be empty
-			assertThat(flowDescription.getTraceStatements()).isEmpty();
+			Assertions.assertThat(flowDescription.getTraceStatements()).isEmpty();
 			// "method_1" and "method_2" after constructor
 			List<MethodDeclaration> flowMethods =
 					flowDescription.getBinaryFlowMethodsAfter(constructor.getBody());
-			assertThat(flowMethods).hasSize(2);
+			Assertions.assertThat(flowMethods).hasSize(2);
 			assertSame(method_1, flowMethods.get(0));
 			assertSame(method_2, flowMethods.get(1));
 		}
@@ -854,7 +854,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 		// trace should be still empty
 		{
 			ExecutionFlowDescription flowDescription = m_lastState.getFlowDescription();
-			assertThat(flowDescription.getTraceStatements()).isEmpty();
+			Assertions.assertThat(flowDescription.getTraceStatements()).isEmpty();
 		}
 	}
 
@@ -2015,7 +2015,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 			fail();
 		} catch (Throwable e) {
 			Throwable rootCause = DesignerExceptionUtils.getRootCause(e);
-			assertThat(rootCause).isInstanceOf(DesignerException.class);
+			Assertions.assertThat(rootCause).isInstanceOf(DesignerException.class);
 			assertEquals(
 					ICoreExceptionConstants.EVAL_LOCAL_METHOD_INVOCATION,
 					((DesignerException) rootCause).getCode());
@@ -2091,7 +2091,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 		//
 		toolBar.refresh();
 		Container container = toolBar.getContainer();
-		assertThat(container.getComponents()).hasSize(1);
+		Assertions.assertThat(container.getComponents()).hasSize(1);
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -2559,7 +2559,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 			DesignerException designerCause =
 					(DesignerException) DesignerExceptionUtils.getDesignerCause(e);
 			assertEquals(ICoreExceptionConstants.EVAL_NO_METHOD_INVOCATION, designerCause.getCode());
-			assertThat(designerCause.getMessage()).contains("String text");
+			Assertions.assertThat(designerCause.getMessage()).contains("String text");
 		}
 	}
 
@@ -2585,7 +2585,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 			DesignerException designerCause =
 					(DesignerException) DesignerExceptionUtils.getDesignerCause(e);
 			assertEquals(ICoreExceptionConstants.EVAL_NO_METHOD_INVOCATION, designerCause.getCode());
-			assertThat(designerCause.getMessage()).contains("String text");
+			Assertions.assertThat(designerCause.getMessage()).contains("String text");
 		}
 	}
 
@@ -2672,28 +2672,28 @@ public class ExecuteOnParseTest extends SwingModelTest {
 		// collections
 		{
 			Object defaultValue = getDefaultValue("java.util.ArrayList");
-			assertThat(defaultValue).isInstanceOf(ArrayList.class);
+			Assertions.assertThat(defaultValue).isInstanceOf(ArrayList.class);
 		}
 		{
 			Object defaultValue = getDefaultValue("java.util.LinkedList");
-			assertThat(defaultValue).isInstanceOf(LinkedList.class);
+			Assertions.assertThat(defaultValue).isInstanceOf(LinkedList.class);
 		}
 		{
 			Object defaultValue = getDefaultValue("java.util.Vector");
-			assertThat(defaultValue).isInstanceOf(Vector.class);
+			Assertions.assertThat(defaultValue).isInstanceOf(Vector.class);
 		}
 		{
 			Object defaultValue = getDefaultValue("java.util.HashSet");
-			assertThat(defaultValue).isInstanceOf(Set.class);
+			Assertions.assertThat(defaultValue).isInstanceOf(Set.class);
 		}
 		{
 			Object defaultValue = getDefaultValue("java.util.HashMap");
-			assertThat(defaultValue).isInstanceOf(Map.class);
+			Assertions.assertThat(defaultValue).isInstanceOf(Map.class);
 		}
 		// generic Object
 		{
 			Object defaultValue = getDefaultValue("Object");
-			assertThat(defaultValue).isNull();
+			Assertions.assertThat(defaultValue).isNull();
 		}
 	}
 
@@ -2766,7 +2766,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 		{
 			BadNodesCollection badParserNodes = m_lastState.getBadParserNodes();
 			List<BadNodeInformation> badNodes = badParserNodes.nodes();
-			assertThat(badNodes).hasSize(1);
+			Assertions.assertThat(badNodes).hasSize(1);
 			ASTNode badNode = badNodes.get(0).getNode();
 			assertEquals("setName(super.getFoo());", m_lastEditor.getSource(badNode));
 		}
@@ -2852,7 +2852,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 		refresh();
 		// assert that "object" was evaluated
 		String name = panel.getComponent().getName();
-		assertThat(name).startsWith("javax.swing.JLabel");
+		Assertions.assertThat(name).startsWith("javax.swing.JLabel");
 	}
 
 	////////////////////////////////////////////////////////////////////////////

@@ -18,7 +18,7 @@ import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link FieldReuseVariableSupport}.
@@ -56,7 +56,7 @@ public class FieldReuseTest extends AbstractVariableTest {
 						"    }",
 						"  }",
 						"}");
-		assertThat(panel.getChildrenComponents()).hasSize(2);
+		Assertions.assertThat(panel.getChildrenComponents()).hasSize(2);
 		ComponentInfo button = panel.getChildrenComponents().get(0);
 		//
 		VariableSupport variableSupport = button.getVariableSupport();
@@ -81,7 +81,7 @@ public class FieldReuseTest extends AbstractVariableTest {
 						"    }",
 						"  }",
 						"}");
-		assertThat(panel.getChildrenComponents()).hasSize(2);
+		Assertions.assertThat(panel.getChildrenComponents()).hasSize(2);
 		ComponentInfo button = panel.getChildrenComponents().get(0);
 		//
 		VariableSupport variableSupport = button.getVariableSupport();
@@ -124,7 +124,7 @@ public class FieldReuseTest extends AbstractVariableTest {
 						"    add(button);",
 						"  }",
 						"}");
-		assertThat(panel.getChildrenComponents()).hasSize(1);
+		Assertions.assertThat(panel.getChildrenComponents()).hasSize(1);
 		ComponentInfo button = panel.getChildrenComponents().get(0);
 		//
 		VariableSupport variableSupport = button.getVariableSupport();
@@ -161,7 +161,7 @@ public class FieldReuseTest extends AbstractVariableTest {
 						"    button = new JButton('2');",
 						"  }",
 						"}");
-		assertThat(panel.getChildrenComponents()).hasSize(1);
+		Assertions.assertThat(panel.getChildrenComponents()).hasSize(1);
 		ComponentInfo button = panel.getChildrenComponents().get(0);
 		//
 		{

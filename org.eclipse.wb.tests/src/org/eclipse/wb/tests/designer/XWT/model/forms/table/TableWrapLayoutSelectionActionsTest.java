@@ -17,7 +17,7 @@ import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
 
 import org.eclipse.jface.action.IAction;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -74,7 +74,7 @@ public class TableWrapLayoutSelectionActionsTest extends XwtModelTest {
 		// prepare actions
 		List<Object> actions = getSelectionActions();
 		// no actions
-		assertThat(actions).isEmpty();
+		Assertions.assertThat(actions).isEmpty();
 	}
 
 	public void test_selectionActions_invalidSelection() throws Exception {
@@ -91,7 +91,7 @@ public class TableWrapLayoutSelectionActionsTest extends XwtModelTest {
 		// prepare actions
 		List<Object> actions = getSelectionActions(button, shell);
 		// no actions
-		assertThat(actions).isEmpty();
+		Assertions.assertThat(actions).isEmpty();
 	}
 
 	public void test_selectionActions_state() throws Exception {

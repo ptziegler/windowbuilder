@@ -20,7 +20,7 @@ import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 
 import org.eclipse.jface.action.IAction;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -85,7 +85,7 @@ public class MigLayoutSelectionActionsTest extends AbstractMigLayoutTest {
 		List<Object> actions = Lists.newArrayList();
 		panel.getBroadcastObject().addSelectionActions(ImmutableList.<ObjectInfo>of(), actions);
 		// no selection, so no actions
-		assertThat(actions).isEmpty();
+		Assertions.assertThat(actions).isEmpty();
 	}
 
 	public void test_selectionActions_invalidSelection() throws Exception {
@@ -102,7 +102,7 @@ public class MigLayoutSelectionActionsTest extends AbstractMigLayoutTest {
 		List<ObjectInfo> selectedObjects = ImmutableList.<ObjectInfo>of(panel.getLayout());
 		panel.getBroadcastObject().addSelectionActions(selectedObjects, actions);
 		// not Component on MigLayout selected, so no actions
-		assertThat(actions).isEmpty();
+		Assertions.assertThat(actions).isEmpty();
 	}
 
 	public void test_horizontalAlignment() throws Exception {

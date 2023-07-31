@@ -22,7 +22,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.jdt.core.ICompilationUnit;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.awt.Window;
 
@@ -167,8 +167,8 @@ public class JFrameTopBoundsTest extends SwingGefTest {
 						"}");
 		// assert that pack() was invoked and not overridden
 		Dimension size = frame.getBounds().getSize();
-		assertThat(size.width).isNotEqualTo(450);
-		assertThat(size.height).isNotEqualTo(300);
+		Assertions.assertThat(size.width).isNotEqualTo(450);
+		Assertions.assertThat(size.height).isNotEqualTo(300);
 	}
 
 	/**

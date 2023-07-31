@@ -29,7 +29,7 @@ import org.eclipse.jface.action.MenuManager;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -125,7 +125,7 @@ public class ButtonGroupTest extends SwingModelTest {
 			assertEquals(1, buttonGroups.size());
 			// check sole ButtonGroupInfo
 			ButtonGroupInfo buttonGroup = buttonGroups.get(0);
-			assertThat(buttonGroup.getAssociation()).isNotNull();
+			Assertions.assertThat(buttonGroup.getAssociation()).isNotNull();
 			assertEquals("m_buttonGroup", buttonGroup.getVariableSupport().getName());
 			// test that group has bound JRadioButton's
 			{

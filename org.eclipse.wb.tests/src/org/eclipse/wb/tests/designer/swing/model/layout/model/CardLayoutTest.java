@@ -25,7 +25,7 @@ import org.eclipse.wb.tests.designer.swing.model.layout.AbstractLayoutTest;
 import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jdt.core.dom.StringLiteral;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -127,7 +127,7 @@ public class CardLayoutTest extends AbstractLayoutTest {
 		CardLayoutInfo layout = (CardLayoutInfo) panel.getLayout();
 		ComponentInfo button = getJavaInfoByName("button");
 		// only JButton is managed component
-		assertThat(layout.getComponents()).containsExactly(button);
+		Assertions.assertThat(layout.getComponents()).containsExactly(button);
 	}
 
 	/**
@@ -171,7 +171,7 @@ public class CardLayoutTest extends AbstractLayoutTest {
 		ComponentInfo buttonA = getJavaInfoByName("getButtonA()");
 		ComponentInfo buttonB = getJavaInfoByName("getButtonB()");
 		// getButtonA() and getButtonB() are managed components
-		assertThat(layout.getComponents()).containsExactly(buttonA, buttonB);
+		Assertions.assertThat(layout.getComponents()).containsExactly(buttonA, buttonB);
 	}
 
 	/**
@@ -479,7 +479,7 @@ public class CardLayoutTest extends AbstractLayoutTest {
 		// only "button_0" is in "graphical children"
 		{
 			List<ObjectInfo> children = panel.getPresentation().getChildrenGraphical();
-			assertThat(children).containsExactly(button_0);
+			Assertions.assertThat(children).containsExactly(button_0);
 		}
 	}
 

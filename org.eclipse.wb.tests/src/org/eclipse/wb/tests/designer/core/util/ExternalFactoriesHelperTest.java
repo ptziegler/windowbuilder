@@ -21,8 +21,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
+import org.assertj.core.api.Assertions;
 import org.osgi.framework.Bundle;
 
 import java.util.List;
@@ -74,7 +73,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 		{
 			List<IConfigurationElement> elements =
 					ExternalFactoriesHelper.getElements(POINT_ID, "testObject");
-			assertThat(elements).hasSize(1);
+			Assertions.assertThat(elements).hasSize(1);
 			assertEquals("someId", elements.get(0).getAttribute("id"));
 		}
 		// remove dynamic extension
@@ -82,7 +81,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 		{
 			List<IConfigurationElement> elements =
 					ExternalFactoriesHelper.getElements(POINT_ID, "testObject");
-			assertThat(elements).isEmpty();
+			Assertions.assertThat(elements).isEmpty();
 		}
 	}
 
@@ -104,7 +103,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 		{
 			List<IConfigurationElement> elements =
 					ExternalFactoriesHelper.getElements(POINT_ID, "testObject");
-			assertThat(elements).hasSize(1);
+			Assertions.assertThat(elements).hasSize(1);
 			assertEquals("someId", elements.get(0).getAttribute("id"));
 		}
 		// remove dynamic extension, no wait
@@ -112,7 +111,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 		{
 			List<IConfigurationElement> elements =
 					ExternalFactoriesHelper.getElements(POINT_ID, "testObject");
-			assertThat(elements).isEmpty();
+			Assertions.assertThat(elements).isEmpty();
 		}
 		// do wait
 		TestUtils.removeDynamicExtension(POINT_ID);
@@ -132,7 +131,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 		try {
 			List<IConfigurationElement> elements =
 					ExternalFactoriesHelper.getElements(POINT_ID, "testObject");
-			assertThat(elements).hasSize(3);
+			Assertions.assertThat(elements).hasSize(3);
 			assertEquals("3", ExternalFactoriesHelper.getRequiredAttribute(elements.get(0), "priority"));
 			assertEquals("2", ExternalFactoriesHelper.getRequiredAttribute(elements.get(1), "priority"));
 			assertEquals("1", ExternalFactoriesHelper.getRequiredAttribute(elements.get(2), "priority"));
@@ -234,9 +233,9 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 		{
 			List<Object> instances =
 					ExternalFactoriesHelper.getElementsInstances(Object.class, POINT_ID, "testObject");
-			assertThat(instances).hasSize(1);
+			Assertions.assertThat(instances).hasSize(1);
 			Object instance = instances.get(0);
-			assertThat(instance).isInstanceOf(TestObject_1.class);
+			Assertions.assertThat(instance).isInstanceOf(TestObject_1.class);
 			assertEquals("1", instance.toString());
 		}
 		// remove dynamic extension
@@ -244,7 +243,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 		{
 			List<Object> instances =
 					ExternalFactoriesHelper.getElementsInstances(Object.class, POINT_ID, "testObject");
-			assertThat(instances).isEmpty();
+			Assertions.assertThat(instances).isEmpty();
 		}
 	}
 
@@ -266,7 +265,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 		try {
 			List<Object> instances =
 					ExternalFactoriesHelper.getElementsInstances(Object.class, POINT_ID, "testObject");
-			assertThat(instances).hasSize(1);
+			Assertions.assertThat(instances).hasSize(1);
 			assertSame(TestObjectSingleton.INSTANCE, instances.get(0));
 		} finally {
 			TestUtils.removeDynamicExtension(POINT_ID);
@@ -291,7 +290,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 		try {
 			List<Object> instances =
 					ExternalFactoriesHelper.getElementsInstances(Object.class, POINT_ID, "testObject");
-			assertThat(instances).hasSize(2);
+			Assertions.assertThat(instances).hasSize(2);
 			assertEquals("2", instances.get(0).toString());
 			assertEquals("1", instances.get(1).toString());
 		} finally {
@@ -317,7 +316,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 		try {
 			List<Object> instances =
 					ExternalFactoriesHelper.getElementsInstances(Object.class, POINT_ID, "testObject");
-			assertThat(instances).hasSize(2);
+			Assertions.assertThat(instances).hasSize(2);
 			assertEquals("2", instances.get(0).toString());
 			assertEquals("1", instances.get(1).toString());
 		} finally {
@@ -345,7 +344,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 		try {
 			List<Object> instances =
 					ExternalFactoriesHelper.getElementsInstances(Object.class, POINT_ID, "testObject");
-			assertThat(instances).hasSize(3);
+			Assertions.assertThat(instances).hasSize(3);
 			assertEquals("3", instances.get(0).toString());
 			assertEquals("2", instances.get(1).toString());
 			assertEquals("1", instances.get(2).toString());
@@ -394,7 +393,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 				ExternalFactoriesHelper.loadBundleClass("java.util.List");
 				fail();
 			} catch (ClassNotFoundException e) {
-				assertThat(e.getCause()).isInstanceOf(IllegalArgumentException.class);
+				Assertions.assertThat(e.getCause()).isInstanceOf(IllegalArgumentException.class);
 			}
 		} finally {
 			TestUtils.removeDynamicExtension(pointId);
@@ -423,7 +422,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 		try {
 			ExternalFactoriesHelper.getRequiredBundle(id);
 		} catch (IllegalArgumentException e) {
-			assertThat(e.getMessage()).contains(id);
+			Assertions.assertThat(e.getMessage()).contains(id);
 		}
 	}
 

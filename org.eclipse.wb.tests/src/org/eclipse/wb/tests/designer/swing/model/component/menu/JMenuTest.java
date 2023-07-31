@@ -43,7 +43,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.swt.graphics.Image;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.awt.Component;
 import java.awt.Container;
@@ -287,23 +287,23 @@ public class JMenuTest extends SwingModelTest {
 			assertNotNull(menuObject.getImageDescriptor());
 			{
 				Rectangle bounds = menuObject.getBounds();
-				assertThat(bounds.width > 50);
-				assertThat(bounds.height > 2 * 15);
+				Assertions.assertThat(bounds.width > 50);
+				Assertions.assertThat(bounds.height > 2 * 15);
 			}
 			assertFalse(menuObject.isHorizontal());
 			// items
 			List<IMenuItemInfo> items = menuObject.getItems();
-			assertThat(items).hasSize(2);
+			Assertions.assertThat(items).hasSize(2);
 			// item_1
 			{
 				IMenuItemInfo itemObject = items.get(0);
 				assertSame(itemInfo_1, itemObject.getModel());
 				// presentation
 				Rectangle bounds = itemObject.getBounds();
-				assertThat(bounds.x).isLessThan(5);
-				assertThat(bounds.y).isLessThan(5);
-				assertThat(bounds.width).isGreaterThan(50);
-				assertThat(bounds.height).isGreaterThan(18);
+				Assertions.assertThat(bounds.x).isLessThan(5);
+				Assertions.assertThat(bounds.y).isLessThan(5);
+				Assertions.assertThat(bounds.width).isGreaterThan(50);
+				Assertions.assertThat(bounds.height).isGreaterThan(18);
 			}
 			// JSeparator
 			{
@@ -311,9 +311,9 @@ public class JMenuTest extends SwingModelTest {
 				assertSame(separatorInfo, itemObject.getModel());
 				// presentation
 				Rectangle bounds = itemObject.getBounds();
-				assertThat(bounds.x).isGreaterThanOrEqualTo(0).isLessThan(5);
-				assertThat(bounds.width).isGreaterThan(50);
-				assertThat(bounds.height).isGreaterThan(0).isLessThan(5);
+				Assertions.assertThat(bounds.x).isGreaterThanOrEqualTo(0).isLessThan(5);
+				Assertions.assertThat(bounds.width).isGreaterThan(50);
+				Assertions.assertThat(bounds.height).isGreaterThan(0).isLessThan(5);
 			}
 		}
 	}
@@ -1006,7 +1006,7 @@ public class JMenuTest extends SwingModelTest {
 		JMenuInfo menu = getJavaInfoByName("menu");
 		JPopupMenuSeparatorInfo separator = menu.getChildren(JPopupMenuSeparatorInfo.class).get(0);
 		// separator has Object
-		assertThat(separator.getObject()).isInstanceOf(JPopupMenu.Separator.class);
+		Assertions.assertThat(separator.getObject()).isInstanceOf(JPopupMenu.Separator.class);
 		// check VoidInvocationVariableSupport
 		{
 			VariableSupport variable = separator.getVariableSupport();

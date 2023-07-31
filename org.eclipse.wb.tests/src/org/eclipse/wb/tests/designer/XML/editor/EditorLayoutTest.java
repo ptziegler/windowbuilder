@@ -37,7 +37,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.IEditorPart;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -477,12 +477,12 @@ public class EditorLayoutTest extends XwtGefTest {
 		Control designControl = m_designPage.getControl();
 		int sourceIndex = controls.indexOf(sourceControl);
 		int designIndex = controls.indexOf(designControl);
-		assertThat(sourceIndex).isPositive();
-		assertThat(designIndex).isPositive();
+		Assertions.assertThat(sourceIndex).isPositive();
+		Assertions.assertThat(designIndex).isPositive();
 		if (sourceFirst) {
-			assertThat(sourceIndex).isLessThan(designIndex);
+			Assertions.assertThat(sourceIndex).isLessThan(designIndex);
 		} else {
-			assertThat(designIndex).isLessThan(sourceIndex);
+			Assertions.assertThat(designIndex).isLessThan(sourceIndex);
 		}
 	}
 

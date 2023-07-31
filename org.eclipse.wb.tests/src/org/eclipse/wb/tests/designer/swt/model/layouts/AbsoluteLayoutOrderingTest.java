@@ -19,7 +19,7 @@ import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.Collections;
 
@@ -115,7 +115,7 @@ public class AbsoluteLayoutOrderingTest extends RcpModelTest {
 				"      Text text = new Text(this, SWT.NONE);",
 				"  }",
 				"}");
-		assertThat(shell.getChildrenControls()).containsExactly(table, button, text);
+		Assertions.assertThat(shell.getChildrenControls()).containsExactly(table, button, text);
 	}
 
 	public void test_bringForward() throws Exception {
@@ -144,7 +144,7 @@ public class AbsoluteLayoutOrderingTest extends RcpModelTest {
 				"      Text text = new Text(this, SWT.NONE);",
 				"  }",
 				"}");
-		assertThat(shell.getChildrenControls()).containsExactly(button, table, text);
+		Assertions.assertThat(shell.getChildrenControls()).containsExactly(button, table, text);
 	}
 
 	public void test_sendToBack() throws Exception {
@@ -173,7 +173,7 @@ public class AbsoluteLayoutOrderingTest extends RcpModelTest {
 				"      Button button = new Button(this, SWT.NONE);",
 				"  }",
 				"}");
-		assertThat(shell.getChildrenControls()).containsExactly(text, table, button);
+		Assertions.assertThat(shell.getChildrenControls()).containsExactly(text, table, button);
 	}
 
 	public void test_sendBackward() throws Exception {
@@ -202,7 +202,7 @@ public class AbsoluteLayoutOrderingTest extends RcpModelTest {
 				"      Table table = new Table(this, SWT.NONE);",
 				"  }",
 				"}");
-		assertThat(shell.getChildrenControls()).containsExactly(text, button, table);
+		Assertions.assertThat(shell.getChildrenControls()).containsExactly(text, button, table);
 	}
 
 	////////////////////////////////////////////////////////////////////////////

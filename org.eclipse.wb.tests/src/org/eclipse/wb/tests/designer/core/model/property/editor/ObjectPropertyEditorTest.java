@@ -28,7 +28,7 @@ import org.eclipse.wb.tests.gef.UiContext;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.TreeItem;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.awt.Component;
 
@@ -105,7 +105,7 @@ public class ObjectPropertyEditorTest extends SwingModelTest {
 		assertSame(PropertyCategory.ADVANCED, property.getCategory());
 		// prepare editor
 		final PropertyEditor propertyEditor = property.getEditor();
-		assertThat(propertyEditor).isSameAs(ObjectPropertyEditor.INSTANCE);
+		Assertions.assertThat(propertyEditor).isSameAs(ObjectPropertyEditor.INSTANCE);
 		// animate
 		new UiContext().executeAndCheck(new UIRunnable() {
 			@Override
@@ -124,7 +124,7 @@ public class ObjectPropertyEditorTest extends SwingModelTest {
 				TreeItem beansContainer;
 				{
 					TreeItem[] childItems = panelItem.getItems();
-					assertThat(childItems).hasSize(1);
+					Assertions.assertThat(childItems).hasSize(1);
 					assertEquals("(non-visual beans)", childItems[0].getText());
 					beansContainer = childItems[0];
 				}
@@ -132,7 +132,7 @@ public class ObjectPropertyEditorTest extends SwingModelTest {
 				TreeItem myObjectItem;
 				{
 					TreeItem[] beanItems = beansContainer.getItems();
-					assertThat(beanItems).hasSize(1);
+					Assertions.assertThat(beanItems).hasSize(1);
 					assertEquals("object_1", beanItems[0].getText());
 					myObjectItem = beanItems[0];
 				}
@@ -196,7 +196,7 @@ public class ObjectPropertyEditorTest extends SwingModelTest {
 		assertFalse(property.isModified());
 		// prepare editor
 		final PropertyEditor propertyEditor = property.getEditor();
-		assertThat(propertyEditor).isSameAs(ObjectPropertyEditor.INSTANCE);
+		Assertions.assertThat(propertyEditor).isSameAs(ObjectPropertyEditor.INSTANCE);
 		// animate
 		new UiContext().executeAndCheck(new UIRunnable() {
 			@Override
@@ -213,7 +213,7 @@ public class ObjectPropertyEditorTest extends SwingModelTest {
 				assertFalse(okButton.isEnabled());
 				// prepare items
 				TreeItem[] childItems = panelItem.getItems();
-				assertThat(childItems).hasSize(1);
+				Assertions.assertThat(childItems).hasSize(1);
 				assertEquals("button", childItems[0].getText());
 				// JButton - valid
 				UiContext.setSelection(childItems[0]);
@@ -268,7 +268,7 @@ public class ObjectPropertyEditorTest extends SwingModelTest {
 		assertNotNull(property);
 		// prepare editor
 		final PropertyEditor propertyEditor = property.getEditor();
-		assertThat(propertyEditor).isSameAs(ObjectPropertyEditor.INSTANCE);
+		Assertions.assertThat(propertyEditor).isSameAs(ObjectPropertyEditor.INSTANCE);
 		// animate
 		new UiContext().executeAndCheck(new UIRunnable() {
 			@Override
@@ -283,7 +283,7 @@ public class ObjectPropertyEditorTest extends SwingModelTest {
 				try {
 					TreeItem itemButton_2 = context.getTreeItem("button_2");
 					TreeItem[] selection = itemButton_2.getParent().getSelection();
-					assertThat(selection).containsOnly(itemButton_2);
+					Assertions.assertThat(selection).containsOnly(itemButton_2);
 				} finally {
 					context.clickButton("Cancel");
 				}
@@ -322,7 +322,7 @@ public class ObjectPropertyEditorTest extends SwingModelTest {
 		// check sub-properties
 		{
 			ObjectPropertyEditor opEditor = (ObjectPropertyEditor) labelForProperty.getEditor();
-			assertThat(opEditor.getProperties(labelForProperty).length).isEqualTo(0);
+			Assertions.assertThat(opEditor.getProperties(labelForProperty).length).isEqualTo(0);
 		}
 	}
 
@@ -350,7 +350,7 @@ public class ObjectPropertyEditorTest extends SwingModelTest {
 		// check sub-properties
 		{
 			ObjectPropertyEditor opEditor = (ObjectPropertyEditor) labelForProperty.getEditor();
-			assertThat(opEditor.getProperties(labelForProperty).length).isGreaterThan(0);
+			Assertions.assertThat(opEditor.getProperties(labelForProperty).length).isGreaterThan(0);
 		}
 	}
 
@@ -371,7 +371,7 @@ public class ObjectPropertyEditorTest extends SwingModelTest {
 		// prepare property
 		final Property property = label.getPropertyByTitle("labelFor");
 		final PropertyEditor propertyEditor = property.getEditor();
-		assertThat(propertyEditor).isSameAs(ObjectPropertyEditor.INSTANCE);
+		Assertions.assertThat(propertyEditor).isSameAs(ObjectPropertyEditor.INSTANCE);
 		// animate - just open and ensure that dialog opened (no exception during this)
 		new UiContext().executeAndCheck(new UIRunnable() {
 			@Override

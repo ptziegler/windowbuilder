@@ -22,7 +22,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -73,7 +73,7 @@ public class TreeTest extends RcpModelTest {
 		TreeInfo tree = (TreeInfo) shell.getChildrenControls().get(0);
 		// prepare columns
 		List<TreeColumnInfo> columns = tree.getColumns();
-		assertThat(columns).hasSize(2);
+		Assertions.assertThat(columns).hasSize(2);
 		TreeColumnInfo column_1 = columns.get(0);
 		TreeColumnInfo column_2 = columns.get(1);
 		// check bounds
@@ -84,7 +84,7 @@ public class TreeTest extends RcpModelTest {
 			assertEquals(BORDER_WIDTH, modelBounds.x);
 			assertEquals(BORDER_WIDTH, modelBounds.y);
 			assertEquals(50, modelBounds.width);
-			assertThat(modelBounds.height).isGreaterThan(15).isLessThan(25);
+			Assertions.assertThat(modelBounds.height).isGreaterThan(15).isLessThan(25);
 			// "shot" bounds
 			Rectangle bounds = column_1.getBounds();
 			assertEquals(BORDER_WIDTH, bounds.x);
@@ -218,7 +218,7 @@ public class TreeTest extends RcpModelTest {
 		flowContainer_CREATE(tree, newColumn, null);
 		// check result
 		List<TreeColumnInfo> columns = tree.getColumns();
-		assertThat(columns).hasSize(1);
+		Assertions.assertThat(columns).hasSize(1);
 		assertTrue(columns.contains(newColumn));
 		assertEditor(
 				"class Test extends Shell {",
@@ -251,7 +251,7 @@ public class TreeTest extends RcpModelTest {
 		TreeInfo tree = getJavaInfoByName("tree");
 		// prepare columns
 		List<TreeColumnInfo> columns = tree.getColumns();
-		assertThat(columns).hasSize(2);
+		Assertions.assertThat(columns).hasSize(2);
 		TreeColumnInfo column_1 = columns.get(0);
 		TreeColumnInfo column_2 = columns.get(1);
 		// move column
@@ -305,7 +305,7 @@ public class TreeTest extends RcpModelTest {
 		// check result
 		{
 			List<TreeColumnInfo> columns = tree_2.getColumns();
-			assertThat(columns).hasSize(2);
+			Assertions.assertThat(columns).hasSize(2);
 			assertSame(column_1, columns.get(0));
 			assertSame(column_2, columns.get(1));
 		}

@@ -27,8 +27,7 @@ import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.jdt.core.IJavaProject;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
+import org.assertj.core.api.Assertions;
 import org.osgi.framework.Bundle;
 
 import java.awt.Component;
@@ -57,8 +56,8 @@ public class DescriptionVersionsProvidersTest extends SwingModelTest {
 	 */
 	public void test_providerEmpty() throws Exception {
 		IDescriptionVersionsProvider provider = EmptyDescriptionVersionsProvider.INSTANCE;
-		assertThat(provider.getVersions(Object.class)).isEmpty();
-		assertThat(provider.getVersions(Component.class)).isEmpty();
+		Assertions.assertThat(provider.getVersions(Object.class)).isEmpty();
+		Assertions.assertThat(provider.getVersions(Component.class)).isEmpty();
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -95,12 +94,12 @@ public class DescriptionVersionsProvidersTest extends SwingModelTest {
 		// invalid Class, so no versions
 		{
 			List<String> versions = provider.getVersions(Object.class);
-			assertThat(versions).isEmpty();
+			Assertions.assertThat(versions).isEmpty();
 		}
 		// valid Class, "1.0" and "2.0" expected
 		{
 			List<String> versions = provider.getVersions(JButton.class);
-			assertThat(versions).isEqualTo(ImmutableList.of("2.0", "1.0"));
+			Assertions.assertThat(versions).isEqualTo(ImmutableList.of("2.0", "1.0"));
 		}
 	}
 
@@ -119,7 +118,7 @@ public class DescriptionVersionsProvidersTest extends SwingModelTest {
 		};
 		//
 		List<String> versions = provider.getVersions(JButton.class);
-		assertThat(versions).isEqualTo(ImmutableList.of("3.0", "2.0", "1.0"));
+		Assertions.assertThat(versions).isEqualTo(ImmutableList.of("3.0", "2.0", "1.0"));
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -298,7 +297,7 @@ public class DescriptionVersionsProvidersTest extends SwingModelTest {
 								m_lastEditor,
 								m_lastLoader.loadClass(factoryClassName),
 								true);
-				assertThat(descriptions).hasSize(1);
+				Assertions.assertThat(descriptions).hasSize(1);
 			} finally {
 				testBundle.uninstall();
 				waitEventLoop(10);

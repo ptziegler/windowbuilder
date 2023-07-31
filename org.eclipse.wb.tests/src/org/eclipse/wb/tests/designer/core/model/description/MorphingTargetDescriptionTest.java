@@ -16,7 +16,7 @@ import org.eclipse.wb.internal.core.model.description.helpers.ComponentDescripti
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -132,7 +132,7 @@ public class MorphingTargetDescriptionTest extends SwingModelTest {
 			morphingTargets = description.getMorphingTargets();
 		}
 		// check targets
-		assertThat(morphingTargets).hasSize(1);
+		Assertions.assertThat(morphingTargets).hasSize(1);
 		{
 			MorphingTargetDescription morphingTarget = morphingTargets.get(0);
 			assertEquals("javax.swing.JButton", morphingTarget.getComponentClass().getName());
@@ -212,7 +212,7 @@ public class MorphingTargetDescriptionTest extends SwingModelTest {
 							m_lastEditor,
 							m_lastLoader.loadClass("test.MyButton1"));
 			List<MorphingTargetDescription> morphingTargets = description.getMorphingTargets();
-			assertThat(morphingTargets).hasSize(2);
+			Assertions.assertThat(morphingTargets).hasSize(2);
 			// check targets
 			{
 				MorphingTargetDescription morphingTarget = morphingTargets.get(0);
@@ -233,7 +233,7 @@ public class MorphingTargetDescriptionTest extends SwingModelTest {
 							m_lastLoader.loadClass("test.MyButton2"));
 			List<MorphingTargetDescription> morphingTargets = description.getMorphingTargets();
 			// check targets
-			assertThat(morphingTargets).hasSize(1); // no target JButton
+			Assertions.assertThat(morphingTargets).hasSize(1); // no target JButton
 			{
 				MorphingTargetDescription morphingTarget = morphingTargets.get(0);
 				assertEquals("javax.swing.JLabel", morphingTarget.getComponentClass().getName());

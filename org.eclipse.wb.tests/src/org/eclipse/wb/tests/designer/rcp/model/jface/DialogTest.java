@@ -49,7 +49,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -137,8 +137,8 @@ public class DialogTest extends RcpModelTest {
 		{
 			assertTrue(dialogAreaSuper.hasLayout());
 			Rectangle bounds = dialogAreaSuper.getModelBounds();
-			assertThat(bounds.width).isEqualTo(dialogAreaParent.getModelBounds().width);
-			assertThat(bounds.height).isGreaterThan(200);
+			Assertions.assertThat(bounds.width).isEqualTo(dialogAreaParent.getModelBounds().width);
+			Assertions.assertThat(bounds.height).isGreaterThan(200);
 		}
 	}
 
@@ -318,7 +318,7 @@ public class DialogTest extends RcpModelTest {
 			CompositeInfo parent = dialog.getChildren(CompositeInfo.class).get(0);
 			CompositeInfo container = parent.getChildren(CompositeInfo.class).get(0);
 			Composite containerObject = (Composite) container.getObject();
-			assertThat(containerObject.getChildren()).hasSize(2);
+			Assertions.assertThat(containerObject.getChildren()).hasSize(2);
 		}
 	}
 
@@ -514,7 +514,7 @@ public class DialogTest extends RcpModelTest {
 		// ...and check properties
 		{
 			Property[] properties = newButton.getProperties();
-			assertThat(properties.length).isGreaterThan(10);
+			Assertions.assertThat(properties.length).isGreaterThan(10);
 		}
 	}
 
@@ -616,7 +616,7 @@ public class DialogTest extends RcpModelTest {
 						"getCustomIDs",
 						GenericProperty.class,
 						dialog.getPropertyByTitle("blockOnOpen"));
-		assertThat(idList).hasSize(1);
+		Assertions.assertThat(idList).hasSize(1);
 		FieldDeclaration fieldDeclaration = idList.get(0);
 		assertEquals("GOOD", DomGenerics.fragments(fieldDeclaration).get(0).getName().getIdentifier());
 		{
@@ -653,7 +653,7 @@ public class DialogTest extends RcpModelTest {
 		dialog.refresh();
 		CompositeInfo buttonBar = dialog.getButtonBar();
 		Composite buttonBarObject = (Composite) buttonBar.getObject();
-		assertThat(buttonBarObject.getChildren()).hasSize(1);
+		Assertions.assertThat(buttonBarObject.getChildren()).hasSize(1);
 	}
 
 	////////////////////////////////////////////////////////////////////////////

@@ -60,9 +60,8 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Layout;
 import org.eclipse.swt.widgets.Shell;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.StringUtils;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -283,11 +282,11 @@ public class CompositeTest extends RcpModelTest {
 						"}");
 		// by default Shell's have Layout
 		assertTrue(shell.hasLayout());
-		assertThat(shell.getChildren(LayoutInfo.class)).hasSize(1);
+		Assertions.assertThat(shell.getChildren(LayoutInfo.class)).hasSize(1);
 		// but we can mark instance as not having Layout
 		shell.markNoLayout();
 		assertFalse(shell.hasLayout());
-		assertThat(shell.getChildren(LayoutInfo.class)).isEmpty();
+		Assertions.assertThat(shell.getChildren(LayoutInfo.class)).isEmpty();
 	}
 
 	public void test_setLayout_1() throws Exception {

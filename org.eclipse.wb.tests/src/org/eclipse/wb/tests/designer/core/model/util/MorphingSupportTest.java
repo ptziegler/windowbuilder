@@ -36,8 +36,9 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
+
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -451,7 +452,7 @@ public class MorphingSupportTest extends SwingModelTest {
 			Class<?> targetClass = JTextField.class;
 			MorphingTargetDescription morphingTarget = new MorphingTargetDescription(targetClass, null);
 			ComponentInfo button = panel.getChildrenComponents().get(0);
-			assertThat(button.getCreationSupport()).isInstanceOf(StaticFactoryCreationSupport.class);
+			Assertions.assertThat(button.getCreationSupport()).isInstanceOf(StaticFactoryCreationSupport.class);
 			morph(button, morphingTarget);
 		}
 		// check result
@@ -538,7 +539,7 @@ public class MorphingSupportTest extends SwingModelTest {
 			Class<?> targetClass = m_lastLoader.loadClass("test.MyButton2");
 			MorphingTargetDescription morphingTarget = new MorphingTargetDescription(targetClass, null);
 			ComponentInfo button = panel.getChildrenComponents().get(0);
-			assertThat(button.getCreationSupport()).isInstanceOf(StaticFactoryCreationSupport.class);
+			Assertions.assertThat(button.getCreationSupport()).isInstanceOf(StaticFactoryCreationSupport.class);
 			morph(button, morphingTarget);
 		}
 		// check result
@@ -600,7 +601,7 @@ public class MorphingSupportTest extends SwingModelTest {
 			Class<?> targetClass = JTextField.class;
 			MorphingTargetDescription morphingTarget = new MorphingTargetDescription(targetClass, null);
 			ComponentInfo button = panel.getChildrenComponents().get(0);
-			assertThat(button.getCreationSupport()).isInstanceOf(InstanceFactoryCreationSupport.class);
+			Assertions.assertThat(button.getCreationSupport()).isInstanceOf(InstanceFactoryCreationSupport.class);
 			morph(button, morphingTarget);
 		}
 		// check result

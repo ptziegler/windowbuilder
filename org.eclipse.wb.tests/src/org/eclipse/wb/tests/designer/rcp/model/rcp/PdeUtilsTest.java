@@ -31,9 +31,8 @@ import org.eclipse.pde.core.plugin.IPluginModelBase;
 import org.eclipse.pde.core.plugin.PluginRegistry;
 import org.eclipse.ui.IPageLayout;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.io.FilenameUtils;
+import org.assertj.core.api.Assertions;
 
 import java.io.File;
 import java.util.List;
@@ -142,7 +141,7 @@ public class PdeUtilsTest extends AbstractPdeTest {
 		// getExtensionElements()
 		{
 			List<IPluginElement> elements = m_utils.getExtensionElements("org.eclipse.ui.views", "view");
-			assertThat(elements).isEmpty();
+			Assertions.assertThat(elements).isEmpty();
 		}
 	}
 
@@ -162,7 +161,7 @@ public class PdeUtilsTest extends AbstractPdeTest {
 		// getExtensionElements()
 		{
 			List<IPluginElement> elements = m_utils.getExtensionElements("org.eclipse.ui.views", "view");
-			assertThat(elements).hasSize(2);
+			Assertions.assertThat(elements).hasSize(2);
 			assertId("id_1", elements.get(0));
 			assertId("id_2", elements.get(1));
 		}
@@ -244,7 +243,7 @@ public class PdeUtilsTest extends AbstractPdeTest {
 		// validate manifest
 		{
 			String manifest = getManifest();
-			assertThat(manifest).contains(",\n org.eclipse.jdt.core\n");
+			Assertions.assertThat(manifest).contains(",\n org.eclipse.jdt.core\n");
 		}
 	}
 
@@ -266,7 +265,7 @@ public class PdeUtilsTest extends AbstractPdeTest {
 		// validate
 		{
 			String manifest = getManifest();
-			assertThat(manifest).contains(" org.eclipse.jdt.core,\r\n org.eclipse.jdt.ui\r\n");
+			Assertions.assertThat(manifest).contains(" org.eclipse.jdt.core,\r\n org.eclipse.jdt.ui\r\n");
 		}
 	}
 
@@ -287,8 +286,8 @@ public class PdeUtilsTest extends AbstractPdeTest {
 			m_utils.addLibrary(jarName);
 			// validate manifest
 			String manifest = getManifest();
-			assertThat(manifest).contains(jarName);
-			assertThat(manifest).contains("Bundle-ClassPath: .,\n " + jarName + "\n");
+			Assertions.assertThat(manifest).contains(jarName);
+			Assertions.assertThat(manifest).contains("Bundle-ClassPath: .,\n " + jarName + "\n");
 		} finally {
 			new File(jarPath).delete();
 		}
@@ -332,13 +331,13 @@ public class PdeUtilsTest extends AbstractPdeTest {
 				"    <view id='id_1' name='name 1' class='C_1'/>",
 				"  </extension>",
 		"</plugin>"});
-		assertThat(getPluginXML()).doesNotContain("newAttr");
+		Assertions.assertThat(getPluginXML()).doesNotContain("newAttr");
 		// set new attribute
 		IPluginElement element =
 				m_utils.getExtensionElementById("org.eclipse.ui.views", "view", "id_1");
 		m_utils.setAttribute(element, "newAttr", "New value");
 		// PDE formats plugin.xml very bad, so check using "contains"
-		assertThat(getPluginXML()).contains("newAttr=\"New value\"");
+		Assertions.assertThat(getPluginXML()).contains("newAttr=\"New value\"");
 	}
 
 	/**
@@ -351,7 +350,7 @@ public class PdeUtilsTest extends AbstractPdeTest {
 				"    <view id='id_1' name='name 1' class='C_1'/>",
 				"  </extension>",
 		"</plugin>"});
-		assertThat(getPluginXML()).contains("name=");
+		Assertions.assertThat(getPluginXML()).contains("name=");
 		// remove existing attribute
 		IPluginElement element =
 				m_utils.getExtensionElementById("org.eclipse.ui.views", "view", "id_1");
@@ -376,7 +375,7 @@ public class PdeUtilsTest extends AbstractPdeTest {
 				"    <view id='id_1' name='name 1' class='C_1'/>",
 				"  </extension>",
 		"</plugin>"});
-		assertThat(getPluginXML()).contains("name=");
+		Assertions.assertThat(getPluginXML()).contains("name=");
 		// update existing attribute
 		{
 			IPluginElement element =
@@ -792,14 +791,14 @@ public class PdeUtilsTest extends AbstractPdeTest {
 			idToView.put(viewInfo.getId(), viewInfo);
 		}
 		// analyze views
-		assertThat(views).isNotEmpty();
-		assertThat(views.size()).isGreaterThan(35);
+		Assertions.assertThat(views).isNotEmpty();
+		Assertions.assertThat(views.size()).isGreaterThan(35);
 		// check for some known views
 		Set<String> idSet = idToView.keySet();
-		assertThat(idSet).contains("org.eclipse.jdt.ui.PackageExplorer");
-		assertThat(idSet).contains(IPageLayout.ID_PROJECT_EXPLORER);
-		assertThat(idSet).contains(IPageLayout.ID_OUTLINE);
-		assertThat(idSet).contains(IPageLayout.ID_BOOKMARKS);
+		Assertions.assertThat(idSet).contains("org.eclipse.jdt.ui.PackageExplorer");
+		Assertions.assertThat(idSet).contains(IPageLayout.ID_PROJECT_EXPLORER);
+		Assertions.assertThat(idSet).contains(IPageLayout.ID_OUTLINE);
+		Assertions.assertThat(idSet).contains(IPageLayout.ID_BOOKMARKS);
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -817,8 +816,8 @@ public class PdeUtilsTest extends AbstractPdeTest {
 			idToCategory.put(category.getId(), category);
 		}
 		// analyze categories
-		assertThat(categories).isNotEmpty();
-		assertThat(categories.size()).isGreaterThan(8);
+		Assertions.assertThat(categories).isNotEmpty();
+		Assertions.assertThat(categories.size()).isGreaterThan(8);
 		// check "Other" category
 		{
 			ViewCategoryInfo category = idToCategory.get(null);
@@ -840,8 +839,8 @@ public class PdeUtilsTest extends AbstractPdeTest {
 				idToView.put(viewInfo.getId(), viewInfo);
 			}
 			// analyze views
-			assertThat(views).isNotEmpty();
-			assertThat(views.size()).isGreaterThan(5);
+			Assertions.assertThat(views).isNotEmpty();
+			Assertions.assertThat(views.size()).isGreaterThan(5);
 			// check for some known views
 			assertNotNull(idToView.get("org.eclipse.jdt.ui.PackageExplorer"));
 			assertNull(idToView.get(IPageLayout.ID_PROJECT_EXPLORER));
@@ -960,12 +959,12 @@ public class PdeUtilsTest extends AbstractPdeTest {
 			idToPerspective.put(perspectiveInfo.getId(), perspectiveInfo);
 		}
 		// analyze perspectives
-		assertThat(perspectives).isNotEmpty();
-		assertThat(perspectives.size()).isGreaterThan(5);
+		Assertions.assertThat(perspectives).isNotEmpty();
+		Assertions.assertThat(perspectives.size()).isGreaterThan(5);
 		// check for some known perspectives
 		Set<String> idSet = idToPerspective.keySet();
-		assertThat(idSet).contains("org.eclipse.ui.resourcePerspective");
-		assertThat(idSet).contains("org.eclipse.jdt.ui.JavaPerspective");
-		assertThat(idSet).contains("org.eclipse.pde.ui.PDEPerspective");
+		Assertions.assertThat(idSet).contains("org.eclipse.ui.resourcePerspective");
+		Assertions.assertThat(idSet).contains("org.eclipse.jdt.ui.JavaPerspective");
+		Assertions.assertThat(idSet).contains("org.eclipse.pde.ui.PDEPerspective");
 	}
 }

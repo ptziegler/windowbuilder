@@ -20,7 +20,7 @@ import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.internal.swing.model.component.JLayeredPaneInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.awt.Container;
 import java.util.List;
@@ -295,6 +295,6 @@ public class JLayeredPaneTest extends SwingModelTest {
 		//
 		IObjectPresentation presentation = pane.getPresentation();
 		List<ObjectInfo> graphical = presentation.getChildrenGraphical();
-		assertThat(graphical).isEqualTo(ImmutableList.of(button_2, button_3, button_1));
+		Assertions.assertThat(graphical).isEqualTo(ImmutableList.of(button_2, button_3, button_1));
 	}
 }

@@ -22,7 +22,7 @@ import org.eclipse.wb.tests.designer.swing.model.layout.AbstractLayoutTest;
 
 import org.eclipse.draw2d.geometry.Rectangle;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import javax.swing.SpringLayout;
 
@@ -192,8 +192,8 @@ public class SpringAttachmentTest extends AbstractLayoutTest {
 		// "button" is located at (5,10)
 		{
 			Rectangle modelBounds = button.getModelBounds();
-			assertThat(modelBounds.x).isEqualTo(5);
-			assertThat(modelBounds.y).isEqualTo(10);
+			Assertions.assertThat(modelBounds.x).isEqualTo(5);
+			Assertions.assertThat(modelBounds.y).isEqualTo(10);
 		}
 		// LEFT
 		{
@@ -251,13 +251,13 @@ public class SpringAttachmentTest extends AbstractLayoutTest {
 		Rectangle bounds_2 = button_2.getModelBounds();
 		// "button_1" is located at (5,10)
 		{
-			assertThat(bounds_1.x).isEqualTo(5);
-			assertThat(bounds_1.y).isEqualTo(10);
+			Assertions.assertThat(bounds_1.x).isEqualTo(5);
+			Assertions.assertThat(bounds_1.y).isEqualTo(10);
 		}
 		// "button_2" is located at (right_1+5,y_1)
 		{
-			assertThat(bounds_2.x).isEqualTo(bounds_1.right() + 5);
-			assertThat(bounds_2.y).isEqualTo(bounds_1.y);
+			Assertions.assertThat(bounds_2.x).isEqualTo(bounds_1.right() + 5);
+			Assertions.assertThat(bounds_2.y).isEqualTo(bounds_1.y);
 		}
 		// "button_1" attachments
 		{

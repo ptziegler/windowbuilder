@@ -18,7 +18,7 @@ import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
 
 import org.eclipse.jface.action.IAction;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -173,7 +173,7 @@ public class ColumnLayoutTest extends XwtModelTest {
 		// prepare actions
 		List<Object> actions = getSelectionActions(button);
 		// check actions
-		assertThat(actions).hasSize(5); // separator, 4 action's
+		Assertions.assertThat(actions).hasSize(5); // separator, 4 action's
 		assertNotNull(findAction(actions, "Left"));
 		assertNotNull(findAction(actions, "Center"));
 		assertNotNull(findAction(actions, "Right"));
@@ -217,7 +217,7 @@ public class ColumnLayoutTest extends XwtModelTest {
 		// prepare actions
 		List<Object> actions = getSelectionActions();
 		// no actions
-		assertThat(actions).isEmpty();
+		Assertions.assertThat(actions).isEmpty();
 	}
 
 	/**
@@ -238,6 +238,6 @@ public class ColumnLayoutTest extends XwtModelTest {
 		// prepare actions
 		List<Object> actions = getSelectionActions(shell, button);
 		// no actions
-		assertThat(actions).isEmpty();
+		Assertions.assertThat(actions).isEmpty();
 	}
 }

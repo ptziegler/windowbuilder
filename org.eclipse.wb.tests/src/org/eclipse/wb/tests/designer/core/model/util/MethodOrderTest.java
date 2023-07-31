@@ -32,7 +32,7 @@ import org.eclipse.jdt.core.dom.Statement;
 import org.eclipse.jdt.core.dom.SuperMethodInvocation;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -1437,12 +1437,12 @@ public class MethodOrderTest extends SwingModelTest {
 		{
 			MethodDescription method = button.getDescription().getMethod("setSelected(boolean)");
 			String orderClassName = method.getOrder().getClass().getName();
-			assertThat(orderClassName).endsWith("MethodOrderBeforeAssociation");
+			Assertions.assertThat(orderClassName).endsWith("MethodOrderBeforeAssociation");
 		}
 		{
 			MethodDescription method = button.getDescription().getMethod("setEnabled(boolean)");
 			String orderClassName = method.getOrder().getClass().getName();
-			assertThat(orderClassName).endsWith("MethodOrderAfterAssociation");
+			Assertions.assertThat(orderClassName).endsWith("MethodOrderAfterAssociation");
 		}
 	}
 
@@ -1488,18 +1488,18 @@ public class MethodOrderTest extends SwingModelTest {
 		{
 			MethodDescription method = button.getDescription().getMethod("setEnabled(boolean)");
 			String orderClassName = method.getOrder().getClass().getName();
-			assertThat(orderClassName).endsWith("MethodOrderBeforeAssociation");
+			Assertions.assertThat(orderClassName).endsWith("MethodOrderBeforeAssociation");
 		}
 		{
 			MethodDescription method = button.getDescription().getMethod("setSelected(boolean)");
 			String orderClassName = method.getOrder().getClass().getName();
-			assertThat(orderClassName).endsWith("MethodOrderBeforeAssociation");
+			Assertions.assertThat(orderClassName).endsWith("MethodOrderBeforeAssociation");
 		}
 		// setAutoscrolls() should be "afterAssociation"
 		{
 			MethodDescription method = button.getDescription().getMethod("setAutoscrolls(boolean)");
 			String orderClassName = method.getOrder().getClass().getName();
-			assertThat(orderClassName).endsWith("MethodOrderAfterAssociation");
+			Assertions.assertThat(orderClassName).endsWith("MethodOrderAfterAssociation");
 		}
 	}
 
@@ -1815,11 +1815,11 @@ public class MethodOrderTest extends SwingModelTest {
 		List<ComponentInfo> childrenComponents = panel.getChildrenComponents();
 		// property item
 		JavaInfo propertyItemInfo = childrenComponents.get(0);
-		assertThat(propertyItemInfo.getDescription().getComponentClass().getCanonicalName()).isEqualTo(
+		Assertions.assertThat(propertyItemInfo.getDescription().getComponentClass().getCanonicalName()).isEqualTo(
 				"test.PropertyItem");
 		// panel item
 		JavaInfo panelItemInfo = childrenComponents.get(1);
-		assertThat(panelItemInfo).isInstanceOf(JPanelInfo.class);
+		Assertions.assertThat(panelItemInfo).isInstanceOf(JPanelInfo.class);
 		// change property
 		Property property = propertyItemInfo.getPropertyByTitle("value");
 		property.setValue(10);
@@ -1852,10 +1852,10 @@ public class MethodOrderTest extends SwingModelTest {
 		List<ComponentInfo> childrenComponents = panel.getChildrenComponents();
 		// panel item
 		JavaInfo panelItemInfo = childrenComponents.get(0);
-		assertThat(panelItemInfo).isInstanceOf(JPanelInfo.class);
+		Assertions.assertThat(panelItemInfo).isInstanceOf(JPanelInfo.class);
 		// property item
 		JavaInfo propertyItemInfo = childrenComponents.get(1);
-		assertThat(propertyItemInfo.getDescription().getComponentClass().getCanonicalName()).isEqualTo(
+		Assertions.assertThat(propertyItemInfo.getDescription().getComponentClass().getCanonicalName()).isEqualTo(
 				"test.PropertyItem");
 		// change property
 		Property property = propertyItemInfo.getPropertyByTitle("value");
@@ -1886,7 +1886,7 @@ public class MethodOrderTest extends SwingModelTest {
 		List<ComponentInfo> childrenComponents = panel.getChildrenComponents();
 		// property item
 		JavaInfo propertyItemInfo = childrenComponents.get(0);
-		assertThat(propertyItemInfo.getDescription().getComponentClass().getCanonicalName()).isEqualTo(
+		Assertions.assertThat(propertyItemInfo.getDescription().getComponentClass().getCanonicalName()).isEqualTo(
 				"test.PropertyItem");
 		// change property
 		Property property = propertyItemInfo.getPropertyByTitle("value");

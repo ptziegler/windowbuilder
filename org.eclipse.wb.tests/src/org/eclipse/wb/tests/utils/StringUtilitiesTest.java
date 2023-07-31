@@ -13,9 +13,8 @@ package org.eclipse.wb.tests.utils;
 import org.eclipse.wb.internal.core.utils.StringUtilities;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.ArrayUtils;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link StringUtilities}.
@@ -90,11 +89,11 @@ public class StringUtilitiesTest extends DesignerTestCase {
 	public void test_extractCamelWords() throws Exception {
 		{
 			String[] words = StringUtilities.extractCamelWords(null);
-			assertThat(words).isEqualTo(ArrayUtils.EMPTY_STRING_ARRAY);
+			Assertions.assertThat(words).isEqualTo(ArrayUtils.EMPTY_STRING_ARRAY);
 		}
 		{
 			String[] words = StringUtilities.extractCamelWords("NullPointerException");
-			assertThat(words).isEqualTo(new String[]{"Null", "Pointer", "Exception"});
+			Assertions.assertThat(words).isEqualTo(new String[]{"Null", "Pointer", "Exception"});
 		}
 	}
 
@@ -241,9 +240,9 @@ public class StringUtilitiesTest extends DesignerTestCase {
 		String[] source = {"my text", "some text"};
 		// replace
 		String[] target = StringUtilities.replace(source, "text", "word");
-		assertThat(target).isEqualTo(new String[]{"my word", "some word"});
+		Assertions.assertThat(target).isEqualTo(new String[]{"my word", "some word"});
 		// source should not be changed
-		assertThat(source).isEqualTo(new String[]{"my text", "some text"});
+		Assertions.assertThat(source).isEqualTo(new String[]{"my text", "some text"});
 	}
 
 	////////////////////////////////////////////////////////////////////////////

@@ -24,9 +24,8 @@ import org.eclipse.wb.internal.xwt.model.widgets.CompositeInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.ControlInfo;
 import org.eclipse.wb.tests.designer.XML.model.description.AbstractCoreTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.ArrayUtils;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 import java.util.Map;
@@ -134,8 +133,8 @@ public class ModelMethodPropertyChildTest extends AbstractCoreTest {
 		parse("<t:MyComponent/>");
 		// check warnings
 		List<EditorWarning> warnings = m_lastContext.getWarnings();
-		assertThat(warnings).hasSize(1);
-		assertThat(warnings.get(0).getMessage()).contains("'getter'").contains("'setter'").contains(
+		Assertions.assertThat(warnings).hasSize(1);
+		Assertions.assertThat(warnings.get(0).getMessage()).contains("'getter'").contains("'setter'").contains(
 				"'title'");
 	}
 
@@ -144,8 +143,8 @@ public class ModelMethodPropertyChildTest extends AbstractCoreTest {
 		parse("<t:MyComponent/>");
 		// check warnings
 		List<EditorWarning> warnings = m_lastContext.getWarnings();
-		assertThat(warnings).hasSize(1);
-		assertThat(warnings.get(0).getMessage()).contains("Invalid").contains("getter");
+		Assertions.assertThat(warnings).hasSize(1);
+		Assertions.assertThat(warnings.get(0).getMessage()).contains("Invalid").contains("getter");
 	}
 
 	public void test_noParameter_setter() throws Exception {
@@ -153,7 +152,7 @@ public class ModelMethodPropertyChildTest extends AbstractCoreTest {
 		parse("<t:MyComponent/>");
 		// check warnings
 		List<EditorWarning> warnings = m_lastContext.getWarnings();
-		assertThat(warnings).hasSize(1);
-		assertThat(warnings.get(0).getMessage()).contains("Invalid").contains("setter");
+		Assertions.assertThat(warnings).hasSize(1);
+		Assertions.assertThat(warnings.get(0).getMessage()).contains("Invalid").contains("setter");
 	}
 }

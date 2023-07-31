@@ -33,12 +33,12 @@ import org.eclipse.wb.internal.xwt.model.widgets.ControlInfo;
 import org.eclipse.wb.tests.designer.XML.model.description.AbstractCoreTest;
 import org.eclipse.wb.tests.designer.core.model.TestObjectInfo;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.clearInvocations;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import org.assertj.core.api.Assertions;
 import org.mockito.InOrder;
 
 import java.text.MessageFormat;
@@ -73,7 +73,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 				getConfigurations(true, new String[][]{
 					{"simpleContainer", "true"},
 					{"simpleContainer.component", "org.eclipse.swt.widgets.Control"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(configurations.get(0), "org.eclipse.swt.widgets.Control", "direct");
 	}
 
@@ -86,7 +86,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 					{"simpleContainer", "true"},
 					{"simpleContainer.x-association", "property myProperty"},
 					{"simpleContainer.component", "org.eclipse.swt.widgets.Control"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"org.eclipse.swt.widgets.Control",
@@ -102,7 +102,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 					{"simpleContainer", "true"},
 					{"simpleContainer.x-association", "inter myName attrA='a a' attrB='b'"},
 					{"simpleContainer.component", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"java.awt.Component",
@@ -118,7 +118,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 			fail();
 		} catch (Throwable e) {
 			Throwable rootCause = DesignerExceptionUtils.getRootCause(e);
-			assertThat(rootCause).isExactlyInstanceOf(AssertionFailedException.class);
+			Assertions.assertThat(rootCause).isExactlyInstanceOf(AssertionFailedException.class);
 		}
 	}
 
@@ -135,7 +135,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 				getConfigurations(true, new String[][]{
 					{"simpleContainer", "true"},
 					{"simpleContainer.component", "org.eclipse.swt.widgets.Control"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(configurations.get(0), "org.eclipse.swt.widgets.Control", "direct");
 	}
 
@@ -147,7 +147,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 				getConfigurations(true, new String[][]{
 					{"simpleContainer.canvas", "true"},
 					{"simpleContainer.canvas.component", "org.eclipse.swt.widgets.Control"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(configurations.get(0), "org.eclipse.swt.widgets.Control", "direct");
 	}
 
@@ -159,7 +159,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 				getConfigurations(true, new String[][]{
 					{"simpleContainer.tree", "true"},
 					{"simpleContainer.tree.component", "org.eclipse.swt.widgets.Control"},});
-		assertThat(configurations).isEmpty();
+		Assertions.assertThat(configurations).isEmpty();
 	}
 
 	/**
@@ -170,7 +170,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 				getConfigurations(false, new String[][]{
 					{"simpleContainer", "true"},
 					{"simpleContainer.component", "org.eclipse.swt.widgets.Control"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 	}
 
 	/**
@@ -181,7 +181,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 				getConfigurations(false, new String[][]{
 					{"simpleContainer.tree", "true"},
 					{"simpleContainer.tree.component", "org.eclipse.swt.widgets.Control"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 	}
 
 	/**
@@ -196,7 +196,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 					{"simpleContainer.1.component", "org.eclipse.swt.widgets.Button"},
 					{"simpleContainer.5", "true"},
 					{"simpleContainer.5.component", "org.eclipse.swt.widgets.Text"},});
-		assertThat(configurations).hasSize(3);
+		Assertions.assertThat(configurations).hasSize(3);
 		assertConfiguration(configurations.get(0), "org.eclipse.swt.widgets.Control", "direct");
 		assertConfiguration(configurations.get(1), "org.eclipse.swt.widgets.Button", "direct");
 		assertConfiguration(configurations.get(2), "org.eclipse.swt.widgets.Text", "direct");
@@ -210,7 +210,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 				getConfigurations(true, new String[][]{
 					{"simpleContainer", "false"},
 					{"simpleContainer.component", "org.eclipse.swt.widgets.Control"},});
-		assertThat(configurations).hasSize(0);
+		Assertions.assertThat(configurations).hasSize(0);
 	}
 
 	/**
@@ -221,7 +221,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 				getConfigurations(true, new String[][]{
 					{"simpleContainer", "true"},
 					{"simpleContainer.defaultComponent", "org.eclipse.swt.widgets.Control"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(configurations.get(0), "org.eclipse.swt.widgets.Control", "direct");
 	}
 
@@ -235,7 +235,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 				getConfigurations(true, new String[][]{
 					{"simpleContainer.canvas", "isContainerType('org.eclipse.swt.widgets.Control')"},
 					{"simpleContainer.canvas.component", "org.eclipse.swt.widgets.Control"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(configurations.get(0), "org.eclipse.swt.widgets.Control", "direct");
 	}
 
@@ -244,7 +244,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 				getConfigurations(true, new String[][]{
 					{"simpleContainer.canvas", "1 == 2"},
 					{"simpleContainer.canvas.component", "org.eclipse.swt.widgets.Control"},});
-		assertThat(configurations).isEmpty();
+		Assertions.assertThat(configurations).isEmpty();
 	}
 
 	////////////////////////////////////////////////////////////////////////////

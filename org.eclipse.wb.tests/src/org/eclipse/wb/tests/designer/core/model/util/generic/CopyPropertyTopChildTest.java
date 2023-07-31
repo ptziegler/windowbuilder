@@ -18,7 +18,7 @@ import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -151,8 +151,8 @@ public class CopyPropertyTopChildTest extends SwingModelTest {
 				"}");
 		// check warnings
 		List<EditorWarning> warnings = m_lastState.getWarnings();
-		assertThat(warnings).hasSize(1);
-		assertThat(warnings.get(0).getMessage()).contains("'from'");
+		Assertions.assertThat(warnings).hasSize(1);
+		Assertions.assertThat(warnings.get(0).getMessage()).contains("'from'");
 	}
 
 	public void test_noParameter_to() throws Exception {
@@ -182,7 +182,7 @@ public class CopyPropertyTopChildTest extends SwingModelTest {
 				"}");
 		// check warnings
 		List<EditorWarning> warnings = m_lastState.getWarnings();
-		assertThat(warnings).hasSize(1);
-		assertThat(warnings.get(0).getMessage()).contains("'to'");
+		Assertions.assertThat(warnings).hasSize(1);
+		Assertions.assertThat(warnings.get(0).getMessage()).contains("'to'");
 	}
 }

@@ -33,7 +33,7 @@ import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jface.resource.ImageDescriptor;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 import java.util.Map;
@@ -132,7 +132,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 		// check static factory descriptions
 		Map<String, FactoryMethodDescription> descriptionsMap =
 				getDescriptionsMap("test.StaticFactory_", true);
-		assertThat(descriptionsMap).hasSize(1);
+		Assertions.assertThat(descriptionsMap).hasSize(1);
 		assertTrue(descriptionsMap.containsKey("create_static_withFactory(java.lang.String)"));
 		// check for parameter name
 		FactoryMethodDescription description = descriptionsMap.values().iterator().next();
@@ -168,7 +168,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 		// check static factory descriptions
 		Map<String, FactoryMethodDescription> descriptionsMap =
 				getDescriptionsMap("test.StaticFactory", true);
-		assertThat(descriptionsMap).hasSize(2);
+		Assertions.assertThat(descriptionsMap).hasSize(2);
 		// create_1
 		{
 			FactoryMethodDescription description = descriptionsMap.get("create_1(java.lang.String)");
@@ -241,7 +241,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 		// check static factory descriptions
 		Map<String, FactoryMethodDescription> descriptionsMap =
 				getDescriptionsMap("test.StaticFactory", true);
-		assertThat(descriptionsMap).hasSize(2);
+		Assertions.assertThat(descriptionsMap).hasSize(2);
 		assertTrue(descriptionsMap.containsKey("create_1(java.lang.String)"));
 		assertTrue(descriptionsMap.containsKey("create_2(java.lang.String)"));
 	}
@@ -277,7 +277,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 		// check static factory descriptions
 		Map<String, FactoryMethodDescription> descriptionsMap =
 				getDescriptionsMap("test.StaticFactory_", true);
-		assertThat(descriptionsMap).hasSize(2);
+		Assertions.assertThat(descriptionsMap).hasSize(2);
 		assertTrue(descriptionsMap.containsKey("create_1(java.lang.String)"));
 		assertTrue(descriptionsMap.containsKey("create_2(java.lang.String)"));
 	}
@@ -307,7 +307,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 		// check static factory descriptions
 		Map<String, FactoryMethodDescription> descriptionsMap =
 				getDescriptionsMap("test.StaticFactory", true);
-		assertThat(descriptionsMap).isEmpty();
+		Assertions.assertThat(descriptionsMap).isEmpty();
 	}
 
 	/**
@@ -408,7 +408,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 		// check static factory descriptions
 		Map<String, FactoryMethodDescription> descriptionsMap =
 				getDescriptionsMap("test.StaticFactory_", true);
-		assertThat(descriptionsMap).hasSize(1);
+		Assertions.assertThat(descriptionsMap).hasSize(1);
 		assertTrue(descriptionsMap.containsKey("create_xml(java.lang.String)"));
 		// check for parameter name
 		FactoryMethodDescription description = descriptionsMap.values().iterator().next();
@@ -446,7 +446,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 		// check static factory descriptions, no entries expected
 		Map<String, FactoryMethodDescription> descriptionsMap =
 				getDescriptionsMap("test.InstanceFactory", true);
-		assertThat(descriptionsMap).isEmpty();
+		Assertions.assertThat(descriptionsMap).isEmpty();
 	}
 
 	/**
@@ -480,7 +480,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 		// check instance factory descriptions, no entries expected
 		Map<String, FactoryMethodDescription> descriptionsMap =
 				getDescriptionsMap("test.StaticFactory", false);
-		assertThat(descriptionsMap).isEmpty();
+		Assertions.assertThat(descriptionsMap).isEmpty();
 	}
 
 	/**
@@ -522,8 +522,8 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 		{
 			Map<String, FactoryMethodDescription> descriptionsMap =
 					getDescriptionsMap("test.SubToolkit", false);
-			assertThat(descriptionsMap).hasSize(1);
-			assertThat(descriptionsMap.keySet()).contains("createButton()");
+			Assertions.assertThat(descriptionsMap).hasSize(1);
+			Assertions.assertThat(descriptionsMap.keySet()).contains("createButton()");
 		}
 	}
 
@@ -770,7 +770,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 						"    add(StaticFactory.createButton('button 2'));",
 						"  }",
 						"}");
-		assertThat(panel.getChildrenComponents()).hasSize(2);
+		Assertions.assertThat(panel.getChildrenComponents()).hasSize(2);
 		// check that descriptions are same, i.e. cached
 		ComponentInfo button_1 = panel.getChildrenComponents().get(0);
 		ComponentInfo button_2 = panel.getChildrenComponents().get(1);
@@ -804,7 +804,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 		// get factories
 		Map<String, FactoryMethodDescription> descriptionsMap =
 				getDescriptionsMap("test.SomeObject$StaticFactory", true);
-		assertThat(descriptionsMap).isEmpty();
+		Assertions.assertThat(descriptionsMap).isEmpty();
 	}
 
 	/**
@@ -833,15 +833,15 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 		// get factories, causes exception, so no descriptions
 		Map<String, FactoryMethodDescription> descriptionsMap =
 				getDescriptionsMap0("test.MyFactory", true);
-		assertThat(descriptionsMap).isEmpty();
+		Assertions.assertThat(descriptionsMap).isEmpty();
 		// exception logged as warning
 		{
 			List<EditorWarning> warnings = m_lastState.getWarnings();
-			assertThat(warnings).hasSize(1);
+			Assertions.assertThat(warnings).hasSize(1);
 			EditorWarning warning = warnings.get(0);
 			Throwable exception = warning.getException();
 			Throwable rootException = DesignerExceptionUtils.getRootCause(exception);
-			assertThat(rootException).isExactlyInstanceOf(ClassNotFoundException.class);
+			Assertions.assertThat(rootException).isExactlyInstanceOf(ClassNotFoundException.class);
 		}
 	}
 
@@ -870,7 +870,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 						"    add(StaticFactory.createButton(null));",
 						"  }",
 						"}");
-		assertThat(panel.getChildrenComponents()).hasSize(1);
+		Assertions.assertThat(panel.getChildrenComponents()).hasSize(1);
 		ComponentInfo button = panel.getChildrenComponents().get(0);
 		// check for property binding
 		FactoryMethodDescription description =
@@ -963,7 +963,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 		String factoryClassName = "test.InstanceFactory";
 		Map<String, FactoryMethodDescription> descriptionsMap =
 				getDescriptionsMap(factoryClassName, false);
-		assertThat(descriptionsMap).hasSize(2);
+		Assertions.assertThat(descriptionsMap).hasSize(2);
 		assertTrue(descriptionsMap.containsKey("create_static(java.lang.String)"));
 		assertTrue(descriptionsMap.containsKey("create_instance(java.lang.String)"));
 		// check that instance factory not considered as static
@@ -1067,7 +1067,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 				getDescription("test.StaticFactory", "createButton()", true);
 		{
 			List<CreationInvocationDescription> invocations = factoryDescription.getInvocations();
-			assertThat(invocations).hasSize(1);
+			Assertions.assertThat(invocations).hasSize(1);
 			CreationInvocationDescription invocationDescription = invocations.get(0);
 			assertEquals("setText(java.lang.String)", invocationDescription.getSignature());
 			assertEquals("\"Static Button\"", invocationDescription.getArguments());
@@ -1128,7 +1128,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 				"  public Test() {",
 				"  }",
 				"}");
-		assertThat(getFactoryUnits()).isEmpty();
+		Assertions.assertThat(getFactoryUnits()).isEmpty();
 	}
 
 	/**
@@ -1416,25 +1416,25 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 				"  }",
 				"}");
 		// check descriptions
-		assertThat(getDescriptionsMap("test.TestFactory", true).size()).isEqualTo(1);
-		assertThat(getDescriptionsMap("test.TestFactory", false).size()).isEqualTo(2);
+		Assertions.assertThat(getDescriptionsMap("test.TestFactory", true).size()).isEqualTo(1);
+		Assertions.assertThat(getDescriptionsMap("test.TestFactory", false).size()).isEqualTo(2);
 		// for 'create()'
 		{
 			FactoryMethodDescription factoryDescription =
 					getDescription("test.TestFactory", "create()", true);
-			assertThat(factoryDescription.isFactory()).isTrue();
+			Assertions.assertThat(factoryDescription.isFactory()).isTrue();
 		}
 		// for 'createButton()'
 		{
 			FactoryMethodDescription factoryDescription =
 					getDescription("test.TestFactory", "createButton()", false);
-			assertThat(factoryDescription.isFactory()).isTrue();
+			Assertions.assertThat(factoryDescription.isFactory()).isTrue();
 		}
 		// for 'setProperty()'
 		{
 			FactoryMethodDescription factoryDescription =
 					getDescription("test.TestFactory", "createNo(java.lang.Object)", false);
-			assertThat(factoryDescription.isFactory()).isTrue();
+			Assertions.assertThat(factoryDescription.isFactory()).isTrue();
 		}
 	}
 
@@ -1469,19 +1469,19 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 		{
 			FactoryMethodDescription factoryDescription =
 					getDescription("test.TestFactory_", "create()", true);
-			assertThat(factoryDescription).isNull();
+			Assertions.assertThat(factoryDescription).isNull();
 		}
 		// for 'createButton()'
 		{
 			FactoryMethodDescription factoryDescription =
 					getDescription("test.TestFactory_", "createButton()", false);
-			assertThat(factoryDescription).isNull();
+			Assertions.assertThat(factoryDescription).isNull();
 		}
 		// for 'setProperty()'
 		{
 			FactoryMethodDescription factoryDescription =
 					getDescription("test.TestFactory_", "createNo(java.lang.Object)", false);
-			assertThat(factoryDescription).isNull();
+			Assertions.assertThat(factoryDescription).isNull();
 		}
 	}
 
@@ -1525,19 +1525,19 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 		{
 			FactoryMethodDescription factoryDescription =
 					getDescription("test.TestFactory", "create()", true);
-			assertThat(factoryDescription.isFactory()).isTrue();
+			Assertions.assertThat(factoryDescription.isFactory()).isTrue();
 		}
 		// for 'createButton()'
 		{
 			FactoryMethodDescription factoryDescription =
 					getDescription("test.TestFactory", "createButton()", false);
-			assertThat(factoryDescription.isFactory()).isTrue();
+			Assertions.assertThat(factoryDescription.isFactory()).isTrue();
 		}
 		// for 'setProperty()'
 		{
 			FactoryMethodDescription factoryDescription =
 					getDescription("test.TestFactory", "createNo(java.lang.Object)", false);
-			assertThat(factoryDescription).isNull();
+			Assertions.assertThat(factoryDescription).isNull();
 		}
 	}
 
@@ -1579,19 +1579,19 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 		{
 			FactoryMethodDescription factoryDescription =
 					getDescription("test.TestFactory", "create()", true);
-			assertThat(factoryDescription).isNull();
+			Assertions.assertThat(factoryDescription).isNull();
 		}
 		// for 'createButton()'
 		{
 			FactoryMethodDescription factoryDescription =
 					getDescription("test.TestFactory", "createButton()", false);
-			assertThat(factoryDescription).isNull();
+			Assertions.assertThat(factoryDescription).isNull();
 		}
 		// for 'setProperty()'
 		{
 			FactoryMethodDescription factoryDescription =
 					getDescription("test.TestFactory", "createNo(java.lang.Object)", false);
-			assertThat(factoryDescription).isNull();
+			Assertions.assertThat(factoryDescription).isNull();
 		}
 	}
 
@@ -1637,19 +1637,19 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 		{
 			FactoryMethodDescription factoryDescription =
 					getDescription("test.TestFactory", "create()", true);
-			assertThat(factoryDescription.isFactory()).isTrue();
+			Assertions.assertThat(factoryDescription.isFactory()).isTrue();
 		}
 		// for 'createButton()'
 		{
 			FactoryMethodDescription factoryDescription =
 					getDescription("test.TestFactory", "createButton()", false);
-			assertThat(factoryDescription.isFactory()).isTrue();
+			Assertions.assertThat(factoryDescription.isFactory()).isTrue();
 		}
 		// for 'setProperty()'
 		{
 			FactoryMethodDescription factoryDescription =
 					getDescription("test.TestFactory", "createNo(java.lang.Object)", false);
-			assertThat(factoryDescription).isNull();
+			Assertions.assertThat(factoryDescription).isNull();
 		}
 	}
 

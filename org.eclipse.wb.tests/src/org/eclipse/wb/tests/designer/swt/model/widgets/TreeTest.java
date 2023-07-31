@@ -19,7 +19,7 @@ import org.eclipse.draw2d.geometry.Insets;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.widgets.TreeItem;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -66,12 +66,12 @@ public class TreeTest extends RcpModelTest {
 		TreeInfo tree = getJavaInfoByName("tree");
 		// prepare items
 		List<TreeItemInfo> items = tree.getItems();
-		assertThat(items).hasSize(2);
+		Assertions.assertThat(items).hasSize(2);
 		TreeItemInfo item_1 = items.get(0);
 		TreeItemInfo item_2 = items.get(1);
 		// no sub-items
-		assertThat(item_1.getItems()).isEmpty();
-		assertThat(item_2.getItems()).isEmpty();
+		Assertions.assertThat(item_1.getItems()).isEmpty();
+		Assertions.assertThat(item_2.getItems()).isEmpty();
 		// check bounds
 		Insets tableInsets = tree.getClientAreaInsets();
 		{
@@ -80,8 +80,8 @@ public class TreeTest extends RcpModelTest {
 			{
 				assertNotNull(modelBounds);
 				assertTrue(modelBounds.x > 10); // some space for tree line
-				assertThat(modelBounds.y).isGreaterThanOrEqualTo(0); // platform-specific tolerance
-				assertThat(modelBounds.y).isLessThanOrEqualTo(5);
+				Assertions.assertThat(modelBounds.y).isGreaterThanOrEqualTo(0); // platform-specific tolerance
+				Assertions.assertThat(modelBounds.y).isLessThanOrEqualTo(5);
 				assertTrue(modelBounds.width > 50);
 			}
 			// "shot" bounds
@@ -94,8 +94,8 @@ public class TreeTest extends RcpModelTest {
 		{
 			Rectangle modelBounds = item_2.getModelBounds();
 			assertEquals(item_1.getModelBounds().x, modelBounds.x);
-			assertThat(item_1.getModelBounds().bottom()).isGreaterThanOrEqualTo(modelBounds.y - 5); // platform-specific tolerance
-			assertThat(item_1.getModelBounds().bottom()).isLessThanOrEqualTo(modelBounds.y);
+			Assertions.assertThat(item_1.getModelBounds().bottom()).isGreaterThanOrEqualTo(modelBounds.y - 5); // platform-specific tolerance
+			Assertions.assertThat(item_1.getModelBounds().bottom()).isLessThanOrEqualTo(modelBounds.y);
 		}
 	}
 
@@ -122,12 +122,12 @@ public class TreeTest extends RcpModelTest {
 		TreeItemInfo item;
 		{
 			List<TreeItemInfo> items = tree.getItems();
-			assertThat(items).hasSize(1);
+			Assertions.assertThat(items).hasSize(1);
 			item = items.get(0);
 		}
 		// check for "subItem"
 		List<TreeItemInfo> subItems = item.getItems();
-		assertThat(subItems).hasSize(1);
+		Assertions.assertThat(subItems).hasSize(1);
 	}
 
 	public void test_TreeItem_addToTable() throws Exception {
@@ -146,7 +146,7 @@ public class TreeTest extends RcpModelTest {
 		flowContainer_CREATE(tree, newItem, null);
 		// check result
 		List<TreeItemInfo> items = tree.getItems();
-		assertThat(items).containsExactly(newItem);
+		Assertions.assertThat(items).containsExactly(newItem);
 		assertEditor(
 				"class Test extends Shell {",
 				"  public Test() {",
@@ -183,7 +183,7 @@ public class TreeTest extends RcpModelTest {
 		TreeItemInfo item_2;
 		{
 			List<TreeItemInfo> items = tree.getItems();
-			assertThat(items).hasSize(2);
+			Assertions.assertThat(items).hasSize(2);
 			item_1 = items.get(0);
 			item_2 = items.get(1);
 		}
@@ -191,7 +191,7 @@ public class TreeTest extends RcpModelTest {
 		flowContainer_MOVE(tree, item_2, item_1);
 		// check result
 		List<TreeItemInfo> items = tree.getItems();
-		assertThat(items).containsExactly(item_2, item_1);
+		Assertions.assertThat(items).containsExactly(item_2, item_1);
 		assertEditor(
 				"class Test extends Shell {",
 				"  public Test() {",
@@ -233,7 +233,7 @@ public class TreeTest extends RcpModelTest {
 		// check result
 		{
 			List<TreeItemInfo> items = existingItem.getItems();
-			assertThat(items).containsExactly(newItem);
+			Assertions.assertThat(items).containsExactly(newItem);
 		}
 		assertEditor(
 				"class Test extends Shell {",
@@ -278,7 +278,7 @@ public class TreeTest extends RcpModelTest {
 		TreeItemInfo item_2;
 		{
 			List<TreeItemInfo> items = tree.getItems();
-			assertThat(items).hasSize(2);
+			Assertions.assertThat(items).hasSize(2);
 			item_1 = items.get(0);
 			item_2 = items.get(1);
 		}
@@ -292,13 +292,13 @@ public class TreeTest extends RcpModelTest {
 		// check result
 		{
 			List<TreeItemInfo> items = tree.getItems();
-			assertThat(items).containsExactly(item_1);
+			Assertions.assertThat(items).containsExactly(item_1);
 		}
 		{
 			List<TreeItemInfo> items = item_1.getItems();
-			assertThat(items).containsExactly(item_2);
+			Assertions.assertThat(items).containsExactly(item_2);
 		}
-		assertThat(item_2.getItems()).isEmpty();
+		Assertions.assertThat(item_2.getItems()).isEmpty();
 		assertEditor(
 				"class Test extends Shell {",
 				"  public Test() {",

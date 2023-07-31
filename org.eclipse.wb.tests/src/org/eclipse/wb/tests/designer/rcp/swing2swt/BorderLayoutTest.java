@@ -20,7 +20,7 @@ import org.eclipse.wb.tests.designer.rcp.BTestUtils;
 
 import org.eclipse.swt.widgets.Control;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test {@link BorderLayoutInfo}.
@@ -57,8 +57,8 @@ public class BorderLayoutTest extends AbstractSwing2SwtTest {
 				"  {new: swing2swt.layout.BorderLayout} {empty} {/setLayout(new BorderLayout(0, 0))/}");
 		BorderLayoutInfo layout = (BorderLayoutInfo) shell.getLayout();
 		// BorderLayout is "flow container" only for tree
-		assertThat(new FlowContainerFactory(layout, true).get()).isEmpty();
-		assertThat(new FlowContainerFactory(layout, false).get()).isNotEmpty();
+		Assertions.assertThat(new FlowContainerFactory(layout, true).get()).isEmpty();
+		Assertions.assertThat(new FlowContainerFactory(layout, false).get()).isNotEmpty();
 	}
 
 	/**

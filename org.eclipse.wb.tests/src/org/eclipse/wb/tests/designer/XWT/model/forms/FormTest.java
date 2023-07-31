@@ -21,7 +21,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.RGB;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link FormInfo}.
@@ -198,8 +198,8 @@ public class FormTest extends XwtModelTest {
 		ControlInfo button = getObjectByName("button");
 		{
 			Rectangle bounds = button.getBounds();
-			assertThat(bounds.width).isGreaterThan(400);
-			assertThat(bounds.height).isGreaterThan(20);
+			Assertions.assertThat(bounds.width).isGreaterThan(400);
+			Assertions.assertThat(bounds.height).isGreaterThan(20);
 		}
 	}
 }

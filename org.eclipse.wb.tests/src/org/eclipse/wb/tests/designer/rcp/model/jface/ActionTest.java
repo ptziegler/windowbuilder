@@ -69,7 +69,7 @@ import net.bytebuddy.ByteBuddy;
 import net.bytebuddy.implementation.FixedValue;
 import net.bytebuddy.matcher.ElementMatchers;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -109,7 +109,7 @@ public class ActionTest extends RcpModelTest {
 		// initially no container
 		assertHierarchy("{this: org.eclipse.jface.window.ApplicationWindow} {this} {}");
 		// ...so, no Action's
-		assertThat(ActionContainerInfo.getActions(window)).isEmpty();
+		Assertions.assertThat(ActionContainerInfo.getActions(window)).isEmpty();
 		// ask container
 		ActionContainerInfo container = ActionContainerInfo.get(window);
 		assertNotNull(container);
@@ -119,7 +119,7 @@ public class ActionTest extends RcpModelTest {
 		// it always will return same container
 		assertSame(container, ActionContainerInfo.get(window));
 		// still no Action's
-		assertThat(ActionContainerInfo.getActions(window)).isEmpty();
+		Assertions.assertThat(ActionContainerInfo.getActions(window)).isEmpty();
 		// check presentation
 		{
 			IObjectPresentation presentation = container.getPresentation();
@@ -344,7 +344,7 @@ public class ActionTest extends RcpModelTest {
 		PaletteEventListener listener = window.getBroadcast(PaletteEventListener.class);
 		List<CategoryInfo> categories = Lists.newArrayList();
 		listener.categories(categories);
-		assertThat(categories).isEmpty();
+		Assertions.assertThat(categories).isEmpty();
 	}
 
 	/**
@@ -381,21 +381,21 @@ public class ActionTest extends RcpModelTest {
 		PaletteEventListener listener = window.getBroadcast(PaletteEventListener.class);
 		List<CategoryInfo> categories = Lists.newArrayList();
 		listener.categories(categories);
-		assertThat(categories).hasSize(1);
+		Assertions.assertThat(categories).hasSize(1);
 		// check "Actions" category
 		CategoryInfo category = categories.get(0);
 		List<EntryInfo> entries = category.getEntries();
-		assertThat(entries).hasSize(3);
-		assertThat(entries.get(0)).isInstanceOf(ActionNewEntryInfo.class);
-		assertThat(entries.get(1)).isInstanceOf(ActionExternalEntryInfo.class);
+		Assertions.assertThat(entries).hasSize(3);
+		Assertions.assertThat(entries.get(0)).isInstanceOf(ActionNewEntryInfo.class);
+		Assertions.assertThat(entries.get(1)).isInstanceOf(ActionExternalEntryInfo.class);
 		{
 			ComponentEntryInfo entry = (ComponentEntryInfo) entries.get(2);
 			assertEquals("org.eclipse.jface.action.Separator", entry.getClassName());
 		}
 		// ask for dynamic entries
 		listener.entries(category, entries);
-		assertThat(entries).hasSize(4);
-		assertThat(entries.get(3)).isInstanceOf(ActionUseEntryInfo.class);
+		Assertions.assertThat(entries).hasSize(4);
+		Assertions.assertThat(entries.get(3)).isInstanceOf(ActionUseEntryInfo.class);
 	}
 
 	/**
@@ -426,7 +426,7 @@ public class ActionTest extends RcpModelTest {
 			// ask for categories
 			PaletteEventListener listener = window.getBroadcast(PaletteEventListener.class);
 			listener.categories(categories);
-			assertThat(categories).hasSize(2);
+			Assertions.assertThat(categories).hasSize(2);
 		}
 		// "Actions" category should be before "Menu"
 		assertEquals(ActionRootProcessor.ACTIONS_CATEGORY_ID, categories.get(0).getId());
@@ -466,13 +466,13 @@ public class ActionTest extends RcpModelTest {
 		PaletteEventListener listener = window.getBroadcast(PaletteEventListener.class);
 		List<CategoryInfo> categories = Lists.newArrayList();
 		listener.categories(categories);
-		assertThat(categories).hasSize(1);
+		Assertions.assertThat(categories).hasSize(1);
 		// check "Actions" category
 		CategoryInfo category = categories.get(0);
 		List<EntryInfo> entries = category.getEntries();
-		assertThat(entries).hasSize(4);
-		assertThat(entries.get(0)).isInstanceOf(ActionNewEntryInfo.class);
-		assertThat(entries.get(1)).isInstanceOf(ActionExternalEntryInfo.class);
+		Assertions.assertThat(entries).hasSize(4);
+		Assertions.assertThat(entries.get(0)).isInstanceOf(ActionNewEntryInfo.class);
+		Assertions.assertThat(entries.get(1)).isInstanceOf(ActionExternalEntryInfo.class);
 		{
 			ComponentEntryInfo entry = (ComponentEntryInfo) entries.get(2);
 			assertEquals("org.eclipse.jface.action.Separator", entry.getClassName());
@@ -483,8 +483,8 @@ public class ActionTest extends RcpModelTest {
 		}
 		// ask for dynamic entries
 		listener.entries(category, entries);
-		assertThat(entries).hasSize(5);
-		assertThat(entries.get(4)).isInstanceOf(ActionUseEntryInfo.class);
+		Assertions.assertThat(entries).hasSize(5);
+		Assertions.assertThat(entries.get(4)).isInstanceOf(ActionUseEntryInfo.class);
 	}
 
 	/**
@@ -521,13 +521,13 @@ public class ActionTest extends RcpModelTest {
 		PaletteEventListener listener = window.getBroadcast(PaletteEventListener.class);
 		List<CategoryInfo> categories = Lists.newArrayList();
 		listener.categories(categories);
-		assertThat(categories).hasSize(1);
+		Assertions.assertThat(categories).hasSize(1);
 		// check "Actions" category
 		CategoryInfo category = categories.get(0);
 		List<EntryInfo> entries = category.getEntries();
-		assertThat(entries).hasSize(4);
-		assertThat(entries.get(0)).isInstanceOf(ActionNewEntryInfo.class);
-		assertThat(entries.get(1)).isInstanceOf(ActionExternalEntryInfo.class);
+		Assertions.assertThat(entries).hasSize(4);
+		Assertions.assertThat(entries.get(0)).isInstanceOf(ActionNewEntryInfo.class);
+		Assertions.assertThat(entries.get(1)).isInstanceOf(ActionExternalEntryInfo.class);
 		{
 			ComponentEntryInfo entry = (ComponentEntryInfo) entries.get(2);
 			assertEquals("org.eclipse.jface.action.Separator", entry.getClassName());
@@ -538,8 +538,8 @@ public class ActionTest extends RcpModelTest {
 		}
 		// ask for dynamic entries
 		listener.entries(category, entries);
-		assertThat(entries).hasSize(5);
-		assertThat(entries.get(4)).isInstanceOf(ActionUseEntryInfo.class);
+		Assertions.assertThat(entries).hasSize(5);
+		Assertions.assertThat(entries.get(4)).isInstanceOf(ActionUseEntryInfo.class);
 	}
 
 	/**
@@ -581,9 +581,9 @@ public class ActionTest extends RcpModelTest {
 			entry = (ActionUseEntryInfo) entries.get(0);
 		}
 		// check properties
-		assertThat(entry.getId()).isNotNull();
-		assertThat(entry.getName()).isNotNull();
-		assertThat(entry.getDescription()).isNotNull();
+		Assertions.assertThat(entry.getId()).isNotNull();
+		Assertions.assertThat(entry.getName()).isNotNull();
+		Assertions.assertThat(entry.getDescription()).isNotNull();
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -640,8 +640,8 @@ public class ActionTest extends RcpModelTest {
 		}
 		// refresh(), check "contributionItem"
 		window.refresh();
-		assertThat(contributionItem.getBounds().width).isGreaterThan(50);
-		assertThat(contributionItem.getBounds().height).isGreaterThan(20);
+		Assertions.assertThat(contributionItem.getBounds().width).isGreaterThan(50);
+		Assertions.assertThat(contributionItem.getBounds().height).isGreaterThan(20);
 		// "contributionItem" should have same properties as "action"
 		{
 			Property[] itemProperties = contributionItem.getProperties();
@@ -796,12 +796,12 @@ public class ActionTest extends RcpModelTest {
 		}
 		// refresh(), check "contributionItem"
 		window.refresh();
-		assertThat(contributionItem.getBounds().width).isGreaterThan(50);
-		assertThat(contributionItem.getBounds().height).isGreaterThan(20);
+		Assertions.assertThat(contributionItem.getBounds().width).isGreaterThan(50);
+		Assertions.assertThat(contributionItem.getBounds().height).isGreaterThan(20);
 		// "contributionItem" has just a handful of properties
 		{
 			Property[] itemProperties = contributionItem.getProperties();
-			assertThat(itemProperties.length).isLessThan(6);
+			Assertions.assertThat(itemProperties.length).isLessThan(6);
 		}
 	}
 
@@ -839,7 +839,7 @@ public class ActionTest extends RcpModelTest {
 		ContributionItemInfo item_1 = (ContributionItemInfo) toolBarManager.getItems().get(0);
 		ContributionItemInfo item_2 = (ContributionItemInfo) toolBarManager.getItems().get(1);
 		assertNotSame(item_1.getObject(), item_2.getObject());
-		assertThat(item_1.getBounds()).isNotEqualTo(item_2.getBounds());
+		Assertions.assertThat(item_1.getBounds()).isNotEqualTo(item_2.getBounds());
 	}
 
 	/**
@@ -878,7 +878,7 @@ public class ActionTest extends RcpModelTest {
 		assertNotSame(item_1.getObject(), item_2.getObject());
 		assertNotNull(item_1.getBounds());
 		assertNotNull(item_2.getBounds());
-		assertThat(item_1.getBounds()).isNotEqualTo(item_2.getBounds());
+		Assertions.assertThat(item_1.getBounds()).isNotEqualTo(item_2.getBounds());
 	}
 
 	/**
@@ -909,8 +909,8 @@ public class ActionTest extends RcpModelTest {
 		{
 			Rectangle bounds = groupMarker.getBounds();
 			assertNotNull(bounds);
-			assertThat(bounds.width).isGreaterThan(135);
-			assertThat(bounds.height).isGreaterThan(20);
+			Assertions.assertThat(bounds.width).isGreaterThan(135);
+			Assertions.assertThat(bounds.height).isGreaterThan(20);
 		}
 	}
 
@@ -1184,7 +1184,7 @@ public class ActionTest extends RcpModelTest {
 		// prepare components
 		ToolBarManagerInfo toolBarManager = window.getChildren(ToolBarManagerInfo.class).get(0);
 		// initially no Action's
-		assertThat(ActionContainerInfo.getActions(window)).isEmpty();
+		Assertions.assertThat(ActionContainerInfo.getActions(window)).isEmpty();
 		// perform command
 		ActionInfo action = ActionContainerInfo.createNew(window);
 		toolBarManager.command_CREATE(action, null);
@@ -1211,7 +1211,7 @@ public class ActionTest extends RcpModelTest {
 				"  }",
 				"}");
 		// single (new Action) expected
-		assertThat(ActionContainerInfo.getActions(window)).containsOnly(action);
+		Assertions.assertThat(ActionContainerInfo.getActions(window)).containsOnly(action);
 		// refresh, to ensure that action can be rendered
 		window.refresh();
 		assertNoErrors(window);

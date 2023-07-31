@@ -20,9 +20,8 @@ import org.eclipse.wb.gef.core.policies.ILayoutRequestValidator;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.ObjectUtils;
+import org.assertj.core.api.Assertions;
 
 /**
  * Tests for {@link LayoutRequestValidators}.
@@ -71,7 +70,7 @@ public class LayoutRequestValidatorsTest extends AbstractLayoutRequestValidatorT
 	public void test_finalize() throws Exception {
 		ILayoutRequestValidator specificValidator = ILayoutRequestValidator.TRUE;
 		ILayoutRequestValidator validator = LayoutRequestValidators.finalize(specificValidator);
-		assertThat(getValidators(validator)).contains(specificValidator);
+		Assertions.assertThat(getValidators(validator)).contains(specificValidator);
 		assertHas_Compatible(validator);
 		assertHas_BorderOfChild(validator);
 	}

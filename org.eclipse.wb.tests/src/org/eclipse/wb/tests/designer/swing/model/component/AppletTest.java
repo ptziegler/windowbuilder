@@ -18,7 +18,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.graphics.RGB;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.applet.Applet;
 
@@ -67,8 +67,8 @@ public class AppletTest extends SwingModelTest {
 		assertEquals(new Rectangle(0, 0, 450, 300), applet.getBounds());
 		{
 			Rectangle bounds = button.getBounds();
-			assertThat(bounds.x).isGreaterThan(100).isLessThan(300);
-			assertThat(bounds.y).isEqualTo(5);
+			Assertions.assertThat(bounds.x).isGreaterThan(100).isLessThan(300);
+			Assertions.assertThat(bounds.y).isEqualTo(5);
 		}
 	}
 

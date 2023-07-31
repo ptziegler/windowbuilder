@@ -28,7 +28,7 @@ import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -193,7 +193,7 @@ public class TemplateUtilsTest extends SwingModelTest {
 		// do resolve
 		List<String> lines = ImmutableList.of(getExpression(panel) + " a", getExpression(panel) + " b");
 		List<String> result = ImmutableList.of("this a", "this b");
-		assertThat(resolve(nodeTarget, lines)).isEqualTo(result);
+		Assertions.assertThat(resolve(nodeTarget, lines)).isEqualTo(result);
 	}
 
 	////////////////////////////////////////////////////////////////////////////

@@ -48,7 +48,7 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.preference.IPreferenceStore;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.awt.BorderLayout;
 import java.util.Collections;
@@ -111,7 +111,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 		// check layout itself
 		{
 			AbsoluteLayoutInfo layout = (AbsoluteLayoutInfo) panel.getLayout();
-			assertThat(panel.getChildren()).contains(layout);
+			Assertions.assertThat(panel.getChildren()).contains(layout);
 			// description
 			{
 				ComponentDescription description = layout.getDescription();
@@ -219,7 +219,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 		// check that "contentPane" has absolute layout
 		LayoutInfo layout = contentPane.getLayout();
 		assertInstanceOf(AbsoluteLayoutInfo.class, layout);
-		assertThat(contentPane.getChildren()).contains(layout);
+		Assertions.assertThat(contentPane.getChildren()).contains(layout);
 	}
 
 	/**
@@ -360,7 +360,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 			// should have AbsoluteLayoutInfo
 			assertInstanceOf(AbsoluteLayoutInfo.class, panel.getLayout());
 			// ...and initialized
-			assertThat(AbsoluteLayout_Participator.m_initializeCount).isPositive();
+			Assertions.assertThat(AbsoluteLayout_Participator.m_initializeCount).isPositive();
 		} finally {
 			removeParticipatorExtension();
 			AbsoluteLayout_Participator.m_initializeCount = 0;
@@ -405,10 +405,10 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 		panel.refresh();
 		try {
 			assertEquals(new Rectangle(10, 20, 100, 50), buttonInfo.getBounds());
-			assertThat(buttonInfo.getPreferredSize().width).isGreaterThanOrEqualTo(33); // button is bigger on Linux
-			assertThat(buttonInfo.getPreferredSize().width).isLessThanOrEqualTo(38);
-			assertThat(buttonInfo.getPreferredSize().height).isGreaterThanOrEqualTo(9);
-			assertThat(buttonInfo.getPreferredSize().height).isLessThanOrEqualTo(14);
+			Assertions.assertThat(buttonInfo.getPreferredSize().width).isGreaterThanOrEqualTo(33); // button is bigger on Linux
+			Assertions.assertThat(buttonInfo.getPreferredSize().width).isLessThanOrEqualTo(38);
+			Assertions.assertThat(buttonInfo.getPreferredSize().height).isGreaterThanOrEqualTo(9);
+			Assertions.assertThat(buttonInfo.getPreferredSize().height).isLessThanOrEqualTo(14);
 			//
 			JButton button = (JButton) buttonInfo.getComponent();
 			assertEquals(10, button.getBounds().x);

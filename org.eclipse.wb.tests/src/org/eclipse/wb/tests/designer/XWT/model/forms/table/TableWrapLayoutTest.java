@@ -31,7 +31,7 @@ import org.eclipse.draw2d.geometry.Interval;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.ui.forms.widgets.TableWrapData;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -109,11 +109,11 @@ public class TableWrapLayoutTest extends XwtModelTest {
 		IObjectPresentation presentation = shell.getPresentation();
 		{
 			List<ObjectInfo> presentationChildren = presentation.getChildrenTree();
-			assertThat(presentationChildren).contains(button).doesNotContain(filler);
+			Assertions.assertThat(presentationChildren).contains(button).doesNotContain(filler);
 		}
 		{
 			List<ObjectInfo> presentationChildren = presentation.getChildrenGraphical();
-			assertThat(presentationChildren).contains(button).doesNotContain(filler);
+			Assertions.assertThat(presentationChildren).contains(button).doesNotContain(filler);
 		}
 	}
 
@@ -1591,10 +1591,10 @@ public class TableWrapLayoutTest extends XwtModelTest {
 		refresh();
 		TableWrapLayoutInfo layout = getObjectByName("layout");
 		// initially 2 controls - filler and Button
-		assertThat(shell.getChildrenControls()).hasSize(2);
+		Assertions.assertThat(shell.getChildrenControls()).hasSize(2);
 		// after delete - only Button
 		layout.delete();
-		assertThat(shell.getChildrenControls()).hasSize(1);
+		Assertions.assertThat(shell.getChildrenControls()).hasSize(1);
 		assertXML(
 				"// filler filler filler filler filler",
 				"// filler filler filler filler filler",

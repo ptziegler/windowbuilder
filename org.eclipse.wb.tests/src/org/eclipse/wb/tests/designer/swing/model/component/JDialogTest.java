@@ -16,7 +16,7 @@ import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
 import org.eclipse.draw2d.geometry.Rectangle;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -60,15 +60,15 @@ public class JDialogTest extends SwingModelTest {
 		ComponentInfo contentPane = dialog.getChildrenComponents().get(0);
 		{
 			Rectangle bounds = dialog.getBounds();
-			assertThat(bounds.width).isEqualTo(450);
-			assertThat(bounds.height).isEqualTo(300);
+			Assertions.assertThat(bounds.width).isEqualTo(450);
+			Assertions.assertThat(bounds.height).isEqualTo(300);
 		}
 		{
 			Rectangle bounds = contentPane.getBounds();
-			assertThat(bounds.x).isGreaterThanOrEqualTo(0);
-			assertThat(bounds.y).isGreaterThanOrEqualTo(0);
-			assertThat(bounds.width).isGreaterThan(420);
-			assertThat(bounds.height).isGreaterThan(250);
+			Assertions.assertThat(bounds.x).isGreaterThanOrEqualTo(0);
+			Assertions.assertThat(bounds.y).isGreaterThanOrEqualTo(0);
+			Assertions.assertThat(bounds.width).isGreaterThan(420);
+			Assertions.assertThat(bounds.height).isGreaterThan(250);
 		}
 	}
 

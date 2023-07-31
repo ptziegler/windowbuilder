@@ -26,7 +26,7 @@ import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
 import org.eclipse.swt.widgets.Composite;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Tests for {@link DescriptionProcessor} for SWT.
@@ -96,7 +96,7 @@ public class DescriptionProcessorTest extends RcpModelTest {
 		// parameter[1] should be style
 		{
 			ParameterDescription styleParameter = constructorDescription.getParameter(1);
-			assertThat(styleParameter.getEditor()).isInstanceOf(StylePropertyEditor.class);
+			Assertions.assertThat(styleParameter.getEditor()).isInstanceOf(StylePropertyEditor.class);
 		}
 		// parameter[2] was marked as parent in description
 		{
@@ -137,7 +137,7 @@ public class DescriptionProcessorTest extends RcpModelTest {
 		// parameter[1] should be style
 		{
 			ParameterDescription styleParameter = constructorDescription.getParameter(1);
-			assertThat(styleParameter.getEditor()).isInstanceOf(StylePropertyEditor.class);
+			Assertions.assertThat(styleParameter.getEditor()).isInstanceOf(StylePropertyEditor.class);
 		}
 	}
 

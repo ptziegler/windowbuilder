@@ -24,7 +24,7 @@ import org.eclipse.jdt.core.dom.Initializer;
 import org.eclipse.ui.forms.FormColors;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -196,7 +196,7 @@ public class FormToolkitTest extends AbstractFormsTest {
 		IObjectPresentation presentation = shell.getPresentation();
 		{
 			List<ObjectInfo> presentationChildren = presentation.getChildrenTree();
-			assertThat(presentationChildren).contains(label);
+			Assertions.assertThat(presentationChildren).contains(label);
 		}
 	}
 

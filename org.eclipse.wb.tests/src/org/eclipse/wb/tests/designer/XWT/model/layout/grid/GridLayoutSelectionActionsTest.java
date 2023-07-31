@@ -16,7 +16,7 @@ import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
 
 import org.eclipse.jface.action.IAction;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -52,7 +52,7 @@ public class GridLayoutSelectionActionsTest extends XwtModelTest {
 		// prepare actions
 		List<Object> actions = getSelectionActions();
 		// no actions
-		assertThat(actions).isEmpty();
+		Assertions.assertThat(actions).isEmpty();
 	}
 
 	public void test_selectionActions() throws Exception {

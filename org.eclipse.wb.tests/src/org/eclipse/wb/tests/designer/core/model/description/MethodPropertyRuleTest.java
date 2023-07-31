@@ -22,7 +22,7 @@ import org.eclipse.wb.internal.core.model.util.PropertyUtils;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Tests for {@link MethodPropertyRule}.
@@ -187,13 +187,13 @@ public class MethodPropertyRuleTest extends SwingModelTest {
 			String id = "setText(java.lang.String,boolean) 0";
 			GenericPropertyDescription property = description.getProperty(id);
 			assertNotNull(property);
-			assertThat(property.getEditor()).isSameAs(StringPropertyEditor.INSTANCE);
+			Assertions.assertThat(property.getEditor()).isSameAs(StringPropertyEditor.INSTANCE);
 		}
 		{
 			String id = "setText(java.lang.String,boolean) 1";
 			GenericPropertyDescription property = description.getProperty(id);
 			assertNotNull(property);
-			assertThat(property.getEditor()).isSameAs(BooleanPropertyEditor.INSTANCE);
+			Assertions.assertThat(property.getEditor()).isSameAs(BooleanPropertyEditor.INSTANCE);
 		}
 	}
 }

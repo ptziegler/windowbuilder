@@ -26,9 +26,8 @@ import org.eclipse.wb.internal.swing.model.component.JToolBarSeparatorInfo;
 
 import org.eclipse.jdt.core.dom.MethodInvocation;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.NotImplementedException;
+import org.assertj.core.api.Assertions;
 
 import java.awt.Component;
 import java.awt.Container;
@@ -130,7 +129,7 @@ public class VoidInvocationTest extends AbstractVariableTest {
 		JToolBarSeparatorInfo separator = (JToolBarSeparatorInfo) bar.getChildrenComponents().get(0);
 		//
 		Property[] properties = separator.getProperties();
-		assertThat(properties).hasSize(1);
+		Assertions.assertThat(properties).hasSize(1);
 		assertNotNull(PropertyUtils.getByPath(properties, "Factory"));
 		assertNotNull(PropertyUtils.getByPath(properties, "Factory/size"));
 	}

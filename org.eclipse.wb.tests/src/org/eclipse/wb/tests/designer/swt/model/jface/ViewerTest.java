@@ -52,9 +52,8 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.StringUtils;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link ViewerInfo}.
@@ -737,7 +736,7 @@ public class ViewerTest extends RcpModelTest {
 			fail();
 		} catch (Throwable e) {
 			Throwable rootCause = DesignerExceptionUtils.getRootCause(e);
-			assertThat(rootCause).isExactlyInstanceOf(NoEntryPointError.class);
+			Assertions.assertThat(rootCause).isExactlyInstanceOf(NoEntryPointError.class);
 		}
 	}
 

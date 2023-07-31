@@ -29,13 +29,13 @@ import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.core.AbstractJavaProjectTest;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.clearInvocations;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import org.apache.commons.lang.StringUtils;
+import org.assertj.core.api.Assertions;
 import org.mockito.InOrder;
 
 import java.text.MessageFormat;
@@ -68,7 +68,7 @@ public class FlowContainerModelTest extends SwingModelTest {
 					{"flowContainer.association", "%parent%.add(%child%)"},
 					{"flowContainer.component", "java.awt.Component"},
 					{"flowContainer.reference", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(configurations.get(0), "alwaysTrue", "%parent%.add(%child%)");
 	}
 
@@ -80,7 +80,7 @@ public class FlowContainerModelTest extends SwingModelTest {
 					{"flowContainer.association", "%parent%.add(%child%)"},
 					{"flowContainer.component", "java.awt.Component"},
 					{"flowContainer.reference", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(configurations.get(0), "isHorizontal()", "%parent%.add(%child%)");
 	}
 
@@ -99,7 +99,7 @@ public class FlowContainerModelTest extends SwingModelTest {
 					{"flowContainer.horizontal", "true"},
 					{"flowContainer.component", "java.awt.Component"},
 					{"flowContainer.reference", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(configurations.get(0), "true", "NO");
 	}
 
@@ -131,7 +131,7 @@ public class FlowContainerModelTest extends SwingModelTest {
 					{"flowContainer.association", "invocationChild %parent%.add(%child%)"},
 					{"flowContainer.component", "java.awt.Component"},
 					{"flowContainer.reference", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"true",
@@ -167,7 +167,7 @@ public class FlowContainerModelTest extends SwingModelTest {
 					{"flowContainer.association", "%parent%.add(%child%)"},
 					{"flowContainer.component", "javax.swing.JButton javax.swing.JTextField"},
 					{"flowContainer.reference", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"true",
@@ -187,7 +187,7 @@ public class FlowContainerModelTest extends SwingModelTest {
 					{"flowContainer", "true"},
 					{"flowContainer.horizontal", "true"},
 					{"flowContainer.association", "%parent%.add(%child%)"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"true",
@@ -204,7 +204,7 @@ public class FlowContainerModelTest extends SwingModelTest {
 					{"flowContainer.association", "%parent%.add(%child%)"},
 					{"flowContainer.component-validator", "isComponentType(java.awt.Component)"},
 					{"flowContainer.reference", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"true",
@@ -241,7 +241,7 @@ public class FlowContainerModelTest extends SwingModelTest {
 					{"flowContainer.association", "%parent%.add(%child%)"},
 					{"flowContainer.component", "java.awt.Component"},
 					{"flowContainer.reference", "javax.swing.JButton javax.swing.JTextField"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"true",
@@ -258,7 +258,7 @@ public class FlowContainerModelTest extends SwingModelTest {
 					{"flowContainer.association", "%parent%.add(%child%)"},
 					{"flowContainer.component", "java.awt.Component"},
 					{"flowContainer.reference-validator", "isReferenceType(java.awt.Component)"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"true",
@@ -277,7 +277,7 @@ public class FlowContainerModelTest extends SwingModelTest {
 					{"flowContainer.horizontal", "true"},
 					{"flowContainer.association", "%parent%.add(%child%)"},
 					{"flowContainer.component", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"true",
@@ -297,7 +297,7 @@ public class FlowContainerModelTest extends SwingModelTest {
 					{"flowContainer", "true"},
 					{"flowContainer.horizontal", "true"},
 					{"flowContainer.association", "%parent%.add(%child%)"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"true",
@@ -322,7 +322,7 @@ public class FlowContainerModelTest extends SwingModelTest {
 					{"flowContainer.association", "%parent%.add(%child%)"},
 					{"flowContainer.component", "java.awt.Component"},
 					{"flowContainer.reference", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"true",
@@ -342,7 +342,7 @@ public class FlowContainerModelTest extends SwingModelTest {
 					{"flowContainer.canvas.association", "%parent%.add(%child%)"},
 					{"flowContainer.canvas.component", "java.awt.Component"},
 					{"flowContainer.canvas.reference", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"true",
@@ -362,7 +362,7 @@ public class FlowContainerModelTest extends SwingModelTest {
 					{"flowContainer.tree.association", "%parent%.add(%child%)"},
 					{"flowContainer.tree.component", "java.awt.Component"},
 					{"flowContainer.tree.reference", "java.awt.Component"},});
-		assertThat(configurations).isEmpty();
+		Assertions.assertThat(configurations).isEmpty();
 	}
 
 	/**
@@ -376,7 +376,7 @@ public class FlowContainerModelTest extends SwingModelTest {
 					{"flowContainer.association", "%parent%.add(%child%)"},
 					{"flowContainer.component", "java.awt.Component"},
 					{"flowContainer.reference", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 	}
 
 	/**
@@ -390,7 +390,7 @@ public class FlowContainerModelTest extends SwingModelTest {
 					{"flowContainer.tree.association", "%parent%.add(%child%)"},
 					{"flowContainer.tree.component", "java.awt.Component"},
 					{"flowContainer.tree.reference", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 	}
 
 	/**
@@ -414,7 +414,7 @@ public class FlowContainerModelTest extends SwingModelTest {
 					{"flowContainer.5.association", "%parent%.add(%child%)"},
 					{"flowContainer.5.component", "javax.swing.JTextField"},
 					{"flowContainer.5.reference", "javax.swing.JTextField"},});
-		assertThat(configurations).hasSize(3);
+		Assertions.assertThat(configurations).hasSize(3);
 		assertConfiguration(
 				configurations.get(0),
 				"true",
@@ -446,7 +446,7 @@ public class FlowContainerModelTest extends SwingModelTest {
 					{"flowContainer.association", "%parent%.add(%child%)"},
 					{"flowContainer.component", "java.awt.Component"},
 					{"flowContainer.reference", "java.awt.Component"},});
-		assertThat(configurations).hasSize(0);
+		Assertions.assertThat(configurations).hasSize(0);
 	}
 
 	////////////////////////////////////////////////////////////////////////////

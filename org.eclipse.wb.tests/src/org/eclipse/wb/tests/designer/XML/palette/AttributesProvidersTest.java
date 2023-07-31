@@ -19,8 +19,7 @@ import org.eclipse.wb.tests.designer.TestUtils;
 
 import org.eclipse.core.runtime.IConfigurationElement;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
+import org.assertj.core.api.Assertions;
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -60,7 +59,7 @@ public class AttributesProvidersTest extends AbstractPaletteTest {
 			{
 				List<IConfigurationElement> elements =
 						ExternalFactoriesHelper.getElements(POINT_ID, "testObject");
-				assertThat(elements).hasSize(1);
+				Assertions.assertThat(elements).hasSize(1);
 				configurationElement = elements.get(0);
 			}
 			// test AttributesProvider

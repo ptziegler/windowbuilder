@@ -14,7 +14,7 @@ import org.eclipse.wb.internal.rcp.model.widgets.DragSourceInfo;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link DragSourceInfo}.
@@ -50,6 +50,6 @@ public class DragSourceTest extends RcpModelTest {
 				"{this: org.eclipse.swt.widgets.Shell} {this} {/new DragSource(this, DND.DROP_MOVE)/}",
 				"  {implicit-layout: absolute} {implicit-layout} {}",
 				"  {new: org.eclipse.swt.dnd.DragSource} {empty} {/new DragSource(this, DND.DROP_MOVE)/}");
-		assertThat(shell.getChildren(DragSourceInfo.class)).hasSize(1);
+		Assertions.assertThat(shell.getChildren(DragSourceInfo.class)).hasSize(1);
 	}
 }

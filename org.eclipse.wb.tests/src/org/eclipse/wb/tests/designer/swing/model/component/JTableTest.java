@@ -20,7 +20,7 @@ import org.eclipse.wb.internal.swing.model.property.editor.models.table.TableMod
 import org.eclipse.wb.internal.swing.model.property.editor.models.table.TableModelPropertyEditor;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -71,7 +71,7 @@ public class JTableTest extends SwingModelTest {
 		// validate model, we used "null", so JTable installed DefaultTableModel
 		{
 			TableModel model = tableObject.getModel();
-			assertThat(model).isInstanceOf(DefaultTableModel.class);
+			Assertions.assertThat(model).isInstanceOf(DefaultTableModel.class);
 		}
 	}
 
@@ -123,7 +123,7 @@ public class JTableTest extends SwingModelTest {
 		{
 			Property property = tableInfo.getPropertyByTitle("model");
 			assertEquals("3 columns, 2 rows", getPropertyText(property));
-			assertThat(property.getEditor()).isInstanceOf(TableModelPropertyEditor.class);
+			Assertions.assertThat(property.getEditor()).isInstanceOf(TableModelPropertyEditor.class);
 		}
 	}
 
@@ -334,7 +334,7 @@ public class JTableTest extends SwingModelTest {
 		{
 			Property property = tableInfo.getPropertyByTitle("model");
 			assertEquals(null, getPropertyText(property));
-			assertThat(property.getEditor()).isInstanceOf(TableModelPropertyEditor.class);
+			Assertions.assertThat(property.getEditor()).isInstanceOf(TableModelPropertyEditor.class);
 		}
 	}
 
@@ -364,7 +364,7 @@ public class JTableTest extends SwingModelTest {
 		{
 			Property property = tableInfo.getPropertyByTitle("model");
 			assertEquals("3 columns, 2 rows", getPropertyText(property));
-			assertThat(property.getEditor()).isInstanceOf(TableModelPropertyEditor.class);
+			Assertions.assertThat(property.getEditor()).isInstanceOf(TableModelPropertyEditor.class);
 		}
 	}
 
@@ -417,7 +417,7 @@ public class JTableTest extends SwingModelTest {
 								"  }",
 						")"}).trim(),
 				modelDescription.getModelSource());
-		assertThat(modelDescription.getColumnModelInvocations()).isEmpty();
+		Assertions.assertThat(modelDescription.getColumnModelInvocations()).isEmpty();
 	}
 
 	/**
@@ -446,7 +446,7 @@ public class JTableTest extends SwingModelTest {
 								"  }",
 						")"}).trim(),
 				modelDescription.getModelSource());
-		assertThat(modelDescription.getColumnModelInvocations()).isEmpty();
+		Assertions.assertThat(modelDescription.getColumnModelInvocations()).isEmpty();
 	}
 
 	/**
@@ -492,7 +492,7 @@ public class JTableTest extends SwingModelTest {
 										"  }",
 						")"}).trim(),
 				modelDescription.getModelSource());
-		assertThat(modelDescription.getColumnModelInvocations()).isEmpty();
+		Assertions.assertThat(modelDescription.getColumnModelInvocations()).isEmpty();
 	}
 
 	/**
@@ -570,7 +570,7 @@ public class JTableTest extends SwingModelTest {
 				modelDescription.getModelSource());
 		{
 			List<String> invocations = modelDescription.getColumnModelInvocations();
-			assertThat(invocations).isEqualTo(
+			Assertions.assertThat(invocations).isEqualTo(
 					ImmutableList.of(
 							"getColumnModel().getColumn(0).setResizable(false)",
 							"getColumnModel().getColumn(0).setPreferredWidth(100)",
@@ -633,7 +633,7 @@ public class JTableTest extends SwingModelTest {
 				modelDescription.getModelSource());
 		{
 			List<String> invocations = modelDescription.getColumnModelInvocations();
-			assertThat(invocations).isEmpty();
+			Assertions.assertThat(invocations).isEmpty();
 		}
 	}
 
@@ -951,7 +951,7 @@ public class JTableTest extends SwingModelTest {
 								"  }",
 						"}"}).trim(),
 				modelDescription.getModelSource());
-		assertThat(modelDescription.getColumnModelInvocations()).isEmpty();
+		Assertions.assertThat(modelDescription.getColumnModelInvocations()).isEmpty();
 	}
 
 	////////////////////////////////////////////////////////////////////////////

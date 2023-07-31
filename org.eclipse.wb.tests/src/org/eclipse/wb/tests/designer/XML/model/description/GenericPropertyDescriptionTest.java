@@ -29,7 +29,7 @@ import org.eclipse.wb.internal.core.xml.model.property.editor.EnumPropertyEditor
 import org.eclipse.wb.internal.core.xml.model.property.editor.StaticFieldPropertyEditor;
 import org.eclipse.wb.tests.designer.XML.NoopConfigurablePropertyEditor;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link GenericPropertyDescription} loading.
@@ -704,6 +704,6 @@ public class GenericPropertyDescriptionTest extends AbstractCoreTest {
 	private static void assertStaticFieldEditor_fields(StaticFieldPropertyEditor editor,
 			String... expected) {
 		String[] actual = (String[]) ReflectionUtils.getFieldObject(editor, "m_names");
-		assertThat(actual).isEqualTo(expected);
+		Assertions.assertThat(actual).isEqualTo(expected);
 	}
 }

@@ -35,7 +35,7 @@ import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.Statement;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import javax.swing.Action;
 import javax.swing.JButton;
@@ -397,7 +397,7 @@ public class JToolBarTest extends SwingModelTest {
 		ComponentInfo separator = bar.getChildrenComponents().get(0);
 		//
 		Property[] properties = separator.getProperties();
-		assertThat(properties).hasSize(1);
+		Assertions.assertThat(properties).hasSize(1);
 		assertNotNull(PropertyUtils.getByPath(properties, "Factory"));
 		assertNotNull(PropertyUtils.getByPath(properties, "Factory/size"));
 	}

@@ -30,7 +30,7 @@ import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Text;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Tests for {@link ExposePropertySupport}.
@@ -408,19 +408,19 @@ public class ExposePropertySupportTest extends SwingModelTest {
 				// initial state
 				{
 					assertEquals("buttonText", textWidget.getText());
-					assertThat(previewWidget.getText()).contains("getButtonText()");
+					Assertions.assertThat(previewWidget.getText()).contains("getButtonText()");
 					assertTrue(okButton.isEnabled());
 				}
 				// set wrong property name
 				{
 					textWidget.setText("wrong name");
-					assertThat(previewWidget.getText()).isEqualTo("No preview");
+					Assertions.assertThat(previewWidget.getText()).isEqualTo("No preview");
 					assertFalse(okButton.isEnabled());
 				}
 				// set good name again
 				{
 					textWidget.setText("myText");
-					assertThat(previewWidget.getText()).contains("getMyText()");
+					Assertions.assertThat(previewWidget.getText()).contains("getMyText()");
 					assertTrue(okButton.isEnabled());
 				}
 				// OK

@@ -22,7 +22,7 @@ import org.eclipse.jface.window.ApplicationWindow;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Shell;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link ApplicationWindowInfo}.
@@ -151,8 +151,8 @@ public class ApplicationWindowTest extends RcpModelTest {
 				toolBarManager.getComponentObject().getClass().getName());
 		assertNotNull(toolBarManager.getImage());
 		assertNotNull(toolBarManager.getBounds());
-		assertThat(toolBarManager.getBounds().width).isGreaterThan(400);
-		assertThat(toolBarManager.getBounds().height).isGreaterThan(20);
+		Assertions.assertThat(toolBarManager.getBounds().width).isGreaterThan(400);
+		Assertions.assertThat(toolBarManager.getBounds().height).isGreaterThan(20);
 	}
 
 	/**

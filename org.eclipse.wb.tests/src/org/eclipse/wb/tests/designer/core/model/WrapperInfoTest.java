@@ -34,7 +34,7 @@ import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.MethodInvocation;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link WrapperMethodInfo}.
@@ -96,7 +96,7 @@ public class WrapperInfoTest extends SwingModelTest {
 				wrappedComponent.getVariableSupport());
 		// ... with wrapper
 		WrapperMethodInfo wrapper = wrappedComponent.getChildren(WrapperMethodInfo.class).get(0);
-		assertThat(wrapper.getWrapper().getWrappedInfo()).isSameAs(wrappedComponent);
+		Assertions.assertThat(wrapper.getWrapper().getWrappedInfo()).isSameAs(wrappedComponent);
 	}
 
 	/**
@@ -176,12 +176,12 @@ public class WrapperInfoTest extends SwingModelTest {
 						"  }",
 						"}");
 		// container contains no wrappers in children
-		assertThat(container.getChildren(WrapperMethodInfo.class)).isEmpty();
+		Assertions.assertThat(container.getChildren(WrapperMethodInfo.class)).isEmpty();
 		// it contains JButton
 		ContainerInfo wrappedComponent = container.getChildren(ContainerInfo.class).get(0);
 		// ... with wrapper
 		WrapperMethodInfo wrapper = wrappedComponent.getChildren(WrapperMethodInfo.class).get(0);
-		assertThat(wrapper.getWrapper().getWrappedInfo()).isSameAs(wrappedComponent);
+		Assertions.assertThat(wrapper.getWrapper().getWrappedInfo()).isSameAs(wrappedComponent);
 		// hierarchy
 		assertHierarchy(
 				"{this: javax.swing.JPanel} {this} {/add(panel)/}",
@@ -200,7 +200,7 @@ public class WrapperInfoTest extends SwingModelTest {
 						"  }",
 						"}");
 		// container contains no wrappers in children
-		assertThat(container.getChildren(WrapperMethodInfo.class)).isEmpty();
+		Assertions.assertThat(container.getChildren(WrapperMethodInfo.class)).isEmpty();
 		// it contains JButton
 		ContainerInfo wrappedComponent = container.getChildren(ContainerInfo.class).get(0);
 		// ... with wrapper

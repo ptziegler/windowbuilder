@@ -26,8 +26,6 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.assertj.core.api.Assertions;
 
 import java.util.List;
@@ -109,8 +107,8 @@ public class TabFolderTest extends RcpModelTest {
 		TabFolderInfo tabFolder = (TabFolderInfo) shell.getChildrenControls().get(0);
 		assertNull(tabFolder.getSelectedItem());
 		// no tree/graphical children
-		assertThat(tabFolder.getPresentation().getChildrenTree()).isEmpty();
-		assertThat(tabFolder.getPresentation().getChildrenGraphical()).isEmpty();
+		Assertions.assertThat(tabFolder.getPresentation().getChildrenTree()).isEmpty();
+		Assertions.assertThat(tabFolder.getPresentation().getChildrenGraphical()).isEmpty();
 	}
 
 	/**
@@ -141,11 +139,11 @@ public class TabFolderTest extends RcpModelTest {
 		// check tree/graphical children
 		{
 			List<ObjectInfo> children = tabFolder.getPresentation().getChildrenTree();
-			assertThat(children).containsExactly(item_1, item_2);
+			Assertions.assertThat(children).containsExactly(item_1, item_2);
 		}
 		{
 			List<ObjectInfo> children = tabFolder.getPresentation().getChildrenGraphical();
-			assertThat(children).containsExactly(item_1, item_2);
+			Assertions.assertThat(children).containsExactly(item_1, item_2);
 		}
 	}
 
@@ -227,28 +225,28 @@ public class TabFolderTest extends RcpModelTest {
 		{
 			boolean[] refresh = new boolean[]{false};
 			shell.getBroadcastObject().selecting(button_3, refresh);
-			assertThat(refresh[0]).isFalse();
+			Assertions.assertThat(refresh[0]).isFalse();
 		}
 		// select "button_2", refresh expected
 		{
 			boolean[] refresh = new boolean[]{false};
 			shell.getBroadcastObject().selecting(button_2, refresh);
-			assertThat(refresh[0]).isTrue();
-			assertThat(tabFolder.getSelectedItem()).isSameAs(item_2);
+			Assertions.assertThat(refresh[0]).isTrue();
+			Assertions.assertThat(tabFolder.getSelectedItem()).isSameAs(item_2);
 		}
 		// again select "button_2", it is already selected, so no refresh
 		{
 			boolean[] refresh = new boolean[]{false};
 			shell.getBroadcastObject().selecting(button_2, refresh);
-			assertThat(refresh[0]).isFalse();
-			assertThat(tabFolder.getSelectedItem()).isSameAs(item_2);
+			Assertions.assertThat(refresh[0]).isFalse();
+			Assertions.assertThat(tabFolder.getSelectedItem()).isSameAs(item_2);
 		}
 		// select "button_1", refresh expected
 		{
 			boolean[] refresh = new boolean[]{false};
 			shell.getBroadcastObject().selecting(button_1, refresh);
-			assertThat(refresh[0]).isTrue();
-			assertThat(tabFolder.getSelectedItem()).isSameAs(item_1);
+			Assertions.assertThat(refresh[0]).isTrue();
+			Assertions.assertThat(tabFolder.getSelectedItem()).isSameAs(item_1);
 		}
 	}
 
@@ -289,7 +287,7 @@ public class TabFolderTest extends RcpModelTest {
 		// ...so, "button_1" is in graphical children and "button_2" is not
 		{
 			List<ObjectInfo> childrenGraphical = tabFolder.getPresentation().getChildrenGraphical();
-			assertThat(childrenGraphical).containsOnly(item_1, item_2, button_1);
+			Assertions.assertThat(childrenGraphical).containsOnly(item_1, item_2, button_1);
 		}
 		// select "item_2"...
 		item_2.doSelect();
@@ -299,7 +297,7 @@ public class TabFolderTest extends RcpModelTest {
 		// ...so, "button_2" is in graphical children and "button_1" is not
 		{
 			List<ObjectInfo> childrenGraphical = tabFolder.getPresentation().getChildrenGraphical();
-			assertThat(childrenGraphical).containsOnly(item_1, item_2, button_2);
+			Assertions.assertThat(childrenGraphical).containsOnly(item_1, item_2, button_2);
 		}
 	}
 
@@ -344,18 +342,18 @@ public class TabFolderTest extends RcpModelTest {
 		// bounds for "item_0"
 		{
 			Rectangle modelBounds_0 = item_0.getModelBounds();
-			assertThat(modelBounds_0.width).isGreaterThan(20);
-			assertThat(modelBounds_0.height).isGreaterThan(17);
+			Assertions.assertThat(modelBounds_0.width).isGreaterThan(20);
+			Assertions.assertThat(modelBounds_0.height).isGreaterThan(17);
 		}
 		// bounds for "item_1"
 		{
 			Rectangle modelBounds_1 = item_1.getModelBounds();
-			assertThat(modelBounds_1.width).isGreaterThan(20);
-			assertThat(modelBounds_1.height).isGreaterThan(17);
+			Assertions.assertThat(modelBounds_1.width).isGreaterThan(20);
+			Assertions.assertThat(modelBounds_1.height).isGreaterThan(17);
 		}
 		// no setControl() invocations
 		assertNull(item_0.getControl());
-		assertThat(item_0.getPresentation().getChildrenTree()).isEmpty();
+		Assertions.assertThat(item_0.getPresentation().getChildrenTree()).isEmpty();
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -392,13 +390,13 @@ public class TabFolderTest extends RcpModelTest {
 		assertSame(button, item.getControl());
 		// check that "button" is wide
 		{
-			assertThat(button.getBounds().width).isGreaterThan(400);
-			assertThat(button.getBounds().height).isGreaterThan(250);
+			Assertions.assertThat(button.getBounds().width).isGreaterThan(400);
+			Assertions.assertThat(button.getBounds().height).isGreaterThan(250);
 		}
 		// check hierarchy: "button" should be in "item", but not in "tabFolder"
 		{
-			assertThat(item.getPresentation().getChildrenTree()).containsOnly(button);
-			assertThat(tabFolder.getPresentation().getChildrenTree()).containsOnly(item);
+			Assertions.assertThat(item.getPresentation().getChildrenTree()).containsOnly(button);
+			Assertions.assertThat(tabFolder.getPresentation().getChildrenTree()).containsOnly(item);
 		}
 	}
 

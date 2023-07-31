@@ -35,7 +35,7 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -287,7 +287,7 @@ public class PaletteManagerTest extends AbstractPaletteTest {
 		// check that palette commands saved into project
 		{
 			String commands = getFileContent(commandsFilePath);
-			assertThat(commands).isNotEqualTo("<commands/>");
+			Assertions.assertThat(commands).isNotEqualTo("<commands/>");
 		}
 		// reload palette, but command was written, so palette still has new category
 		{
@@ -318,7 +318,7 @@ public class PaletteManagerTest extends AbstractPaletteTest {
 		PaletteInfo palette = loadPalette();
 		// check categories
 		List<CategoryInfo> categories = palette.getCategories();
-		assertThat(categories).hasSize(1);
+		Assertions.assertThat(categories).hasSize(1);
 		{
 			CategoryInfo category = categories.get(0);
 			assertEquals("myID", category.getId());
@@ -345,7 +345,7 @@ public class PaletteManagerTest extends AbstractPaletteTest {
 		"<category id='category_3' name='category 3' next='category_2'/>"});
 		PaletteInfo palette = loadPalette();
 		List<CategoryInfo> categories = palette.getCategories();
-		assertThat(categories).hasSize(3);
+		Assertions.assertThat(categories).hasSize(3);
 		assertEquals("category_1", categories.get(0).getId());
 		assertEquals("category_3", categories.get(1).getId());
 		assertEquals("category_2", categories.get(2).getId());
@@ -367,7 +367,7 @@ public class PaletteManagerTest extends AbstractPaletteTest {
 		try {
 			PaletteInfo palette = loadPalette();
 			List<CategoryInfo> categories = palette.getCategories();
-			assertThat(categories).hasSize(3);
+			Assertions.assertThat(categories).hasSize(3);
 			assertEquals("category_1", categories.get(0).getId());
 			assertEquals("category_3", categories.get(1).getId());
 			assertEquals("category_2", categories.get(2).getId());
@@ -700,7 +700,7 @@ public class PaletteManagerTest extends AbstractPaletteTest {
 		try {
 			PaletteInfo palette = loadPalette();
 			List<CategoryInfo> categories = palette.getCategories();
-			assertThat(categories).hasSize(3);
+			Assertions.assertThat(categories).hasSize(3);
 			assertEquals("category_1", categories.get(0).getId());
 			assertEquals("fromProject", categories.get(1).getId());
 			assertEquals("category_2", categories.get(2).getId());
@@ -748,7 +748,7 @@ public class PaletteManagerTest extends AbstractPaletteTest {
 			// load palette from "TestProject", so "myProject" also used
 			PaletteInfo palette = loadPalette();
 			// check categories: only ".2" category, because file with ".1" was deleted
-			assertThat(palette.getCategories()).hasSize(1);
+			Assertions.assertThat(palette.getCategories()).hasSize(1);
 			{
 				CategoryInfo category = palette.getCategories().get(0);
 				assertEquals("categoryId.2", category.getId());
@@ -756,9 +756,9 @@ public class PaletteManagerTest extends AbstractPaletteTest {
 			// ... file with ".1" was deleted in FS, but Eclipse does not know about this, so warning
 			{
 				List<EditorWarning> warnings = m_lastState.getWarnings();
-				assertThat(warnings).hasSize(1);
+				Assertions.assertThat(warnings).hasSize(1);
 				EditorWarning warning = warnings.get(0);
-				assertThat(warning.getMessage()).contains("myProject/wbp-meta/test.toolkit.wbp-palette.xml");
+				Assertions.assertThat(warning.getMessage()).contains("myProject/wbp-meta/test.toolkit.wbp-palette.xml");
 			}
 		} finally {
 			myTestProject.dispose();
@@ -842,7 +842,7 @@ public class PaletteManagerTest extends AbstractPaletteTest {
 		// load palette
 		PaletteInfo palette = loadPalette();
 		CategoryInfo category = palette.getCategories().get(0);
-		assertThat(category.getEntries()).hasSize(2);
+		Assertions.assertThat(category.getEntries()).hasSize(2);
 		// createFirst()
 		{
 			StaticFactoryEntryInfo entry = (StaticFactoryEntryInfo) category.getEntries().get(0);
@@ -896,7 +896,7 @@ public class PaletteManagerTest extends AbstractPaletteTest {
 		// load palette
 		PaletteInfo palette = loadPalette();
 		CategoryInfo category = palette.getCategories().get(0);
-		assertThat(category.getEntries()).hasSize(2);
+		Assertions.assertThat(category.getEntries()).hasSize(2);
 		// createFirst()
 		{
 			InstanceFactoryEntryInfo entry = (InstanceFactoryEntryInfo) category.getEntries().get(0);
@@ -936,7 +936,7 @@ public class PaletteManagerTest extends AbstractPaletteTest {
 		PaletteInfo palette = loadPalette(panel);
 		assertNoErrors(panel);
 		CategoryInfo category = palette.getCategory("category");
-		assertThat(category.getEntries()).hasSize(1);
+		Assertions.assertThat(category.getEntries()).hasSize(1);
 	}
 
 	public void test_condition_false() throws Exception {
@@ -951,7 +951,7 @@ public class PaletteManagerTest extends AbstractPaletteTest {
 		PaletteInfo palette = loadPalette(panel);
 		assertNoErrors(panel);
 		CategoryInfo category = palette.getCategory("category");
-		assertThat(category.getEntries()).isEmpty();
+		Assertions.assertThat(category.getEntries()).isEmpty();
 	}
 
 	public void test_condition_notBoolean() throws Exception {
@@ -966,7 +966,7 @@ public class PaletteManagerTest extends AbstractPaletteTest {
 		PaletteInfo palette = loadPalette(panel);
 		assertNoErrors(panel);
 		CategoryInfo category = palette.getCategory("category");
-		assertThat(category.getEntries()).isEmpty();
+		Assertions.assertThat(category.getEntries()).isEmpty();
 	}
 
 	/**
@@ -984,7 +984,7 @@ public class PaletteManagerTest extends AbstractPaletteTest {
 		PaletteInfo palette = loadPalette(panel);
 		assertNoErrors(panel);
 		CategoryInfo category = palette.getCategory("category");
-		assertThat(category.getEntries()).hasSize(1);
+		Assertions.assertThat(category.getEntries()).hasSize(1);
 	}
 
 	public void test_condition_invalid() throws Exception {
@@ -999,7 +999,7 @@ public class PaletteManagerTest extends AbstractPaletteTest {
 		try {
 			PaletteInfo palette = loadPalette(panel);
 			CategoryInfo category = palette.getCategory("category");
-			assertThat(category.getEntries()).isEmpty();
+			Assertions.assertThat(category.getEntries()).isEmpty();
 		} finally {
 			DesignerPlugin.setDisplayExceptionOnConsole(true);
 		}
@@ -1017,7 +1017,7 @@ public class PaletteManagerTest extends AbstractPaletteTest {
 		PaletteInfo palette = loadPalette(panel);
 		assertNoErrors(panel);
 		// one category
-		assertThat(palette.getCategories()).hasSize(1);
+		Assertions.assertThat(palette.getCategories()).hasSize(1);
 	}
 
 	public void test_categoryCondition_false() throws Exception {
@@ -1027,7 +1027,7 @@ public class PaletteManagerTest extends AbstractPaletteTest {
 		PaletteInfo palette = loadPalette(panel);
 		assertNoErrors(panel);
 		// no category
-		assertThat(palette.getCategories()).isEmpty();
+		Assertions.assertThat(palette.getCategories()).isEmpty();
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -1045,7 +1045,7 @@ public class PaletteManagerTest extends AbstractPaletteTest {
 		PaletteInfo palette = loadPalette(panel);
 		assertNoErrors(panel);
 		// one category
-		assertThat(palette.getCategories()).hasSize(1);
+		Assertions.assertThat(palette.getCategories()).hasSize(1);
 	}
 
 	public void test_paletteCondition_false() throws Exception {
@@ -1058,6 +1058,6 @@ public class PaletteManagerTest extends AbstractPaletteTest {
 		PaletteInfo palette = loadPalette(panel);
 		assertNoErrors(panel);
 		// no categories
-		assertThat(palette.getCategories()).isEmpty();
+		Assertions.assertThat(palette.getCategories()).isEmpty();
 	}
 }

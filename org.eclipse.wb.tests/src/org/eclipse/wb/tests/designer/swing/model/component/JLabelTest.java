@@ -20,7 +20,7 @@ import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.internal.swing.model.property.editor.DisplayedMnemonicKeyPropertyEditor;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import javax.swing.JLabel;
 
@@ -128,7 +128,7 @@ public class JLabelTest extends SwingModelTest {
 		Property labelForProperty = label.getPropertyByTitle("labelFor");
 		assertNotNull(labelForProperty);
 		assertSame(PropertyCategory.PREFERRED, labelForProperty.getCategory());
-		assertThat(labelForProperty.getEditor()).isSameAs(ObjectPropertyEditor.INSTANCE);
+		Assertions.assertThat(labelForProperty.getEditor()).isSameAs(ObjectPropertyEditor.INSTANCE);
 		// no "setLabelFor()" invocation, so no text
 		assertFalse(labelForProperty.isModified());
 		assertNull(getPropertyText(labelForProperty));

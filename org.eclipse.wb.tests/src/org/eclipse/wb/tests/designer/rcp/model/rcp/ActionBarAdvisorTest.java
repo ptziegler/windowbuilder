@@ -28,9 +28,8 @@ import org.eclipse.ui.application.ActionBarAdvisor;
 import org.eclipse.ui.application.IActionBarConfigurer;
 import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.NotImplementedException;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link ActionBarAdvisorInfo}.
@@ -87,8 +86,8 @@ public class ActionBarAdvisorTest extends RcpModelTest {
 			advisor.refresh();
 			assertNoErrors(advisor);
 			// check bounds
-			assertThat(advisor.getBounds().width).isEqualTo(600);
-			assertThat(advisor.getBounds().height).isEqualTo(500);
+			Assertions.assertThat(advisor.getBounds().width).isEqualTo(600);
+			Assertions.assertThat(advisor.getBounds().height).isEqualTo(500);
 		}
 		// check Proxy implementations for IActionBarConfigurer
 		{
@@ -128,15 +127,15 @@ public class ActionBarAdvisorTest extends RcpModelTest {
 			advisor.refresh();
 			assertNoErrors(advisor);
 			// check bounds
-			assertThat(advisor.getBounds().width).isEqualTo(600);
-			assertThat(advisor.getBounds().height).isEqualTo(500);
+			Assertions.assertThat(advisor.getBounds().width).isEqualTo(600);
+			Assertions.assertThat(advisor.getBounds().height).isEqualTo(500);
 		}
 		// set new size
 		{
 			advisor.getTopBoundsSupport().setSize(450, 300);
 			advisor.refresh();
-			assertThat(advisor.getBounds().width).isEqualTo(450);
-			assertThat(advisor.getBounds().height).isEqualTo(300);
+			Assertions.assertThat(advisor.getBounds().width).isEqualTo(450);
+			Assertions.assertThat(advisor.getBounds().height).isEqualTo(300);
 		}
 	}
 

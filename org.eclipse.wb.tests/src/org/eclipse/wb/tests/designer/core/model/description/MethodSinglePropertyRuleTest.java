@@ -23,7 +23,7 @@ import org.eclipse.wb.internal.core.model.property.editor.string.StringPropertyE
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Tests for {@link MethodSinglePropertyRule}.
@@ -65,14 +65,14 @@ public class MethodSinglePropertyRuleTest extends SwingModelTest {
 			String id = "setText(java.lang.String)";
 			GenericPropertyDescription property = description.getProperty(id);
 			assertEquals("text(java.lang.String)", property.getTitle());
-			assertThat(property.getEditor()).isSameAs(StringPropertyEditor.INSTANCE);
+			Assertions.assertThat(property.getEditor()).isSameAs(StringPropertyEditor.INSTANCE);
 		}
 		// setText(java.lang.String[])
 		{
 			String id = "setText(java.lang.String[])";
 			GenericPropertyDescription property = description.getProperty(id);
 			assertEquals("text(java.lang.String[])", property.getTitle());
-			assertThat(property.getEditor()).isSameAs(StringArrayPropertyEditor.INSTANCE);
+			Assertions.assertThat(property.getEditor()).isSameAs(StringArrayPropertyEditor.INSTANCE);
 		}
 	}
 
@@ -117,7 +117,7 @@ public class MethodSinglePropertyRuleTest extends SwingModelTest {
 			assertEquals("myFoo", property.getTitle());
 			assertSame(PropertyCategory.PREFERRED, property.getCategory());
 			assertEquals(123, property.getDefaultValue());
-			assertThat(property.getEditor()).isSameAs(IntegerPropertyEditor.INSTANCE);
+			Assertions.assertThat(property.getEditor()).isSameAs(IntegerPropertyEditor.INSTANCE);
 		}
 	}
 
@@ -163,7 +163,7 @@ public class MethodSinglePropertyRuleTest extends SwingModelTest {
 			String id = "foo(int)";
 			GenericPropertyDescription property = description.getProperty(id);
 			assertEquals("myFoo", property.getTitle());
-			assertThat(property.getEditor()).isSameAs(DisplayExpressionPropertyEditor.INSTANCE);
+			Assertions.assertThat(property.getEditor()).isSameAs(DisplayExpressionPropertyEditor.INSTANCE);
 		}
 	}
 }

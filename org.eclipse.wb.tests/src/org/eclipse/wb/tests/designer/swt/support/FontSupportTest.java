@@ -15,7 +15,7 @@ import org.eclipse.wb.internal.swt.support.FontSupport;
 
 import org.eclipse.swt.SWT;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link FontSupport}.
@@ -99,7 +99,7 @@ public class FontSupportTest extends AbstractSupportTest {
 	public void test_getFontFamilies() throws Exception {
 		String[] fontFamilies = FontSupport.getFontFamilies();
 		if (EnvironmentUtils.IS_WINDOWS) {
-			assertThat(fontFamilies).contains("Arial", "Courier", "Times New Roman");
+			Assertions.assertThat(fontFamilies).contains("Arial", "Courier", "Times New Roman");
 		}
 	}
 

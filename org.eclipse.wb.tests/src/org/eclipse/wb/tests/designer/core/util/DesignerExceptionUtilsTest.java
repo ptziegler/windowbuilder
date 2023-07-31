@@ -20,7 +20,7 @@ import org.eclipse.wb.internal.core.utils.exception.ICoreExceptionConstants;
 import org.eclipse.wb.tests.designer.core.TestBundle;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link DesignerExceptionUtils}.
@@ -439,15 +439,15 @@ public class DesignerExceptionUtilsTest extends DesignerTestCase {
 			try {
 				Throwable e = new DesignerException(-1000, "AAA", "BBB");
 				String html = DesignerExceptionUtils.getExceptionHTML(e);
-				assertThat(html).contains("My description AAA + BBB.");
+				Assertions.assertThat(html).contains("My description AAA + BBB.");
 				// HTML tags are removed if the shell can't display html-based text
 				if (BrowserComposite.browserAvailable(DesignerPlugin.getShell())) {
-					assertThat(html).contains("javascript:toggleVisibleAll()");
-					assertThat(html).contains("javascript:toggleVisibleAll()");
-					assertThat(html).contains("Show stack trace.");
-					assertThat(html).contains("Hide stack trace.");
+					Assertions.assertThat(html).contains("javascript:toggleVisibleAll()");
+					Assertions.assertThat(html).contains("javascript:toggleVisibleAll()");
+					Assertions.assertThat(html).contains("Show stack trace.");
+					Assertions.assertThat(html).contains("Hide stack trace.");
 				}
-				assertThat(html).contains(
+				Assertions.assertThat(html).contains(
 						"at org.eclipse.wb.tests.designer.core.util.DesignerExceptionUtilsTest.test_getExceptionHTML");
 			} finally {
 				testBundle.uninstall();

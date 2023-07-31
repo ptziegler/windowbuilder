@@ -42,8 +42,6 @@ import org.eclipse.swt.widgets.Layout;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.TabFolder;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.assertj.core.api.Assertions;
 
 import java.util.List;
@@ -189,8 +187,8 @@ public class ControlTest extends RcpModelTest {
 					"}");
 			fail();
 		} catch (MultipleConstructorsError e) {
-			assertThat(e.getEditor()).isNotNull();
-			assertThat(e.getTypeDeclaration()).isNotNull();
+			Assertions.assertThat(e.getEditor()).isNotNull();
+			Assertions.assertThat(e.getTypeDeclaration()).isNotNull();
 		}
 	}
 
@@ -249,7 +247,7 @@ public class ControlTest extends RcpModelTest {
 			fail();
 		} catch (Throwable e_) {
 			Throwable e = DesignerExceptionUtils.getRootCause(e_);
-			assertThat(e).isExactlyInstanceOf(NoEntryPointError.class);
+			Assertions.assertThat(e).isExactlyInstanceOf(NoEntryPointError.class);
 		}
 	}
 

@@ -18,7 +18,7 @@ import org.eclipse.wb.internal.swt.model.widgets.ControlInfo;
 
 import org.eclipse.draw2d.geometry.Rectangle;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link CollapsibleButtonsInfo}.
@@ -75,8 +75,8 @@ public class CollapsibleButtonsTest extends AbstractNebulaTest {
 			// "button" should have some not empty bounds (test for CollapsibleButtons_Info.makeAddedButtonsVisible())
 			{
 				Rectangle bounds = button.getBounds();
-				assertThat(bounds.width).isGreaterThan(100);
-				assertThat(bounds.height).isGreaterThan(20);
+				Assertions.assertThat(bounds.width).isGreaterThan(100);
+				Assertions.assertThat(bounds.height).isGreaterThan(20);
 			}
 		}
 	}

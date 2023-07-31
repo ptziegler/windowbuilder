@@ -16,7 +16,7 @@ import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 
 import org.eclipse.draw2d.geometry.Rectangle;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link GalleryInfo}.
@@ -74,8 +74,8 @@ public class GalleryTest extends AbstractNebulaTest {
 		// "item" should have some not empty bounds (test for GalleryItem_Info.refresh_fetch())
 		{
 			Rectangle bounds = galleryGroup.getBounds();
-			assertThat(bounds.width).isGreaterThan(15);
-			assertThat(bounds.height).isGreaterThan(50);
+			Assertions.assertThat(bounds.width).isGreaterThan(15);
+			Assertions.assertThat(bounds.height).isGreaterThan(50);
 		}
 		// check orientation group item
 		assertFalse(galleryGroup.isHorizontal());
@@ -85,8 +85,8 @@ public class GalleryTest extends AbstractNebulaTest {
 		// "item" should have some not empty bounds (test for GalleryItem_Info.refresh_fetch())
 		{
 			Rectangle bounds = galleryItem.getBounds();
-			assertThat(bounds.width).isGreaterThan(20);
-			assertThat(bounds.height).isGreaterThan(20);
+			Assertions.assertThat(bounds.width).isGreaterThan(20);
+			Assertions.assertThat(bounds.height).isGreaterThan(20);
 		}
 		// check orientation picture item
 		assertFalse(galleryItem.isHorizontal());

@@ -16,7 +16,7 @@ import org.eclipse.wb.core.model.association.AssociationObjectFactory;
 import org.eclipse.wb.core.model.association.InvocationChildAssociation;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Tests for {@link AssociationObjectFactories}.
@@ -65,7 +65,7 @@ public class AssociationObjectFactoriesTest extends SwingModelTest {
 		{
 			AssociationObject associationObject = factory.create();
 			assertEquals(source, associationObject.toString());
-			assertThat(associationObject.getAssociation()).isInstanceOf(InvocationChildAssociation.class);
+			Assertions.assertThat(associationObject.getAssociation()).isInstanceOf(InvocationChildAssociation.class);
 			assertFalse(associationObject.isRequired());
 		}
 	}

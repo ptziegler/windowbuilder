@@ -15,7 +15,7 @@ import org.eclipse.wb.internal.core.utils.exception.ICoreExceptionConstants;
 
 import junit.framework.TestCase;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.lang.reflect.Field;
 
@@ -39,7 +39,7 @@ public class DesignerExceptionTest extends TestCase {
 		assertEquals(CODE, designerException.getCode());
 		{
 			String[] parameters = designerException.getParameters();
-			assertThat(parameters).hasSize(1);
+			Assertions.assertThat(parameters).hasSize(1);
 			assertSame(PARAMETER_0, parameters[0]);
 		}
 	}
@@ -49,7 +49,7 @@ public class DesignerExceptionTest extends TestCase {
 		assertEquals(CODE, designerException.getCode());
 		{
 			String[] parameters = designerException.getParameters();
-			assertThat(parameters).hasSize(2);
+			Assertions.assertThat(parameters).hasSize(2);
 			assertSame(PARAMETER_0, parameters[0]);
 			assertSame(PARAMETER_1, parameters[1]);
 		}
@@ -62,7 +62,7 @@ public class DesignerExceptionTest extends TestCase {
 		assertSame(cause, designerException.getCause());
 		{
 			String[] parameters = designerException.getParameters();
-			assertThat(parameters).hasSize(1);
+			Assertions.assertThat(parameters).hasSize(1);
 			assertSame(PARAMETER_0, parameters[0]);
 		}
 	}

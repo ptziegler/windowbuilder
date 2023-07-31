@@ -24,7 +24,7 @@ import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 import java.util.Set;
@@ -51,7 +51,7 @@ public class ToolkitDescriptionTest extends DesignerTestCase {
 		{
 			GenerationSettings generationSettings = toolkit.getGenerationSettings();
 			assertNotNull(generationSettings);
-			assertThat(generationSettings.getVariables()).isNotEmpty();
+			Assertions.assertThat(generationSettings.getVariables()).isNotEmpty();
 		}
 	}
 
@@ -102,7 +102,7 @@ public class ToolkitDescriptionTest extends DesignerTestCase {
 	 */
 	public void test_getToolkits() throws Exception {
 		ToolkitDescription[] toolkits = DescriptionHelper.getToolkits();
-		assertThat(toolkits).contains(
+		Assertions.assertThat(toolkits).contains(
 				org.eclipse.wb.internal.core.ToolkitProvider.DESCRIPTION,
 				org.eclipse.wb.internal.swing.ToolkitProvider.DESCRIPTION,
 				org.eclipse.wb.internal.rcp.ToolkitProvider.DESCRIPTION);

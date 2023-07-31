@@ -30,9 +30,8 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.StringUtils;
+import org.assertj.core.api.Assertions;
 
 import java.text.MessageFormat;
 import java.util.Arrays;
@@ -97,7 +96,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 	public void test_Set_1() throws Exception {
 		parseStyleProperties("set|B0 B1 B2:specialName");
 		{
-			assertThat(m_properties).hasSize(3);
+			Assertions.assertThat(m_properties).hasSize(3);
 			// titles
 			assertEquals("b0", m_properties[0].getTitle());
 			assertEquals("b1", m_properties[1].getTitle());
@@ -140,7 +139,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 		parseStyleProperties("set|B0 noSuchField");
 		// check
 		String[] names = PropertyUtils.getTitles(m_properties);
-		assertThat(names).containsOnly("b0");
+		Assertions.assertThat(names).containsOnly("b0");
 		// warnings expected
 		checkWarning("StylePropertyEditor: can not find field test.SWT.noSuchField");
 	}
@@ -204,7 +203,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 
 	public void test_Select_ignoreInNoSuchField() throws Exception {
 		parseStyleProperties("select0|align 15 15 R1 noSuchField");
-		assertThat(PropertyUtils.getTitles(m_properties)).containsOnly("align");
+		Assertions.assertThat(PropertyUtils.getTitles(m_properties)).containsOnly("align");
 		Property alignProperty = m_properties[0];
 		//
 		assertEquals("align", alignProperty.getTitle());
@@ -289,7 +288,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 
 	public void test_Macro_ignoreIfNoSuchField() throws Exception {
 		parseStyleProperties("macro0|mix B0_B1 noSuchField");
-		assertThat(PropertyUtils.getTitles(m_properties)).containsOnly("mix");
+		Assertions.assertThat(PropertyUtils.getTitles(m_properties)).containsOnly("mix");
 		Property mixProperty = m_properties[0];
 		//
 		assertEquals("mix", mixProperty.getTitle());
@@ -297,7 +296,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 		//
 		assertInstanceOf(StringComboPropertyEditor.class, mixProperty.getEditor());
 		String[] items = (String[]) ReflectionUtils.getFieldObject(mixProperty.getEditor(), "m_items");
-		assertThat(items).containsOnly("B0_B1", "");
+		Assertions.assertThat(items).containsOnly("B0_B1", "");
 		// check warnings
 		checkWarning("StylePropertyEditor: can not find field test.SWT.noSuchField");
 	}
@@ -347,7 +346,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 		parseStyleProperties("set|B0 B1 B2", "select0|align R1 R1 R2 R3");
 		prepareStyleItems(false);
 		// check items
-		assertThat(styleItems).hasSize(7);
+		Assertions.assertThat(styleItems).hasSize(7);
 		IContributionItem item_B0 = styleItems[0];
 		IContributionItem item_R2 = styleItems[5];
 		checkItem("b0", IAction.AS_CHECK_BOX, false, item_B0);
@@ -371,7 +370,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 		// check items
 		{
 			prepareStyleItems(false);
-			assertThat(styleItems).hasSize(3);
+			Assertions.assertThat(styleItems).hasSize(3);
 			IContributionItem item_B0 = styleItems[0];
 			IContributionItem item_B1 = styleItems[1];
 			IContributionItem item_B2 = styleItems[2];
@@ -384,7 +383,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 		// check again
 		{
 			prepareStyleItems(false);
-			assertThat(styleItems).hasSize(3);
+			Assertions.assertThat(styleItems).hasSize(3);
 			IContributionItem item_B0 = styleItems[0];
 			IContributionItem item_B1 = styleItems[1];
 			IContributionItem item_B2 = styleItems[2];
@@ -399,7 +398,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 		// check items
 		{
 			prepareStyleItems(false);
-			assertThat(styleItems).hasSize(4);
+			Assertions.assertThat(styleItems).hasSize(4);
 			assertInstanceOf(Separator.class, styleItems[0]);
 			IContributionItem item_R1 = styleItems[1];
 			IContributionItem item_R2 = styleItems[2];
@@ -417,7 +416,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 		// check again
 		{
 			prepareStyleItems(false);
-			assertThat(styleItems).hasSize(4);
+			Assertions.assertThat(styleItems).hasSize(4);
 			assertInstanceOf(Separator.class, styleItems[0]);
 			IContributionItem item_R1 = styleItems[1];
 			IContributionItem item_R2 = styleItems[2];
@@ -432,7 +431,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 		parseStyleProperties("set|B0 B1", "select0|align R1 R1 R2 R3");
 		prepareStyleItems(true);
 		//
-		assertThat(styleItems).hasSize(4);
+		Assertions.assertThat(styleItems).hasSize(4);
 		checkItem("b0", IAction.AS_CHECK_BOX, false, styleItems[0]);
 		checkItem("b1", IAction.AS_CHECK_BOX, false, styleItems[1]);
 		assertInstanceOf(Separator.class, styleItems[2]);
@@ -440,7 +439,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 		//
 		IMenuManager alignMenu = (IMenuManager) styleItems[3];
 		IContributionItem[] alignItems = alignMenu.getItems();
-		assertThat(alignItems).hasSize(4);
+		Assertions.assertThat(alignItems).hasSize(4);
 		assertInstanceOf(Separator.class, alignItems[0]);
 		checkItem("R1", IAction.AS_RADIO_BUTTON, true, alignItems[1]);
 		checkItem("R2", IAction.AS_RADIO_BUTTON, false, alignItems[2]);
@@ -452,7 +451,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 		prepareStyleItems(false);
 		// check items
 		{
-			assertThat(styleItems).hasSize(1 + 1 + 2);
+			Assertions.assertThat(styleItems).hasSize(1 + 1 + 2);
 			checkItem("b0", IAction.AS_CHECK_BOX, false, styleItems[0]);
 			assertInstanceOf(Separator.class, styleItems[1]);
 			checkItem("B0_B1", IAction.AS_RADIO_BUTTON, false, styleItems[2]);
@@ -467,7 +466,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 		// check again
 		{
 			prepareStyleItems(false);
-			assertThat(styleItems).hasSize(1 + 1 + 2);
+			Assertions.assertThat(styleItems).hasSize(1 + 1 + 2);
 			checkItem("b0", IAction.AS_CHECK_BOX, true, styleItems[0]);
 			assertInstanceOf(Separator.class, styleItems[1]);
 			checkItem("B0_B1", IAction.AS_RADIO_BUTTON, true, styleItems[2]);

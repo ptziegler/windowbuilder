@@ -27,7 +27,7 @@ import org.eclipse.jdt.core.dom.QualifiedName;
 import org.eclipse.jdt.core.dom.Statement;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.Collections;
 import java.util.List;
@@ -129,7 +129,7 @@ public class EngineTest extends AbstractEngineTest {
 			fail();
 		} catch (Throwable e) {
 		}
-		assertThat(evaluationFailed.get()).isTrue();
+		Assertions.assertThat(evaluationFailed.get()).isTrue();
 	}
 
 	/**

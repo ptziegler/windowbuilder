@@ -33,7 +33,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Layout;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * @author lobas_av
@@ -379,7 +379,7 @@ public class LayoutTest extends RcpModelTest {
 				"    {virtual-layout_data: org.eclipse.swt.layout.GridData} {virtual-layout-data} {}");
 		assertTrue(composite.hasLayout());
 		LayoutInfo layout = composite.getLayout();
-		assertThat(layout.getControls()).hasSize(1);
+		Assertions.assertThat(layout.getControls()).hasSize(1);
 		// refresh
 		composite.refresh();
 		assertNoErrors(composite);
@@ -430,7 +430,7 @@ public class LayoutTest extends RcpModelTest {
 				"  {method: public org.eclipse.swt.widgets.Button test.ImplicitComposite.getButton()} {property} {}");
 		assertTrue(composite.hasLayout());
 		LayoutInfo layout = composite.getLayout();
-		assertThat(layout.getControls()).isEmpty();
+		Assertions.assertThat(layout.getControls()).isEmpty();
 		// refresh
 		composite.refresh();
 		assertNoErrors(composite);
@@ -477,7 +477,7 @@ public class LayoutTest extends RcpModelTest {
 				"    {virtual-layout_data: org.eclipse.swt.layout.GridData} {virtual-layout-data} {}");
 		assertTrue(composite.hasLayout());
 		LayoutInfo layout = composite.getLayout();
-		assertThat(layout.getControls()).hasSize(1);
+		Assertions.assertThat(layout.getControls()).hasSize(1);
 		// refresh
 		composite.refresh();
 		assertNoErrors(composite);
@@ -528,7 +528,7 @@ public class LayoutTest extends RcpModelTest {
 				"    {method: public org.eclipse.jface.viewers.TableViewer test.ImplicitComposite.getViewer()} {property} {}");
 		assertTrue(composite.hasLayout());
 		LayoutInfo layout = composite.getLayout();
-		assertThat(layout.getControls()).isEmpty();
+		Assertions.assertThat(layout.getControls()).isEmpty();
 		// refresh
 		composite.refresh();
 		assertNoErrors(composite);

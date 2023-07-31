@@ -24,7 +24,7 @@ import org.eclipse.wb.tests.gef.UiContext;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.TreeItem;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Tests for {@link ObjectPropertyEditor}.
@@ -82,7 +82,7 @@ public class ObjectPropertyEditorTest extends XwtModelTest {
 		assertEquals(null, getPropertyText(property));
 		// prepare editor
 		final PropertyEditor propertyEditor = property.getEditor();
-		assertThat(propertyEditor).isSameAs(ObjectPropertyEditor.INSTANCE);
+		Assertions.assertThat(propertyEditor).isSameAs(ObjectPropertyEditor.INSTANCE);
 		// animate
 		new UiContext().executeAndCheck(new UIRunnable() {
 			@Override
@@ -98,7 +98,7 @@ public class ObjectPropertyEditorTest extends XwtModelTest {
 				{
 					TreeItem shellItem = context.getTreeItem("Shell");
 					TreeItem[] selection = shellItem.getParent().getSelection();
-					assertThat(selection).containsOnly(shellItem);
+					Assertions.assertThat(selection).containsOnly(shellItem);
 				}
 				assertFalse(okButton.isEnabled());
 				// "Button" - valid
@@ -158,7 +158,7 @@ public class ObjectPropertyEditorTest extends XwtModelTest {
 				try {
 					TreeItem buttonItem = context.getTreeItem("Button - button");
 					TreeItem[] selection = buttonItem.getParent().getSelection();
-					assertThat(selection).containsOnly(buttonItem);
+					Assertions.assertThat(selection).containsOnly(buttonItem);
 				} finally {
 					context.clickButton("Cancel");
 				}

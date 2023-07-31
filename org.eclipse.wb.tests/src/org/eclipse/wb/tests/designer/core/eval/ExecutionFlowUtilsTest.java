@@ -54,8 +54,6 @@ import org.eclipse.jdt.core.dom.VariableDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 import org.eclipse.jdt.core.dom.VariableDeclarationStatement;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.StringUtils;
 import org.assertj.core.api.Assertions;
 
@@ -754,7 +752,7 @@ public class ExecutionFlowUtilsTest extends AbstractEngineTest {
 				}
 			}
 		});
-		assertThat(nodes).containsExactly("false", "parameter", "this(false);");
+		Assertions.assertThat(nodes).containsExactly("false", "parameter", "this(false);");
 	}
 
 	/**
@@ -1974,20 +1972,20 @@ public class ExecutionFlowUtilsTest extends AbstractEngineTest {
 		// initial state
 		{
 			VariableDeclaration declaration = getDeclaration(flowDescription, fooNode);
-			assertThat(declaration).isNotNull();
+			Assertions.assertThat(declaration).isNotNull();
 			Assertions.<ASTNode>assertThat(getReferences(flowDescription, fooNode)).containsOnly(
 					declaration.getName(),
 					fooNode);
 			Assertions.<ASTNode>assertThat(getAssignments(flowDescription, fooNode)).containsOnly(declaration);
-			assertThat(getLastAssignment(flowDescription, fooNode)).isEqualTo(declaration);
+			Assertions.assertThat(getLastAssignment(flowDescription, fooNode)).isEqualTo(declaration);
 		}
 		// delete Statement for "fooNode", no more variables information
 		m_lastEditor.removeEnclosingStatement(fooNode);
 		{
-			assertThat(getDeclaration(flowDescription, fooNode)).isNull();
-			assertThat(getReferences(flowDescription, fooNode)).isEmpty();
-			assertThat(getAssignments(flowDescription, fooNode)).isEmpty();
-			assertThat(getLastAssignment(flowDescription, fooNode)).isNull();
+			Assertions.assertThat(getDeclaration(flowDescription, fooNode)).isNull();
+			Assertions.assertThat(getReferences(flowDescription, fooNode)).isEmpty();
+			Assertions.assertThat(getAssignments(flowDescription, fooNode)).isEmpty();
+			Assertions.assertThat(getLastAssignment(flowDescription, fooNode)).isNull();
 		}
 	}
 
@@ -2017,7 +2015,7 @@ public class ExecutionFlowUtilsTest extends AbstractEngineTest {
 		ExecutionFlowDescription flowDescription = new ExecutionFlowDescription(entryPoint);
 		//
 		List<ASTNode> invocations = ExecutionFlowUtils.getInvocations(flowDescription, target);
-		assertThat(invocations).hasSize(1);
+		Assertions.assertThat(invocations).hasSize(1);
 		assertEquals("this(1);", m_lastEditor.getSource(invocations.get(0)));
 	}
 
@@ -2044,7 +2042,7 @@ public class ExecutionFlowUtilsTest extends AbstractEngineTest {
 		ExecutionFlowDescription flowDescription = new ExecutionFlowDescription(entryPoint);
 		//
 		List<ASTNode> invocations = ExecutionFlowUtils.getInvocations(flowDescription, target);
-		assertThat(invocations).isEmpty();
+		Assertions.assertThat(invocations).isEmpty();
 	}
 
 	/**
@@ -2071,7 +2069,7 @@ public class ExecutionFlowUtilsTest extends AbstractEngineTest {
 		ExecutionFlowDescription flowDescription = new ExecutionFlowDescription(entryPoint);
 		//
 		List<ASTNode> invocations = ExecutionFlowUtils.getInvocations(flowDescription, target);
-		assertThat(invocations).hasSize(1);
+		Assertions.assertThat(invocations).hasSize(1);
 		assertEquals("new Test(1)", m_lastEditor.getSource(invocations.get(0)));
 	}
 
@@ -2098,7 +2096,7 @@ public class ExecutionFlowUtilsTest extends AbstractEngineTest {
 		ExecutionFlowDescription flowDescription = new ExecutionFlowDescription(entryPoint);
 		//
 		List<ASTNode> invocations = ExecutionFlowUtils.getInvocations(flowDescription, target);
-		assertThat(invocations).isEmpty();
+		Assertions.assertThat(invocations).isEmpty();
 	}
 
 	/**
@@ -2125,7 +2123,7 @@ public class ExecutionFlowUtilsTest extends AbstractEngineTest {
 		ExecutionFlowDescription flowDescription = new ExecutionFlowDescription(entryPoint);
 		//
 		List<ASTNode> invocations = ExecutionFlowUtils.getInvocations(flowDescription, target);
-		assertThat(invocations).hasSize(1);
+		Assertions.assertThat(invocations).hasSize(1);
 		assertEquals("target(1)", m_lastEditor.getSource(invocations.get(0)));
 	}
 
@@ -2152,6 +2150,6 @@ public class ExecutionFlowUtilsTest extends AbstractEngineTest {
 		ExecutionFlowDescription flowDescription = new ExecutionFlowDescription(entryPoint);
 		//
 		List<ASTNode> invocations = ExecutionFlowUtils.getInvocations(flowDescription, target);
-		assertThat(invocations).isEmpty();
+		Assertions.assertThat(invocations).isEmpty();
 	}
 }

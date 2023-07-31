@@ -25,8 +25,6 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.widgets.CoolBar;
 import org.eclipse.swt.widgets.CoolItem;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.assertj.core.api.Assertions;
 
 import java.util.List;
@@ -112,8 +110,8 @@ public class CoolBarTest extends RcpModelTest {
 		// bounds
 		{
 			Rectangle modelBounds = item_0.getModelBounds();
-			assertThat(modelBounds.width).isGreaterThan(15);
-			assertThat(modelBounds.height).isGreaterThan(20);
+			Assertions.assertThat(modelBounds.width).isGreaterThan(15);
+			Assertions.assertThat(modelBounds.height).isGreaterThan(20);
 		}
 		// no setControl() invocations
 		assertNull(item_0.getControl());
@@ -152,18 +150,18 @@ public class CoolBarTest extends RcpModelTest {
 		ControlInfo button = coolBar.getChildrenControls().get(0);
 		// "button" is set using setControl()
 		assertSame(button, item.getControl());
-		assertThat(item.getSimpleContainerChildren()).containsExactly(button);
+		Assertions.assertThat(item.getSimpleContainerChildren()).containsExactly(button);
 		// check that "button" is wide
 		{
-			assertThat(button.getBounds().width).isGreaterThan(70);
-			assertThat(item.getBounds().width).isGreaterThan(80);
+			Assertions.assertThat(button.getBounds().width).isGreaterThan(70);
+			Assertions.assertThat(item.getBounds().width).isGreaterThan(80);
 		}
 		// check hierarchy: "button" should be in "item", but not in "coolBar"
 		{
-			assertThat(item.getPresentation().getChildrenTree()).containsExactly(button);
-			assertThat(item.getPresentation().getChildrenGraphical()).containsExactly(button);
-			assertThat(coolBar.getPresentation().getChildrenTree()).containsExactly(item);
-			assertThat(coolBar.getPresentation().getChildrenGraphical()).containsExactly(item);
+			Assertions.assertThat(item.getPresentation().getChildrenTree()).containsExactly(button);
+			Assertions.assertThat(item.getPresentation().getChildrenGraphical()).containsExactly(button);
+			Assertions.assertThat(coolBar.getPresentation().getChildrenTree()).containsExactly(item);
+			Assertions.assertThat(coolBar.getPresentation().getChildrenGraphical()).containsExactly(item);
 		}
 	}
 
@@ -188,13 +186,13 @@ public class CoolBarTest extends RcpModelTest {
 		CoolItemInfo item = coolBar.getItems().get(0);
 		// no control initially
 		assertNull(item.getControl());
-		assertThat(item.getSimpleContainerChildren()).isEmpty();
+		Assertions.assertThat(item.getSimpleContainerChildren()).isEmpty();
 		// set Button on "item"
 		ControlInfo button = BTestUtils.createButton();
 		simpleContainer_CREATE(item, button);
 		// check result
 		assertSame(button, item.getControl());
-		assertThat(item.getSimpleContainerChildren()).containsExactly(button);
+		Assertions.assertThat(item.getSimpleContainerChildren()).containsExactly(button);
 		assertEditor(
 				"public class Test extends Shell {",
 				"  public Test() {",

@@ -18,7 +18,7 @@ import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
 
 import org.eclipse.swt.custom.StackLayout;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -122,7 +122,7 @@ public class StackLayoutTest extends XwtModelTest {
 		// only "button_1" is in "graphical children"
 		{
 			List<ObjectInfo> children = shell.getPresentation().getChildrenGraphical();
-			assertThat(children).containsExactly(button_1);
+			Assertions.assertThat(children).containsExactly(button_1);
 		}
 	}
 

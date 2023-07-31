@@ -28,11 +28,12 @@ import org.eclipse.ltk.core.refactoring.participants.RefactoringParticipant;
 import org.eclipse.text.edits.MultiTextEdit;
 import org.eclipse.text.edits.ReplaceEdit;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
+
+import org.assertj.core.api.Assertions;
 
 /**
  * Tests for {@link RefactoringUtils}.
@@ -287,7 +288,7 @@ public class RefactoringUtilsTest extends AbstractJavaTest {
 			newChange.setEdit(new ReplaceEdit(2, 1, "C"));
 			newChangeComposite.add(newChange);
 		}
-		assertThat(newChangeComposite.getChildren()).hasSize(1);
+		Assertions.assertThat(newChangeComposite.getChildren()).hasSize(1);
 		// expectations
 		RefactoringParticipant participant = mock(RefactoringParticipant.class);
 		when(participant.getTextChange(file)).thenReturn(existingChange);
@@ -300,6 +301,6 @@ public class RefactoringUtilsTest extends AbstractJavaTest {
 		existingChange.perform(PM);
 		assertEquals("AAbC", getFileContent(file));
 		// "new change" was removed from "composite"
-		assertThat(newChangeComposite.getChildren()).hasSize(0);
+		Assertions.assertThat(newChangeComposite.getChildren()).hasSize(0);
 	}
 }

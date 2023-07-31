@@ -22,9 +22,8 @@ import org.eclipse.wb.tests.gef.UiContext;
 
 import org.eclipse.jface.viewers.StructuredSelection;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.StringUtils;
+import org.assertj.core.api.Assertions;
 
 /**
  * Tests for {@link ApplicationWizard}.
@@ -116,16 +115,16 @@ public class ApplicationWizardTest extends XwtWizardTest {
 		// Java
 		{
 			String content = getFileContentSrc("test/MyApp.java");
-			assertThat(content).contains("main(String args[])");
-			assertThat(content).contains("XWT.load");
-			assertThat(content).contains(".readAndDispatch()");
+			Assertions.assertThat(content).contains("main(String args[])");
+			Assertions.assertThat(content).contains("XWT.load");
+			Assertions.assertThat(content).contains(".readAndDispatch()");
 		}
 		// XWT
 		{
 			String content = getFileContentSrc("test/MyApp.xwt");
-			assertThat(content).contains("<Shell");
-			assertThat(content).contains("<RowLayout/>");
-			assertThat(content).contains("<Button text=");
+			Assertions.assertThat(content).contains("<Shell");
+			Assertions.assertThat(content).contains("<RowLayout/>");
+			Assertions.assertThat(content).contains("<Button text=");
 		}
 	}
 

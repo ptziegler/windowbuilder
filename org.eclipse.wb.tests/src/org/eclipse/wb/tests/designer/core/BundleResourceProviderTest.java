@@ -20,8 +20,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
+import org.assertj.core.api.Assertions;
 import org.osgi.framework.Bundle;
 
 import java.io.InputStream;
@@ -66,7 +65,7 @@ public class BundleResourceProviderTest extends DesignerTestCase {
 		try {
 			provider.getFile("noSuchFile.txt");
 		} catch (Throwable e) {
-			assertThat(e.getMessage()).contains(BUNDLE_ID).contains("noSuchFile.txt");
+			Assertions.assertThat(e.getMessage()).contains(BUNDLE_ID).contains("noSuchFile.txt");
 		}
 		// good file
 		assertGoodFile(provider, "plugin.xml");
@@ -86,12 +85,12 @@ public class BundleResourceProviderTest extends DesignerTestCase {
 		try {
 			provider.getFile("noSuchFile.txt");
 		} catch (Throwable e) {
-			assertThat(e.getMessage()).contains(BUNDLE_ID).contains("noSuchFile.txt");
+			Assertions.assertThat(e.getMessage()).contains(BUNDLE_ID).contains("noSuchFile.txt");
 		}
 		// good file
 		{
 			String content = provider.getFileString("plugin.xml");
-			assertThat(content).contains("<!-- Extension points -->");
+			Assertions.assertThat(content).contains("<!-- Extension points -->");
 		}
 	}
 
@@ -115,7 +114,7 @@ public class BundleResourceProviderTest extends DesignerTestCase {
 		try {
 			provider.getImage("noSuchImage.png");
 		} catch (Throwable e) {
-			assertThat(e.getMessage()).contains(BUNDLE_ID).contains("noSuchImage.png");
+			Assertions.assertThat(e.getMessage()).contains(BUNDLE_ID).contains("noSuchImage.png");
 		}
 		// get image
 		Image image = provider.getImage("icons/test.png");
@@ -161,7 +160,7 @@ public class BundleResourceProviderTest extends DesignerTestCase {
 		try {
 			provider.getImageDescriptor("noSuchImage.png");
 		} catch (Throwable e) {
-			assertThat(e.getMessage()).contains(BUNDLE_ID).contains("noSuchImage.png");
+			Assertions.assertThat(e.getMessage()).contains(BUNDLE_ID).contains("noSuchImage.png");
 		}
 		// get image
 		ImageDescriptor descriptor = provider.getImageDescriptor("icons/test.png");

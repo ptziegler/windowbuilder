@@ -22,7 +22,7 @@ import org.eclipse.draw2d.geometry.Insets;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * GEF tests for FormLayout support moving.
@@ -160,7 +160,7 @@ public class FormLayoutMoveTest extends RcpGefTest {
 		//
 		int button1Right = button1.getAbsoluteBounds().right();
 		moveByLeft(shell, button2, button1Right + 5, 100);
-		assertThat(m_lastEditor.getSource()).contains("data2.left = new FormAttachment(button, 6);");
+		Assertions.assertThat(m_lastEditor.getSource()).contains("data2.left = new FormAttachment(button, 6);");
 	}
 
 	public void test_attach_to_component_par_left_to_left() throws Exception {
@@ -168,7 +168,7 @@ public class FormLayoutMoveTest extends RcpGefTest {
 		ControlInfo button2 = (ControlInfo) shell.getChildrenJava().get(2);
 		//
 		moveByLeft(shell, button2, 50, 150);
-		assertThat(m_lastEditor.getSource()).contains(
+		Assertions.assertThat(m_lastEditor.getSource()).contains(
 				"data2.left = new FormAttachment(button, 0, SWT.LEFT);");
 	}
 

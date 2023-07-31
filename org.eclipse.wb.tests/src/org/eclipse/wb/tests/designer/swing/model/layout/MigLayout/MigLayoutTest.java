@@ -43,7 +43,7 @@ import junit.framework.AssertionFailedError;
 import net.miginfocom.layout.LC;
 import net.miginfocom.swing.MigLayout;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -249,7 +249,7 @@ public class MigLayoutTest extends AbstractMigLayoutTest {
 		{
 			assertEquals(3, gridInfo.getColumnCount());
 			Interval[] columnIntervals = gridInfo.getColumnIntervals();
-			assertThat(columnIntervals).hasSize(3);
+			Assertions.assertThat(columnIntervals).hasSize(3);
 			assertEquals("Interval(7, 100)", columnIntervals[0].toString());
 			assertEquals("Interval(111, 150)", columnIntervals[1].toString());
 			assertEquals("Interval(265, 50)", columnIntervals[2].toString());
@@ -258,7 +258,7 @@ public class MigLayoutTest extends AbstractMigLayoutTest {
 		{
 			assertEquals(2, gridInfo.getRowCount());
 			Interval[] rowIntervals = gridInfo.getRowIntervals();
-			assertThat(rowIntervals).hasSize(2);
+			Assertions.assertThat(rowIntervals).hasSize(2);
 			assertEquals("Interval(7, 40)", rowIntervals[0].toString());
 			assertEquals(
 					Expectations.get("Interval(51, 23)", new StrValue[]{
@@ -339,9 +339,9 @@ public class MigLayoutTest extends AbstractMigLayoutTest {
 				assertEquals(1, gridInfo.getColumnCount());
 				// intervals
 				Interval[] columnIntervals = gridInfo.getColumnIntervals();
-				assertThat(columnIntervals).hasSize(1);
+				Assertions.assertThat(columnIntervals).hasSize(1);
 				// interval[0]
-				assertThat(columnIntervals[0].length()).isGreaterThan(18);
+				Assertions.assertThat(columnIntervals[0].length()).isGreaterThan(18);
 				assertFalse(columnIntervals[0].isEmpty());
 			}
 			// rows
@@ -349,9 +349,9 @@ public class MigLayoutTest extends AbstractMigLayoutTest {
 				assertEquals(1, gridInfo.getRowCount());
 				// intervals
 				Interval[] rowIntervals = gridInfo.getRowIntervals();
-				assertThat(rowIntervals).hasSize(1);
+				Assertions.assertThat(rowIntervals).hasSize(1);
 				// interval[0]
-				assertThat(rowIntervals[0].length()).isGreaterThan(18);
+				Assertions.assertThat(rowIntervals[0].length()).isGreaterThan(18);
 				assertFalse(rowIntervals[0].isEmpty());
 			}
 		}
@@ -457,11 +457,11 @@ public class MigLayoutTest extends AbstractMigLayoutTest {
 		MigLayoutInfo layout = (MigLayoutInfo) panel.getLayout();
 		{
 			List<MigColumnInfo> columns = layout.getColumns();
-			assertThat(columns).hasSize(3);
+			Assertions.assertThat(columns).hasSize(3);
 		}
 		{
 			List<MigRowInfo> rows = layout.getRows();
-			assertThat(rows).hasSize(2);
+			Assertions.assertThat(rows).hasSize(2);
 		}
 	}
 
@@ -477,11 +477,11 @@ public class MigLayoutTest extends AbstractMigLayoutTest {
 		MigLayoutInfo layout = (MigLayoutInfo) panel.getLayout();
 		{
 			List<MigColumnInfo> columns = layout.getColumns();
-			assertThat(columns).hasSize(2);
+			Assertions.assertThat(columns).hasSize(2);
 		}
 		{
 			List<MigRowInfo> rows = layout.getRows();
-			assertThat(rows).hasSize(4);
+			Assertions.assertThat(rows).hasSize(4);
 		}
 	}
 
@@ -844,7 +844,7 @@ public class MigLayoutTest extends AbstractMigLayoutTest {
 		MigLayoutInfo layout = (MigLayoutInfo) panel.getLayout();
 		//
 		List<MigColumnInfo> columns = layout.getColumns();
-		assertThat(columns).hasSize(2);
+		Assertions.assertThat(columns).hasSize(2);
 		// by default MigLayout has single column
 		{
 			MigColumnInfo column = columns.get(0);
@@ -1028,7 +1028,7 @@ public class MigLayoutTest extends AbstractMigLayoutTest {
 		MigLayoutInfo layout = (MigLayoutInfo) panel.getLayout();
 		//
 		List<MigRowInfo> rows = layout.getRows();
-		assertThat(rows).hasSize(2);
+		Assertions.assertThat(rows).hasSize(2);
 		// by default MigLayout has single row
 		{
 			MigRowInfo row = rows.get(0);
@@ -1897,12 +1897,12 @@ public class MigLayoutTest extends AbstractMigLayoutTest {
 		ComponentInfo button_4 = panel.getChildrenComponents().get(3);
 		ComponentInfo button_5 = panel.getChildrenComponents().get(4);
 		//
-		assertThat(layout.getCellComponents(0, 0)).isEqualTo(ImmutableList.of(button_1, button_2));
-		assertThat(layout.getCellComponents(1, 0)).isEqualTo(ImmutableList.of(button_3));
-		assertThat(layout.getCellComponents(1, 1)).isEqualTo(ImmutableList.of(button_4));
-		assertThat(layout.getCellComponents(0, 2)).isEqualTo(ImmutableList.of(button_5));
-		assertThat(layout.getCellComponents(1, 2)).isEqualTo(ImmutableList.of(button_5));
-		assertThat(layout.getCellComponents(2, 2)).isEmpty();
+		Assertions.assertThat(layout.getCellComponents(0, 0)).isEqualTo(ImmutableList.of(button_1, button_2));
+		Assertions.assertThat(layout.getCellComponents(1, 0)).isEqualTo(ImmutableList.of(button_3));
+		Assertions.assertThat(layout.getCellComponents(1, 1)).isEqualTo(ImmutableList.of(button_4));
+		Assertions.assertThat(layout.getCellComponents(0, 2)).isEqualTo(ImmutableList.of(button_5));
+		Assertions.assertThat(layout.getCellComponents(1, 2)).isEqualTo(ImmutableList.of(button_5));
+		Assertions.assertThat(layout.getCellComponents(2, 2)).isEmpty();
 	}
 
 	/**

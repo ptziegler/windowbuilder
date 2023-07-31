@@ -18,7 +18,7 @@ import org.eclipse.wb.internal.swt.model.widgets.ControlInfo;
 import org.eclipse.wb.tests.designer.rcp.BTestUtils;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link ScrolledCompositeInfo}.
@@ -95,7 +95,7 @@ public class ScrolledCompositeTest extends RcpModelTest {
 						"}");
 		shell.refresh();
 		ScrolledCompositeInfo composite = (ScrolledCompositeInfo) shell.getChildrenControls().get(0);
-		assertThat(composite.getChildrenControls()).hasSize(1);
+		Assertions.assertThat(composite.getChildrenControls()).hasSize(1);
 		// no "setContent()"
 		assertNull(composite.getContent());
 		// no child Control, but no "setContent()", so BAD

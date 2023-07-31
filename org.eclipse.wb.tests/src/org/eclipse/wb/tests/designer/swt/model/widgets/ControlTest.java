@@ -40,7 +40,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.Collections;
 import java.util.List;
@@ -446,19 +446,19 @@ public class ControlTest extends RcpModelTest {
 		ControlInfo badComponent = shell.getChildrenControls().get(0);
 		Object badComponentObject = badComponent.getObject();
 		// "MyButton" has placeholder object - Composite
-		assertThat(badComponentObject.getClass().getName()).isEqualTo(
+		Assertions.assertThat(badComponentObject.getClass().getName()).isEqualTo(
 				"org.eclipse.swt.widgets.Composite");
 		assertTrue(badComponent.isPlaceholder());
 		// "shell" has only one Control child (we should remove partially create MyButton instance)
 		{
 			Object[] children = ContainerSupport.getChildren(shell.getObject());
-			assertThat(children).hasSize(1).containsOnly(badComponentObject);
+			Assertions.assertThat(children).hasSize(1).containsOnly(badComponentObject);
 		}
 	}
 
 	private void check_constructorEvaluation_actualOnlyException(String exceptionNodeSource) {
 		List<BadNodeInformation> badNodes = m_lastState.getBadRefreshNodes().nodes();
-		assertThat(badNodes).hasSize(1);
+		Assertions.assertThat(badNodes).hasSize(1);
 		{
 			BadNodeInformation badNode = badNodes.get(0);
 			check_constructorEvaluation_badNode(badNode, exceptionNodeSource, "actual");
@@ -475,11 +475,11 @@ public class ControlTest extends RcpModelTest {
 		// check exception
 		{
 			Throwable e = DesignerExceptionUtils.getRootCause(nodeException);
-			assertThat(e).isExactlyInstanceOf(IllegalStateException.class);
-			assertThat(e.getMessage()).isEqualTo(exceptionMessage);
+			Assertions.assertThat(e).isExactlyInstanceOf(IllegalStateException.class);
+			Assertions.assertThat(e.getMessage()).isEqualTo(exceptionMessage);
 		}
 		// exception should be associated with node
-		assertThat(PlaceholderUtils.getExceptions(node)).contains(nodeException);
+		Assertions.assertThat(PlaceholderUtils.getExceptions(node)).contains(nodeException);
 	}
 
 	/**
@@ -587,7 +587,7 @@ public class ControlTest extends RcpModelTest {
 		{
 			String exceptionNodeSource = "new MyButton(this, SWT.NONE, 0)";
 			List<BadNodeInformation> badNodes = m_lastState.getBadRefreshNodes().nodes();
-			assertThat(badNodes).hasSize(2);
+			Assertions.assertThat(badNodes).hasSize(2);
 			{
 				BadNodeInformation badNode = badNodes.get(0);
 				check_constructorEvaluation_badNode(badNode, exceptionNodeSource, "actual");
@@ -642,7 +642,7 @@ public class ControlTest extends RcpModelTest {
 		// only one (good) instance of MyButton should be on Shell
 		{
 			Object[] children = ContainerSupport.getChildren(shell.getObject());
-			assertThat(children).hasSize(1).containsOnly(buttonObject);
+			Assertions.assertThat(children).hasSize(1).containsOnly(buttonObject);
 		}
 		// check logged exceptions
 		check_constructorEvaluation_actualOnlyException("new MyButton(this, SWT.NONE, 0)");
@@ -817,7 +817,7 @@ public class ControlTest extends RcpModelTest {
 		Composite compositeObject = (Composite) composite.getObject();
 		assertNotNull(compositeObject.getParent());
 		// On Linux, the DOUBLE_BUFFERED flag is also set
-		assertThat(SWT.LEFT_TO_RIGHT & compositeObject.getStyle()).isGreaterThan(0);
+		Assertions.assertThat(SWT.LEFT_TO_RIGHT & compositeObject.getStyle()).isGreaterThan(0);
 	}
 
 	////////////////////////////////////////////////////////////////////////////

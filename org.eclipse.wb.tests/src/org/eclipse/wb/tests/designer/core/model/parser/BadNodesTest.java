@@ -23,7 +23,7 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.dom.IMethodBinding;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -134,15 +134,15 @@ public class BadNodesTest extends SwingModelTest {
 		// has logged refresh error
 		{
 			List<BadNodeInformation> badNodes = m_lastState.getBadRefreshNodes().nodes();
-			assertThat(badNodes).hasSize(1);
+			Assertions.assertThat(badNodes).hasSize(1);
 			BadNodeInformation badNode = badNodes.get(0);
 			Throwable rootCause = DesignerExceptionUtils.getRootCause(badNode.getException());
-			assertThat(rootCause).isInstanceOf(IllegalStateException.class);
+			Assertions.assertThat(rootCause).isInstanceOf(IllegalStateException.class);
 		}
 		// refresh
 		panel.refresh();
 		ComponentInfo button = panel.getChildrenComponents().get(0);
-		assertThat(((JButton) button.getObject()).getText()).isEqualTo("<dynamic>");
+		Assertions.assertThat(((JButton) button.getObject()).getText()).isEqualTo("<dynamic>");
 	}
 
 	/**
@@ -191,7 +191,7 @@ public class BadNodesTest extends SwingModelTest {
 				"  {new: javax.swing.JButton} {local-unique: button} {/new JButton()/ /button.setText(text)/ /add(button)/}");
 		// check bad nodes
 		List<BadNodeInformation> badParseNodes = m_lastState.getBadParserNodes().nodes();
-		assertThat(badParseNodes).hasSize(1);
+		Assertions.assertThat(badParseNodes).hasSize(1);
 		{
 			BadNodeInformation badNodeInformation = badParseNodes.get(0);
 			assertEquals("button.setText(text);", m_lastEditor.getSource(badNodeInformation.getNode()));

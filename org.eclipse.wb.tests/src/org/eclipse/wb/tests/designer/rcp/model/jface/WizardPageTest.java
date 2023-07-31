@@ -26,7 +26,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -77,17 +77,17 @@ public class WizardPageTest extends RcpModelTest {
 		// refresh()
 		wizardPage.refresh();
 		// check bounds
-		assertThat(wizardPage.getBounds().width).isEqualTo(600);
-		assertThat(wizardPage.getBounds().height).isEqualTo(500);
-		assertThat(parentComposite.getBounds().width).isGreaterThan(500);
-		assertThat(parentComposite.getBounds().height).isGreaterThan(230);
-		assertThat(container.getBounds().width).isGreaterThan(500);
-		assertThat(container.getBounds().height).isGreaterThan(220);
+		Assertions.assertThat(wizardPage.getBounds().width).isEqualTo(600);
+		Assertions.assertThat(wizardPage.getBounds().height).isEqualTo(500);
+		Assertions.assertThat(parentComposite.getBounds().width).isGreaterThan(500);
+		Assertions.assertThat(parentComposite.getBounds().height).isGreaterThan(230);
+		Assertions.assertThat(container.getBounds().width).isGreaterThan(500);
+		Assertions.assertThat(container.getBounds().height).isGreaterThan(220);
 		// set new bounds
 		wizardPage.getTopBoundsSupport().setSize(500, 400);
 		wizardPage.refresh();
-		assertThat(wizardPage.getBounds().width).isEqualTo(500);
-		assertThat(wizardPage.getBounds().height).isEqualTo(400);
+		Assertions.assertThat(wizardPage.getBounds().width).isEqualTo(500);
+		Assertions.assertThat(wizardPage.getBounds().height).isEqualTo(400);
 	}
 
 	/**
@@ -228,7 +228,7 @@ public class WizardPageTest extends RcpModelTest {
 				"    {new: test.MyButton} {empty} {/setControl(new MyButton(parent, SWT.NONE))/}");
 		// check logged exceptions
 		List<BadNodeInformation> badNodes = m_lastState.getBadRefreshNodes().nodes();
-		assertThat(badNodes).hasSize(1);
+		Assertions.assertThat(badNodes).hasSize(1);
 	}
 
 	/**

@@ -48,10 +48,10 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.data.MapEntry.entry;
 
 import org.apache.commons.lang.StringUtils;
+import org.assertj.core.api.Assertions;
 import org.osgi.framework.Bundle;
 
 import java.util.Map;
@@ -258,7 +258,7 @@ public class ComponentEntryInfoTest extends AbstractPaletteTest {
 		// do initialize, failed
 		assertFalse(componentEntry.initialize(null, panel));
 		// no warnings
-		assertThat(m_lastState.getWarnings()).isEmpty();
+		Assertions.assertThat(m_lastState.getWarnings()).isEmpty();
 	}
 
 	/**
@@ -300,7 +300,7 @@ public class ComponentEntryInfoTest extends AbstractPaletteTest {
 		ComponentEntryInfo componentEntry = (ComponentEntryInfo) category.getEntries().get(0);
 		// do initialize, we have warning, because we still load description (as slow) and it is invalid
 		assertFalse(componentEntry.initialize(null, panel));
-		assertThat(m_lastState.getWarnings()).hasSize(1);
+		Assertions.assertThat(m_lastState.getWarnings()).hasSize(1);
 	}
 
 	/**
@@ -414,9 +414,9 @@ public class ComponentEntryInfoTest extends AbstractPaletteTest {
 		CategoryInfo category = palette.getCategory("category_1");
 		ComponentEntryInfo componentEntry = (ComponentEntryInfo) category.getEntries().get(0);
 		// check component
-		assertThat(m_lastState.getWarnings()).hasSize(0);
+		Assertions.assertThat(m_lastState.getWarnings()).hasSize(0);
 		assertFalse(componentEntry.initialize(null, panel));
-		assertThat(m_lastState.getWarnings()).hasSize(1);
+		Assertions.assertThat(m_lastState.getWarnings()).hasSize(1);
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -583,10 +583,10 @@ public class ComponentEntryInfoTest extends AbstractPaletteTest {
 		m_lastParseInfo.putArbitraryValue(ComponentEntryInfo.KEY_SIMULATE_PRESENTATION, true);
 		assertTrue(componentEntry.initialize(null, m_lastParseInfo));
 		// create tool
-		assertThat(m_lastState.getWarnings()).hasSize(0);
+		Assertions.assertThat(m_lastState.getWarnings()).hasSize(0);
 		CreationTool creationTool = (CreationTool) componentEntry.createTool();
 		assertNull(creationTool);
-		assertThat(m_lastState.getWarnings()).hasSize(1);
+		Assertions.assertThat(m_lastState.getWarnings()).hasSize(1);
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -780,7 +780,7 @@ public class ComponentEntryInfoTest extends AbstractPaletteTest {
 				// PDE manifest also updated
 				{
 					String manifest = getFileContent("META-INF/MANIFEST.MF");
-					assertThat(manifest).contains("Bundle-ClassPath: .,\n myClasses.jar");
+					Assertions.assertThat(manifest).contains("Bundle-ClassPath: .,\n myClasses.jar");
 				}
 			}
 		} finally {
@@ -1127,7 +1127,7 @@ public class ComponentEntryInfoTest extends AbstractPaletteTest {
 		// new component has "template arguments"
 		{
 			Map<String, String> templateArguments = newComponent.getTemplateArguments();
-			assertThat(templateArguments).contains(entry("rowType", "java.lang.String"));
+			Assertions.assertThat(templateArguments).contains(entry("rowType", "java.lang.String"));
 		}
 	}
 

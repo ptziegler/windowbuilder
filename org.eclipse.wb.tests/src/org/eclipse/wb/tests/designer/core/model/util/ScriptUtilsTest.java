@@ -19,7 +19,7 @@ import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.Map;
 
@@ -74,7 +74,7 @@ public class ScriptUtilsTest extends SwingModelTest {
 		assertEquals(6, ScriptUtils.evaluate("a * b", variables));
 		assertEquals(6, ScriptUtils.evaluate("c = a * b; return c;", variables));
 		// variables should not be changed
-		assertThat(variables).hasSize(2);
+		Assertions.assertThat(variables).hasSize(2);
 	}
 
 	/**

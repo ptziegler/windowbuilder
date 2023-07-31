@@ -42,13 +42,13 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.preference.IPreferenceStore;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.clearInvocations;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 
+import org.assertj.core.api.Assertions;
 import org.mockito.ArgumentCaptor;
 import org.mockito.ArgumentMatchers;
 
@@ -2338,7 +2338,7 @@ public class EventsPropertyTest extends SwingModelTest implements IPreferenceCon
 			Property listener = getEventsListener(panel, "my");
 			assertNotNull(listener);
 			Property[] methods = getSubProperties(listener);
-			assertThat(methods).hasSize(1);
+			Assertions.assertThat(methods).hasSize(1);
 			assertEquals("handle", methods[0].getTitle());
 		}
 		// open "my.handle" listener method
@@ -2435,7 +2435,7 @@ public class EventsPropertyTest extends SwingModelTest implements IPreferenceCon
 			Property listener = getEventsListener(panel, "my");
 			assertNotNull(listener);
 			Property[] methods = getSubProperties(listener);
-			assertThat(methods).hasSize(2);
+			Assertions.assertThat(methods).hasSize(2);
 			assertEquals("handle", methods[0].getTitle());
 			assertEquals("handle2", methods[1].getTitle());
 		}
@@ -2493,7 +2493,7 @@ public class EventsPropertyTest extends SwingModelTest implements IPreferenceCon
 			Property listener = getEventsListener(panel, "my");
 			assertNotNull(listener);
 			Property[] methods = getSubProperties(listener);
-			assertThat(methods).hasSize(1);
+			Assertions.assertThat(methods).hasSize(1);
 			assertEquals("handle", methods[0].getTitle());
 		}
 	}
@@ -2529,7 +2529,7 @@ public class EventsPropertyTest extends SwingModelTest implements IPreferenceCon
 			Property listener = getEventsListener(panel, "my");
 			assertNotNull(listener);
 			Property[] methods = getSubProperties(listener);
-			assertThat(methods).hasSize(1);
+			Assertions.assertThat(methods).hasSize(1);
 			assertEquals("handle", methods[0].getTitle());
 		}
 		// open "my.handle" listener method
@@ -2632,7 +2632,7 @@ public class EventsPropertyTest extends SwingModelTest implements IPreferenceCon
 			Property listener = getEventsListener(panel, "my");
 			assertNotNull(listener);
 			Property[] methods = getSubProperties(listener);
-			assertThat(methods).hasSize(1);
+			Assertions.assertThat(methods).hasSize(1);
 			assertEquals("handle", methods[0].getTitle());
 		}
 		// open "my.handle" listener method
@@ -2701,7 +2701,7 @@ public class EventsPropertyTest extends SwingModelTest implements IPreferenceCon
 			Property listener = getEventsListener(inner, "my");
 			assertNotNull(listener);
 			Property[] methods = getSubProperties(listener);
-			assertThat(methods).hasSize(1);
+			Assertions.assertThat(methods).hasSize(1);
 			assertEquals("handle", methods[0].getTitle());
 		}
 		// open "my.handle" listener method
@@ -2850,7 +2850,7 @@ public class EventsPropertyTest extends SwingModelTest implements IPreferenceCon
 			Property listener = getEventsListener(inner, "my");
 			assertNotNull(listener);
 			Property[] methods = getSubProperties(listener);
-			assertThat(methods).hasSize(1);
+			Assertions.assertThat(methods).hasSize(1);
 			assertEquals("handle", methods[0].getTitle());
 		}
 		// open "my.handle" listener method
@@ -2905,7 +2905,7 @@ public class EventsPropertyTest extends SwingModelTest implements IPreferenceCon
 			Property listener = getEventsListener(myPanel, "my");
 			assertNotNull(listener);
 			Property[] methods = getSubProperties(listener);
-			assertThat(methods).hasSize(1);
+			Assertions.assertThat(methods).hasSize(1);
 			assertEquals("handle", methods[0].getTitle());
 		}
 		// open "my.handle" listener method

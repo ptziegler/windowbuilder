@@ -24,7 +24,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Shell;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Tests for SWT {@link CoordinateUtils}.
@@ -73,8 +73,8 @@ public class CoordinateUtilsTest extends RcpModelTest {
 		// Shell client area insets
 		Insets shellInsets = CoordinateUtils.getClientAreaInsets(shell.getObject());
 		assertTrue(shellInsets.left == shellInsets.right);
-		assertThat(shellInsets.left).isGreaterThanOrEqualTo(0);
-		assertThat(shellInsets.top).isGreaterThanOrEqualTo(15);
+		Assertions.assertThat(shellInsets.left).isGreaterThanOrEqualTo(0);
+		Assertions.assertThat(shellInsets.top).isGreaterThanOrEqualTo(15);
 		// Button location
 		{
 			Point buttonLocation = CoordinateUtils.getDisplayLocation(button.getObject());

@@ -51,8 +51,7 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.Statement;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
+import org.assertj.core.api.Assertions;
 import org.assertj.core.description.Description;
 
 import java.util.List;
@@ -494,14 +493,14 @@ public class AbstractJavaInfoTest extends AbstractJavaInfoRelatedTest {
 	public static void assertVisibleInTree(final ObjectInfo child, boolean expected) throws Exception {
 		List<ObjectInfo> children = child.getParent().getPresentation().getChildrenTree();
 		if (expected) {
-			assertThat(children).as(new Description() {
+			Assertions.assertThat(children).as(new Description() {
 				@Override
 				public String value() {
 					return "Should be in children: " + child;
 				}
 			}).contains(child);
 		} else {
-			assertThat(children).as(new Description() {
+			Assertions.assertThat(children).as(new Description() {
 				@Override
 				public String value() {
 					return "Should not be in children: " + child;
@@ -517,14 +516,14 @@ public class AbstractJavaInfoTest extends AbstractJavaInfoRelatedTest {
 			throws Exception {
 		List<ObjectInfo> children = child.getParent().getPresentation().getChildrenGraphical();
 		if (expected) {
-			assertThat(children).as(new Description() {
+			Assertions.assertThat(children).as(new Description() {
 				@Override
 				public String value() {
 					return "Should be in children: " + child;
 				}
 			}).contains(child);
 		} else {
-			assertThat(children).as(new Description() {
+			Assertions.assertThat(children).as(new Description() {
 				@Override
 				public String value() {
 					return "Should not be in children: " + child;

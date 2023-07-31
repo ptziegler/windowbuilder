@@ -16,7 +16,7 @@ import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.internal.core.xml.model.property.GenericPropertyImpl;
 import org.eclipse.wb.internal.xwt.model.util.XwtStringArraySupport;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 /**
  * Test for {@link XwtStringArraySupport}.
@@ -70,11 +70,11 @@ public class XwtStringArraySupportTest extends XwtModelTest {
 		{
 			Object[] actual =
 					(Object[]) ReflectionUtils.getFieldObject(myComponent.getObject(), "m_items");
-			assertThat(actual).isEqualTo(value);
+			Assertions.assertThat(actual).isEqualTo(value);
 		}
 		{
 			Object[] actual = (Object[]) property.getValue();
-			assertThat(actual).isEqualTo(value);
+			Assertions.assertThat(actual).isEqualTo(value);
 		}
 	}
 
@@ -112,11 +112,11 @@ public class XwtStringArraySupportTest extends XwtModelTest {
 		{
 			Object[] actual =
 					(Object[]) ReflectionUtils.getFieldObject(myComponent.getObject(), "m_items");
-			assertThat(actual).isEqualTo(value);
+			Assertions.assertThat(actual).isEqualTo(value);
 		}
 		{
 			Object[] actual = (Object[]) property.getValue();
-			assertThat(actual).isEqualTo(value);
+			Assertions.assertThat(actual).isEqualTo(value);
 		}
 	}
 
@@ -146,11 +146,11 @@ public class XwtStringArraySupportTest extends XwtModelTest {
 		assertFalse(property.isModified());
 		{
 			Object actual = ReflectionUtils.getFieldObject(myComponent.getObject(), "m_items");
-			assertThat(actual).isNull();
+			Assertions.assertThat(actual).isNull();
 		}
 		{
 			Object actual = property.getValue();
-			assertThat(actual).isSameAs(Property.UNKNOWN_VALUE);
+			Assertions.assertThat(actual).isSameAs(Property.UNKNOWN_VALUE);
 		}
 	}
 

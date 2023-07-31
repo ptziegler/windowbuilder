@@ -43,7 +43,6 @@ import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
 import org.eclipse.jface.resource.ImageDescriptor;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.data.MapEntry.entry;
 
 import org.assertj.core.api.Assertions;
@@ -152,31 +151,31 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 		{
 			ComponentDescription description = ComponentDescriptionHelper.getDescription(m_lastEditor,
 					"test.IComponent");
-			assertThat(description.getIcon().getImageData(100).width).isEqualTo(1);
+			Assertions.assertThat(description.getIcon().getImageData(100).width).isEqualTo(1);
 		}
 		// Component: 2x2 icon
 		{
 			ComponentDescription description = ComponentDescriptionHelper.getDescription(m_lastEditor,
 					"test.Component");
-			assertThat(description.getIcon().getImageData(100).width).isEqualTo(2);
+			Assertions.assertThat(description.getIcon().getImageData(100).width).isEqualTo(2);
 		}
 		// Component_2: no special icon, but it implements IComponent, so 1x1 icon
 		{
 			ComponentDescription description = ComponentDescriptionHelper.getDescription(m_lastEditor,
 					"test.Component_2");
-			assertThat(description.getIcon().getImageData(100).width).isEqualTo(1);
+			Assertions.assertThat(description.getIcon().getImageData(100).width).isEqualTo(1);
 		}
 		// MyComponent_1: special 3x3 icon
 		{
 			ComponentDescription description = ComponentDescriptionHelper.getDescription(m_lastEditor,
 					"test.MyComponent_1");
-			assertThat(description.getIcon().getImageData(100).width).isEqualTo(3);
+			Assertions.assertThat(description.getIcon().getImageData(100).width).isEqualTo(3);
 		}
 		// MyComponent_2: no special icon, so use 2x2 from Component
 		{
 			ComponentDescription description = ComponentDescriptionHelper.getDescription(m_lastEditor,
 					"test.MyComponent_2");
-			assertThat(description.getIcon().getImageData(100).width).isEqualTo(2);
+			Assertions.assertThat(description.getIcon().getImageData(100).width).isEqualTo(2);
 		}
 	}
 
@@ -246,8 +245,8 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 				"    add(new MyButton());", "  }", "}");
 		ComponentInfo button = panel.getChildrenComponents().get(0);
 		// check caching
-		assertThat(panel.getDescription().isCached()).isTrue();
-		assertThat(button.getDescription().isCached()).isFalse();
+		Assertions.assertThat(panel.getDescription().isCached()).isTrue();
+		Assertions.assertThat(button.getDescription().isCached()).isFalse();
 	}
 
 	/**
@@ -360,8 +359,8 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 		// check icon
 		{
 			ImageDescriptor icon = description.getIcon();
-			assertThat(icon.getImageData(100).width).isEqualTo(10);
-			assertThat(icon.getImageData(100).height).isEqualTo(10);
+			Assertions.assertThat(icon.getImageData(100).width).isEqualTo(10);
+			Assertions.assertThat(icon.getImageData(100).height).isEqualTo(10);
 		}
 	}
 
@@ -755,7 +754,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 		assertEquals(1, components.size());
 		ExposedPropertyCreationSupport exposedCreationSupport = (ExposedPropertyCreationSupport) components.get(0)
 				.getCreationSupport();
-		assertThat(exposedCreationSupport.toString()).contains("getButton_2()");
+		Assertions.assertThat(exposedCreationSupport.toString()).contains("getButton_2()");
 	}
 
 	/**
@@ -780,7 +779,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 		ContainerInfo panel = parseContainer("// filler filler filler", "public class Test extends MyPanel {",
 				"  public Test() {", "  }", "}");
 		ContainerInfo exposedButton = (ContainerInfo) panel.getChildrenComponents().get(0);
-		assertThat(exposedButton.toString()).contains("getButton()");
+		Assertions.assertThat(exposedButton.toString()).contains("getButton()");
 		assertFalse(exposedButton.hasLayout());
 	}
 
@@ -792,7 +791,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 		ContainerInfo frame = parseContainer("// filler filler filler", "public class Test extends JFrame {",
 				"  public Test() {", "  }", "}");
 		ContainerInfo contentPane = (ContainerInfo) frame.getChildrenComponents().get(0);
-		assertThat(contentPane.toString()).contains("getContentPane()");
+		Assertions.assertThat(contentPane.toString()).contains("getContentPane()");
 		// description is same as for Container
 		assertSame(contentPane.getDescription(),
 				ComponentDescriptionHelper.getDescription(m_lastEditor, Container.class));
@@ -941,7 +940,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 		// parameters as Map
 		{
 			Map<String, String> parameters = description.getParameters();
-			assertThat(parameters).contains(entry("parameter_1", "AAA"), entry("parameter_2", "BBB"),
+			Assertions.assertThat(parameters).contains(entry("parameter_1", "AAA"), entry("parameter_2", "BBB"),
 					entry("parameter_3", ""));
 		}
 	}
@@ -1111,7 +1110,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 			// check that exception message gives enough information:
 			// a) name of class;
 			// b) signature of constructor.
-			assertThat(root.getMessage()).contains("test.MyPanel").contains("<init>(int)");
+			Assertions.assertThat(root.getMessage()).contains("test.MyPanel").contains("<init>(int)");
 		}
 	}
 

@@ -22,7 +22,7 @@ import org.eclipse.wb.internal.swing.model.layout.absolute.AbsoluteLayoutInfo;
 import org.eclipse.wb.internal.swing.model.layout.absolute.SelectionActionsSupport;
 import org.eclipse.wb.tests.designer.core.model.TestObjectInfo;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -197,7 +197,7 @@ public class AbsoluteLayoutSelectionActionsTest extends AbstractLayoutTest {
 		List<Object> actions = Lists.newArrayList();
 		panel.getBroadcastObject().addSelectionActions(selectedObjects, actions);
 		// bad selection, so no actions
-		assertThat(actions).isEmpty();
+		Assertions.assertThat(actions).isEmpty();
 	}
 
 	////////////////////////////////////////////////////////////////////////////

@@ -45,9 +45,8 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.apache.commons.lang.StringUtils;
+import org.assertj.core.api.Assertions;
 import org.osgi.framework.Bundle;
 
 /**
@@ -262,7 +261,7 @@ public class ComponentEntryInfoTest extends AbstractPaletteTest {
 		// do initialize, failed
 		assertFalse(componentEntry.initialize(null, panel));
 		// no warnings
-		assertThat(m_lastContext.getWarnings()).isEmpty();
+		Assertions.assertThat(m_lastContext.getWarnings()).isEmpty();
 	}
 
 	/**
@@ -286,7 +285,7 @@ public class ComponentEntryInfoTest extends AbstractPaletteTest {
 		ComponentEntryInfo componentEntry = (ComponentEntryInfo) category.getEntries().get(0);
 		// do initialize, we have warning, because we still load description (as slow) and it is invalid
 		assertFalse(componentEntry.initialize(null, panel));
-		assertThat(m_lastContext.getWarnings()).hasSize(1);
+		Assertions.assertThat(m_lastContext.getWarnings()).hasSize(1);
 	}
 
 	/**
@@ -378,9 +377,9 @@ public class ComponentEntryInfoTest extends AbstractPaletteTest {
 		CategoryInfo category = palette.getCategory("category_1");
 		ComponentEntryInfo componentEntry = (ComponentEntryInfo) category.getEntries().get(0);
 		// check component
-		assertThat(m_lastContext.getWarnings()).hasSize(0);
+		Assertions.assertThat(m_lastContext.getWarnings()).hasSize(0);
 		assertFalse(componentEntry.initialize(null, panel));
-		assertThat(m_lastContext.getWarnings()).hasSize(1);
+		Assertions.assertThat(m_lastContext.getWarnings()).hasSize(1);
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -506,10 +505,10 @@ public class ComponentEntryInfoTest extends AbstractPaletteTest {
 		m_lastObject.putArbitraryValue(ComponentEntryInfo.KEY_SIMULATE_PRESENTATION, true);
 		assertTrue(componentEntry.initialize(null, m_lastObject));
 		// create tool
-		assertThat(m_lastContext.getWarnings()).hasSize(0);
+		Assertions.assertThat(m_lastContext.getWarnings()).hasSize(0);
 		CreationTool creationTool = (CreationTool) componentEntry.createTool();
 		assertNull(creationTool);
-		assertThat(m_lastContext.getWarnings()).hasSize(1);
+		Assertions.assertThat(m_lastContext.getWarnings()).hasSize(1);
 	}
 
 	////////////////////////////////////////////////////////////////////////////

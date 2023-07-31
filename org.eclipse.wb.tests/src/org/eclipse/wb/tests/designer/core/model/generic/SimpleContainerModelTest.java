@@ -34,12 +34,12 @@ import org.eclipse.wb.tests.designer.core.AbstractJavaProjectTest;
 import org.eclipse.wb.tests.designer.core.model.TestObjectInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.clearInvocations;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import org.assertj.core.api.Assertions;
 import org.mockito.InOrder;
 
 import java.text.MessageFormat;
@@ -73,7 +73,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 				getConfigurations(true, new String[][]{
 					{"simpleContainer", "true"},
 					{"simpleContainer.component", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(configurations.get(0), "NO", "java.awt.Component");
 	}
 
@@ -86,7 +86,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 					{"simpleContainer", "true"},
 					{"simpleContainer.association", "%parent%.add(%child%)"},
 					{"simpleContainer.component", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(configurations.get(0), "%parent%.add(%child%)", "java.awt.Component");
 	}
 
@@ -99,7 +99,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 					{"simpleContainer.canvas", "true"},
 					{"simpleContainer.canvas.association", "%parent%.add(%child%)"},
 					{"simpleContainer.canvas.component", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(configurations.get(0), "%parent%.add(%child%)", "java.awt.Component");
 	}
 
@@ -112,7 +112,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 					{"simpleContainer.tree", "true"},
 					{"simpleContainer.tree.association", "%parent%.add(%child%)"},
 					{"simpleContainer.tree.component", "java.awt.Component"},});
-		assertThat(configurations).isEmpty();
+		Assertions.assertThat(configurations).isEmpty();
 	}
 
 	/**
@@ -124,7 +124,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 					{"simpleContainer", "true"},
 					{"simpleContainer.association", "%parent%.add(%child%)"},
 					{"simpleContainer.component", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 	}
 
 	/**
@@ -136,7 +136,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 					{"simpleContainer.tree", "true"},
 					{"simpleContainer.tree.association", "%parent%.add(%child%)"},
 					{"simpleContainer.tree.component", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 	}
 
 	/**
@@ -154,7 +154,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 					{"simpleContainer.5", "true"},
 					{"simpleContainer.5.association", "%parent%.add(%child%)"},
 					{"simpleContainer.5.component", "javax.swing.JTextField"},});
-		assertThat(configurations).hasSize(3);
+		Assertions.assertThat(configurations).hasSize(3);
 		assertConfiguration(configurations.get(0), "%parent%.add(%child%)", "java.awt.Component");
 		assertConfiguration(configurations.get(1), "%parent%.add(%child%)", "javax.swing.JButton");
 		assertConfiguration(configurations.get(2), "%parent%.add(%child%)", "javax.swing.JTextField");
@@ -169,7 +169,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 					{"simpleContainer", "false"},
 					{"simpleContainer.association", "%parent%.add(%child%)"},
 					{"simpleContainer.component", "java.awt.Component"},});
-		assertThat(configurations).hasSize(0);
+		Assertions.assertThat(configurations).hasSize(0);
 	}
 
 	/**
@@ -181,7 +181,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 					{"simpleContainer.defaultComponent", "java.awt.Component"},
 					{"simpleContainer", "true"},
 					{"simpleContainer.association", "%parent%.add(%child%)"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(configurations.get(0), "%parent%.add(%child%)", "java.awt.Component");
 	}
 
@@ -196,7 +196,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 					{"simpleContainer.canvas", "isContainerType('java.awt.Component')"},
 					{"simpleContainer.canvas.association", "%parent%.add(%child%)"},
 					{"simpleContainer.canvas.component", "java.awt.Component"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(configurations.get(0), "%parent%.add(%child%)", "java.awt.Component");
 	}
 
@@ -206,7 +206,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 					{"simpleContainer.canvas", "1 == 2"},
 					{"simpleContainer.canvas.association", "%parent%.add(%child%)"},
 					{"simpleContainer.canvas.component", "java.awt.Component"},});
-		assertThat(configurations).isEmpty();
+		Assertions.assertThat(configurations).isEmpty();
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -233,7 +233,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 					{"simpleContainer", "true"},
 					{"simpleContainer.association", "%parent%.add(%child%)"},
 					{"simpleContainer.component", "javax.swing.JButton javax.swing.JTextField"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"%parent%.add(%child%)",
@@ -249,7 +249,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 					{"simpleContainer.defaultComponent", "java.awt.Component"},
 					{"simpleContainer", "true"},
 					{"simpleContainer.association", "%parent%.add(%child%)"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(configurations.get(0), "%parent%.add(%child%)", "java.awt.Component");
 	}
 
@@ -259,7 +259,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 					{"simpleContainer", "true"},
 					{"simpleContainer.association", "%parent%.add(%child%)"},
 					{"simpleContainer.component-validator", "isComponentType(java.awt.Component)"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"%parent%.add(%child%)",
@@ -273,7 +273,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 					{"simpleContainer.association", "%parent%.add(%child%)"},
 					{"simpleContainer.component-validator", "isComponentType(java.awt.Component)"},
 					{"simpleContainer.command-validator", "isGoodCommand()"},});
-		assertThat(configurations).hasSize(1);
+		Assertions.assertThat(configurations).hasSize(1);
 		assertConfiguration(
 				configurations.get(0),
 				"%parent%.add(%child%)",

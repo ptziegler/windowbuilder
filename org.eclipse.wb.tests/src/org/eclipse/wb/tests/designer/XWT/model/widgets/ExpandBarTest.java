@@ -23,8 +23,6 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.ExpandBar;
 import org.eclipse.swt.widgets.ExpandItem;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.assertj.core.api.Assertions;
 
 import java.util.List;
@@ -65,21 +63,21 @@ public class ExpandBarTest extends XwtModelTest {
 		ExpandItemInfo item_2 = getObjectByName("item_2");
 		// check items
 		List<ExpandItemInfo> items = expandBar.getItems();
-		assertThat(items).containsExactly(item_1, item_2);
+		Assertions.assertThat(items).containsExactly(item_1, item_2);
 		// text
 		assertEquals("000", ReflectionUtils.invokeMethod2(item_1.getObject(), "getText"));
 		assertEquals("111", ReflectionUtils.invokeMethod2(item_2.getObject(), "getText"));
 		// bounds for "item_1"
 		{
 			Rectangle modelBounds_1 = item_1.getModelBounds();
-			assertThat(modelBounds_1.width).isGreaterThan(440);
-			assertThat(modelBounds_1.height).isGreaterThan(20);
+			Assertions.assertThat(modelBounds_1.width).isGreaterThan(440);
+			Assertions.assertThat(modelBounds_1.height).isGreaterThan(20);
 		}
 		// bounds for "item_2"
 		{
 			Rectangle modelBounds_2 = item_2.getModelBounds();
-			assertThat(modelBounds_2.width).isGreaterThan(440);
-			assertThat(modelBounds_2.height).isGreaterThan(220);
+			Assertions.assertThat(modelBounds_2.width).isGreaterThan(440);
+			Assertions.assertThat(modelBounds_2.height).isGreaterThan(220);
 		}
 		// no Control
 		assertSame(null, item_1.getControl());
@@ -265,11 +263,11 @@ public class ExpandBarTest extends XwtModelTest {
 						"// filler filler filler filler filler",
 						"// filler filler filler filler filler",
 						"<ExpandBar/>");
-		assertThat(expandBar.getItems()).isEmpty();
+		Assertions.assertThat(expandBar.getItems()).isEmpty();
 		// add item
 		ExpandItemInfo newItem = createObject("org.eclipse.swt.widgets.ExpandItem");
 		flowContainer_CREATE(expandBar, newItem, null);
-		assertThat(expandBar.getItems()).containsExactly(newItem);
+		Assertions.assertThat(expandBar.getItems()).containsExactly(newItem);
 		assertXML(
 				"// filler filler filler filler filler",
 				"// filler filler filler filler filler",

@@ -45,7 +45,7 @@ import org.eclipse.wb.tests.designer.swing.SwingTestUtils;
 
 import org.eclipse.jdt.core.IMethod;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.util.List;
 
@@ -266,7 +266,7 @@ public class StaticFactoryCreationSupportTest extends SwingModelTest {
 						"    add(StaticFactory_.createButton_noFactory());",
 						"  }",
 						"}");
-		assertThat(panel.getChildrenComponents()).isEmpty();
+		Assertions.assertThat(panel.getChildrenComponents()).isEmpty();
 	}
 
 	/**
@@ -292,11 +292,11 @@ public class StaticFactoryCreationSupportTest extends SwingModelTest {
 						"  }",
 						"}");
 		// no component
-		assertThat(panel.getChildrenComponents()).isEmpty();
+		Assertions.assertThat(panel.getChildrenComponents()).isEmpty();
 		// warning was logged
 		{
 			List<EditorWarning> warnings = m_lastState.getWarnings();
-			assertThat(warnings).hasSize(1);
+			Assertions.assertThat(warnings).hasSize(1);
 			EditorWarning warning = warnings.get(0);
 			assertEquals("No parent model for StaticFactory.createButton(0)", warning.getMessage());
 		}
@@ -533,14 +533,14 @@ public class StaticFactoryCreationSupportTest extends SwingModelTest {
 		{
 			List<CategoryInfo> categories = Lists.newArrayList();
 			panel.getBroadcast(PaletteEventListener.class).categories(categories);
-			assertThat(categories).hasSize(1);
+			Assertions.assertThat(categories).hasSize(1);
 			factoriesCategory = categories.get(0);
 			assertEquals("Local Factories", factoriesCategory.getName());
 		}
 		// check entry for "createButton()"
 		{
 			List<EntryInfo> entries = factoriesCategory.getEntries();
-			assertThat(entries).hasSize(1);
+			Assertions.assertThat(entries).hasSize(1);
 			StaticFactoryEntryInfo factoryEntry = (StaticFactoryEntryInfo) entries.get(0);
 			assertEquals("test.Test", factoryEntry.getFactoryClassName());
 			assertEquals("createButton(java.lang.String)", factoryEntry.getMethodSignature());
@@ -713,7 +713,7 @@ public class StaticFactoryCreationSupportTest extends SwingModelTest {
 		assertNoErrors(panel);
 		{
 			JPanel panelObject = (JPanel) panel.getObject();
-			assertThat(panelObject.getComponents()).hasSize(1);
+			Assertions.assertThat(panelObject.getComponents()).hasSize(1);
 		}
 	}
 
@@ -746,7 +746,7 @@ public class StaticFactoryCreationSupportTest extends SwingModelTest {
 		assertNoErrors(panel);
 		{
 			JPanel panelObject = (JPanel) panel.getObject();
-			assertThat(panelObject.getComponents()).hasSize(2);
+			Assertions.assertThat(panelObject.getComponents()).hasSize(2);
 		}
 	}
 
@@ -796,7 +796,7 @@ public class StaticFactoryCreationSupportTest extends SwingModelTest {
 		assertNoErrors(panel);
 		{
 			JPanel panelObject = (JPanel) panel.getObject();
-			assertThat(panelObject.getComponents()).hasSize(2);
+			Assertions.assertThat(panelObject.getComponents()).hasSize(2);
 		}
 	}
 }

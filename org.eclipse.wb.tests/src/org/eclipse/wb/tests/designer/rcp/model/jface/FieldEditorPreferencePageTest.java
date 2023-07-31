@@ -44,7 +44,7 @@ import org.eclipse.jface.preference.RadioGroupFieldEditor;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.assertj.core.api.Assertions;
 
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectOutputStream;
@@ -116,7 +116,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 		FieldEditorInfo editor_2;
 		{
 			List<FieldEditorInfo> editors = page.getEditors();
-			assertThat(editors).hasSize(2);
+			Assertions.assertThat(editors).hasSize(2);
 			editor_1 = editors.get(0);
 			editor_2 = editors.get(1);
 		}
@@ -126,10 +126,10 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 		// check bounds for FieldEditor's
 		Rectangle bounds_1 = editor_1.getBounds();
 		Rectangle bounds_2 = editor_2.getBounds();
-		assertThat(bounds_1.width).isGreaterThan(300);
-		assertThat(bounds_1.height).isGreaterThan(15);
-		assertThat(bounds_2.width).isGreaterThan(300);
-		assertThat(bounds_2.height).isGreaterThan(15);
+		Assertions.assertThat(bounds_1.width).isGreaterThan(300);
+		Assertions.assertThat(bounds_1.height).isGreaterThan(15);
+		Assertions.assertThat(bounds_2.width).isGreaterThan(300);
+		Assertions.assertThat(bounds_2.height).isGreaterThan(15);
 		assertFalse(bounds_1.intersects(bounds_2));
 	}
 
@@ -199,7 +199,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 		FieldEditorInfo editor_2;
 		{
 			List<FieldEditorInfo> editors = page.getEditors();
-			assertThat(editors).hasSize(2);
+			Assertions.assertThat(editors).hasSize(2);
 			editor_1 = editors.get(0);
 			editor_2 = editors.get(1);
 		}
@@ -209,10 +209,10 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 		// check bounds for FieldEditor's
 		Rectangle bounds_1 = editor_1.getBounds();
 		Rectangle bounds_2 = editor_2.getBounds();
-		assertThat(bounds_1.width).isGreaterThanOrEqualTo(90);
-		assertThat(bounds_1.height).isGreaterThan(15);
-		assertThat(bounds_2.width).isGreaterThan(300);
-		assertThat(bounds_2.height).isGreaterThan(15);
+		Assertions.assertThat(bounds_1.width).isGreaterThanOrEqualTo(90);
+		Assertions.assertThat(bounds_1.height).isGreaterThan(15);
+		Assertions.assertThat(bounds_2.width).isGreaterThan(300);
+		Assertions.assertThat(bounds_2.height).isGreaterThan(15);
 		assertFalse(bounds_1.intersects(bounds_2));
 	}
 
@@ -239,7 +239,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 		FieldEditorInfo editor_2;
 		{
 			List<FieldEditorInfo> editors = page.getEditors();
-			assertThat(editors).hasSize(2);
+			Assertions.assertThat(editors).hasSize(2);
 			editor_1 = editors.get(0);
 			editor_2 = editors.get(1);
 		}
@@ -305,7 +305,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 		// prepare categories
 		List<CategoryInfo> categories =
 				Lists.newArrayList(systemCategory, editorsCategory, otherCategory);
-		assertThat(categories).hasSize(3);
+		Assertions.assertThat(categories).hasSize(3);
 		{
 			// all visible
 			assertTrue(systemCategory.isVisible());
@@ -314,7 +314,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 		}
 		// update categories
 		page.getBroadcast(PaletteEventListener.class).categories(categories);
-		assertThat(categories).hasSize(3);
+		Assertions.assertThat(categories).hasSize(3);
 		{
 			// system/editors visible, other - hidden
 			assertTrue(systemCategory.isVisible());
@@ -343,7 +343,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 		// prepare List of categories
 		List<CategoryInfo> categories =
 				Lists.newArrayList(systemCategory, editorsCategory, otherCategory);
-		assertThat(categories).hasSize(3);
+		Assertions.assertThat(categories).hasSize(3);
 		{
 			// all visible
 			assertTrue(systemCategory.isVisible());
@@ -352,7 +352,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 		}
 		// update categories
 		javaInfo.getBroadcast(PaletteEventListener.class).categories(categories);
-		assertThat(categories).hasSize(3);
+		Assertions.assertThat(categories).hasSize(3);
 		{
 			// editors - invisible
 			assertTrue(systemCategory.isVisible());
@@ -692,7 +692,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 		ControlInfo labelControl;
 		{
 			List<ControlInfo> controls = fieldEditor.getChildControls();
-			assertThat(controls).hasSize(2);
+			Assertions.assertThat(controls).hasSize(2);
 			assertEquals(
 					"org.eclipse.swt.widgets.Label",
 					controls.get(0).getDescription().getComponentClass().getName());
@@ -704,7 +704,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 		// sub-components are NOT visible on design canvas
 		{
 			List<ObjectInfo> children = fieldEditor.getPresentation().getChildrenGraphical();
-			assertThat(children).isEmpty();
+			Assertions.assertThat(children).isEmpty();
 		}
 		// check CreationSupport for exposed "labelControl"
 		{
@@ -733,15 +733,15 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 					variableSupport.getChildTarget().toString());
 		}
 		// check Association for exposed "labelControl"
-		assertThat(labelControl.getAssociation()).isInstanceOf(ImplicitObjectAssociation.class);
+		Assertions.assertThat(labelControl.getAssociation()).isInstanceOf(ImplicitObjectAssociation.class);
 		// check refresh()
 		page.refresh();
 		// check that bounds just exist, we will test them carefully in next tests
-		assertThat(fieldEditor.getBounds().width).isGreaterThan(300);
-		assertThat(fieldEditor.getBounds().height).isGreaterThan(18);
-		assertThat(labelControl.getBounds().x).isEqualTo(0);
-		assertThat(labelControl.getBounds().width).isGreaterThan(50);
-		assertThat(labelControl.getBounds().height).isGreaterThan(10);
+		Assertions.assertThat(fieldEditor.getBounds().width).isGreaterThan(300);
+		Assertions.assertThat(fieldEditor.getBounds().height).isGreaterThan(18);
+		Assertions.assertThat(labelControl.getBounds().x).isEqualTo(0);
+		Assertions.assertThat(labelControl.getBounds().width).isGreaterThan(50);
+		Assertions.assertThat(labelControl.getBounds().height).isGreaterThan(10);
 	}
 
 	/**
@@ -897,7 +897,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 				"  }",
 				"}");
 		// ...but "labelControl" is still in "fieldEditor"
-		assertThat(fieldEditor.getChildControls()).contains(labelControl);
+		Assertions.assertThat(fieldEditor.getChildControls()).contains(labelControl);
 	}
 
 	/**
@@ -983,10 +983,10 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 		FieldEditorInfo fieldEditor = page.getEditors().get(0);
 		ControlInfo labelControl = fieldEditor.getChildControls().get(0);
 		// check that bounds just exist
-		assertThat(fieldEditor.getBounds().width).isGreaterThan(300);
-		assertThat(fieldEditor.getBounds().height).isGreaterThan(18);
+		Assertions.assertThat(fieldEditor.getBounds().width).isGreaterThan(300);
+		Assertions.assertThat(fieldEditor.getBounds().height).isGreaterThan(18);
 		//assertThat(labelControl.getBounds().x).isEqualTo(0);
-		assertThat(labelControl.getBounds().width).isGreaterThan(50);
-		assertThat(labelControl.getBounds().height).isGreaterThan(10);
+		Assertions.assertThat(labelControl.getBounds().width).isGreaterThan(50);
+		Assertions.assertThat(labelControl.getBounds().height).isGreaterThan(10);
 	}
 }
