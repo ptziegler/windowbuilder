@@ -967,6 +967,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	 * Kosta.20080407: I consider this not correct anymore, so disable this test.
 	 */
 	@Test
+	@Ignore
 	public void test_descriptionsInstanceStatic() throws Exception {
 		setFileContentSrc(
 				"test/InstanceFactory.java",
