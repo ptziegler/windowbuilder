@@ -55,6 +55,10 @@ import org.assertj.core.api.Assertions;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
+import org.junit.rules.TestRule;
+import org.junit.runner.Description;
+import org.junit.runners.model.Statement;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -62,6 +66,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.net.URL;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Superclass for all Designer test cases.
@@ -71,6 +76,23 @@ import java.util.List;
 public abstract class DesignerTestCase extends Assert {
 
 	private static boolean m_firstDesignerTest = true;
+	private final Logger logger = Logger.getLogger(getClass().getName());
+
+	////////////////////////////////////////////////////////////////////////////
+	//
+	// Logging
+	//
+	////////////////////////////////////////////////////////////////////////////
+
+	@Rule
+	public TestRule loggerRule = new TestRule() {
+		@Override
+		public Statement apply(Statement base, Description description) {
+			logger.info(description.getClassName() + ':' + description.getMethodName());
+			return base;
+		}
+
+	};
 
 	////////////////////////////////////////////////////////////////////////////
 	//
