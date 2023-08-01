@@ -11,21 +11,20 @@
 package org.eclipse.wb.tests.designer.XML;
 
 import org.eclipse.wb.tests.designer.XWT.XwtTests;
-import org.eclipse.wb.tests.designer.core.DesignerSuiteTests;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
 
 /**
  * All XML tests.
  *
  * @author scheglov_ke
  */
-public class AllXmlTests extends DesignerSuiteTests {
-	public static Test suite() {
-		TestSuite suite = new TestSuite("All XML");
-		suite.addTest(XmlTests.suite());
-		suite.addTest(XwtTests.suite());
-		return suite;
-	}
+@RunWith(Suite.class)
+@SuiteClasses({
+		XmlTests.class,
+		XwtTests.class
+})
+public class AllXmlTests {
 }
