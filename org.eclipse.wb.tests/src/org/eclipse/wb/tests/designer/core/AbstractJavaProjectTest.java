@@ -37,6 +37,7 @@ import org.eclipse.swt.graphics.ImageLoader;
 
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Rule;
 import org.junit.rules.TestRule;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
@@ -102,6 +103,9 @@ public abstract class AbstractJavaProjectTest extends DesignerTestCase {
 	// Single test
 	//
 	////////////////////////////////////////////////////////////////////////////
+
+	@Rule
+	public JavaProjectMethodRule methodRule = new JavaProjectMethodRule();
 
 	public static class JavaProjectMethodRule implements TestRule {
 		@Override
