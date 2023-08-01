@@ -40,6 +40,7 @@ import org.junit.AfterClass;
 import org.junit.Rule;
 import org.junit.rules.TestRule;
 import org.junit.runner.Description;
+import org.junit.runners.model.MultipleFailureException;
 import org.junit.runners.model.Statement;
 
 import java.io.ByteArrayInputStream;
@@ -110,29 +111,28 @@ public abstract class AbstractJavaProjectTest extends DesignerTestCase {
 	public static class JavaProjectMethodRule implements TestRule {
 		@Override
 		public Statement apply(Statement base, Description description) {
-			if (description.getAnnotation(DisposeProjectBefore.class) != null) {
-				try {
-					do_projectDispose();
-				} catch (Exception e) {
-					fail(e.getMessage());
+			return new Statement() {
+				@Override
+				public void evaluate() throws Throwable {
+					List<Throwable> errors = new ArrayList<>();
+					try {
+						if (description.getAnnotation(DisposeProjectBefore.class) != null) {
+							do_projectDispose();
+						}
+						base.evaluate();
+						if (description.getAnnotation(DisposeProjectAfter.class) != null) {
+							waitEventLoop(0);
+							do_projectDispose();
+						}
+						if (description.getAnnotation(WaitForAutoBuildAfter.class) != null) {
+							waitForAutoBuild();
+						}
+					} catch (Throwable t) {
+						errors.add(t);
+					}
+					MultipleFailureException.assertEmpty(errors);
 				}
-			}
-			if (description.getAnnotation(DisposeProjectAfter.class) != null) {
-				try {
-					waitEventLoop(0);
-					do_projectDispose();
-				} catch (Exception e) {
-					fail(e.getMessage());
-				}
-			}
-			if (description.getAnnotation(WaitForAutoBuildAfter.class) != null) {
-				try {
-					waitForAutoBuild();
-				} catch (Exception e) {
-					fail(e.getMessage());
-				}
-			}
-			return base;
+			};
 		}
 	}
 
