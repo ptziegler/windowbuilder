@@ -21,11 +21,11 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		ApplicationWizardTest.class,
-		CompositeWizardTest.class,
-		FormsApplicationWizardTest.class,
-		FormsCompositeWizardTest.class,
-		XwtWizardTest.class
+	ApplicationWizardTest.class,
+	CompositeWizardTest.class,
+	FormsApplicationWizardTest.class,
+	FormsCompositeWizardTest.class,
+	XwtWizardTest.class
 })
 public class WizardTests {
 }

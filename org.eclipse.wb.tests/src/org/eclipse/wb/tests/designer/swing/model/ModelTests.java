@@ -28,14 +28,14 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		CoordinateUtilsTest.class,
-		LayoutTests.class,
-		ComponentTests.class,
-		BeanTests.class,
-		UtilTests.class,
-		PropertiesTests.class,
-		ClipboardTest.class,
-		TopLevelTests.class
+	CoordinateUtilsTest.class,
+	LayoutTests.class,
+	ComponentTests.class,
+	BeanTests.class,
+	UtilTests.class,
+	PropertiesTests.class,
+	ClipboardTest.class,
+	TopLevelTests.class
 })
 public class ModelTests {
 }

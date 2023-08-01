@@ -21,8 +21,8 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		XwtPairResourceProviderTest.class,
-		XwtJavaParseValidatorTest.class
+	XwtPairResourceProviderTest.class,
+	XwtJavaParseValidatorTest.class
 })
 public class GefTests {
 }

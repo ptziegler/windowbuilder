@@ -27,12 +27,12 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		WidgetTests.class,
-		PropertiesTests.class,
-		LayoutTests.class,
-		JFaceTests.class,
-		MenuTests.class,
-		ClipboardTest.class
+	WidgetTests.class,
+	PropertiesTests.class,
+	LayoutTests.class,
+	JFaceTests.class,
+	MenuTests.class,
+	ClipboardTest.class
 })
 public class ModelTests {
 }

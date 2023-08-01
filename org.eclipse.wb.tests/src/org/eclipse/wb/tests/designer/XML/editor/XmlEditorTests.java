@@ -23,26 +23,26 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		// editor
-		AbstractXmlEditorTest.class,
-		EditorLayoutTest.class,
-		UndoManagerTest.class,
-		XmlDesignPageTest.class,
-		DesignContextMenuProviderTest.class,
-		XmlPropertiesToolBarContributorTest.class,
-		SelectSupportTest.class,
-		// actions
-		EditorRelatedActionTest.class,
-		SwitchActionTest.class,
-		SwitchPairEditorActionTest.class,
-		RefreshActionTest.class,
-		TestActionTest.class,
-		DeleteActionTest.class,
-		CopyActionTest.class,
-		CutActionTest.class,
-		// policies
-		TopSelectionEditPolicyTest.class,
-		DirectTextPropertyEditPolicyTest.class
+	// editor
+	AbstractXmlEditorTest.class,
+	EditorLayoutTest.class,
+	UndoManagerTest.class,
+	XmlDesignPageTest.class,
+	DesignContextMenuProviderTest.class,
+	XmlPropertiesToolBarContributorTest.class,
+	SelectSupportTest.class,
+	// actions
+	EditorRelatedActionTest.class,
+	SwitchActionTest.class,
+	SwitchPairEditorActionTest.class,
+	RefreshActionTest.class,
+	TestActionTest.class,
+	DeleteActionTest.class,
+	CopyActionTest.class,
+	CutActionTest.class,
+	// policies
+	TopSelectionEditPolicyTest.class,
+	DirectTextPropertyEditPolicyTest.class
 })
 public class XmlEditorTests {
 }

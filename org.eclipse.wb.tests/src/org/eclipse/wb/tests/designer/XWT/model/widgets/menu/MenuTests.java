@@ -24,9 +24,9 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		MenuItemTest.class,
-		MenuTest.class,
-		MenuGefTest.class
+	MenuItemTest.class,
+	MenuTest.class,
+	MenuGefTest.class
 })
 public class MenuTests {
 }

@@ -23,16 +23,16 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		GridBagLayoutTest.class,
-		GridBagDimensionTest.class,
-		GridBagColumnTest.class,
-		GridBagRowTest.class,
-		GridBagConstraintsTest.class,
-		GridBagLayoutParametersTest.class,
-		GridBagLayoutConverterTest.class,
-		GridBagLayoutSelectionActionsTest.class,
-		GridBagLayoutSurroundSupportTest.class,
-		GridBagLayoutGefTest.class
+	GridBagLayoutTest.class,
+	GridBagDimensionTest.class,
+	GridBagColumnTest.class,
+	GridBagRowTest.class,
+	GridBagConstraintsTest.class,
+	GridBagLayoutParametersTest.class,
+	GridBagLayoutConverterTest.class,
+	GridBagLayoutSelectionActionsTest.class,
+	GridBagLayoutSurroundSupportTest.class,
+	GridBagLayoutGefTest.class
 })
 public class GridBagLayoutTests {
 }

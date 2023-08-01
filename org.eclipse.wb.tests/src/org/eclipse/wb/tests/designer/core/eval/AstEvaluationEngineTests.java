@@ -35,21 +35,21 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-		EngineTest.class,
-		BooleanTest.class,
-		CharTest.class,
-		IntegerTest.class,
-		LongTest.class,
-		FloatTest.class,
-		DoubleTest.class,
-		CastTest.class,
-		ClassTest.class,
-		StringTest.class,
-		ArrayTest.class,
-		FieldTest.class,
-		ExecutionFlowUtilsTest.class,
-		ExecutionFlowUtils2Test.class,
-		MethodInvocationTest.class
+	EngineTest.class,
+	BooleanTest.class,
+	CharTest.class,
+	IntegerTest.class,
+	LongTest.class,
+	FloatTest.class,
+	DoubleTest.class,
+	CastTest.class,
+	ClassTest.class,
+	StringTest.class,
+	ArrayTest.class,
+	FieldTest.class,
+	ExecutionFlowUtilsTest.class,
+	ExecutionFlowUtils2Test.class,
+	MethodInvocationTest.class
 })
 public class AstEvaluationEngineTests {
 }

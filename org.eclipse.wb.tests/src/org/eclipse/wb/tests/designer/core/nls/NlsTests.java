@@ -21,16 +21,16 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		LocaleInfoTest.class,
-		BundleInfoTest.class,
-		NlsSupportTest.class,
-		EditableSupportTest.class,
-		SourceEclipseOldTest.class,
-		SourceEclipseModernTest.class,
-		SourceDirectTest.class,
-		SourceFieldTest.class,
-		SourceAbstractSpecialTest.class,
-		NlsUiTests.class
+	LocaleInfoTest.class,
+	BundleInfoTest.class,
+	NlsSupportTest.class,
+	EditableSupportTest.class,
+	SourceEclipseOldTest.class,
+	SourceEclipseModernTest.class,
+	SourceDirectTest.class,
+	SourceFieldTest.class,
+	SourceAbstractSpecialTest.class,
+	NlsUiTests.class
 })
 public class NlsTests {
 }

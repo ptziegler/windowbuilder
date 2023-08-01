@@ -19,13 +19,13 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		FlagRepositoryTest.class,
-		LocaleUtilsTest.class,
-		ContributionItemTest.class,
-		NlsDialogTest.class,
-		SourceCompositeTest.class,
-		PropertiesCompositeTest.class,
-		NewSourceDialogTest.class
+	FlagRepositoryTest.class,
+	LocaleUtilsTest.class,
+	ContributionItemTest.class,
+	NlsDialogTest.class,
+	SourceCompositeTest.class,
+	PropertiesCompositeTest.class,
+	NewSourceDialogTest.class
 })
 public class NlsUiTests {
 }

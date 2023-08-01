@@ -23,13 +23,13 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		TableWrapDataTest.class,
-		TableWrapLayoutSelectionActionsTest.class,
-		TableWrapLayoutTest.class,
-		TabelWrapLayoutParametersTest.class,
-		TableWrapLayoutExposedTest.class,
-		TableWrapLayoutClipboardTest.class,
-		TableWrapLayoutGefTest.class
+	TableWrapDataTest.class,
+	TableWrapLayoutSelectionActionsTest.class,
+	TableWrapLayoutTest.class,
+	TabelWrapLayoutParametersTest.class,
+	TableWrapLayoutExposedTest.class,
+	TableWrapLayoutClipboardTest.class,
+	TableWrapLayoutGefTest.class
 })
 public class TableWrapLayoutTests {
 }

@@ -27,13 +27,13 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		FormLayoutMoveSingleResizableTest.class,
-		FormLayoutMoveSingleWithSingleSideTest.class,
-		FormLayoutMoveSingleWithBothSidesTest.class,
-		FormLayoutAlignmentDetectionTest.class,
-		FormLayoutModelsTest.class,
-		FormLayoutMoveTest.class,
-		FormLayoutAlignmentTest.class
+	FormLayoutMoveSingleResizableTest.class,
+	FormLayoutMoveSingleWithSingleSideTest.class,
+	FormLayoutMoveSingleWithBothSidesTest.class,
+	FormLayoutAlignmentDetectionTest.class,
+	FormLayoutModelsTest.class,
+	FormLayoutMoveTest.class,
+	FormLayoutAlignmentTest.class
 })
 public class FormLayoutTests {
 }

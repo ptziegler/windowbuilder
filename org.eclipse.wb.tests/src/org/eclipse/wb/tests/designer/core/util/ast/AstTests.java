@@ -19,12 +19,12 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		AstEditorTest.class,
-		GathererTest.class,
-		AstNodeUtilsTest.class,
-		AstReflectionUtilsTest.class,
-		BindingsTest.class,
-		AstVisitorExTest.class
+	AstEditorTest.class,
+	GathererTest.class,
+	AstNodeUtilsTest.class,
+	AstReflectionUtilsTest.class,
+	BindingsTest.class,
+	AstVisitorExTest.class
 })
 public class AstTests {
 }

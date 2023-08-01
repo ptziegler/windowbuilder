@@ -23,15 +23,15 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		AccessorUtilsTest.class,
-		FieldAccessorTest.class,
-		SetterAccessorTest.class,
-		ConstructorAccessorTest.class,
-		SuperConstructorAccessorTest.class,
-		FactoryAccessorTest.class,
-		InvocationChildAssociationAccessorTest.class,
-		MethodInvocationAccessorTest.class,
-		MethodInvocationArgumentAccessorTest.class
+	AccessorUtilsTest.class,
+	FieldAccessorTest.class,
+	SetterAccessorTest.class,
+	ConstructorAccessorTest.class,
+	SuperConstructorAccessorTest.class,
+	FactoryAccessorTest.class,
+	InvocationChildAssociationAccessorTest.class,
+	MethodInvocationAccessorTest.class,
+	MethodInvocationArgumentAccessorTest.class
 })
 public class AccessorsTests {
 }

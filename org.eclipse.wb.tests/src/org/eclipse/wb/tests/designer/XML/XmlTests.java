@@ -28,12 +28,12 @@ import org.junit.runners.Suite.SuiteClasses;
 @Ignore
 @RunWith(Suite.class)
 @SuiteClasses({
-		ActivatorTest.class,
-		ClassLoadingTest.class,
-		ModelTests.class,
-		XmlEditorTests.class,
-		GefTests.class,
-		PaletteTests.class
+	ActivatorTest.class,
+	ClassLoadingTest.class,
+	ModelTests.class,
+	XmlEditorTests.class,
+	GefTests.class,
+	PaletteTests.class
 })
 public class XmlTests {
 }

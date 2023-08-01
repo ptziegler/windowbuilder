@@ -23,12 +23,12 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		GridDataTest.class,
-		GridLayoutSelectionActionsTest.class,
-		GridLayoutTest.class,
-		GridLayoutParametersTest.class,
-		GridLayoutConverterTest.class,
-		GridLayoutGefTest.class,
+	GridDataTest.class,
+	GridLayoutSelectionActionsTest.class,
+	GridLayoutTest.class,
+	GridLayoutParametersTest.class,
+	GridLayoutConverterTest.class,
+	GridLayoutGefTest.class,
 })
 public class GridLayoutTests {
 }

@@ -19,8 +19,8 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		BorderLayoutPolicyTest.class,
-		GridLayoutPolicyTest.class
+	BorderLayoutPolicyTest.class,
+	GridLayoutPolicyTest.class
 })
 public class GefLayoutTests {
 }

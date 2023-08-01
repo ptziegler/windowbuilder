@@ -23,9 +23,9 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		PropertyTableTest.class,
-		PropertyTableTooltipTest.class,
-		PropertyTableEditorsTest.class
+	PropertyTableTest.class,
+	PropertyTableTooltipTest.class,
+	PropertyTableEditorsTest.class
 })
 public class PropertyTableTests {
 }

@@ -23,14 +23,14 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		XmlPropertyTest.class,
-		EmptyXmlPropertyTest.class,
-		XmlAttributePropertyTest.class,
-		PropertyTest.class,
-		StaticFieldPropertyEditorTest.class,
-		EnumPropertyEditorTest.class,
-		StringArrayPropertyEditorTest.class,
-		EventsPropertyTest.class,
+	XmlPropertyTest.class,
+	EmptyXmlPropertyTest.class,
+	XmlAttributePropertyTest.class,
+	PropertyTest.class,
+	StaticFieldPropertyEditorTest.class,
+	EnumPropertyEditorTest.class,
+	StringArrayPropertyEditorTest.class,
+	EventsPropertyTest.class,
 })
 public class PropertyTests {
 }

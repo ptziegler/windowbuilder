@@ -35,26 +35,26 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		LayoutManagersTest.class,
-		ImplicitLayoutTest.class,
-		AbsoluteLayoutTest.class,
-		AbsoluteLayoutSelectionActionsTest.class,
-		AbsoluteLayoutGefTest.class,
-		ConstraintsAbsoluteLayoutTest.class,
-		BorderLayoutTest.class,
-		FlowLayoutTest.class,
-		FlowLayoutGefTest.class,
-		GridLayoutTest.class,
-		BoxLayoutTest.class,
-		CardLayoutTest.class,
-		CardLayoutGefTest.class,
-		FormLayoutTests.class,
-		MigLayoutTests.class,
-		GridBagLayoutTests.class,
-		SpringLayoutTests.class,
-		GroupLayoutTests.class,
-		GefLayoutTests.class,
-		LayoutGefTest.class
+	LayoutManagersTest.class,
+	ImplicitLayoutTest.class,
+	AbsoluteLayoutTest.class,
+	AbsoluteLayoutSelectionActionsTest.class,
+	AbsoluteLayoutGefTest.class,
+	ConstraintsAbsoluteLayoutTest.class,
+	BorderLayoutTest.class,
+	FlowLayoutTest.class,
+	FlowLayoutGefTest.class,
+	GridLayoutTest.class,
+	BoxLayoutTest.class,
+	CardLayoutTest.class,
+	CardLayoutGefTest.class,
+	FormLayoutTests.class,
+	MigLayoutTests.class,
+	GridBagLayoutTests.class,
+	SpringLayoutTests.class,
+	GroupLayoutTests.class,
+	GefLayoutTests.class,
+	LayoutGefTest.class
 })
 public class LayoutTests {
 }

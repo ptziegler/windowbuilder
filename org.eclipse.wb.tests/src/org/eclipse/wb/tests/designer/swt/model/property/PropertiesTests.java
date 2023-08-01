@@ -22,23 +22,23 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		ConvertersTest.class,
-		ColorPropertyEditorTestNoManager.class,
-		ColorPropertyEditorTestWithManager.class,
-		ColorPropertyEditorTestRegistry.class,
-		ImagePropertyEditorTestNoManager.class,
-		ImagePropertyEditorTestWithManager.class,
-		ImagePropertyEditorTestPlugin.class,
-		ImageDescriptorPropertyEditorTestNoManager.class,
-		ImageDescriptorPropertyEditorTestWithManager.class,
-		ImageDescriptorPropertyEditorTestPlugin.class,
-		FontPropertyEditorTestNoManager.class,
-		FontPropertyEditorTestWithManager.class,
-		FontPropertyEditorTestRegistry.class,
-		ResourceRegistryTest.class,
-		SWTResourceManagerTest.class,
-		ResourceManagerTest.class,
-		TabOrderPropertyTest.class
+	ConvertersTest.class,
+	ColorPropertyEditorTestNoManager.class,
+	ColorPropertyEditorTestWithManager.class,
+	ColorPropertyEditorTestRegistry.class,
+	ImagePropertyEditorTestNoManager.class,
+	ImagePropertyEditorTestWithManager.class,
+	ImagePropertyEditorTestPlugin.class,
+	ImageDescriptorPropertyEditorTestNoManager.class,
+	ImageDescriptorPropertyEditorTestWithManager.class,
+	ImageDescriptorPropertyEditorTestPlugin.class,
+	FontPropertyEditorTestNoManager.class,
+	FontPropertyEditorTestWithManager.class,
+	FontPropertyEditorTestRegistry.class,
+	ResourceRegistryTest.class,
+	SWTResourceManagerTest.class,
+	ResourceManagerTest.class,
+	TabOrderPropertyTest.class
 })
 public class PropertiesTests {
 }

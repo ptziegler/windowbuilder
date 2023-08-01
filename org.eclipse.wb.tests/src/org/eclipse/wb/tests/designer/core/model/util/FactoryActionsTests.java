@@ -19,9 +19,9 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		FactoryActionsSupportTest.class,
-		FactoryCreateActionTest.class,
-		FactoryApplyActionTest.class
+	FactoryActionsSupportTest.class,
+	FactoryCreateActionTest.class,
+	FactoryApplyActionTest.class
 })
 public class FactoryActionsTests {
 }

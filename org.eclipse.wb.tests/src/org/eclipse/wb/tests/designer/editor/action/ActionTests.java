@@ -19,12 +19,12 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		ActionsTest.class,
-		DeleteActionTest.class,
-		CopyActionTest.class,
-		CutActionTest.class,
-		SwitchActionTest.class,
-		RefreshActionTest.class
+	ActionsTest.class,
+	DeleteActionTest.class,
+	CopyActionTest.class,
+	CutActionTest.class,
+	SwitchActionTest.class,
+	RefreshActionTest.class
 })
 public class ActionTests {
 }

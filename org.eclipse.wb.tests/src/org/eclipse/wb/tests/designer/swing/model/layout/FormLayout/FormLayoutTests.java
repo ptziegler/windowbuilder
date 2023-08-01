@@ -23,18 +23,18 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		FormSizeInfoTest.class,
-		FormDimensionInfoTest.class,
-		FormLayoutTest.class,
-		CellConstraintsSupportTest.class,
-		FormLayoutGroupsTest.class,
-		FormColumnInfoTest.class,
-		FormRowInfoTest.class,
-		FormLayoutParametersTest.class,
-		FormLayoutConverterTest.class,
-		FormLayoutSelectionActionsTest.class,
-		FormLayoutGefTest.class,
-		DefaultComponentFactoryTest.class
+	FormSizeInfoTest.class,
+	FormDimensionInfoTest.class,
+	FormLayoutTest.class,
+	CellConstraintsSupportTest.class,
+	FormLayoutGroupsTest.class,
+	FormColumnInfoTest.class,
+	FormRowInfoTest.class,
+	FormLayoutParametersTest.class,
+	FormLayoutConverterTest.class,
+	FormLayoutSelectionActionsTest.class,
+	FormLayoutGefTest.class,
+	DefaultComponentFactoryTest.class
 })
 public class FormLayoutTests {
 }

@@ -23,26 +23,26 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		AbstractVariableSupportTest.class,
-		ThisTest.class,
-		ThisForcedMethodTest.class,
-		AbstractNamedTest.class,
-		AbstractSimpleTest.class,
-		LocalUniqueTest.class,
-		LocalReuseTest.class,
-		FieldUniqueTest.class,
-		FieldInitializerTest.class,
-		FieldReuseTest.class,
-		EmptyTest.class,
-		EmptyPureTest.class,
-		EmptyInvocationTest.class,
-		VoidInvocationTest.class,
-		ExposedPropertyTest.class,
-		ExposedFieldTest.class,
-		LazyTest.class,
-		MethodParameterTest.class,
-		NamesManagerTest.class,
-		TextPropertyRenameTest.class
+	AbstractVariableSupportTest.class,
+	ThisTest.class,
+	ThisForcedMethodTest.class,
+	AbstractNamedTest.class,
+	AbstractSimpleTest.class,
+	LocalUniqueTest.class,
+	LocalReuseTest.class,
+	FieldUniqueTest.class,
+	FieldInitializerTest.class,
+	FieldReuseTest.class,
+	EmptyTest.class,
+	EmptyPureTest.class,
+	EmptyInvocationTest.class,
+	VoidInvocationTest.class,
+	ExposedPropertyTest.class,
+	ExposedFieldTest.class,
+	LazyTest.class,
+	MethodParameterTest.class,
+	NamesManagerTest.class,
+	TextPropertyRenameTest.class
 })
 public class VariablesTests {
 }

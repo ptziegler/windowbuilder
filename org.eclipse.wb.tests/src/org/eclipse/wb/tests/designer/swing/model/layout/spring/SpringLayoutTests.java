@@ -23,9 +23,9 @@ import javax.swing.SpringLayout;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		SpringAttachmentTest.class,
-		SpringLayoutTest.class,
-		SpringLayoutGefTest.class
+	SpringAttachmentTest.class,
+	SpringLayoutTest.class,
+	SpringLayoutGefTest.class
 })
 public class SpringLayoutTests {
 }

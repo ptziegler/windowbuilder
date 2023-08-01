@@ -23,12 +23,12 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		ModelClassLayoutRequestValidatorTest.class,
-		ComponentClassLayoutRequestValidatorTest.class,
-		CompatibleLayoutRequestValidatorTest.class,
-		BorderOfChildLayoutRequestValidatorTest.class,
-		BorderTransparentLayoutRequestValidatorTest.class,
-		LayoutRequestValidatorsTest.class
+	ModelClassLayoutRequestValidatorTest.class,
+	ComponentClassLayoutRequestValidatorTest.class,
+	CompatibleLayoutRequestValidatorTest.class,
+	BorderOfChildLayoutRequestValidatorTest.class,
+	BorderTransparentLayoutRequestValidatorTest.class,
+	LayoutRequestValidatorsTest.class
 })
 public class LayoutRequestValidatorTests {
 }

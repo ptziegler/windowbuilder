@@ -21,9 +21,9 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		ViewerTest.class,
-		TableViewerTest.class,
-		TableViewerGefTest.class,
+	ViewerTest.class,
+	TableViewerTest.class,
+	TableViewerGefTest.class,
 })
 public class JFaceTests {
 }

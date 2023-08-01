@@ -24,21 +24,21 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		ToolkitDescriptionTest.class,
-		LayoutDescriptionTest.class,
-		DescriptionProcessorTest.class,
-		ComponentDescriptionKeyTest.class,
-		ComponentDescriptionTest.class,
-		ComponentDescriptionIbmTest.class,
-		CreationDescriptionTest.class,
-		CreationDescriptionLoadingTest.class,
-		MorphingTargetDescriptionTest.class,
-		DescriptionVersionsProvidersTest.class,
-		ComponentDescriptionHelperTest.class,
-		GenericPropertyDescriptionTest.class,
-		BeanPropertyTagsTest.class,
-		MethodSinglePropertyRuleTest.class,
-		MethodPropertyRuleTest.class
+	ToolkitDescriptionTest.class,
+	LayoutDescriptionTest.class,
+	DescriptionProcessorTest.class,
+	ComponentDescriptionKeyTest.class,
+	ComponentDescriptionTest.class,
+	ComponentDescriptionIbmTest.class,
+	CreationDescriptionTest.class,
+	CreationDescriptionLoadingTest.class,
+	MorphingTargetDescriptionTest.class,
+	DescriptionVersionsProvidersTest.class,
+	ComponentDescriptionHelperTest.class,
+	GenericPropertyDescriptionTest.class,
+	BeanPropertyTagsTest.class,
+	MethodSinglePropertyRuleTest.class,
+	MethodPropertyRuleTest.class
 })
 public class DescriptionTests {
 }

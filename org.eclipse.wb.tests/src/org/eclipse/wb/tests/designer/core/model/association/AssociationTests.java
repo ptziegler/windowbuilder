@@ -23,25 +23,25 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		// constructor
-		ConstructorParentAssociationTest.class,
-		ConstructorChildAssociationTest.class,
-		// invocation
-		InvocationChildAssociationTest.class,
-		InvocationVoidAssociationTest.class,
-		InvocationSecondaryAssociationTest.class,
-		FactoryParentAssociationTest.class,
-		// other
-		RootAssociationTest.class,
-		EmptyAssociationTest.class,
-		UnknownAssociationTest.class,
-		SuperConstructorArgumentAssociationTest.class,
-		ImplicitObjectAssociationTest.class,
-		ImplicitFactoryArgumentAssociationTest.class,
-		CompoundAssociationTest.class,
-		// object/factory
-		AssociationObjectsTest.class,
-		AssociationObjectFactoriesTest.class
+	// constructor
+	ConstructorParentAssociationTest.class,
+	ConstructorChildAssociationTest.class,
+	// invocation
+	InvocationChildAssociationTest.class,
+	InvocationVoidAssociationTest.class,
+	InvocationSecondaryAssociationTest.class,
+	FactoryParentAssociationTest.class,
+	// other
+	RootAssociationTest.class,
+	EmptyAssociationTest.class,
+	UnknownAssociationTest.class,
+	SuperConstructorArgumentAssociationTest.class,
+	ImplicitObjectAssociationTest.class,
+	ImplicitFactoryArgumentAssociationTest.class,
+	CompoundAssociationTest.class,
+	// object/factory
+	AssociationObjectsTest.class,
+	AssociationObjectFactoriesTest.class
 })
 public class AssociationTests {
 }

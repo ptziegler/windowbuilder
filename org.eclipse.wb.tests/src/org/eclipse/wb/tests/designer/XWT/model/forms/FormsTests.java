@@ -23,14 +23,14 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		FormsTest.class,
-		FormTest.class,
-		FormGefTest.class,
-		ScrolledFormTest.class,
-		ExpandableCompositeTest.class,
-		ExpandableCompositeGefTest.class,
-		ColumnLayoutTest.class,
-		TableWrapLayoutTests.class
+	FormsTest.class,
+	FormTest.class,
+	FormGefTest.class,
+	ScrolledFormTest.class,
+	ExpandableCompositeTest.class,
+	ExpandableCompositeGefTest.class,
+	ColumnLayoutTest.class,
+	TableWrapLayoutTests.class
 })
 public class FormsTests {
 }

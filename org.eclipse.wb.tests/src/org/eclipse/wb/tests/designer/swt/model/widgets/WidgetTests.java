@@ -21,21 +21,21 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		WidgetTest.class,
-		LiveComponentsManagerTest.class,
-		DescriptionProcessorTest.class,
-		ControlTest.class,
-		LiveImagesManagerTest.class,
-		ScrollableTest.class,
-		CompositeTopBoundsSupportTest.class,
-		CompositeTopBoundsTest.class,
-		CompositeTest.class,
-		TableTest.class,
-		TreeTest.class,
-		ThisCompositeTest.class,
-		ButtonsTest.class,
-		StaticFactoryTest.class,
-		InstanceFactoryTest.class
+	WidgetTest.class,
+	LiveComponentsManagerTest.class,
+	DescriptionProcessorTest.class,
+	ControlTest.class,
+	LiveImagesManagerTest.class,
+	ScrollableTest.class,
+	CompositeTopBoundsSupportTest.class,
+	CompositeTopBoundsTest.class,
+	CompositeTest.class,
+	TableTest.class,
+	TreeTest.class,
+	ThisCompositeTest.class,
+	ButtonsTest.class,
+	StaticFactoryTest.class,
+	InstanceFactoryTest.class
 })
 public class WidgetTests {
 }

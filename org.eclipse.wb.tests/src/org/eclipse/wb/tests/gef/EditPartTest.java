@@ -831,12 +831,12 @@ public class EditPartTest extends GefTestCase {
 		// Test Access
 		//
 		////////////////////////////////////////////////////////////////////////////
-	@Test
+		@Test
 		public void test_access_addChild(EditPart childPart, int index) {
 			addChild(childPart, index);
 		}
 
-	@Test
+		@Test
 		public void test_access_removeChild(EditPart childPart) {
 			removeChild(childPart);
 		}

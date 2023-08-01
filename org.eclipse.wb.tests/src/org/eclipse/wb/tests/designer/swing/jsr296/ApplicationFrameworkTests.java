@@ -21,10 +21,10 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		ActivatorTest.class,
-		LoadResourcesTest.class,
-		FrameViewTest.class,
-		FrameViewGefTest.class
+	ActivatorTest.class,
+	LoadResourcesTest.class,
+	FrameViewTest.class,
+	FrameViewGefTest.class
 })
 public class ApplicationFrameworkTests {
 }

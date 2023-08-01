@@ -21,11 +21,11 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		JMenuBarTest.class,
-		JPopupMenuTest.class,
-		JMenuTest.class,
-		JMenuItemTest.class,
-		JMenuGefTest.class
+	JMenuBarTest.class,
+	JPopupMenuTest.class,
+	JMenuTest.class,
+	JMenuItemTest.class,
+	JMenuGefTest.class
 })
 public class MenuTests {
 }

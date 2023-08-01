@@ -21,9 +21,9 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		ButtonGroupTest.class,
-		ActionTest.class,
-		ActionGefTest.class
+	ButtonGroupTest.class,
+	ActionTest.class,
+	ActionGefTest.class
 })
 public class BeanTests {
 }

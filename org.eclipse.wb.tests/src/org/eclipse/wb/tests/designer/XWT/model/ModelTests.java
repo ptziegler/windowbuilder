@@ -27,18 +27,18 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		XwtDescriptionProcessorTest.class,
-		XwtTagResolverTest.class,
-		XwtStringArraySupportTest.class,
-		XwtStaticFieldSupportTest.class,
-		NameSupportTest.class,
-		NamePropertySupportTest.class,
-		XwtListenerPropertiesTest.class,
-		PropertyTests.class,
-		WidgetTests.class,
-		LayoutTests.class,
-		JFaceTests.class,
-		FormsTests.class
+	XwtDescriptionProcessorTest.class,
+	XwtTagResolverTest.class,
+	XwtStringArraySupportTest.class,
+	XwtStaticFieldSupportTest.class,
+	NameSupportTest.class,
+	NamePropertySupportTest.class,
+	XwtListenerPropertiesTest.class,
+	PropertyTests.class,
+	WidgetTests.class,
+	LayoutTests.class,
+	JFaceTests.class,
+	FormsTests.class
 })
 public class ModelTests {
 }

@@ -19,8 +19,8 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		JPanelTopBoundsTest.class,
-		JFrameTopBoundsTest.class
+	JPanelTopBoundsTest.class,
+	JFrameTopBoundsTest.class
 })
 public class TopLevelTests {
 }

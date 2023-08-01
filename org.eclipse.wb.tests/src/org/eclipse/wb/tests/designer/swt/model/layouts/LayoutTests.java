@@ -23,17 +23,17 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		LayoutTest.class,
-		LayoutDataTest.class,
-		VirtualLayoutDataTest.class,
-		ImplicitLayoutDataTest.class,
-		AbsoluteLayoutTest.class,
-		AbsoluteLayoutSelectionActionsTest.class,
-		AbsoluteLayoutOrderingTest.class,
-		FillLayoutTest.class,
-		RowLayoutTest.class,
-		LayoutLayoutDataCompatibilityTest.class,
-		GridLayoutTests.class
+	LayoutTest.class,
+	LayoutDataTest.class,
+	VirtualLayoutDataTest.class,
+	ImplicitLayoutDataTest.class,
+	AbsoluteLayoutTest.class,
+	AbsoluteLayoutSelectionActionsTest.class,
+	AbsoluteLayoutOrderingTest.class,
+	FillLayoutTest.class,
+	RowLayoutTest.class,
+	LayoutLayoutDataCompatibilityTest.class,
+	GridLayoutTests.class
 })
 public class LayoutTests {
 }

@@ -23,22 +23,22 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		AttributesProvidersTest.class,
-		AbstractElementInfoTest.class,
-		PaletteInfoTest.class,
-		CategoryInfoTest.class,
-		SelectionToolEntryInfoTest.class,
-		MarqueeSelectionToolEntryInfoTest.class,
-		TabOrderToolEntryInfoTest.class,
-		ChooseComponentEntryInfoTest.class,
-		ToolEntryInfoTest.class,
-		ComponentEntryInfoTest.class,
-		StaticFactoryEntryInfoTest.class,
-		InstanceFactoryEntryInfoTest.class,
-		PaletteManagerTest.class,
-		CategoryCommandsTest.class,
-		ComponentCommandsTest.class,
-		FactoryCommandsTest.class
+	AttributesProvidersTest.class,
+	AbstractElementInfoTest.class,
+	PaletteInfoTest.class,
+	CategoryInfoTest.class,
+	SelectionToolEntryInfoTest.class,
+	MarqueeSelectionToolEntryInfoTest.class,
+	TabOrderToolEntryInfoTest.class,
+	ChooseComponentEntryInfoTest.class,
+	ToolEntryInfoTest.class,
+	ComponentEntryInfoTest.class,
+	StaticFactoryEntryInfoTest.class,
+	InstanceFactoryEntryInfoTest.class,
+	PaletteManagerTest.class,
+	CategoryCommandsTest.class,
+	ComponentCommandsTest.class,
+	FactoryCommandsTest.class
 })
 public class PaletteTests {
 }

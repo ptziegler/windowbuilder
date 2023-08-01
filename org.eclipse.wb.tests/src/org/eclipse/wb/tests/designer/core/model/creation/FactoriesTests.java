@@ -23,11 +23,11 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		FactoryDescriptionHelperTest.class,
-		StaticFactoryCreationSupportTest.class,
-		InstanceFactoryCreationSupportTest.class,
-		ImplicitFactoryCreationSupportTest.class,
-		FactoryTest.class
+	FactoryDescriptionHelperTest.class,
+	StaticFactoryCreationSupportTest.class,
+	InstanceFactoryCreationSupportTest.class,
+	ImplicitFactoryCreationSupportTest.class,
+	FactoryTest.class
 })
 public class FactoriesTests {
 }

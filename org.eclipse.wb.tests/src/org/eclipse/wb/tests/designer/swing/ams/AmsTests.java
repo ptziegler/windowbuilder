@@ -21,8 +21,8 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		PropertyTweaksTest.class,
-		VarmenuLayoutTest.class
+	PropertyTweaksTest.class,
+	VarmenuLayoutTest.class
 })
 public class AmsTests {
 }

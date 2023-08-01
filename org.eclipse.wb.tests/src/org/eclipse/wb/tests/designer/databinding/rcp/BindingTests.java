@@ -34,24 +34,24 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		AstModelSupportTest.class,
-		UtilsTest.class,
-		BeanBindableTest.class,
-		WidgetBindableTest.class,
-		BeanObservableTest.class,
-		WidgetObservableTest.class,
-		ViewerObservableTest.class,
-		BindValueTest.class,
-		BindListTest.class,
-		BindSetTest.class,
-		DatabindingsProviderTest.class,
-		ReferenceProvidersTest.class,
-		CodeGenerationTest.class,
-		ViewerCodeGenerationTest.class,
-		UiConfigurationTest.class,
-		JFaceDatabindingsFactoryTestRcp.class,
-		JFaceDatabindingsFactoryTestSwing.class,
-		org.eclipse.wb.tests.designer.databinding.swing.BindingTests.class
+	AstModelSupportTest.class,
+	UtilsTest.class,
+	BeanBindableTest.class,
+	WidgetBindableTest.class,
+	BeanObservableTest.class,
+	WidgetObservableTest.class,
+	ViewerObservableTest.class,
+	BindValueTest.class,
+	BindListTest.class,
+	BindSetTest.class,
+	DatabindingsProviderTest.class,
+	ReferenceProvidersTest.class,
+	CodeGenerationTest.class,
+	ViewerCodeGenerationTest.class,
+	UiConfigurationTest.class,
+	JFaceDatabindingsFactoryTestRcp.class,
+	JFaceDatabindingsFactoryTestSwing.class,
+	org.eclipse.wb.tests.designer.databinding.swing.BindingTests.class
 })
 public class BindingTests {
 }

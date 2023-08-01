@@ -19,8 +19,8 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		QParserTest.class,
-		XmlDocumentTest.class
+	QParserTest.class,
+	XmlDocumentTest.class
 })
 public class XmlTests {
 }

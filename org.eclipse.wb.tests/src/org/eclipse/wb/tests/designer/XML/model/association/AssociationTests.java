@@ -23,10 +23,10 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		DirectAssociationTest.class,
-		OrderAssociationTest.class,
-		PropertyAssociationTest.class,
-		IntermediateAssociationTest.class
+	DirectAssociationTest.class,
+	OrderAssociationTest.class,
+	PropertyAssociationTest.class,
+	IntermediateAssociationTest.class
 })
 public class AssociationTests {
 }

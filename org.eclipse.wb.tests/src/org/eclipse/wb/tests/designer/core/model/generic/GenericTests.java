@@ -21,17 +21,17 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		ContainerObjectValidatorsTest.class,
-		FlowContainerModelTest.class,
-		FlowContainerGefTest.class,
-		FlowContainerLayoutGefTest.class,
-		FlowContainerGroupGefTest.class,
-		SimpleContainerModelTest.class,
-		SimpleContainerGefTest.class,
-		SimpleContainerLayoutGefTest.class,
-		FlipBooleanPropertyGefTest.class,
-		DblClickRunScriptEditPolicyTest.class,
-		OpenListenerEditPolicyTest.class
+	ContainerObjectValidatorsTest.class,
+	FlowContainerModelTest.class,
+	FlowContainerGefTest.class,
+	FlowContainerLayoutGefTest.class,
+	FlowContainerGroupGefTest.class,
+	SimpleContainerModelTest.class,
+	SimpleContainerGefTest.class,
+	SimpleContainerLayoutGefTest.class,
+	FlipBooleanPropertyGefTest.class,
+	DblClickRunScriptEditPolicyTest.class,
+	OpenListenerEditPolicyTest.class
 })
 public class GenericTests {
 }

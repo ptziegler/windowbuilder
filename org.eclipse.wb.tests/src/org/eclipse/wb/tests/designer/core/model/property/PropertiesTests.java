@@ -23,19 +23,19 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		StandardConvertersTest.class,
-		PropertyCategoryProvidersTest.class,
-		PropertyCategoryTest.class,
-		PropertyTest.class,
-		PropertyManagerTest.class,
-		EmptyPropertyTest.class,
-		EventsPropertyTest.class,
-		ComponentClassPropertyTest.class,
-		TabOrderPropertyTest.class,
-		ExposePropertySupportTest.class,
-		AccessorsTests.class,
-		PropertyEditorsTests.class,
-		PropertyTableTests.class
+	StandardConvertersTest.class,
+	PropertyCategoryProvidersTest.class,
+	PropertyCategoryTest.class,
+	PropertyTest.class,
+	PropertyManagerTest.class,
+	EmptyPropertyTest.class,
+	EventsPropertyTest.class,
+	ComponentClassPropertyTest.class,
+	TabOrderPropertyTest.class,
+	ExposePropertySupportTest.class,
+	AccessorsTests.class,
+	PropertyEditorsTests.class,
+	PropertyTableTests.class
 })
 public class PropertiesTests {
 }

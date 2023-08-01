@@ -23,36 +23,36 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		// primitives
-		BooleanPropertyEditorTest.class,
-		IntegerPropertyEditorTest.class,
-		// arrays
-		IntegerArrayPropertyEditorTest.class,
-		// wrappers
-		BooleanObjectPropertyEditorTest.class,
-		ByteObjectPropertyEditorTest.class,
-		ShortObjectPropertyEditorTest.class,
-		IntegerObjectPropertyEditorTest.class,
-		LongObjectPropertyEditorTest.class,
-		DoubleObjectPropertyEditorTest.class,
-		// other
-		StaticFieldPropertyEditorTest.class,
-		EnumCustomPropertyEditorTest.class,
-		EnumPropertyEditorTest.class,
-		InnerClassPropertyEditorTest.class,
-		ConstantSelectionPropertyEditorTest.class,
-		StringsAddPropertyTest.class,
-		LocalePropertyEditorTest.class,
-		StylePropertyEditorTest.class,
-		StylePropertyEditorLongTest.class,
-		DisplayExpressionPropertyEditorTest.class,
-		StringListPropertyEditorTest.class,
-		InstanceListPropertyEditorTest.class,
-		ExpressionListPropertyEditorTest.class,
-		InstanceObjectPropertyEditorTest.class,
-		ObjectPropertyEditorTest.class,
-		DatePropertyEditorTest.class,
-		EnumerationValuesPropertyEditorTest.class
+	// primitives
+	BooleanPropertyEditorTest.class,
+	IntegerPropertyEditorTest.class,
+	// arrays
+	IntegerArrayPropertyEditorTest.class,
+	// wrappers
+	BooleanObjectPropertyEditorTest.class,
+	ByteObjectPropertyEditorTest.class,
+	ShortObjectPropertyEditorTest.class,
+	IntegerObjectPropertyEditorTest.class,
+	LongObjectPropertyEditorTest.class,
+	DoubleObjectPropertyEditorTest.class,
+	// other
+	StaticFieldPropertyEditorTest.class,
+	EnumCustomPropertyEditorTest.class,
+	EnumPropertyEditorTest.class,
+	InnerClassPropertyEditorTest.class,
+	ConstantSelectionPropertyEditorTest.class,
+	StringsAddPropertyTest.class,
+	LocalePropertyEditorTest.class,
+	StylePropertyEditorTest.class,
+	StylePropertyEditorLongTest.class,
+	DisplayExpressionPropertyEditorTest.class,
+	StringListPropertyEditorTest.class,
+	InstanceListPropertyEditorTest.class,
+	ExpressionListPropertyEditorTest.class,
+	InstanceObjectPropertyEditorTest.class,
+	ObjectPropertyEditorTest.class,
+	DatePropertyEditorTest.class,
+	EnumerationValuesPropertyEditorTest.class
 })
 public class PropertyEditorsTests {
 }

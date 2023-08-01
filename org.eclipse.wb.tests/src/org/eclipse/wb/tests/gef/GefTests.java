@@ -21,20 +21,20 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-		RequestsTest.class,
-		CommandsTest.class,
-		EditPartTest.class,
-		EditPolicyTest.class,
-		ResizeTrackerTest.class,
-		SelectAndDragEditPartTrackerTest.class,
-		MarqueeSelectionToolTest.class,
-		CreationToolTest.class,
-		PasteToolTest.class,
-		SelectionToolTest.class,
-		GraphicalViewerTest.class,
-		TreeCreateToolTest.class,
-		TreeDragToolTest.class,
-		CursorTests.class
+	RequestsTest.class,
+	CommandsTest.class,
+	EditPartTest.class,
+	EditPolicyTest.class,
+	ResizeTrackerTest.class,
+	SelectAndDragEditPartTrackerTest.class,
+	MarqueeSelectionToolTest.class,
+	CreationToolTest.class,
+	PasteToolTest.class,
+	SelectionToolTest.class,
+	GraphicalViewerTest.class,
+	TreeCreateToolTest.class,
+	TreeDragToolTest.class,
+	CursorTests.class
 })
 public class GefTests {
 }

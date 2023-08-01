@@ -21,8 +21,8 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		SurroundSupportTest.class,
-		ActivatorImagesTest.class
+	SurroundSupportTest.class,
+	ActivatorImagesTest.class
 })
 public class UtilTests {
 }

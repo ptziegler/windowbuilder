@@ -21,23 +21,23 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		ExposeComponentSupportTest.class,
-		FactoryActionsTests.class,
-		JavaInfoUtilsTest.class,
-		ObjectInfoUtilsTest.class,
-		GenericTypeResolverJavaInfoTest.class,
-		TemplateUtilsTest.class,
-		ScriptUtilsTest.class,
-		MethodOrderTest.class,
-		ComponentOrderTest.class,
-		MorphingSupportTest.class,
-		ObjectsLabelProviderTest.class,
-		ObjectsTreeContentProviderTest.class,
-		RenameConvertSupportTest.class,
-		PredicatesTest.class,
-		StackContainerSupportTest.class,
-		GenericTests.class,
-		PropertyUtilsTest.class
+	ExposeComponentSupportTest.class,
+	FactoryActionsTests.class,
+	JavaInfoUtilsTest.class,
+	ObjectInfoUtilsTest.class,
+	GenericTypeResolverJavaInfoTest.class,
+	TemplateUtilsTest.class,
+	ScriptUtilsTest.class,
+	MethodOrderTest.class,
+	ComponentOrderTest.class,
+	MorphingSupportTest.class,
+	ObjectsLabelProviderTest.class,
+	ObjectsTreeContentProviderTest.class,
+	RenameConvertSupportTest.class,
+	PredicatesTest.class,
+	StackContainerSupportTest.class,
+	GenericTests.class,
+	PropertyUtilsTest.class
 })
 public class UtilTests {
 }

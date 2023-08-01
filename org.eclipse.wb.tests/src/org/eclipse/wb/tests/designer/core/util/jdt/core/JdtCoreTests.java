@@ -19,10 +19,10 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		CodeUtilsTest.class,
-		JavaDocUtilsTest.class,
-		SubtypesScopeTest.class,
-		ProjectUtilsTest.class
+	CodeUtilsTest.class,
+	JavaDocUtilsTest.class,
+	SubtypesScopeTest.class,
+	ProjectUtilsTest.class
 })
 public class JdtCoreTests {
 }

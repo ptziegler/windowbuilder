@@ -23,13 +23,13 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		// creations
-		ThisCreationSupportTest.class, ConstructorCreationSupportTest.class, ExposedPropertyCreationSupportTest.class,
-		ExposedFieldCreationSupportTest.class, SuperInvocationCreationSupportTest.class,
-		// factories
-		FactoriesTests.class,
-		// other
-		InvocationChainCreationSupportTest.class, ICreationSupportPermissionsTest.class,
-		OpaqueCreationSupportTest.class })
+	// creations
+	ThisCreationSupportTest.class, ConstructorCreationSupportTest.class, ExposedPropertyCreationSupportTest.class,
+	ExposedFieldCreationSupportTest.class, SuperInvocationCreationSupportTest.class,
+	// factories
+	FactoriesTests.class,
+	// other
+	InvocationChainCreationSupportTest.class, ICreationSupportPermissionsTest.class,
+	OpaqueCreationSupportTest.class })
 public class CreationsTests {
 }

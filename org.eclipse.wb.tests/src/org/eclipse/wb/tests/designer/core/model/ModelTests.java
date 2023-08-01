@@ -31,27 +31,27 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		ObjectInfoTest.class,
-		DefaultObjectPresentationTest.class,
-		ObjectReferenceInfoTest.class,
-		ClassLoadingTest.class,
-		DescriptionTests.class,
-		JavaInfoTest.class,
-		DefaultJavaInfoPresentationTest.class,
-		AbstractComponentTest.class,
-		UtilTests.class,
-		AssociationTests.class,
-		AddTest.class,
-		DeleteTest.class,
-		PropertiesTests.class,
-		ParserTests.class,
-		VariablesTests.class,
-		GenericTests.class,
-		NonVisualBeansTest.class,
-		NonVisualBeansGefTest.class,
-		ArrayObjectTest.class,
-		WrapperInfoTest.class,
-		EllipsisObjectInfoTest.class
+	ObjectInfoTest.class,
+	DefaultObjectPresentationTest.class,
+	ObjectReferenceInfoTest.class,
+	ClassLoadingTest.class,
+	DescriptionTests.class,
+	JavaInfoTest.class,
+	DefaultJavaInfoPresentationTest.class,
+	AbstractComponentTest.class,
+	UtilTests.class,
+	AssociationTests.class,
+	AddTest.class,
+	DeleteTest.class,
+	PropertiesTests.class,
+	ParserTests.class,
+	VariablesTests.class,
+	GenericTests.class,
+	NonVisualBeansTest.class,
+	NonVisualBeansGefTest.class,
+	ArrayObjectTest.class,
+	WrapperInfoTest.class,
+	EllipsisObjectInfoTest.class
 })
 public class ModelTests {
 }

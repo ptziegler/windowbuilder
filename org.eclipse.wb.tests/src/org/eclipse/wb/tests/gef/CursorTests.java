@@ -19,9 +19,9 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		CreationToolCursorTest.class,
-		SelectionToolCursorTest.class,
-		MarqueeSelectionToolCursorTest.class
+	CreationToolCursorTest.class,
+	SelectionToolCursorTest.class,
+	MarqueeSelectionToolCursorTest.class
 })
 public class CursorTests {
 }

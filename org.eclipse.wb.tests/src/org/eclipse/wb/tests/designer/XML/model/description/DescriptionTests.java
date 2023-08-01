@@ -21,13 +21,13 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		ExpressionConverterTest.class,
-		EmptyExpressionAccessorTest.class,
-		MethodExpressionAccessorTest.class,
-		FieldExpressionAccessorTest.class,
-		ComponentDescriptionHelperTest.class,
-		GenericPropertyDescriptionTest.class,
-		MorphingTargetDescriptionTest.class
+	ExpressionConverterTest.class,
+	EmptyExpressionAccessorTest.class,
+	MethodExpressionAccessorTest.class,
+	FieldExpressionAccessorTest.class,
+	ComponentDescriptionHelperTest.class,
+	GenericPropertyDescriptionTest.class,
+	MorphingTargetDescriptionTest.class
 })
 public class DescriptionTests {
 }

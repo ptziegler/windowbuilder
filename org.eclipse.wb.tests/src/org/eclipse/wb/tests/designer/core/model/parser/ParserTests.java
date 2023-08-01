@@ -21,14 +21,14 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		SimpleParserTest.class,
-		SwingParserTest.class,
-		ParserBroadcastsTest.class,
-		BadNodesTest.class,
-		EditorStateTest.class,
-		ExecuteOnParseTest.class,
-		GenerationSettingsTest.class,
-		CreationsTests.class
+	SimpleParserTest.class,
+	SwingParserTest.class,
+	ParserBroadcastsTest.class,
+	BadNodesTest.class,
+	EditorStateTest.class,
+	ExecuteOnParseTest.class,
+	GenerationSettingsTest.class,
+	CreationsTests.class
 })
 public class ParserTests {
 }

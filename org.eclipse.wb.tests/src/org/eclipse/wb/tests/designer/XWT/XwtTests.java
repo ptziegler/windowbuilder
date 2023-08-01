@@ -30,13 +30,13 @@ import org.junit.runners.Suite.SuiteClasses;
 @Ignore
 @RunWith(Suite.class)
 @SuiteClasses({
-		ActivatorTest.class,
-		GefTests.class,
-		RefactoringTest.class,
-		SupportTests.class,
-		ModelTests.class,
-		WizardTests.class,
-		BindingTests.class
+	ActivatorTest.class,
+	GefTests.class,
+	RefactoringTest.class,
+	SupportTests.class,
+	ModelTests.class,
+	WizardTests.class,
+	BindingTests.class
 })
 public class XwtTests {
 }

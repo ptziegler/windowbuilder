@@ -23,8 +23,8 @@ import javax.swing.GroupLayout;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		GroupLayoutTest.class,
-		GroupLayoutGefTest.class
+	GroupLayoutTest.class,
+	GroupLayoutGefTest.class
 })
 public class GroupLayoutTests {
 }

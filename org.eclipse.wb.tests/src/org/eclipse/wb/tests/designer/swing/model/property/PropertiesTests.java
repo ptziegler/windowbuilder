@@ -22,13 +22,13 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		FontPropertyEditorTest.class,
-		IconPropertyEditorTest.class,
-		ImagePropertyEditorTest.class,
-		BorderPropertyEditorTest.class,
-		TabOrderPropertyTest.class,
-		TabOrderPropertyValueTest.class,
-		BeanPropertyEditorTest.class
+	FontPropertyEditorTest.class,
+	IconPropertyEditorTest.class,
+	ImagePropertyEditorTest.class,
+	BorderPropertyEditorTest.class,
+	TabOrderPropertyTest.class,
+	TabOrderPropertyValueTest.class,
+	BeanPropertyEditorTest.class
 })
 public class PropertiesTests {
 }

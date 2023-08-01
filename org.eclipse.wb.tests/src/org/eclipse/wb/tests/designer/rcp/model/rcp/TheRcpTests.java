@@ -23,23 +23,23 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		PropertyPageTest.class,
-		PdeUtilsTest.class,
-		ExtensionElementPropertyTest.class,
-		ViewPartTest.class,
-		ViewPartGefTest.class,
-		ViewCategoryPropertyEditorTest.class,
-		EditorPartTest.class,
-		AbstractSplashHandlerTest.class,
-		MultiPageEditorPartTest.class,
-		PageTest.class,
-		PageLayoutTest.class,
-		PageLayoutGefTest.class,
-		ActionBarAdvisorTest.class,
-		ActionFactoryTest.class,
-		FilteredItemsSelectionDialogTest.class,
-		RcpWizardsTest.class,
-		WaitForMemoryProfilerTest.class
+	PropertyPageTest.class,
+	PdeUtilsTest.class,
+	ExtensionElementPropertyTest.class,
+	ViewPartTest.class,
+	ViewPartGefTest.class,
+	ViewCategoryPropertyEditorTest.class,
+	EditorPartTest.class,
+	AbstractSplashHandlerTest.class,
+	MultiPageEditorPartTest.class,
+	PageTest.class,
+	PageLayoutTest.class,
+	PageLayoutGefTest.class,
+	ActionBarAdvisorTest.class,
+	ActionFactoryTest.class,
+	FilteredItemsSelectionDialogTest.class,
+	RcpWizardsTest.class,
+	WaitForMemoryProfilerTest.class
 })
 public class TheRcpTests {
 }

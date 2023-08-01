@@ -23,15 +23,15 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		AbstractMenuObjectTest.class,
-		MenuSupportTest.class,
-		MenuItemTest.class,
-		MenuTest.class,
-		MenuObjectInfoUtilsTest.class,
-		MenuPopupSimpleTest.class,
-		MenuComplexTest.class,
-		MenuBarPopupTest.class,
-		MenuProblemsTest.class
+	AbstractMenuObjectTest.class,
+	MenuSupportTest.class,
+	MenuItemTest.class,
+	MenuTest.class,
+	MenuObjectInfoUtilsTest.class,
+	MenuPopupSimpleTest.class,
+	MenuComplexTest.class,
+	MenuBarPopupTest.class,
+	MenuProblemsTest.class
 })
 public class MenuTests {
 }

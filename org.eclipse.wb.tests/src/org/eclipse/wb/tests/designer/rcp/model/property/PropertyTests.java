@@ -23,9 +23,9 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		AcceleratorPropertyEditorTest.class,
-		ImagePropertyEditorTestPlugin.class,
-		CursorPropertyEditorWithManagerTest.class
+	AcceleratorPropertyEditorTest.class,
+	ImagePropertyEditorTestPlugin.class,
+	CursorPropertyEditorWithManagerTest.class
 })
 public class PropertyTests {
 }

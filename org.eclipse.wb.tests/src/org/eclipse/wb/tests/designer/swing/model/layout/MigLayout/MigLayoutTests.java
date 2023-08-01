@@ -23,16 +23,16 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		MigColumnTest.class,
-		MigRowTest.class,
-		MigLayoutConstraintsTest.class,
-		MigLayoutConstraintsPropertiesTest.class,
-		MigLayoutTest.class,
-		MigLayoutAutoAlignmentTest.class,
-		MigLayoutConverterTest.class,
-		MigLayoutSurroundSupportTest.class,
-		MigLayoutSelectionActionsTest.class,
-		MigLayoutGefTest.class
+	MigColumnTest.class,
+	MigRowTest.class,
+	MigLayoutConstraintsTest.class,
+	MigLayoutConstraintsPropertiesTest.class,
+	MigLayoutTest.class,
+	MigLayoutAutoAlignmentTest.class,
+	MigLayoutConverterTest.class,
+	MigLayoutSurroundSupportTest.class,
+	MigLayoutSelectionActionsTest.class,
+	MigLayoutGefTest.class
 })
 public class MigLayoutTests {
 }

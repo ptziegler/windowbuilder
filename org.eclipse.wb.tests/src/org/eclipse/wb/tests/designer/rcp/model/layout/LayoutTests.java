@@ -25,12 +25,12 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-		ControlSelectionPropertyEditorTest.class,
-		FormLayoutTests.class,
-		GridLayoutTest.class,
-		StackLayoutTest.class,
-		StackLayoutGefTest.class,
-		AbsoluteLayoutGefTest.class
+	ControlSelectionPropertyEditorTest.class,
+	FormLayoutTests.class,
+	GridLayoutTest.class,
+	StackLayoutTest.class,
+	StackLayoutGefTest.class,
+	AbsoluteLayoutGefTest.class
 })
 public class LayoutTests {
 }
