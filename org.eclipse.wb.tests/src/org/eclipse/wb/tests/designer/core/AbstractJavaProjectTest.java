@@ -106,9 +106,7 @@ public abstract class AbstractJavaProjectTest extends DesignerTestCase {
 	////////////////////////////////////////////////////////////////////////////
 
 	@Rule
-	public JavaProjectMethodRule methodRule = new JavaProjectMethodRule();
-
-	public static class JavaProjectMethodRule implements TestRule {
+	public TestRule methodRule = new TestRule() {
 		@Override
 		public Statement apply(Statement base, Description description) {
 			return new Statement() {
@@ -134,7 +132,7 @@ public abstract class AbstractJavaProjectTest extends DesignerTestCase {
 				}
 			};
 		}
-	}
+	};
 
 	////////////////////////////////////////////////////////////////////////////
 	//
