@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.gef.core.EditPart;
 import org.eclipse.wb.gef.graphical.GraphicalEditPart;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
@@ -41,6 +43,7 @@ public class DragSourceGefTest extends XwtGefTest {
 	/**
 	 * We should have {@link EditPart} in tree and on canvas.
 	 */
+	@Test
 	public void test_editParts() throws Exception {
 		openEditor(
 				"<Shell xmlns:p1='clr-namespace:org.eclipse.swt.dnd'>",
@@ -57,6 +60,7 @@ public class DragSourceGefTest extends XwtGefTest {
 		}
 	}
 
+	@Test
 	public void test_CREATE() throws Exception {
 		XmlObjectInfo shell = openEditor("<Shell/>");
 		//

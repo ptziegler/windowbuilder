@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.creation;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.internal.core.model.clipboard.IClipboardImplicitCreationSupport;
@@ -51,6 +54,7 @@ public class ExposedFieldCreationSupportTest extends SwingModelTest {
 	/**
 	 * Simplest test for parsing {@link ExposedFieldCreationSupport}.
 	 */
+	@Test
 	public void test_parse_simplestCase() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -92,6 +96,7 @@ public class ExposedFieldCreationSupportTest extends SwingModelTest {
 	/**
 	 * Private fields can not be used for exposing.
 	 */
+	@Test
 	public void test_parse_noPrivateField() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -114,6 +119,7 @@ public class ExposedFieldCreationSupportTest extends SwingModelTest {
 	/**
 	 * If field has value <code>null</code>, it is not exposed.
 	 */
+	@Test
 	public void test_parse_noNullValue() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -135,6 +141,7 @@ public class ExposedFieldCreationSupportTest extends SwingModelTest {
 	/**
 	 * If field component is not connected to host, it is not exposed.
 	 */
+	@Test
 	public void test_parse_noDisconnected() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -156,6 +163,7 @@ public class ExposedFieldCreationSupportTest extends SwingModelTest {
 	/**
 	 * If field exposes its host, we should stop on it.
 	 */
+	@Test
 	public void test_parse_noRecursion() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -177,6 +185,7 @@ public class ExposedFieldCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test that there are no conflict with {@link JFrame} parsing.
 	 */
+	@Test
 	public void test_parse_JFrame() throws Exception {
 		String[] lines = {"public class Test extends JFrame {", "  public Test() {", "  }", "}"};
 		parseContainer(lines);
@@ -189,6 +198,7 @@ public class ExposedFieldCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test that during parsing we restore "logical" parent/child hierarchy.
 	 */
+	@Test
 	public void test_parse_logicalHierarchy() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -242,6 +252,7 @@ public class ExposedFieldCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test that we can access exposed component, using {@link SimpleName}.
 	 */
+	@Test
 	public void test_reference_SimpleName() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -274,6 +285,7 @@ public class ExposedFieldCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test that we can access exposed component, using {@link QualifiedName}.
 	 */
+	@Test
 	public void test_reference_QualifiedName() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -316,6 +328,7 @@ public class ExposedFieldCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test that we can resolve "logical" exposed children.
 	 */
+	@Test
 	public void test_reference_logicalChild() throws Exception {
 		setFileContentSrc(
 				"test/PanelExpose.java",
@@ -356,6 +369,7 @@ public class ExposedFieldCreationSupportTest extends SwingModelTest {
 	/**
 	 * Superclass field hidden by local variable.
 	 */
+	@Test
 	public void test_isJavaInfo_fieldHidden() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -407,6 +421,7 @@ public class ExposedFieldCreationSupportTest extends SwingModelTest {
 	 * Component with {@link ExposedFieldCreationSupport} can be "deleted" - delete its children and
 	 * related nodes, but keep itself in parent.
 	 */
+	@Test
 	public void test_delete() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -464,6 +479,7 @@ public class ExposedFieldCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test that icon of {@link ExposedFieldCreationSupport} component is decorated.
 	 */
+	@Test
 	public void test_decorateIcon() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -515,6 +531,7 @@ public class ExposedFieldCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for {@link ExposedFieldCreationSupport#isDirect()}.
 	 */
+	@Test
 	public void test_isDirect_true() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -560,6 +577,7 @@ public class ExposedFieldCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for {@link ExposedFieldCreationSupport#isDirect()}.
 	 */
+	@Test
 	public void test_isDirect_false() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -606,7 +624,9 @@ public class ExposedFieldCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for {@link IClipboardImplicitCreationSupport} implementation.
 	 */
-	public void DISABLE_test_clipboard() throws Exception {
+	@Ignore
+	@Test
+	public void test_clipboard() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
 				getTestSource(

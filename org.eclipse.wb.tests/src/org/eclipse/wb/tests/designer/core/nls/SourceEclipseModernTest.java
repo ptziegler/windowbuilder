@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.nls;
+import org.junit.Before;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.model.property.GenericProperty;
 import org.eclipse.wb.internal.core.nls.NlsSupport;
@@ -50,7 +53,8 @@ public class SourceEclipseModernTest extends AbstractNlsTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		m_testProject.addPlugin("org.eclipse.osgi");
 	}
@@ -63,6 +67,7 @@ public class SourceEclipseModernTest extends AbstractNlsTest {
 	/**
 	 * Not a {@link ModernEclipseSource} - just {@link StringLiteral}.
 	 */
+	@Test
 	public void test_notModernEclipse_1() throws Exception {
 		ContainerInfo frame =
 				parseContainer(
@@ -78,6 +83,7 @@ public class SourceEclipseModernTest extends AbstractNlsTest {
 	/**
 	 * Not a {@link ModernEclipseSource} - access to static field in not <code>NLS</code> subclass.
 	 */
+	@Test
 	public void test_notModernEclipse_2() throws Exception {
 		setFileContentSrc(
 				"test/Strings.java",
@@ -99,6 +105,7 @@ public class SourceEclipseModernTest extends AbstractNlsTest {
 		assertEquals(0, support.getSources().length);
 	}
 
+	@Test
 	public void test_parse() throws Exception {
 		createAccessorAndProperties();
 		ContainerInfo frame =
@@ -136,6 +143,7 @@ public class SourceEclipseModernTest extends AbstractNlsTest {
 	 * Use constructor without accessor, only to create {@link IEditableSource} using existing
 	 * *.properties.
 	 */
+	@Test
 	public void test_constructorWithoutAccessor() throws Exception {
 		setFileContentSrc(
 				"test/messages.properties",
@@ -156,6 +164,7 @@ public class SourceEclipseModernTest extends AbstractNlsTest {
 		assertEquals("My name", editableSource.getValue(LocaleInfo.DEFAULT, "frame_name"));
 	}
 
+	@Test
 	public void test_possibleSources() throws Exception {
 		createAccessorAndProperties();
 		ContainerInfo frame =
@@ -180,6 +189,7 @@ public class SourceEclipseModernTest extends AbstractNlsTest {
 	/**
 	 * Test for {@link ModernEclipseSource#apply_addKey(String)}.
 	 */
+	@Test
 	public void test_apply_addKey() throws Exception {
 		NlsTestUtils.create_EclipseModern_AccessorAndProperties();
 		ContainerInfo frame =
@@ -201,6 +211,7 @@ public class SourceEclipseModernTest extends AbstractNlsTest {
 		}
 	}
 
+	@Test
 	public void test_externalize() throws Exception {
 		// create empty OSGi NLS source
 		setFileContentSrc("test/messages.properties", "");
@@ -280,6 +291,7 @@ public class SourceEclipseModernTest extends AbstractNlsTest {
 		}
 	}
 
+	@Test
 	public void test_externalize_qualifiedTypeName() throws Exception {
 		// create empty OSGi NLS source
 		setFileContentSrc("test/messages.properties", "");
@@ -365,6 +377,7 @@ public class SourceEclipseModernTest extends AbstractNlsTest {
 		}
 	}
 
+	@Test
 	public void test_renameKey() throws Exception {
 		createAccessorAndProperties();
 		ContainerInfo frame =
@@ -412,6 +425,7 @@ public class SourceEclipseModernTest extends AbstractNlsTest {
 		}
 	}
 
+	@Test
 	public void test_internalize() throws Exception {
 		createAccessorAndProperties();
 		ContainerInfo frame =
@@ -458,6 +472,7 @@ public class SourceEclipseModernTest extends AbstractNlsTest {
 		}
 	}
 
+	@Test
 	public void test_create() throws Exception {
 		ContainerInfo frame =
 				parseContainer(

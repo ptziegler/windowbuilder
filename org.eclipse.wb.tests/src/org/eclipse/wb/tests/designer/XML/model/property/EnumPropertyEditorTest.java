@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.property;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.internal.core.model.property.ITypedProperty;
 import org.eclipse.wb.internal.core.model.property.Property;
@@ -49,6 +51,7 @@ public class EnumPropertyEditorTest extends AbstractCoreTest {
 	/**
 	 * Test using {@link EnumPropertyEditor}.
 	 */
+	@Test
 	public void test_externalEnum() throws Exception {
 		prepare_Foo_MyComponent();
 		ObjectInfo panel = parse("<t:MyComponent foo='B'/>");
@@ -78,6 +81,7 @@ public class EnumPropertyEditorTest extends AbstractCoreTest {
 		}
 	}
 
+	@Test
 	public void test_getText_noValue() throws Exception {
 		Property property = new PropertyNoValue(EnumPropertyEditor.INSTANCE);
 		assertEquals(null, getPropertyText(property));
@@ -86,6 +90,7 @@ public class EnumPropertyEditorTest extends AbstractCoreTest {
 	/**
 	 * Test for {@link ITextValuePropertyEditor}.
 	 */
+	@Test
 	public void test_setText() throws Exception {
 		prepare_Foo_MyComponent();
 		ObjectInfo panel = parse("<t:MyComponent foo='B'/>");
@@ -97,6 +102,7 @@ public class EnumPropertyEditorTest extends AbstractCoreTest {
 		assertXML("<t:MyComponent foo='C'/>");
 	}
 
+	@Test
 	public void test_comboMethods() throws Exception {
 		prepare_Foo_MyComponent();
 		ObjectInfo panel = parse("<t:MyComponent foo='C'/>");
@@ -131,6 +137,7 @@ public class EnumPropertyEditorTest extends AbstractCoreTest {
 	/**
 	 * Test for using simple {@link Property}, not {@link GenericProperty}.
 	 */
+	@Test
 	public void test_simpleProperty() throws Exception {
 		prepare_Foo_MyComponent();
 		parse("<t:MyComponent foo='C'/>");

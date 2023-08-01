@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.jface;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.xwt.model.jface.TableViewerColumnInfo;
@@ -45,6 +47,7 @@ public class TableViewerTest extends XwtModelTest {
 	// Parse
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_parse() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -88,6 +91,7 @@ public class TableViewerTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_TableViewerColumn_properties() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -160,6 +164,7 @@ public class TableViewerTest extends XwtModelTest {
 	// Flow container
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_flowContainer_CREATE() throws Exception {
 		parse(
 				"// filler filler filler filler filler",

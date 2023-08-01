@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.gef;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.internal.swt.model.widgets.TableInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpGefTest;
@@ -34,6 +36,7 @@ public class ViewerColumnGefTest extends RcpGefTest {
 	// Canvas
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_dropOnTable() throws Exception {
 		CompositeInfo composite =
 				openComposite(
@@ -86,6 +89,7 @@ public class ViewerColumnGefTest extends RcpGefTest {
 		}
 	}
 
+	@Test
 	public void test_dropOnTableViewer() throws Exception {
 		CompositeInfo composite =
 				openComposite(

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.support;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.swt.support.DisplaySupport;
 
@@ -35,18 +37,22 @@ public class DisplaySupportTest extends AbstractSupportTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getDisplayClass() throws Exception {
 		assertSame(getDisplayClass(), DisplaySupport.getDisplayClass());
 	}
 
+	@Test
 	public void test_getDefault() throws Exception {
 		assertSame(getDefaultDisplay(), DisplaySupport.getDefault());
 	}
 
+	@Test
 	public void test_getCurrent() throws Exception {
 		assertSame(getCurrentDisplay(), DisplaySupport.getCurrent());
 	}
 
+	@Test
 	public void test_getSystemColor() throws Exception {
 		assertEquals(
 				ReflectionUtils.invokeMethod(getCurrentDisplay(), "getSystemColor(int)", SWT.COLOR_RED),
@@ -59,6 +65,7 @@ public class DisplaySupportTest extends AbstractSupportTest {
 				DisplaySupport.getSystemColor(SWT.COLOR_WHITE));
 	}
 
+	@Test
 	public void test_getSystemFont() throws Exception {
 		assertSame(
 				ReflectionUtils.invokeMethod(getDefaultDisplay(), "getSystemFont()"),

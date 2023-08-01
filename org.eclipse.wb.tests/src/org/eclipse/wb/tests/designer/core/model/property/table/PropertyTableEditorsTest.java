@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property.table;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.editor.PropertyEditor;
 import org.eclipse.wb.internal.core.model.property.editor.string.StringPropertyEditor;
@@ -33,6 +35,7 @@ public class PropertyTableEditorsTest extends AbstractPropertyTableTest {
 	/**
 	 * Click in empty space - no editor.
 	 */
+	@Test
 	public void test_1_noProperty() throws Exception {
 		Property property = new TestProperty("text", true, "New button", stringEditor);
 		m_propertyTable.setInput(new Property[]{property});
@@ -46,6 +49,7 @@ public class PropertyTableEditorsTest extends AbstractPropertyTableTest {
 	/**
 	 * Test {@link PropertyEditor} activate/deactivate using {@link StringPropertyEditor}.
 	 */
+	@Test
 	public void test_2_activateDeactivate() throws Exception {
 		PropertyEditor xEditor = StringPropertyEditor.INSTANCE;
 		PropertyEditor yEditor = StringPropertyEditor.INSTANCE;

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.variables;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.JavaInfoUtils;
 import org.eclipse.wb.internal.core.model.variable.ExposedFieldVariableSupport;
 import org.eclipse.wb.internal.core.model.variable.VariableSupport;
@@ -42,6 +44,7 @@ public class ExposedFieldTest extends AbstractVariableTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_object() throws Exception {
 		m_javaProject.setOption(JavaCore.CODEASSIST_FIELD_PREFIXES, "m_");
 		setFileContentSrc(
@@ -113,6 +116,7 @@ public class ExposedFieldTest extends AbstractVariableTest {
 		}
 	}
 
+	@Test
 	public void test_getChildTarget() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -145,6 +149,7 @@ public class ExposedFieldTest extends AbstractVariableTest {
 	/**
 	 * Test that we add new component after last {@link Statement} of "button".
 	 */
+	@Test
 	public void test_addButton() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",

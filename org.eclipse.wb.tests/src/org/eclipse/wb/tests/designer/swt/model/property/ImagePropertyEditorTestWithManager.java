@@ -9,6 +9,10 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.property;
+import org.junit.Ignore;
+import org.junit.Before;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.rcp.ToolkitProvider;
@@ -34,7 +38,8 @@ public class ImagePropertyEditorTestWithManager extends ImagePropertyEditorTest 
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		ToolkitProvider.DESCRIPTION.getPreferences().setValue(
 				IPreferenceConstants.P_USE_RESOURCE_MANAGER,
@@ -58,6 +63,7 @@ public class ImagePropertyEditorTestWithManager extends ImagePropertyEditorTest 
 	/**
 	 * No value for property.
 	 */
+	@Test
 	public void test_textSource_noValue() throws Exception {
 		Property property = new GenericPropertyNoValue(null, null, ImagePropertyEditor.INSTANCE);
 		assertNull(PropertyEditorTestUtils.getText(property));
@@ -67,6 +73,7 @@ public class ImagePropertyEditorTestWithManager extends ImagePropertyEditorTest 
 	/**
 	 * "null" value for property.
 	 */
+	@Test
 	public void test_textSource_nullValue() throws Exception {
 		assert_getText_getClipboardSource_forSource("null", "(null)", "null");
 	}
@@ -74,6 +81,7 @@ public class ImagePropertyEditorTestWithManager extends ImagePropertyEditorTest 
 	/**
 	 * Image creation using constructor with absolute file path.
 	 */
+	@Test
 	public void test_textSource_absolutePath() throws Exception {
 		File file = createTempImage();
 		try {
@@ -88,7 +96,9 @@ public class ImagePropertyEditorTestWithManager extends ImagePropertyEditorTest 
 	/**
 	 * Image creation using constructor with input stream (over class resource).
 	 */
-	public void DISABLED_test_textSource_image_over_classpath() throws Exception {
+	@Ignore
+	@Test
+	public void test_textSource_image_over_classpath() throws Exception {
 		assert_getText_getClipboardSource_forSource(
 				"new Image(null, getClass().getResourceAsStream(\"/javax/swing/plaf/basic/icons/JavaCup16.png\"))",
 				"Classpath: /javax/swing/plaf/basic/icons/JavaCup16.png",
@@ -98,7 +108,9 @@ public class ImagePropertyEditorTestWithManager extends ImagePropertyEditorTest 
 	/**
 	 * Image creation using constructor with input stream (over class resource).
 	 */
-	public void DISABLED_test_textSource_image_over_classpath_OtherClass() throws Exception {
+	@Ignore
+	@Test
+	public void test_textSource_image_over_classpath_OtherClass() throws Exception {
 		assert_getText_getClipboardSource_forSource(
 				"new Image(null, java.lang.String.class.getResourceAsStream(\"/javax/swing/plaf/basic/icons/JavaCup16.png\"))",
 				"Classpath: /javax/swing/plaf/basic/icons/JavaCup16.png",
@@ -113,6 +125,7 @@ public class ImagePropertyEditorTestWithManager extends ImagePropertyEditorTest 
 	/**
 	 * Image creation using constructor with absolute file path.
 	 */
+	@Test
 	public void test_textSource_absolutePath2() throws Exception {
 		File file = createTempImage();
 		try {
@@ -128,6 +141,7 @@ public class ImagePropertyEditorTestWithManager extends ImagePropertyEditorTest 
 	/**
 	 * Image creation using constructor with input stream (over class resource).
 	 */
+	@Test
 	public void test_textSource_image_over_classpath2() throws Exception {
 		assert_getText_getClipboardSource_forSource2(
 				"org.eclipse.wb.swt.SWTResourceManager.getImage(getClass(), \"/javax/swing/plaf/basic/icons/JavaCup16.png\")",
@@ -138,6 +152,7 @@ public class ImagePropertyEditorTestWithManager extends ImagePropertyEditorTest 
 	/**
 	 * Image creation using constructor with input stream (over class resource).
 	 */
+	@Test
 	public void test_textSource_image_over_classpath_OtherClass2() throws Exception {
 		assert_getText_getClipboardSource_forSource2(
 				"org.eclipse.wb.swt.SWTResourceManager.getImage(java.lang.String.class, \"/javax/swing/plaf/basic/icons/JavaCup16.png\")",

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.jsr296;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.utils.IOUtils2;
 import org.eclipse.wb.internal.swing.jsr296.Activator;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
@@ -45,6 +47,7 @@ public class ActivatorTest extends DesignerTestCase {
 	/**
 	 * Test for {@link Activator#getDefault()}.
 	 */
+	@Test
 	public void test_getDefault() throws Exception {
 		assertNotNull(Activator.getDefault());
 	}
@@ -57,6 +60,7 @@ public class ActivatorTest extends DesignerTestCase {
 	/**
 	 * Test for {@link Activator#getFile(String)}.
 	 */
+	@Test
 	public void test_getFile() throws Exception {
 		InputStream file = Activator.getFile("plugin.xml");
 		assertNotNull(file);
@@ -71,6 +75,7 @@ public class ActivatorTest extends DesignerTestCase {
 	/**
 	 * Test for {@link Activator#getFile(String)}.
 	 */
+	@Test
 	public void test_getFile_bad() throws Exception {
 		try {
 			Activator.getFile("noSuch.file");
@@ -88,6 +93,7 @@ public class ActivatorTest extends DesignerTestCase {
 	/**
 	 * Test for {@link Activator#getImage(String)}.
 	 */
+	@Test
 	public void test_getImage_good() throws Exception {
 		Image image = Activator.getImage("wizards/banner.png");
 		assertNotNull(image);
@@ -96,6 +102,7 @@ public class ActivatorTest extends DesignerTestCase {
 	/**
 	 * Test for {@link Activator#getImage(String)}.
 	 */
+	@Test
 	public void test_getImage_bad() throws Exception {
 		try {
 			Activator.getImage("noSuch.png");
@@ -113,6 +120,7 @@ public class ActivatorTest extends DesignerTestCase {
 	/**
 	 * Test for {@link Activator#getImageDescriptor(String)}.
 	 */
+	@Test
 	public void test_getImageDescription_good() throws Exception {
 		ImageDescriptor imageDescriptor = Activator.getImageDescriptor("wizards/banner.png");
 		assertNotNull(imageDescriptor);
@@ -121,6 +129,7 @@ public class ActivatorTest extends DesignerTestCase {
 	/**
 	 * Test for {@link Activator#getImageDescriptor(String)}.
 	 */
+	@Test
 	public void test_getImageDescription_bad() throws Exception {
 		try {
 			Activator.getImageDescriptor("noSuch.png");

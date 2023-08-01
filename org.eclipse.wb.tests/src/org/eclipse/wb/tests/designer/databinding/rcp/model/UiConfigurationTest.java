@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.databinding.rcp.model;
 
+import org.junit.Test;
+
 import com.google.common.collect.Lists;
 
 import org.eclipse.wb.internal.core.databinding.ui.editor.IPageListener;
@@ -52,6 +54,7 @@ public class UiConfigurationTest extends AbstractBindingTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_ObservableInfo() throws Exception {
 		CompositeInfo shell =
 				DatabindingTestUtils.parseTestSource(
@@ -178,6 +181,7 @@ public class UiConfigurationTest extends AbstractBindingTest {
 		assertEquals(expected, actual);
 	}
 
+	@Test
 	public void test_UpdateValueStrategy() throws Exception {
 		CompositeInfo shell =
 				DatabindingTestUtils.parseTestSource(
@@ -324,6 +328,7 @@ public class UiConfigurationTest extends AbstractBindingTest {
 		assertEquals(converterExpected, converterActual);
 	}
 
+	@Test
 	public void test_BindingInfo() throws Exception {
 		CompositeInfo shell =
 				DatabindingTestUtils.parseTestSource(
@@ -595,6 +600,7 @@ public class UiConfigurationTest extends AbstractBindingTest {
 		assertInstanceOf(BindingContentProvider.class, providers.get(10));
 	}
 
+	@Test
 	public void test_UpdateListStrategy() throws Exception {
 		CompositeInfo shell =
 				DatabindingTestUtils.parseTestSource(
@@ -689,6 +695,7 @@ public class UiConfigurationTest extends AbstractBindingTest {
 		assertEquals(converterExpected, converterActual);
 	}
 
+	@Test
 	public void test_UpdateSetStrategy() throws Exception {
 		CompositeInfo shell =
 				DatabindingTestUtils.parseTestSource(

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.core.model.association.ConstructorAssociation;
 import org.eclipse.wb.core.model.association.ImplicitObjectAssociation;
@@ -90,6 +92,7 @@ public class CompositeTest extends RcpModelTest {
 	 * Test that even though "style" is evaluated using {@link IThisMethodParameterEvaluator}, we
 	 * still can ask for value of "style" argument in {@link SuperConstructorInvocation}.
 	 */
+	@Test
 	public void test_styleValue() throws Exception {
 		CompositeInfo composite =
 				parseComposite(
@@ -118,6 +121,7 @@ public class CompositeTest extends RcpModelTest {
 	/**
 	 * Explicit value for "style" argument of {@link SuperMethodInvocation}.
 	 */
+	@Test
 	public void test_styleValue2() throws Exception {
 		CompositeInfo composite =
 				parseComposite(
@@ -137,6 +141,7 @@ public class CompositeTest extends RcpModelTest {
 	 * constructor. However custom {@link Composite}-s may use 1-th parameter for different parameter,
 	 * not just for "style".
 	 */
+	@Test
 	public void test_betterStyleParameterDetection() throws Exception {
 		setFileContentSrc(
 				"test/MyComposite.java",
@@ -167,6 +172,7 @@ public class CompositeTest extends RcpModelTest {
 	/**
 	 * Test for implicit absolute layout.
 	 */
+	@Test
 	public void test_AbsoluteLayout_1() throws Exception {
 		CompositeInfo shellInfo =
 				parseComposite(
@@ -191,6 +197,7 @@ public class CompositeTest extends RcpModelTest {
 	/**
 	 * Test for absolute layout set as "setLayout(null)".
 	 */
+	@Test
 	public void test_AbsoluteLayout_2() throws Exception {
 		CompositeInfo shellInfo =
 				parseComposite(
@@ -272,6 +279,7 @@ public class CompositeTest extends RcpModelTest {
 	/**
 	 * Test for {@link CompositeInfo#hasLayout()} and {@link CompositeInfo#markNoLayout()}.
 	 */
+	@Test
 	public void test_hasLayout() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -289,6 +297,7 @@ public class CompositeTest extends RcpModelTest {
 		Assertions.assertThat(shell.getChildren(LayoutInfo.class)).isEmpty();
 	}
 
+	@Test
 	public void test_setLayout_1() throws Exception {
 		CompositeInfo shellInfo =
 				parseComposite(
@@ -322,6 +331,7 @@ public class CompositeTest extends RcpModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_setLayout_2() throws Exception {
 		CompositeInfo shellInfo =
 				parseComposite(
@@ -359,6 +369,7 @@ public class CompositeTest extends RcpModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_setLayout_3() throws Exception {
 		CompositeInfo shellInfo =
 				parseComposite(
@@ -398,6 +409,7 @@ public class CompositeTest extends RcpModelTest {
 	/**
 	 * Set {@link LayoutInfo} that asks about adding itself into {@link Block}.
 	 */
+	@Test
 	public void test_setLayout_4() throws Exception {
 		setFileContentSrc(
 				"test/MyLayout.java",
@@ -446,6 +458,7 @@ public class CompositeTest extends RcpModelTest {
 	/**
 	 * Test that {@link LayoutInfo} uses correct {@link ComponentOrder}.
 	 */
+	@Test
 	public void test_setLayout_order() throws Exception {
 		CompositeInfo composite =
 				parseComposite(
@@ -481,6 +494,7 @@ public class CompositeTest extends RcpModelTest {
 	 * If {@link Composite} marked as "no layout", then {@link Composite#setLayout(Layout)} should not
 	 * be association.
 	 */
+	@Test
 	public void test_setLayout_ifMarkedAsNoLayout() throws Exception {
 		setFileContentSrc(
 				"test/MyComposite.java",
@@ -519,6 +533,7 @@ public class CompositeTest extends RcpModelTest {
 	// Implicit layouts
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_ImplicitLayout_1() throws Exception {
 		setFileContentSrc(
 				"test/ImplicitComposite.java",
@@ -578,6 +593,7 @@ public class CompositeTest extends RcpModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_ImplicitLayout_2() throws Exception {
 		setFileContentSrc(
 				"test/ImplicitComposite.java",
@@ -611,6 +627,7 @@ public class CompositeTest extends RcpModelTest {
 		assertEquals("(implicit layout)", variableSupport.getTitle());
 	}
 
+	@Test
 	public void test_ImplicitLayout_3() throws Exception {
 		setFileContentSrc(
 				"test/ImplicitComposite.java",
@@ -655,6 +672,7 @@ public class CompositeTest extends RcpModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_ImplicitLayout_overset() throws Exception {
 		setFileContentSrc(
 				"test/ImplicitComposite.java",
@@ -704,6 +722,7 @@ public class CompositeTest extends RcpModelTest {
 	/**
 	 * If {@link Composite} was replaced with placeholder, it should not have layout.
 	 */
+	@Test
 	public void test_placeholder_hasLayout() throws Exception {
 		setFileContentSrc(
 				"test/MyComposite.java",
@@ -735,6 +754,7 @@ public class CompositeTest extends RcpModelTest {
 	/**
 	 * If {@link Composite} was replaced with placeholder, we still can create children on it.
 	 */
+	@Test
 	public void test_placeholder_andChildren() throws Exception {
 		setFileContentSrc(
 				"test/MyComposite.java",
@@ -775,6 +795,7 @@ public class CompositeTest extends RcpModelTest {
 	/**
 	 * Test for {@link IPreferenceConstants#P_LAYOUT_DEFAULT}, i.e. installation for default layout.
 	 */
+	@Test
 	public void test_setDefaultLayout() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -822,6 +843,7 @@ public class CompositeTest extends RcpModelTest {
 	/**
 	 * Test for {@link IPreferenceConstants#P_LAYOUT_OF_PARENT}, that enables layout inheritance.
 	 */
+	@Test
 	public void test_inheritParentLayout() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -869,6 +891,7 @@ public class CompositeTest extends RcpModelTest {
 	/**
 	 * No inheritance of implicit layout.
 	 */
+	@Test
 	public void test_inheritParentLayout_nullImplicit() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -912,6 +935,7 @@ public class CompositeTest extends RcpModelTest {
 	/**
 	 * No inheritance of implicit layout.
 	 */
+	@Test
 	public void test_inheritParentLayout_nullExplicit() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -962,6 +986,7 @@ public class CompositeTest extends RcpModelTest {
 	 * <p>
 	 * So, we should ignore all invocations from standard SWT constructors.
 	 */
+	@Test
 	public void test_checkSubclass_andBinaryExecutionFlow() throws Exception {
 		setFileContentSrc(
 				"test/MyComposite.java",
@@ -994,6 +1019,7 @@ public class CompositeTest extends RcpModelTest {
 	/**
 	 * Test that {@link CompositeInfo} contributes "Set layout" sub-menu in context menu.
 	 */
+	@Test
 	public void test_setLayoutMenu_1() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -1043,6 +1069,7 @@ public class CompositeTest extends RcpModelTest {
 	/**
 	 * No "Set Layout" sub-menu if Composite has no layout.
 	 */
+	@Test
 	public void test_setLayoutMenu_2() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -1067,6 +1094,7 @@ public class CompositeTest extends RcpModelTest {
 	// "Set minimal size, as after pack()" action in context menu
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_contextMenu_setMinimalSize_forRoot() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -1089,6 +1117,7 @@ public class CompositeTest extends RcpModelTest {
 		assertEquals(shell.getPreferredSize(), shell.getBounds().getSize());
 	}
 
+	@Test
 	public void test_contextMenu_setMinimalSize_noActionForInner() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -1113,6 +1142,7 @@ public class CompositeTest extends RcpModelTest {
 	// "Remove setSize()" action in context menu
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_contextMenu_removeSize() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -1145,6 +1175,7 @@ public class CompositeTest extends RcpModelTest {
 	/**
 	 * Check for {@link ControlInfo} association using constructor.
 	 */
+	@Test
 	public void test_getAssociation_Control() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -1165,6 +1196,7 @@ public class CompositeTest extends RcpModelTest {
 	 * Test for {@link LayoutInfo} association using
 	 * {@link Composite#setLayout(org.eclipse.swt.widgets.Layout)}.
 	 */
+	@Test
 	public void test_getAssociation_setLayout() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -1183,6 +1215,7 @@ public class CompositeTest extends RcpModelTest {
 				association.getInvocation());
 	}
 
+	@Test
 	public void test_createInMethod() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -1210,6 +1243,7 @@ public class CompositeTest extends RcpModelTest {
 	// Target
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_target_Shell() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -1242,6 +1276,7 @@ public class CompositeTest extends RcpModelTest {
 	/**
 	 * Test for {@link CompositeInfo#shouldDrawDotsBorder()}.
 	 */
+	@Test
 	public void test_shouldDrawDotsBorder() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -1276,6 +1311,7 @@ public class CompositeTest extends RcpModelTest {
 	 * <p>
 	 * First part of test, remembers used {@link Shell}.
 	 */
+	@Test
 	public void test_useSeparateShell_1() throws Exception {
 		CompositeInfo composite =
 				parseComposite(
@@ -1293,6 +1329,7 @@ public class CompositeTest extends RcpModelTest {
 	/**
 	 * We can not use same {@link Shell} for more than one {@link Composite}.
 	 */
+	@Test
 	public void test_useSeparateShell_2() throws Exception {
 		CompositeInfo composite =
 				parseComposite(

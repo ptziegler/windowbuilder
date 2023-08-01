@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor.validator;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.gef.policy.validator.BorderTransparentLayoutRequestValidator;
 import org.eclipse.wb.draw2d.FigureUtils;
 import org.eclipse.wb.gef.core.EditPart;
@@ -62,6 +64,7 @@ public class BorderTransparentLayoutRequestValidatorTest extends SwingGefTest {
 		panelEditPart = canvas.getEditPart(panel);
 	}
 
+	@Test
 	public void test_CREATE() throws Exception {
 		preparePanel();
 		CreateRequest request = new CreateRequest(null);
@@ -83,6 +86,7 @@ public class BorderTransparentLayoutRequestValidatorTest extends SwingGefTest {
 		}
 	}
 
+	@Test
 	public void test_CREATE_tree() throws Exception {
 		preparePanel();
 		EditPart treeEditPart = tree.getEditPart(panel);
@@ -94,6 +98,7 @@ public class BorderTransparentLayoutRequestValidatorTest extends SwingGefTest {
 		}
 	}
 
+	@Test
 	public void test_PASTE() throws Exception {
 		preparePanel();
 		PasteRequest request = new PasteRequest(null);
@@ -115,6 +120,7 @@ public class BorderTransparentLayoutRequestValidatorTest extends SwingGefTest {
 		}
 	}
 
+	@Test
 	public void test_MOVE() throws Exception {
 		preparePanel();
 		ChangeBoundsRequest request = new ChangeBoundsRequest(Request.REQ_MOVE);
@@ -125,6 +131,7 @@ public class BorderTransparentLayoutRequestValidatorTest extends SwingGefTest {
 		}
 	}
 
+	@Test
 	public void test_ADD() throws Exception {
 		preparePanel();
 		ChangeBoundsRequest request = new ChangeBoundsRequest(Request.REQ_ADD);

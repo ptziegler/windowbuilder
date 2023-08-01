@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.editor;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.xml.editor.actions.CutAction;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
@@ -30,6 +32,7 @@ public class CutActionTest extends XwtGefTest {
 	/**
 	 * "Cut" action is disabled if no selection.
 	 */
+	@Test
 	public void test_noSelection() throws Exception {
 		openEditor("<Shell/>");
 		// prepare "Cut" action
@@ -42,6 +45,7 @@ public class CutActionTest extends XwtGefTest {
 	/**
 	 * "This" component can not be copied or deleted.
 	 */
+	@Test
 	public void test_thisSelection() throws Exception {
 		XmlObjectInfo shell = openEditor("<Shell/>");
 		// prepare "Cut" action
@@ -54,6 +58,7 @@ public class CutActionTest extends XwtGefTest {
 	/**
 	 * Test for cut/paste single component.
 	 */
+	@Test
 	public void test_cutSingle() throws Exception {
 		XmlObjectInfo shell =
 				openEditor(

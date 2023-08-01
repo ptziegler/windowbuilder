@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.xml.model.clipboard.XmlObjectMemento;
 import org.eclipse.wb.internal.xwt.model.widgets.CompositeInfo;
@@ -54,6 +56,7 @@ public class TableTest extends XwtModelTest {
 	/**
 	 * Test for parsing {@link TableItem} and bounds of {@link TableItemInfo}.
 	 */
+	@Test
 	public void test_TableItem() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -98,6 +101,7 @@ public class TableTest extends XwtModelTest {
 	/**
 	 * If no {@link TableColumn}, then {@link TabItem} should have width of {@link Table}.
 	 */
+	@Test
 	public void test_TableItem_whenNoColumns() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -127,6 +131,7 @@ public class TableTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_add_TableItem() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -161,6 +166,7 @@ public class TableTest extends XwtModelTest {
 	/**
 	 * Test for parsing {@link TableColumn} and bounds of {@link TableColumnInfo}.
 	 */
+	@Test
 	public void test_TableColumn() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -190,6 +196,7 @@ public class TableTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_TableColumn_setWidth() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -215,6 +222,7 @@ public class TableTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_add_TableColumn() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -240,6 +248,7 @@ public class TableTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_move_TableColumn() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -269,6 +278,7 @@ public class TableTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_reparent_TableColumn() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -298,6 +308,7 @@ public class TableTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_clipboard() throws Exception {
 		CompositeInfo shell =
 				parse(

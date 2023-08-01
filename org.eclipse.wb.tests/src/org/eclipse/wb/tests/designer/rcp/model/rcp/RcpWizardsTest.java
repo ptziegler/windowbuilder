@@ -9,6 +9,10 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.rcp;
+import org.junit.Before;
+import org.junit.After;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.rcp.wizards.rcp.editor.EditorPartWizard;
 import org.eclipse.wb.internal.rcp.wizards.rcp.view.ViewPartWizard;
@@ -39,13 +43,15 @@ public class RcpWizardsTest extends RcpModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		m_packageFragment = m_testProject.getPackage("test");
 	}
 
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		waitEventLoop(10);
 		super.tearDown();
 	}
@@ -65,6 +71,7 @@ public class RcpWizardsTest extends RcpModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@DisposeProjectAfter
+	@Test
 	public void test_ViewPart_isPDE() throws Exception {
 		PdeProjectConversionUtils.convertToPDE(m_project, null, null);
 		animate_ViewPart();
@@ -79,6 +86,7 @@ public class RcpWizardsTest extends RcpModelTest {
 	}
 
 	@DisposeProjectAfter
+	@Test
 	public void test_ViewPart_notPDE() throws Exception {
 		animate_ViewPart();
 		assertFileNotExists("plugin.xml");
@@ -106,6 +114,7 @@ public class RcpWizardsTest extends RcpModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@DisposeProjectAfter
+	@Test
 	public void test_EditorPart_isPDE() throws Exception {
 		PdeProjectConversionUtils.convertToPDE(m_project, null, null);
 		animate_EditorPart();
@@ -120,6 +129,7 @@ public class RcpWizardsTest extends RcpModelTest {
 	}
 
 	@DisposeProjectAfter
+	@Test
 	public void test_EditorPart_notPDE() throws Exception {
 		animate_EditorPart();
 		assertFileNotExists("plugin.xml");

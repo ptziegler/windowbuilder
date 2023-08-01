@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.CompositeInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.SashFormInfo;
@@ -35,6 +37,7 @@ public class SashFormGefTest extends XwtGefTest {
 	// Canvas
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_tree_CREATE_noNext() throws Exception {
 		CompositeInfo composite =
 				openEditor(
@@ -58,6 +61,7 @@ public class SashFormGefTest extends XwtGefTest {
 	// Canvas
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_canvas_CREATE_noNext() throws Exception {
 		CompositeInfo composite =
 				openEditor(
@@ -76,6 +80,7 @@ public class SashFormGefTest extends XwtGefTest {
 				"</SashForm>");
 	}
 
+	@Test
 	public void test_canvas_CREATE_withNext() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -94,6 +99,7 @@ public class SashFormGefTest extends XwtGefTest {
 				"</SashForm>");
 	}
 
+	@Test
 	public void test_canvas_MOVE_reorder() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -113,6 +119,7 @@ public class SashFormGefTest extends XwtGefTest {
 				"</SashForm>");
 	}
 
+	@Test
 	public void test_canvas_RESIZE_horizontal() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -131,6 +138,7 @@ public class SashFormGefTest extends XwtGefTest {
 				"</SashForm>");
 	}
 
+	@Test
 	public void test_canvas_RESIZE_vertical() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",

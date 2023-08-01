@@ -9,7 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.util;
-
 import com.google.common.collect.ImmutableBiMap;
 import com.google.common.collect.ImmutableList;
 
@@ -29,7 +28,10 @@ import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
+import org.junit.Test;
 
+import java.text.MessageFormat;
 import java.util.List;
 
 /**
@@ -55,6 +57,7 @@ public class TemplateUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link TemplateUtils#getExpression(JavaInfo)}.
 	 */
+	@Test
 	public void test_getExpression() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -70,7 +73,9 @@ public class TemplateUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link TemplateUtils#format(String, Object...)}.
 	 */
-	public void DISABLE_test_format() throws Exception {
+	@Ignore
+	@Test
+	public void test_format() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
 						"// filler filler filler",
@@ -81,7 +86,7 @@ public class TemplateUtilsTest extends SwingModelTest {
 		String id = ObjectInfoUtils.getId(panel);
 		{
 			String expected = TemplateUtils.ID_PREFIX + id + ".setEnabled(false)";
-			assertEquals(expected, format("{0}.setEnabled({1})", panel, "false"));
+			assertEquals(expected, MessageFormat.format("{0}.setEnabled({1})", panel, "false"));
 		}
 	}
 
@@ -93,6 +98,7 @@ public class TemplateUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link TemplateUtils#resolve(NodeTarget, String)}.
 	 */
+	@Test
 	public void test_resolve_referenceExpression() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -110,6 +116,7 @@ public class TemplateUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link TemplateUtils#resolve(JavaInfo, StatementTarget, String)}.
 	 */
+	@Test
 	public void test_resolve_referenceExpression_usingStatementTarget() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -127,6 +134,7 @@ public class TemplateUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link TemplateUtils#resolve(BodyDeclarationTarget, String)}.
 	 */
+	@Test
 	public void test_resolve_referenceExpression_usingBodyDeclarationTarget() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -144,6 +152,7 @@ public class TemplateUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link TemplateUtils#resolve(NodeTarget, String)}.
 	 */
+	@Test
 	public void test_resolve_thisAccessExpression() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -161,6 +170,7 @@ public class TemplateUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link TemplateUtils#resolve(NodeTarget, String)}.
 	 */
+	@Test
 	public void test_resolve_accessExpression() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -181,6 +191,7 @@ public class TemplateUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link TemplateUtils#resolve(List, StatementTarget)}.
 	 */
+	@Test
 	public void test_resolve_StringList() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -204,6 +215,7 @@ public class TemplateUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link TemplateUtils#resolve(StatementTarget, String, Object...)}.
 	 */
+	@Test
 	public void test_formatResolve_StatementTarget() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -220,6 +232,7 @@ public class TemplateUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link TemplateUtils#resolve(StatementTarget, String, Object...)}.
 	 */
+	@Test
 	public void test_formatResolve_BodyDeclarationTarget() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -241,6 +254,7 @@ public class TemplateUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link TemplateUtils#addStatement(JavaInfo, StatementTarget, List)}.
 	 */
+	@Test
 	public void test_addStatement() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -267,6 +281,7 @@ public class TemplateUtilsTest extends SwingModelTest {
 	// Evaluate OLD
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_evaluate() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

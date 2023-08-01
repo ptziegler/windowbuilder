@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property.editor;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.clipboard.IClipboardSourceProvider;
 import org.eclipse.wb.internal.core.model.property.GenericProperty;
 import org.eclipse.wb.internal.core.model.property.Property;
@@ -97,6 +99,7 @@ public class StylePropertyEditorTest extends SwingModelTest {
 	// Set
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_StyleProperty_Set_1() throws Exception {
 		parseStyleProperties("set|B0 B1 B2:specialName");
 		{
@@ -135,6 +138,7 @@ public class StylePropertyEditorTest extends SwingModelTest {
 		assertEditorText("[]");
 	}
 
+	@Test
 	public void test_StyleProperty_Set_2() throws Exception {
 		parseStyleProperties("set|B0 noSuchField");
 		// check
@@ -149,6 +153,7 @@ public class StylePropertyEditorTest extends SwingModelTest {
 	// Select
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_Select_1() throws Exception {
 		parseStyleProperties("set|B0 B1", "select0|align R1 R1 R2 R3");
 		// check sub properties
@@ -201,6 +206,7 @@ public class StylePropertyEditorTest extends SwingModelTest {
 		assertEditorText("[]");
 	}
 
+	@Test
 	public void test_Select_2() throws Exception {
 		parseStyleProperties("select0|align 15 15 R1 noSuchField");
 		Assertions.assertThat(PropertyUtils.getTitles(m_properties)).containsOnly("align");
@@ -219,6 +225,7 @@ public class StylePropertyEditorTest extends SwingModelTest {
 		checkWarning("StylePropertyEditor: can not find field test.SWT.noSuchField");
 	}
 
+	@Test
 	public void test_Select_for_methodProperty() throws Exception {
 		setFileContentSrc(
 				"test/TestComposite.java",
@@ -299,6 +306,7 @@ public class StylePropertyEditorTest extends SwingModelTest {
 	// Macro
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_Macro_1() throws Exception {
 		parseStyleProperties("set|B0 B1 B2 B3", "macro0|mix B0_B1 B0_B2 R1");
 		Property property_B0 = m_properties[0];
@@ -340,6 +348,7 @@ public class StylePropertyEditorTest extends SwingModelTest {
 		assertEditorText("[R1]");
 	}
 
+	@Test
 	public void test_Macro_2() throws Exception {
 		parseStyleProperties("set|B0 B1", "macro0|mix B0_B1 R1");
 		Property property_B0 = m_properties[0];
@@ -366,6 +375,7 @@ public class StylePropertyEditorTest extends SwingModelTest {
 	// Enumeration
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_enum() throws Exception {
 		parseStyleProperties("SWT.NONE", new String[]{"set|B0 B1", "enum0|en 0xF0 R1 R2 R3"});
 		// "B0"
@@ -432,6 +442,7 @@ public class StylePropertyEditorTest extends SwingModelTest {
 		styleItems = styleMenu.getItems();
 	}
 
+	@Test
 	public void test_popup() throws Exception {
 		parseStyleProperties("set|B0 B1 B2", "select0|align R1 R1 R2 R3");
 		prepareStyleItems(false);
@@ -455,6 +466,7 @@ public class StylePropertyEditorTest extends SwingModelTest {
 		assertStyleSource("SWT.B0 | SWT.R2");
 	}
 
+	@Test
 	public void test_popup_cascade() throws Exception {
 		parseStyleProperties("set|B0 B1", "select0|align R1 R1 R2 R3");
 		prepareStyleItems(true);
@@ -474,6 +486,7 @@ public class StylePropertyEditorTest extends SwingModelTest {
 		checkItem("R3", IAction.AS_RADIO_BUTTON, false, alignItems[3]);
 	}
 
+	@Test
 	public void test_popup_enum() throws Exception {
 		parseStyleProperties("set|B0 B1", "enum0|enum 0xF0 R1 R2 R3");
 		prepareStyleItems(false);
@@ -487,6 +500,7 @@ public class StylePropertyEditorTest extends SwingModelTest {
 		checkItem("R3", IAction.AS_RADIO_BUTTON, false, styleItems[5]);
 	}
 
+	@Test
 	public void test_popup_macro() throws Exception {
 		parseStyleProperties("set|B0 B1", "macro0|mix B0_B1 B0_B2 R1");
 		prepareStyleItems(false);
@@ -516,6 +530,7 @@ public class StylePropertyEditorTest extends SwingModelTest {
 	// IValueSourcePropertyEditor
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_IValueSourcePropertyEditor() throws Exception {
 		int value = 1 << 0 | 1 << 2;
 		parseStyleProperties("set|B0 B1 B2");
@@ -537,6 +552,7 @@ public class StylePropertyEditorTest extends SwingModelTest {
 	// IClipboardSourceProvider
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_IClipboardSourceProvider() throws Exception {
 		parseStyleProperties("SWT.B0 | SWT.B2", new String[]{"set|B0 B1 B2"});
 		// check clipboard source

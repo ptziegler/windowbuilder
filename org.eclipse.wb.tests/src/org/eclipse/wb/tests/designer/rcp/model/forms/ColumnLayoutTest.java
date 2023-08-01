@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.forms;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.clipboard.JavaInfoMemento;
 import org.eclipse.wb.internal.core.model.creation.ConstructorCreationSupport;
 import org.eclipse.wb.internal.core.utils.jdt.core.CodeUtils;
@@ -47,6 +49,7 @@ public class ColumnLayoutTest extends AbstractFormsTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_LayoutData_implicit() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -80,6 +83,7 @@ public class ColumnLayoutTest extends AbstractFormsTest {
 				"}");
 	}
 
+	@Test
 	public void test_LayoutData_explicit() throws Exception {
 		CompositeInfo shell =
 				parseJavaInfo(
@@ -98,6 +102,7 @@ public class ColumnLayoutTest extends AbstractFormsTest {
 		assertInstanceOf(ConstructorCreationSupport.class, columnData.getCreationSupport());
 	}
 
+	@Test
 	public void test_copyPaste() throws Exception {
 		CompositeInfo shell =
 				parseJavaInfo(
@@ -154,6 +159,7 @@ public class ColumnLayoutTest extends AbstractFormsTest {
 				"}");
 	}
 
+	@Test
 	public void test_selectionActions_1() throws Exception {
 		CompositeInfo shell =
 				parseJavaInfo(
@@ -208,6 +214,7 @@ public class ColumnLayoutTest extends AbstractFormsTest {
 	/**
 	 * No selection.
 	 */
+	@Test
 	public void test_selectionActions_2() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -226,6 +233,7 @@ public class ColumnLayoutTest extends AbstractFormsTest {
 	/**
 	 * Invalid selection.
 	 */
+	@Test
 	public void test_selectionActions_3() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -251,6 +259,7 @@ public class ColumnLayoutTest extends AbstractFormsTest {
 	/**
 	 * Conversion from {@link ColumnLayout} should keep horizontal alignment.
 	 */
+	@Test
 	public void test_convertFrom() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -286,6 +295,7 @@ public class ColumnLayoutTest extends AbstractFormsTest {
 	/**
 	 * Conversion to {@link ColumnLayout} should keep horizontal alignment.
 	 */
+	@Test
 	public void test_convertTo() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

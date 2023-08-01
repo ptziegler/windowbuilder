@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.MigLayout;
 
+import org.junit.Test;
+
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
@@ -44,6 +46,7 @@ public class MigLayoutSelectionActionsTest extends AbstractMigLayoutTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_selectionActions_ALL() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -72,6 +75,7 @@ public class MigLayoutSelectionActionsTest extends AbstractMigLayoutTest {
 		assertNotNull(findAction(actions, "Baseline"));
 	}
 
+	@Test
 	public void test_selectionActions_noSelection() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -88,6 +92,7 @@ public class MigLayoutSelectionActionsTest extends AbstractMigLayoutTest {
 		Assertions.assertThat(actions).isEmpty();
 	}
 
+	@Test
 	public void test_selectionActions_invalidSelection() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -105,6 +110,7 @@ public class MigLayoutSelectionActionsTest extends AbstractMigLayoutTest {
 		Assertions.assertThat(actions).isEmpty();
 	}
 
+	@Test
 	public void test_horizontalAlignment() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -139,6 +145,7 @@ public class MigLayoutSelectionActionsTest extends AbstractMigLayoutTest {
 				"}");
 	}
 
+	@Test
 	public void test_verticalAlignment() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

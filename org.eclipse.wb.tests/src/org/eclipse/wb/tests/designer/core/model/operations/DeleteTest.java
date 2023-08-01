@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.operations;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.model.creation.ExposedPropertyCreationSupport;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
@@ -33,6 +35,7 @@ public class DeleteTest extends SwingModelTest {
 	 * Components with {@link ExposedPropertyCreationSupport} can be "deleted", but for them this
 	 * means that their delete children and related nodes, but keep themselves in parent.
 	 */
+	@Test
 	public void test_exposedProperty() throws Exception {
 		ContainerInfo frame =
 				parseContainer(
@@ -63,6 +66,7 @@ public class DeleteTest extends SwingModelTest {
 	/**
 	 * Test {@link JavaInfo} delete for {@link JPanel} with children.
 	 */
+	@Test
 	public void test_withChildren() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -92,6 +96,7 @@ public class DeleteTest extends SwingModelTest {
 	/**
 	 * Test {@link JavaInfo} delete for {@link JPanel} with exposed children.
 	 */
+	@Test
 	public void test_withExposedChildren() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",

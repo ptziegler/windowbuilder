@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.generic;
 
+import org.junit.Test;
+
 import com.google.common.base.Predicate;
 
 import org.eclipse.wb.core.model.JavaInfo;
@@ -35,6 +37,7 @@ public class ContainerObjectValidatorsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ContainerObjectValidators#alwaysTrue()}.
 	 */
+	@Test
 	public void test_alwaysTrue() throws Exception {
 		ContainerObjectValidator validator = ContainerObjectValidators.alwaysTrue();
 		assertEquals("alwaysTrue", validator.toString());
@@ -44,6 +47,7 @@ public class ContainerObjectValidatorsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ContainerObjectValidators#forList(String[])}.
 	 */
+	@Test
 	public void test_forList() throws Exception {
 		ContainerObjectValidator validator;
 		{
@@ -77,6 +81,7 @@ public class ContainerObjectValidatorsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ContainerObjectValidators#forContainerExpression(String)}.
 	 */
+	@Test
 	public void test_forContainerExpression() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -129,6 +134,7 @@ public class ContainerObjectValidatorsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ContainerObjectValidators#forComponentExpression(String)}.
 	 */
+	@Test
 	public void test_forComponentExpression() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -161,6 +167,7 @@ public class ContainerObjectValidatorsTest extends SwingModelTest {
 	 * <p>
 	 * Use <code>isComponentType</code> for some type that is not in standard {@link ClassLoader}.
 	 */
+	@Test
 	public void test_forComponentExpression_externalType() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -189,6 +196,7 @@ public class ContainerObjectValidatorsTest extends SwingModelTest {
 	 * <p>
 	 * Call method of "container" that is not in standard {@link ClassLoader}.
 	 */
+	@Test
 	public void test_forComponentExpression_externalType2() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -237,6 +245,7 @@ public class ContainerObjectValidatorsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ContainerObjectValidators#forReferenceExpression(String)}.
 	 */
+	@Test
 	public void test_forReferenceExpression() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.forms;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.rcp.model.forms.DetailsPageInfo;
 
 import org.eclipse.ui.forms.IDetailsPage;
@@ -37,6 +39,7 @@ public class DetailsPageTest extends AbstractFormsTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_0() throws Exception {
 		DetailsPageInfo page =
 				parseJavaInfo(
@@ -77,6 +80,7 @@ public class DetailsPageTest extends AbstractFormsTest {
     }*/
 	}
 
+	@Test
 	public void test_FormToolkit_inLocalVariable() throws Exception {
 		parseJavaInfo(
 				"public abstract class Test implements IDetailsPage {",
@@ -105,6 +109,7 @@ public class DetailsPageTest extends AbstractFormsTest {
 	/**
 	 * We should ignore "super" invocations, because component class is interface.
 	 */
+	@Test
 	public void test_callDefaultSuper() throws Exception {
 		DetailsPageInfo page =
 				parseJavaInfo(
@@ -134,6 +139,7 @@ public class DetailsPageTest extends AbstractFormsTest {
 		assertNoErrors(page);
 	}
 
+	@Test
 	public void test_parseNoUsingFormToolkit() throws Exception {
 		DetailsPageInfo page =
 				parseJavaInfo(
@@ -158,6 +164,7 @@ public class DetailsPageTest extends AbstractFormsTest {
 		assertNoErrors(page);
 	}
 
+	@Test
 	public void test_setLayout_forParent() throws Exception {
 		DetailsPageInfo page =
 				parseJavaInfo(
@@ -190,6 +197,7 @@ public class DetailsPageTest extends AbstractFormsTest {
 	 * <p>
 	 * http://www.eclipse.org/forums/index.php/t/262821/
 	 */
+	@Test
 	public void test_extendAbstractClass() throws Exception {
 		setFileContentSrc(
 				"test/AbstractPage.java",

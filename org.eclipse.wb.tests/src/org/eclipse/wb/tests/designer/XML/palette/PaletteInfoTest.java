@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.palette;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.xml.editor.palette.model.CategoryInfo;
 import org.eclipse.wb.internal.core.xml.editor.palette.model.ComponentEntryInfo;
 import org.eclipse.wb.internal.core.xml.editor.palette.model.EntryInfo;
@@ -27,6 +29,7 @@ public class PaletteInfoTest extends DesignerTestCase {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_toString() throws Exception {
 		PaletteInfo palette = new PaletteInfo();
 		// toString() without categories
@@ -36,6 +39,7 @@ public class PaletteInfoTest extends DesignerTestCase {
 		assertEquals("Category(id='category_1', name='(unknown)', entries=[])", palette.toString());
 	}
 
+	@Test
 	public void test_categories() throws Exception {
 		PaletteInfo palette = new PaletteInfo();
 		// prepare categories
@@ -57,6 +61,7 @@ public class PaletteInfoTest extends DesignerTestCase {
 	/**
 	 * Test for {@link PaletteInfo#moveCategory(String, String)}.
 	 */
+	@Test
 	public void test_moveCategory() throws Exception {
 		PaletteInfo palette = new PaletteInfo();
 		// prepare categories
@@ -97,6 +102,7 @@ public class PaletteInfoTest extends DesignerTestCase {
 		}
 	}
 
+	@Test
 	public void test_getEntry() throws Exception {
 		PaletteInfo palette = new PaletteInfo();
 		CategoryInfo category = new CategoryInfo("category_1");

@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.description;
+import org.junit.After;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.model.description.ComponentDescription;
 import org.eclipse.wb.internal.core.model.description.CreationDescription;
@@ -41,7 +44,8 @@ public class CreationDescriptionLoadingTest extends SwingModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		m_myButtonClass = null;
 		super.tearDown();
 	}
@@ -63,6 +67,7 @@ public class CreationDescriptionLoadingTest extends SwingModelTest {
 	/**
 	 * Load {@link CreationDescription} without id.
 	 */
+	@Test
 	public void test_load_noId() throws Exception {
 		prepareMyButton();
 		setFileContentSrc(
@@ -89,6 +94,7 @@ public class CreationDescriptionLoadingTest extends SwingModelTest {
 	/**
 	 * Load {@link CreationDescription} with explicit "name" attribute.
 	 */
+	@Test
 	public void test_load_withName() throws Exception {
 		prepareMyButton();
 		setFileContentSrc(
@@ -116,6 +122,7 @@ public class CreationDescriptionLoadingTest extends SwingModelTest {
 	/**
 	 * Load {@link CreationDescription} without/with explicit "description" sub-element.
 	 */
+	@Test
 	public void test_load_forDescription() throws Exception {
 		prepareMyButton();
 		setFileContentSrc(
@@ -158,6 +165,7 @@ public class CreationDescriptionLoadingTest extends SwingModelTest {
 	 * Load {@link CreationDescription} when text in "description" sub-element is wrapped.<br>
 	 * We should remove any EOL's and normalize spaces.
 	 */
+	@Test
 	public void test_load_wrappedDescription() throws Exception {
 		prepareMyButton();
 		setFileContentSrc(
@@ -192,6 +200,7 @@ public class CreationDescriptionLoadingTest extends SwingModelTest {
 	/**
 	 * Load {@link CreationDescription}, use "id" for loading creation specific icon.
 	 */
+	@Test
 	public void test_load_forIcon() throws Exception {
 		prepareMyButton();
 		setFileContentSrc(
@@ -241,6 +250,7 @@ public class CreationDescriptionLoadingTest extends SwingModelTest {
 	 * Load {@link CreationDescription} that uses <code>"%component.class%"</code> pattern and fills
 	 * it during {@link CreationDescription#getSource()}.
 	 */
+	@Test
 	public void test_load_withPattern() throws Exception {
 		prepareMyButton();
 		setFileContentSrc(
@@ -268,6 +278,7 @@ public class CreationDescriptionLoadingTest extends SwingModelTest {
 	/**
 	 * Load {@link CreationDescription} with specified <code>invocation</code> elements.
 	 */
+	@Test
 	public void test_load_withInvocation() throws Exception {
 		prepareMyButton();
 		setFileContentSrc(
@@ -301,6 +312,7 @@ public class CreationDescriptionLoadingTest extends SwingModelTest {
 	/**
 	 * Load {@link CreationDescription} with specified <code>parameter</code> elements.
 	 */
+	@Test
 	public void test_load_withParameters() throws Exception {
 		prepareMyButton();
 		setFileContentSrc(
@@ -332,6 +344,7 @@ public class CreationDescriptionLoadingTest extends SwingModelTest {
 	/**
 	 * Load {@link CreationDescription} with tag.
 	 */
+	@Test
 	public void test_load_withTag() throws Exception {
 		prepareMyButton();
 		setFileContentSrc(
@@ -360,6 +373,7 @@ public class CreationDescriptionLoadingTest extends SwingModelTest {
 	/**
 	 * Load {@link CreationDescription} with type parameters (generics).
 	 */
+	@Test
 	public void test_load_withTypeParameters() throws Exception {
 		prepareContext();
 		// prepare component to test on
@@ -404,6 +418,7 @@ public class CreationDescriptionLoadingTest extends SwingModelTest {
 	/**
 	 * Default {@link CreationDescription} should exist even for standard {@link Object}.
 	 */
+	@Test
 	public void test_defaultCreation_forObject() throws Exception {
 		class MyPanel {
 		}
@@ -422,6 +437,7 @@ public class CreationDescriptionLoadingTest extends SwingModelTest {
 	/**
 	 * Default {@link CreationDescription} should have default values for arguments.
 	 */
+	@Test
 	public void test_defaultCreation_forComponent() throws Exception {
 		prepareContext();
 		setFileContentSrc(

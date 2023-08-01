@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.wizard;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.xwt.wizards.FormsCompositeWizard;
 import org.eclipse.wb.tests.designer.TestUtils;
 import org.eclipse.wb.tests.designer.core.annotations.DisposeProjectAfter;
@@ -41,6 +43,7 @@ public class FormsCompositeWizardTest extends XwtWizardTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@DisposeProjectAfter
+	@Test
 	public void test_onlyForXWT() throws Exception {
 		new UiContext().executeAndCheck(new UIRunnable() {
 			@Override

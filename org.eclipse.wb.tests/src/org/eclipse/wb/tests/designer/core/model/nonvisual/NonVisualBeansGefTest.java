@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.nonvisual;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.swing.SwingGefTest;
 
@@ -36,6 +38,7 @@ public class NonVisualBeansGefTest extends SwingGefTest {
 	/**
 	 * Layout-s expect too much about its parent, so we should not allow to drop them as NVO.
 	 */
+	@Test
 	public void test_canNotDropLayout_asNVO() throws Exception {
 		ContainerInfo panel =
 				openContainer(

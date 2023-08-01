@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.TableInfo;
 import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
@@ -34,6 +36,7 @@ public class TableGefTest extends XwtGefTest {
 	// Canvas
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_canvas_RESIZE_column() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",

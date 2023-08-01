@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.component;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.internal.swing.model.component.JInternalFrameInfo;
@@ -41,6 +43,7 @@ public class JInternalFrameTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_this() throws Exception {
 		JInternalFrameInfo frame =
 				parseJavaInfo(
@@ -71,6 +74,7 @@ public class JInternalFrameTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_onJDesktopPane() throws Exception {
 		ContainerInfo panel =
 				parseJavaInfo(

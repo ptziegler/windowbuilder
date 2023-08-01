@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.association;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.association.Association;
 import org.eclipse.wb.core.model.association.AssociationObject;
 import org.eclipse.wb.core.model.association.AssociationObjects;
@@ -40,6 +42,7 @@ import java.util.List;
  * @author scheglov_ke
  */
 public class CompoundAssociationTest extends SwingModelTest {
+	@Test
 	public void test_morph() throws Exception {
 		configureProject();
 		ContainerInfo panel =
@@ -96,6 +99,7 @@ public class CompoundAssociationTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_parse() throws Exception {
 		configureProject();
 		ContainerInfo panel =
@@ -141,6 +145,7 @@ public class CompoundAssociationTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_create() throws Exception {
 		configureProject();
 		ContainerInfo panel =
@@ -199,6 +204,7 @@ public class CompoundAssociationTest extends SwingModelTest {
 	 * Test that if one of the {@link Association}'s in {@link CompoundAssociation} can not be
 	 * deleted, then {@link CompoundAssociation} also can not be deleted.
 	 */
+	@Test
 	public void test_canNotDelete() throws Exception {
 		// prepare mocks
 		Association association_1 = mock(Association.class);
@@ -219,6 +225,7 @@ public class CompoundAssociationTest extends SwingModelTest {
 	 * Test that if all {@link Association}'s in {@link CompoundAssociation} can be deleted, then
 	 * {@link CompoundAssociation} also can be deleted.
 	 */
+	@Test
 	public void test_canDelete() throws Exception {
 		// prepare mocks
 		Association association_1 = mock(Association.class);
@@ -236,6 +243,7 @@ public class CompoundAssociationTest extends SwingModelTest {
 		inOrder.verifyNoMoreInteractions();
 	}
 
+	@Test
 	public void test_delete() throws Exception {
 		configureProject();
 		ContainerInfo panel =
@@ -267,6 +275,7 @@ public class CompoundAssociationTest extends SwingModelTest {
 	 * When all sub-associations are removed during {@link Association#remove()},
 	 * {@link CompoundAssociation} also removed.
 	 */
+	@Test
 	public void test_removeAll() throws Exception {
 		final ContainerInfo panel =
 				parseContainer(
@@ -293,6 +302,7 @@ public class CompoundAssociationTest extends SwingModelTest {
 		inOrder.verifyNoMoreInteractions();
 	}
 
+	@Test
 	public void test_moveInner() throws Exception {
 		configureProject();
 		ContainerInfo panel =
@@ -341,6 +351,7 @@ public class CompoundAssociationTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_moveReparent() throws Exception {
 		configureProject();
 		ContainerInfo panel =
@@ -406,6 +417,7 @@ public class CompoundAssociationTest extends SwingModelTest {
 	 * {@link CompoundAssociation}, we should morph this single {@link Association} into
 	 * {@link CompoundAssociation}.
 	 */
+	@Test
 	public void test_moveReparentFromNormalContainer() throws Exception {
 		configureProject();
 		ContainerInfo panel =

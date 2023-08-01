@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.jface;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.xwt.model.jface.TableViewerInfo;
 import org.eclipse.wb.internal.xwt.model.jface.ViewerInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.ControlInfo;
@@ -35,6 +37,7 @@ public class TableViewerGefTest extends XwtGefTest {
 	// Canvas
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_selecting() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -67,6 +70,7 @@ public class TableViewerGefTest extends XwtGefTest {
 		canvas.assertSelection(viewer);
 	}
 
+	@Test
 	public void test_TableViewerColumn_CREATE() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -98,6 +102,7 @@ public class TableViewerGefTest extends XwtGefTest {
 				"</Composite>");
 	}
 
+	@Test
 	public void test_TableViewerColumn_MOVE() throws Exception {
 		openEditor(
 				"<Composite>",
@@ -127,6 +132,7 @@ public class TableViewerGefTest extends XwtGefTest {
 				"</Composite>");
 	}
 
+	@Test
 	public void test_TableViewerColumn_RESIZE() throws Exception {
 		openEditor(
 				"<Composite>",

@@ -9,7 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.tests;
-
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
@@ -50,16 +49,16 @@ import org.eclipse.ui.internal.ide.IDEInternalPreferences;
 import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
 import org.eclipse.ui.texteditor.spelling.SpellingService;
 
-import junit.framework.TestCase;
-
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.net.URL;
 import java.util.List;
@@ -69,7 +68,7 @@ import java.util.List;
  *
  * @author scheglov_ke
  */
-public class DesignerTestCase extends TestCase {
+public class DesignerTestCase extends Assert {
 
 	private static boolean m_firstDesignerTest = true;
 
@@ -78,9 +77,9 @@ public class DesignerTestCase extends TestCase {
 	// setUp/tearDown
 	//
 	////////////////////////////////////////////////////////////////////////////
-	@Override
-	protected void setUp() throws Exception {
-		super.setUp();
+	@Before
+	public void setUp() throws Exception {
+
 		configureFirstTime();
 	}
 
@@ -126,10 +125,10 @@ public class DesignerTestCase extends TestCase {
 		}
 	}
 
-	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		clearInstanceFields();
-		super.tearDown();
+
 	}
 
 	private void clearInstanceFields() throws Exception {
@@ -148,57 +147,6 @@ public class DesignerTestCase extends TestCase {
 		if (clazz != DesignerTestCase.class) {
 			clearInstanceFields(clazz.getSuperclass());
 		}
-	}
-
-	////////////////////////////////////////////////////////////////////////////
-	//
-	// Running
-	//
-	////////////////////////////////////////////////////////////////////////////
-	@Override
-	public void runBare() throws Throwable {
-		Method method = getClass().getMethod(getName());
-		runBare_before(method);
-		try {
-			super.runBare();
-		} finally {
-			runBare_after(method);
-		}
-	}
-
-	@Override
-	protected void runTest() throws Throwable {
-		Method method = getClass().getMethod(getName());
-		runTest_before(method);
-		try {
-			super.runTest();
-		} finally {
-			runTest_after(method);
-		}
-	}
-
-	/**
-	 * Notifies that given test {@link Method} will be run.
-	 */
-	protected void runBare_before(Method method) throws Throwable {
-	}
-
-	/**
-	 * Notifies that given test {@link Method} was run.
-	 */
-	protected void runBare_after(Method method) throws Throwable {
-	}
-
-	/**
-	 * Notifies that given test {@link Method} will be run.
-	 */
-	protected void runTest_before(Method method) throws Throwable {
-	}
-
-	/**
-	 * Notifies that given test {@link Method} was run.
-	 */
-	protected void runTest_after(Method method) throws Throwable {
 	}
 
 	////////////////////////////////////////////////////////////////////////////

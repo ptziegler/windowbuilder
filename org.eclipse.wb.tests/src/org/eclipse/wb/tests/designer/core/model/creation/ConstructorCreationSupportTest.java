@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.creation;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.core.model.association.Association;
@@ -72,6 +75,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for access methods of {@link ConstructorCreationSupport}.
 	 */
+	@Test
 	public void test_access() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -107,6 +111,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	// Delete
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_delete_simpleComponent() throws Exception {
 		parseContainer(
 				"// filler filler filler filler filler",
@@ -134,6 +139,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_delete_rootComponent() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -175,6 +181,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for "Constructor" complex property.
 	 */
+	@Test
 	public void test_properties_good() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -206,6 +213,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	 * <p>
 	 * We show property for parent parameter.
 	 */
+	@Test
 	public void test_properties_parentProperty() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -255,6 +263,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	 * <p>
 	 * But sometimes this causes bad effects, so we want to disable this.
 	 */
+	@Test
 	public void test_properties_parentProperty_disable() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -301,6 +310,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	 * not show it. In reality attempt to do this causes {@link NullPointerException} because no
 	 * {@link Association}.
 	 */
+	@Test
 	public void test_properties_notBoundJavaInfo() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -329,6 +339,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	 * <p>
 	 * User asked to include also "Object" properties into "Constructor".
 	 */
+	@Test
 	public void test_properties_objectProperty() throws Exception {
 		setFileContentSrc(
 				"test/MyComponent.java",
@@ -359,6 +370,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test {@link ParameterDescription} {@link PropertyEditor}.
 	 */
+	@Test
 	public void test_constructorParameterEditor() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -400,6 +412,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	 * In GWT <code>ListBox</code> is generic widget that is used for lists itself, but also for Combo
 	 * widget, so would be nice to name Combo widgets as <code>"combo"</code>.
 	 */
+	@Test
 	public void test_CreationDescription_parameters() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -444,6 +457,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	 * Test for {@link ConstructorCreationSupport#getClipboard()}.<br>
 	 * Normal Swing component.
 	 */
+	@Test
 	public void test_clipboard_normalProperties() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -461,6 +475,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	 * Test for {@link ConstructorCreationSupport#getClipboard()}.<br>
 	 * Swing component with parent in constructor.
 	 */
+	@Test
 	public void test_clipboard_parentAsArgument() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -500,6 +515,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	 * Swing component with some special pattern in constructor parameter.<br>
 	 * We use this for RCP {@link FieldEditor}'s.
 	 */
+	@Test
 	public void test_clipboard_specialPatternUsingBroadcast() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -551,6 +567,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	 * Test for {@link ConstructorCreationSupport#getClipboard()}.<br>
 	 * Use {@link StylePropertyEditor}
 	 */
+	@Test
 	public void test_clipboard_styleProperty() throws Exception {
 		setFileContentSrc(
 				"test/Styles.java",
@@ -608,7 +625,9 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	/**
 	 * {@link ConstructorCreationSupport} should include type arguments into clipboard source.
 	 */
-	public void DISABLE_test_clipboard_typeArguments() throws Exception {
+	@Ignore
+	@Test
+	public void test_clipboard_typeArguments() throws Exception {
 		// prepare generic MyButton
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -674,7 +693,9 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	 * {@link ConstructorCreationSupport} should support {@link AnonymousClassDeclaration} in
 	 * clipboard source.
 	 */
-	public void DISABLE_test_clipboard_anonymousClassDeclaration() throws Exception {
+	@Ignore
+	@Test
+	public void test_clipboard_anonymousClassDeclaration() throws Exception {
 		// prepare generic MyButton
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -752,6 +773,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	 * Test for {@link ConstructorCreationSupport#add_getSource(NodeTarget)} and
 	 * {@link ConstructorCreationSupport#ConstructorCreationSupport(String, boolean)}.
 	 */
+	@Test
 	public void test_getSource_forCreationId() throws Exception {
 		setJavaContentSrc("test", "MyButton", new String[]{
 				"public class MyButton extends JButton {",
@@ -789,6 +811,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	 * Test for {@link ConstructorCreationSupport#add_getSource(NodeTarget)} and
 	 * {@link ConstructorCreationSupport#forSource(String)}.
 	 */
+	@Test
 	public void test_getSource_forSource() throws Exception {
 		setJavaContentSrc("test", "MyButton", new String[]{
 				"public class MyButton extends JButton {",
@@ -806,6 +829,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 		assertEquals("new test.MyButton(1 == 1)", creationSupport.add_getSource(null));
 	}
 
+	@Test
 	public void test_CREATE_noInvocations() throws Exception {
 		setJavaContentSrc("test", "MyButton", new String[]{
 				"public class MyButton extends JButton {",
@@ -857,6 +881,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_CREATE_addInvocations() throws Exception {
 		setJavaContentSrc("test", "MyButton", new String[]{
 				"public class MyButton extends JButton {",
@@ -895,6 +920,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 		assertEditor(lines);
 	}
 
+	@Test
 	public void test_template_index() throws Exception {
 		setJavaContentSrc("test", "MyButton", new String[]{
 				"public class MyButton extends JButton {",
@@ -935,6 +961,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	/**
 	 * {@link ITypeBinding} for creation exists, but references not existing constructor.
 	 */
+	@Test
 	public void test_CREATE_badConstructur() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -983,6 +1010,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for {@link ConstructorCreationSupport#getAssociation()}.
 	 */
+	@Test
 	public void test_getAssociation_noParent() throws Exception {
 		String[] lines = {"public class Test extends JPanel {", "  public Test() {", "  }", "}"};
 		parseContainer(lines);
@@ -996,6 +1024,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for {@link ConstructorCreationSupport#getAssociation()}.
 	 */
+	@Test
 	public void test_getAssociation_hasParent() throws Exception {
 		setJavaContentSrc("test", "MyButton", new String[]{
 				"public class MyButton extends JButton {",
@@ -1031,6 +1060,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for {@link ConstructorCreationSupport#canUseParent(JavaInfo)}.
 	 */
+	@Test
 	public void test_canUseParent_MOVE_false() throws Exception {
 		prepare_canUseParent_MyButton();
 		ContainerInfo frame =
@@ -1058,6 +1088,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for {@link ConstructorCreationSupport#canUseParent(JavaInfo)}.
 	 */
+	@Test
 	public void test_canUseParent_MOVE_true() throws Exception {
 		prepare_canUseParent_MyButton();
 		ContainerInfo frame =
@@ -1090,6 +1121,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for {@link ConstructorCreationSupport#canUseParent(JavaInfo)}.
 	 */
+	@Test
 	public void test_canUseParent_CREATE_false() throws Exception {
 		prepare_canUseParent_MyButton();
 		ContainerInfo frame =
@@ -1110,6 +1142,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for {@link ConstructorCreationSupport#canUseParent(JavaInfo)}.
 	 */
+	@Test
 	public void test_canUseParent_CREATE_true() throws Exception {
 		prepare_canUseParent_MyButton();
 		ContainerInfo panel =
@@ -1129,6 +1162,7 @@ public class ConstructorCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for {@link ConstructorCreationSupport#canUseParent(JavaInfo)}.
 	 */
+	@Test
 	public void test_canUseParent_CREATE_noParent() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",

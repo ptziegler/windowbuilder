@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.databinding.swing;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.databinding.model.IBindingInfo;
 import org.eclipse.wb.internal.swing.databinding.DatabindingsProvider;
 import org.eclipse.wb.internal.swing.databinding.model.bindings.AutoBindingInfo;
@@ -28,6 +30,7 @@ public class BindValueTest extends AbstractBindingTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_strategy_policy_variable() throws Exception {
 		JPanelInfo shell =
 				DatabindingTestUtils.parseTestSource(

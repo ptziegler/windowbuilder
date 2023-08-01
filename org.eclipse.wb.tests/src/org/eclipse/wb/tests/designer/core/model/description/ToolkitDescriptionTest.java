@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.description;
 
+import org.junit.Test;
+
 import com.google.common.collect.Sets;
 
 import org.eclipse.wb.internal.core.model.description.ToolkitDescription;
@@ -38,6 +40,7 @@ public class ToolkitDescriptionTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ToolkitDescription}.
 	 */
+	@Test
 	public void test_ToolkitDescription() throws Exception {
 		ToolkitDescriptionJava toolkit = org.eclipse.wb.internal.swing.ToolkitProvider.DESCRIPTION;
 		assertEquals(
@@ -58,6 +61,7 @@ public class ToolkitDescriptionTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ComponentDescriptionHelper#getToolkitElements()}.
 	 */
+	@Test
 	public void test_getToolkitElements() throws Exception {
 		Set<String> toolkitIds = Sets.newHashSet();
 		{
@@ -74,6 +78,7 @@ public class ToolkitDescriptionTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ComponentDescriptionHelper#getToolkitElements(String)}.
 	 */
+	@Test
 	public void test_getToolkitElements_forSingleToolkit() throws Exception {
 		String toolkitId = org.eclipse.wb.internal.swing.preferences.IPreferenceConstants.TOOLKIT_ID;
 		for (IConfigurationElement toolkitElement : DescriptionHelper.getToolkitElements(toolkitId)) {
@@ -84,6 +89,7 @@ public class ToolkitDescriptionTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ComponentDescriptionHelper#getToolkit(String)}.
 	 */
+	@Test
 	public void test_getToolkit() throws Exception {
 		// check for existing toolkit
 		assertSame(
@@ -100,6 +106,7 @@ public class ToolkitDescriptionTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ComponentDescriptionHelper#getToolkits()}.
 	 */
+	@Test
 	public void test_getToolkits() throws Exception {
 		ToolkitDescription[] toolkits = DescriptionHelper.getToolkits();
 		Assertions.assertThat(toolkits).contains(

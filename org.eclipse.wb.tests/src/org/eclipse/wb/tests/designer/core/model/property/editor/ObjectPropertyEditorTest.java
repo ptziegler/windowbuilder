@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property.editor;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.model.property.GenericProperty;
 import org.eclipse.wb.internal.core.model.property.Property;
@@ -58,6 +60,7 @@ public class ObjectPropertyEditorTest extends SwingModelTest {
 	/**
 	 * {@link ObjectPropertyEditor} can be used to select object of any type, as non-visual bean.
 	 */
+	@Test
 	public void test_nonVisualBean() throws Exception {
 		setJavaContentSrc("test", "MyObject", new String[]{
 				"public class MyObject {",
@@ -170,6 +173,7 @@ public class ObjectPropertyEditorTest extends SwingModelTest {
 	/**
 	 * {@link ObjectPropertyEditor} can be used to select subclass {@link Component}.
 	 */
+	@Test
 	public void test_subclassOfComponent() throws Exception {
 		setJavaContentSrc("test", "MyComponent", new String[]{
 				"public class MyComponent extends JLabel {",
@@ -242,6 +246,7 @@ public class ObjectPropertyEditorTest extends SwingModelTest {
 	/**
 	 * {@link ObjectPropertyEditor} should select current value in dialog.
 	 */
+	@Test
 	public void test_initialSelection() throws Exception {
 		setJavaContentSrc("test", "MyComponent", new String[]{
 				"public class MyComponent extends JLabel {",
@@ -299,6 +304,7 @@ public class ObjectPropertyEditorTest extends SwingModelTest {
 	/**
 	 * No invocation for this method.
 	 */
+	@Test
 	public void test_getText_noInvocation() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -329,6 +335,7 @@ public class ObjectPropertyEditorTest extends SwingModelTest {
 	/**
 	 * We have invocation for this method.
 	 */
+	@Test
 	public void test_getText_hasInvocation() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -357,6 +364,7 @@ public class ObjectPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Absolute layout has <code>null</code> component class, should be handled correctly.
 	 */
+	@Test
 	public void test_withAbsoluteLayout() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -390,6 +398,7 @@ public class ObjectPropertyEditorTest extends SwingModelTest {
 	/**
 	 * {@link JLabel} is before {@link JTextField}.
 	 */
+	@Test
 	public void test_setComponent_labelBefore() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -430,6 +439,7 @@ public class ObjectPropertyEditorTest extends SwingModelTest {
 	/**
 	 * {@link JLabel} is after {@link JTextField}.
 	 */
+	@Test
 	public void test_setComponent_labelAfter() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -471,6 +481,7 @@ public class ObjectPropertyEditorTest extends SwingModelTest {
 	 * {@link LazyVariableSupport} for {@link JLabel} and {@link JTextField}. We can put
 	 * {@link JLabel#setLabelFor(Component)} in any place, but prefer {@link JLabel} method.
 	 */
+	@Test
 	public void test_setComponent_lazy() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -526,6 +537,7 @@ public class ObjectPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Set to different {@link JTextField}.
 	 */
+	@Test
 	public void test_setComponent_newComponent() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -576,6 +588,7 @@ public class ObjectPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Use <code>null</code> to remove existing value.
 	 */
+	@Test
 	public void test_setComponent_noComponent() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -616,6 +629,7 @@ public class ObjectPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Use {@link ObjectPropertyEditor} for constructor argument.
 	 */
+	@Test
 	public void test_setComponent_constructor() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",

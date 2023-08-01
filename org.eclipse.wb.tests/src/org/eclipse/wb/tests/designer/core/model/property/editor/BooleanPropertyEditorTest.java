@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property.editor;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.editor.BooleanPropertyEditor;
 import org.eclipse.wb.internal.core.model.property.table.PropertyTable;
@@ -40,6 +42,7 @@ public class BooleanPropertyEditorTest extends AbstractTextPropertyEditorTest {
 	/**
 	 * Test for {@link BooleanPropertyEditor#doubleClick(Property, Point)}.
 	 */
+	@Test
 	public void test_doubleClick() throws Exception {
 		prepareBooleanPanel();
 		ContainerInfo panel =
@@ -81,6 +84,7 @@ public class BooleanPropertyEditorTest extends AbstractTextPropertyEditorTest {
 	/**
 	 * Test for {@link BooleanPropertyEditor#activate(PropertyTable, Property, Point)}.
 	 */
+	@Test
 	public void test_activate_usingKeyboard() throws Exception {
 		prepareBooleanPanel();
 		ContainerInfo panel =
@@ -110,6 +114,7 @@ public class BooleanPropertyEditorTest extends AbstractTextPropertyEditorTest {
 	/**
 	 * Test for {@link BooleanPropertyEditor#activate(PropertyTable, Property, Point)}.
 	 */
+	@Test
 	public void test_activate_clickOnCheckBox() throws Exception {
 		prepareBooleanPanel();
 		ContainerInfo panel =
@@ -139,6 +144,7 @@ public class BooleanPropertyEditorTest extends AbstractTextPropertyEditorTest {
 	/**
 	 * Test for {@link BooleanPropertyEditor#activate(PropertyTable, Property, Point)}.
 	 */
+	@Test
 	public void test_activate_justClickToSelect() throws Exception {
 		prepareBooleanPanel();
 		ContainerInfo panel =

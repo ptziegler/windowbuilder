@@ -1,5 +1,7 @@
 package org.eclipse.wb.tests.designer.XML.model.generic;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.category.PropertyCategory;
 import org.eclipse.wb.internal.core.xml.model.utils.CopyPropertyTopSupport;
@@ -28,6 +30,7 @@ public class CopyPropertyTopTest extends AbstractCoreTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_copyExisting() throws Exception {
 		prepareMyComponent(ArrayUtils.EMPTY_STRING_ARRAY, new String[]{
 				"  <parameters>",
@@ -49,6 +52,7 @@ public class CopyPropertyTopTest extends AbstractCoreTest {
 		assertSame(property, component.getPropertyByTitle("MyEnabled"));
 	}
 
+	@Test
 	public void test_ignoreNoParameters() throws Exception {
 		prepareMyComponent(ArrayUtils.EMPTY_STRING_ARRAY, new String[]{
 				"  <parameters>",
@@ -61,6 +65,7 @@ public class CopyPropertyTopTest extends AbstractCoreTest {
 		assertNull(property);
 	}
 
+	@Test
 	public void test_ignoreNotExisting() throws Exception {
 		prepareMyComponent(ArrayUtils.EMPTY_STRING_ARRAY, new String[]{
 				"  <parameters>",

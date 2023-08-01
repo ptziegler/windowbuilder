@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.internal.swt.model.widgets.ScrollableInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
@@ -28,6 +30,7 @@ public class ScrollableTest extends RcpModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getClientArea_Composite() throws Exception {
 		CompositeInfo composite =
 				parseComposite(

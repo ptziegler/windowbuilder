@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.component;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
@@ -42,6 +44,7 @@ public class SomeComponentsTest extends SwingModelTest {
 	/**
 	 * {@link JEditorPane} has two methods to set "URL" property. Test that we have both.
 	 */
+	@Test
 	public void test_JEditorPane() throws Exception {
 		ContainerInfo panel =
 				(ContainerInfo) parseSource(
@@ -67,6 +70,7 @@ public class SomeComponentsTest extends SwingModelTest {
 	 * <p>
 	 * https://bugs.eclipse.org/bugs/show_bug.cgi?id=367254
 	 */
+	@Test
 	public void test_Canvas_JScrollPane() throws Exception {
 		parseJavaInfo(
 				"import java.awt.Canvas;",

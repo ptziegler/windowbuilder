@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.xml.model.description.ComponentDescription;
 import org.eclipse.wb.internal.core.xml.model.description.ComponentDescriptionHelper;
 import org.eclipse.wb.internal.xwt.parser.XwtDescriptionProcessor;
@@ -37,6 +39,7 @@ public class XwtDescriptionProcessorTest extends XwtModelTest {
 	/**
 	 * Test that each XWT component has default creation, with <code>null</code> ID.
 	 */
+	@Test
 	public void test_ensureDefaultCreation() throws Exception {
 		setFileContentSrc(
 				"test/MyComponent.java",

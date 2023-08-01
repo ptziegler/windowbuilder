@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.forms;
 
+import org.junit.Test;
+
 import org.eclipse.wb.gef.core.EditPart;
 import org.eclipse.wb.internal.xwt.model.forms.FormInfo;
 import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
@@ -36,6 +38,7 @@ public class FormGefTest extends XwtGefTest {
 	// Canvas, CREATE
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_canvas_CREATE_headClient() throws Exception {
 		prepare_CREATE();
 		// use canvas
@@ -58,6 +61,7 @@ public class FormGefTest extends XwtGefTest {
 	// Tree
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_tree_CREATE_headClient() throws Exception {
 		prepare_CREATE();
 		// use tree

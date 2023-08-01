@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.widgets;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.model.description.ComponentDescription;
 import org.eclipse.wb.internal.core.model.property.Property;
@@ -66,6 +69,7 @@ public class ControlTest extends RcpModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_parse() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -100,6 +104,7 @@ public class ControlTest extends RcpModelTest {
 				shell.getImage().getBounds());
 	}
 
+	@Test
 	public void test_parse_unknownSuperClassForAnonymous() throws Exception {
 		m_ignoreCompilationProblems = true;
 		CompositeInfo shell =
@@ -117,6 +122,7 @@ public class ControlTest extends RcpModelTest {
 	 * Check for "Chinese problem" - using SWT without configuring project for SWT.
 	 */
 	@DisposeProjectAfter
+	@Test
 	public void test_parse_notConfiguredForSWT() throws Exception {
 		do_projectDispose();
 		do_projectCreate();
@@ -139,6 +145,7 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * If several constructors, then default (with Composite and style) should be used.
 	 */
+	@Test
 	public void test_severalConstructors_useDefault_forComposite() throws Exception {
 		CompositeInfo composite =
 				parseComposite(
@@ -157,6 +164,7 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * For {@link Shell} default constructor is constructor without parameters.
 	 */
+	@Test
 	public void test_severalConstructors_useDefault_forShell() throws Exception {
 		CompositeInfo composite =
 				parseComposite(
@@ -174,6 +182,7 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * If several constructors, and no default (with Composite and style), so fail.
 	 */
+	@Test
 	public void test_severalConstructors_noDefault() throws Exception {
 		try {
 			parseComposite(
@@ -196,6 +205,7 @@ public class ControlTest extends RcpModelTest {
 	 * Test for using @wbp.parser.entryPoint to force starting execution flow from some constructor,
 	 * even if we don't know superclass.
 	 */
+	@Test
 	public void test_entryPointTag() throws Exception {
 		useStrictEvaluationMode(false);
 		CompositeInfo shell =
@@ -218,6 +228,7 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * Automatically use constructor as entry point: good guess.
 	 */
+	@Test
 	public void test_alwaysTryConstructor_success() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -236,6 +247,7 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * Automatically use constructor as entry point: no, still no GUI in constructor.
 	 */
+	@Test
 	public void test_alwaysTryConstructor_fail() throws Exception {
 		try {
 			parseComposite(
@@ -251,6 +263,7 @@ public class ControlTest extends RcpModelTest {
 		}
 	}
 
+	@Test
 	public void test_constructor_withShellParameter_asSecondArgument() throws Exception {
 		useStrictEvaluationMode(false);
 		CompositeInfo shell =
@@ -270,6 +283,7 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * Test for parsing {@link AnonymousClassDeclaration} in <code>Realm</code>.
 	 */
+	@Test
 	public void test_parse_Realm_runWithDefault() throws Exception {
 		try {
 			m_testProject.addPlugin("org.eclipse.core.databinding.observable");
@@ -302,6 +316,7 @@ public class ControlTest extends RcpModelTest {
 		}
 	}
 
+	@Test
 	public void test_parseSeparate_ClassInstanceCreation() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -322,7 +337,9 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * Test for {@link CompositeInfo#getClientAreaInsets2()}.
 	 */
-	public void DISABLE_test_insetsWithGroup() throws Exception {
+	@Ignore
+	@Test
+	public void test_insetsWithGroup() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
 						"class Test extends Shell {",
@@ -353,6 +370,7 @@ public class ControlTest extends RcpModelTest {
 		}
 	}
 
+	@Test
 	public void test_visualInheritance_withOverride() throws Exception {
 		setFileContentSrc(
 				"test/MyComposite.java",
@@ -396,6 +414,7 @@ public class ControlTest extends RcpModelTest {
 	 * {@link Control#setRedraw(boolean)}, so we should provide default value in component
 	 * description.
 	 */
+	@Test
 	public void test_properties_defaultValues() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -412,6 +431,7 @@ public class ControlTest extends RcpModelTest {
 	 * There are no "getter" for {@link Control#setCapture(boolean)}, so we should provide default
 	 * value in component description.
 	 */
+	@Test
 	public void test_properties_setSize() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -441,6 +461,7 @@ public class ControlTest extends RcpModelTest {
 	// Shell
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_setIME_property() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -461,6 +482,7 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * Test for parsing Swing GUI in RCP project.
 	 */
+	@Test
 	public void test_swingForm_InRCPproject() throws Exception {
 		ContainerInfo panel =
 				parseJavaInfo(
@@ -475,6 +497,7 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * Test for parsing RCP form in RCP project, but with reference on Swing class.
 	 */
+	@Test
 	public void test_swingClass_InRCPform() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -492,6 +515,7 @@ public class ControlTest extends RcpModelTest {
 	 * However we add NVO container to it, and in same time, as NVO it should be added to this NVO
 	 * container. So, this causes hierarchy exception.
 	 */
+	@Test
 	public void test_swingNVO_inRCP() throws Exception {
 		parseComposite(
 				"import javax.swing.*;",
@@ -516,6 +540,7 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * Test for parsing RCP (in main method) in RCP project, but with reference on Swing class.
 	 */
+	@Test
 	public void test_swingClass_InRCP_mainMethod() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -529,6 +554,7 @@ public class ControlTest extends RcpModelTest {
 		assertNoErrors(shell);
 	}
 
+	@Test
 	public void test_BeanInfo_icon() throws Exception {
 		setFileContentSrc(
 				"test/MyShell.java",
@@ -574,6 +600,7 @@ public class ControlTest extends RcpModelTest {
 	 * If {@link Composite} with some real {@link Layout} is in "null" layout, then we should manually
 	 * call {@link Composite#layout()} to apply real {@link Layout}.
 	 */
+	@Test
 	public void test_inAbsoluteLayout_realLayout() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -613,6 +640,7 @@ public class ControlTest extends RcpModelTest {
 	 * If {@link Composite} with some real {@link Layout} is in {@link TabFolder} which is on "null"
 	 * layout, then we should manually call {@link Composite#layout()} to apply real {@link Layout}.
 	 */
+	@Test
 	public void test_inAbsoluteLayout_tabFolder() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -661,7 +689,9 @@ public class ControlTest extends RcpModelTest {
 	 * We should correctly handle bounds for {@link Control}s on {@link Composite} with
 	 * {@link SWT#RIGHT_TO_LEFT} style.
 	 */
-	public void DISABLE_test_RTL() throws Exception {
+	@Ignore
+	@Test
+	public void test_RTL() throws Exception {
 		CompositeInfo composite =
 				parseComposite(
 						"public class Test extends Composite {",
@@ -707,7 +737,9 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * Two levels of {@link Composite} with {@link SWT#RIGHT_TO_LEFT} style.
 	 */
-	public void DISABLE_test_RTL_withInnerComposite() throws Exception {
+	@Ignore
+	@Test
+	public void test_RTL_withInnerComposite() throws Exception {
 		CompositeInfo composite =
 				parseComposite(
 						"public class Test extends Composite {",
@@ -764,6 +796,7 @@ public class ControlTest extends RcpModelTest {
 	 * If instance of anonymous {@link Control} subclass is created, create instead nearest
 	 * non-abstract {@link Control} super class.
 	 */
+	@Test
 	public void test_newAnonymousControl() throws Exception {
 		setFileContentSrc(
 				"test/MyAbstractButton.java",

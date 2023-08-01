@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.description;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.utils.exception.DesignerException;
 import org.eclipse.wb.internal.core.utils.exception.DesignerExceptionUtils;
 import org.eclipse.wb.internal.core.utils.ui.UiUtils;
@@ -67,6 +69,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 	/**
 	 * Test for {@link ComponentDescription} which can not be parsed.
 	 */
+	@Test
 	public void test_bad() throws Exception {
 		prepareMyComponent(ESA, new String[]{"bad xml"});
 		try {
@@ -80,6 +83,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 	/**
 	 * Test for basic {@link ComponentDescription} parsing features.
 	 */
+	@Test
 	public void test_basic() throws Exception {
 		ComponentDescription description = getDescription("org.eclipse.swt.widgets.Composite");
 		assertNotNull(description);
@@ -101,6 +105,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 	/**
 	 * Test for {@link UseModelIfNotAlready} annotation.
 	 */
+	@Test
 	public void test_UseModelIfNotAlready() throws Exception {
 		setFileContentSrc(
 				"test/MyInterface.java",
@@ -179,6 +184,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 	/**
 	 * Test that we can parse HTML description text, specific for custom component.
 	 */
+	@Test
 	public void test_specificDescription() throws Exception {
 		prepareMyComponent(ESA, new String[]{
 				"// filler filler filler filler filler",
@@ -188,6 +194,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 		assertEquals("My <p/> description", description.getDescription());
 	}
 
+	@Test
 	public void test_useIconOfSuperclass() throws Exception {
 		prepareMyComponent();
 		ComponentDescription description = getMyDescription();
@@ -211,6 +218,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 	 * Test for {@link AbstractDescription#getArbitraryValue(Object)} and
 	 * {@link AbstractDescription#putArbitraryValue(Object, Object)}.
 	 */
+	@Test
 	public void test_arbitraries() throws Exception {
 		String key = "test.key";
 		ComponentDescription description = getDescription("org.eclipse.swt.widgets.Composite");
@@ -229,6 +237,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 	/**
 	 * Test that {@link IDescriptionProcessor}s are used.
 	 */
+	@Test
 	public void test_IDescriptionProcessor() throws Exception {
 		// add dynamic processor and re-load
 		addProcessorExtension(MyDescriptionProcessor.class.getName());
@@ -278,6 +287,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 	/**
 	 * Test that {@link IDescriptionRulesProvider}s are used.
 	 */
+	@Test
 	public void test_IDescriptionRulesProvider() throws Exception {
 		addRulesProviderExtension(MyDescriptionRulesProvider.class.getName());
 		try {
@@ -321,6 +331,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 	/**
 	 * Test for {@link ComponentDescription#getParameters()}.
 	 */
+	@Test
 	public void test_parameters() throws Exception {
 		prepareMyComponent(ESA, new String[]{
 				"  <parameters>",
@@ -349,6 +360,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 	/**
 	 * Test for {@link ComponentDescription#hasTrueParameter(String)}.
 	 */
+	@Test
 	public void test_hasTrueParameter() throws Exception {
 		prepareMyComponent(ESA, new String[]{
 				"  <parameters>",
@@ -366,6 +378,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 	/**
 	 * Test that {@link IProject} "wbp-meta" folder it used to get description.
 	 */
+	@Test
 	public void test_descriptionFromProject_meta() throws Exception {
 		setFileContentSrc(
 				"test/MyComponent.java",
@@ -397,6 +410,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 	// CreationDescription
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_CreationDescription_noID() throws Exception {
 		prepareMyComponent(ESA, new String[]{
 				"// filler filler filler filler filler",
@@ -438,6 +452,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 		}
 	}
 
+	@Test
 	public void test_CreationDescription_withID() throws Exception {
 		TestUtils.createImagePNG(m_testProject, "src/test/MyComponent_my.png", 5, 10);
 		prepareMyComponent(ESA, new String[]{
@@ -474,6 +489,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 	/**
 	 * No "creation" element, so use default {@link CreationDescription}.
 	 */
+	@Test
 	public void test_CreationDescription_default() throws Exception {
 		prepareMyComponent(ESA, new String[]{"  <description>Some description</description>"});
 		waitForAutoBuild();
@@ -489,6 +505,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 	/**
 	 * Load {@link CreationDescription} with specified <code>parameter</code> elements.
 	 */
+	@Test
 	public void test_CreationDescription_withParameters() throws Exception {
 		prepareMyComponent(ESA, new String[]{
 				"  <creation id='withParameters'>",
@@ -508,6 +525,7 @@ public class ComponentDescriptionHelperTest extends AbstractCoreTest {
 	/**
 	 * Load {@link CreationDescription} with specified <code>x-content</code> element.
 	 */
+	@Test
 	public void test_CreationDescription_withContent() throws Exception {
 		prepareMyComponent(ESA, new String[]{
 				"  <creation>",

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.forms;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.xwt.model.widgets.CompositeInfo;
 import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
 
@@ -39,6 +41,7 @@ public class FormsTest extends XwtModelTest {
 	/**
 	 * In SWT background is "gray".
 	 */
+	@Test
 	public void test_notForms() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -60,6 +63,7 @@ public class FormsTest extends XwtModelTest {
 	/**
 	 * In Forms background is "white".
 	 */
+	@Test
 	public void test_isForms() throws Exception {
 		parse(
 				"// filler filler filler filler filler",

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.property;
 
+import org.junit.Test;
+
 import com.google.common.collect.Lists;
 
 import org.eclipse.wb.internal.core.model.property.EmptyProperty;
@@ -59,6 +61,7 @@ public class ColorPropertyEditorTest extends XwtModelTest {
 	/**
 	 * Test for {@link ColorSupport#toString(Color)}.
 	 */
+	@Test
 	public void test_ColorSupport_toString() throws Exception {
 		Color color = new Color(null, 1, 2, 3);
 		assertEquals("1,2,3", ColorSupport.toString(color));
@@ -67,6 +70,7 @@ public class ColorPropertyEditorTest extends XwtModelTest {
 	/**
 	 * Test for {@link ColorSupport#createInfo(Color)}.
 	 */
+	@Test
 	public void test_ColorSupport_createInfo() throws Exception {
 		Color color = new Color(null, 1, 2, 3);
 		ColorInfo colorInfo = ColorSupport.createInfo(color);
@@ -77,6 +81,7 @@ public class ColorPropertyEditorTest extends XwtModelTest {
 	/**
 	 * Test for {@link ColorSupport#getSystemColors()}.
 	 */
+	@Test
 	public void test_ColorSupport_getSystemColors() throws Exception {
 		ColorInfo[] colors = ColorSupport.getSystemColors();
 		// check some names
@@ -95,6 +100,7 @@ public class ColorPropertyEditorTest extends XwtModelTest {
 	/**
 	 * Test for {@link ColorSupport#getSystemNamedColors()}.
 	 */
+	@Test
 	public void test_ColorSupport_getNamedColors() throws Exception {
 		ColorInfo[] colors = ColorSupport.getNamedColors();
 		// check some names
@@ -115,6 +121,7 @@ public class ColorPropertyEditorTest extends XwtModelTest {
 	// getText()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getText_GenericProperty_modified() throws Exception {
 		CompositeInfo shell = parse("<Shell background='Red'/>");
 		refresh();
@@ -128,6 +135,7 @@ public class ColorPropertyEditorTest extends XwtModelTest {
 		assertEquals("Red", getPropertyClipboardSource(property));
 	}
 
+	@Test
 	public void test_getText_GenericProperty_notModified() throws Exception {
 		CompositeInfo shell = parse("<Shell/>");
 		refresh();
@@ -141,6 +149,7 @@ public class ColorPropertyEditorTest extends XwtModelTest {
 		assertEquals("240,240,240", getPropertyClipboardSource(property));
 	}
 
+	@Test
 	public void test_getText_notColorValue() throws Exception {
 		Property property = new EmptyProperty(ColorPropertyEditor.INSTANCE);
 		// check state
@@ -153,6 +162,7 @@ public class ColorPropertyEditorTest extends XwtModelTest {
 	// paint()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_paint() throws Exception {
 		CompositeInfo shell = parse("<Shell background='Red'/>");
 		refresh();
@@ -183,6 +193,7 @@ public class ColorPropertyEditorTest extends XwtModelTest {
 	// activate()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_activate_clickIgnored() throws Exception {
 		CompositeInfo shell = parse("<Shell/>");
 		refresh();
@@ -194,6 +205,7 @@ public class ColorPropertyEditorTest extends XwtModelTest {
 		assertFalse(activated);
 	}
 
+	@Test
 	public void test_active_asUsingKeyboard() throws Exception {
 		CompositeInfo shell = parse("<Shell/>");
 		refresh();
@@ -215,6 +227,7 @@ public class ColorPropertyEditorTest extends XwtModelTest {
 		assertXML("<Shell/>");
 	}
 
+	@Test
 	public void test_openDialog_usingMethod() throws Exception {
 		CompositeInfo shell = parse("<Shell/>");
 		refresh();
@@ -241,6 +254,7 @@ public class ColorPropertyEditorTest extends XwtModelTest {
 		assertXML("<Shell background='COLOR_RED'/>");
 	}
 
+	@Test
 	public void test_openDialog_usingPresentation() throws Exception {
 		CompositeInfo shell = parse("<Shell/>");
 		refresh();

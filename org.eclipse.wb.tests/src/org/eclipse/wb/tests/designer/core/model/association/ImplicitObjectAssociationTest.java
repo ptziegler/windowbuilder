@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.association;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.association.ImplicitObjectAssociation;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
@@ -28,6 +30,7 @@ public class ImplicitObjectAssociationTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test() throws Exception {
 		ContainerInfo frame =
 				parseContainer(
@@ -77,6 +80,7 @@ public class ImplicitObjectAssociationTest extends SwingModelTest {
 	/**
 	 * Test for {@link ImplicitObjectAssociation#getStatement()}.
 	 */
+	@Test
 	public void test_2() throws Exception {
 		setFileContentSrc(
 				"test/ComplexPanel.java",

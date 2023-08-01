@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.utils.Pair;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 
@@ -21,6 +23,7 @@ import org.assertj.core.api.Assertions;
  * @author scheglov_ke
  */
 public class PairTest extends DesignerTestCase {
+	@Test
 	public void test_access() throws Exception {
 		Pair<String, String> pair = Pair.create("One", "Odin");
 		assertSame("One", pair.getLeft());
@@ -29,22 +32,26 @@ public class PairTest extends DesignerTestCase {
 		pair.hashCode();
 	}
 
+	@Test
 	public void test_equalsYes_1() throws Exception {
 		Pair<String, String> pair = Pair.create("One", "Odin");
 		Assertions.assertThat(pair).isEqualTo(pair);
 	}
 
+	@Test
 	public void test_equalsYes_2() throws Exception {
 		Pair<String, String> pair_1 = Pair.create("One", "Odin");
 		Pair<String, String> pair_2 = Pair.create("One", "Odin");
 		Assertions.assertThat(pair_1).isEqualTo(pair_2);
 	}
 
+	@Test
 	public void test_equalsNo_1() throws Exception {
 		Pair<String, String> pair_1 = Pair.create("One", "Odin");
 		Assertions.assertThat(pair_1).isNotEqualTo("One");
 	}
 
+	@Test
 	public void test_equalsNo_2() throws Exception {
 		Pair<String, String> pair_1 = Pair.create("One", "Odin");
 		Pair<String, String> pair_2 = Pair.create("Two", "Dva");

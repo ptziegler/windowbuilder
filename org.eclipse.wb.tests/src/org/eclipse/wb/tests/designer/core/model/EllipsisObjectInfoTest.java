@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model;
+import org.junit.After;
+
+import org.junit.Test;
 
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.core.model.ObjectInfo;
@@ -49,7 +52,8 @@ public class EllipsisObjectInfoTest extends SwingModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		// clear fields
 		for (Field field : getClass().getDeclaredFields()) {
 			if (field.getName().indexOf('$') == -1 && Object.class.isAssignableFrom(field.getType())) {
@@ -74,6 +78,7 @@ public class EllipsisObjectInfoTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_parse() throws Exception {
 		getParsedContainer();
 		// ArrayObjectInfo
@@ -101,6 +106,7 @@ public class EllipsisObjectInfoTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_Presentation() throws Exception {
 		getParsedContainer();
 		IObjectPresentation presentation = arrayInfo.getPresentation();
@@ -123,6 +129,7 @@ public class EllipsisObjectInfoTest extends SwingModelTest {
 		Assertions.assertThat(myPanel.getPresentation().getChildrenTree()).containsOnly(arrayInfo);
 	}
 
+	@Test
 	public void test_deleteItem_withLocal() throws Exception {
 		getParsedContainer();
 		// initially "localButton" is in "array"
@@ -143,6 +150,7 @@ public class EllipsisObjectInfoTest extends SwingModelTest {
 		Assertions.assertThat(myPanel.getChildren()).doesNotContain(localButton);
 	}
 
+	@Test
 	public void test_deleteItem_withEmpty() throws Exception {
 		getParsedContainer();
 		// initially "emptyButton" is in "array"
@@ -164,6 +172,7 @@ public class EllipsisObjectInfoTest extends SwingModelTest {
 		Assertions.assertThat(myPanel.getChildren()).doesNotContain(emptyButton);
 	}
 
+	@Test
 	public void test_deleteAllItems() throws Exception {
 		getParsedContainer();
 		// delete all buttons
@@ -179,6 +188,7 @@ public class EllipsisObjectInfoTest extends SwingModelTest {
 		Assertions.assertThat(myPanel.getChildren()).doesNotContain(arrayInfo, localButton, emptyButton);
 	}
 
+	@Test
 	public void test_deleteAllItems_onEmptySource() throws Exception {
 		getParsedContainer();
 		arrayInfo.setRemoveOnEmpty(false);
@@ -198,6 +208,7 @@ public class EllipsisObjectInfoTest extends SwingModelTest {
 		Assertions.assertThat(myPanel.getChildren()).contains(arrayInfo);
 	}
 
+	@Test
 	public void test_deleteArrayObjectInfo() throws Exception {
 		getParsedContainer();
 		// do delete
@@ -213,6 +224,7 @@ public class EllipsisObjectInfoTest extends SwingModelTest {
 		Assertions.assertThat(myPanel.getChildren()).doesNotContain(arrayInfo, localButton, emptyButton);
 	}
 
+	@Test
 	public void test_addItem() throws Exception {
 		getParsedContainer();
 		// check exists
@@ -239,6 +251,7 @@ public class EllipsisObjectInfoTest extends SwingModelTest {
 		Assertions.assertThat(newButton.getObject()).isNotNull();
 	}
 
+	@Test
 	public void test_moveItemInside() throws Exception {
 		getParsedContainer();
 		// check exists
@@ -267,6 +280,7 @@ public class EllipsisObjectInfoTest extends SwingModelTest {
 		Assertions.assertThat(emptyButton.getObject()).isNotNull();
 	}
 
+	@Test
 	public void test_moveItemBetween() throws Exception {
 		getParsedContainer();
 		// check exists
@@ -339,6 +353,7 @@ public class EllipsisObjectInfoTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_moveItemOutside() throws Exception {
 		getParsedContainer(new String[]{
 				"public class Test extends MyPanel {",
@@ -402,6 +417,7 @@ public class EllipsisObjectInfoTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_moveItemOutside_inlined() throws Exception {
 		getParsedContainer(new String[]{
 				"public class Test extends MyPanel {",
@@ -456,6 +472,7 @@ public class EllipsisObjectInfoTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_moveItemOutside_inlining() throws Exception {
 		getParsedContainer();
 		// check exists
@@ -525,6 +542,7 @@ public class EllipsisObjectInfoTest extends SwingModelTest {
 	}
 
 	/* this feature is not allowed :(
+	@Test
   public void test_OutsideInitialization() throws Exception {
   	getParsedContainer(new String[]{
   			"public class Test extends MyPanel {",

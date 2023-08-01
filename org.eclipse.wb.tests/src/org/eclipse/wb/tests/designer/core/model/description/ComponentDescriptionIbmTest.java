@@ -9,14 +9,18 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.description;
-
 import org.eclipse.wb.internal.core.EnvironmentUtils;
 import org.eclipse.wb.internal.core.model.description.ComponentDescription;
 import org.eclipse.wb.internal.core.model.description.helpers.ComponentDescriptionHelper;
 import org.eclipse.wb.internal.core.utils.exception.DesignerException;
 import org.eclipse.wb.internal.core.utils.exception.ICoreExceptionConstants;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
+import org.eclipse.wb.tests.designer.core.AbstractJavaProjectTest;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
+
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Tests for {@link ComponentDescriptionHelper}, {@link ComponentDescription}, etc.
@@ -30,7 +34,8 @@ public class ComponentDescriptionIbmTest extends SwingModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		// enable IBM emulation
 		EnvironmentUtils.setForcedIBM(true);
@@ -46,6 +51,7 @@ public class ComponentDescriptionIbmTest extends SwingModelTest {
 	/**
 	 * Method 'setTestProperty(int)' not visible for IBM JVM, and will be skipped in user mode.
 	 */
+	@Test
 	public void test_description_forIBM() throws Exception {
 		// disable development time
 		EnvironmentUtils.setTestingTime(false);
@@ -59,6 +65,7 @@ public class ComponentDescriptionIbmTest extends SwingModelTest {
 	 * Method 'setTestProperty(int)' not visible for IBM JVM, and parsing must be fail in development
 	 * mode.
 	 */
+	@Test
 	public void test_descriptin_fail() throws Exception {
 		try {
 			createDefaultProjectContents();
@@ -75,6 +82,7 @@ public class ComponentDescriptionIbmTest extends SwingModelTest {
 	/**
 	 * Normal test, method 'setTestProperty(int)' must exists.
 	 */
+	@Test
 	public void test_descriptin_nonIBM() throws Exception {
 		// disable IBM emulation
 		EnvironmentUtils.setForcedIBM(false);
@@ -83,9 +91,9 @@ public class ComponentDescriptionIbmTest extends SwingModelTest {
 		assertNotNull(panel.getPropertyByTitle("testProperty"));
 	}
 
-	@Override
-	public void test_tearDown() throws Exception {
-		super.test_tearDown();
+	@AfterClass
+	public static void tearDownClass() throws Exception {
+		AbstractJavaProjectTest.tearDownClass();
 		// reset Environment
 		EnvironmentUtils.setForcedIBM(false);
 		EnvironmentUtils.setTestingTime(true);

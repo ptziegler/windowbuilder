@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.component;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.editor.PropertyEditor;
 import org.eclipse.wb.internal.core.model.property.table.PropertyTooltipProvider;
@@ -36,6 +38,7 @@ public class JTreeTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_JTree_parsing() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -126,6 +129,7 @@ public class JTreeTest extends SwingModelTest {
 	/**
 	 * Test when there are no model.
 	 */
+	@Test
 	public void test_emptyModel() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -165,6 +169,7 @@ public class JTreeTest extends SwingModelTest {
 	/**
 	 * Test for {@link TreeModelPropertyEditor}, setting new items.
 	 */
+	@Test
 	public void test_setItems() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.gef;
+import org.junit.After;
+
+import org.junit.Test;
 
 import org.eclipse.wb.core.editor.IDesignerEditor;
 import org.eclipse.wb.internal.core.DesignerPlugin;
@@ -35,7 +38,8 @@ public class XwtJavaParseValidatorTest extends XwtGefTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		DesignerPlugin.setDisplayExceptionOnConsole(true);
 		EnvironmentUtils.setTestingTime(true);
 		super.tearDown();
@@ -55,6 +59,7 @@ public class XwtJavaParseValidatorTest extends XwtGefTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_showWarning() throws Exception {
 		removeExceptionsListener();
 		DesignerPlugin.setDisplayExceptionOnConsole(false);

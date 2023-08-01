@@ -9,6 +9,8 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.editor;
+import org.junit.Before;
+import org.junit.After;
 
 import org.eclipse.wb.core.controls.palette.PaletteComposite;
 import org.eclipse.wb.gef.core.requests.ICreationFactory;
@@ -57,7 +59,8 @@ public abstract class AbstractXmlGefTest extends AbstractXmlObjectTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		waitEventLoop(1);
 		System.setProperty(DesignerPalette.FLAG_NO_PALETTE, "true");
@@ -65,7 +68,8 @@ public abstract class AbstractXmlGefTest extends AbstractXmlObjectTest {
 	}
 
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		System.clearProperty(DesignerPalette.FLAG_NO_PALETTE);
 		waitEventLoop(0);
 		TestUtils.closeAllEditors();

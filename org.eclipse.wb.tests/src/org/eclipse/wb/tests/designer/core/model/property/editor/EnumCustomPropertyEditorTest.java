@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property.editor;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.editor.EnumCustomPropertyEditor;
 import org.eclipse.wb.internal.core.utils.GenericsUtils;
@@ -36,6 +38,7 @@ public class EnumCustomPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Test for {@link EnumCustomPropertyEditor#configure(Class)}.
 	 */
+	@Test
 	public void test_configure_withClass() throws Exception {
 		EnumCustomPropertyEditor editor = new EnumCustomPropertyEditor();
 		editor.configure(MyEnum.class);
@@ -51,6 +54,7 @@ public class EnumCustomPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Test for {@link EnumCustomPropertyEditor#configure(Enum[])}.
 	 */
+	@Test
 	public void test_configure_withElements() throws Exception {
 		EnumCustomPropertyEditor editor = new EnumCustomPropertyEditor();
 		editor.configure(new MyEnum[]{MyEnum.A, MyEnum.C});

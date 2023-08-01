@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.generic.FlowContainer;
 import org.eclipse.wb.internal.core.model.generic.FlowContainerFactory;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
@@ -52,6 +54,7 @@ public class CoolBarTest extends RcpModelTest {
 	/**
 	 * Test for {@link CoolBarInfo#isHorizontal()}.
 	 */
+	@Test
 	public void test_isHorizontal() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -78,6 +81,7 @@ public class CoolBarTest extends RcpModelTest {
 	/**
 	 * {@link CoolBar} with {@link CoolItem}'s.
 	 */
+	@Test
 	public void test_parseItems() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -126,6 +130,7 @@ public class CoolBarTest extends RcpModelTest {
 	/**
 	 * Test for {@link CoolItem#setControl(org.eclipse.swt.widgets.Control)}.
 	 */
+	@Test
 	public void test_setControl_get() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -168,6 +173,7 @@ public class CoolBarTest extends RcpModelTest {
 	/**
 	 * Test for {@link CoolItemInfo#command_CREATE(ControlInfo)}.
 	 */
+	@Test
 	public void test_setControl_CREATE() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -212,6 +218,7 @@ public class CoolBarTest extends RcpModelTest {
 	/**
 	 * Test for {@link CoolItemInfo#command_ADD(ControlInfo)}.
 	 */
+	@Test
 	public void test_setControl_ADD() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -257,6 +264,7 @@ public class CoolBarTest extends RcpModelTest {
 	/**
 	 * Move {@link ControlInfo} from one {@link CoolItemInfo} to other.
 	 */
+	@Test
 	public void test_setControl_MOVE() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -316,6 +324,7 @@ public class CoolBarTest extends RcpModelTest {
 	/**
 	 * When we move {@link CoolItemInfo} with {@link ControlInfo}, they should move together.
 	 */
+	@Test
 	public void test_setControl_MOVEItem() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -375,6 +384,7 @@ public class CoolBarTest extends RcpModelTest {
 	 * When we move {@link ControlInfo} out from {@link CoolItemInfo}, the
 	 * {@link CoolItem#setControl(org.eclipse.swt.widgets.Control)} invocation should be removed.
 	 */
+	@Test
 	public void test_setControl_moveOut() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -420,6 +430,7 @@ public class CoolBarTest extends RcpModelTest {
 	// Commands
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_CREATE() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -452,6 +463,7 @@ public class CoolBarTest extends RcpModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_MOVE() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

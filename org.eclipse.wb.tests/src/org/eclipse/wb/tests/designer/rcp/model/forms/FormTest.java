@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.forms;
 
+import org.junit.Test;
+
 import com.google.common.collect.ImmutableList;
 
 import org.eclipse.wb.internal.core.model.menu.IMenuPopupInfo;
@@ -53,6 +55,7 @@ public class FormTest extends AbstractFormsTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_properties() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -75,6 +78,7 @@ public class FormTest extends AbstractFormsTest {
 	 * {@link ControlInfo}. In contrast "body" is rightful {@link CompositeInfo}, that can have
 	 * {@link LayoutInfo} and accept many {@link ControlInfo}'s.
 	 */
+	@Test
 	public void test_getHead_getBody() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -111,6 +115,7 @@ public class FormTest extends AbstractFormsTest {
 	/**
 	 * Test for {@link FormInfo#getHeadClient()}.
 	 */
+	@Test
 	public void test_head_getHeadClient() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -138,6 +143,7 @@ public class FormTest extends AbstractFormsTest {
 	/**
 	 * Test for {@link FormInfo#setHeadClient(ControlInfo)}.
 	 */
+	@Test
 	public void test_head_setHeadClient() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -171,6 +177,7 @@ public class FormTest extends AbstractFormsTest {
 	/**
 	 * Test for moving "head client" out.
 	 */
+	@Test
 	public void test_head_MoveOut() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -206,6 +213,7 @@ public class FormTest extends AbstractFormsTest {
 	/**
 	 * Test for moving "head client" in.
 	 */
+	@Test
 	public void test_head_MoveIn() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -245,6 +253,7 @@ public class FormTest extends AbstractFormsTest {
 	/**
 	 * We should support {@link Form#getToolBarManager()} and {@link Form#getMenuManager()}.
 	 */
+	@Test
 	public void test_exposedManagers_0() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -271,6 +280,7 @@ public class FormTest extends AbstractFormsTest {
 	/**
 	 * We should support {@link Form#getToolBarManager()} and {@link Form#getMenuManager()}.
 	 */
+	@Test
 	public void test_exposedManagers_toolBarManager() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -294,6 +304,7 @@ public class FormTest extends AbstractFormsTest {
 	/**
 	 * We should support {@link Form#getToolBarManager()} and {@link Form#getMenuManager()}.
 	 */
+	@Test
 	public void test_exposedManagers_menuManager() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -321,6 +332,7 @@ public class FormTest extends AbstractFormsTest {
 	/**
 	 * We should support {@link Form#getToolBarManager()} and {@link Form#getMenuManager()}.
 	 */
+	@Test
 	public void test_exposedManagers_createAction() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -364,6 +376,7 @@ public class FormTest extends AbstractFormsTest {
 	 * {@link FormInfo} should have in context menu action to add/remove
 	 * {@link FormToolkit#decorateFormHeading(Form)}.
 	 */
+	@Test
 	public void test_FormToolkit_decorateFormHeading() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

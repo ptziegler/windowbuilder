@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.model;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.internal.swing.model.layout.GridLayoutInfo;
 import org.eclipse.wb.tests.designer.swing.model.layout.AbstractLayoutTest;
@@ -30,6 +32,7 @@ public class GridLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test for installing.
 	 */
+	@Test
 	public void test_setLayout() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -51,6 +54,7 @@ public class GridLayoutTest extends AbstractLayoutTest {
 	/**
 	 * {@link GridLayout} uses number of specified columns only when number of "rows" is zero.
 	 */
+	@Test
 	public void test_setColumns() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -79,6 +83,7 @@ public class GridLayoutTest extends AbstractLayoutTest {
 	 * Test switching layouts from {@link AbsoluteLayout} to {@link GridLayout}, and restore component
 	 * positions & alignments.
 	 */
+	@Test
 	public void test_Switching_fromNullLayout() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

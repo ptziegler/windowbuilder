@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.editor;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.editor.actions.DeleteAction;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
@@ -39,6 +41,7 @@ public class DeleteActionTest extends XwtGefTest {
 	/**
 	 * We can delete even "root" component, but this works as clearing it.
 	 */
+	@Test
 	public void test_canRootComponent() throws Exception {
 		XmlObjectInfo shell =
 				openEditor(
@@ -59,6 +62,7 @@ public class DeleteActionTest extends XwtGefTest {
 				"<Shell text='My text'/>");
 	}
 
+	@Test
 	public void test_deleteSingleComponent() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -79,6 +83,7 @@ public class DeleteActionTest extends XwtGefTest {
 				"<Shell/>");
 	}
 
+	@Test
 	public void test_deleteComponent_andItsParent() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",

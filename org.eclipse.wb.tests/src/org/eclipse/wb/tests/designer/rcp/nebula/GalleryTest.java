@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.nebula;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.rcp.nebula.gallery.GalleryInfo;
 import org.eclipse.wb.internal.rcp.nebula.gallery.GalleryItemInfo;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
@@ -41,6 +43,7 @@ public class GalleryTest extends AbstractNebulaTest {
 	/**
 	 * General test {@link GalleryInfo}.
 	 */
+	@Test
 	public void test_General() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -95,6 +98,7 @@ public class GalleryTest extends AbstractNebulaTest {
 	/**
 	 * Test isHorizontal() {@link GalleryInfo}.
 	 */
+	@Test
 	public void test_isHorizontal() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

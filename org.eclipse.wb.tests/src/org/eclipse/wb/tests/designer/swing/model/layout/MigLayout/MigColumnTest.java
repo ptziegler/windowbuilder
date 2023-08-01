@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.MigLayout;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.swing.MigLayout.model.MigColumnInfo;
 
 import org.apache.commons.lang.ArrayUtils;
@@ -35,6 +37,7 @@ public class MigColumnTest extends AbstractMigLayoutTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_alignments() throws Exception {
 		checkAlignment(MigColumnInfo.Alignment.DEFAULT, "Default");
 		checkAlignment(MigColumnInfo.Alignment.LEFT, "Left");
@@ -54,6 +57,7 @@ public class MigColumnTest extends AbstractMigLayoutTest {
 	/**
 	 * Check for content of {@link MigColumnInfo#ALIGNMENTS_TO_SET}.
 	 */
+	@Test
 	public void test_alignmentsToSet() throws Exception {
 		Assertions.assertThat(MigColumnInfo.ALIGNMENTS_TO_SET).hasSize(MigColumnInfo.Alignment.values().length - 1);
 		assertFalse(ArrayUtils.contains(

@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.widgets;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.core.editor.palette.model.entry.ToolEntryInfo;
 import org.eclipse.wb.gef.core.requests.ICreationFactory;
@@ -58,7 +61,9 @@ public class SwtAwtTest extends RcpModelTest {
 	// Parse
 	//
 	////////////////////////////////////////////////////////////////////////////
-	public void DISABLE_test_parse() throws Exception {
+	@Ignore
+	@Test
+	public void test_parse() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
 						"import java.awt.Frame;",
@@ -98,7 +103,9 @@ public class SwtAwtTest extends RcpModelTest {
 		}
 	}
 
-	public void DISABLE_test_parseWithBorder() throws Exception {
+	@Ignore
+	@Test
+	public void test_parseWithBorder() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
 						"import java.awt.Frame;",
@@ -129,7 +136,9 @@ public class SwtAwtTest extends RcpModelTest {
 	 * https://bugs.eclipse.org/bugs/show_bug.cgi?id=355351
 	 */
 	// Test gets stuck during the Linux build...
-	public void DISABLE_test_parseWhenZeroSize() throws Exception {
+	@Ignore
+	@Test
+	public void test_parseWhenZeroSize() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
 						"import java.awt.Frame;",
@@ -161,6 +170,7 @@ public class SwtAwtTest extends RcpModelTest {
 	/**
 	 * Test for {@link SwingCompositeEntryInfo}.
 	 */
+	@Test
 	public void test_SwingComposite() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.layout;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.internal.xwt.model.layout.FillLayoutInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.CompositeInfo;
@@ -36,6 +38,7 @@ public class FillLayoutGefTest extends XwtGefTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_dropNew_FillLayout() throws Exception {
 		CompositeInfo shell =
 				openEditor(
@@ -61,6 +64,7 @@ public class FillLayoutGefTest extends XwtGefTest {
 	// CREATE
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_CREATE_noNext() throws Exception {
 		CompositeInfo shell =
 				openEditor(
@@ -82,6 +86,7 @@ public class FillLayoutGefTest extends XwtGefTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_CREATE_withNext() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -110,6 +115,7 @@ public class FillLayoutGefTest extends XwtGefTest {
 	// PASTE
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_PASTE() throws Exception {
 		CompositeInfo shell =
 				openEditor(
@@ -138,6 +144,7 @@ public class FillLayoutGefTest extends XwtGefTest {
 	// MOVE
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_MOVE_reorder() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -163,6 +170,7 @@ public class FillLayoutGefTest extends XwtGefTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_MOVE_reparent() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.wizard;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.utils.jdt.core.ProjectUtils;
 import org.eclipse.wb.internal.xwt.wizards.ApplicationWizard;
 import org.eclipse.wb.tests.designer.TestUtils;
@@ -49,6 +51,7 @@ public class ApplicationWizardTest extends XwtWizardTest {
 	 * PDE project - RCP plugin.
 	 */
 	@DisposeProjectAfter
+	@Test
 	public void test_libraries_forPlugin() throws Exception {
 		// prepare default PDE/RCP project
 		{
@@ -83,6 +86,7 @@ public class ApplicationWizardTest extends XwtWizardTest {
 	 * Not PDE project.
 	 */
 	@DisposeProjectAfter
+	@Test
 	public void test_libraries_forProject() throws Exception {
 		// prepare default SWT project
 		{
@@ -110,6 +114,7 @@ public class ApplicationWizardTest extends XwtWizardTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_contents() throws Exception {
 		animateWizard();
 		// Java

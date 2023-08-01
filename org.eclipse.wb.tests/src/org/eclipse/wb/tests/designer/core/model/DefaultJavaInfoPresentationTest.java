@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.creation.factory.StaticFactoryCreationSupport;
 import org.eclipse.wb.internal.core.model.presentation.DefaultJavaInfoPresentation;
 import org.eclipse.wb.internal.core.model.presentation.IObjectPresentation;
@@ -34,6 +36,7 @@ public class DefaultJavaInfoPresentationTest extends SwingModelTest {
 	/**
 	 * Test for "normal" component.
 	 */
+	@Test
 	public void test_normalComponent() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -54,6 +57,7 @@ public class DefaultJavaInfoPresentationTest extends SwingModelTest {
 	/**
 	 * Test for component, created using static factory, with icon.
 	 */
+	@Test
 	public void test_factoryComponent() throws Exception {
 		// prepare factory
 		{
@@ -94,6 +98,7 @@ public class DefaultJavaInfoPresentationTest extends SwingModelTest {
 	/**
 	 * Test for component, created using static factory, without icon.
 	 */
+	@Test
 	public void test_factoryComponent_noIcon() throws Exception {
 		do_projectDispose();
 		do_projectCreate();

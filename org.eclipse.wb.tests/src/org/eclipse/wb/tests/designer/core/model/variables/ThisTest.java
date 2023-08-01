@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.variables;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.JavaInfoUtils;
 import org.eclipse.wb.internal.core.model.variable.ThisVariableSupport;
 import org.eclipse.wb.internal.core.utils.ast.AstNodeUtils;
@@ -42,6 +44,7 @@ public class ThisTest extends AbstractVariableTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_support() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -115,6 +118,7 @@ public class ThisTest extends AbstractVariableTest {
 	/**
 	 * Empty constructor.
 	 */
+	@Test
 	public void test_target_1() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -130,6 +134,7 @@ public class ThisTest extends AbstractVariableTest {
 	/**
 	 * Constructor with {@link Statement}.
 	 */
+	@Test
 	public void test_target_2() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -145,6 +150,7 @@ public class ThisTest extends AbstractVariableTest {
 	/**
 	 * Constructor with {@link SuperMethodInvocation}.
 	 */
+	@Test
 	public void test_target_3() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

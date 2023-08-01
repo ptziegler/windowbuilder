@@ -9,7 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.ast;
-
 import com.google.common.base.Function;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
@@ -88,6 +87,9 @@ import static org.mockito.Mockito.mock;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.List;
 
@@ -103,7 +105,8 @@ public class AstEditorTest extends AbstractJavaTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		if (m_testProject == null) {
 			do_projectCreate();
@@ -111,7 +114,8 @@ public class AstEditorTest extends AbstractJavaTest {
 	}
 
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		super.tearDown();
 		DesignerPlugin.getActivePage().closeAllEditors(false);
 	}
@@ -133,6 +137,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#getJavaProject()}.
 	 */
+	@Test
 	public void test_getJavaProject() throws Exception {
 		createTypeDeclaration_TestC("");
 		IJavaProject javaProject = m_testProject.getJavaProject();
@@ -144,6 +149,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#getProject()}.
 	 */
+	@Test
 	public void test_getProject() throws Exception {
 		createTypeDeclaration_TestC("");
 		assertSame(m_testProject.getProject(), m_lastEditor.getProject());
@@ -157,6 +163,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test that {@link AstEditor#hasCompilationErrors()}.
 	 */
+	@Test
 	public void test_hasCompilationErrors_false() throws Exception {
 		createTypeDeclaration_TestC("");
 		assertFalse(m_lastEditor.hasCompilationErrors());
@@ -165,6 +172,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test that {@link AstEditor#hasCompilationErrors()}.
 	 */
+	@Test
 	public void test_hasCompilationErrors_true() throws Exception {
 		m_ignoreModelCompileProblems = true;
 		createTypeDeclaration_TestC("somethingBad");
@@ -176,6 +184,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// getPrimaryType()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getPrimaryType() throws Exception {
 		CompilationUnit compilationUnit =
 				createASTCompilationUnit(
@@ -203,6 +212,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#getModelType(TypeDeclaration)}.
 	 */
+	@Test
 	public void test_getModelType() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -223,54 +233,64 @@ public class AstEditorTest extends AbstractJavaTest {
 	// moveStatement
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_moveStatement_nop_1() throws Exception {
 		String[] lines = new String[]{"    int a;", "    int b;"};
 		char_moveStatement(lines, 0, 0, true, lines, false);
 	}
 
+	@Test
 	public void test_moveStatement_nop_2() throws Exception {
 		String[] lines = new String[]{"    int a;", "    int b;"};
 		char_moveStatement(lines, 0, 0, false, lines, false);
 	}
 
+	@Test
 	public void test_moveStatement_nop_3() throws Exception {
 		String[] lines = new String[]{"    int a;", "    int b;"};
 		char_moveStatement(lines, 0, 1, true, lines, false);
 	}
 
+	@Test
 	public void test_moveStatement_nop_4() throws Exception {
 		String[] lines = new String[]{"    int a;", "    int b;"};
 		char_moveStatement(lines, 1, 0, false, lines, false);
 	}
 
+	@Test
 	public void test_moveStatement_nop_5() throws Exception {
 		String[] lines = new String[]{"    int a;", "    int b;"};
 		char_moveStatement(lines, 0, -1, true, lines, false);
 	}
 
+	@Test
 	public void test_moveStatement_nop_6() throws Exception {
 		String[] lines = new String[]{"    int a;", "    int b;"};
 		char_moveStatement(lines, 1, -1, false, lines, false);
 	}
 
+	@Test
 	public void test_moveStatement_1() throws Exception {
 		String[] lines_0 = new String[]{"    int a;", "    int b;", "    int c;"};
 		String[] lines_1 = new String[]{"    int b;", "    int a;", "    int c;"};
 		char_moveStatement(lines_0, 1, 0, true, lines_1, true);
 	}
 
+	@Test
 	public void test_moveStatement_2() throws Exception {
 		String[] lines_0 = new String[]{"    int a;", "    int b;", "    int c;"};
 		String[] lines_1 = new String[]{"    int b;", "    int a;", "    int c;"};
 		char_moveStatement(lines_0, 0, 2, true, lines_1, true);
 	}
 
+	@Test
 	public void test_moveStatement_3() throws Exception {
 		String[] lines_0 = new String[]{"    int a;", "    int b", "      = ", "      5;"};
 		String[] lines_1 = new String[]{"    int b", "      = ", "      5;", "    int a;"};
 		char_moveStatement(lines_0, 1, 0, true, lines_1, true);
 	}
 
+	@Test
 	public void test_moveStatement_4_before() throws Exception {
 		String[] lines_0 =
 				new String[]{
@@ -291,6 +311,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		char_moveStatement(lines_0, new int[]{1, 0}, new int[]{0, 0}, true, lines_1, true);
 	}
 
+	@Test
 	public void test_moveStatement_4_after() throws Exception {
 		String[] lines_0 =
 				new String[]{
@@ -311,6 +332,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		char_moveStatement(lines_0, new int[]{1, 0}, new int[]{0, 0}, false, lines_1, true);
 	}
 
+	@Test
 	public void test_moveStatement_4_inBlockBegin() throws Exception {
 		String[] lines_0 =
 				new String[]{
@@ -327,6 +349,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		char_moveStatement(lines_0, new int[]{1}, new int[]{0, -1}, true, lines_1, true);
 	}
 
+	@Test
 	public void test_moveStatement_4_inBlockEnd() throws Exception {
 		String[] lines_0 =
 				new String[]{
@@ -343,6 +366,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		char_moveStatement(lines_0, new int[]{1}, new int[]{0, -1}, false, lines_1, true);
 	}
 
+	@Test
 	public void test_moveStatement_5() throws Exception {
 		String[] lines_0 =
 				new String[]{
@@ -361,12 +385,14 @@ public class AstEditorTest extends AbstractJavaTest {
 		char_moveStatement(lines_0, new int[]{1}, new int[]{0, 0}, true, lines_1, true);
 	}
 
+	@Test
 	public void test_moveStatement_6() throws Exception {
 		String[] lines_0 = new String[]{"    int a;", "    int b;", "    int c;"};
 		String[] lines_1 = new String[]{"    int b;", "    int a;", "    int c;"};
 		char_moveStatement(lines_0, 0, 1, false, lines_1, true);
 	}
 
+	@Test
 	public void test_moveStatement_7() throws Exception {
 		String[] lines_0 =
 				new String[]{
@@ -389,18 +415,21 @@ public class AstEditorTest extends AbstractJavaTest {
 		char_moveStatement(lines_0, new int[]{0, 0}, new int[]{1, 0}, false, lines_1, true);
 	}
 
+	@Test
 	public void test_moveStatement_8() throws Exception {
 		String[] lines_0 = new String[]{"    int a;", "    int b;", "    int c;"};
 		String[] lines_1 = new String[]{"    int c;", "    int a;", "    int b;"};
 		char_moveStatement(lines_0, 2, -1, true, lines_1, true);
 	}
 
+	@Test
 	public void test_moveStatement_9() throws Exception {
 		String[] lines_0 = new String[]{"    int a;", "    int b;", "    int c;"};
 		String[] lines_1 = new String[]{"    int b;", "    int c;", "    int a;"};
 		char_moveStatement(lines_0, 0, -1, false, lines_1, true);
 	}
 
+	@Test
 	public void test_moveStatement_10() throws Exception {
 		String[] lines_0 =
 				new String[]{
@@ -423,6 +452,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		char_moveStatement(lines_0, new int[]{0, 0}, new int[]{1, -1}, true, lines_1, true);
 	}
 
+	@Test
 	public void test_moveStatement_11() throws Exception {
 		String[] lines_0 =
 				new String[]{
@@ -447,6 +477,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		char_moveStatement(lines_0, new int[]{0, 1}, new int[]{1, -1}, false, lines_1, true);
 	}
 
+	@Test
 	public void test_moveStatement_12() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -477,6 +508,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		assertSame(statement.getParent(), method_init.getBody());
 	}
 
+	@Test
 	public void test_moveStatement_emptyLine() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration(
@@ -520,6 +552,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * When source has lines with mixed indentation - leading tabs and then spaces, this caused
 	 * shifting lines again and again.
 	 */
+	@Test
 	public void test_moveStatement_mixedIndent() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration(
@@ -556,6 +589,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * When source has lines with mixed indentation - leading tabs and then spaces, this caused
 	 * shifting lines again and again.
 	 */
+	@Test
 	public void test_moveStatement_mixedIndent_withEmptyLine() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration(
@@ -608,6 +642,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * When we move {@link Statement}, we should update {@link TagElement} positions.
 	 */
+	@Test
 	public void test_moveStatement_withTagElement_forward() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration(
@@ -649,6 +684,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * When we move {@link Statement}, we should update {@link TagElement} positions.
 	 */
+	@Test
 	public void test_moveStatement_withTagElement_backward() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration(
@@ -735,6 +771,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#getEnclosingNode(int)}.
 	 */
+	@Test
 	public void test_getEnclosingNode() throws Exception {
 		TypeDeclaration typeDeclaration = createTypeDeclaration_TestC("void foo(){}");
 		MethodDeclaration method = typeDeclaration.getMethods()[0];
@@ -751,6 +788,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Tests for {@link AstEditor} "getEnclosing*" methods.
 	 */
+	@Test
 	public void test_getEnclosing_all() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -800,6 +838,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// putGlobalValue
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_globalValue() throws Exception {
 		createTypeDeclaration_TestC("");
 		//
@@ -816,6 +855,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// getRootMethods
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getRootMethods() throws Exception {
 		TypeDeclaration typeDeclaration = createTypeDeclaration_TestC("void root(){}");
 		EditorState state = EditorState.get(m_lastEditor);
@@ -841,6 +881,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// getClassLoader
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getClassLoader() throws Exception {
 		createTypeDeclaration_TestC("");
 		EditorState state = EditorState.get(m_lastEditor);
@@ -879,6 +920,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * Test that when source in {@link AstEditor} is same as in underlying {@link ICompilationUnit},
 	 * we don't touch {@link ICompilationUnit}, so don't set "modified" flag.
 	 */
+	@Test
 	public void test_commitChanges_withoutChanges() throws Exception {
 		createTypeDeclaration_TestC("");
 		// compilation unit is not modified initially
@@ -892,6 +934,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * Test that when source in {@link AstEditor} is same as in underlying {@link ICompilationUnit},
 	 * we don't touch {@link ICompilationUnit}, so don't set "modified" flag.
 	 */
+	@Test
 	public void test_commitChanges_underlayingFileChanged() throws Exception {
 		createTypeDeclaration_TestC("");
 		// update underlying file
@@ -905,6 +948,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test set {@link IASTEditorCommitListener} is used during {@link AstEditor#commitChanges()}.
 	 */
+	@Test
 	public void test_commitChanges_listener() throws Exception {
 		createTypeDeclaration_TestC("");
 		// set listener
@@ -935,6 +979,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test set {@link IASTEditorCommitListener} is used during {@link AstEditor#commitChanges()}.
 	 */
+	@Test
 	public void test_commitChanges_listener_canEdit() throws Exception {
 		TypeDeclaration typeDeclaration = createTypeDeclaration_TestC("");
 		// set listener
@@ -1000,6 +1045,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for real modification.
 	 */
+	@Test
 	public void test_commitChanges() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration(
@@ -1045,6 +1091,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#saveChanges()}.
 	 */
+	@Test
 	public void test_saveChanges_noEditor() throws Exception {
 		createASTCompilationUnit(
 				"test",
@@ -1079,6 +1126,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * <p>
 	 * This {@link ICompilationUnit} is opened in Java editor, so is not saved.
 	 */
+	@Test
 	public void test_saveChanges_openedEditor() throws Exception {
 		createASTCompilationUnit(
 				"test",
@@ -1121,6 +1169,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#indexOfCharBackward(char, int)}.
 	 */
+	@Test
 	public void test_indexOfCharBackward() throws Exception {
 		createTypeDeclaration_Test(
 				"// filler filler filler",
@@ -1141,6 +1190,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// getSource
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getSource() throws Exception {
 		TypeDeclaration typeDeclaration;
 		{
@@ -1179,6 +1229,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#setSource(String)}.
 	 */
+	@Test
 	public void test_setSource() throws Exception {
 		createASTCompilationUnit(
 				"test",
@@ -1207,6 +1258,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#getExternalSource(ASTNode)}.
 	 */
+	@Test
 	public void test_getExternalSource() throws Exception {
 		createTypeDeclaration(
 				"test",
@@ -1267,6 +1319,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#getTypeBindingSource(ITypeBinding)}.
 	 */
+	@Test
 	public void test_getTypeBindingSource() throws Exception {
 		createTypeDeclaration_Test(
 				"// filler filler filler filler filler",
@@ -1305,6 +1358,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#indexOf(String)}.
 	 */
+	@Test
 	public void test_indexOf() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -1336,6 +1390,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#getChar(int)}.
 	 */
+	@Test
 	public void test_getCharAt() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -1364,6 +1419,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// getWhitespaceToLeft
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getWhitespaceToLeft() throws Exception {
 		TypeDeclaration typeDeclaration;
 		{
@@ -1384,6 +1440,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// getLineNumber
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getLineNumber() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -1396,6 +1453,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		assertEquals(4, m_lastEditor.getLineNumber(fieldDeclaration.getStartPosition()));
 	}
 
+	@Test
 	public void test_getLineNumber_badPosition() throws Exception {
 		createTypeDeclaration_Test(
 				"// filler filler filler",
@@ -1419,6 +1477,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#getLineBegin(int)}.
 	 */
+	@Test
 	public void test_getLineBegin() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -1453,6 +1512,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#getLineEnd(int)}
 	 */
+	@Test
 	public void test_getLineEnd() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -1485,6 +1545,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// skipWhitespaceAndPureEOLCToLeft
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_skipWhitespaceAndPureEOLCToLeft_1() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -1516,6 +1577,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// skipSingleEOLToLeft
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_skipSingleEOLToLeft_1() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -1532,6 +1594,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		assertEquals(index - 2, m_lastEditor.skipSingleEOLToLeft(index));
 	}
 
+	@Test
 	public void test_skipSingleEOLToLeft_2() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -1554,6 +1617,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test bad cases.
 	 */
+	@Test
 	public void test_addFieldDeclaration_0_bad() throws Exception {
 		createTypeDeclaration_TestC("");
 		// 'null' as type and 'null' as bodyDeclaration
@@ -1582,22 +1646,27 @@ public class AstEditorTest extends AbstractJavaTest {
 			"    int abc;",
 			"  }");
 
+	@Test
 	public void test_addFieldDeclaration_1_body_before() throws Exception {
 		check_addFieldDeclaration(FIELD_INIT, false, true, FIELD_BEFORE);
 	}
 
+	@Test
 	public void test_addFieldDeclaration_2_body_after() throws Exception {
 		check_addFieldDeclaration(FIELD_INIT, false, false, FIELD_AFTER);
 	}
 
+	@Test
 	public void test_addFieldDeclaration_3_type_before() throws Exception {
 		check_addFieldDeclaration(FIELD_INIT, true, true, FIELD_BEFORE);
 	}
 
+	@Test
 	public void test_addFieldDeclaration_4_type_after() throws Exception {
 		check_addFieldDeclaration(FIELD_INIT, true, false, FIELD_AFTER);
 	}
 
+	@Test
 	public void test_addFieldDeclaration_5_emptyLines_before() throws Exception {
 		check_addFieldDeclaration(
 				getSourceDQ("package test;", "class Test {", "  ", "  ", "  int m_value0123456789;", "}"),
@@ -1613,6 +1682,7 @@ public class AstEditorTest extends AbstractJavaTest {
 						"}"));
 	}
 
+	@Test
 	public void test_addFieldDeclaration_5_emptyLines_after() throws Exception {
 		check_addFieldDeclaration(
 				getSourceDQ("package test;", "class Test {", "  ", "  ", "  int m_value0123456789;", "}"),
@@ -1628,6 +1698,7 @@ public class AstEditorTest extends AbstractJavaTest {
 						"}"));
 	}
 
+	@Test
 	public void test_addFieldDeclaration_6_javaDocComment_before() throws Exception {
 		check_addFieldDeclaration(
 				getSourceDQ(
@@ -1651,6 +1722,7 @@ public class AstEditorTest extends AbstractJavaTest {
 						"}"));
 	}
 
+	@Test
 	public void test_addFieldDeclaration_6_afterWithEOLComment() throws Exception {
 		check_addFieldDeclaration(
 				getSourceDQ("package test;", "class Test {", "  int m_value0123456789; // comment", "}"),
@@ -1692,6 +1764,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		assertEquals(expectedSource, m_lastEditor.getSource());
 	}
 
+	@Test
 	public void test_addFieldDeclaration_inAnonymousType() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -1734,6 +1807,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * If we don't see full context - this should not be problem.
 	 */
+	@Test
 	public void test_addFieldDeclaration_interfaceMethods() throws Exception {
 		setFileContentSrc(
 				"test/MyInterface.java",
@@ -1757,6 +1831,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// addMethodDeclaration
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_addMethodDeclaration_0() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -1786,6 +1861,7 @@ public class AstEditorTest extends AbstractJavaTest {
 				m_lastEditor);
 	}
 
+	@Test
 	public void test_addMethodDeclaration_danglingJavadoc() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -1812,6 +1888,7 @@ public class AstEditorTest extends AbstractJavaTest {
 				m_lastEditor);
 	}
 
+	@Test
 	public void test_addMethodDeclaration_withEmptyLine() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -1842,6 +1919,7 @@ public class AstEditorTest extends AbstractJavaTest {
 				m_lastEditor);
 	}
 
+	@Test
 	public void test_addMethodDeclaration_withParameters() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -1870,6 +1948,7 @@ public class AstEditorTest extends AbstractJavaTest {
 				m_lastEditor);
 	}
 
+	@Test
 	public void test_addMethodDeclaration_withAnnotations() throws Exception {
 		setFileContentSrc(
 				"test/Test_0.java",
@@ -1904,6 +1983,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#addInterfaceMethodDeclaration(String, BodyDeclarationTarget)}.
 	 */
+	@Test
 	public void test_addInterfaceMethodDeclaration() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -1931,6 +2011,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Keep static modifier of inner classes (if any) while adding method declaration to outer type.
 	 */
+	@Test
 	public void test_ASTParser_addMethodDeclaration_innerTypeStatic() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -1949,6 +2030,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * There was problem with removing visibility modifier when target type has {@link Javadoc}.
 	 */
+	@Test
 	public void test_ASTParser_parseBodyDeclaration_targetTypeWithJavadoc() throws Exception {
 		createTypeDeclaration_Test(
 				"// filler filler filler",
@@ -1966,6 +2048,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * We use inner type as context, test that its "private" does not prevent parsing.
 	 */
+	@Test
 	public void test_ASTParser_parseBodyDeclaration_intoPrivateInnerType() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -1981,6 +2064,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * We use inner type as context, test that its "private" does not prevent parsing.
 	 */
+	@Test
 	public void test_ASTParser_parseBodyDeclaration_intoProtectedInnerType() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -2001,6 +2085,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * Solution: parse full {@link CompilationUnit} with inserted {@link MethodDeclaration}. This is
 	 * slower, but more reliable.
 	 */
+	@Test
 	public void test_ASTParser_parseBodyDeclaration_intoAnonymous_whenTopLevelHasSameMethod()
 			throws Exception {
 		createTypeDeclaration_Test(
@@ -2028,6 +2113,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Add enums declared in current CU and used in methods.
 	 */
+	@Test
 	public void test_ASTParser_addMethodDeclaration_Enums_declared() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -2050,6 +2136,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test that {@link ICoreExceptionConstants#AST_PARSE_ERROR} includes source.
 	 */
+	@Test
 	public void test_ASTParser_parseBodyDeclaration_parseError() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration(
@@ -2110,6 +2197,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Add anonymous type instance with initializer into parsed source code.
 	 */
+	@Test
 	public void test_ASTParser_addStatement_anonymousInitializer() throws Exception {
 		createTypeDeclaration_Test(
 				"import java.util.ArrayList;",
@@ -2142,6 +2230,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// getParametersSource/getParameterNames
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getParametersSource() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -2154,6 +2243,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		assertEquals("String s, double d", m_lastEditor.getParametersSource(method));
 	}
 
+	@Test
 	public void test_getParameterNames() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -2174,6 +2264,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#replaceMethodName(MethodDeclaration, String)}.
 	 */
+	@Test
 	public void test_replaceMethodName_returnVoid() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -2198,6 +2289,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#replaceMethodName(MethodDeclaration, String)}.
 	 */
+	@Test
 	public void test_replaceMethodName_returnObject() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -2222,6 +2314,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#replaceMethodName(MethodDeclaration, String)}.
 	 */
+	@Test
 	public void test_replaceMethodName_returnPrimitive() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -2251,6 +2344,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#replaceMethodType(MethodDeclaration, String)}.
 	 */
+	@Test
 	public void test_replaceMethodType_int() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -2277,6 +2371,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// addTypeDeclaration
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_addTypeDeclaration() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -2321,6 +2416,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test that {@link SuperConstructorInvocation} has {@link IMethodBinding} after parsing.
 	 */
+	@Test
 	public void test_addTypeDeclaration_superCI_binding() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -2368,6 +2464,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// ensureInterfaceImplementation
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_ensureInterfaceImplementation_empty() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -2405,6 +2502,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		}
 	}
 
+	@Test
 	public void test_ensureInterfaceImplementation_extends() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -2440,6 +2538,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		}
 	}
 
+	@Test
 	public void test_ensureInterfaceImplementation_implements() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -2479,6 +2578,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		}
 	}
 
+	@Test
 	public void test_ensureInterfaceImplementation_already() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -2499,6 +2599,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#ensureThrownException(MethodDeclaration, String)}.
 	 */
+	@Test
 	public void test_ensureThrownException_alreadyDeclared_directly() throws Exception {
 		createTypeDeclaration_TestD(
 				"// filler filler filler filler filler",
@@ -2524,6 +2625,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#ensureThrownException(MethodDeclaration, String)}.
 	 */
+	@Test
 	public void test_ensureThrownException_alreadyDeclared_super() throws Exception {
 		createTypeDeclaration_TestD(
 				"// filler filler filler filler filler",
@@ -2549,6 +2651,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#ensureThrownException(MethodDeclaration, String)}.
 	 */
+	@Test
 	public void test_ensureThrownException_noExisting() throws Exception {
 		createTypeDeclaration_TestD(
 				"// filler filler filler filler filler",
@@ -2574,6 +2677,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#ensureThrownException(MethodDeclaration, String)}.
 	 */
+	@Test
 	public void test_ensureThrownException_afterExisting() throws Exception {
 		createTypeDeclaration_TestD(
 				"// filler filler filler filler filler",
@@ -2601,6 +2705,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// replaceSubstring
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_replaceSubstring_1() throws Exception {
 		TypeDeclaration typeDeclaration;
 		{
@@ -2625,6 +2730,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		assertEquals(expected, actual);
 	}
 
+	@Test
 	public void test_replaceSubstring_2() throws Exception {
 		TypeDeclaration typeDeclaration;
 		{
@@ -2658,6 +2764,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		}
 	}
 
+	@Test
 	public void test_replaceSubstring_3() throws Exception {
 		TypeDeclaration typeDeclaration;
 		{
@@ -2682,6 +2789,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		assertEquals(expected, actual);
 	}
 
+	@Test
 	public void test_replaceSubstring_4() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestD(
@@ -2748,6 +2856,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Tests for using position, without exclusion.
 	 */
+	@Test
 	public void test_getUniqueVariableName_0() throws Exception {
 		createTypeDeclaration_TestC(getSourceDQ(
 				"int m_value = 12345;",
@@ -2791,6 +2900,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Tests for excluding some {@link VariableDeclaration}'s.
 	 */
+	@Test
 	public void test_getUniqueVariableName_1() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestC(getSourceDQ(
@@ -2816,6 +2926,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for shadowing new variable by existing variable in <em>lower</em> nodes.
 	 */
+	@Test
 	public void test_getUniqueVariableName_shadowSameBlock() throws Exception {
 		createTypeDeclaration_TestC(getSourceDQ(
 				"void foo() {",
@@ -2832,6 +2943,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * Test for version {@link AstEditor#getUniqueVariableName(List, String)}, i.e. when we give
 	 * conflicting {@link VariableDeclaration}'s instead of position.
 	 */
+	@Test
 	public void test_getUniqueVariableName_withDeclarations() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -2873,6 +2985,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// getUniqueMethodName
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getUniqueMethodName() throws Exception {
 		createTypeDeclaration(
 				"test",
@@ -2899,6 +3012,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// getUniqueTypeName
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getUniqueTypeName() throws Exception {
 		createTypeDeclaration_TestC("void foo(){} class A {} class B {} class C {}");
 		assertEquals("A_1", m_lastEditor.getUniqueTypeName("A"));
@@ -2913,14 +3027,17 @@ public class AstEditorTest extends AbstractJavaTest {
 	// getStatementEndIndex
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getStatementEndIndex_1() throws Exception {
 		check_getStatementEndIndex("void foo() {int a; int b; int c;}", 0, 7);
 	}
 
+	@Test
 	public void test_getStatementEndIndex_2() throws Exception {
 		check_getStatementEndIndex("void foo() {int a; \tint b;\t\t int c;}", 1, 9);
 	}
 
+	@Test
 	public void test_getStatementEndIndex_3() throws Exception {
 		check_getStatementEndIndex("void foo() {int a; \tint b;\t\t// a\n int c;}", 1, 12);
 	}
@@ -2945,6 +3062,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for removing dangling {@link Statement}.
 	 */
+	@Test
 	public void test_removeStatement_0() throws Exception {
 		// test for dangling node
 		TypeDeclaration testType =
@@ -2976,54 +3094,63 @@ public class AstEditorTest extends AbstractJavaTest {
 		assertEditor(expectedSource, m_lastEditor);
 	}
 
+	@Test
 	public void test_removeStatement_1() throws Exception {
 		// simple case - just statement, without any whitespace
 		String code = "void foo(){int value = 1;}";
 		check_removeStatement(code, 0, "void foo(){}");
 	}
 
+	@Test
 	public void test_removeStatement_2() throws Exception {
 		// we remove whitespace only to the EOL, but not including EOL
 		String code = "void foo(){int value = 1;\t \t\n }";
 		check_removeStatement(code, 0, "void foo(){\n }");
 	}
 
+	@Test
 	public void test_removeStatement_3() throws Exception {
 		// we remove also EOL comments
 		String code = "void foo(){int value = 1; // abc \n }";
 		check_removeStatement(code, 0, "void foo(){\n }");
 	}
 
+	@Test
 	public void test_removeStatement_3_1() throws Exception {
 		// we remove also EOL comments
 		String code = "void foo(){int value = 1; // abc \r\n }";
 		check_removeStatement(code, 0, "void foo(){\r\n }");
 	}
 
+	@Test
 	public void test_removeStatement_4() throws Exception {
 		// we remove any whitespace before statement
 		String code = "void foo(){\t\t\n\t int value = 1;}";
 		check_removeStatement(code, 0, "void foo(){}");
 	}
 
+	@Test
 	public void test_removeStatement_5() throws Exception {
 		// we remove also any comments before statement
 		String code = "void foo(){\t\t\n\t // abc\n/*qwe\n\trty*/ int value = 1;}";
 		check_removeStatement(code, 0, "void foo(){}");
 	}
 
+	@Test
 	public void test_removeStatement_6() throws Exception {
 		// we remove from beginning of block or (in this case) from end of previous statement
 		String code = "void foo(){\n\tint a;\n\tint value = 1;\n}";
 		check_removeStatement(code, 1, "void foo(){\n\tint a;\n}");
 	}
 
+	@Test
 	public void test_removeStatement_7() throws Exception {
 		// we remove full block if its sole statement is removing
 		String code = "void foo(){int a;{int b;}}";
 		check_removeStatement(code, new int[]{1, 0}, "void foo(){int a;}");
 	}
 
+	@Test
 	public void test_removeStatement_8() throws Exception {
 		// ...but only if it is sole statement
 		String code = "void foo(){int a;{int b;int c;}}";
@@ -3056,6 +3183,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test that {@link LineComment}'s are moved/removed during operations.
 	 */
+	@Test
 	public void test_comments_1_removeLine() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestC(getSourceDQ(
@@ -3095,6 +3223,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * There was problem that {@link LineComment}'s were not removed from AST and caused range
 	 * exceptions later.
 	 */
+	@Test
 	public void test_comments_removeComment_whenReplace() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestC(getSource(
@@ -3130,6 +3259,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * Test that {@link LineComment}'s are moved/removed during operations.<br/>
 	 * Here we use long declarations just to force wrapping of source.
 	 */
+	@Test
 	public void test_comments_2_removeBlock() throws Exception {
 		check_comments_2_removeBlock(new String[]{
 				"  void foo() {",
@@ -3142,6 +3272,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * Test that {@link LineComment}'s are moved/removed during operations.<br/>
 	 * We use long declarations at end to force remove because of invalid start.
 	 */
+	@Test
 	public void test_comments_2_removeBlock2() throws Exception {
 		check_comments_2_removeBlock(new String[]{
 				"  void foo() {",
@@ -3179,6 +3310,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// removeEnclosingStatement
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_removeEnclosingStatement() throws Exception {
 		TypeDeclaration typeDeclaration = createTypeDeclaration_TestC("void foo() {int a;}");
 		MethodDeclaration method = typeDeclaration.getMethods()[0];
@@ -3199,6 +3331,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test: sole argument.
 	 */
+	@Test
 	public void test_removeInvocationArgument_0() throws Exception {
 		check_removeInvocationArgument("System.out.println(0)", 0, "System.out.println()");
 	}
@@ -3206,6 +3339,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test: first argument.
 	 */
+	@Test
 	public void test_removeInvocationArgument_1() throws Exception {
 		check_removeInvocationArgument("bar(0, 1, 2)", 0, "bar(1, 2)");
 	}
@@ -3213,6 +3347,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test: first argument, more spaces.
 	 */
+	@Test
 	public void test_removeInvocationArgument_2() throws Exception {
 		check_removeInvocationArgument("bar(0  ,  \r\n 1, 2)", 0, "bar(1, 2)");
 	}
@@ -3220,6 +3355,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test: inner argument.
 	 */
+	@Test
 	public void test_removeInvocationArgument_3() throws Exception {
 		check_removeInvocationArgument("bar(0, 1, 2)", 1, "bar(0, 2)");
 	}
@@ -3227,6 +3363,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test: last argument.
 	 */
+	@Test
 	public void test_removeInvocationArgument_4() throws Exception {
 		check_removeInvocationArgument("bar(0, 1, 2)", 2, "bar(0, 1)");
 	}
@@ -3234,6 +3371,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test: two arguments.
 	 */
+	@Test
 	public void test_removeInvocationArgument_5() throws Exception {
 		MethodInvocation invocation = check_removeInvocationArgument("bar(0, 1, 2)", 0, "bar(1, 2)");
 		check_removeInvocationArgument(invocation, 0, "bar(2)");
@@ -3265,6 +3403,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// moveInvocationArgument
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_moveInvocationArgument() throws Exception {
 		MethodInvocation invocation =
 				check_moveInvocationArgument("bar(0, 1, 2)", 0, 1, "bar(1, 0, 2)");
@@ -3303,6 +3442,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// removeCreationArgument
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_removeCreationArgument() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -3343,18 +3483,22 @@ public class AstEditorTest extends AbstractJavaTest {
 	// addArrayElement
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_addArrayElement_0() throws Exception {
 		check_addArrayElement("new int[]{2, 3}", 0, "1", "new int[]{1, 2, 3}");
 	}
 
+	@Test
 	public void test_addArrayElement_1() throws Exception {
 		check_addArrayElement("new int[]{1, 3}", 1, "2", "new int[]{1, 2, 3}");
 	}
 
+	@Test
 	public void test_addArrayElement_2() throws Exception {
 		check_addArrayElement("new int[]{1, 2}", 2, "3", "new int[]{1, 2, 3}");
 	}
 
+	@Test
 	public void test_addArrayElement_3() throws Exception {
 		check_addArrayElement("new int[]{}", 0, "1", "new int[]{1}");
 	}
@@ -3382,18 +3526,22 @@ public class AstEditorTest extends AbstractJavaTest {
 	// removeArrayElement
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_removeArrayElement_0() throws Exception {
 		check_removeArrayElement("new int[]{1, 2, 3}", 0, "new int[]{2, 3}");
 	}
 
+	@Test
 	public void test_removeArrayElement_1() throws Exception {
 		check_removeArrayElement("new int[]{1, 2, 3}", 1, "new int[]{1, 3}");
 	}
 
+	@Test
 	public void test_removeArrayElement_2() throws Exception {
 		check_removeArrayElement("new int[]{1, 2, 3}", 2, "new int[]{1, 2}");
 	}
 
+	@Test
 	public void test_removeArrayElement_3() throws Exception {
 		check_removeArrayElement("new int[]{1}", 0, "new int[]{}");
 	}
@@ -3401,6 +3549,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * We should be nice and ignore remove request if there are no such element.
 	 */
+	@Test
 	public void test_removeArrayElement_noSuchIndex() throws Exception {
 		check_removeArrayElement("new int[]{0, 1}", 2, "new int[]{0, 1}");
 	}
@@ -3426,6 +3575,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// moveArrayElement
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_moveArrayElement() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestC("void foo() { int[] a = new int[]{0}; int[] b = new int[]{1, 2};}");
@@ -3462,26 +3612,32 @@ public class AstEditorTest extends AbstractJavaTest {
 	// exchangeArrayElements()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_exchangeArrayElements_1() throws Exception {
 		check_exchangeArrayElements("new int[]{1, 2, 3, 4}", 0, 2, "new int[]{3, 2, 1, 4}");
 	}
 
+	@Test
 	public void test_exchangeArrayElements_2() throws Exception {
 		check_exchangeArrayElements("new int[]{111, 2, 3, 4}", 0, 2, "new int[]{3, 2, 111, 4}");
 	}
 
+	@Test
 	public void test_exchangeArrayElements_3() throws Exception {
 		check_exchangeArrayElements("new int[]{1, 2, 333, 4}", 0, 2, "new int[]{333, 2, 1, 4}");
 	}
 
+	@Test
 	public void test_exchangeArrayElements_4() throws Exception {
 		check_exchangeArrayElements("new int[]{1, 2, 3, 4}", 2, 0, "new int[]{3, 2, 1, 4}");
 	}
 
+	@Test
 	public void test_exchangeArrayElements_5() throws Exception {
 		check_exchangeArrayElements("new int[]{111, 2, 3, 4}", 2, 0, "new int[]{3, 2, 111, 4}");
 	}
 
+	@Test
 	public void test_exchangeArrayElements_6() throws Exception {
 		check_exchangeArrayElements("new int[]{1, 2, 333, 4}", 2, 0, "new int[]{333, 2, 1, 4}");
 	}
@@ -3530,6 +3686,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test: sole argument.
 	 */
+	@Test
 	public void test_addInvocationArgument_1() throws Exception {
 		check_addInvocationArgument("bar()", 0, "0", "bar(0)");
 	}
@@ -3537,6 +3694,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test: first argument.
 	 */
+	@Test
 	public void test_addInvocationArgument_2() throws Exception {
 		check_addInvocationArgument("bar(1)", 0, "0", "bar(0, 1)");
 	}
@@ -3544,6 +3702,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test: last argument.
 	 */
+	@Test
 	public void test_addInvocationArgument_3() throws Exception {
 		check_addInvocationArgument("bar(0)", 1, "1", "bar(0, 1)");
 	}
@@ -3551,6 +3710,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test: inner argument.
 	 */
+	@Test
 	public void test_addInvocationArgument_4() throws Exception {
 		check_addInvocationArgument("bar(0, 2)", 1, "1", "bar(0, 1, 2)");
 	}
@@ -3558,6 +3718,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test: argument with fully qualified types.
 	 */
+	@Test
 	public void test_addInvocationArgument_5() throws Exception {
 		CompilationUnit compilationUnit =
 				createASTCompilationUnit(
@@ -3626,6 +3787,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#addCreationArgument(ClassInstanceCreation, int, String)}.
 	 */
+	@Test
 	public void test_addCreationArgument() throws Exception {
 		createTypeDeclaration(
 				"test",
@@ -3662,6 +3824,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#addAnonymousClassDeclaration(ClassInstanceCreation)}.
 	 */
+	@Test
 	public void test_addAnonymousClassDeclaration() throws Exception {
 		createTypeDeclaration(
 				"test",
@@ -3699,6 +3862,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// replaceInvocationName
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_replaceInvocationName() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestD(
@@ -3739,6 +3903,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#replaceInvocationExpression(MethodInvocation, String)}.
 	 */
+	@Test
 	public void test_replaceInvocationExpression_nullExpression() throws Exception {
 		setFileContentSrc(
 				"test/Wrapper.java",
@@ -3782,6 +3947,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#replaceInvocationExpression(MethodInvocation, String)}.
 	 */
+	@Test
 	public void test_replaceInvocationExpression_ThisExpression() throws Exception {
 		setFileContentSrc(
 				"test/Wrapper.java",
@@ -3825,6 +3991,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#replaceInvocationExpression(MethodInvocation, String)}.
 	 */
+	@Test
 	public void test_replaceInvocationExpression_anyExpression() throws Exception {
 		setFileContentSrc(
 				"test/Wrapper.java",
@@ -3870,6 +4037,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * Test for {@link AstEditor#replaceCreationArguments(ClassInstanceCreation, String[])}, single
 	 * arguments line.
 	 */
+	@Test
 	public void test_replaceCreationArguments_1() throws Exception {
 		String[] newArgumentsLines = new String[]{"1"};
 		String[] expectedSourceLines =
@@ -3888,6 +4056,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * Test for {@link AstEditor#replaceCreationArguments(ClassInstanceCreation, String[])}, several
 	 * arguments line.
 	 */
+	@Test
 	public void test_replaceCreationArguments_2() throws Exception {
 		String[] newArgumentsLines = new String[]{"1", "\t+", "\t2"};
 		String[] expectedSourceLines =
@@ -3907,6 +4076,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#replaceCreationArguments(ClassInstanceCreation, String[])}, imports.
 	 */
+	@Test
 	public void test_replaceCreationArguments_3() throws Exception {
 		String[] newArgumentsLines = new String[]{"java.util.Collections.EMPTY_LIST"};
 		String[] expectedSourceLines =
@@ -3960,6 +4130,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#replaceInvocationArguments(MethodInvocation, List)}.
 	 */
+	@Test
 	public void test_replaceInvocationArguments() throws Exception {
 		setFileContentSrc(
 				"MyObject.java",
@@ -3992,6 +4163,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#replaceInvocationArguments(MethodInvocation, List)}.
 	 */
+	@Test
 	public void test_replaceInvocationArguments_whenChained() throws Exception {
 		setFileContentSrc(
 				"MyObject.java",
@@ -4029,6 +4201,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#inlineParenthesizedExpression(Expression)}.
 	 */
+	@Test
 	public void test_inlineParenthesizedExpression() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -4060,6 +4233,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#hasEnclosingTryStatement(Statement, String)}.
 	 */
+	@Test
 	public void test_hasEnclosingTryStatement_noTryStatement() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -4075,6 +4249,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#hasEnclosingTryStatement(Statement, String)}.
 	 */
+	@Test
 	public void test_hasEnclosingTryStatement_noSuchCatch() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -4093,6 +4268,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#hasEnclosingTryStatement(Statement, String)}.
 	 */
+	@Test
 	public void test_hasEnclosingTryStatement_hasExactCatch() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -4111,6 +4287,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#hasEnclosingTryStatement(Statement, String)}.
 	 */
+	@Test
 	public void test_hasEnclosingTryStatement_hasSuperCatch() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -4134,6 +4311,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#encloseInTryStatement(Statement, String)}.
 	 */
+	@Test
 	public void test_encloseInTryStatement() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -4163,6 +4341,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#removeEmptyTryStatements()}.
 	 */
+	@Test
 	public void test_removeEmptyTryStatements() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -4200,6 +4379,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#encloseInBlock(Statement)}.
 	 */
+	@Test
 	public void test_encloseInBlock() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -4228,6 +4408,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#inlineBlock(Block)}.
 	 */
+	@Test
 	public void test_inlineBlock() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -4266,6 +4447,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// addStatement
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_addStatement_1() throws Exception {
 		// simple case - before statement
 		String methodCode = "int f; void foo() {\n\tint a; // test \n}";
@@ -4274,6 +4456,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		check_addStatement(methodCode, 0, true, statementCode, expectedMethodCode);
 	}
 
+	@Test
 	public void test_addStatement_2() throws Exception {
 		// more complex case - after statement
 		String methodCode = "void foo() {\n\tint a; // test \n}";
@@ -4282,6 +4465,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		check_addStatement(methodCode, 0, false, statementCode, expectedMethodCode);
 	}
 
+	@Test
 	public void test_addStatement_2a() throws Exception {
 		// after statement without prefix
 		String methodCode = "\nvoid foo() {int a;}";
@@ -4290,6 +4474,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		check_addStatement(methodCode, 0, false, statementCode, expectedMethodCode);
 	}
 
+	@Test
 	public void test_addStatement_2b() throws Exception {
 		// for parameter
 		String methodCode = "\nvoid foo(int p) {int a;}";
@@ -4298,6 +4483,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		check_addStatement(methodCode, 0, false, statementCode, expectedMethodCode);
 	}
 
+	@Test
 	public void test_addStatement_2c() throws Exception {
 		// check default values for different types
 		String methodCode =
@@ -4307,6 +4493,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		check_addStatement(methodCode, 0, false, statementCode, expectedMethodCode);
 	}
 
+	@Test
 	public void test_addStatement_3() throws Exception {
 		// in beginning of method
 		String methodCode = "\n\tvoid foo() {\n\t\tint a;\n\t}";
@@ -4315,6 +4502,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		check_addStatement(methodCode, -1, true, statementCode, expectedMethodCode);
 	}
 
+	@Test
 	public void test_addStatement_4() throws Exception {
 		// in end of method
 		String methodCode = "\n\tvoid foo() {\n\t\tint a;\n\t}";
@@ -4344,6 +4532,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test that we can add relative to inner {@link Block}.
 	 */
+	@Test
 	public void test_addStatement_5() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -4379,6 +4568,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test that we can add statement with leading comment lines.
 	 */
+	@Test
 	public void test_addStatement_6() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -4419,6 +4609,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test that we can add after statement with trailing end of line comment.
 	 */
+	@Test
 	public void test_addStatement_7() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -4450,6 +4641,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test that when we use statement source with fully qualified names, they are imported.
 	 */
+	@Test
 	public void test_addStatement_8() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -4482,6 +4674,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * We should be able to add new {@link Statement} relative to child in {@link IfStatement}.
 	 */
+	@Test
 	public void test_addStatement_beforeStatement_inIfStatement_thenWithElse() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -4514,6 +4707,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * We should be able to add new {@link Statement} relative to child in {@link IfStatement}.
 	 */
+	@Test
 	public void test_addStatement_beforeStatement_inIfStatement_onlyThen() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -4539,6 +4733,7 @@ public class AstEditorTest extends AbstractJavaTest {
 				m_lastEditor);
 	}
 
+	@Test
 	public void test_addStatement_x_1() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration("test", "Test.java", "package test;\n"
@@ -4553,6 +4748,7 @@ public class AstEditorTest extends AbstractJavaTest {
 				+ "class Test extends JPanel {Test() {\n\tsetVisible(false);}}", m_lastEditor.getSource());
 	}
 
+	@Test
 	public void test_addStatement_x_2() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration("test", "Test.java", "package test;\n"
@@ -4572,6 +4768,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link ICoreExceptionConstants#AST_PARSE_ERROR} that includes source.
 	 */
+	@Test
 	public void test_addStatement_parseError() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration(
@@ -4610,54 +4807,63 @@ public class AstEditorTest extends AbstractJavaTest {
 	// removeBodyDeclaration
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_removeBodyDeclaration_1() throws Exception {
 		// remove inner, it removes trailing spaces
 		String code = "int aaa;\tint bbb; int ccc;";
 		check_removeBodyDeclaration(code, 1, "int aaa;\tint ccc;");
 	}
 
+	@Test
 	public void test_removeBodyDeclaration_2() throws Exception {
 		// remove inner, it removes trailing spaces to the EOL
 		String code = "int aaa;\n\t\tint bbb;\n\tint ccc;";
 		check_removeBodyDeclaration(code, 1, "int aaa;\n\tint ccc;");
 	}
 
+	@Test
 	public void test_removeBodyDeclaration_3() throws Exception {
 		// remove first
 		String code = "int aaa; int bbb; int ccc;";
 		check_removeBodyDeclaration(code, 0, "int bbb; int ccc;");
 	}
 
+	@Test
 	public void test_removeBodyDeclaration_4() throws Exception {
 		// remove last
 		String code = "int aaa; int bbb; int ccc;";
 		check_removeBodyDeclaration(code, 2, "int aaa; int bbb; ");
 	}
 
+	@Test
 	public void test_removeBodyDeclaration_4_2() throws Exception {
 		// remove last
 		String code = "int aaa;\nint bbb;\nint ccc;\n";
 		check_removeBodyDeclaration(code, 2, "int aaa;\nint bbb;\n");
 	}
 
+	@Test
 	public void test_removeBodyDeclaration_5() throws Exception {
 		// spaces before inner, keep only spaces before \n
 		String code = "int aaa; \n\t\t\nint bbb; int ccc;";
 		check_removeBodyDeclaration(code, 1, "int aaa; int ccc;");
 	}
 
+	@Test
 	public void test_removeBodyDeclaration_6() throws Exception {
 		// spaces before first
 		String code = "\t\t\n\tint aaa; \n\t\t\nint bbb; int ccc;";
 		check_removeBodyDeclaration(code, 0, "\n\t\t\nint bbb; int ccc;");
 	}
 
+	@Test
 	public void test_removeBodyDeclaration_EOLC_before() throws Exception {
 		// EOL comment after previous
 		String code = "int aaa; // EOL comment\nint bbb;\nint ccc;";
 		check_removeBodyDeclaration(code, 1, "int aaa; // EOL comment\nint ccc;");
 	}
 
+	@Test
 	public void test_removeBodyDeclaration_EOLC_after() throws Exception {
 		// EOL comment after this
 		String code = "int aaa;\nint bbb; // EOL comment\nint ccc;";
@@ -4682,6 +4888,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * Test for {@link AstEditor#removeBodyDeclaration(BodyDeclaration)} for
 	 * {@link AnonymousClassDeclaration} .
 	 */
+	@Test
 	public void test_removeBodyDeclaration_anonymous() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -4724,6 +4931,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Removing field declaration fragments.
 	 */
+	@Test
 	public void test_removeVariableDeclaration_field() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -4787,6 +4995,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Removing local variable declaration fragments.
 	 */
+	@Test
 	public void test_removeVariableDeclaration_local() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -4859,6 +5068,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * <p>
 	 * No anything other than spaces until end of {@link TypeDeclaration}.
 	 */
+	@Test
 	public void test_removeDanglingJavadoc_attachedJavaDoc() throws Exception {
 		createTypeDeclaration_Test(
 				"// filler filler filler filler filler",
@@ -4886,6 +5096,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * <p>
 	 * No anything other than spaces until end of {@link TypeDeclaration}.
 	 */
+	@Test
 	public void test_removeDanglingJavadoc_onlyWhitespaces() throws Exception {
 		createTypeDeclaration_Test(
 				"// filler filler filler filler filler",
@@ -4910,6 +5121,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * <p>
 	 * Has line comments between end of {@link Javadoc} and end of {@link TypeDeclaration}.
 	 */
+	@Test
 	public void test_removeDanglingJavadoc_lineComments() throws Exception {
 		createTypeDeclaration_Test(
 				"// filler filler filler filler filler",
@@ -4936,6 +5148,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// setJavadoc
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_setJavadoc_setNew() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestD("public class Test {", "  public void foo() {", "  }", "}");
@@ -4957,6 +5170,7 @@ public class AstEditorTest extends AbstractJavaTest {
 				m_lastEditor);
 	}
 
+	@Test
 	public void test_setJavadoc_replaceExisting() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestD(
@@ -4985,6 +5199,7 @@ public class AstEditorTest extends AbstractJavaTest {
 				m_lastEditor);
 	}
 
+	@Test
 	public void test_setJavadoc_removeExisting() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestD(
@@ -5013,6 +5228,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * No {@link Javadoc}, so remove request is ignored.
 	 */
+	@Test
 	public void test_setJavadoc_removeIgnore() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestD(
@@ -5040,6 +5256,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// setJavadocTagText()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_setJavadocTagText_replaceExisting() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestD(
@@ -5070,6 +5287,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * No {@link Javadoc}, add new one with single {@link TagElement}.
 	 */
+	@Test
 	public void test_setJavadocTagText_addJavadoc() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestD(
@@ -5099,6 +5317,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * No such {@link TagElement}, add new one with single {@link TextElement}.
 	 */
+	@Test
 	public void test_setJavadocTagText_addTagElement() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestD(
@@ -5134,6 +5353,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * No such {@link TagElement}, add new one with single {@link TextElement}.
 	 */
+	@Test
 	public void test_setJavadocTagText_addTagElement2() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestD(
@@ -5167,6 +5387,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * No any {@link TagElement}'s.
 	 */
+	@Test
 	public void test_setJavadocTagText_addTagElement_emptyJavaDoc() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestD(
@@ -5193,6 +5414,7 @@ public class AstEditorTest extends AbstractJavaTest {
 				m_lastEditor);
 	}
 
+	@Test
 	public void test_setJavadocTagText_removeExisting() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestD(
@@ -5229,6 +5451,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * We remove last/only tag, but there is text also text, so we keep {@link Javadoc}.
 	 */
+	@Test
 	public void test_setJavadocTagText_removeExisting_onlyTextLeft() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestD(
@@ -5261,6 +5484,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * When we remove last/only tag, we should remove {@link Javadoc}.
 	 */
+	@Test
 	public void test_setJavadocTagText_removeExisting_noMoreTags() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestD(
@@ -5289,6 +5513,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * No such tag, do nothing.
 	 */
+	@Test
 	public void test_setJavadocTagText_removeNoSuchTag() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestD(
@@ -5318,6 +5543,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * No {@link Javadoc}, do nothing.
 	 */
+	@Test
 	public void test_setJavadocTagText_removeNoJavadoc() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestD(
@@ -5340,6 +5566,7 @@ public class AstEditorTest extends AbstractJavaTest {
 				m_lastEditor);
 	}
 
+	@Test
 	public void test_setJavadocTagText_noExistingFragments_noNewFragments() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestD(
@@ -5366,6 +5593,7 @@ public class AstEditorTest extends AbstractJavaTest {
 				m_lastEditor);
 	}
 
+	@Test
 	public void test_setJavadocTagText_noExistingFragments_setNewFragments() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestD(
@@ -5395,6 +5623,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * When we add import, positions of {@link TagElement} may be broken.
 	 */
+	@Test
 	public void test_setJavadocTagText_bug_1() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestD(
@@ -5462,6 +5691,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// ensureClassImport
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_ensureClassImport_1() throws Exception {
 		// ignore java.lang
 		String source =
@@ -5475,6 +5705,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		assert_ensureClassImport(source, "java.lang.Integer", source, "Integer");
 	}
 
+	@Test
 	public void test_ensureClassImport_2() throws Exception {
 		// already imported, exact
 		String source =
@@ -5488,6 +5719,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		assert_ensureClassImport(source, "java.util.List", source, "List");
 	}
 
+	@Test
 	public void test_ensureClassImport_3() throws Exception {
 		// already imported, on demand
 		String source =
@@ -5501,6 +5733,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		assert_ensureClassImport(source, "java.util.List", source, "List");
 	}
 
+	@Test
 	public void test_ensureClassImport_4() throws Exception {
 		// new import, no other imports
 		String source_1 =
@@ -5516,6 +5749,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		assert_ensureClassImport(source_1, "java.util.List", source_2, "List");
 	}
 
+	@Test
 	public void test_ensureClassImport_5() throws Exception {
 		// new import, other imports
 		String source_1 =
@@ -5538,6 +5772,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		assert_ensureClassImport(source_1, "java.util.List", source_2, "List");
 	}
 
+	@Test
 	public void test_ensureClassImport_6() throws Exception {
 		// conflict with exact import
 		String source =
@@ -5551,6 +5786,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		assert_ensureClassImport(source, "java.awt.List", source, "java.awt.List");
 	}
 
+	@Test
 	public void test_ensureClassImport_7() throws Exception {
 		// on demand imports, no conflict
 		String source_1 =
@@ -5573,6 +5809,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		assert_ensureClassImport(source_1, "java.awt.List", source_2, "List");
 	}
 
+	@Test
 	public void test_ensureClassImport_8() throws Exception {
 		// on demand imports, conflict
 		String source =
@@ -5590,6 +5827,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Import for private inner class.
 	 */
+	@Test
 	public void test_ensureClassImport_9() throws Exception {
 		String source =
 				getSourceDQ(
@@ -5606,6 +5844,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Ignore import for type in same package.
 	 */
+	@Test
 	public void test_ensureClassImport_10() throws Exception {
 		setFileContentSrc("test/A.java", getSourceDQ("package test;", "public class A {", "}"));
 		waitForAutoBuild();
@@ -5618,6 +5857,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for unit in default package.
 	 */
+	@Test
 	public void test_ensureClassImport_11() throws Exception {
 		createASTCompilationUnit(
 				"",
@@ -5652,30 +5892,35 @@ public class AstEditorTest extends AbstractJavaTest {
 	// ASTCodeGeneration.getEndOfLine
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_ASTCG_getEndOfLine_0_default() throws Exception {
 		createTypeDeclaration_TestC("private int m_value = 12345;");
 		AstCodeGeneration generation = m_lastEditor.getGeneration();
 		assertSame(AstCodeGeneration.DEFAULT_END_OF_LINE, generation.getEndOfLine());
 	}
 
+	@Test
 	public void test_ASTCG_getEndOfLine_1_r() throws Exception {
 		createTypeDeclaration_TestC("private int m_value = 12345;\r");
 		AstCodeGeneration generation = m_lastEditor.getGeneration();
 		assertEquals("\r", generation.getEndOfLine());
 	}
 
+	@Test
 	public void test_ASTCG_getEndOfLine_2_n() throws Exception {
 		createTypeDeclaration_TestC("private int m_value = 12345;\n");
 		AstCodeGeneration generation = m_lastEditor.getGeneration();
 		assertEquals("\n", generation.getEndOfLine());
 	}
 
+	@Test
 	public void test_ASTCG_getEndOfLine_3_rn() throws Exception {
 		createTypeDeclaration_TestC("private int m_value = 12345;\r\n");
 		AstCodeGeneration generation = m_lastEditor.getGeneration();
 		assertEquals("\r\n", generation.getEndOfLine());
 	}
 
+	@Test
 	public void test_ASTCG_getEndOfLine_4_nr() throws Exception {
 		createTypeDeclaration_TestC("private int m_value = 12345;\n\r");
 		AstCodeGeneration generation = m_lastEditor.getGeneration();
@@ -5687,12 +5932,14 @@ public class AstEditorTest extends AbstractJavaTest {
 	// ASTCodeGeneration.getIndentation
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_ASTCG_getIndentation_0() throws Exception {
 		createTypeDeclaration_TestC("");
 		AstCodeGeneration generation = m_lastEditor.getGeneration();
 		assertSame("", generation.getIndentation(0));
 	}
 
+	@Test
 	public void test_ASTCG_getIndentation_1_tab() throws Exception {
 		createTypeDeclaration_TestC("");
 		AstCodeGeneration generation = m_lastEditor.getGeneration();
@@ -5700,6 +5947,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		assertEquals("\t\t", generation.getIndentation(2));
 	}
 
+	@Test
 	public void test_ASTCG_getIndentation_2_space() throws Exception {
 		createTypeDeclaration_TestC("");
 		AstCodeGeneration generation = m_lastEditor.getGeneration();
@@ -5729,6 +5977,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// ASTCodeGeneration.getUseCompactAssignment
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_ASTCG_getUseCompactAssignment() throws Exception {
 		createTypeDeclaration_TestC("");
 		AstCodeGeneration generation = m_lastEditor.getGeneration();
@@ -5750,6 +5999,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// ASTCodeGeneration.getMethodBraceSeparator
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_ASTCG_getMethodBraceSeparator() throws Exception {
 		createTypeDeclaration_TestC("");
 		AstCodeGeneration generation = m_lastEditor.getGeneration();
@@ -5777,6 +6027,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for replacing {wbp_class} with "getClass()".
 	 */
+	@Test
 	public void test_classAccess_addStatement_getClass() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestC(getSourceDQ("  public void foo() {", "    int marker;", "  }"));
@@ -5802,6 +6053,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for replacing {wbp_class} with {@link TypeLiteral}.
 	 */
+	@Test
 	public void test_classAccess_addStatement_TypeLiteral() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestC(getSourceDQ(
@@ -5830,6 +6082,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#replaceExpression(Expression, String)}.
 	 */
+	@Test
 	public void test_classAccess_replaceExpression_TypeLiteral() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestC(getSourceDQ(
@@ -5849,6 +6102,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for replacing {wbp_classTop} with {@link TypeLiteral} of top-level class.
 	 */
+	@Test
 	public void test_classAccessTop() throws Exception {
 		TypeDeclaration testType =
 				createTypeDeclaration_Test(
@@ -5882,6 +6136,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// setIdentifier()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_setIdentifier() throws Exception {
 		createTypeDeclaration_Test(
 				"// filler filler filler",
@@ -5910,6 +6165,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * "Inner" is invisible type, so we can not declare variables with this type during parsing
 	 * expression.
 	 */
+	@Test
 	public void test_ASTParser_invisibleType() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -5927,6 +6183,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * If some type is unknown, i.e. we don't have its {@link ITypeBinding}, then just ignore it.
 	 */
+	@Test
 	public void test_ASTParser_unknownFieldType() throws Exception {
 		m_ignoreModelCompileProblems = true;
 		createTypeDeclaration(
@@ -5948,6 +6205,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * If some type is unknown, i.e. we don't have its {@link ITypeBinding}, then just ignore it.
 	 */
+	@Test
 	public void test_ASTParser_unknownMethodType() throws Exception {
 		m_ignoreModelCompileProblems = true;
 		createTypeDeclaration(
@@ -5971,6 +6229,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for correct position for parsed nodes.
 	 */
+	@Test
 	public void test_ASTParser_1_parseField() throws Exception {
 		TypeDeclaration typeDeclaration = createTypeDeclaration_TestC("int a;");
 		AstParser parser = m_lastEditor.getParser();
@@ -5983,6 +6242,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test that imported classes can be referenced during parsing.
 	 */
+	@Test
 	public void test_ASTParser_2_imports() throws Exception {
 		ICompilationUnit modelUnit =
 				createModelCompilationUnit(
@@ -6001,6 +6261,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test that bindings for {@link MethodInvocation} are copied.
 	 */
+	@Test
 	public void test_ASTParser_3_getMethodBinding() throws Exception {
 		ICompilationUnit modelUnit =
 				createModelCompilationUnit(
@@ -6031,6 +6292,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link IVariableBinding} for newly added {@link FieldAccess}.
 	 */
+	@Test
 	public void test_ASTParser_FieldAccess() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -6056,6 +6318,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test that {@link SingleVariableDeclaration} gets {@link IVariableBinding} during parsing.
 	 */
+	@Test
 	public void test_ASTParser_SingleVariableDeclaration_IVariableBinding() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -6089,6 +6352,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// ASTParser - names
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_ASTParser_parseSimpleName() throws Exception {
 		createTypeDeclaration_TestC("");
 		AstParser parser = m_lastEditor.getParser();
@@ -6097,6 +6361,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		check_SimpleName(simpleName, "abc", 10, 3);
 	}
 
+	@Test
 	public void test_ASTParser_parseQualifiedName() throws Exception {
 		createTypeDeclaration_TestC("");
 		AstParser parser = m_lastEditor.getParser();
@@ -6123,16 +6388,19 @@ public class AstEditorTest extends AbstractJavaTest {
 	// ASTParser - parseType
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_ASTParser_parseType_1() throws Exception {
 		// String, from java.lang
 		check_ASTParser_parseType("String m_value;");
 	}
 
+	@Test
 	public void test_ASTParser_parseType_2() throws Exception {
 		// fully qualified name
 		check_ASTParser_parseType("java.util.List m_value;");
 	}
 
+	@Test
 	public void test_ASTParser_parseType_3() throws Exception {
 		// primitive
 		check_ASTParser_parseType("int m_value;");
@@ -6164,6 +6432,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// ASTParser - parseVariable
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_ASTParser_parseVariable() throws Exception {
 		TypeDeclaration typeDeclaration = createTypeDeclaration_TestC("String m_value;");
 		ITypeBinding sourceTypeBinding = typeDeclaration.getFields()[0].getType().resolveBinding();
@@ -6200,6 +6469,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// ASTParser - parseSimpleType
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_ASTParser_parseSimpleType() throws Exception {
 		TypeDeclaration typeDeclaration = createTypeDeclaration_TestC("String m_value;");
 		ITypeBinding sourceTypeBinding = typeDeclaration.getFields()[0].getType().resolveBinding();
@@ -6224,6 +6494,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstParser#parseQualifiedType(int, String)}.
 	 */
+	@Test
 	public void test_ASTParser_parseQualifiedType_onlyString() throws Exception {
 		createASTCompilationUnit(
 				"test",
@@ -6262,6 +6533,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Parsing {@link MethodInvocation}.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_MethodInvocation() throws Exception {
 		check_ASTParser_parseExpression("System.out.println()");
 	}
@@ -6269,6 +6541,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Parsing number expression.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_NumberLiteral() throws Exception {
 		check_ASTParser_parseExpression("12345");
 	}
@@ -6276,6 +6549,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Parsing <code>null</code>.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_NullLiteral() throws Exception {
 		check_ASTParser_parseExpression("null");
 	}
@@ -6283,6 +6557,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Parsing for when super class has no default constructors.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_NoSuperDefaultConstructor() throws Exception {
 		// prepare super class
 		setFileContentSrc(
@@ -6316,6 +6591,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Parsing reference on local {@link FieldDeclaration}.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_referenceLocalFieldDeclaration() throws Exception {
 		// prepare type
 		TypeDeclaration typeDeclaration =
@@ -6339,6 +6615,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		}
 	}
 
+	@Test
 	public void test_ASTParser_parseExpression_referenceLocalStaticMethod() throws Exception {
 		// prepare type
 		TypeDeclaration typeDeclaration =
@@ -6361,6 +6638,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Use inner type.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_innerType() throws Exception {
 		CompilationUnit compilationUnit =
 				createASTCompilationUnit(
@@ -6381,6 +6659,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Parsing of {@link SuperMethodInvocation} and its {@link IMethodBinding}.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_SuperMethodInvocation() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -6402,6 +6681,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Use {@link AnonymousClassDeclaration}.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_anonymous() throws Exception {
 		CompilationUnit compilationUnit =
 				createASTCompilationUnit(
@@ -6433,6 +6713,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * Class may declare final field, but not initialize it at declaration (initialize in
 	 * constructor). We should correctly parse in this case.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_notInitializedFinalField() throws Exception {
 		// prepare type
 		TypeDeclaration typeDeclaration =
@@ -6451,6 +6732,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		check_ASTParser_parseExpression(position, expressionSource);
 	}
 
+	@Test
 	public void test_ASTParser_parseExpression_publicStaticFinalField_inInnerClass() throws Exception {
 		// prepare type
 		TypeDeclaration typeDeclaration =
@@ -6472,6 +6754,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * When context class is "System", this caused parsing problem.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_classSystem() throws Exception {
 		// prepare type
 		TypeDeclaration typeDeclaration =
@@ -6493,6 +6776,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * If project configured to consider {@link JavaCore#COMPILER_PB_NULL_REFERENCE} as error, we may
 	 * fail, because we declare {@link Object} variables as <code>null</code>.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_warning_nullReference() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -6520,6 +6804,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * If project configured to consider {@link JavaCore#COMPILER_PB_UNUSED_IMPORT} as error, we
 	 * should ignore this.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_warning_unusedImport() throws Exception {
 		createTypeDeclaration_Test(
 				"import java.util.List;",
@@ -6547,6 +6832,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * When build context for parsing, "@Override" annotations should be included to prevent
 	 * {@link JavaCore#COMPILER_PB_MISSING_OVERRIDE_ANNOTATION} warning as error.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_warning_useOverride() throws Exception {
 		setFileContentSrc(
 				"test/Test_0.java",
@@ -6581,6 +6867,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * If project configured to consider {@link JavaCore#COMPILER_PB_UNNECESSARY_TYPE_CHECK} as error,
 	 * we may fail, because we declare visible variables with casts.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_warning_unnecessaryCast() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -6607,6 +6894,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for handling several {@link VariableDeclarationFragment}'s in {@link FieldDeclaration}.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_severalVariableDeclarationFragments_inFieldDeclaration()
 			throws Exception {
 		createTypeDeclaration_Test(
@@ -6624,6 +6912,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for handling generics: in class.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_generics() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -6644,6 +6933,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for handling generics: in method.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_generics2() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -6661,6 +6951,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link MethodDeclaration} with annotation.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_annotations() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -6680,6 +6971,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * We should declared constructors for inner classes, because not all classes have default
 	 * constructor.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_innerClass_requiredConstructor() throws Exception {
 		setFileContentSrc(
 				"test/MySuper.java",
@@ -6713,6 +7005,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * We don't require "super" constructor invocation.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_innerClass_noSuperConstructor() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -6732,6 +7025,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test that we correctly declare abstract classes.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_innerAbstractClass_abstractMethod() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -6750,6 +7044,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test that we correctly declare abstract methods.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_innerInterface_abstractMethod() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -6768,6 +7063,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Constructor {@link MethodDeclaration} has no return type.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_innerClass_noModifierConstructor() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -6787,6 +7083,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * We should include private inner classes into context.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_innerClass_privateModifier() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -6807,6 +7104,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test that interface declared as interface, not as class.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_innerInterface_shouldBeInterface() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -6825,6 +7123,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * We should ignore JavaDoc text.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_skipJavaDoc() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -6845,6 +7144,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * We should ignore block comments.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_skipComment() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -6868,6 +7168,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Native method also has no body.
 	 */
+	@Test
 	public void test_ASTParser_parseExpression_nativeMethod() throws Exception {
 		createTypeDeclaration_Test(
 				"public class Test {",
@@ -6907,6 +7208,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * Test for {@link AstEditor#replaceExpression(Expression, String)} and also test for
 	 * {@link AstEditor#resolveImports(ASTNode)}.
 	 */
+	@Test
 	public void test_replaceExpression() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -6932,6 +7234,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		assertAST(m_lastEditor);
 	}
 
+	@Test
 	public void test_replaceExpression_noImports() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -6957,6 +7260,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		assertAST(m_lastEditor);
 	}
 
+	@Test
 	public void test_replaceExpression_lines() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -6984,6 +7288,7 @@ public class AstEditorTest extends AbstractJavaTest {
 				m_lastEditor);
 	}
 
+	@Test
 	public void test_replaceExpression_linesInSingle() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -7012,6 +7317,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#resolveImports(ASTNode)} and qualified type name in array creation.
 	 */
+	@Test
 	public void test_resolveImports() throws Exception {
 		createTypeDeclaration_Test(
 				"// filler filler filler",
@@ -7039,6 +7345,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * <p>
 	 * We should not resolve qualified type if it will have same name as type in same file.
 	 */
+	@Test
 	public void test_resolveImports_typeInSameFile() throws Exception {
 		setFileContentSrc(
 				"other/pkg/Test.java",
@@ -7071,6 +7378,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#resolveImports(ASTNode)} and inner class.
 	 */
+	@Test
 	public void test_resolveImports_forInnerClass() throws Exception {
 		setFileContentSrc(
 				"test2/Style.java",
@@ -7113,6 +7421,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#replaceInvocationArgument(MethodInvocation, int, String)}.
 	 */
+	@Test
 	public void test_replaceInvocationArgument() throws Exception {
 		createTypeDeclaration(
 				"test",
@@ -7150,6 +7459,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#replaceVariableType(VariableDeclaration, String)}.
 	 */
+	@Test
 	public void test_replaceVariableType_VariableDeclarationStatement() throws Exception {
 		createTypeDeclaration_Test(
 				"import javax.swing.*;",
@@ -7175,6 +7485,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#replaceVariableType(VariableDeclaration, String)}.
 	 */
+	@Test
 	public void test_replaceVariableType_FieldDeclaration() throws Exception {
 		createTypeDeclaration_Test(
 				"import javax.swing.*;",
@@ -7196,6 +7507,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#replaceVariableType(VariableDeclaration, String)}.
 	 */
+	@Test
 	public void test_replaceVariableType_unknown() throws Exception {
 		createTypeDeclaration_Test(
 				"// filler filler filler filler filler",
@@ -7215,6 +7527,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	// EOL comments
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getStringLiteralNumberOnLine() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -7238,6 +7551,7 @@ public class AstEditorTest extends AbstractJavaTest {
 						0)));
 	}
 
+	@Test
 	public void test_addEndOfLineComment() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -7261,6 +7575,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#getEndOfLineComment(int)}
 	 */
+	@Test
 	public void test_getEndOfLineComment() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -7291,6 +7606,7 @@ public class AstEditorTest extends AbstractJavaTest {
 		}
 	}
 
+	@Test
 	public void test_removeEndOfLineComment() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -7339,6 +7655,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#replaceNode(ASTNode, ASTNode)}.
 	 */
+	@Test
 	public void test_replaceNode() throws Exception {
 		TypeDeclaration typeDeclaration = createTypeDeclaration_TestC("int m_value = Math.abs(-1);");
 		FieldDeclaration field = typeDeclaration.getFields()[0];
@@ -7362,6 +7679,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	 * Test for {@link AstEditor#replaceNode(ASTNode, ASTNode)}.<br>
 	 * Special case when {@link QualifiedName} should be converted into {@link FieldAccess}.
 	 */
+	@Test
 	public void test_replaceNode_QualifiedName_into_FieldAccess() throws Exception {
 		setFileContentSrc(
 				"test/MyObject.java",
@@ -7396,6 +7714,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#getTypeArgumentsSource(ClassInstanceCreation)}.
 	 */
+	@Test
 	public void test_getTypeArgumentsSource() throws Exception {
 		createTypeDeclaration_Test(
 				"import java.util.*;",
@@ -7425,6 +7744,7 @@ public class AstEditorTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstEditor#getMethodStubSource(MethodDeclaration)}.
 	 */
+	@Test
 	public void test_getMethodStubSource() throws Exception {
 		createTypeDeclaration_Test(
 				"import java.util.*;",
@@ -7455,15 +7775,5 @@ public class AstEditorTest extends AbstractJavaTest {
 					"\tpublic static final int methodC() {\n\t\treturn 0;\n\t}",
 					m_lastEditor.getMethodStubSource(method));
 		}
-	}
-
-	////////////////////////////////////////////////////////////////////////////
-	//
-	// Project disposing
-	//
-	////////////////////////////////////////////////////////////////////////////
-	@Override
-	public void test_tearDown() throws Exception {
-		do_projectDispose();
 	}
 }

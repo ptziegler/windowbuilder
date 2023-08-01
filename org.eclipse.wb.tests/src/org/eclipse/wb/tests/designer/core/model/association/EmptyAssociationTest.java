@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.association;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.association.EmptyAssociation;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
@@ -37,6 +39,7 @@ public class EmptyAssociationTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

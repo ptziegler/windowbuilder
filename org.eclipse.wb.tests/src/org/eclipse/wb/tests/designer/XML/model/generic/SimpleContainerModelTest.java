@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.generic;
 
+import org.junit.Test;
+
 import com.google.common.collect.ImmutableList;
 
 import org.eclipse.wb.core.model.ObjectInfo;
@@ -68,6 +70,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 	/**
 	 * No special container association, so "direct" is used.
 	 */
+	@Test
 	public void test_getConfigurations_association_implicitDirect() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -80,6 +83,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 	/**
 	 * The "property" association
 	 */
+	@Test
 	public void test_getConfigurations_association_property() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -96,6 +100,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 	/**
 	 * The "inter" association.
 	 */
+	@Test
 	public void test_getConfigurations_association_inter() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -109,6 +114,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 				"inter myName {attrA=a a, attrB=b}");
 	}
 
+	@Test
 	public void test_getConfigurations_association_bad() throws Exception {
 		try {
 			getConfigurations(true, new String[][]{
@@ -130,6 +136,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 	/**
 	 * Ask "forCanvas", return common configuration for both - canvas/tree.
 	 */
+	@Test
 	public void test_getConfigurations_forCanvas_common() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -142,6 +149,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 	/**
 	 * Ask "forCanvas", return explicit "forCanvas".
 	 */
+	@Test
 	public void test_getConfigurations_forCanvas_explicit() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -154,6 +162,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 	/**
 	 * Ask "forCanvas", but only "forTree" exist.
 	 */
+	@Test
 	public void test_getConfigurations_forCanvas_onlyForTree() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -165,6 +174,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 	/**
 	 * Ask "forTree", return common configuration for both - canvas/tree.
 	 */
+	@Test
 	public void test_getConfigurations_forTree_common() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(false, new String[][]{
@@ -176,6 +186,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 	/**
 	 * Ask "forTree", return explicit "forTree".
 	 */
+	@Test
 	public void test_getConfigurations_forTree_explicit() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(false, new String[][]{
@@ -187,6 +198,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 	/**
 	 * Several different configurations.
 	 */
+	@Test
 	public void test_getConfigurations_3_count() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -205,6 +217,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 	/**
 	 * Ignore if <code>simpleContainer</code> value is not <code>true</code>.
 	 */
+	@Test
 	public void test_getConfigurations_ignoreFalse() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -216,6 +229,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 	/**
 	 * Use default component/reference validator.
 	 */
+	@Test
 	public void test_getConfigurations_defaultValidators() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -230,6 +244,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 	// Container validation MVEL scripts
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getConfigurations_validateContainer_isContainerType() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -239,6 +254,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 		assertConfiguration(configurations.get(0), "org.eclipse.swt.widgets.Control", "direct");
 	}
 
+	@Test
 	public void test_getConfigurations_validateContainer_scriptToFalse() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -337,6 +353,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 	 * CREATE/MOVE methods in container {@link XmlObjectInfo} and use them instead of generic
 	 * implementation.
 	 */
+	@Test
 	public void test_duckTyping() throws Exception {
 		final XmlObjectInfo component = mock(XmlObjectInfo.class);
 		final MySimpleContainer container = mock(MySimpleContainer.class);
@@ -405,6 +422,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 	// Validation
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_validateMethods() throws Exception {
 		final XmlObjectInfo container = mock(XmlObjectInfo.class);
 		final XmlObjectInfo component = mock(XmlObjectInfo.class);
@@ -429,6 +447,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 	/**
 	 * Test for {@link SimpleContainerConfigurable#command_CREATE(Object, Object)}.
 	 */
+	@Test
 	public void test_CREATE() throws Exception {
 		prepareSimplePanel();
 		XmlObjectInfo panel =
@@ -457,6 +476,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 	/**
 	 * Ensure that we can: create, delete and create new component again.
 	 */
+	@Test
 	public void test_CREATE_twoTimes() throws Exception {
 		prepareSimplePanel();
 		XmlObjectInfo panel =
@@ -489,6 +509,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 	/**
 	 * Test for {@link SimpleContainerConfigurable#command_absolute_MOVE(Object, Object)}.
 	 */
+	@Test
 	public void test_MOVE() throws Exception {
 		prepareSimplePanel();
 		parse(
@@ -523,6 +544,7 @@ public class SimpleContainerModelTest extends AbstractCoreTest {
 	/**
 	 * {@link SimpleContainer} should automatically copy its child into clipboard.
 	 */
+	@Test
 	public void test_clipboard() throws Exception {
 		prepareSimplePanel();
 		CompositeInfo shell =

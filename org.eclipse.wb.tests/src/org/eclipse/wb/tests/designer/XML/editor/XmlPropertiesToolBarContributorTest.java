@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.editor;
+import org.junit.After;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.internal.core.EnvironmentUtils;
@@ -33,7 +36,8 @@ public class XmlPropertiesToolBarContributorTest extends XwtGefTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		DesignerExceptionUtils.flushErrorEntriesCache();
 		DesignerPlugin.setDisplayExceptionOnConsole(true);
 		EnvironmentUtils.setTestingTime(true);
@@ -57,6 +61,7 @@ public class XmlPropertiesToolBarContributorTest extends XwtGefTest {
 	/**
 	 * Test for "Goto definition" action.
 	 */
+	@Test
 	public void test_gotoDefinition() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.variables;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.association.AssociationObjects;
 import org.eclipse.wb.internal.core.model.JavaInfoUtils;
 import org.eclipse.wb.internal.core.model.creation.ConstructorCreationSupport;
@@ -29,6 +31,7 @@ public class EmptyPureTest extends AbstractVariableTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_CREATE() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",

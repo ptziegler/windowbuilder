@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.property;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.internal.core.model.property.category.PropertyCategory;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
@@ -39,6 +41,7 @@ public class XmlPropertyTest extends AbstractCoreTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_access() throws Exception {
 		XmlObjectInfo shell = parse("<Shell/>");
 		// create XMLProperty
@@ -57,6 +60,7 @@ public class XmlPropertyTest extends AbstractCoreTest {
 	/**
 	 * Test for constructor with {@link PropertyCategory}.
 	 */
+	@Test
 	public void test_constructorWithCategory() throws Exception {
 		XmlObjectInfo shell = parse("<Shell/>");
 		// create XMLProperty

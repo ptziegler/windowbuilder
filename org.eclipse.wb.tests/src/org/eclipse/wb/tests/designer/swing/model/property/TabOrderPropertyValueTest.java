@@ -9,6 +9,10 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.property;
+import org.junit.Ignore;
+import org.junit.After;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.model.property.order.TabOrderInfo;
 import org.eclipse.wb.internal.core.utils.jdt.core.ProjectUtils;
@@ -36,7 +40,8 @@ public class TabOrderPropertyValueTest extends SwingModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		super.tearDown();
 		do_projectDispose();
 	}
@@ -55,6 +60,7 @@ public class TabOrderPropertyValueTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getValue_1() throws Exception {
 		// create panel
 		ContainerInfo panel =
@@ -89,7 +95,9 @@ public class TabOrderPropertyValueTest extends SwingModelTest {
 		assertSame(components.get(1), tabOrderInfo.getOrderedInfos().get(1));
 	}
 
-	public void DISABLE_test_getValue_2() throws Exception {
+	@Ignore
+	@Test
+	public void test_getValue_2() throws Exception {
 		ProjectUtils.ensureResourceType(
 				m_javaProject,
 				org.eclipse.wb.internal.swing.Activator.getDefault().getBundle(),
@@ -128,7 +136,9 @@ public class TabOrderPropertyValueTest extends SwingModelTest {
 		assertSame(components.get(1), tabOrderInfo.getOrderedInfos().get(0));
 	}
 
-	public void DISABLE_test_setValue() throws Exception {
+	@Ignore
+	@Test
+	public void test_setValue() throws Exception {
 		// create panel
 		ContainerInfo panel =
 				parseContainer(

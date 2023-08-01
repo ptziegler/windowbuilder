@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt;
+import org.junit.After;
+
+import org.junit.Test;
 
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.model.description.ToolkitDescription;
@@ -34,7 +37,8 @@ public class ManagerUtilsTest extends RcpModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		shell = null;
 		super.tearDown();
 	}
@@ -57,6 +61,7 @@ public class ManagerUtilsTest extends RcpModelTest {
 	 * Test for {@link ManagerUtils#ensure_SWTResourceManager(IJavaProject, ToolkitDescription)}.
 	 */
 	@DisposeProjectAfter
+	@Test
 	public void test_ensure_SWTResourceManager_usingJavaProject() throws Exception {
 		parseShell();
 		// no SWTResourceManager initially
@@ -75,6 +80,7 @@ public class ManagerUtilsTest extends RcpModelTest {
 	 * Test for {@link ManagerUtils#ensure_SWTResourceManager(JavaInfo)}.
 	 */
 	@DisposeProjectAfter
+	@Test
 	public void test_ensure_SWTResourceManager_usingJavaInfo() throws Exception {
 		parseShell();
 		// no SWTResourceManager initially
@@ -93,6 +99,7 @@ public class ManagerUtilsTest extends RcpModelTest {
 	 * Test for {@link ManagerUtils#ensure_ResourceManager(IJavaProject, ToolkitDescription)}.
 	 */
 	@DisposeProjectAfter
+	@Test
 	public void test_ensure_ResourceManager_usingJavaProject() throws Exception {
 		parseShell();
 		// no [SWT]ResourceManager initially
@@ -115,6 +122,7 @@ public class ManagerUtilsTest extends RcpModelTest {
 	 * Test for {@link ManagerUtils#ensure_ResourceManager(JavaInfo)}.
 	 */
 	@DisposeProjectAfter
+	@Test
 	public void test_ensure_ResourceManager() throws Exception {
 		parseShell();
 		// no [SWT]ResourceManager initially

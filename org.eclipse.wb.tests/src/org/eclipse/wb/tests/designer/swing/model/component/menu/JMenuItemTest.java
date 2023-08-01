@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.component.menu;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.menu.IMenuItemInfo;
 import org.eclipse.wb.internal.core.model.menu.IMenuPolicy;
 import org.eclipse.wb.internal.core.model.menu.MenuObjectInfoUtils;
@@ -35,6 +37,7 @@ public class JMenuItemTest extends SwingModelTest {
 	/**
 	 * Test for {@link JMenuItemInfo} and {@link IMenuItemInfo}.
 	 */
+	@Test
 	public void test_0() throws Exception {
 		ContainerInfo frameInfo =
 				parseContainer(

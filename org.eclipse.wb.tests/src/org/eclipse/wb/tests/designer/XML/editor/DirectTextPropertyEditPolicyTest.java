@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.editor;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.preferences.IPreferenceConstants;
 import org.eclipse.wb.internal.core.xml.gef.policy.DirectTextPropertyEditPolicy;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
@@ -39,6 +41,7 @@ public class DirectTextPropertyEditPolicyTest extends XwtGefTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_activateManually() throws Exception {
 		CompositeInfo shell = openEditor("<Shell/>");
 		// do edit
@@ -51,6 +54,7 @@ public class DirectTextPropertyEditPolicyTest extends XwtGefTest {
 	 * <p>
 	 * https://bugs.eclipse.org/bugs/show_bug.cgi?id=351282
 	 */
+	@Test
 	public void test_activateAndUndo() throws Exception {
 		CompositeInfo shell = openEditor("<Shell/>");
 		// drop new Button
@@ -63,6 +67,7 @@ public class DirectTextPropertyEditPolicyTest extends XwtGefTest {
 		getUndoAction().run();
 	}
 
+	@Test
 	public void test_activateForNew() throws Exception {
 		CompositeInfo shell =
 				openEditor(
@@ -94,6 +99,7 @@ public class DirectTextPropertyEditPolicyTest extends XwtGefTest {
 		}
 	}
 
+	@Test
 	public void test_usePropertyPath() throws Exception {
 		prepareMyComponent(new String[]{
 				"// filler filler filler filler filler",

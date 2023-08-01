@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.description;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.table.PropertyTooltipProvider;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
@@ -44,6 +46,7 @@ public class FieldExpressionAccessorTest extends AbstractCoreTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getAdapter() throws Exception {
 		prepareMyComponent(
 				"// filler filler filler filler filler",
@@ -66,6 +69,7 @@ public class FieldExpressionAccessorTest extends AbstractCoreTest {
 		Assertions.assertThat(tooltip).isEqualTo("My JavaDoc text.");
 	}
 
+	@Test
 	public void test_getX_noValue() throws Exception {
 		prepareMyComponent(
 				"// filler filler filler filler filler",
@@ -80,6 +84,7 @@ public class FieldExpressionAccessorTest extends AbstractCoreTest {
 		assertEquals(Property.UNKNOWN_VALUE, accessor.getValue(myComponent));
 	}
 
+	@Test
 	public void test_getX_hasValue() throws Exception {
 		prepareMyComponent(
 				"// filler filler filler filler filler",
@@ -99,6 +104,7 @@ public class FieldExpressionAccessorTest extends AbstractCoreTest {
 		assertEquals(5, accessor.getValue(myComponent));
 	}
 
+	@Test
 	public void test_getX_hasDefaultValue_noValue() throws Exception {
 		prepareMyComponent(
 				"// filler filler filler filler filler",
@@ -116,6 +122,7 @@ public class FieldExpressionAccessorTest extends AbstractCoreTest {
 	/**
 	 * Test for {@link FieldExpressionAccessor#setExpression(XmlObjectInfo, String)}.
 	 */
+	@Test
 	public void test_setExpression() throws Exception {
 		prepareMyComponent(
 				"// filler filler filler filler filler",

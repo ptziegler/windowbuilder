@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.support;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.xwt.model.widgets.CompositeInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.ControlInfo;
 import org.eclipse.wb.internal.xwt.support.CoordinateUtils;
@@ -42,6 +44,7 @@ public class CoordinateUtilsTest extends XwtModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_1() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -75,6 +78,7 @@ public class CoordinateUtilsTest extends XwtModelTest {
 	/**
 	 * Test for {@link CoordinateUtils#getClientAreaInsets2(Object)} for {@link Group}.
 	 */
+	@Test
 	public void test_withGroup() throws Exception {
 		CompositeInfo group = parse("<Group/>");
 		refresh();

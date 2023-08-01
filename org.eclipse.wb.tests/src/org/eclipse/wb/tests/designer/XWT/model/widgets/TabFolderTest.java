@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.internal.core.model.generic.FlowContainer;
 import org.eclipse.wb.internal.core.model.generic.SimpleContainer;
@@ -51,12 +53,14 @@ public class TabFolderTest extends XwtModelTest {
 	// Parse
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_parse_noItem() throws Exception {
 		TabFolderInfo folder = parse("<TabFolder/>");
 		refresh();
 		Assertions.assertThat(folder.getItems()).isEmpty();
 	}
 
+	@Test
 	public void test_parse_withItem_noControl() throws Exception {
 		TabFolderInfo folder =
 				parse(
@@ -78,6 +82,7 @@ public class TabFolderTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_parse_withItem_withControl() throws Exception {
 		TabFolderInfo folder =
 				parse(
@@ -117,6 +122,7 @@ public class TabFolderTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_parse_withItems_withControls() throws Exception {
 		TabFolderInfo folder =
 				parse(
@@ -172,6 +178,7 @@ public class TabFolderTest extends XwtModelTest {
 	/**
 	 * Test for {@link TabItemInfo#doSelect()}.
 	 */
+	@Test
 	public void test_doSelect() throws Exception {
 		TabFolderInfo folder =
 				parse(
@@ -196,6 +203,7 @@ public class TabFolderTest extends XwtModelTest {
 	// Commands for items
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_item_CREATE() throws Exception {
 		TabFolderInfo folder =
 				parse(
@@ -215,6 +223,7 @@ public class TabFolderTest extends XwtModelTest {
 				"</TabFolder>");
 	}
 
+	@Test
 	public void test_item_MOVE() throws Exception {
 		TabFolderInfo folder =
 				parse(
@@ -256,6 +265,7 @@ public class TabFolderTest extends XwtModelTest {
 	// Commands for controls
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_control_CREATE_onItem() throws Exception {
 		TabFolderInfo folder =
 				parse(
@@ -288,6 +298,7 @@ public class TabFolderTest extends XwtModelTest {
 				"</TabFolder>");
 	}
 
+	@Test
 	public void test_control_ADD_onItem() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -316,6 +327,7 @@ public class TabFolderTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_control_CREATE_onFolder() throws Exception {
 		TabFolderInfo folder =
 				parse(
@@ -337,6 +349,7 @@ public class TabFolderTest extends XwtModelTest {
 				"</TabFolder>");
 	}
 
+	@Test
 	public void test_control_ADD_onFolder() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -367,6 +380,7 @@ public class TabFolderTest extends XwtModelTest {
 	// Manage selected
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_manageSelected() throws Exception {
 		TabFolderInfo panel =
 				parse(

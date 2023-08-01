@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.rcp;
+import org.junit.After;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.rcp.model.rcp.ViewCategoryPropertyEditor;
@@ -28,7 +31,8 @@ public class ViewCategoryPropertyEditorTest extends RcpModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		do_projectDispose();
 		super.tearDown();
 	}
@@ -38,6 +42,7 @@ public class ViewCategoryPropertyEditorTest extends RcpModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_existingAttribute() throws Exception {
 		PdeProjectConversionUtils.convertToPDE(m_testProject.getProject(), null, "testplugin.Activator");
 		AbstractPdeTest.createPluginXML(new String[]{
@@ -55,6 +60,7 @@ public class ViewCategoryPropertyEditorTest extends RcpModelTest {
 		assertEquals("category_1", getPropertyText(categoryProperty));
 	}
 
+	@Test
 	public void test_noAttribute() throws Exception {
 		PdeProjectConversionUtils.convertToPDE(m_testProject.getProject(), null, "testplugin.Activator");
 		AbstractPdeTest.createPluginXML(new String[]{

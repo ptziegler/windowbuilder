@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.GenericProperty;
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.variable.ThisVariableSupport;
@@ -43,6 +45,7 @@ public class TitleAreaDialogTest extends RcpModelTest {
 	 * {@link TitleAreaDialog} with {@link TitleAreaDialog#createDialogArea(Composite)} method.<br>
 	 * Parameter "parent" in <code>createDialogArea()</code> should not have layout.
 	 */
+	@Test
 	public void test_0() throws Exception {
 		parseJavaInfo(
 				"import org.eclipse.jface.dialogs.*;",
@@ -71,6 +74,7 @@ public class TitleAreaDialogTest extends RcpModelTest {
 	 * already created. Bad news is that {@link ThisVariableSupport} thinks that constructor is good
 	 * place for any "this" properties.
 	 */
+	@Test
 	public void test_titleAreaProperties() throws Exception {
 		TitleAreaDialogInfo dialog =
 				parseJavaInfo(

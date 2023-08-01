@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
+import org.junit.Before;
+
+import org.junit.Test;
 
 import org.eclipse.wb.core.editor.palette.model.EntryInfo;
 import org.eclipse.wb.core.editor.palette.model.entry.ComponentEntryInfo;
@@ -45,7 +48,8 @@ public class NoJFaceInClasspathTest extends AbstractJavaInfoTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		if (m_testProject == null) {
 			do_projectCreate();
@@ -64,6 +68,7 @@ public class NoJFaceInClasspathTest extends AbstractJavaInfoTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_Button() throws Exception {
 		ComponentEntryInfo entry = new ComponentEntryInfo();
 		entry.setComponentClassName("org.eclipse.swt.widgets.Button");
@@ -71,6 +76,7 @@ public class NoJFaceInClasspathTest extends AbstractJavaInfoTest {
 		check_entryIsActive(entry);
 	}
 
+	@Test
 	public void test_TableViewer() throws Exception {
 		ComponentEntryInfo entry = new ComponentEntryInfo();
 		entry.setComponentClassName("org.eclipse.jface.viewers.TableViewer");
@@ -78,26 +84,31 @@ public class NoJFaceInClasspathTest extends AbstractJavaInfoTest {
 		check_entryIsNotActive(entry);
 	}
 
+	@Test
 	public void test_TableComposite_EntryInfo() throws Exception {
 		TableCompositeEntryInfo entry = new TableCompositeEntryInfo();
 		check_entryIsNotActive(entry);
 	}
 
+	@Test
 	public void test_TableViewerComposite_EntryInfo() throws Exception {
 		TableViewerCompositeEntryInfo entry = new TableViewerCompositeEntryInfo();
 		check_entryIsNotActive(entry);
 	}
 
+	@Test
 	public void test_TreeComposite_EntryInfo() throws Exception {
 		TreeCompositeEntryInfo entry = new TreeCompositeEntryInfo();
 		check_entryIsNotActive(entry);
 	}
 
+	@Test
 	public void test_TreeViewerComposite_EntryInfo() throws Exception {
 		TreeViewerCompositeEntryInfo entry = new TreeViewerCompositeEntryInfo();
 		check_entryIsNotActive(entry);
 	}
 
+	@Test
 	public void test_CheckboxTableViewer() throws Exception {
 		StaticFactoryEntryInfo entry = new StaticFactoryEntryInfo();
 		entry.setFactoryClassName("org.eclipse.jface.viewers.CheckboxTableViewer");

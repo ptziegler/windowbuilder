@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.rcp;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.editor.string.StringPropertyEditor;
 import org.eclipse.wb.internal.core.utils.execution.RunnableEx;
@@ -29,6 +31,7 @@ public class ExtensionElementPropertyTest extends AbstractPdeTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_existingProperty() throws Exception {
 		createPluginXML(new String[]{
 				"<plugin>",
@@ -87,6 +90,7 @@ public class ExtensionElementPropertyTest extends AbstractPdeTest {
 		"</plugin>"});
 	}
 
+	@Test
 	public void test_noValue_setNew() throws Exception {
 		createPluginXML(new String[]{
 				"<plugin>",
@@ -111,6 +115,7 @@ public class ExtensionElementPropertyTest extends AbstractPdeTest {
 		Assertions.assertThat(getPluginXML()).contains("id=\"id_1\"").contains("class=\"C_1\"").doesNotContain("value=");
 	}
 
+	@Test
 	public void test_remoteAttribute_whenSetDefaultValue() throws Exception {
 		createPluginXML(new String[]{
 				"<plugin>",
@@ -145,6 +150,7 @@ public class ExtensionElementPropertyTest extends AbstractPdeTest {
 				"defaultValue");
 	}
 
+	@Test
 	public void test_booleanValue() throws Exception {
 		createPluginXML(new String[]{
 				"<plugin>",

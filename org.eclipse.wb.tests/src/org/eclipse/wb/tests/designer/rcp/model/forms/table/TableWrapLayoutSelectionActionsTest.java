@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.forms.table;
 
+import org.junit.Test;
+
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
@@ -55,6 +57,7 @@ public class TableWrapLayoutSelectionActionsTest extends AbstractFormsTest {
 		assertEquals(checked, action.isChecked());
 	}
 
+	@Test
 	public void test_selectionActions_emptySelection() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -78,6 +81,7 @@ public class TableWrapLayoutSelectionActionsTest extends AbstractFormsTest {
 		Assertions.assertThat(actions).isEmpty();
 	}
 
+	@Test
 	public void test_selectionActions_invalidSelection() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -105,6 +109,7 @@ public class TableWrapLayoutSelectionActionsTest extends AbstractFormsTest {
 		Assertions.assertThat(actions).isEmpty();
 	}
 
+	@Test
 	public void test_selectionActions_state() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -161,6 +166,7 @@ public class TableWrapLayoutSelectionActionsTest extends AbstractFormsTest {
 		}
 	}
 
+	@Test
 	public void test_grabAction() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -249,6 +255,7 @@ public class TableWrapLayoutSelectionActionsTest extends AbstractFormsTest {
 		}
 	}
 
+	@Test
 	public void test_alignmentAction() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

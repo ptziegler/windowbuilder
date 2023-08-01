@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.core.model.broadcast.EditorActivatedListener;
 import org.eclipse.wb.core.model.broadcast.EditorActivatedRequest;
@@ -51,6 +53,7 @@ public class ReparseOnModificationTest extends SwingGefTest {
 	 * </ul>
 	 * Then reparse of Form should happen.
 	 */
+	@Test
 	public void test_modifyComponent_whenDesign() throws Exception {
 		ICompilationUnit componentUnit =
 				createModelCompilationUnit(
@@ -95,6 +98,7 @@ public class ReparseOnModificationTest extends SwingGefTest {
 	 * </ul>
 	 * Then reparse of Form should NOT happen.
 	 */
+	@Test
 	public void test_modifyComponent_whenSource() throws Exception {
 		ICompilationUnit componentUnit =
 				createModelCompilationUnit(
@@ -143,6 +147,7 @@ public class ReparseOnModificationTest extends SwingGefTest {
 	/**
 	 * Test for reparsing on modification of component directly used on form.
 	 */
+	@Test
 	public void test_modifyComponent_direct() throws Exception {
 		ICompilationUnit myComponentUnit =
 				createModelCompilationUnit(
@@ -173,6 +178,7 @@ public class ReparseOnModificationTest extends SwingGefTest {
 	/**
 	 * Test for reparsing on modification of component in-directly used on form.
 	 */
+	@Test
 	public void test_modifyComponent_secondLevel() throws Exception {
 		ICompilationUnit myComponentInnerUnit =
 				createModelCompilationUnit(

@@ -9,6 +9,7 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.palette;
+import org.junit.After;
 
 import org.eclipse.wb.core.editor.palette.model.CategoryInfo;
 import org.eclipse.wb.core.editor.palette.model.EntryInfo;
@@ -39,7 +40,8 @@ public class AbstractPaletteTest extends SwingModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		removeToolkitExtension();
 		if (m_lastManager != null) {
 			m_lastManager.commands_clear();

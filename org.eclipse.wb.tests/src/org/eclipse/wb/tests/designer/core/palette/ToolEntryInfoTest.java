@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.palette;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.editor.palette.model.entry.ToolEntryInfo;
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.gef.core.IEditPartViewer;
@@ -34,6 +36,7 @@ public class ToolEntryInfoTest extends AbstractPaletteTest {
 	/**
 	 * Activate without tool.
 	 */
+	@Test
 	public void test_activateNoTool() throws Exception {
 		JavaInfo panel = parseEmptyPanel();
 		IEditPartViewer editPartViewer = new EmptyEditPartViewer();
@@ -58,6 +61,7 @@ public class ToolEntryInfoTest extends AbstractPaletteTest {
 	/**
 	 * Activate with good tool.
 	 */
+	@Test
 	public void test_activateTool() throws Exception {
 		JavaInfo panel = parseEmptyPanel();
 		IEditPartViewer editPartViewer = new EmptyEditPartViewer();
@@ -82,6 +86,7 @@ public class ToolEntryInfoTest extends AbstractPaletteTest {
 	/**
 	 * Activate, but throw exception when create tool.
 	 */
+	@Test
 	public void test_activateException() throws Exception {
 		JavaInfo panel = parseEmptyPanel();
 		IEditPartViewer editPartViewer = new EmptyEditPartViewer();

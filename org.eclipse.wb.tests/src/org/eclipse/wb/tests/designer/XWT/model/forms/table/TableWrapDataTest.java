@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.forms.table;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.rcp.model.forms.layout.table.TableWrapLayoutImages;
 import org.eclipse.wb.internal.xwt.model.forms.layout.table.TableWrapDataInfo;
@@ -53,6 +55,7 @@ public class TableWrapDataTest extends XwtModelTest {
 	// Images
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getSmallAlignmentImage() throws Exception {
 		parse(
 				"<Shell>",
@@ -102,6 +105,7 @@ public class TableWrapDataTest extends XwtModelTest {
 	/**
 	 * Test for {@link TableWrapDataInfo#setHorizontalAlignment(int)}.
 	 */
+	@Test
 	public void test_horizontalAlignment() throws Exception {
 		parse(
 				"<Shell>",
@@ -182,6 +186,7 @@ public class TableWrapDataTest extends XwtModelTest {
 	/**
 	 * Sets horizontal grab in {@link TableWrapData#grabHorizontal} field.
 	 */
+	@Test
 	public void test_horizontalGrab() throws Exception {
 		parse(
 				"<Shell>",
@@ -227,6 +232,7 @@ public class TableWrapDataTest extends XwtModelTest {
 	/**
 	 * Sets horizontal span in {@link TableWrapData} constructor.
 	 */
+	@Test
 	public void test_horizontalSpan() throws Exception {
 		parse(
 				"<Shell>",
@@ -278,6 +284,7 @@ public class TableWrapDataTest extends XwtModelTest {
 	/**
 	 * Sets vertical alignment in {@link TableWrapData} constructor.
 	 */
+	@Test
 	public void test_verticalAlignment_1() throws Exception {
 		parse(
 				"<Shell>",
@@ -350,6 +357,7 @@ public class TableWrapDataTest extends XwtModelTest {
 	/**
 	 * Sets vertical grab in {@link TableWrapData#grabVertical} field.
 	 */
+	@Test
 	public void test_verticalGrab() throws Exception {
 		parse(
 				"<Shell>",
@@ -395,6 +403,7 @@ public class TableWrapDataTest extends XwtModelTest {
 	/**
 	 * Sets vertical span in {@link TableWrapData} constructor.
 	 */
+	@Test
 	public void test_verticalSpan() throws Exception {
 		parse(
 				"<Shell>",
@@ -447,6 +456,7 @@ public class TableWrapDataTest extends XwtModelTest {
 	// Context menu
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_contextMenu_horizontal() throws Exception {
 		parse(
 				"<Shell>",
@@ -510,6 +520,7 @@ public class TableWrapDataTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_contextMenu_vertical() throws Exception {
 		parse(
 				"<Shell>",

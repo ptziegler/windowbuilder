@@ -14,7 +14,7 @@ import org.eclipse.wb.internal.core.utils.state.EditorState;
 import org.eclipse.wb.internal.core.utils.state.GlobalState;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 
-import junit.framework.TestCase;
+
 
 import org.junit.Ignore;
 import org.junit.Test;

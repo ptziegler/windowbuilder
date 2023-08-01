@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.rcp.model.jface.FieldEditorPreferencePageInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpGefTest;
@@ -36,6 +38,7 @@ public class FieldEditorPreferencePageGefTest extends RcpGefTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_canvas() throws Exception {
 		FieldEditorPreferencePageInfo page =
 				(FieldEditorPreferencePageInfo) openJavaInfo(
@@ -126,6 +129,7 @@ public class FieldEditorPreferencePageGefTest extends RcpGefTest {
 		}
 	}
 
+	@Test
 	public void test_tree() throws Exception {
 		FieldEditorPreferencePageInfo page =
 				(FieldEditorPreferencePageInfo) openJavaInfo(

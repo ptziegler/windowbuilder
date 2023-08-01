@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.generic;
 
+import org.junit.Test;
+
 import org.eclipse.wb.draw2d.IPositionConstants;
 import org.eclipse.wb.internal.core.utils.GenericsUtils;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
@@ -35,6 +37,7 @@ public abstract class FlowContainerAbstractGefTest extends XwtGefTest {
 	// Canvas
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_canvas_CREATE_empty() throws Exception {
 		prepareFlowPanel();
 		openEditor(
@@ -70,6 +73,7 @@ public abstract class FlowContainerAbstractGefTest extends XwtGefTest {
 		canvas.assertPrimarySelected(newButton);
 	}
 
+	@Test
 	public void test_canvas_CREATE() throws Exception {
 		prepareFlowPanel();
 		openEditor(
@@ -108,6 +112,7 @@ public abstract class FlowContainerAbstractGefTest extends XwtGefTest {
 		canvas.assertPrimarySelected(newButton);
 	}
 
+	@Test
 	public void test_canvas_PASTE() throws Exception {
 		prepareFlowPanel();
 		openEditor(
@@ -152,6 +157,7 @@ public abstract class FlowContainerAbstractGefTest extends XwtGefTest {
 		}
 	}
 
+	@Test
 	public void test_canvas_MOVE() throws Exception {
 		prepareFlowPanel();
 		openEditor(
@@ -189,6 +195,7 @@ public abstract class FlowContainerAbstractGefTest extends XwtGefTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_canvas_ADD() throws Exception {
 		prepareFlowPanel();
 		openEditor(
@@ -232,6 +239,7 @@ public abstract class FlowContainerAbstractGefTest extends XwtGefTest {
 	// Tree
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_tree_CREATE() throws Exception {
 		prepareFlowPanel();
 		openEditor(
@@ -270,6 +278,7 @@ public abstract class FlowContainerAbstractGefTest extends XwtGefTest {
 		tree.assertPrimarySelected(newButton);
 	}
 
+	@Test
 	public void test_tree_PASTE() throws Exception {
 		prepareFlowPanel();
 		openEditor(
@@ -315,6 +324,7 @@ public abstract class FlowContainerAbstractGefTest extends XwtGefTest {
 		}
 	}
 
+	@Test
 	public void test_tree_MOVE() throws Exception {
 		prepareFlowPanel();
 		openEditor(
@@ -355,6 +365,7 @@ public abstract class FlowContainerAbstractGefTest extends XwtGefTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_tree_ADD() throws Exception {
 		prepareFlowPanel();
 		openEditor(

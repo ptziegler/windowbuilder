@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.creation;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.creation.InvocationChainCreationSupport;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
@@ -33,6 +35,7 @@ public class InvocationChainCreationSupportTest extends SwingModelTest {
 	 * "button_2" has no fully qualified class name, so return type of method should be used.<br>
 	 * "button_3" has no declaration, so should not be visible.
 	 */
+	@Test
 	public void test_0() throws Exception {
 		setFileContentSrc(
 				"test/Wrapper.java",

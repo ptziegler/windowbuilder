@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.property;
+import org.junit.Before;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.order.TabOrderInfo;
@@ -39,7 +42,8 @@ public class TabOrderPropertyTest extends SwingModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		if (m_testProject != null) {
 			ProjectUtils.ensureResourceType(
@@ -63,6 +67,7 @@ public class TabOrderPropertyTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_common() throws Exception {
 		// create panel
 		ContainerInfo panel =
@@ -87,6 +92,7 @@ public class TabOrderPropertyTest extends SwingModelTest {
 				property));
 	}
 
+	@Test
 	public void test_getValue_noValue() throws Exception {
 		// create panel
 		ContainerInfo panel =
@@ -122,6 +128,7 @@ public class TabOrderPropertyTest extends SwingModelTest {
 		assertSame(label, info.getOrderedInfos().get(2));
 	}
 
+	@Test
 	public void test_getValue() throws Exception {
 		// create panel
 		ContainerInfo panel =
@@ -153,6 +160,7 @@ public class TabOrderPropertyTest extends SwingModelTest {
 		assertSame(button, info.getOrderedInfos().get(0));
 	}
 
+	@Test
 	public void test_setValue_UNKNOWN_VALUE() throws Exception {
 		test_setValue(
 				new String[]{
@@ -177,6 +185,7 @@ public class TabOrderPropertyTest extends SwingModelTest {
 				"}"});
 	}
 
+	@Test
 	public void test_setValue_noValue() throws Exception {
 		test_setValue(
 				new String[]{
@@ -213,6 +222,7 @@ public class TabOrderPropertyTest extends SwingModelTest {
 		assertEditor(newSource);
 	}
 
+	@Test
 	public void test_setValue_noExisting() throws Exception {
 		ContainerInfo container =
 				parseContainer(
@@ -262,6 +272,7 @@ public class TabOrderPropertyTest extends SwingModelTest {
 	 * If {@link Container#setFocusTraversalPolicy(FocusTraversalPolicy)} was direct after first
 	 * component, but before second one, and we include second component, this caused exception.
 	 */
+	@Test
 	public void test_setValue_hasExisting() throws Exception {
 		ContainerInfo container =
 				parseContainer(
@@ -315,6 +326,7 @@ public class TabOrderPropertyTest extends SwingModelTest {
 	 * {@link Container#setFocusTraversalPolicy(FocusTraversalPolicy)} should be last method, this
 	 * should be kept even when we add new component.
 	 */
+	@Test
 	public void test_hasValue_addNewComponent() throws Exception {
 		ContainerInfo container =
 				parseContainer(
@@ -363,6 +375,7 @@ public class TabOrderPropertyTest extends SwingModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_delete_JPanel() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -414,6 +427,7 @@ public class TabOrderPropertyTest extends SwingModelTest {
 		"}"}, panel.getChildrenComponents());
 	}
 
+	@Test
 	public void test_delete_JFrame() throws Exception {
 		ContainerInfo frame =
 				parseContainer(

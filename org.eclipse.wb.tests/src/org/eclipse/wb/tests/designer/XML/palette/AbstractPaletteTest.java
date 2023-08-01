@@ -9,6 +9,7 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.palette;
+import org.junit.After;
 
 import org.eclipse.wb.internal.core.utils.xml.DocumentElement;
 import org.eclipse.wb.internal.core.xml.editor.palette.PaletteManager;
@@ -41,7 +42,8 @@ public class AbstractPaletteTest extends AbstractCoreTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		removeToolkitExtension();
 		if (m_lastManager != null) {
 			m_lastManager.commands_clear();

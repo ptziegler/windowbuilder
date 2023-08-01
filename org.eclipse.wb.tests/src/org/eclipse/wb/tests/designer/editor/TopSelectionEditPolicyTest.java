@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.gef.policy.selection.TopSelectionEditPolicy;
 import org.eclipse.wb.draw2d.IPositionConstants;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
@@ -39,6 +41,7 @@ public class TopSelectionEditPolicyTest extends SwingGefTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_resizeBoth() throws Exception {
 		ComponentInfo shell =
 				openContainer(
@@ -64,6 +67,7 @@ public class TopSelectionEditPolicyTest extends SwingGefTest {
 		}
 	}
 
+	@Test
 	public void test_resizeEast_toNegative() throws Exception {
 		ComponentInfo shell =
 				openContainer(
@@ -91,6 +95,7 @@ public class TopSelectionEditPolicyTest extends SwingGefTest {
 		}
 	}
 
+	@Test
 	public void test_resizeSouth_toNegative() throws Exception {
 		ComponentInfo shell =
 				openContainer(

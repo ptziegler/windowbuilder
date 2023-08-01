@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
@@ -41,6 +43,7 @@ public class XwtStringArraySupportTest extends XwtModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_setNew() throws Exception {
 		prepareMyComponent();
 		prepareProperty(
@@ -78,6 +81,7 @@ public class XwtStringArraySupportTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_updateExisting() throws Exception {
 		prepareMyComponent();
 		prepareProperty(
@@ -120,6 +124,7 @@ public class XwtStringArraySupportTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_removeExisting() throws Exception {
 		prepareMyComponent();
 		prepareProperty(

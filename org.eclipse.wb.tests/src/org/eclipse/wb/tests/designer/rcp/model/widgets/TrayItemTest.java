@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.nonvisual.NonVisualBeanContainerInfo;
 import org.eclipse.wb.internal.rcp.model.widgets.TrayItemInfo;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
@@ -37,6 +39,7 @@ public class TrayItemTest extends RcpModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_disposeWithHierarchy() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -64,6 +67,7 @@ public class TrayItemTest extends RcpModelTest {
 		assertTrue(itemObject.isDisposed());
 	}
 
+	@Test
 	public void test_targetForProperty() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

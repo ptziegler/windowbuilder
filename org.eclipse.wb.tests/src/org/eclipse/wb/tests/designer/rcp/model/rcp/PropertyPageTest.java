@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.rcp;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.rcp.model.rcp.PropertyPageInfo;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
@@ -27,6 +29,7 @@ public class PropertyPageTest extends RcpModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_0() throws Exception {
 		PropertyPageInfo page =
 				parseJavaInfo(

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.description;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.description.ComponentDescription;
 import org.eclipse.wb.internal.core.model.description.GenericPropertyDescription;
 import org.eclipse.wb.internal.core.model.description.rules.MethodSinglePropertyRule;
@@ -40,6 +42,7 @@ public class MethodSinglePropertyRuleTest extends SwingModelTest {
 	 * Even without any special descriptions we support single parameter methods with same name, but
 	 * different parameter type.
 	 */
+	@Test
 	public void test_supportForMultipleMethodsByDefault() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -80,6 +83,7 @@ public class MethodSinglePropertyRuleTest extends SwingModelTest {
 	 * If method is not "setter", we can force create property from it using
 	 * <code>method-single-property</code> rule.
 	 */
+	@Test
 	public void test_forNonStandardMethod() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -124,6 +128,7 @@ public class MethodSinglePropertyRuleTest extends SwingModelTest {
 	/**
 	 * You can specify {@link PropertyEditor} for parameter and it will be used for {@link Property}.
 	 */
+	@Test
 	public void test_propertyEditorAsParameterEditor() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",

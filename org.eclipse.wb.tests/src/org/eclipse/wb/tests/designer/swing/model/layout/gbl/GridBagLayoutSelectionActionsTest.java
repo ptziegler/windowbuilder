@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.gbl;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import com.google.common.collect.Lists;
 
@@ -32,7 +35,9 @@ public class GridBagLayoutSelectionActionsTest extends AbstractGridBagLayoutTest
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
-	public void DISABLE_test_selectionActions() throws Exception {
+	@Ignore
+	@Test
+	public void test_selectionActions() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
 						"class Test extends JPanel {",
@@ -99,6 +104,7 @@ public class GridBagLayoutSelectionActionsTest extends AbstractGridBagLayoutTest
 		assertFalse(findAction(actions, "Left").isChecked());
 	}
 
+	@Test
 	public void test_alignmentAction() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

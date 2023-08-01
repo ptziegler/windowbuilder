@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.nebula;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.JavaInfoUtils;
 import org.eclipse.wb.internal.core.model.creation.ConstructorCreationSupport;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
@@ -50,6 +52,7 @@ public class GridTest extends AbstractNebulaTest {
 	/**
 	 * General test {@link GridColumnInfo} & {@link GridColumnGroupInfo} & {@link GridItemInfo}.
 	 */
+	@Test
 	public void test_General() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -119,6 +122,7 @@ public class GridTest extends AbstractNebulaTest {
 	/**
 	 * Test expanded {@link GridItemInfo}.
 	 */
+	@Test
 	public void test_Expanded() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -172,6 +176,7 @@ public class GridTest extends AbstractNebulaTest {
 	 * Test for {@link GridColumn} adding when exists {@link GridItem}'s (expression must be placed
 	 * directly before first {@link GridItem}).
 	 */
+	@Test
 	public void test_addColumn() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.nls;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.GenericProperty;
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.nls.NlsSupport;
@@ -49,6 +51,7 @@ public class SourceFieldTest extends AbstractNlsTest {
 	/**
 	 * Not externalized.
 	 */
+	@Test
 	public void test_notDirectCases_1() throws Exception {
 		ContainerInfo frame =
 				parseContainer(
@@ -64,6 +67,7 @@ public class SourceFieldTest extends AbstractNlsTest {
 	/**
 	 * Bundle is not assigned on declaration.
 	 */
+	@Test
 	public void test_notDirectCases_2() throws Exception {
 		m_waitForAutoBuild = true;
 		ContainerInfo frame =
@@ -83,6 +87,7 @@ public class SourceFieldTest extends AbstractNlsTest {
 	/**
 	 * Not "getBundle()" invocation.
 	 */
+	@Test
 	public void test_notDirectCases_3() throws Exception {
 		m_waitForAutoBuild = true;
 		ContainerInfo frame =
@@ -101,6 +106,7 @@ public class SourceFieldTest extends AbstractNlsTest {
 	/**
 	 * Not {@link StringLiteral} as argument of "getBundle()".
 	 */
+	@Test
 	public void test_notDirectCases_4() throws Exception {
 		m_waitForAutoBuild = true;
 		ContainerInfo frame =
@@ -116,6 +122,7 @@ public class SourceFieldTest extends AbstractNlsTest {
 		assertEquals(0, support.getSources().length);
 	}
 
+	@Test
 	public void test_parse() throws Exception {
 		setFileContentSrc(
 				"test/messages.properties",
@@ -160,6 +167,7 @@ public class SourceFieldTest extends AbstractNlsTest {
 	 * In general case we can not know which resource bundle to use. But if "wnp.nls.resourceBundle"
 	 * is specified, we can parse it and read/update it.
 	 */
+	@Test
 	public void test_useSpecificCreation_butWithWbpTag() throws Exception {
 		setFileContentSrc(
 				"test/messages.properties",
@@ -203,6 +211,7 @@ public class SourceFieldTest extends AbstractNlsTest {
 		assertEquals("My JFrame", jFrame.getTitle());
 	}
 
+	@Test
 	public void test_parse_getWithLocale() throws Exception {
 		setFileContentSrc("test/messages.properties", getSourceDQ("frame.title=My JFrame"));
 		waitForAutoBuild();
@@ -234,6 +243,7 @@ public class SourceFieldTest extends AbstractNlsTest {
 		}
 	}
 
+	@Test
 	public void test_setValue() throws Exception {
 		setFileContentSrc(
 				"test/messages.properties",
@@ -261,6 +271,7 @@ public class SourceFieldTest extends AbstractNlsTest {
 		}
 	}
 
+	@Test
 	public void test_setValue2() throws Exception {
 		setFileContentSrc(
 				"test/messages.properties",
@@ -287,6 +298,7 @@ public class SourceFieldTest extends AbstractNlsTest {
 		}
 	}
 
+	@Test
 	public void test_possibleSources() throws Exception {
 		setFileContentSrc("test/not-a-properties.text", "");
 		setFileContentSrc(
@@ -341,6 +353,7 @@ public class SourceFieldTest extends AbstractNlsTest {
 		}
 	}
 
+	@Test
 	public void test_renameKey() throws Exception {
 		setFileContentSrc("test/messages.properties", getSourceDQ("frame.title=My JFrame"));
 		waitForAutoBuild();
@@ -377,6 +390,7 @@ public class SourceFieldTest extends AbstractNlsTest {
 		}
 	}
 
+	@Test
 	public void test_internalize() throws Exception {
 		setFileContentSrc("test/messages.properties", getSourceDQ("frame.title=My JFrame"));
 		waitForAutoBuild();
@@ -412,6 +426,7 @@ public class SourceFieldTest extends AbstractNlsTest {
 		}
 	}
 
+	@Test
 	public void test_create() throws Exception {
 		ContainerInfo frame =
 				parseContainer(

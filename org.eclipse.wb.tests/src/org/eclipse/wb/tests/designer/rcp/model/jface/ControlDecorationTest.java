@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.EnvironmentUtils;
 import org.eclipse.wb.internal.core.model.presentation.IObjectPresentation;
@@ -44,6 +47,7 @@ public class ControlDecorationTest extends RcpModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_parse() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -74,7 +78,9 @@ public class ControlDecorationTest extends RcpModelTest {
 	/**
 	 * Set real image for {@link ControlDecoration}, so it is used in UI and in presentation.
 	 */
-	public void DISABLE_test_existingImage() throws Exception {
+	@Ignore
+	@Test
+	public void test_existingImage() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
 						"import org.eclipse.jface.fieldassist.ControlDecoration;",
@@ -112,6 +118,7 @@ public class ControlDecorationTest extends RcpModelTest {
 	 * {@link ControlDecoration} in UI. But presentation should use default icon of
 	 * {@link ControlDecoration}.
 	 */
+	@Test
 	public void test_virtualImage() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -149,6 +156,7 @@ public class ControlDecorationTest extends RcpModelTest {
 	/**
 	 * Test for {@link ControlDecorationInfo#command_CREATE(ControlInfo)}.
 	 */
+	@Test
 	public void test_CREATE() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -188,6 +196,7 @@ public class ControlDecorationTest extends RcpModelTest {
 	/**
 	 * Test for {@link ControlDecorationInfo#command_ADD(ControlInfo)}.
 	 */
+	@Test
 	public void test_ADD() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

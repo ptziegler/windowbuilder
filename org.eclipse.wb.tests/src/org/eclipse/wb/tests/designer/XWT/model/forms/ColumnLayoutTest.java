@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.forms;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.xwt.model.forms.layout.column.ColumnLayoutDataInfo;
 import org.eclipse.wb.internal.xwt.model.forms.layout.column.ColumnLayoutInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.CompositeInfo;
@@ -53,6 +55,7 @@ public class ColumnLayoutTest extends XwtModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_isHorizontal() throws Exception {
 		parse(
 				"<!-- Forms API -->",
@@ -67,6 +70,7 @@ public class ColumnLayoutTest extends XwtModelTest {
 		assertTrue(layout.isHorizontal());
 	}
 
+	@Test
 	public void test_LayoutData_implicit() throws Exception {
 		parse(
 				"<!-- Forms API -->",
@@ -102,6 +106,7 @@ public class ColumnLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_copyPaste() throws Exception {
 		final CompositeInfo shell =
 				parse(
@@ -159,6 +164,7 @@ public class ColumnLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_selectionActions_1() throws Exception {
 		parse(
 				"<!-- Forms API -->",
@@ -205,6 +211,7 @@ public class ColumnLayoutTest extends XwtModelTest {
 	/**
 	 * No selection.
 	 */
+	@Test
 	public void test_selectionActions_2() throws Exception {
 		parse(
 				"<!-- Forms API -->",
@@ -223,6 +230,7 @@ public class ColumnLayoutTest extends XwtModelTest {
 	/**
 	 * Invalid selection.
 	 */
+	@Test
 	public void test_selectionActions_3() throws Exception {
 		CompositeInfo shell =
 				parse(

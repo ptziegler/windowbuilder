@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.FormLayout;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.core.editor.palette.model.entry.ToolEntryInfo;
 import org.eclipse.wb.gef.core.requests.ICreationFactory;
@@ -51,6 +54,7 @@ public class DefaultComponentFactoryTest extends AbstractFormLayoutTest {
 	/**
 	 * Test for {@link DefaultComponentFactory#createLabel(String)}.
 	 */
+	@Test
 	public void test_createLabel() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -105,7 +109,9 @@ public class DefaultComponentFactoryTest extends AbstractFormLayoutTest {
 	 * Test for {@link DefaultComponentFactoryCreateLabelEntryInfo}.
 	 */
 	@DisposeProjectAfter
-	public void DISABLE_test_createLabel_tool() throws Exception {
+	@Ignore
+	@Test
+	public void test_createLabel_tool() throws Exception {
 		do_projectDispose();
 		do_projectCreate();
 		m_useFormsImports = false;
@@ -163,6 +169,7 @@ public class DefaultComponentFactoryTest extends AbstractFormLayoutTest {
 	/**
 	 * Test for {@link DefaultComponentFactory#createTitle(String)}.
 	 */
+	@Test
 	public void test_createTitle() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -198,6 +205,7 @@ public class DefaultComponentFactoryTest extends AbstractFormLayoutTest {
 				"}");
 	}
 
+	@Test
 	public void test_createTitle_tool() throws Exception {
 		do_projectDispose();
 		do_projectCreate();

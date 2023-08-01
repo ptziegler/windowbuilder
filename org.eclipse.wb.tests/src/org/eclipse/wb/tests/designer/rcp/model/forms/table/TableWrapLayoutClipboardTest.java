@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.forms.table;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.model.clipboard.JavaInfoMemento;
 import org.eclipse.wb.internal.rcp.model.forms.layout.table.TableWrapLayoutInfo;
@@ -36,7 +39,9 @@ public class TableWrapLayoutClipboardTest extends AbstractFormsTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
-	public void DISABLE_test_simpleSingleControl() throws Exception {
+	@Ignore
+	@Test
+	public void test_simpleSingleControl() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
 						"class Test extends Shell {",
@@ -97,7 +102,9 @@ public class TableWrapLayoutClipboardTest extends AbstractFormsTest {
 				"}");
 	}
 
-	public void DISABLE_test_grid2x2() throws Exception {
+	@Ignore
+	@Test
+	public void test_grid2x2() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
 						"class Test extends Shell {",

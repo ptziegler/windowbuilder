@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.internal.xwt.model.jface.ViewerInfo;
@@ -35,6 +37,7 @@ public class NamePropertySupportTest extends XwtModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_Control() throws Exception {
 		XmlObjectInfo shell = parse("<Shell/>");
 		// prepare "Name" property
@@ -58,6 +61,7 @@ public class NamePropertySupportTest extends XwtModelTest {
 		assertEquals(Property.UNKNOWN_VALUE, property.getValue());
 	}
 
+	@Test
 	public void test_Viewer() throws Exception {
 		parse(
 				"// filler filler filler filler filler",

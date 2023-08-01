@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.layouts.grid;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.core.gef.policy.selection.NonResizableSelectionEditPolicy;
 import org.eclipse.wb.core.model.JavaInfo;
@@ -70,6 +73,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 	 * ancestor resize event, so tries to update {@link Handle} location. However at this time
 	 * component may be already deleted, so we can not ask for its cell/bounds.
 	 */
+	@Test
 	public void test_deleteChildAndAncestorResize() throws Exception {
 		openPanel(
 				"public class Test extends Shell {",
@@ -124,6 +128,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 	 * There was problem that after replacing {@link GridLayout} with "absolute", column/row headers
 	 * throw exception.
 	 */
+	@Test
 	public void test_replaceGridLayout_withAbsolute() throws Exception {
 		prepareComponent();
 		openPanel(
@@ -172,6 +177,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 	 * When user externally (not using design canvas) changes "numColumns", we should recalculate
 	 * positions of controls, in other case we will have incorrect count of column/row headers.
 	 */
+	@Test
 	public void test_change_numColumns() throws Exception {
 		openPanel(
 				"class Test extends Shell {",
@@ -206,6 +212,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 	 * When user marks {@link Control} as excluded, we should not use {@link GridSelectionEditPolicy}
 	 * for it.
 	 */
+	@Test
 	public void test_markAsExcluded() throws Exception {
 		openPanel(
 				"public class Test extends Shell {",
@@ -246,6 +253,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 	/**
 	 * Indirectly exposed {@link Control} should use simple selection policy.
 	 */
+	@Test
 	public void test_indirectlyExposed() throws Exception {
 		openPanel(
 				"import org.eclipse.ui.dialogs.FilteredTree;",
@@ -267,6 +275,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 	/**
 	 * When we move {@link Control} from {@link GridLayout}, this should not cause exception.
 	 */
+	@Test
 	public void test_moveOut() throws Exception {
 		openPanel(
 				"public class Test extends Shell {",
@@ -320,6 +329,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 	// Size hint
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_setSizeHint_width() throws Exception {
 		openPanel(
 				"class Test extends Shell {",
@@ -352,6 +362,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_setSizeHint_height() throws Exception {
 		openPanel(
 				"class Test extends Shell {",
@@ -390,6 +401,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 	// Alignment
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_setAlignment_usingKeyboard() throws Exception {
 		openPanel(
 				"class Test extends Shell {",
@@ -484,6 +496,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 	// CREATE
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_CREATE_filled() throws Exception {
 		openPanel(
 				"public class Test extends Composite {",
@@ -502,6 +515,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 		canvas.assertCommandNull();
 	}
 
+	@Test
 	public void test_CREATE_filledByInherited() throws Exception {
 		setFileContentSrc(
 				"test/MyShell.java",
@@ -538,6 +552,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 		canvas.assertCommandNull();
 	}
 
+	@Test
 	public void test_CREATE_virtual_0x0() throws Exception {
 		openPanel(
 				"public class Test extends Composite {",
@@ -563,6 +578,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_CREATE_virtual_0x1() throws Exception {
 		openPanel(
 				"public class Test extends Composite {",
@@ -589,6 +605,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_CREATE_appendToColumn_1x0() throws Exception {
 		openPanel(
 				"public class Test extends Composite {",
@@ -623,6 +640,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_CREATE_appendToRow_0x1() throws Exception {
 		openPanel(
 				"public class Test extends Composite {",
@@ -657,6 +675,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_CREATE_beforeFirstRow() throws Exception {
 		openPanel(
 				"public class Test extends Composite {",
@@ -691,6 +710,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_CREATE_beforeFirstColumn() throws Exception {
 		openPanel(
 				"public class Test extends Composite {",
@@ -725,6 +745,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_CREATE_insertColumn() throws Exception {
 		openPanel(
 				"public class Test extends Composite {",
@@ -767,6 +788,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_CREATE_insertRow() throws Exception {
 		openPanel(
 				"public class Test extends Composite {",
@@ -817,6 +839,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 	/**
 	 * When {@link GridLayoutInfo} is inherited, we can not change its columns.
 	 */
+	@Test
 	public void test_CREATE_inherited_columnOperations() throws Exception {
 		setFileContentSrc(
 				"test/MyShell.java",
@@ -873,6 +896,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 	 * When {@link GridLayoutInfo} is inherited, but no inherited {@link Control}s, so we can change
 	 * columns.
 	 */
+	@Test
 	public void test_CREATE_inheritedEmpty_columnOperations() throws Exception {
 		setFileContentSrc(
 				"test/MyShell.java",
@@ -920,6 +944,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 	/**
 	 * When {@link GridLayoutInfo} is inherited, we can not change only explicit rows.
 	 */
+	@Test
 	public void test_CREATE_inherited_rowOperations() throws Exception {
 		setFileContentSrc(
 				"test/MyShell.java",
@@ -982,7 +1007,9 @@ public class GridLayoutGefTest extends RcpGefTest {
 	// PASTE
 	//
 	////////////////////////////////////////////////////////////////////////////
-	public void DISABLE_test_PASTE_virtual_1x0() throws Exception {
+	@Ignore
+	@Test
+	public void test_PASTE_virtual_1x0() throws Exception {
 		openPanel(
 				"public class Test extends Composite {",
 				"  public Test(Composite parent, int style) {",
@@ -1021,6 +1048,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 	// MOVE
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_MOVE_virtual_1x0() throws Exception {
 		openPanel(
 				"public class Test extends Composite {",
@@ -1052,6 +1080,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_ADD_virtual_0x0() throws Exception {
 		openPanel(
 				"public class Test extends Composite {",
@@ -1099,6 +1128,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 	/**
 	 * When {@link GridLayoutInfo} is inherited, we can not move its columns.
 	 */
+	@Test
 	public void test_headerColumn_MOVE_inherited() throws Exception {
 		setFileContentSrc(
 				"test/MyShell.java",
@@ -1140,6 +1170,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 		}
 	}
 
+	@Test
 	public void test_headerColumn_MOVE_beforeFirst() throws Exception {
 		openPanel(
 				"public class Test extends Shell {",
@@ -1184,6 +1215,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_headerColumn_MOVE_afterLast() throws Exception {
 		openPanel(
 				"public class Test extends Shell {",
@@ -1236,6 +1268,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_headerColumn_MOVE_beforeOther() throws Exception {
 		openPanel(
 				"public class Test extends Shell {",
@@ -1288,6 +1321,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_headerColumn_MOVE_beforeOther_RTL() throws Exception {
 		openPanel(
 				"public class Test extends Shell {",
@@ -1348,6 +1382,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 	/**
 	 * When {@link GridLayoutInfo} is inherited, we can not move its "implicit" row.
 	 */
+	@Test
 	public void test_headerRow_MOVE_inherited_moveImplicitRow() throws Exception {
 		setFileContentSrc(
 				"test/MyShell.java",
@@ -1392,6 +1427,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 	/**
 	 * When {@link GridLayoutInfo} is inherited, we can not move "explicit" row before "implicit" one.
 	 */
+	@Test
 	public void test_headerRow_MOVE_inherited_moveBeforeImplicitRow() throws Exception {
 		setFileContentSrc(
 				"test/MyShell.java",
@@ -1437,6 +1473,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 		}
 	}
 
+	@Test
 	public void test_headerRow_MOVE_beforeOther() throws Exception {
 		openPanel(
 				"public class Test extends Shell {",
@@ -1489,6 +1526,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_headerRow_MOVE_afterLast() throws Exception {
 		openPanel(
 				"public class Test extends Shell {",

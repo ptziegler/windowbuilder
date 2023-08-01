@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectRootProcessor;
@@ -37,6 +39,7 @@ public class XmlObjectRootProcessorTest extends AbstractCoreTest {
 	// Visibility
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_visibility_separateTrue() throws Exception {
 		prepareMyComponent(ArrayUtils.EMPTY_STRING_ARRAY, new String[]{
 				"  <parameters>",
@@ -48,6 +51,7 @@ public class XmlObjectRootProcessorTest extends AbstractCoreTest {
 		assertVisibleInTree(object, true);
 	}
 
+	@Test
 	public void test_visibility_separateFalse() throws Exception {
 		prepareMyComponent(ArrayUtils.EMPTY_STRING_ARRAY, new String[]{
 				"  <parameters>",
@@ -59,6 +63,7 @@ public class XmlObjectRootProcessorTest extends AbstractCoreTest {
 		assertVisibleInTree(object, false);
 	}
 
+	@Test
 	public void test_visibility_different() throws Exception {
 		prepareMyComponent(ArrayUtils.EMPTY_STRING_ARRAY, new String[]{
 				"  <parameters>",
@@ -70,6 +75,7 @@ public class XmlObjectRootProcessorTest extends AbstractCoreTest {
 		assertVisibleInTree(object, true);
 	}
 
+	@Test
 	public void test_visibility_bothFalse() throws Exception {
 		prepareMyComponent(ArrayUtils.EMPTY_STRING_ARRAY, new String[]{
 				"  <parameters>",
@@ -98,6 +104,7 @@ public class XmlObjectRootProcessorTest extends AbstractCoreTest {
 	/**
 	 * Test that "label" of {@link XmlObjectInfo} uses text from its "text" property.
 	 */
+	@Test
 	public void test_decorateWithText_hasText() throws Exception {
 		XmlObjectInfo shell =
 				parse(
@@ -113,6 +120,7 @@ public class XmlObjectRootProcessorTest extends AbstractCoreTest {
 	/**
 	 * Test that "label" of {@link XmlObjectInfo} uses text from its "text" property.
 	 */
+	@Test
 	public void test_decorateWithText_noText() throws Exception {
 		XmlObjectInfo shell =
 				parse(

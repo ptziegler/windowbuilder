@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.palette;
 
+import org.junit.Test;
+
 import com.google.common.collect.ImmutableList;
 
 import org.eclipse.wb.core.editor.palette.model.entry.TabOrderToolEntryInfo;
@@ -43,6 +45,7 @@ public class TabOrderToolEntryInfoTest extends AbstractPaletteTest {
 	/**
 	 * No selection - no tab order tool.
 	 */
+	@Test
 	public void test_noSelection() throws Exception {
 		JavaInfo panel = parseEmptyPanel();
 		// prepare tool entry
@@ -66,6 +69,7 @@ public class TabOrderToolEntryInfoTest extends AbstractPaletteTest {
 	/**
 	 * Single {@link EditPart} selected.
 	 */
+	@Test
 	public void test_singleSelection() throws Exception {
 		JavaInfo panel = parseEmptyPanel();
 		// prepare tool entry

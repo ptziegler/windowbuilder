@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.rcp;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.model.menu.IMenuPopupInfo;
 import org.eclipse.wb.internal.core.model.menu.MenuObjectInfoUtils;
@@ -42,7 +45,9 @@ public class PageTest extends RcpModelTest {
 	/**
 	 * Test for many elements of {@link PageInfo}.
 	 */
-	public void DISABLE_test_Page() throws Exception {
+	@Ignore
+	@Test
+	public void test_Page() throws Exception {
 		PageInfo page =
 				parseJavaInfo(
 						"import org.eclipse.jface.action.*;",
@@ -116,6 +121,7 @@ public class PageTest extends RcpModelTest {
 	/**
 	 * Test for <code>ContentOutlinePage</code>.
 	 */
+	@Test
 	public void test_ContentOutlinePage() throws Exception {
 		PageInfo page =
 				parseJavaInfo(

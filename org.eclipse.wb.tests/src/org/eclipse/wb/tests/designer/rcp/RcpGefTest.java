@@ -9,6 +9,7 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp;
+import org.junit.Before;
 
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.gef.core.tools.CreationTool;
@@ -34,7 +35,8 @@ public class RcpGefTest extends DesignerEditorTestCase {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		configureDefaults(org.eclipse.wb.internal.rcp.ToolkitProvider.DESCRIPTION);
 		if (m_testProject == null) {

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.forms;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.internal.core.model.creation.factory.InstanceFactoryInfo;
 import org.eclipse.wb.internal.core.model.description.ComponentDescription;
@@ -48,6 +50,7 @@ public class FormToolkitTest extends AbstractFormsTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_parse() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -74,6 +77,7 @@ public class FormToolkitTest extends AbstractFormsTest {
 	 * We should support creating of {@link FormToolkit} using static factory, for example to allow
 	 * users override {@link FormColors}.
 	 */
+	@Test
 	public void test_createFormToolkit_usingStaticFactory() throws Exception {
 		m_waitForAutoBuild = true;
 		parseComposite(
@@ -98,6 +102,7 @@ public class FormToolkitTest extends AbstractFormsTest {
 	/**
 	 * We should support creating of {@link FormToolkit} in {@link Initializer}.
 	 */
+	@Test
 	public void test_createFormToolkit_inInitializer_instance() throws Exception {
 		parseComposite(
 				"public class Test extends Shell {",
@@ -118,6 +123,7 @@ public class FormToolkitTest extends AbstractFormsTest {
 	/**
 	 * We should support creating of {@link FormToolkit} in {@link Initializer}.
 	 */
+	@Test
 	public void test_createFormToolkit_inInitializer_static() throws Exception {
 		parseComposite(
 				"public class Test extends Shell {",
@@ -135,6 +141,7 @@ public class FormToolkitTest extends AbstractFormsTest {
 				"    {new: org.eclipse.ui.forms.widgets.FormToolkit} {field-unique: m_toolkit} {/new FormToolkit(Display.getDefault())/}");
 	}
 
+	@Test
 	public void test_createText() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -152,6 +159,7 @@ public class FormToolkitTest extends AbstractFormsTest {
 		assertNotNull(text.getPropertyByTitle("Style"));
 	}
 
+	@Test
 	public void test_createTable_separateStatement() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -173,6 +181,7 @@ public class FormToolkitTest extends AbstractFormsTest {
 		assertNoErrors(shell);
 	}
 
+	@Test
 	public void test_createLabel_separateStatement_GridLayout() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -203,6 +212,7 @@ public class FormToolkitTest extends AbstractFormsTest {
 	/**
 	 * We want to allow passing {@link FormToolkit} as parameter in constructor.
 	 */
+	@Test
 	public void test_FormToolkit_asConstructorParameter() throws Exception {
 		CompositeInfo composite =
 				parseComposite(
@@ -229,6 +239,7 @@ public class FormToolkitTest extends AbstractFormsTest {
 	 * Same as {@link #test_FormToolkit_asConstructorParameter()}, but here we don't use
 	 * {@link FormToolkit} parameter and this caused problem.
 	 */
+	@Test
 	public void test_FormToolkit_asConstructorParameter2() throws Exception {
 		CompositeInfo composite =
 				parseComposite(
@@ -251,6 +262,7 @@ public class FormToolkitTest extends AbstractFormsTest {
 	 * Sometimes we can not support UI as is, and want to allow user design just single method. And we
 	 * want to allow passing {@link FormToolkit} as parameter of this method.
 	 */
+	@Test
 	public void test_FormToolkit_asEntryPoint_methodParameter() throws Exception {
 		CompositeInfo composite =
 				parseComposite(
@@ -277,6 +289,7 @@ public class FormToolkitTest extends AbstractFormsTest {
 	// paintBordersFor() and adapt()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_paintBordersFor_whenDropNewComposite() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -304,6 +317,7 @@ public class FormToolkitTest extends AbstractFormsTest {
 				"}");
 	}
 
+	@Test
 	public void test_adapt_whenDropNonFormControl() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -330,6 +344,7 @@ public class FormToolkitTest extends AbstractFormsTest {
 				"}");
 	}
 
+	@Test
 	public void test_adapt_whenDropNonFormControl_ignoreFillers() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.util.PropertyUtils;
 import org.eclipse.wb.internal.core.utils.exception.DesignerException;
 import org.eclipse.wb.internal.core.utils.exception.DesignerExceptionUtils;
@@ -46,6 +48,7 @@ public class DialogTest extends RcpModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_parse() throws Exception {
 		DialogInfo dialog =
 				parseJavaInfo(
@@ -99,6 +102,7 @@ public class DialogTest extends RcpModelTest {
 		}
 	}
 
+	@Test
 	public void test_parse_RightToLeft() throws Exception {
 		DialogInfo dialog =
 				parseJavaInfo(
@@ -137,6 +141,7 @@ public class DialogTest extends RcpModelTest {
 		}
 	}
 
+	@Test
 	public void test_constructorWithStyle() throws Exception {
 		DialogInfo dialog =
 				parseJavaInfo(
@@ -165,6 +170,7 @@ public class DialogTest extends RcpModelTest {
 	/**
 	 * If several constructors, than <code>Shell,style</code> should be selected.
 	 */
+	@Test
 	public void test_severalConstructors() throws Exception {
 		DialogInfo dialog =
 				parseJavaInfo(
@@ -185,6 +191,7 @@ public class DialogTest extends RcpModelTest {
 		assertNoErrors(dialog);
 	}
 
+	@Test
 	public void test_noOpenMethod() throws Exception {
 		try {
 			parseJavaInfo(
@@ -204,6 +211,7 @@ public class DialogTest extends RcpModelTest {
 	/**
 	 * We should try to find "open()" method with any number of parameters.
 	 */
+	@Test
 	public void test_openMethodWithParameters() throws Exception {
 		DialogInfo dialog =
 				parseJavaInfo(
@@ -226,6 +234,7 @@ public class DialogTest extends RcpModelTest {
 	 * <p>
 	 * 40337: Parse failure when using FileDialog
 	 */
+	@Test
 	public void test_ignoreNewInstance() throws Exception {
 		CompositeInfo shell =
 				parseJavaInfo(
@@ -248,6 +257,7 @@ public class DialogTest extends RcpModelTest {
 	 * However custom {@link Dialog}-s may use 1-th parameter for different parameter, not just for
 	 * "style".
 	 */
+	@Test
 	public void test_betterStyleParameterDetection() throws Exception {
 		setFileContentSrc(
 				"test/MyData.java",
@@ -290,6 +300,7 @@ public class DialogTest extends RcpModelTest {
 	/**
 	 * One user tried to parse {@link Dialog} without main {@link Shell} creation.
 	 */
+	@Test
 	public void test_noMainShell() throws Exception {
 		try {
 			parseJavaInfo(
@@ -317,6 +328,7 @@ public class DialogTest extends RcpModelTest {
 	// Context menu
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_contextMenu_setMinimalSize() throws Exception {
 		parseJavaInfo(
 				"public class Test extends Dialog {",
@@ -362,6 +374,7 @@ public class DialogTest extends RcpModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_contextMenu_removeSize() throws Exception {
 		parseJavaInfo(
 				"public class Test extends Dialog {",

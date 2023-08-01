@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.nls.ui;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.internal.core.nls.ExternalizeStringsContributionItem;
 import org.eclipse.wb.internal.core.nls.model.AbstractSource;
@@ -37,6 +39,7 @@ public class ContributionItemTest extends AbstractNlsUiTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_localesCombo() throws Exception {
 		setFileContentSrc("test/messages.properties", getSourceDQ("frame.title=My JFrame"));
 		setFileContentSrc("test/messages_it.properties", getSourceDQ("frame.title=My JFrame IT"));
@@ -93,6 +96,7 @@ public class ContributionItemTest extends AbstractNlsUiTest {
 	/**
 	 * Strings in default package can not be externalized.
 	 */
+	@Test
 	public void test_defaultPackage() throws Exception {
 		String initialSource =
 				getSourceDQ(

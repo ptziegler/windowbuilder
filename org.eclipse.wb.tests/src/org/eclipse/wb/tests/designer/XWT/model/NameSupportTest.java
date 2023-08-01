@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model;
 
+import org.junit.Test;
+
 import com.google.common.collect.Lists;
 
 import org.eclipse.wb.core.model.ObjectInfo;
@@ -49,6 +51,7 @@ public class NameSupportTest extends XwtModelTest {
 	 * <p>
 	 * No namespace, and no name.
 	 */
+	@Test
 	public void test_getName_noNamespace() throws Exception {
 		XmlObjectInfo shell =
 				parse(
@@ -70,6 +73,7 @@ public class NameSupportTest extends XwtModelTest {
 	 * <p>
 	 * Name exists.
 	 */
+	@Test
 	public void test_getName_hasName() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -96,6 +100,7 @@ public class NameSupportTest extends XwtModelTest {
 	 * <p>
 	 * Name exists, but not "x:" namespace name is used.
 	 */
+	@Test
 	public void test_getName_hasName_nonStandardNamespace() throws Exception {
 		XmlObjectInfo root =
 				parse(
@@ -126,6 +131,7 @@ public class NameSupportTest extends XwtModelTest {
 	/**
 	 * Test for {@link NameSupport#setName(XmlObjectInfo, String)}.
 	 */
+	@Test
 	public void test_setName_hasName() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -153,6 +159,7 @@ public class NameSupportTest extends XwtModelTest {
 	/**
 	 * Test for single component with no name set.
 	 */
+	@Test
 	public void test_ensureName_generateName() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -178,6 +185,7 @@ public class NameSupportTest extends XwtModelTest {
 	/**
 	 * Test for single component with no name set.
 	 */
+	@Test
 	public void test_ensureName_generateName_nonStandardNamespace() throws Exception {
 		XmlObjectInfo root =
 				parse(
@@ -202,6 +210,7 @@ public class NameSupportTest extends XwtModelTest {
 	/**
 	 * Test for multiple components one of which already has default name set.
 	 */
+	@Test
 	public void test_ensureName_generateUnique() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -227,6 +236,7 @@ public class NameSupportTest extends XwtModelTest {
 	/**
 	 * Test for component name to be specifically defined in component description.
 	 */
+	@Test
 	public void test_ensureName_defaultNameInXML() throws Exception {
 		prepareMyComponent(new String[]{}, new String[]{
 				"// filler filler filler filler filler",
@@ -255,6 +265,7 @@ public class NameSupportTest extends XwtModelTest {
 	/**
 	 * Generate new name, using {@link ComponentNameDescription}.
 	 */
+	@Test
 	public void test_ensureName_defaultNameInPreferences() throws Exception {
 		// set descriptions
 		{
@@ -288,6 +299,7 @@ public class NameSupportTest extends XwtModelTest {
 	 * When we check for existing "x:Name" attributes, we should not try to ask "element" of virtual
 	 * {@link XmlObjectInfo}, to prevent its materialization.
 	 */
+	@Test
 	public void test_ensureName_ignoreVirtualElements() throws Exception {
 		parse(
 				"// filler filler filler filler filler",

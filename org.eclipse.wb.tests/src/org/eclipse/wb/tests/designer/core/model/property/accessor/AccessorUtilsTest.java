@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property.accessor;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.model.creation.CreationSupport;
 import org.eclipse.wb.internal.core.model.property.Property;
@@ -86,6 +88,7 @@ public class AccessorUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link AccessorUtils#IAccessibleExpressionAccessor_forMethod(Method)}.
 	 */
+	@Test
 	public void test_IAccessibleExpressionAccessor_forMethod_public() throws Exception {
 		parseContainer(
 				"// filler filler filler",
@@ -106,6 +109,7 @@ public class AccessorUtilsTest extends SwingModelTest {
 	 * {@link JavaInfo} class, but we know that only type of {@link CreationSupport} is checked, so
 	 * this is OK.
 	 */
+	@Test
 	public void test_IAccessibleExpressionAccessor_forMethod_protected() throws Exception {
 		// parse
 		ContainerInfo panel =
@@ -132,6 +136,7 @@ public class AccessorUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link AccessorUtils#IAccessibleExpressionAccessor_forField(Field)}.
 	 */
+	@Test
 	public void test_IAccessibleExpressionAccessor_forField_public() throws Exception {
 		parseContainer(
 				"// filler filler filler",
@@ -152,6 +157,7 @@ public class AccessorUtilsTest extends SwingModelTest {
 	 * {@link JavaInfo} class, but we know that only type of {@link CreationSupport} is checked, so
 	 * this is OK.
 	 */
+	@Test
 	public void test_IAccessibleExpressionAccessor_forField_protected() throws Exception {
 		// prepare JavaInfo
 		ContainerInfo panel =
@@ -178,6 +184,7 @@ public class AccessorUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link AccessorUtils#getExposableExpressionAccessor(Property)}.
 	 */
+	@Test
 	public void test_getExposableExpressionAccessor() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -210,6 +217,7 @@ public class AccessorUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link AccessorUtils#PropertyTooltipProvider_forMethod(Method)}.
 	 */
+	@Test
 	public void test_PropertyTooltipProvider_forMethod_noJavadoc() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -229,6 +237,7 @@ public class AccessorUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link AccessorUtils#PropertyTooltipProvider_forMethod(Method)}.
 	 */
+	@Test
 	public void test_PropertyTooltipProvider_forMethod_withJavadoc() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -253,6 +262,7 @@ public class AccessorUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link AccessorUtils#PropertyTooltipProvider_forField(Field)}.
 	 */
+	@Test
 	public void test_PropertyTooltipProvider_forField_noJavadoc() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -272,6 +282,7 @@ public class AccessorUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link AccessorUtils#PropertyTooltipProvider_forField(Field)}.
 	 */
+	@Test
 	public void test_PropertyTooltipProvider_forField_withJavadoc() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

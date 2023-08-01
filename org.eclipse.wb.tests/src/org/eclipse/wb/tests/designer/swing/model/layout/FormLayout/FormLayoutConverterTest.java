@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.FormLayout;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.swing.FormLayout.model.FormLayoutConverter;
 import org.eclipse.wb.internal.swing.FormLayout.model.FormLayoutInfo;
@@ -27,6 +30,7 @@ public class FormLayoutConverterTest extends AbstractFormLayoutTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_empty() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -54,7 +58,9 @@ public class FormLayoutConverterTest extends AbstractFormLayoutTest {
 				"}");
 	}
 
-	public void DISABLE_test_oneRow() throws Exception {
+	@Ignore
+	@Test
+	public void test_oneRow() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
 						"public class Test extends JPanel {",
@@ -110,7 +116,9 @@ public class FormLayoutConverterTest extends AbstractFormLayoutTest {
 		}
 	}
 
-	public void DISABLE_test_twoRows_spanColumns() throws Exception {
+	@Ignore
+	@Test
+	public void test_twoRows_spanColumns() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
 						"public class Test extends JPanel {",
@@ -171,7 +179,9 @@ public class FormLayoutConverterTest extends AbstractFormLayoutTest {
 				"}");
 	}
 
-	public void DISABLE_test_Switching_fromGridBagLayout() throws Exception {
+	@Ignore
+	@Test
+	public void test_Switching_fromGridBagLayout() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
 						"public class Test extends JPanel {",

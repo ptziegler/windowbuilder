@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.group;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.model.JavaInfoUtils;
 import org.eclipse.wb.internal.core.model.creation.ConstructorCreationSupport;
@@ -41,6 +43,7 @@ public class GroupLayoutTest extends AbstractLayoutTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_set_another_layout_on_GroupLayout_lazyCodeGen() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -98,6 +101,7 @@ public class GroupLayoutTest extends AbstractLayoutTest {
 				"}");
 	}
 
+	@Test
 	public void test_set_another_layout_on_GroupLayout_localVarCodeGen() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

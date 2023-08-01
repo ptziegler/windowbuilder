@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.util;
 
+import org.junit.Test;
+
 import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
@@ -40,6 +42,7 @@ public class PropertyUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link PropertyUtils#getText(Property)}.
 	 */
+	@Test
 	public void test_getText() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -66,6 +69,7 @@ public class PropertyUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link PropertyUtils#getTitles(Property[])}.
 	 */
+	@Test
 	public void test_getTitles_asArray() throws Exception {
 		Property property_1 = new PropertyWithTitle("a");
 		Property property_2 = new PropertyWithTitle("b");
@@ -75,6 +79,7 @@ public class PropertyUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link PropertyUtils#getTitles(List)}.
 	 */
+	@Test
 	public void test_getTitles_asList() throws Exception {
 		Property property_1 = new PropertyWithTitle("a");
 		Property property_2 = new PropertyWithTitle("b");
@@ -91,6 +96,7 @@ public class PropertyUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link PropertyUtils#getByTitle(Property[], String)}.
 	 */
+	@Test
 	public void test_getByTitle_1() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -110,6 +116,7 @@ public class PropertyUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link PropertyUtils#getByTitle(List, String)}.
 	 */
+	@Test
 	public void test_getByTitle_2() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -134,6 +141,7 @@ public class PropertyUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link PropertyUtils#getByPath(JavaInfo, String)}.
 	 */
+	@Test
 	public void test_getByPath_1() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -176,6 +184,7 @@ public class PropertyUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link PropertyUtils#getByPath(List, String)}.
 	 */
+	@Test
 	public void test_getByPath_2() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -214,6 +223,7 @@ public class PropertyUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link PropertyUtils#getChildren(Property)}.
 	 */
+	@Test
 	public void test_getChildren() throws Exception {
 		parseContainer(
 				"public class Test extends JPanel {",
@@ -239,6 +249,7 @@ public class PropertyUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link PropertyUtils#getExcludeByTitlePredicate(String...)}.
 	 */
+	@Test
 	public void test_getExcludeByTitlePredicate() throws Exception {
 		Predicate<Property> predicate = PropertyUtils.getExcludeByTitlePredicate("a", "c");
 		{
@@ -258,6 +269,7 @@ public class PropertyUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link PropertyUtils#getIncludeByTitlePredicate(String...)}.
 	 */
+	@Test
 	public void test_getIncludeByTitlePredicate() throws Exception {
 		Predicate<Property> predicate = PropertyUtils.getIncludeByTitlePredicate("a", "c");
 		{
@@ -277,6 +289,7 @@ public class PropertyUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link PropertyUtils#getProperties(JavaInfo, Predicate)}.
 	 */
+	@Test
 	public void test_getProperties_withPredicate() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -303,6 +316,7 @@ public class PropertyUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link PropertyUtils#getExcludeByTitlePredicate(JavaInfo, String)}.
 	 */
+	@Test
 	public void test_getExcludeByTitlePredicate_forParameter() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -348,6 +362,7 @@ public class PropertyUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link PropertyUtils#getProperties_excludeByParameter(JavaInfo, String)}.
 	 */
+	@Test
 	public void test_getProperties_excludeByParameter() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -392,6 +407,7 @@ public class PropertyUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link PropertyUtils#filterProperties(List, Predicate)}.
 	 */
+	@Test
 	public void test_filterProperties() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

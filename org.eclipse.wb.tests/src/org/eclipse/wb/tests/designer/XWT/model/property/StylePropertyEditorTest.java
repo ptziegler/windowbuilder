@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.property;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.editor.BooleanPropertyEditor;
 import org.eclipse.wb.internal.core.model.property.editor.StringComboPropertyEditor;
@@ -93,6 +95,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 	// Set
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_Set_1() throws Exception {
 		parseStyleProperties("set|B0 B1 B2:specialName");
 		{
@@ -135,6 +138,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 		assertEditorText("[]");
 	}
 
+	@Test
 	public void test_Set_ignoreIfNoSuchField() throws Exception {
 		parseStyleProperties("set|B0 noSuchField");
 		// check
@@ -149,6 +153,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 	// Select
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_Select_1() throws Exception {
 		parseStyleProperties("set|B0 B1", "select0|align R1 R1 R2 R3");
 		// check sub properties
@@ -201,6 +206,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 		assertEditorText("[]");
 	}
 
+	@Test
 	public void test_Select_ignoreInNoSuchField() throws Exception {
 		parseStyleProperties("select0|align 15 15 R1 noSuchField");
 		Assertions.assertThat(PropertyUtils.getTitles(m_properties)).containsOnly("align");
@@ -224,6 +230,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 	// Macro
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_Macro_1() throws Exception {
 		parseStyleProperties("set|B0 B1 B2 B3", "macro0|mix B0_B1 B0_B2 R1");
 		Property property_B0 = m_properties[0];
@@ -265,6 +272,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 		assertEditorText("[R1]");
 	}
 
+	@Test
 	public void test_Macro_2() throws Exception {
 		parseStyleProperties("set|B0 B1", "macro0|mix B0_B1 R1");
 		Property property_B0 = m_properties[0];
@@ -286,6 +294,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 		assertEditorText("[B1]");
 	}
 
+	@Test
 	public void test_Macro_ignoreIfNoSuchField() throws Exception {
 		parseStyleProperties("macro0|mix B0_B1 noSuchField");
 		Assertions.assertThat(PropertyUtils.getTitles(m_properties)).containsOnly("mix");
@@ -301,6 +310,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 		checkWarning("StylePropertyEditor: can not find field test.SWT.noSuchField");
 	}
 
+	@Test
 	public void test_Macro_ifMacro_thenNoSelect() throws Exception {
 		parseStyleProperties("", new String[]{"select0|align R1 R1 R2", "macro0|mix B0_R2"});
 		Property propertySelect = m_properties[0];
@@ -342,6 +352,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 		styleItems = styleMenu.getItems();
 	}
 
+	@Test
 	public void test_popup() throws Exception {
 		parseStyleProperties("set|B0 B1 B2", "select0|align R1 R1 R2 R3");
 		prepareStyleItems(false);
@@ -365,6 +376,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 		assertStyleSource("B0 | R2");
 	}
 
+	@Test
 	public void test_popup_boolean() throws Exception {
 		parseStyleProperties("B1", new String[]{"set|B0 B1 B2"});
 		// check items
@@ -393,6 +405,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_popup_select() throws Exception {
 		parseStyleProperties("R2", new String[]{"select0|align R1 R1 R2 R3"});
 		// check items
@@ -427,6 +440,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_popup_cascade() throws Exception {
 		parseStyleProperties("set|B0 B1", "select0|align R1 R1 R2 R3");
 		prepareStyleItems(true);
@@ -446,6 +460,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 		checkItem("R3", IAction.AS_RADIO_BUTTON, false, alignItems[3]);
 	}
 
+	@Test
 	public void test_popup_macro() throws Exception {
 		parseStyleProperties("", new String[]{"set|B0", "macro0|mix B0_B1 B0_B2"});
 		prepareStyleItems(false);
@@ -490,6 +505,7 @@ public class StylePropertyEditorTest extends XwtModelTest {
 	// Clipboard
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_clipboard() throws Exception {
 		final CompositeInfo shell =
 				parse(

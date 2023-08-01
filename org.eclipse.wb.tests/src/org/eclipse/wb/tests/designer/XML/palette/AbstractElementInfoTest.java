@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.palette;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.utils.check.AssertionFailedException;
 import org.eclipse.wb.internal.core.xml.editor.palette.model.AbstractElementInfo;
 import org.eclipse.wb.internal.core.xml.editor.palette.model.ComponentEntryInfo;
@@ -29,6 +31,7 @@ public class AbstractElementInfoTest extends DesignerTestCase {
 	/**
 	 * Test for hashCode/equals.
 	 */
+	@Test
 	public void test_AbstractElementInfo_hash_equals() throws Exception {
 		String id = "some id";
 		// prepare component_1
@@ -49,6 +52,7 @@ public class AbstractElementInfoTest extends DesignerTestCase {
 	/**
 	 * Test for "id" property.
 	 */
+	@Test
 	public void test_AbstractElementInfo_id() throws Exception {
 		ComponentEntryInfo component = new ComponentEntryInfo();
 		// try to set "null" - failed
@@ -72,6 +76,7 @@ public class AbstractElementInfoTest extends DesignerTestCase {
 	/**
 	 * Test for "visible" property.
 	 */
+	@Test
 	public void test_AbstractElementInfo_visible() throws Exception {
 		ComponentEntryInfo component = new ComponentEntryInfo();
 		// visible initially
@@ -84,6 +89,7 @@ public class AbstractElementInfoTest extends DesignerTestCase {
 	/**
 	 * Test for "name" property.
 	 */
+	@Test
 	public void test_AbstractElementInfo_name() throws Exception {
 		ComponentEntryInfo component = new ComponentEntryInfo();
 		// no name initially
@@ -96,6 +102,7 @@ public class AbstractElementInfoTest extends DesignerTestCase {
 	/**
 	 * Test for "description" property.
 	 */
+	@Test
 	public void test_AbstractElementInfo_description() throws Exception {
 		ComponentEntryInfo component = new ComponentEntryInfo();
 		// no description initially

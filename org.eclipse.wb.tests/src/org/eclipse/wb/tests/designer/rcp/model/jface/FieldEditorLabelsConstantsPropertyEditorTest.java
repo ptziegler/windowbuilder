@@ -9,6 +9,10 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
+import org.junit.Before;
+import org.junit.After;
+
+import org.junit.Test;
 
 import com.google.common.collect.Lists;
 
@@ -40,7 +44,8 @@ public class FieldEditorLabelsConstantsPropertyEditorTest extends SwingModelTest
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		// prepare JDT elements
 		setFileContentSrc(
@@ -72,7 +77,8 @@ public class FieldEditorLabelsConstantsPropertyEditorTest extends SwingModelTest
 	}
 
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		super.tearDown();
 		// clean-up fields
 		m_property = null;
@@ -156,6 +162,7 @@ public class FieldEditorLabelsConstantsPropertyEditorTest extends SwingModelTest
 	/**
 	 * No expression.
 	 */
+	@Test
 	public void test_getTextForEditing_0() throws Exception {
 		parseContainer(
 				"// filler filler filler",
@@ -169,6 +176,7 @@ public class FieldEditorLabelsConstantsPropertyEditorTest extends SwingModelTest
 	/**
 	 * Expression with both {@link ArrayInitializer} and {@link ArrayCreation} as elements.
 	 */
+	@Test
 	public void test_getTextForEditing_1() throws Exception {
 		parseContainer(
 				"public class Test extends MyPanel {",
@@ -185,6 +193,7 @@ public class FieldEditorLabelsConstantsPropertyEditorTest extends SwingModelTest
 	/**
 	 * Ignore element with not {@link IField}.
 	 */
+	@Test
 	public void test_getTextForEditing_2() throws Exception {
 		parseContainer(
 				"public class Test extends MyPanel {",
@@ -201,6 +210,7 @@ public class FieldEditorLabelsConstantsPropertyEditorTest extends SwingModelTest
 	// prepareLabelsFields
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_prepareLabelsFields() throws Exception {
 		parseContainer(
 				"public class Test extends MyPanel {",

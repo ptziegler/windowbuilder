@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.layouts;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.layout.absolute.OrderingSupport;
 import org.eclipse.wb.internal.swt.model.layout.absolute.AbsoluteLayoutInfo;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
@@ -46,6 +48,7 @@ public class AbsoluteLayoutOrderingTest extends RcpModelTest {
 	/**
 	 * Test that "ordering" actions are present and have expected enablement state.
 	 */
+	@Test
 	public void test_enablement() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -89,6 +92,7 @@ public class AbsoluteLayoutOrderingTest extends RcpModelTest {
 		}
 	}
 
+	@Test
 	public void test_bringToFront() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -118,6 +122,7 @@ public class AbsoluteLayoutOrderingTest extends RcpModelTest {
 		Assertions.assertThat(shell.getChildrenControls()).containsExactly(table, button, text);
 	}
 
+	@Test
 	public void test_bringForward() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -147,6 +152,7 @@ public class AbsoluteLayoutOrderingTest extends RcpModelTest {
 		Assertions.assertThat(shell.getChildrenControls()).containsExactly(button, table, text);
 	}
 
+	@Test
 	public void test_sendToBack() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -176,6 +182,7 @@ public class AbsoluteLayoutOrderingTest extends RcpModelTest {
 		Assertions.assertThat(shell.getChildrenControls()).containsExactly(text, table, button);
 	}
 
+	@Test
 	public void test_sendBackward() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.swing2swt;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.generic.FlowContainerFactory;
 import org.eclipse.wb.internal.rcp.swing2swt.layout.FlowLayoutInfo;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
@@ -36,6 +38,7 @@ public class FlowLayoutTest extends AbstractSwing2SwtTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_parse() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

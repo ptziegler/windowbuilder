@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.layout;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.gef.policy.layout.grid.IGridInfo;
 import org.eclipse.wb.internal.swt.model.layout.grid.GridDataInfo;
 import org.eclipse.wb.internal.swt.model.layout.grid.GridLayoutInfo;
@@ -47,6 +49,7 @@ public class GridLayoutTest extends RcpModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_parse() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -71,6 +74,7 @@ public class GridLayoutTest extends RcpModelTest {
 	 * method not only during layout itself, but also for calculating preferred size. This corrupts
 	 * remembered values for column/row origins/sizes.
 	 */
+	@Test
 	public void test_twoNested() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -116,6 +120,7 @@ public class GridLayoutTest extends RcpModelTest {
 	/**
 	 * See (Case 39234).
 	 */
+	@Test
 	public void test_defaultValues() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -148,6 +153,7 @@ public class GridLayoutTest extends RcpModelTest {
 	 * {@link GridData} instance, so we can not replace it in {@link Control}. We should store our
 	 * <code>GridData2</code> into some other place.
 	 */
+	@Test
 	public void test_getLayoutData_override() throws Exception {
 		setFileContentSrc(
 				"test/MyComposite.java",
@@ -184,6 +190,7 @@ public class GridLayoutTest extends RcpModelTest {
 	 * Test switching layouts from {@link TableWrapLayout} to {@link GridLayout}, and restore
 	 * component positions & alignments.
 	 */
+	@Test
 	public void test_Switching_fromTableWrapLayout() throws Exception {
 		CompositeInfo composite =
 				parseComposite(

@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor.action;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.gef.core.EditPart;
 import org.eclipse.wb.internal.core.editor.actions.CopyAction;
@@ -33,6 +36,7 @@ public class CopyActionTest extends SwingGefTest {
 	/**
 	 * "Copy" action is disabled if no selection.
 	 */
+	@Test
 	public void test_noSelection() throws Exception {
 		openContainer(
 				"public class Test extends JPanel {",
@@ -50,6 +54,7 @@ public class CopyActionTest extends SwingGefTest {
 	/**
 	 * "This" component can not be copied.
 	 */
+	@Test
 	public void test_thisSelection() throws Exception {
 		ContainerInfo panel = openContainer(
 				"public class Test extends JPanel {",
@@ -67,7 +72,9 @@ public class CopyActionTest extends SwingGefTest {
 	/**
 	 * Test for copy/paste single component.
 	 */
-	public void DISABLED_test_copySingle() throws Exception {
+	@Ignore
+	@Test
+	public void test_copySingle() throws Exception {
 		ContainerInfo panel = openContainer(
 				"public class Test extends JPanel {",
 				"  public Test() {",
@@ -119,7 +126,9 @@ public class CopyActionTest extends SwingGefTest {
 	 * If container and its child are selected, then only ocntainer should be copied, it will copy
 	 * child automatically.
 	 */
-	public void DISABLED_test_copyParentAndItsChild() throws Exception {
+	@Ignore
+	@Test
+	public void test_copyParentAndItsChild() throws Exception {
 		ContainerInfo panel = openContainer(
 				"public class Test extends JPanel {",
 				"  public Test() {",

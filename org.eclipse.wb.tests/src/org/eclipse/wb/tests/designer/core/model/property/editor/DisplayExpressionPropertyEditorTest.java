@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property.editor;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.editor.DisplayExpressionPropertyEditor;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
@@ -28,6 +30,7 @@ public class DisplayExpressionPropertyEditorTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_noExpression() throws Exception {
 		createMyPanel();
 		// parse
@@ -47,6 +50,7 @@ public class DisplayExpressionPropertyEditorTest extends SwingModelTest {
 		assertNull(getPropertyText(fooProperty));
 	}
 
+	@Test
 	public void test_hasExpression() throws Exception {
 		createMyPanel();
 		// parse

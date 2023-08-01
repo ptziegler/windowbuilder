@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.association;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.association.AssociationObject;
 import org.eclipse.wb.core.model.association.AssociationObjects;
 import org.eclipse.wb.core.model.association.ConstructorChildAssociation;
@@ -44,6 +46,7 @@ public class AssociationObjectsTest extends SwingModelTest {
 	/**
 	 * Test for {@link AssociationObjects#no()}.
 	 */
+	@Test
 	public void test_no() throws Exception {
 		AssociationObject associationObject = AssociationObjects.no();
 		assertEquals("NO", associationObject.toString());
@@ -54,6 +57,7 @@ public class AssociationObjectsTest extends SwingModelTest {
 	/**
 	 * Test for {@link AssociationObjects#empty()}.
 	 */
+	@Test
 	public void test_empty() throws Exception {
 		AssociationObject associationObject = AssociationObjects.empty();
 		assertEquals("empty", associationObject.toString());
@@ -64,6 +68,7 @@ public class AssociationObjectsTest extends SwingModelTest {
 	/**
 	 * Test for {@link AssociationObjects#nonVisual()}.
 	 */
+	@Test
 	public void test_nonVisual() throws Exception {
 		AssociationObject associationObject = AssociationObjects.nonVisual();
 		assertEquals("nonVisual", associationObject.toString());
@@ -74,6 +79,7 @@ public class AssociationObjectsTest extends SwingModelTest {
 	/**
 	 * Test for {@link AssociationObjects#constructorChild()}.
 	 */
+	@Test
 	public void test_constructorChild() throws Exception {
 		AssociationObject associationObject = AssociationObjects.constructorChild();
 		assertEquals("constructorChild", associationObject.toString());
@@ -84,6 +90,7 @@ public class AssociationObjectsTest extends SwingModelTest {
 	/**
 	 * Test for {@link AssociationObjects#invocationVoid()}.
 	 */
+	@Test
 	public void test_invocationVoid() throws Exception {
 		AssociationObject associationObject = AssociationObjects.invocationVoid();
 		assertEquals("invocationVoid", associationObject.toString());
@@ -94,6 +101,7 @@ public class AssociationObjectsTest extends SwingModelTest {
 	/**
 	 * Test for {@link AssociationObjects#invocationChildNull()}.
 	 */
+	@Test
 	public void test_invocationChildNull() throws Exception {
 		AssociationObject associationObject = AssociationObjects.invocationChildNull();
 		assertEquals("invocationChildNull", associationObject.toString());
@@ -104,6 +112,7 @@ public class AssociationObjectsTest extends SwingModelTest {
 	/**
 	 * Test for {@link AssociationObjects#invocationChild(String, boolean)}.
 	 */
+	@Test
 	public void test_invocationChild_withRequired() throws Exception {
 		String source = "%parent%.add(%child%)";
 		{

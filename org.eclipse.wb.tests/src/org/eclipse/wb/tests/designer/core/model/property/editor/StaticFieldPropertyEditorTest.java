@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property.editor;
 
+import org.junit.Test;
+
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 
@@ -56,6 +58,7 @@ public class StaticFieldPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Top level class, all fields are valid.
 	 */
+	@Test
 	public void test_configure_1() throws Exception {
 		StaticFieldPropertyEditor editor = new StaticFieldPropertyEditor();
 		editor.configure(SwingConstants.class, new String[]{"LEFT", "RIGHT"});
@@ -71,6 +74,7 @@ public class StaticFieldPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Top level class, one field does not exist, should be skipped.
 	 */
+	@Test
 	public void test_configure_2() throws Exception {
 		StaticFieldPropertyEditor editor = new StaticFieldPropertyEditor();
 		editor.configure(SwingConstants.class, new String[]{"LEFT", "noSuchField", "RIGHT"});
@@ -86,6 +90,7 @@ public class StaticFieldPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Top level class, all fields are valid. Specify title in field description.
 	 */
+	@Test
 	public void test_configure_3() throws Exception {
 		StaticFieldPropertyEditor editor = new StaticFieldPropertyEditor();
 		editor.configure(SwingConstants.class, new String[]{"LEFT:asLeft", "RIGHT:asRight"});
@@ -101,6 +106,7 @@ public class StaticFieldPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Special <code>*remove</code> field.
 	 */
+	@Test
 	public void test_configure_4() throws Exception {
 		StaticFieldPropertyEditor editor = new StaticFieldPropertyEditor();
 		editor.configure(SwingConstants.class, new String[]{"LEFT", "*remove", "RIGHT"});
@@ -124,6 +130,7 @@ public class StaticFieldPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Inner class.
 	 */
+	@Test
 	public void test_configure_5() throws Exception {
 		StaticFieldPropertyEditor editor = new StaticFieldPropertyEditor();
 		editor.configure(Foo.class, new String[]{"A", "B"});
@@ -140,6 +147,7 @@ public class StaticFieldPropertyEditorTest extends SwingModelTest {
 	 * Test for {@link StaticFieldPropertyEditor#configure(EditorState, java.util.Map)}.<br>
 	 * Fields in single {@link String} as <code>"fields"</code> parameter.
 	 */
+	@Test
 	public void test_configure_6() throws Exception {
 		parseContainer(
 				"// filler filler filler",
@@ -167,6 +175,7 @@ public class StaticFieldPropertyEditorTest extends SwingModelTest {
 	 * Test for {@link StaticFieldPropertyEditor#configure(EditorState, java.util.Map)}.<br>
 	 * Fields in {@link List} as <code>"field"</code> parameter.
 	 */
+	@Test
 	public void test_configure_7() throws Exception {
 		parseContainer(
 				"// filler filler filler",
@@ -194,6 +203,7 @@ public class StaticFieldPropertyEditorTest extends SwingModelTest {
 	 * Test for {@link StaticFieldPropertyEditor#configure(EditorState, java.util.Map)}.<br>
 	 * No fields, so exception.
 	 */
+	@Test
 	public void test_configure_8() throws Exception {
 		parseContainer(
 				"// filler filler filler",
@@ -236,6 +246,7 @@ public class StaticFieldPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Test for {@link StaticFieldPropertyEditor#getValueSource(Object)}.
 	 */
+	@Test
 	public void test_getValueSource() throws Exception {
 		StaticFieldPropertyEditor editor = new StaticFieldPropertyEditor();
 		editor.configure(SwingConstants.class, new String[]{"LEFT", "*remove", "RIGHT"});
@@ -249,6 +260,7 @@ public class StaticFieldPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Test for {@link StaticFieldPropertyEditor#getText(Property)}.
 	 */
+	@Test
 	public void test_getText() throws Exception {
 		StaticFieldPropertyEditor editor = new StaticFieldPropertyEditor();
 		editor.configure(SwingConstants.class, new String[]{"LEFT:asLeft", "*remove", "RIGHT"});
@@ -290,6 +302,7 @@ public class StaticFieldPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Test for {@link StaticFieldPropertyEditor#getClipboardSource(GenericProperty)}.
 	 */
+	@Test
 	public void test_getClipboardSource() throws Exception {
 		StaticFieldPropertyEditor editor = new StaticFieldPropertyEditor();
 		editor.configure(SwingConstants.class, new String[]{"LEFT", "RIGHT"});
@@ -315,6 +328,7 @@ public class StaticFieldPropertyEditorTest extends SwingModelTest {
 	 * Test for {@link StaticFieldPropertyEditor#setValue(Property, Object)}.<br>
 	 * For {@link GenericProperty}.
 	 */
+	@Test
 	public void test_setValue_1() throws Exception {
 		StaticFieldPropertyEditor editor = new StaticFieldPropertyEditor();
 		editor.configure(SwingConstants.class, new String[]{"LEFT", "RIGHT"});
@@ -333,6 +347,7 @@ public class StaticFieldPropertyEditorTest extends SwingModelTest {
 	 * Test for {@link StaticFieldPropertyEditor#setValue(Property, Object)}.<br>
 	 * For simple {@link Property}.
 	 */
+	@Test
 	public void test_setValue_2() throws Exception {
 		StaticFieldPropertyEditor editor = new StaticFieldPropertyEditor();
 		editor.configure(SwingConstants.class, new String[]{"LEFT", "RIGHT"});

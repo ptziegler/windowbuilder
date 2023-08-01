@@ -9,7 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.top;
-
 import org.eclipse.wb.draw2d.IPositionConstants;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.internal.swing.model.component.top.JPanelTopBoundsSupport;
@@ -19,6 +18,8 @@ import org.eclipse.wb.tests.designer.swing.SwingGefTest;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.jdt.core.ICompilationUnit;
+
+import org.junit.Test;
 
 import javax.swing.JPanel;
 
@@ -36,6 +37,7 @@ public class JPanelTopBoundsTest extends SwingGefTest {
 	/**
 	 * Size in properties of {@link IResource}.
 	 */
+	@Test
 	public void test_resize_properties() throws Exception {
 		Dimension oldSize = new Dimension(450, 300);
 		Dimension newSize = new Dimension(400, 350);
@@ -51,6 +53,7 @@ public class JPanelTopBoundsTest extends SwingGefTest {
 	/**
 	 * Size in setPreferredSize(java.awt.Dimension)
 	 */
+	@Test
 	public void test_resize_setPreferredSize() throws Exception {
 		Dimension oldSize = new Dimension(300, 200);
 		Dimension newSize = new Dimension(400, 300);
@@ -64,6 +67,7 @@ public class JPanelTopBoundsTest extends SwingGefTest {
 	/**
 	 * Size in setSize(java.awt.Dimension)
 	 */
+	@Test
 	public void test_resize_setSize_Dimension() throws Exception {
 		Dimension oldSize = new Dimension(300, 200);
 		Dimension newSize = new Dimension(400, 300);
@@ -77,6 +81,7 @@ public class JPanelTopBoundsTest extends SwingGefTest {
 	/**
 	 * Size in setSize(int,int)
 	 */
+	@Test
 	public void test_resize_setSize_ints() throws Exception {
 		Dimension oldSize = new Dimension(300, 200);
 		Dimension newSize = new Dimension(400, 300);
@@ -119,15 +124,5 @@ public class JPanelTopBoundsTest extends SwingGefTest {
 				"}");
 		//
 		return m_lastEditor.getModelUnit();
-	}
-
-	////////////////////////////////////////////////////////////////////////////
-	//
-	// Project disposing
-	//
-	////////////////////////////////////////////////////////////////////////////
-	@Override
-	public void test_tearDown() throws Exception {
-		do_projectDispose();
 	}
 }

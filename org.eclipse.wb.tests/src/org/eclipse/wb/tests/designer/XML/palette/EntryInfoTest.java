@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.palette;
 
+import org.junit.Test;
+
 import org.eclipse.wb.gef.core.IEditPartViewer;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.core.xml.editor.palette.model.CategoryInfo;
@@ -31,6 +33,7 @@ public class EntryInfoTest extends AbstractPaletteTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_0() throws Exception {
 		XmlObjectInfo panel = parseEmptyPanel();
 		IEditPartViewer editPartViewer = new EmptyEditPartViewer();

@@ -9,6 +9,7 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML;
+import org.junit.Before;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
@@ -62,7 +63,8 @@ public abstract class AbstractXmlObjectTest extends AbstractJavaProjectTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		if (m_testProject == null) {
 			do_projectCreate();

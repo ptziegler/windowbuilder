@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.property;
+import org.junit.Before;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.rcp.ToolkitProvider;
@@ -29,7 +32,8 @@ public class FontPropertyEditorTestWithManager extends FontPropertyEditorTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		ToolkitProvider.DESCRIPTION.getPreferences().setValue(
 				IPreferenceConstants.P_USE_RESOURCE_MANAGER,
@@ -53,6 +57,7 @@ public class FontPropertyEditorTestWithManager extends FontPropertyEditorTest {
 	/**
 	 * Font creation using constructor <code>Font(Device, String, int, int)</code>.
 	 */
+	@Test
 	public void test_textSource_over_Constructor() throws Exception {
 		assert_getText_getClipboardSource_forSource(
 				"new Font(null, \"MS Shell Dlg\", 12, SWT.BOLD)",
@@ -63,6 +68,7 @@ public class FontPropertyEditorTestWithManager extends FontPropertyEditorTest {
 	/**
 	 * Font creation using constructor <code>Font(Device, String, int, int)</code>.
 	 */
+	@Test
 	public void test_textSource_over_Constructor2() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -89,6 +95,7 @@ public class FontPropertyEditorTestWithManager extends FontPropertyEditorTest {
 	/**
 	 * Font creation using JFace resource <code>JFaceResources.getXXXFont()</code>.
 	 */
+	@Test
 	public void test_textSource_over_JFace() throws Exception {
 		assert_getText_getClipboardSource_forSource(
 				"JFaceResources.getBannerFont()",

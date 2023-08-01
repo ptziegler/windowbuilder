@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.forms;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 
 import org.eclipse.swt.graphics.Image;
@@ -42,6 +44,7 @@ public class FormTextTest extends AbstractFormsTest {
 	 * <p>
 	 * Problem is that it requires "com.ibm.icu" plugin, that is not included into list.
 	 */
+	@Test
 	public void test_create() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -59,6 +62,7 @@ public class FormTextTest extends AbstractFormsTest {
 	/**
 	 * {@link FormText} creates {@link Image} with its size, so throws exception when it is zero.
 	 */
+	@Test
 	public void test_zeroSize() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

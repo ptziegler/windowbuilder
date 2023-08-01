@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.description;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.model.description.resource.IDescriptionVersionsProvider;
 import org.eclipse.wb.internal.core.model.description.resource.IDescriptionVersionsProviderFactory;
@@ -43,6 +46,7 @@ public class RcpDescriptionVersionsProviderFactoryTest extends RcpModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@DisposeProjectAfter
+	@Test
 	public void test_notRCP() throws Exception {
 		do_projectDispose();
 		do_projectCreate();
@@ -66,7 +70,9 @@ public class RcpDescriptionVersionsProviderFactoryTest extends RcpModelTest {
 		Assertions.assertThat(providerFactory.getVersions(m_javaProject, m_lastLoader)).isEmpty();
 	}
 
-	public void DISABLE_test_37() throws Exception {
+	@Ignore
+	@Test
+	public void test_37() throws Exception {
 		parseComposite(
 				"// filler filler filler",
 				"public class Test extends Shell {",

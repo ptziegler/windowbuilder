@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.core.model.broadcast.ObjectInfoChildAddAfter;
@@ -69,6 +72,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	/**
 	 * Test for {@link LayoutInfo#isActive()}.
 	 */
+	@Test
 	public void test_isActive() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -94,6 +98,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	/**
 	 * Test for {@link LayoutInfo#isActive()}.
 	 */
+	@Test
 	public void test_isActive_forDisconnected() throws Exception {
 		parseContainer(
 				"// filler filler filler",
@@ -114,6 +119,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	/**
 	 * Test for {@link LayoutInfo#getComponents()}.
 	 */
+	@Test
 	public void test_getComponents() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -133,6 +139,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	/**
 	 * Test for {@link LayoutInfo#getComponents()}.
 	 */
+	@Test
 	public void test_getComponents_ifNotActive() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -166,6 +173,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	/**
 	 * Test for {@link LayoutInfo#isManagedObject(ObjectInfo)}.
 	 */
+	@Test
 	public void test_isManagedObject_simpleFalse() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -190,6 +198,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	/**
 	 * Test for {@link LayoutInfo#isManagedObject(ObjectInfo)}.
 	 */
+	@Test
 	public void test_isManagedObject_simpleTrue() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -210,6 +219,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	/**
 	 * Test for {@link LayoutInfo#isManagedObject(ObjectInfo)}.
 	 */
+	@Test
 	public void test_isManagedObject_falseBecauseNotActive() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -240,6 +250,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	 * <p>
 	 * https://bugs.eclipse.org/bugs/show_bug.cgi?id=366824
 	 */
+	@Test
 	public void test_isManagedObject_falseBecauseIndirectlyExposed() throws Exception {
 		setFileContentSrc(
 				"test/Super.java",
@@ -281,6 +292,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	/**
 	 * Test for adding new component on {@link BorderLayout}: local variable, flat.
 	 */
+	@Test
 	public void test_3_BorderLayout_add_1_local_flat() throws Exception {
 		String[] initialLines =
 				new String[]{
@@ -317,6 +329,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	/**
 	 * Test for setting {@link BorderLayout} on {@link Container}.
 	 */
+	@Test
 	public void test_2_BorderLayout() throws Exception {
 		ContainerInfo panel =
 				(ContainerInfo) parseSource(
@@ -340,6 +353,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	/**
 	 * Test for adding new component on {@link BorderLayout}: field, flat.
 	 */
+	@Test
 	public void test_3_BorderLayout_add_2_field_flat() throws Exception {
 		String[] initialLines =
 				new String[]{
@@ -376,6 +390,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	/**
 	 * Test for adding new component on {@link BorderLayout}: field with initializer, flat.
 	 */
+	@Test
 	public void test_3_BorderLayout_add_fieldInitializer_flat() throws Exception {
 		String[] initialLines =
 				new String[]{
@@ -411,6 +426,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	/**
 	 * Test for adding new component on {@link BorderLayout}: local variable, block.
 	 */
+	@Test
 	public void test_3_BorderLayout_add_4_local_block() throws Exception {
 		String[] initialLines =
 				new String[]{
@@ -447,6 +463,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	/**
 	 * Test for adding new component on {@link BorderLayout}: lazy.
 	 */
+	@Test
 	public void test_3_BorderLayout_add_5_lazy() throws Exception {
 		String[] initialLines =
 				new String[]{
@@ -533,6 +550,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	/**
 	 * Test that layout {@link IObjectPresentation} is not visible.
 	 */
+	@Test
 	public void test_getPresentation() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -553,6 +571,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	/**
 	 * Delete directly, using {@link LayoutInfo#delete()}.
 	 */
+	@Test
 	public void test_delete() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -585,7 +604,9 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	/**
 	 * Delete using "Layout" property.
 	 */
-	public void DISABLE_test_delete2() throws Exception {
+	@Ignore
+	@Test
+	public void test_delete2() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
 						"// filler filler filler",
@@ -615,6 +636,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	 * When we replace existing (not implicit) {@link LayoutInfo} with different {@link LayoutInfo} we
 	 * should not set temporary implicit layout as part of process, because of performance.
 	 */
+	@Test
 	public void test_replace() throws Exception {
 		final ContainerInfo panel =
 				parseContainer(
@@ -646,6 +668,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	 * When we replace existing (not implicit) {@link LayoutInfo} with different {@link LayoutInfo} we
 	 * should not set temporary implicit layout as part of process, because of performance.
 	 */
+	@Test
 	public void test_replace2() throws Exception {
 		final ContainerInfo panel =
 				parseContainer(
@@ -691,6 +714,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	/**
 	 * Test for support complex "Layout" property and its sub-properties.
 	 */
+	@Test
 	public void test_layoutComplexProperty() throws Exception {
 		ContainerInfo panel =
 				(ContainerInfo) parseSource(
@@ -732,6 +756,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	// Constraints
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_removeConstraints_whenReplaceLayout() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -761,6 +786,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	/**
 	 * Using deprecated {@link Container#add(String, Component)} method.
 	 */
+	@Test
 	public void test_removeConstraints_whenReplaceLayout_addDeprecated() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -787,6 +813,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 				"}");
 	}
 
+	@Test
 	public void test_removeConstraints_whenReparent() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -857,6 +884,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	/**
 	 * Template "${defaultName}" means that name should be based on name of type.
 	 */
+	@Test
 	public void test_nameTemplate_useDefaultName() throws Exception {
 		check_nameTemplate(
 				org.eclipse.wb.internal.core.model.variable.SyncParentChildVariableNameSupport.TEMPLATE_FOR_DEFAULT,
@@ -877,6 +905,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	/**
 	 * Generate name using "${layoutAcronym}${containerName-cap}" template.
 	 */
+	@Test
 	public void test_nameTemplate_alternativeTemplate_1() throws Exception {
 		check_nameTemplate(
 				"${layoutAcronym}${containerName-cap}",
@@ -897,6 +926,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	/**
 	 * Generate name using "${containerName}${layoutClassName}" template.
 	 */
+	@Test
 	public void test_nameTemplate_alternativeTemplate_2() throws Exception {
 		check_nameTemplate(
 				"${containerName}${layoutClassName}",
@@ -919,6 +949,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	 * happens that parent is set before {@link VariableSupport}, so we attempt to set name. So, we
 	 * should check that we are at parsing time, so ignore setting of {@link VariableSupport}.
 	 */
+	@Test
 	public void test_nameTemplate_ignoreDuringParsing() throws Exception {
 		setFileContentSrc(
 				"test/MyLayout.java",
@@ -970,6 +1001,7 @@ public class LayoutManagersTest extends AbstractLayoutTest {
 	/**
 	 * One user tried to use direct anonymous implementation of {@link LayoutManager}.
 	 */
+	@Test
 	public void test_customImplementationOf_LayoutManager() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",

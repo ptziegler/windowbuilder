@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model;
 
+import org.junit.Test;
+
 import com.google.common.collect.Lists;
 
 import org.eclipse.wb.core.model.JavaInfo;
@@ -53,6 +55,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ObjectInfo#getProperties()}.
 	 */
+	@Test
 	public void test_getProperties() throws Exception {
 		ObjectInfo object = new TestObjectInfo();
 		Property[] properties = object.getProperties();
@@ -63,6 +66,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	 * {@link ObjectInfo#getProperties()} should use broadcast
 	 * {@link ObjectInfoAllProperties#invoke(ObjectInfo, List)}.
 	 */
+	@Test
 	public void test_getProperties_allProperties() throws Exception {
 		final Property someProperty = new PropertyWithTitle("some");
 		ObjectInfo object = new TestObjectInfo() {
@@ -88,6 +92,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	/**
 	 * Test that {@link ObjectInfo#getProperties()} sorts properties by title by default.
 	 */
+	@Test
 	public void test_getProperties_sorted() throws Exception {
 		final Property aProperty = new PropertyWithTitle("a");
 		final Property bProperty = new PropertyWithTitle("b");
@@ -114,6 +119,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	 * Test for {@link ObjectInfo#getPropertyList()}.
 	 */
 	@SuppressWarnings("unchecked")
+	@Test
 	public void test_getPropertyList() throws Exception {
 		ObjectInfo object = new TestObjectInfo();
 		List<Property> properties =
@@ -124,6 +130,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ObjectInfo#getPropertyByTitle(String)}.
 	 */
+	@Test
 	public void test_getPropertyByTitle() throws Exception {
 		final Property firstProperty = new PropertyWithTitle("first");
 		final Property secondProperty = new PropertyWithTitle("second");
@@ -146,6 +153,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	// Arbitrary map
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_map() throws Exception {
 		ObjectInfo object = new TestObjectInfo();
 		// no value initially
@@ -176,11 +184,13 @@ public class ObjectInfoTest extends DesignerTestCase {
 	// Hierarchy
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getUnderlyingModel() throws Exception {
 		ObjectInfo object = new TestObjectInfo();
 		assertSame(object, object.getUnderlyingModel());
 	}
 
+	@Test
 	public void test_setParent() throws Exception {
 		ObjectInfo parent = new TestObjectInfo("parent");
 		ObjectInfo child = new TestObjectInfo("child");
@@ -191,6 +201,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 		Assertions.assertThat(parent.getChildren()).isEmpty();
 	}
 
+	@Test
 	public void test_isRoot() throws Exception {
 		ObjectInfo parent = new TestObjectInfo("parent");
 		ObjectInfo child_1 = new TestObjectInfo("child_1");
@@ -202,6 +213,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 		assertFalse(child_1.isRoot());
 	}
 
+	@Test
 	public void test_isDeleted() throws Exception {
 		ObjectInfo parent = new TestObjectInfo("parent");
 		ObjectInfo child = new TestObjectInfo("child");
@@ -219,6 +231,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ObjectInfo#isParentOf(ObjectInfo)}.
 	 */
+	@Test
 	public void test_isParentOf() throws Exception {
 		ObjectInfo parent = new TestObjectInfo("parent");
 		ObjectInfo child_1 = new TestObjectInfo("child_1");
@@ -241,6 +254,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ObjectInfo#isParentOf(ObjectInfo)}.
 	 */
+	@Test
 	public void test_isParentOf_whenRemove_1() throws Exception {
 		ObjectInfo parent = new TestObjectInfo("parent");
 		ObjectInfo child_1 = new TestObjectInfo("child_1");
@@ -260,6 +274,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ObjectInfo#isParentOf(ObjectInfo)}.
 	 */
+	@Test
 	public void test_isParentOf_whenRemove_2() throws Exception {
 		ObjectInfo parent = new TestObjectInfo("parent");
 		ObjectInfo child_1 = new TestObjectInfo("child_1");
@@ -279,6 +294,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ObjectInfo#isItOrParentOf(ObjectInfo)}.
 	 */
+	@Test
 	public void test_isItOrParentOf() throws Exception {
 		ObjectInfo parent = new TestObjectInfo("parent");
 		ObjectInfo child_1 = new TestObjectInfo("child_1");
@@ -294,6 +310,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 		assertFalse(child_1.isItOrParentOf(child_2));
 	}
 
+	@Test
 	public void test_getParent() throws Exception {
 		ObjectInfo parent = new TestObjectInfo("parent");
 		ObjectInfo child_1 = new TestObjectInfo("child_1");
@@ -339,6 +356,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	/**
 	 * Test for parent/children and hierarchy events.
 	 */
+	@Test
 	public void test_addChild_1() throws Exception {
 		ObjectInfo parent = new TestObjectInfo("parent");
 		ObjectInfo child_1 = new TestObjectInfo("child_1");
@@ -383,6 +401,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	/**
 	 * Test that we can add before some other child.
 	 */
+	@Test
 	public void test_addChild_2() throws Exception {
 		ObjectInfo parent = new TestObjectInfo();
 		ObjectInfo child_1 = new TestObjectInfo();
@@ -403,6 +422,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ObjectInfo#addChildFirst(ObjectInfo)}.
 	 */
+	@Test
 	public void test_addChildFirst() throws Exception {
 		ObjectInfo parent = new TestObjectInfo();
 		ObjectInfo child_1 = new TestObjectInfo();
@@ -420,6 +440,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	// moveChild
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_moveChild() throws Exception {
 		ObjectInfo parent = new TestObjectInfo("parent");
 		ObjectInfo child_1 = new TestObjectInfo("child_1");
@@ -476,6 +497,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	 * Test for {@link ObjectInfo#moveChild(ObjectInfo, ObjectInfo)}.<br>
 	 * Move before itself.
 	 */
+	@Test
 	public void test_moveChild_beforeItself() throws Exception {
 		ObjectInfo parent = new TestObjectInfo("parent");
 		ObjectInfo child_1 = new TestObjectInfo("child_1");
@@ -493,6 +515,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	// removeChild
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_removeChild() throws Exception {
 		ObjectInfo parent = new TestObjectInfo();
 		ObjectInfo child = new TestObjectInfo();
@@ -513,6 +536,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	// replaceChild
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_replaceChild() throws Exception {
 		ObjectInfo parent = new TestObjectInfo();
 		ObjectInfo child1 = new TestObjectInfo();
@@ -539,6 +563,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	/**
 	 * Test for all "refresh" notifications in {@link ObjectEventListener}.
 	 */
+	@Test
 	public void test_broadcast_ObjectEventListener_refresh() throws Exception {
 		ObjectInfo parent = new TestObjectInfo();
 		ObjectInfo child = new TestObjectInfo();
@@ -648,6 +673,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	/**
 	 * Kick {@link ObjectInfo#refreshLight()}.
 	 */
+	@Test
 	public void test_refreshLight() throws Exception {
 		ObjectInfo object = new TestObjectInfo();
 		object.refreshLight();
@@ -661,6 +687,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ObjectInfo#addChild(ObjectInfo)} broadcast.
 	 */
+	@Test
 	public void test_broadcast() throws Exception {
 		TestObjectInfo parent = new TestObjectInfo("parent");
 		TestObjectInfo child_1 = new TestObjectInfo("child_1");
@@ -709,6 +736,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	/**
 	 * When we attempt to add same listener several times, only one listener should be added.
 	 */
+	@Test
 	public void test_broadcast_duplicate() throws Exception {
 		TestObjectInfo parent = new TestObjectInfo("parent");
 		TestObjectInfo child = new TestObjectInfo("child");
@@ -731,6 +759,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	 * Test that listener automatically removed after {@link ObjectInfo#refresh()} when its
 	 * {@link ObjectInfo} is not linked to its parent.
 	 */
+	@Test
 	public void test_broadcast_autoRemove_whenRemoveObject() throws Exception {
 		TestObjectInfo parent = new TestObjectInfo("parent");
 		TestObjectInfo child = new TestObjectInfo("child");
@@ -765,6 +794,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	 * Test that listener automatically removed after {@link ObjectInfo#refresh()} when its
 	 * {@link ObjectInfo} is not linked to root.
 	 */
+	@Test
 	public void test_broadcast_autoRemove_whenRemoveParent() throws Exception {
 		TestObjectInfo parent = new TestObjectInfo("parent");
 		TestObjectInfo child_1 = new TestObjectInfo("child");
@@ -802,6 +832,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	 * Test that we can use {@link ObjectEventListener#invoke(ObjectInfo, ObjectInfo, ObjectInfo[])}
 	 * from {@link ObjectInfo#addChild(ObjectInfo)} to set alternative <code>nextChild</code>.
 	 */
+	@Test
 	public void test_addChild_otherNext() throws Exception {
 		TestObjectInfo parent = new TestObjectInfo("parent");
 		final TestObjectInfo child_1 = new TestObjectInfo("child_1");
@@ -835,6 +866,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ObjectInfo#targetBroadcastListener(ObjectInfo)}.
 	 */
+	@Test
 	public void test_broadcast_targetBroadcastListener() throws Exception {
 		TestObjectInfo parent = new TestObjectInfo("parent");
 		TestObjectInfo child = new TestObjectInfo("child");
@@ -870,6 +902,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	/**
 	 * Test for using interfaces as broadcast classes.
 	 */
+	@Test
 	public void test_broadcast_interface() throws Exception {
 		TestObjectInfo parent = new TestObjectInfo("parent");
 		// add listener
@@ -897,6 +930,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	/**
 	 * There are rare cases when we want to create sub-class of broadcast implementation.
 	 */
+	@Test
 	public void test_broadcast_deepHierarchy() throws Exception {
 		TestObjectInfo object = new TestObjectInfo("object");
 		// add listener
@@ -929,6 +963,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	// start/commit/endEdit
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_editOperation() throws Exception {
 		final StringBuffer buffer = new StringBuffer();
 		ObjectInfo root = new TestObjectInfo() {
@@ -954,6 +989,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 		assertEquals("saveEdit of root", buffer.toString());
 	}
 
+	@Test
 	public void test_endEdit_aboutToRefresh() throws Exception {
 		final AtomicInteger saveCount = new AtomicInteger();
 		final ObjectInfo object = new TestObjectInfo() {
@@ -995,6 +1031,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	/**
 	 * {@link ObjectInfo#delete()} does nothing.
 	 */
+	@Test
 	public void test_delete() throws Exception {
 		TestObjectInfo parent = new TestObjectInfo("parent");
 		TestObjectInfo child = new TestObjectInfo("child");
@@ -1015,6 +1052,7 @@ public class ObjectInfoTest extends DesignerTestCase {
 	/**
 	 * Test visiting using {@link ObjectInfoVisitor}.
 	 */
+	@Test
 	public void test_visiting() throws Exception {
 		ObjectInfo parent = new TestObjectInfo();
 		ObjectInfo child_1 = new TestObjectInfo();

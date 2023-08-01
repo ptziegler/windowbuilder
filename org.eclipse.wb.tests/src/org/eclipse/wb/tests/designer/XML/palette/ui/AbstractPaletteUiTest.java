@@ -9,6 +9,8 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.palette.ui;
+import org.junit.Before;
+import org.junit.After;
 
 import org.eclipse.wb.internal.core.xml.editor.palette.DesignerPalette;
 import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
@@ -25,13 +27,15 @@ public class AbstractPaletteUiTest extends XwtGefTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		System.clearProperty(DesignerPalette.FLAG_NO_PALETTE);
 	}
 
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		if (m_paletteManager != null) {
 			m_paletteManager.commands_clear();
 			m_paletteManager.commands_write();

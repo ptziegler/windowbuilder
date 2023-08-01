@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout;
 
+import org.junit.Test;
+
 import org.eclipse.wb.gef.tree.policies.LayoutEditPolicy;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.internal.swing.model.layout.LayoutInfo;
@@ -40,6 +42,7 @@ public class LayoutGefTest extends SwingGefTest {
 	// Drop layout
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_dropLayout_canvas() throws Exception {
 		ContainerInfo panel =
 				openContainer(
@@ -66,6 +69,7 @@ public class LayoutGefTest extends SwingGefTest {
 		assertSame(newLayout, panel.getLayout());
 	}
 
+	@Test
 	public void test_dropLayout_tree() throws Exception {
 		ContainerInfo panel =
 				openContainer(
@@ -96,6 +100,7 @@ public class LayoutGefTest extends SwingGefTest {
 	// Can not drop Layout
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_dropLayout_disabledSetLayout_canvas() throws Exception {
 		ContainerTest.prepareMyPanel_disabledSetLayout();
 		ContainerInfo panel =
@@ -113,6 +118,7 @@ public class LayoutGefTest extends SwingGefTest {
 		canvas.assertCommandNull();
 	}
 
+	@Test
 	public void test_dropLayout_disabledSetLayout_tree() throws Exception {
 		ContainerTest.prepareMyPanel_disabledSetLayout();
 		ContainerInfo panel =
@@ -139,6 +145,7 @@ public class LayoutGefTest extends SwingGefTest {
 	 * {@link LayoutManager} (no support in tree), we should not be able to drop any components on
 	 * this {@link JPanel}. This means that we should remove old {@link LayoutEditPolicy}.
 	 */
+	@Test
 	public void test_dropUnknownLayout_noTreeLayout() throws Exception {
 		setFileContentSrc(
 				"test/MyLayout.java",

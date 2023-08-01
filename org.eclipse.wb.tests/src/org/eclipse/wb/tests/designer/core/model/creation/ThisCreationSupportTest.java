@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.creation;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.association.RootAssociation;
 import org.eclipse.wb.internal.core.model.creation.CreationSupport;
 import org.eclipse.wb.internal.core.model.creation.ThisCreationSupport;
@@ -62,6 +64,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for {@link ThisCreationSupport#isJavaInfo(ASTNode)}.
 	 */
+	@Test
 	public void test_isJavaInfo() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -91,6 +94,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 	/**
 	 * Normal constructor.
 	 */
+	@Test
 	public void test_simple() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -135,6 +139,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 	/**
 	 * No constructor, should create default constructor.
 	 */
+	@Test
 	public void test_noConstructor() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -165,6 +170,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 	// Delete
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_delete_hasDirectComponent() throws Exception {
 		ContainerInfo panel =
 				parseJavaInfo(
@@ -197,6 +203,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 		Assertions.assertThat(panel.getAssociation()).isInstanceOf(RootAssociation.class);
 	}
 
+	@Test
 	public void test_delete_hasExposedComponent() throws Exception {
 		ContainerInfo frame =
 				parseJavaInfo(
@@ -261,6 +268,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for {@link ThisCreationSupport#addAccessors(GenericPropertyDescription, java.util.List)}.
 	 */
+	@Test
 	public void test_boundProperties() throws Exception {
 		prepareMyPanel();
 		ContainerInfo panel =
@@ -291,6 +299,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for "Constructor" complex property.
 	 */
+	@Test
 	public void test_superProperties() throws Exception {
 		prepareMyPanel();
 		ContainerInfo panel =
@@ -320,6 +329,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 	// create()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_create_ConstructorInvocation() throws Exception {
 		ContainerInfo button =
 				parseContainer(
@@ -337,6 +347,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 		assertEquals(false, ((JButton) button.getObject()).isEnabled());
 	}
 
+	@Test
 	public void test_create_SuperConstructorInvocation() throws Exception {
 		ContainerInfo button =
 				parseContainer(
@@ -349,6 +360,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 		assertEquals("txt", ((JButton) button.getObject()).getText());
 	}
 
+	@Test
 	public void test_create_useDefaultConstructor() throws Exception {
 		ContainerInfo button =
 				parseContainer(
@@ -364,6 +376,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 	/**
 	 * We should support constructors with "varArgs".
 	 */
+	@Test
 	public void test_create_varArgs_useSequence() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -393,6 +406,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 	/**
 	 * We should support constructors with "varArgs".
 	 */
+	@Test
 	public void test_create_varArgs_useArray() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -423,6 +437,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 	 * Sometimes code has compilation problems, such as not calling required "super" constructor. This
 	 * should not cause exception in our code.
 	 */
+	@Test
 	public void test_create_noSuperConstructor() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -452,6 +467,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 	 * <p>
 	 * 40274: Can't parse a derived ViewPart
 	 */
+	@Test
 	public void test_create_packagePrivateConstructor_forByteBuddy() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -481,6 +497,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 	 * If something bad happens during "super" constructor invocation, we should report about this
 	 * with as much details as possible.
 	 */
+	@Test
 	public void test_create_exceptionWithDescription() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -511,6 +528,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for intercepting method using description.
 	 */
+	@Test
 	public void test_create_interceptMethod_usingDescription() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -544,6 +562,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 	/**
 	 * If abstract method is invoked from binary, but not implemented in AST, return default value.
 	 */
+	@Test
 	public void test_create_useDefaultValueForAbstractMethods_Void() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -568,6 +587,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 	/**
 	 * If abstract method is invoked from binary, but not implemented in AST, return default value.
 	 */
+	@Test
 	public void test_create_useDefaultValueForAbstractMethods_String() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -595,6 +615,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 	/**
 	 * We should not try to intercept "private" methods, because ByteBuddy can not invoke them later.
 	 */
+	@Test
 	public void test_notInterceptPrivateMethod() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -624,6 +645,7 @@ public class ThisCreationSupportTest extends SwingModelTest {
 	 * are considering as "execution". We still should try our best to prevent
 	 * {@link AbstractMethodError}
 	 */
+	@Test
 	public void test_abstractMethod_inNonExecution() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",

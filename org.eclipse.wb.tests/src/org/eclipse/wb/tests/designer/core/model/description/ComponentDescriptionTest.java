@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.description;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.ToolkitProvider;
 import org.eclipse.wb.internal.core.model.creation.ThisCreationSupport;
@@ -51,6 +53,7 @@ public class ComponentDescriptionTest extends SwingModelTest {
 	/**
 	 * Test {@link ComponentDescription} of empty object.
 	 */
+	@Test
 	public void test_getDescription_empty() throws Exception {
 		setFileContentSrc(
 				"test/MyObject.wbp-component.xml",
@@ -95,6 +98,7 @@ public class ComponentDescriptionTest extends SwingModelTest {
 	// Tags
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_methodTag() throws Exception {
 		setFileContentSrc(
 				"test/MyObject.wbp-component.xml",
@@ -127,6 +131,7 @@ public class ComponentDescriptionTest extends SwingModelTest {
 		assertNull(methodDescription.getTag("no-such-tag"));
 	}
 
+	@Test
 	public void test_parameterTag() throws Exception {
 		setFileContentSrc(
 				"test/MyObject.wbp-component.xml",
@@ -168,6 +173,7 @@ public class ComponentDescriptionTest extends SwingModelTest {
 	// Evaluation
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_methodEvaluation() throws Exception {
 		// MyButton
 		setFileContentSrc(
@@ -210,6 +216,7 @@ public class ComponentDescriptionTest extends SwingModelTest {
 	/**
 	 * Test for {@link ComponentDescription#hasTrueParameter(String)}.
 	 */
+	@Test
 	public void test_hasTrueParameter() throws Exception {
 		setFileContentSrc(
 				"test/MyObject.java",
@@ -244,6 +251,7 @@ public class ComponentDescriptionTest extends SwingModelTest {
 	// Generics
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_genericConstructorDescription() throws Exception {
 		// MyPanel
 		setFileContentSrc(

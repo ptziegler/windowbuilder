@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor.actions;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.editor.actions.RefreshAction;
 import org.eclipse.wb.tests.designer.swing.SwingGefTest;
@@ -27,6 +29,7 @@ public class RefreshActionTest extends SwingGefTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_1() throws Exception {
 		JavaInfo currentRoot =
 				openContainer(

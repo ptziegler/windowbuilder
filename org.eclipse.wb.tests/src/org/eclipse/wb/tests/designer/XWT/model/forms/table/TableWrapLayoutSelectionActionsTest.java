@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.forms.table;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.xwt.model.forms.layout.table.TableWrapLayoutInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.CompositeInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.ControlInfo;
@@ -62,6 +64,7 @@ public class TableWrapLayoutSelectionActionsTest extends XwtModelTest {
 		assertEquals(checked, action.isChecked());
 	}
 
+	@Test
 	public void test_selectionActions_emptySelection() throws Exception {
 		parse(
 				"<Shell>",
@@ -77,6 +80,7 @@ public class TableWrapLayoutSelectionActionsTest extends XwtModelTest {
 		Assertions.assertThat(actions).isEmpty();
 	}
 
+	@Test
 	public void test_selectionActions_invalidSelection() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -94,6 +98,7 @@ public class TableWrapLayoutSelectionActionsTest extends XwtModelTest {
 		Assertions.assertThat(actions).isEmpty();
 	}
 
+	@Test
 	public void test_selectionActions_state() throws Exception {
 		parse(
 				"<Shell>",
@@ -135,6 +140,7 @@ public class TableWrapLayoutSelectionActionsTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_grabAction() throws Exception {
 		parse(
 				"<Shell>",
@@ -189,6 +195,7 @@ public class TableWrapLayoutSelectionActionsTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_alignmentAction() throws Exception {
 		parse(
 				"<Shell>",

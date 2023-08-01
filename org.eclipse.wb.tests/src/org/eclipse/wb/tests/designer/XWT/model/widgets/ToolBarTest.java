@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.generic.FlowContainer;
 import org.eclipse.wb.internal.core.model.generic.SimpleContainer;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
@@ -52,6 +54,7 @@ public class ToolBarTest extends XwtModelTest {
 	/**
 	 * Test for {@link ToolBarInfo#isHorizontal()}.
 	 */
+	@Test
 	public void test_isHorizontal() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -75,6 +78,7 @@ public class ToolBarTest extends XwtModelTest {
 	/**
 	 * {@link ToolBar} with {@link ToolItem}'s.
 	 */
+	@Test
 	public void test_parseItems() throws Exception {
 		ToolBarInfo toolBar =
 				parse(
@@ -122,6 +126,7 @@ public class ToolBarTest extends XwtModelTest {
 	/**
 	 * Test that presentation returns different icons for {@link ToolItem}s with different styles.
 	 */
+	@Test
 	public void test_ToolItem_presentation() throws Exception {
 		ToolBarInfo toolBar =
 				parse(
@@ -158,6 +163,7 @@ public class ToolBarTest extends XwtModelTest {
 	// Control
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_Control_isEmpty() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -203,6 +209,7 @@ public class ToolBarTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_Control_CREATE() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -231,6 +238,7 @@ public class ToolBarTest extends XwtModelTest {
 				"</ToolBar>");
 	}
 
+	@Test
 	public void test_Control_moveOut() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -275,6 +283,7 @@ public class ToolBarTest extends XwtModelTest {
 	// Commands
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_CREATE() throws Exception {
 		ToolBarInfo toolBar = parse("<ToolBar/>");
 		refresh();

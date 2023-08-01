@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.creation.factory.InstanceFactoryContainerInfo;
 import org.eclipse.wb.internal.core.model.creation.factory.InstanceFactoryCreationSupport;
 import org.eclipse.wb.internal.core.model.creation.factory.InstanceFactoryInfo;
@@ -39,6 +41,7 @@ public class InstanceFactoryTest extends RcpModelTest {
 	// parse
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_parse() throws Exception {
 		setFileContentSrc(
 				"test/InstanceFactory.java",

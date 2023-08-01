@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.component;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.internal.core.laf.IBaselineSupport;
 import org.eclipse.wb.internal.core.model.JavaInfoUtils;
@@ -53,6 +55,7 @@ public class SwingLiveManagerTest extends SwingModelTest {
 	/**
 	 * Using {@link SwingLiveManager} should not change {@link GlobalState}.
 	 */
+	@Test
 	public void test_GlobalState() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -77,6 +80,7 @@ public class SwingLiveManagerTest extends SwingModelTest {
 	/**
 	 * Test for "live" component during create.
 	 */
+	@Test
 	public void test_create() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -100,6 +104,7 @@ public class SwingLiveManagerTest extends SwingModelTest {
 	 * Test for using <code>liveComponent.forcedSize.width</code> and
 	 * <code>liveComponent.forcedSize.height</code> parameters.
 	 */
+	@Test
 	public void test_liveImage_forcedSize() throws Exception {
 		setFileContentSrc(
 				"test/MyCanvas.java",
@@ -146,6 +151,7 @@ public class SwingLiveManagerTest extends SwingModelTest {
 	 * If exception happens during live image creation, we still should return some image (not
 	 * <code>null</code>) to prevent problems on other levels.
 	 */
+	@Test
 	public void test_whenException() throws Exception {
 		setFileContentSrc(
 				"test/MyCanvas.java",
@@ -243,6 +249,7 @@ public class SwingLiveManagerTest extends SwingModelTest {
 	/**
 	 * Test for "live" baseline.
 	 */
+	@Test
 	public void test_liveBaseline() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

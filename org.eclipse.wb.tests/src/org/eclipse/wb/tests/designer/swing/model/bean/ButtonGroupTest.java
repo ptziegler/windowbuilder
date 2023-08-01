@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.bean;
 
+import org.junit.Test;
+
 import com.google.common.collect.ImmutableList;
 
 import org.eclipse.wb.core.model.ObjectInfo;
@@ -60,6 +62,7 @@ public class ButtonGroupTest extends SwingModelTest {
 	/**
 	 * No {@link ButtonGroup}'s - no {@link ButtonGroupContainerInfo} and {@link ButtonGroupInfo}'s.
 	 */
+	@Test
 	public void test_noButtonGroups() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -80,6 +83,7 @@ public class ButtonGroupTest extends SwingModelTest {
 	 * Test that we can parse {@link ButtonGroup} creation and its
 	 * {@link ButtonGroup#add(javax.swing.AbstractButton)} is executed.
 	 */
+	@Test
 	public void test_parse() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -169,6 +173,7 @@ public class ButtonGroupTest extends SwingModelTest {
 	/**
 	 * Test that we can parse custom {@link ButtonGroup}.
 	 */
+	@Test
 	public void test_parse_customButtonGroup() throws Exception {
 		setFileContentSrc(
 				"test/MyButtonGroup.java",
@@ -195,6 +200,7 @@ public class ButtonGroupTest extends SwingModelTest {
 	/**
 	 * Add new {@link AbstractButton} to {@link ButtonGroupInfo}.
 	 */
+	@Test
 	public void test_addButton_new() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -235,6 +241,7 @@ public class ButtonGroupTest extends SwingModelTest {
 	 * Add new {@link AbstractButton} to {@link ButtonGroupInfo}.<br>
 	 * Exclude first from existing {@link ButtonGroupInfo}.
 	 */
+	@Test
 	public void test_addButton_inOtherGroup() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -278,6 +285,7 @@ public class ButtonGroupTest extends SwingModelTest {
 	/**
 	 * Exclude {@link AbstractButton} to from any {@link ButtonGroupInfo}.
 	 */
+	@Test
 	public void test_clearButton() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -314,6 +322,7 @@ public class ButtonGroupTest extends SwingModelTest {
 	/**
 	 * Add {@link AbstractButton} to new {@link ButtonGroupInfo}.
 	 */
+	@Test
 	public void test_newButtonGroup() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -363,6 +372,7 @@ public class ButtonGroupTest extends SwingModelTest {
 	 * If selected {@link ComponentInfo} is not {@link AbstractButton}, then no
 	 * <code>"Set ButtonGroup"</code> menu.
 	 */
+	@Test
 	public void test_contextMenu_notButton() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -381,6 +391,7 @@ public class ButtonGroupTest extends SwingModelTest {
 	/**
 	 * Set {@link ButtonGroup} for single {@link ComponentInfo}.
 	 */
+	@Test
 	public void test_contextMenu_setGroup_single() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -416,6 +427,7 @@ public class ButtonGroupTest extends SwingModelTest {
 	/**
 	 * Set {@link ButtonGroup} for multiple {@link ComponentInfo}.
 	 */
+	@Test
 	public void test_contextMenu_setGroup_multiple() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -476,6 +488,7 @@ public class ButtonGroupTest extends SwingModelTest {
 	/**
 	 * Exclude {@link AbstractButton} to from existing {@link ButtonGroupInfo}.
 	 */
+	@Test
 	public void test_contextMenu_noGroup() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -513,6 +526,7 @@ public class ButtonGroupTest extends SwingModelTest {
 	/**
 	 * Set new {@link ButtonGroup} for single {@link AbstractButton}.
 	 */
+	@Test
 	public void test_contextMenu_newGroup() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -546,6 +560,7 @@ public class ButtonGroupTest extends SwingModelTest {
 	/**
 	 * Set new custom {@link ButtonGroup} for single {@link AbstractButton}.
 	 */
+	@Test
 	public void test_contextMenu_newGroup_custom() throws Exception {
 		setFileContentSrc(
 				"test/MyButtonGroup.java",
@@ -615,6 +630,7 @@ public class ButtonGroupTest extends SwingModelTest {
 	/**
 	 * Request setting new custom {@link ButtonGroup}, but cancel.
 	 */
+	@Test
 	public void test_contextMenu_newGroup_custom_cancel() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -673,6 +689,7 @@ public class ButtonGroupTest extends SwingModelTest {
 	/**
 	 * Request setting new custom {@link ButtonGroup}, but cancel.
 	 */
+	@Test
 	public void test_contextMenu_newGroup_custom_notButtonGroup() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

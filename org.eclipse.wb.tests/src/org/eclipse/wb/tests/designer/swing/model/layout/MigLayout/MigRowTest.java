@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.MigLayout;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.swing.MigLayout.model.MigRowInfo;
 
 import org.apache.commons.lang.ArrayUtils;
@@ -35,6 +37,7 @@ public class MigRowTest extends AbstractMigLayoutTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_alignments() throws Exception {
 		checkAlignment(MigRowInfo.Alignment.DEFAULT, "Default");
 		checkAlignment(MigRowInfo.Alignment.TOP, "Top");
@@ -53,6 +56,7 @@ public class MigRowTest extends AbstractMigLayoutTest {
 	/**
 	 * Check for content of {@link MigRowInfo#ALIGNMENTS_TO_SET}.
 	 */
+	@Test
 	public void test_alignmentsToSet() throws Exception {
 		Assertions.assertThat(MigRowInfo.ALIGNMENTS_TO_SET).hasSize(MigRowInfo.Alignment.values().length - 1);
 		assertFalse(ArrayUtils.contains(MigRowInfo.ALIGNMENTS_TO_SET, MigRowInfo.Alignment.UNKNOWN));

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.rcp;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.utils.jdt.core.CodeUtils;
@@ -54,6 +56,7 @@ public class ActionBarAdvisorTest extends RcpModelTest {
 	/**
 	 * Basic test for {@link ActionBarAdvisorInfo}.
 	 */
+	@Test
 	public void test_0() throws Exception {
 		ActionBarAdvisorInfo advisor =
 				parseJavaInfo(
@@ -114,6 +117,7 @@ public class ActionBarAdvisorTest extends RcpModelTest {
 	/**
 	 * Test for {@link ActionBarAdvisor_TopBoundsSupport}.
 	 */
+	@Test
 	public void test_ActionBarAdvisor_TopBoundsSupport() throws Exception {
 		ActionBarAdvisorInfo advisor =
 				parseJavaInfo(
@@ -146,6 +150,7 @@ public class ActionBarAdvisorTest extends RcpModelTest {
 	 * <code>createActions()</code>, however for {@link ActionBarAdvisor} we should add actions in
 	 * <code>makeActions(IWorkbenchWindow)</code>.
 	 */
+	@Test
 	public void test_addAction() throws Exception {
 		ActionBarAdvisorInfo advisor =
 				parseJavaInfo(
@@ -195,6 +200,7 @@ public class ActionBarAdvisorTest extends RcpModelTest {
 	/**
 	 * Test for <code>window.getWorkbench().getSharedImages()</code>.
 	 */
+	@Test
 	public void test_getWorkbench_getSharedImages() throws Exception {
 		ActionBarAdvisorInfo advisor =
 				parseJavaInfo(
@@ -219,6 +225,7 @@ public class ActionBarAdvisorTest extends RcpModelTest {
 	/**
 	 * Test for using {@link ToolBarContributionItem}.
 	 */
+	@Test
 	public void test_newToolBarContributionItem() throws Exception {
 		ActionBarAdvisorInfo advisor =
 				parseJavaInfo(
@@ -243,6 +250,7 @@ public class ActionBarAdvisorTest extends RcpModelTest {
 	/**
 	 * Test that we show {@link IWorkbenchWindowConfigurer} properties.
 	 */
+	@Test
 	public void test_WorkbenchWindowAdvisor_properties_allNames() throws Exception {
 		setFileContentSrc(
 				"test/ApplicationWorkbenchWindowAdvisor.java",
@@ -288,6 +296,7 @@ public class ActionBarAdvisorTest extends RcpModelTest {
 	/**
 	 * Use property "showStatusLine".
 	 */
+	@Test
 	public void test_WorkbenchWindowAdvisor_properties_showStatusLine() throws Exception {
 		setFileContentSrc(
 				"test/ApplicationWorkbenchWindowAdvisor.java",
@@ -346,6 +355,7 @@ public class ActionBarAdvisorTest extends RcpModelTest {
 	/**
 	 * Use property "title".
 	 */
+	@Test
 	public void test_WorkbenchWindowAdvisor_properties_title() throws Exception {
 		setFileContentSrc(
 				"test/ApplicationWorkbenchWindowAdvisor.java",
@@ -448,6 +458,7 @@ public class ActionBarAdvisorTest extends RcpModelTest {
 	/**
 	 * No "preWindowOpen()", create new method.
 	 */
+	@Test
 	public void test_WorkbenchWindowAdvisor_properties_newMethod() throws Exception {
 		setFileContentSrc(
 				"test/ApplicationWorkbenchWindowAdvisor.java",

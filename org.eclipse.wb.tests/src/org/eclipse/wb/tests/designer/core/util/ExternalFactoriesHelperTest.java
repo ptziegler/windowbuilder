@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util;
+import org.junit.After;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.utils.external.ExternalFactoriesHelper;
 import org.eclipse.wb.tests.designer.TestUtils;
@@ -49,7 +52,8 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		waitEventLoop(0);
 		super.tearDown();
 	}
@@ -59,6 +63,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_addRemoveDynamicExtension_element() throws Exception {
 		// add dynamic extension
 		{
@@ -89,6 +94,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 	 * We don't wait for removing extension, however we validate that {@link IConfigurationElement} is
 	 * child of valid (so not removed) {@link IExtension}, and don't return it in other case.
 	 */
+	@Test
 	public void test_addRemoveDynamicExtension_noWait() throws Exception {
 		// add dynamic extension
 		{
@@ -117,6 +123,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 		TestUtils.removeDynamicExtension(POINT_ID);
 	}
 
+	@Test
 	public void test_getElements_withPriority() throws Exception {
 		// add dynamic extension
 		{
@@ -148,6 +155,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ExternalFactoriesHelper#getRequiredAttribute(IConfigurationElement, String)}.
 	 */
+	@Test
 	public void test_getRequiredAttribute() throws Exception {
 		// add dynamic extension
 		{
@@ -179,6 +187,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 	 * Test for
 	 * {@link ExternalFactoriesHelper#getRequiredAttributeInteger(IConfigurationElement, String)}.
 	 */
+	@Test
 	public void test_getRequiredAttributeInteger() throws Exception {
 		// add dynamic extension
 		{
@@ -220,6 +229,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ExternalFactoriesHelper#getElementsInstances(Class, String, String)}.
 	 */
+	@Test
 	public void test_getElementsInstances_newElement() throws Exception {
 		// add dynamic extension
 		{
@@ -252,6 +262,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 	 * <p>
 	 * Singleton.
 	 */
+	@Test
 	public void test_getElementsInstances_INSTANCE() throws Exception {
 		// add dynamic extension
 		{
@@ -275,6 +286,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ExternalFactoriesHelper#getElementsInstances(Class, String, String)}.
 	 */
+	@Test
 	public void test_getElementsInstances_withPriority_D1() throws Exception {
 		// add dynamic extension
 		{
@@ -301,6 +313,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ExternalFactoriesHelper#getElementsInstances(Class, String, String)}.
 	 */
+	@Test
 	public void test_getElementsInstances_withPriority_1D() throws Exception {
 		// add dynamic extension
 		{
@@ -327,6 +340,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ExternalFactoriesHelper#getElementsInstances(Class, String, String)}.
 	 */
+	@Test
 	public void test_getElementsInstances_withPriority_123() throws Exception {
 		// add dynamic extension
 		{
@@ -361,6 +375,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ExternalFactoriesHelper#loadBundleClass(String)}.
 	 */
+	@Test
 	public void test_loadBundleClass() throws Exception {
 		// from this bundle
 		{
@@ -385,6 +400,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 	 * <p>
 	 * Add invalid extension, so throw exception during attempt to load.
 	 */
+	@Test
 	public void test_loadBundleClass_whenInvalidExtension() throws Exception {
 		String pointId = "org.eclipse.wb.core.classLoadingContributor";
 		TestUtils.addDynamicExtension(pointId, "<contributor no-namespace='foo'/>");
@@ -408,6 +424,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ExternalFactoriesHelper#getRequiredBundle(String)}.
 	 */
+	@Test
 	public void test_getRequiredBundle_good() throws Exception {
 		String id = "org.eclipse.wb.core";
 		Bundle expected = Platform.getBundle(id);
@@ -417,6 +434,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ExternalFactoriesHelper#getRequiredBundle(String)}.
 	 */
+	@Test
 	public void test_getRequiredBundle_noSuchBundle() throws Exception {
 		String id = "no.such.bundle";
 		try {
@@ -434,6 +452,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ExternalFactoriesHelper#getImageDescriptor(IConfigurationElement, String)}.
 	 */
+	@Test
 	public void test_getImageDescriptor_noSuchAttribute() throws Exception {
 		TestBundle testBundle = new TestBundle();
 		try {
@@ -455,6 +474,7 @@ public class ExternalFactoriesHelperTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ExternalFactoriesHelper#getImageDescriptor(IConfigurationElement, String)}.
 	 */
+	@Test
 	public void test_getImageDescriptor_success() throws Exception {
 		TestBundle testBundle = new TestBundle();
 		try {

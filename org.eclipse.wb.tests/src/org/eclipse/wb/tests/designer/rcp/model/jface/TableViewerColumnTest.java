@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.core.editor.IDesignPageSite;
 import org.eclipse.wb.core.model.JavaInfo;
@@ -72,6 +75,7 @@ public class TableViewerColumnTest extends RcpModelTest {
 	 * "setContentProvider()" and "setLabelProvider()" should be after {@link TableViewerColumn}, so
 	 * after {@link Table} which contains them.
 	 */
+	@Test
 	public void test_setContentProvider_afterTable() throws Exception {
 		parseComposite(
 				"public class Test extends Shell {",
@@ -99,6 +103,7 @@ public class TableViewerColumnTest extends RcpModelTest {
 	 * "setContentProvider()" and "setLabelProvider()" should be after {@link TableViewerColumn}, so
 	 * after {@link Table} which contains them.
 	 */
+	@Test
 	public void test_setLabelProvider_afterTable() throws Exception {
 		parseComposite(
 				"public class Test extends Shell {",
@@ -122,6 +127,7 @@ public class TableViewerColumnTest extends RcpModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_parseNormalNoColumn() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -209,6 +215,7 @@ public class TableViewerColumnTest extends RcpModelTest {
 		}
 	}
 
+	@Test
 	public void test_parseAroundColumn() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -232,6 +239,7 @@ public class TableViewerColumnTest extends RcpModelTest {
 				"      {new: org.eclipse.jface.viewers.TableViewerColumn} {local-unique: tableViewerColumn} {/new TableViewerColumn(tableViewer, tableColumn)/}");
 	}
 
+	@Test
 	public void test_normalNoColumn_materialize() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -269,6 +277,7 @@ public class TableViewerColumnTest extends RcpModelTest {
 		}
 	}
 
+	@Test
 	public void test_normalNoColumn_move() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -303,6 +312,7 @@ public class TableViewerColumnTest extends RcpModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_normalNoColumn_reparent() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -335,6 +345,7 @@ public class TableViewerColumnTest extends RcpModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_normalWithColumn_move() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -373,6 +384,7 @@ public class TableViewerColumnTest extends RcpModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_normalWithColumn_reparent() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -412,7 +424,9 @@ public class TableViewerColumnTest extends RcpModelTest {
 	// Clipboard
 	//
 	////////////////////////////////////////////////////////////////////////////
-	public void DISABLE_test_copyPaste() throws Exception {
+	@Ignore
+	@Test
+	public void test_copyPaste() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
 						"public class Test extends Shell {",
@@ -457,6 +471,7 @@ public class TableViewerColumnTest extends RcpModelTest {
 	// CREATE
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_CREATE() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -555,6 +570,7 @@ public class TableViewerColumnTest extends RcpModelTest {
 	// "sorter" property
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_sorterProperty() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

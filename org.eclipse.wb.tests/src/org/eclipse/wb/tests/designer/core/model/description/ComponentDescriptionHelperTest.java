@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.description;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.core.model.association.UnknownAssociation;
 import org.eclipse.wb.internal.core.model.creation.ExposedPropertyCreationSupport;
@@ -82,6 +84,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * reload it, and icon for it, each time. However there is bug, so icon become
 	 * disposed. We test this here.
 	 */
+	@Test
 	public void test_objectIcon() throws Exception {
 		setFileContentSrc("test/MyObject.java", getSourceDQ("package test;", "public class MyObject {", "}"));
 		waitForAutoBuild();
@@ -123,6 +126,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_iconsForInterfaces() throws Exception {
 		setFileContentSrc("test/IComponent.java", getSourceDQ("package test;", "public interface IComponent {", "}"));
 		setFileContentSrc("test/IComponent.wbp-component.xml", getSourceDQ("<?xml version='1.0' encoding='UTF-8'?>",
@@ -182,6 +186,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Test that access of property editor with unknown id throws exception.
 	 */
+	@Test
 	public void test_unknow_propertyEditor() throws Exception {
 		setFileContentSrc("test/MyPanel.java",
 				getTestSource("// filler filler filler filler filler", "// filler filler filler filler filler",
@@ -201,6 +206,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_BeanInfo_icon() throws Exception {
 		setFileContentSrc("test/MyPanel.java", getTestSource("// filler filler filler filler filler",
 				"// filler filler filler filler filler", "public class MyPanel extends JPanel {", "}"));
@@ -236,6 +242,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * Here we know, that {@link JPanel} should be cached, but our {@link JButton}
 	 * subclass - not.
 	 */
+	@Test
 	public void test_cachedComponentDescriptions() throws Exception {
 		setFileContentSrc("test/MyButton.java", getTestSource("// filler filler filler filler filler",
 				"// filler filler filler filler filler", "public class MyButton extends JButton {", "}"));
@@ -260,6 +267,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * Practically components from project are always reloaded, so have different
 	 * {@link Class} and can not be cached.
 	 */
+	@Test
 	public void test_cachedComponentDescriptions_noCacheParameter() throws Exception {
 		TestBundle testBundle = new TestBundle();
 		try {
@@ -298,6 +306,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * We should cache presentations for standard Swing components.
 	 */
+	@Test
 	public void test_presentationCaching_use_forStandardComponents() throws Exception {
 		// parse for context
 		String[] lines = { "// filler filler filler", "public class Test extends JPanel {", "  public Test() {", "  }",
@@ -313,6 +322,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * If icon is in project, then user can change it, so we should not cache
 	 * presentation.
 	 */
+	@Test
 	public void test_presentationCaching_disable_forComponentInProject() throws Exception {
 		setFileContentSrc("test/MyButton.java",
 				getTestSource("// filler filler filler filler filler", "// filler filler filler filler filler",
@@ -337,6 +347,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * Test that *.wbp-component.xml file can be loaded from "wbp-meta" of
 	 * {@link IProject}.
 	 */
+	@Test
 	public void test_source_fromProjectMeta() throws Exception {
 		setFileContentSrc("test/MyPanel.java",
 				getTestSource("// filler filler filler filler filler", "// filler filler filler filler filler",
@@ -373,6 +384,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * Test for textual description, i.e. method
 	 * {@link ComponentDescription#getDescription()}.
 	 */
+	@Test
 	public void test_textualDescription_plainText() throws Exception {
 		setFileContentSrc("test/MyPanel.java",
 				getTestSource("// filler filler filler filler filler", "// filler filler filler filler filler",
@@ -396,6 +408,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * <p>
 	 * We should be able to use XHTML in description.
 	 */
+	@Test
 	public void test_textualDescription_HTML() throws Exception {
 		setFileContentSrc("test/MyPanel.java",
 				getTestSource("// filler filler filler filler filler", "// filler filler filler filler filler",
@@ -418,10 +431,12 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	// Property: default value
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_defaultPropertyValue_true() throws Exception {
 		assert_defaultPropertyValue("boolean", "true", Boolean.TRUE);
 	}
 
+	@Test
 	public void test_defaultPropertyValue_false() throws Exception {
 		assert_defaultPropertyValue("boolean", "false", Boolean.FALSE);
 	}
@@ -429,6 +444,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Positive integer value.
 	 */
+	@Test
 	public void test_defaultPropertyValue_intPositive() throws Exception {
 		assert_defaultPropertyValue("int", "10", 10);
 	}
@@ -436,6 +452,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Negative integer value.
 	 */
+	@Test
 	public void test_defaultPropertyValue_intNegative() throws Exception {
 		assert_defaultPropertyValue("int", "-10", -10);
 	}
@@ -443,6 +460,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Integer expression.
 	 */
+	@Test
 	public void test_defaultPropertyValue_intExpression() throws Exception {
 		assert_defaultPropertyValue("int", "1 + 2 * 3", 7);
 	}
@@ -450,6 +468,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Static field access.
 	 */
+	@Test
 	public void test_defaultPropertyValue_intStaticField() throws Exception {
 		assert_defaultPropertyValue("int", "javax.swing.SwingConstants.RIGHT", javax.swing.SwingConstants.RIGHT);
 	}
@@ -457,6 +476,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * String value.
 	 */
+	@Test
 	public void test_defaultPropertyValue_stringValue() throws Exception {
 		assert_defaultPropertyValue("java.lang.String", "\"str\"", "str");
 	}
@@ -464,6 +484,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Object value, two times to check that correct {@link ClassLoader} is used.
 	 */
+	@Test
 	public void test_defaultPropertyValue_objectValue() throws Exception {
 		setFileContentSrc("test/Position.java",
 				getSourceDQ("package test;", "public class Position {",
@@ -501,6 +522,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Exception will happen, because of invalid expression.
 	 */
+	@Test
 	public void test_defaultPropertyValue_bad() throws Exception {
 		try {
 			assert_defaultPropertyValue("boolean", "bad-string", null);
@@ -513,6 +535,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * When default value specified in description, getter should not be used to ask
 	 * default value.
 	 */
+	@Test
 	public void test_defaultPropertyValue_ignoreAccessor() throws Exception {
 		setFileContentSrc("test/MyPanel.java", getTestSource("public class MyPanel extends JPanel {",
 				"  public int getFoo() {", "    return 5;", "  }", "  public void setFoo(int foo) {", "  }", "}"));
@@ -560,6 +583,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * We can use tag "<category value='normal/preferred/advanced/hidden'>" to
 	 * change {@link PropertyCategory} for {@link Property}.
 	 */
+	@Test
 	public void test_propertyCategory() throws Exception {
 		setFileContentSrc("test/MyPanel.java",
 				getTestSource("public class MyPanel extends JPanel {", "  public void setA(int value) {", "  }",
@@ -588,6 +612,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * <p>
 	 * {@link SAXParseException} will happen, because of XSD validation.
 	 */
+	@Test
 	public void test_propertyCategory_bad() throws Exception {
 		setFileContentSrc("test/MyPanel.java",
 				getTestSource("public class MyPanel extends JPanel {", "  public void setA(int value) {", "  }", "}"));
@@ -615,6 +640,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * "method" tag should add {@link MethodDescription} into
 	 * {@link ComponentDescription} and also fill returnType/declaringClass.
 	 */
+	@Test
 	public void test_MethodRule() throws Exception {
 		setFileContentSrc("test/MyPanel.java", getTestSource("public class MyPanel extends JPanel {",
 				"  public String foo(int value) {", "    return null;", "  }", "}"));
@@ -639,6 +665,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Test for {@link AbstractDescription#hasTrueTag(String)}.
 	 */
+	@Test
 	public void test_AbstractDescription_hasTrueTag() throws Exception {
 		setFileContentSrc("test/MyPanel.java",
 				getTestSource("// filler filler filler filler filler", "// filler filler filler filler filler",
@@ -663,6 +690,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	// MethodsOperationRule
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_MethodsOperationRule_signatureInclude() throws Exception {
 		setFileContentSrc("test/MyPanel.java",
 				getTestSource("// filler filler filler filler filler", "// filler filler filler filler filler",
@@ -678,6 +706,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 		assertNotNull(panel.getDescription().getMethod("foo()"));
 	}
 
+	@Test
 	public void test_MethodsOperationRule_signatureExclude() throws Exception {
 		setFileContentSrc("test/MyPanel.java", getTestSource("// filler filler filler filler filler",
 				"// filler filler filler filler filler", "public class MyPanel extends JPanel {", "}"));
@@ -693,6 +722,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 		assertNotNull(panel.getDescription().getMethod("setAutoscrolls(boolean)"));
 	}
 
+	@Test
 	public void test_MethodsOperationRule_regexpInclude() throws Exception {
 		setFileContentSrc("test/MyPanel.java",
 				getTestSource("// filler filler filler filler filler", "// filler filler filler filler filler",
@@ -708,6 +738,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 		assertNotNull(panel.getDescription().getMethod("foo()"));
 	}
 
+	@Test
 	public void test_MethodsOperationRule_regexpExclude() throws Exception {
 		setFileContentSrc("test/MyPanel.java", getTestSource("// filler filler filler filler filler",
 				"// filler filler filler filler filler", "public class MyPanel extends JPanel {", "}"));
@@ -731,6 +762,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Test for custom components and using "exposing-rules".
 	 */
+	@Test
 	public void test_exposedChildren_rules() throws Exception {
 		setFileContentSrc("test_1/MyPanel_1.java",
 				getSourceDQ("package test_1;", "import javax.swing.*;", "public class MyPanel_1 extends JPanel {",
@@ -765,6 +797,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * we as developers of <code>MyPanel</code> know, that we expose {@link JButton}
 	 * that should not be used with layout. So, we need to add tweak.
 	 */
+	@Test
 	public void test_exposedChildren_specificDescriptions() throws Exception {
 		setFileContentSrc("test/MyPanel.java",
 				getTestSource("public class MyPanel extends JPanel {", "  public MyPanel() {", "    add(getButton());",
@@ -787,6 +820,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * When no method-specific description resource, pure type-based
 	 * {@link ComponentDescription} should be returned.
 	 */
+	@Test
 	public void test_exposedChildren_noSpecificDescription() throws Exception {
 		ContainerInfo frame = parseContainer("// filler filler filler", "public class Test extends JFrame {",
 				"  public Test() {", "  }", "}");
@@ -828,6 +862,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * In this case parameter "parent" in <code>createDialogArea</code> should be
 	 * marked as not having layout.
 	 */
+	@Test
 	public void test_parameterChildren_specificDescription_0() throws Exception {
 		prepare_parameterChildren_specificDescription(false);
 		ContainerInfo panel = parseContainer("public class Test extends MyDialog {", "  public Test() {", "  }",
@@ -857,6 +892,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * In this case parameter "parent" in <code>createDialogArea</code> should be
 	 * marked as not having layout.
 	 */
+	@Test
 	public void test_parameterChildren_specificDescription_1() throws Exception {
 		prepare_parameterChildren_specificDescription(true);
 		ContainerInfo panel = parseContainer("public class Test extends MyDialog {", "  public Test() {", "  }",
@@ -880,6 +916,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * Same as {@link #test_parameterChildren_specificDescription_1()} but tests
 	 * that specific {@link ComponentDescription}'s are used also in subclasses.
 	 */
+	@Test
 	public void test_parameterChildren_specificDescription_2() throws Exception {
 		prepare_parameterChildren_specificDescription(true);
 		setFileContentSrc("test/MyDialog2.java", getTestSource("// filler filler filler filler filler",
@@ -916,6 +953,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Test for {@link ComponentDescription#getParameters()}.
 	 */
+	@Test
 	public void test_parameters() throws Exception {
 		setFileContentSrc("test/MyPanel.java", getTestSource("// filler filler filler filler filler",
 				"// filler filler filler filler filler", "public class MyPanel extends JPanel {", "}"));
@@ -956,6 +994,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * <code>setItems(String[])</code>. So, to edit items, we need some artificial
 	 * {@link Property}.
 	 */
+	@Test
 	public void test_configurableProperty() throws Exception {
 		setFileContentSrc("test/MyPanel.java",
 				getTestSource("public class MyPanel extends JPanel {", "  public void clear() {", "  }",
@@ -980,6 +1019,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	// ParameterDescription
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_ParameterDescription_flags() throws Exception {
 		setFileContentSrc("test/MyPanel.java",
 				getTestSource("public class MyPanel extends JPanel {", "  public void foo_1(Component component) {",
@@ -1025,6 +1065,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * created by {@link StandardBeanPropertiesRule}, have <code>name</code> for
 	 * {@link ParameterDescription}.
 	 */
+	@Test
 	public void test_ParameterDescription_name() throws Exception {
 		ContainerInfo panel = parseContainer("// filler filler filler", "public class Test extends JPanel {",
 				"  public Test() {", "  }", "}");
@@ -1042,6 +1083,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * Test that {@link StandardBeanPropertiesRule} does not create property for
 	 * static method.
 	 */
+	@Test
 	public void test_StandardBeanPropertiesRule_ignoreStaticMethods() throws Exception {
 		setFileContentSrc("test/MyPanel.java", getTestSource("public class MyPanel extends JPanel {",
 				"  public static void setFoo(int value) {", "  }", "}"));
@@ -1055,6 +1097,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Sometimes we need to tweak "getter" for property.
 	 */
+	@Test
 	public void test_StandardBeanPropertiesRule_nonStandardGetter() throws Exception {
 		setFileContentSrc("test/MyPanel.java", getTestSource("public class MyPanel extends JPanel {",
 				"  public void setFoo(int foo) {", "  }", "  public int getMyFoo() {", "    return 555;", "  }", "}"));
@@ -1077,6 +1120,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	// ComponentDescription.getConstructor()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_ComponentDescription_getConstructor() throws Exception {
 		ContainerInfo panel = parseContainer("public class Test extends JPanel {", "  public Test() {",
 				"    setEnabled(false);", "  }", "}");
@@ -1093,6 +1137,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * <p>
 	 * So, we have to add stronger check for constructor.
 	 */
+	@Test
 	public void test_badConstructor() throws Exception {
 		setFileContentSrc("test/MyPanel.wbp-component.xml", getSourceDQ("<?xml version='1.0' encoding='UTF-8'?>",
 				"<component xmlns='http://www.eclipse.org/wb/WBPComponent'>", "  <constructors>", "    <constructor>",
@@ -1119,6 +1164,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	// AbstractInvocationDescription
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_AbstractInvocationDescription() throws Exception {
 		ContainerInfo panel = parseContainer("// filler filler filler", "public class Test extends JPanel {",
 				"  public Test() {", "  }", "}");
@@ -1140,6 +1186,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * {@link ComponentDescriptionHelper} should use {@link ComponentInfo} as model
 	 * for {@link Box}, no matter if it has factory methods.
 	 */
+	@Test
 	public void test_instanceFactory_model_onlyStatic() throws Exception {
 		parseContainer("// filler filler filler", "public final class Test extends JPanel {", "  public Test() {",
 				"  }", "}");
@@ -1156,6 +1203,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Test for {@link ComponentDescriptionHelper#loadModelClass(String)}.
 	 */
+	@Test
 	public void test_loadModelClass() throws Exception {
 		parseContainer("// filler filler filler", "public final class Test extends JPanel {", "  public Test() {",
 				"  }", "}");
@@ -1180,6 +1228,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * {@link ComponentDescriptionHelper#getDescription(AstEditor, Class)} return
 	 * same result.
 	 */
+	@Test
 	public void test_getDescription_variants() throws Exception {
 		parseContainer("// filler filler filler", "public final class Test extends JPanel {", "  public Test() {",
 				"  }", "}");
@@ -1198,6 +1247,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * {@link ComponentDescriptionHelper#hasComponentDescriptionResource(EditorState, Class)}
 	 * .
 	 */
+	@Test
 	public void test_hasComponentDescriptionResource() throws Exception {
 		setFileContentSrc("test/MyButton.java",
 				getTestSource("// filler filler filler filler filler", "// filler filler filler filler filler",
@@ -1215,6 +1265,7 @@ public class ComponentDescriptionHelperTest extends SwingModelTest {
 	 * Test for
 	 * {@link ComponentDescriptionHelper#hasForcedToolkitForComponent(EditorState, String, String)}.
 	 */
+	@Test
 	public void test_hasForcedToolkitForComponent() throws Exception {
 		String swingToolkitId = SwingToolkitDescription.INSTANCE.getId();
 		setFileContentSrc("test/NoForced.java",

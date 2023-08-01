@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.editor.errors.CoreExceptionRewriter;
 import org.eclipse.wb.internal.core.editor.errors.CoreExceptionRewriter2;
 import org.eclipse.wb.internal.core.eval.evaluators.AnonymousEvaluationError;
@@ -34,6 +36,7 @@ public class CoreExceptionRewriterTest extends DesignerTestCase {
 	/**
 	 * Test for {@link CoreExceptionRewriter} and {@link OSSupportError}.
 	 */
+	@Test
 	public void test_OSSupportError() throws Exception {
 		Throwable e = new OSSupportError("foo");
 		DesignerException rewritten = (DesignerException) CoreExceptionRewriter.INSTANCE.rewrite(e);
@@ -43,6 +46,7 @@ public class CoreExceptionRewriterTest extends DesignerTestCase {
 	/**
 	 * Test for {@link CoreExceptionRewriter} and {@link AnonymousEvaluationError}.
 	 */
+	@Test
 	public void test_AnonymousEvaluationError() throws Exception {
 		Throwable anError = new AnonymousEvaluationError();
 		// rewrite as is
@@ -78,6 +82,7 @@ public class CoreExceptionRewriterTest extends DesignerTestCase {
 	/**
 	 * Test for {@link CoreExceptionRewriter} and incomplete installation.
 	 */
+	@Test
 	public void test_isIncompleteProductException_differentException() throws Exception {
 		Throwable e = new Exception();
 		assertFalse(isIncompleteProductException(e));
@@ -88,6 +93,7 @@ public class CoreExceptionRewriterTest extends DesignerTestCase {
 	 * <p>
 	 * Support for {@link NoClassDefFoundError}.
 	 */
+	@Test
 	public void test_isIncompleteProductException_NoClassDefFoundError() throws Exception {
 		// some other class
 		{
@@ -117,6 +123,7 @@ public class CoreExceptionRewriterTest extends DesignerTestCase {
 	 * <p>
 	 * Support for {@link NoSuchMethodError}.
 	 */
+	@Test
 	public void test_isIncompleteProductException_NoSuchMethodError() throws Exception {
 		// some other method
 		{

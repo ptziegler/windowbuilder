@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.description;
+import org.junit.Before;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.model.description.ComponentDescription;
 import org.eclipse.wb.internal.core.model.description.MorphingTargetDescription;
@@ -32,7 +35,8 @@ public class MorphingTargetDescriptionTest extends SwingModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		// prepare fixture
 		String testName = (String) ReflectionUtils.getFieldObject(this, "fName");
@@ -54,6 +58,7 @@ public class MorphingTargetDescriptionTest extends SwingModelTest {
 	/**
 	 * Test for loading {@link MorphingTargetDescription}'s from "*.wbp-component.xml" files.
 	 */
+	@Test
 	public void test_loadFromDescriptions() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -101,6 +106,7 @@ public class MorphingTargetDescriptionTest extends SwingModelTest {
 	/**
 	 * We should ignore invalid target classes.
 	 */
+	@Test
 	public void test_noTargetClass() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -145,6 +151,7 @@ public class MorphingTargetDescriptionTest extends SwingModelTest {
 	 *
 	 * @throws Exception
 	 */
+	@Test
 	public void test_noInherit() throws Exception {
 		// MyBaseButton
 		{

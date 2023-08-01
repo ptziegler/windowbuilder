@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.rcp.model.jface.PopupDialogInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
@@ -35,6 +37,7 @@ public class PopupDialogTest extends RcpModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_0() throws Exception {
 		PopupDialogInfo dialog =
 				parseJavaInfo(
@@ -63,6 +66,7 @@ public class PopupDialogTest extends RcpModelTest {
 	/**
 	 * {@link PopupDialog} has complex constructor with many bound properties.
 	 */
+	@Test
 	public void test_boundProperties() throws Exception {
 		PopupDialogInfo dialog =
 				parseJavaInfo(

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.editor.IDesignPageSite;
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.editor.actions.SelectSupport;
@@ -31,6 +33,7 @@ public class SelectSupportTest extends SwingGefTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_all() throws Exception {
 		JavaInfo panel =
 				openContainer(
@@ -104,6 +107,7 @@ public class SelectSupportTest extends SwingGefTest {
 		}
 	}
 
+	@Test
 	public void test_disposeHierarchy() throws Exception {
 		openContainer(
 				"// filler filler filler filler filler",

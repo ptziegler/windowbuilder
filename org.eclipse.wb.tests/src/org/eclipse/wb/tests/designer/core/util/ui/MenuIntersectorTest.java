@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.ui;
 
+import org.junit.Test;
+
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
@@ -40,6 +42,7 @@ public class MenuIntersectorTest extends DesignerTestCase {
 	// Test
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test() throws Exception {
 		// create common action
 		Action deleteAction = new Action("Delete") {
@@ -89,6 +92,7 @@ public class MenuIntersectorTest extends DesignerTestCase {
 		assertEquals("clear", ((ActionContributionItem) subItems[0]).getAction().getText());
 	}
 
+	@Test
 	public void test_2() throws Exception {
 		// create common action
 		Action deleteAction = new Action("Delete") {
@@ -130,6 +134,7 @@ public class MenuIntersectorTest extends DesignerTestCase {
 	/**
 	 * Test for running {@link IAction}'s after intersection.
 	 */
+	@Test
 	public void test_runWithEvent_run() throws Exception {
 		// create actions
 		final boolean[] runExecuted_1 = new boolean[1];
@@ -182,6 +187,7 @@ public class MenuIntersectorTest extends DesignerTestCase {
 	/**
 	 * Test that {@link IAction} with {@link IActionSingleton} executed only for first action.
 	 */
+	@Test
 	public void test_IActionSingleton() throws Exception {
 		class MyAction extends Action implements IActionSingleton {
 			private final boolean[] m_runFlag;

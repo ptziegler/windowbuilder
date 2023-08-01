@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.swingx;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.creation.factory.ImplicitFactoryCreationSupport;
 import org.eclipse.wb.internal.swing.model.bean.ActionContainerInfo;
 import org.eclipse.wb.internal.swing.model.bean.ActionInfo;
@@ -43,6 +45,7 @@ public class JXTaskPaneTest extends SwingxModelTest {
 	 * Invocation of {@link JXTaskPane#add(Action)} creates {@link Component}, so we also should
 	 * create {@link ComponentInfo} for such invocation.
 	 */
+	@Test
 	public void test_Action_parse() throws Exception {
 		createExternalAction();
 		ContainerInfo panel =
@@ -69,6 +72,7 @@ public class JXTaskPaneTest extends SwingxModelTest {
 	 * Use {@link ImplicitFactoryCreationSupport} with {@link JToolBar#add(Action)} to create
 	 * {@link JButton}.
 	 */
+	@Test
 	public void test_Action_CREATE() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

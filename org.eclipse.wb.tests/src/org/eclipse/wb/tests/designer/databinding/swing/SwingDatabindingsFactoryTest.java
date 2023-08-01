@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.databinding.swing;
+import org.junit.After;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.swing.databinding.DesignPageFactory;
 import org.eclipse.wb.internal.swing.databinding.SwingDatabindingFactory;
@@ -26,7 +29,8 @@ public class SwingDatabindingsFactoryTest extends SwingModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		super.tearDown();
 		do_projectDispose();
 	}
@@ -45,6 +49,7 @@ public class SwingDatabindingsFactoryTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_noProvider() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -69,6 +74,7 @@ public class SwingDatabindingsFactoryTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_Provider() throws Exception {
 		DatabindingTestUtils.configure(m_testProject);
 		ContainerInfo panel =

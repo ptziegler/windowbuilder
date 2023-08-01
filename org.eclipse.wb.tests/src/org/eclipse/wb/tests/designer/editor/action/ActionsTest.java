@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor.action;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.internal.core.editor.multi.DesignerEditor;
 import org.eclipse.wb.tests.designer.swing.SwingGefTest;
@@ -45,6 +47,7 @@ public class ActionsTest extends SwingGefTest {
 	 * return to original one. Problem is that we should implement
 	 * {@link ITextEditor#getAction(String)} and return actions from "Source" or "Design" pages.
 	 */
+	@Test
 	public void test_deactiveEditor_thenActivateAgain() throws Exception {
 		IWorkbenchPage page = DesignerPlugin.getActivePage();
 		// open Design

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.support;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.swt.support.RectangleSupport;
 
@@ -37,6 +39,7 @@ public class RectangleSupportTest extends AbstractSupportTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_newPoint() throws Exception {
 		Object rectangle = RectangleSupport.newRectangle(1, 2, 3, 4);
 		assertNotNull(rectangle);
@@ -47,6 +50,7 @@ public class RectangleSupportTest extends AbstractSupportTest {
 		assertEquals(4, ReflectionUtils.getFieldInt(rectangle, "height"));
 	}
 
+	@Test
 	public void test_getPoint() throws Exception {
 		Object rectangle = createRectangle(1, 2, 3, 4);
 		Rectangle testRectangle = RectangleSupport.getRectangle(rectangle);
@@ -57,6 +61,7 @@ public class RectangleSupportTest extends AbstractSupportTest {
 		assertEquals(4, testRectangle.height);
 	}
 
+	@Test
 	public void test_toString() throws Exception {
 		Object rectangle = createRectangle(1, 2, 3, 4);
 		assertEquals("(1, 2, 3, 4)", RectangleSupport.toString(rectangle));

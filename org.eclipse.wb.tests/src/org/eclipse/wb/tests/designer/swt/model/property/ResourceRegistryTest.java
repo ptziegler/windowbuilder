@@ -9,6 +9,10 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.property;
+import org.junit.Ignore;
+import org.junit.Before;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.swt.model.jface.resource.ColorRegistryInfo;
@@ -40,7 +44,8 @@ public class ResourceRegistryTest extends RcpModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		m_initialDisplayRunnables = getDisplayRunnablesCount();
 	}
@@ -66,7 +71,9 @@ public class ResourceRegistryTest extends RcpModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
-	public void DISABLED_test_info() throws Exception {
+	@Ignore
+	@Test
+	public void test_info() throws Exception {
 		setFileContentSrc(
 				"test/IRegistry.java",
 				getTestSource(

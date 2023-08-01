@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.layouts.grid;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.swt.model.layout.grid.GridLayoutInfo;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.internal.swt.model.widgets.ControlInfo;
@@ -42,6 +44,7 @@ public class GridLayoutSelectionActionsTest extends RcpModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_emptySelection() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -57,6 +60,7 @@ public class GridLayoutSelectionActionsTest extends RcpModelTest {
 		Assertions.assertThat(actions).isEmpty();
 	}
 
+	@Test
 	public void test_selectionActions() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -105,6 +109,7 @@ public class GridLayoutSelectionActionsTest extends RcpModelTest {
 		assertFalse(findAction(actions, "Horizontal grab").isChecked());
 	}
 
+	@Test
 	public void test_grabAction() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -158,6 +163,7 @@ public class GridLayoutSelectionActionsTest extends RcpModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_alignmentAction() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -215,6 +221,7 @@ public class GridLayoutSelectionActionsTest extends RcpModelTest {
 	/**
 	 * Indirectly exposed {@link Control}'s should be ignored.
 	 */
+	@Test
 	public void test_indirectExposedChild() throws Exception {
 		setFileContentSrc(
 				"test/ImplicitComposite.java",

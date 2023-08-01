@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.wizard;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.xwt.wizards.FormsApplicationWizard;
 import org.eclipse.wb.tests.designer.TestUtils;
 import org.eclipse.wb.tests.gef.UIRunnable;
@@ -39,6 +41,7 @@ public class FormsApplicationWizardTest extends XwtWizardTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_contents() throws Exception {
 		animateWizard();
 		// Java

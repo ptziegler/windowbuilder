@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.util.generic;
 
+import org.junit.Test;
+
 import com.google.common.collect.Maps;
 
 import org.eclipse.wb.internal.core.model.creation.CreationSupport;
@@ -90,6 +92,7 @@ public class ModelMethodPropertyChildTest extends SwingModelTest {
 		waitForAutoBuild();
 	}
 
+	@Test
 	public void test_valueProperty() throws Exception {
 		prepareMyPanel("getter=getValue setter=setValue title=value category=normal type=java.lang.String"
 				+ " child="
@@ -143,6 +146,7 @@ public class ModelMethodPropertyChildTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_noRequiredParameters() throws Exception {
 		prepareMyPanel("");
 		parseContainer(
@@ -158,6 +162,7 @@ public class ModelMethodPropertyChildTest extends SwingModelTest {
 				"'title'");
 	}
 
+	@Test
 	public void test_noParameter_getter() throws Exception {
 		prepareMyPanel("getter=noSuchMethod setter=foo title=bar type=java.lang.String");
 		parseContainer(
@@ -172,6 +177,7 @@ public class ModelMethodPropertyChildTest extends SwingModelTest {
 		Assertions.assertThat(warnings.get(0).getMessage()).contains("Invalid").contains("getter");
 	}
 
+	@Test
 	public void test_noParameter_setter() throws Exception {
 		prepareMyPanel("getter=getValue setter=noSuchMethod title=bar type=java.lang.String");
 		parseContainer(

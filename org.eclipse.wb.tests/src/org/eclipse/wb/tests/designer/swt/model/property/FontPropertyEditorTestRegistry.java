@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.property;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.rcp.ToolkitProvider;
 import org.eclipse.wb.internal.swt.model.jface.resource.FontRegistryInfo;
@@ -32,6 +34,7 @@ public class FontPropertyEditorTestRegistry extends FontPropertyEditorTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_info() throws Exception {
 		createASTCompilationUnit(
 				"test",
@@ -73,6 +76,7 @@ public class FontPropertyEditorTestRegistry extends FontPropertyEditorTest {
 		assertNull(keyFieldInfo.value);
 	}
 
+	@Test
 	public void test_value() throws Exception {
 		createASTCompilationUnit(
 				"test",
@@ -115,6 +119,7 @@ public class FontPropertyEditorTestRegistry extends FontPropertyEditorTest {
 				PropertyEditorTestUtils.getClipboardSource(property));
 	}
 
+	@Test
 	public void test_value_bold() throws Exception {
 		createASTCompilationUnit(
 				"test",
@@ -150,6 +155,7 @@ public class FontPropertyEditorTestRegistry extends FontPropertyEditorTest {
 				PropertyEditorTestUtils.getClipboardSource(property));
 	}
 
+	@Test
 	public void test_value_italic() throws Exception {
 		createASTCompilationUnit(
 				"test",

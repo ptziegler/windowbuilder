@@ -9,6 +9,7 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.FormLayout;
+import org.junit.Before;
 
 import org.eclipse.wb.internal.core.utils.jdt.core.CodeUtils;
 import org.eclipse.wb.internal.swing.laf.LafSupport;
@@ -35,7 +36,8 @@ public class AbstractFormLayoutTest extends AbstractLayoutTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		LafSupport.applySelectedLAF(LafSupport.getDefaultLAF());
 	}

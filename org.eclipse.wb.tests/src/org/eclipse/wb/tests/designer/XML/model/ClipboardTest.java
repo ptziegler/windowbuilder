@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.editor.BooleanPropertyEditor;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
@@ -59,6 +61,7 @@ public class ClipboardTest extends AbstractCoreTest {
 	/**
 	 * Test for {@link XmlObjectMemento#hasMemento(XmlObjectInfo)}.
 	 */
+	@Test
 	public void test_hasMemento() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -73,6 +76,7 @@ public class ClipboardTest extends AbstractCoreTest {
 		assertTrue(XmlObjectMemento.hasMemento(button));
 	}
 
+	@Test
 	public void test_forControl() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -119,6 +123,7 @@ public class ClipboardTest extends AbstractCoreTest {
 		assertSame(null, ComponentInfoMemento.getImage(newButton));
 	}
 
+	@Test
 	public void test_forControl_hasBounds() throws Exception {
 		CompositeInfo composite =
 				parse(
@@ -139,6 +144,7 @@ public class ClipboardTest extends AbstractCoreTest {
 		assertEquals(new Rectangle(10, 20, 100, 50), newButton.getModelBounds());
 	}
 
+	@Test
 	public void test_forControl_includeStyle() throws Exception {
 		final CompositeInfo shell =
 				parse(
@@ -176,6 +182,7 @@ public class ClipboardTest extends AbstractCoreTest {
 	/**
 	 * {@link Button} on "null" layout, so no image.
 	 */
+	@Test
 	public void test_noImage() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -195,6 +202,7 @@ public class ClipboardTest extends AbstractCoreTest {
 	/**
 	 * Test for using {@link XmlObjectMemento#apply(XmlObjectInfo)}.
 	 */
+	@Test
 	public void test_useStaticApply() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -232,6 +240,7 @@ public class ClipboardTest extends AbstractCoreTest {
 	/**
 	 * Test for using {@link XmlObjectMemento#isApplying(XmlObjectInfo)}.
 	 */
+	@Test
 	public void test_isApplying() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -257,6 +266,7 @@ public class ClipboardTest extends AbstractCoreTest {
 		assertTrue(XmlObjectMemento.isApplying(newButton));
 	}
 
+	@Test
 	public void test_forLayout() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -308,6 +318,7 @@ public class ClipboardTest extends AbstractCoreTest {
 	/**
 	 * Test for {@link IClipboardObjectProperty}.
 	 */
+	@Test
 	public void test_IClipboardObjectProperty() throws Exception {
 		final CompositeInfo shell =
 				parse(
@@ -382,6 +393,7 @@ public class ClipboardTest extends AbstractCoreTest {
 	// XMLObjectMementoTransfer
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_transfer() throws Exception {
 		CompositeInfo shell =
 				parse(

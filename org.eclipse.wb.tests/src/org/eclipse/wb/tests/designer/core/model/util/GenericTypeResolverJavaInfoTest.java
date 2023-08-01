@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.util;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.util.GenericTypeResolverJavaInfo;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
@@ -41,6 +43,7 @@ public class GenericTypeResolverJavaInfoTest extends SwingModelTest {
 	/**
 	 * When {@link ClassInstanceCreation} has type argument for type parameter.
 	 */
+	@Test
 	public void test_hasTypeArgument() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -74,6 +77,7 @@ public class GenericTypeResolverJavaInfoTest extends SwingModelTest {
 	/**
 	 * No type argument in {@link ClassInstanceCreation} itself, but in Java7 we can use "diamond".
 	 */
+	@Test
 	public void test_hasTypeArgument_java7() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -107,6 +111,7 @@ public class GenericTypeResolverJavaInfoTest extends SwingModelTest {
 	/**
 	 * Type parameter was not specified.
 	 */
+	@Test
 	public void test_noTypeArgument_hasBounds() throws Exception {
 		setFileContentSrc(
 				"test/MyModel.java",
@@ -146,6 +151,7 @@ public class GenericTypeResolverJavaInfoTest extends SwingModelTest {
 	/**
 	 * Type parameter was not specified, no bounds, so {@link Object}.
 	 */
+	@Test
 	public void test_noTypeArgument_noBounds() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",

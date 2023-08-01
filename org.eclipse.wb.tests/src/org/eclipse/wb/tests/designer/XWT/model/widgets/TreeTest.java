@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.xml.model.clipboard.XmlObjectMemento;
 import org.eclipse.wb.internal.xwt.model.widgets.CompositeInfo;
@@ -50,6 +52,7 @@ public class TreeTest extends XwtModelTest {
 	/**
 	 * Test for parsing {@link TreeItem} and bounds of {@link TreeItemInfo}.
 	 */
+	@Test
 	public void test_TreeItem_parse() throws Exception {
 		TreeInfo tree =
 				parse(
@@ -96,6 +99,7 @@ public class TreeTest extends XwtModelTest {
 	/**
 	 * Test for parsing {@link TreeItemInfo} with {@link TreeItemInfo} child.
 	 */
+	@Test
 	public void test_TreeItem_parse_subItems() throws Exception {
 		TreeInfo tree =
 				parse(
@@ -119,6 +123,7 @@ public class TreeTest extends XwtModelTest {
 		Assertions.assertThat(item_2.getItems()).isEmpty();
 	}
 
+	@Test
 	public void test_TreeItem_addToTree() throws Exception {
 		TreeInfo tree =
 				parse(
@@ -140,6 +145,7 @@ public class TreeTest extends XwtModelTest {
 				"</Tree>");
 	}
 
+	@Test
 	public void test_TreeItem_moveInTree() throws Exception {
 		TreeInfo tree =
 				parse(
@@ -165,6 +171,7 @@ public class TreeTest extends XwtModelTest {
 	/**
 	 * Test for adding new {@link TreeItemInfo} on existing {@link TreeItemInfo}.
 	 */
+	@Test
 	public void test_TreeItem_addToItem() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -191,6 +198,7 @@ public class TreeTest extends XwtModelTest {
 	/**
 	 * Test for moving {@link TreeItemInfo} on other {@link TreeItemInfo}.
 	 */
+	@Test
 	public void test_TreeItem_moveToItem() throws Exception {
 		TreeInfo tree =
 				parse(
@@ -226,6 +234,7 @@ public class TreeTest extends XwtModelTest {
 	/**
 	 * Test for parsing {@link TreeColumn} and bounds of {@link TreeColumnInfo}.
 	 */
+	@Test
 	public void test_TreeColumn() throws Exception {
 		TreeInfo tree =
 				parse(
@@ -267,6 +276,7 @@ public class TreeTest extends XwtModelTest {
 	/**
 	 * Test for copy/paste {@link TreeColumn}.
 	 */
+	@Test
 	public void test_TreeColumn_copyPaste() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -304,6 +314,7 @@ public class TreeTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_TreeColumn_setWidth() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -325,6 +336,7 @@ public class TreeTest extends XwtModelTest {
 				"</Tree>");
 	}
 
+	@Test
 	public void test_add_TreeColumn() throws Exception {
 		TreeInfo tree =
 				parse(
@@ -344,6 +356,7 @@ public class TreeTest extends XwtModelTest {
 				"</Tree>");
 	}
 
+	@Test
 	public void test_move_TreeColumn() throws Exception {
 		TreeInfo tree =
 				parse(

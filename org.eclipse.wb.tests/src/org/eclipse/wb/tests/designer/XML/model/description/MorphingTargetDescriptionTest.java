@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.description;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.description.MorphingTargetDescription;
 import org.eclipse.wb.internal.core.xml.model.description.ComponentDescription;
 
@@ -34,6 +36,7 @@ public class MorphingTargetDescriptionTest extends AbstractCoreTest {
 	/**
 	 * Test for loading {@link MorphingTargetDescription}'s from "*.wbp-component.xml" files.
 	 */
+	@Test
 	public void test_loadFromDescriptions() throws Exception {
 		prepareMyComponent(ESA, new String[]{
 				"  <morphTargets>",
@@ -59,6 +62,7 @@ public class MorphingTargetDescriptionTest extends AbstractCoreTest {
 	/**
 	 * We should ignore invalid target classes.
 	 */
+	@Test
 	public void test_noTargetClass() throws Exception {
 		prepareMyComponent(ESA, new String[]{
 				"  <morphTargets>",
@@ -81,6 +85,7 @@ public class MorphingTargetDescriptionTest extends AbstractCoreTest {
 	 *
 	 * @throws Exception
 	 */
+	@Test
 	public void test_noInherit() throws Exception {
 		// MyBaseButton
 		{

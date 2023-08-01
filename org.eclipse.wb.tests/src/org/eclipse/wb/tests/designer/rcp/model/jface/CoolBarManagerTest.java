@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.model.JavaInfoUtils;
 import org.eclipse.wb.internal.rcp.model.jface.ApplicationWindowInfo;
@@ -50,6 +53,7 @@ public class CoolBarManagerTest extends RcpModelTest {
 	/**
 	 * Empty {@link CoolBarManager}.
 	 */
+	@Test
 	public void test_0_emptyCoolBarManager() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -88,6 +92,7 @@ public class CoolBarManagerTest extends RcpModelTest {
 	/**
 	 * Test for using {@link ICoolBarManager#add(IToolBarManager)}, empty {@link ToolBarManager}.
 	 */
+	@Test
 	public void test_addToolBarManager_empty() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -141,6 +146,7 @@ public class CoolBarManagerTest extends RcpModelTest {
 	/**
 	 * Test for using {@link ICoolBarManager#add(IToolBarManager)}, not empty {@link ToolBarManager}.
 	 */
+	@Test
 	public void test_addToolBarManager_notEmpty() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -202,7 +208,9 @@ public class CoolBarManagerTest extends RcpModelTest {
 	/**
 	 * Test for using {@link ToolBarContributionItem}.
 	 */
-	public void DISABLE_test_addToolBarManager_usingToolBarContributionItem() throws Exception {
+	@Ignore
+	@Test
+	public void test_addToolBarManager_usingToolBarContributionItem() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
 						"import org.eclipse.jface.action.*;",
@@ -282,6 +290,7 @@ public class CoolBarManagerTest extends RcpModelTest {
 	/**
 	 * Drop {@link ToolBarManager} on {@link CoolBarManager}.
 	 */
+	@Test
 	public void test_CREATE() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(

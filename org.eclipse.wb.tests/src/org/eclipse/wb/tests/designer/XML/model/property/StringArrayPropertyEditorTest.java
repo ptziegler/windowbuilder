@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.property;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.EmptyProperty;
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.editor.StringArrayPropertyEditor;
@@ -40,6 +42,7 @@ public class StringArrayPropertyEditorTest extends XwtModelTest {
 	// getText()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getText_notValue() throws Exception {
 		Property property = new EmptyProperty(StringArrayPropertyEditor.INSTANCE);
 		// check state
@@ -47,6 +50,7 @@ public class StringArrayPropertyEditorTest extends XwtModelTest {
 		assertEquals("[]", getPropertyText(property));
 	}
 
+	@Test
 	public void test_getText_withItems() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -72,6 +76,7 @@ public class StringArrayPropertyEditorTest extends XwtModelTest {
 	// Dialog
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_dialog() throws Exception {
 		parse(
 				"// filler filler filler filler filler",

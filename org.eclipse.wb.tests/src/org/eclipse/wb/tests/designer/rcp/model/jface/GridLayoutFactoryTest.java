@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.internal.swt.model.widgets.ControlInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
@@ -40,6 +42,7 @@ public class GridLayoutFactoryTest extends RcpModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_GridLayoutFactory() throws Exception {
 		CompositeInfo composite =
 				parseJavaInfo(
@@ -64,6 +67,7 @@ public class GridLayoutFactoryTest extends RcpModelTest {
 		assertEquals(20, layout.marginHeight);
 	}
 
+	@Test
 	public void test_GridDataFactory() throws Exception {
 		parseJavaInfo(
 				"import org.eclipse.jface.layout.*;",

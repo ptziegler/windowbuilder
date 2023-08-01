@@ -9,7 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.gef;
-
 import com.google.common.collect.Lists;
 
 import org.eclipse.wb.draw2d.Figure;
@@ -36,6 +35,9 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.widgets.Shell;
 
+import org.junit.After;
+import org.junit.Before;
+
 import java.util.List;
 
 /**
@@ -52,20 +54,12 @@ public class GefCursorTestCase extends GefTestCase {
 
 	////////////////////////////////////////////////////////////////////////////
 	//
-	// Constructor
-	//
-	////////////////////////////////////////////////////////////////////////////
-	public GefCursorTestCase(Class<?> _class) {
-		super(_class);
-	}
-
-	////////////////////////////////////////////////////////////////////////////
-	//
 	// SetUp
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		// create shell
 		m_shell = new Shell();
@@ -88,8 +82,8 @@ public class GefCursorTestCase extends GefTestCase {
 		m_sender = new EventSender(m_viewer.getControl());
 	}
 
-	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		m_shell.dispose();
 		m_shell = null;
 		m_viewer = null;

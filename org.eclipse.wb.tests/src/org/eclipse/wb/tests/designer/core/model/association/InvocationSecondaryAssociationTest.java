@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.association;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.core.model.association.InvocationSecondaryAssociation;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
@@ -33,6 +35,7 @@ public class InvocationSecondaryAssociationTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_0() throws Exception {
 		setFileContentSrc(
 				"test/AFrame.java",
@@ -118,6 +121,7 @@ public class InvocationSecondaryAssociationTest extends SwingModelTest {
 	 * For {@link MyPanel#add2(Component, Object)} there is {@link MyPanel#add2(Component)}
 	 * alternative.
 	 */
+	@Test
 	public void test_deletePossible() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -180,6 +184,7 @@ public class InvocationSecondaryAssociationTest extends SwingModelTest {
 	 * For {@link MyPanel#add2(Component, Object)} there is {@link MyPanel#add2(Component)}
 	 * alternative.
 	 */
+	@Test
 	public void test_deletePossible2() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -247,6 +252,7 @@ public class InvocationSecondaryAssociationTest extends SwingModelTest {
 	 * We can delete "secondary child", if there is alternative method without child argument.<br>
 	 * For {@link MyPanel#add2(Component, Object)} there is no alternative.
 	 */
+	@Test
 	public void test_deleteNotPossible() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -295,6 +301,7 @@ public class InvocationSecondaryAssociationTest extends SwingModelTest {
 	 * Problem is that we first delete association between "button" and "panel", so association
 	 * between "button" and "constraints" become dangling. We should handle this situation correctly.
 	 */
+	@Test
 	public void test_deleteParent() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",

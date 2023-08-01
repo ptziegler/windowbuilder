@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.description.helpers.DescriptionHelper;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
@@ -42,6 +44,7 @@ public class ClassLoadingTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_installNewBundleWithContributions() throws Exception {
 		TestBundle testBundle = new TestBundle();
 		try {
@@ -69,6 +72,7 @@ public class ClassLoadingTest extends SwingModelTest {
 	 * Test for using <code>classLoader-bundle</code> to contribute Bundle into toolkit
 	 * {@link ClassLoader}.
 	 */
+	@Test
 	public void test_useClasspathBundle() throws Exception {
 		TestBundle testBundle = new TestBundle();
 		try {
@@ -100,6 +104,7 @@ public class ClassLoadingTest extends SwingModelTest {
 	 * Test for using <code>classLoader-library</code> to contribute JAR into toolkit
 	 * {@link ClassLoader}.
 	 */
+	@Test
 	public void test_useClasspathLibrary_singleJar() throws Exception {
 		TestBundle testBundle = new TestBundle();
 		try {
@@ -131,6 +136,7 @@ public class ClassLoadingTest extends SwingModelTest {
 	 * Test for using <code>classLoader-library</code> to contribute two JAR's into toolkit
 	 * {@link ClassLoader}, where {@link Class} from one JAR references {@link Class} in other JAR.
 	 */
+	@Test
 	public void test_useClassLoaderLibrary_toDependentJars() throws Exception {
 		TestBundle testBundle = new TestBundle();
 		try {
@@ -165,6 +171,7 @@ public class ClassLoadingTest extends SwingModelTest {
 	/**
 	 * Test for using <code>classLoader-library</code> to contribute two JAR's wrapped in jar-bundle.
 	 */
+	@Test
 	public void test_useClassLoaderLibrary_twoDependentJars_packedBundle() throws Exception {
 		TestBundle testBundle = new TestBundle();
 		try {
@@ -231,6 +238,7 @@ public class ClassLoadingTest extends SwingModelTest {
 	/**
 	 * Sometimes users want to initialize environment, configure static objects.
 	 */
+	@Test
 	public void test_ConfigureClassLoader() throws Exception {
 		setFileContentSrc(
 				"test/MyObject.java",
@@ -265,6 +273,7 @@ public class ClassLoadingTest extends SwingModelTest {
 	/**
 	 * There was bug that our {@link ClassLoader}s did not provide {@link Package}s.
 	 */
+	@Test
 	public void test_getPackage() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.execution;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.utils.execution.NoOpProgressMonitor;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 
@@ -22,6 +24,7 @@ public class NoOpProgressMonitorTest extends DesignerTestCase {
 	/**
 	 * We just call all methods, implementation should just do nothing.
 	 */
+	@Test
 	public void test_1() throws Exception {
 		NoOpProgressMonitor monitor = new NoOpProgressMonitor();
 		// task methods

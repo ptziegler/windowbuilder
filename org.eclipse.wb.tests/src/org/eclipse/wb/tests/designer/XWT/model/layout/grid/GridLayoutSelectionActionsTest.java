@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.layout.grid;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.xwt.model.layout.grid.GridLayoutInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.ControlInfo;
 import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
@@ -40,6 +42,7 @@ public class GridLayoutSelectionActionsTest extends XwtModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_emptySelection() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -55,6 +58,7 @@ public class GridLayoutSelectionActionsTest extends XwtModelTest {
 		Assertions.assertThat(actions).isEmpty();
 	}
 
+	@Test
 	public void test_selectionActions() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -96,6 +100,7 @@ public class GridLayoutSelectionActionsTest extends XwtModelTest {
 		assertFalse(findAction(actions, "Horizontal grab").isChecked());
 	}
 
+	@Test
 	public void test_grabAction() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -138,6 +143,7 @@ public class GridLayoutSelectionActionsTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_alignmentAction() throws Exception {
 		parse(
 				"// filler filler filler filler filler",

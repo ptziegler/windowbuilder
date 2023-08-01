@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.association;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.association.InvocationVoidAssociation;
 import org.eclipse.wb.internal.core.model.JavaInfoUtils;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
@@ -43,6 +45,7 @@ public class InvocationVoidAssociationTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_parse() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -63,6 +66,7 @@ public class InvocationVoidAssociationTest extends SwingModelTest {
 		assertEquals("bar.addSeparator();", m_lastEditor.getSource(association.getStatement()));
 	}
 
+	@Test
 	public void test_delete() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -88,6 +92,7 @@ public class InvocationVoidAssociationTest extends SwingModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_add() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -124,6 +129,7 @@ public class InvocationVoidAssociationTest extends SwingModelTest {
 		assertEquals("bar.addSeparator()", association.getSource());
 	}
 
+	@Test
 	public void test_moveInner() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -165,6 +171,7 @@ public class InvocationVoidAssociationTest extends SwingModelTest {
 	 * We need special support for moving <code>getX()</code> lazy accessor method inside of parent
 	 * block.
 	 */
+	@Test
 	public void test_moveInner_lazy() throws Exception {
 		setFileContentSrc(
 				"test/MyBar.java",

@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.editor.multi.MultiMode;
@@ -42,7 +45,9 @@ public class JavaPropertiesToolBarContributorTest extends SwingGefTest {
 	/**
 	 * Test for "Goto definition" action.
 	 */
-	public void DISABLED_test_gotoDefinition() throws Exception {
+	@Ignore
+	@Test
+	public void test_gotoDefinition() throws Exception {
 		openContainer(
 				"// filler filler filler filler filler",
 				"// filler filler filler filler filler",
@@ -85,7 +90,9 @@ public class JavaPropertiesToolBarContributorTest extends SwingGefTest {
 	/**
 	 * Test for "Local to field" action.
 	 */
-	public void DISABLED_test_convertLocalToField() throws Exception {
+	@Ignore
+	@Test
+	public void test_convertLocalToField() throws Exception {
 		openContainer(
 				"// filler filler filler filler filler",
 				"// filler filler filler filler filler",

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.widgets;
 
+import org.junit.Test;
+
 import com.google.common.collect.ImmutableList;
 
 import org.eclipse.wb.core.model.ObjectInfo;
@@ -52,6 +54,7 @@ public class CTabFolderTest extends RcpModelTest {
 	// Parsing
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_unselectedTab_setRedraw() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -95,6 +98,7 @@ public class CTabFolderTest extends RcpModelTest {
 	/**
 	 * When no items, {@link CTabFolderInfo#getSelectedItem()} returns <code>null</code>.
 	 */
+	@Test
 	public void test_getSelectedItem_0() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -115,6 +119,7 @@ public class CTabFolderTest extends RcpModelTest {
 	/**
 	 * When no items, {@link CTabFolderInfo#getSelectedItem()} returns <code>null</code>.
 	 */
+	@Test
 	public void test_getSelectedItem_1() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -146,6 +151,7 @@ public class CTabFolderTest extends RcpModelTest {
 	/**
 	 * Test for {@link AbstractCTabItem_Info#doSelect()}.
 	 */
+	@Test
 	public void test_doSelect() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -184,6 +190,7 @@ public class CTabFolderTest extends RcpModelTest {
 	 * Test for {@link ObjectEventListener#selecting(ObjectInfo, boolean[])} is implemented for
 	 * {@link CTabFolderInfo}.
 	 */
+	@Test
 	public void test_selecting() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -249,6 +256,7 @@ public class CTabFolderTest extends RcpModelTest {
 	/**
 	 * We should show on design canvas only {@link ControlInfo}'s of expanded {@link CTabItemInfo}'s.
 	 */
+	@Test
 	public void test_presentation_getChildren() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -305,6 +313,7 @@ public class CTabFolderTest extends RcpModelTest {
 	/**
 	 * {@link CTabFolder} with {@link CTabItem}'s.
 	 */
+	@Test
 	public void test_parseItems() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -360,6 +369,7 @@ public class CTabFolderTest extends RcpModelTest {
 	/**
 	 * Test for {@link CTabItem#setControl(org.eclipse.swt.widgets.Control)}.
 	 */
+	@Test
 	public void test_setControl_get() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -399,6 +409,7 @@ public class CTabFolderTest extends RcpModelTest {
 	/**
 	 * Test for {@link CTabItemInfo#command_CREATE(ControlInfo)}.
 	 */
+	@Test
 	public void test_CREATE_control_onItem() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -441,6 +452,7 @@ public class CTabFolderTest extends RcpModelTest {
 	/**
 	 * Test for {@link CTabFolderInfo#command_CREATE(ControlInfo, AbstractTabItem_Info)}.
 	 */
+	@Test
 	public void test_CREATE_control_onFolder() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -475,6 +487,7 @@ public class CTabFolderTest extends RcpModelTest {
 	/**
 	 * Test for {@link CTabItemInfo#command_ADD(ControlInfo)}.
 	 */
+	@Test
 	public void test_ADD_control_onItem() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -520,6 +533,7 @@ public class CTabFolderTest extends RcpModelTest {
 	/**
 	 * Test for {@link CTabFolderInfo#command_MOVE2(ControlInfo, AbstractCTabItem_Info)}.
 	 */
+	@Test
 	public void test_ADD_control_onFolder() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -557,6 +571,7 @@ public class CTabFolderTest extends RcpModelTest {
 	/**
 	 * Move {@link ControlInfo} from one {@link CTabItemInfo} to other.
 	 */
+	@Test
 	public void test_MOVE_control_toOtherItem() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -617,6 +632,7 @@ public class CTabFolderTest extends RcpModelTest {
 	 * When we delete {@link CTabItemInfo} with {@link ControlInfo}, we should also delete
 	 * {@link ControlInfo} .
 	 */
+	@Test
 	public void test_setControl_DELETE() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -652,6 +668,7 @@ public class CTabFolderTest extends RcpModelTest {
 	 * When we move {@link ControlInfo} out from {@link CTabItemInfo}, the
 	 * {@link CTabItem#setControl(org.eclipse.swt.widgets.Control)} invocation should be removed.
 	 */
+	@Test
 	public void test_setControl_moveOut() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -700,6 +717,7 @@ public class CTabFolderTest extends RcpModelTest {
 	/**
 	 * Test for {@link CTabFolderInfo#command_CREATE(CTabItemInfo, CTabItemInfo)}.
 	 */
+	@Test
 	public void test_CREATE_item() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -736,6 +754,7 @@ public class CTabFolderTest extends RcpModelTest {
 	/**
 	 * Test for {@link CTabFolderInfo#command_MOVE(CTabItemInfo, CTabItemInfo)}.
 	 */
+	@Test
 	public void test_MOVE_item_empty() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -782,6 +801,7 @@ public class CTabFolderTest extends RcpModelTest {
 	/**
 	 * When we move {@link CTabItemInfo} with {@link ControlInfo}, they should move together.
 	 */
+	@Test
 	public void test_MOVE_item_withControl() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

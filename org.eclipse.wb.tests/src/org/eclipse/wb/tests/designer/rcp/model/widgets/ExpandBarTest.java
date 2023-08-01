@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.widgets;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.rcp.model.widgets.ExpandBarInfo;
@@ -50,7 +53,9 @@ public class ExpandBarTest extends RcpModelTest {
 	 * {@link ExpandBar} with {@link ExpandItem}'s.
 	 */
 	// Disabled because of https://github.com/eclipse-windowbuilder/windowbuilder/issues/389
-	public void DISABLE_test_parseItems() throws Exception {
+	@Ignore
+	@Test
+	public void test_parseItems() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
 						"public class Test extends Shell {",
@@ -103,6 +108,7 @@ public class ExpandBarTest extends RcpModelTest {
 	 * We should show on design canvas only {@link ControlInfo}'s of expanded {@link ExpandItemInfo}
 	 * 's.
 	 */
+	@Test
 	public void test_presentationChildrenGraphical() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -155,6 +161,7 @@ public class ExpandBarTest extends RcpModelTest {
 	/**
 	 * Test for {@link ExpandItem#setControl(org.eclipse.swt.widgets.Control)}.
 	 */
+	@Test
 	public void test_setControl_get() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -199,6 +206,7 @@ public class ExpandBarTest extends RcpModelTest {
 	 * Test for {@link ExpandItemInfo#command_CREATE(ControlInfo)}.<br>
 	 * There is already {@link ExpandItem#setHeight(int)}, so it is kept.
 	 */
+	@Test
 	public void test_setControl_CREATE() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -245,6 +253,7 @@ public class ExpandBarTest extends RcpModelTest {
 	 * Test for {@link ExpandItemInfo#command_CREATE(ControlInfo)}.<br>
 	 * There are not {@link ExpandItem#setHeight(int)}, so we add new one, with preferred height.
 	 */
+	@Test
 	public void test_setControl_CREATE2() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -289,6 +298,7 @@ public class ExpandBarTest extends RcpModelTest {
 	/**
 	 * Test for {@link ExpandItemInfo#command_ADD(ControlInfo)}.
 	 */
+	@Test
 	public void test_setControl_ADD() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -337,6 +347,7 @@ public class ExpandBarTest extends RcpModelTest {
 	/**
 	 * Move {@link ControlInfo} from one {@link ExpandItemInfo} to other.
 	 */
+	@Test
 	public void test_setControl_MOVE() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -398,6 +409,7 @@ public class ExpandBarTest extends RcpModelTest {
 	/**
 	 * When we move {@link ExpandItemInfo} with {@link ControlInfo}, they should move together.
 	 */
+	@Test
 	public void test_setControl_MOVEItem() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -461,6 +473,7 @@ public class ExpandBarTest extends RcpModelTest {
 	 * When we move {@link ControlInfo} out from {@link ExpandItemInfo}, the
 	 * {@link ExpandItem#setControl(org.eclipse.swt.widgets.Control)} invocation should be removed.
 	 */
+	@Test
 	public void test_setControl_moveOut() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -509,6 +522,7 @@ public class ExpandBarTest extends RcpModelTest {
 	/**
 	 * Test for {@link ExpandBarInfo#command_CREATE(ExpandItemInfo, ExpandItemInfo)}.
 	 */
+	@Test
 	public void test_CREATE() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -545,6 +559,7 @@ public class ExpandBarTest extends RcpModelTest {
 	/**
 	 * Test for {@link ExpandBarInfo#command_MOVE2(ExpandItemInfo, ExpandItemInfo)}.
 	 */
+	@Test
 	public void test_MOVE() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

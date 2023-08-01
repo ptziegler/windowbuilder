@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.forms;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.rcp.model.forms.MasterDetailsBlockInfo;
 
 import org.assertj.core.api.Assertions;
@@ -34,6 +36,7 @@ public class MasterDetailsBlockTest extends AbstractFormsTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_0() throws Exception {
 		MasterDetailsBlockInfo page =
 				parseJavaInfo(

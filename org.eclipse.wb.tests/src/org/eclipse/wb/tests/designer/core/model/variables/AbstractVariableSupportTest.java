@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.variables;
 
+import org.junit.Test;
+
 import com.google.common.collect.Lists;
 
 import org.eclipse.wb.core.model.JavaInfo;
@@ -39,6 +41,7 @@ public class AbstractVariableSupportTest extends AbstractVariableTest {
 	 * Create instance of {@link VariableSupport} using ByteBuddy, because {@link VariableSupport} is
 	 * abstract, and check its methods.
 	 */
+	@Test
 	public void test() throws Exception {
 		JavaInfo javaInfo = mock(JavaInfo.class);
 		// create abstract VariableSupport instance

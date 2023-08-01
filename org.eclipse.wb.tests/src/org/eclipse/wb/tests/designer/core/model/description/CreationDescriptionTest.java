@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.description;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.description.ComponentDescription;
 import org.eclipse.wb.internal.core.model.description.ComponentDescriptionKey;
 import org.eclipse.wb.internal.core.model.description.CreationDescription;
@@ -52,6 +54,7 @@ public class CreationDescriptionTest extends DesignerTestCase {
 	/**
 	 * Test for default "description text" for {@link ComponentDescription}.
 	 */
+	@Test
 	public void test_defaultComponentDescription() throws Exception {
 		{
 			ComponentDescriptionKey key = new ComponentDescriptionKey(JButton.class);
@@ -68,6 +71,7 @@ public class CreationDescriptionTest extends DesignerTestCase {
 	 * Test new {@link CreationDescription} with explicit name.
 	 */
 	@SuppressWarnings({"unchecked", "rawtypes"})
+	@Test
 	public void test_newExplicitName() throws Exception {
 		// prepare ComponentDescription
 		ComponentDescription component;
@@ -88,6 +92,7 @@ public class CreationDescriptionTest extends DesignerTestCase {
 	 * Test new {@link CreationDescription} without explicit name, so name of class is used.
 	 */
 	@SuppressWarnings({"unchecked", "rawtypes"})
+	@Test
 	public void test_newImplicitName() throws Exception {
 		// prepare ComponentDescription
 		ComponentDescription component;
@@ -109,6 +114,7 @@ public class CreationDescriptionTest extends DesignerTestCase {
 	 * {@link CreationDescription} specific values.
 	 */
 	@SuppressWarnings({"unchecked", "rawtypes"})
+	@Test
 	public void test_fromComponentDescription() throws Exception {
 		// prepare ComponentDescription
 		ComponentDescription component;
@@ -138,6 +144,7 @@ public class CreationDescriptionTest extends DesignerTestCase {
 	 * {@link CreationDescription} specific values.
 	 */
 	@SuppressWarnings({"unchecked", "rawtypes"})
+	@Test
 	public void test_specificIconDescription() throws Exception {
 		// prepare ComponentDescription
 		ComponentDescription component;
@@ -162,6 +169,7 @@ public class CreationDescriptionTest extends DesignerTestCase {
 	 * Test that when we set description, we normalize its whitespace.
 	 */
 	@SuppressWarnings({"unchecked", "rawtypes"})
+	@Test
 	public void test_normalizeDescription() throws Exception {
 		// prepare ComponentDescription
 		ComponentDescription component;
@@ -182,6 +190,7 @@ public class CreationDescriptionTest extends DesignerTestCase {
 	 * Test for set/get source.
 	 */
 	@SuppressWarnings({"unchecked", "rawtypes"})
+	@Test
 	public void test_source() throws Exception {
 		// prepare ComponentDescription
 		ComponentDescription component;
@@ -210,6 +219,7 @@ public class CreationDescriptionTest extends DesignerTestCase {
 	 * We should use canonical {@link Class} name.
 	 */
 	@SuppressWarnings({"unchecked", "rawtypes"})
+	@Test
 	public void test_getSource_innerClass() throws Exception {
 		class MyInnerClass {
 		}
@@ -237,6 +247,7 @@ public class CreationDescriptionTest extends DesignerTestCase {
 	 * Test for {@link CreationInvocationDescription}.
 	 */
 	@SuppressWarnings({"unchecked", "rawtypes"})
+	@Test
 	public void test_invocations() throws Exception {
 		// prepare ComponentDescription
 		ComponentDescription component;
@@ -271,6 +282,7 @@ public class CreationDescriptionTest extends DesignerTestCase {
 	 * Test for {@link CreationDescription} specific parameters.
 	 */
 	@SuppressWarnings({"unchecked", "rawtypes"})
+	@Test
 	public void test_specificParameters() throws Exception {
 		// prepare ComponentDescription
 		ComponentDescription component;

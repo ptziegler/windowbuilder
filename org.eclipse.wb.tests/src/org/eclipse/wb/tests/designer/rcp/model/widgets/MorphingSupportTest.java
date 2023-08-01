@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.model.description.MorphingTargetDescription;
 import org.eclipse.wb.internal.core.model.util.MorphingSupport;
@@ -43,6 +45,7 @@ public class MorphingSupportTest extends RcpModelTest {
 	 * If we cache {@link JavaInfo} in {@link Expression}, then after morphing we think that this
 	 * {@link Expression} still represents old {@link JavaInfo}.
 	 */
+	@Test
 	public void test_keepChildren() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

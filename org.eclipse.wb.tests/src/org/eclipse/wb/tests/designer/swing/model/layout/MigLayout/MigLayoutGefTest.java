@@ -9,6 +9,11 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.MigLayout;
+import org.junit.Ignore;
+import org.junit.Before;
+import org.junit.After;
+
+import org.junit.Test;
 
 import org.eclipse.wb.core.gef.policy.layout.grid.IGridInfo;
 import org.eclipse.wb.gef.graphical.policies.LayoutEditPolicy;
@@ -61,13 +66,15 @@ public class MigLayoutGefTest extends SwingGefTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		AbstractLayoutTest.configureForTest();
 	}
 
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		AbstractLayoutTest.configureDefaults();
 		super.tearDown();
 	}
@@ -83,6 +90,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 	// Set MigLayout
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_setLayout_empty() throws Exception {
 		openPanel(
 				"// filler filler filler filler filler",
@@ -109,6 +117,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 	 * columns/rows {@link LayoutEditPolicy} for exiting columns/rows from previous layout. We test
 	 * that they play safely now.
 	 */
+	@Test
 	public void test_setLayout_replaceGridBagLayout() throws Exception {
 		openPanel(
 				"// filler filler filler filler filler",
@@ -136,6 +145,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 	// CREATE
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_CREATE_filled() throws Exception {
 		openPanel(
 				"public class Test extends JPanel {",
@@ -167,6 +177,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_CREATE_empty() throws Exception {
 		openPanel(
 				"// filler filler filler filler filler",
@@ -193,6 +204,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_CREATE_virtual_1x1() throws Exception {
 		openPanel(
 				"// filler filler filler filler filler",
@@ -220,6 +232,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_CREATE_virtual_1x0() throws Exception {
 		openPanel(
 				"// filler filler filler filler filler",
@@ -247,6 +260,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_CREATE_virtual_0x1() throws Exception {
 		openPanel(
 				"// filler filler filler filler filler",
@@ -274,6 +288,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_CREATE_appendToColumn_0x1() throws Exception {
 		openPanel(
 				"// filler filler filler filler filler",
@@ -308,6 +323,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_CREATE_appendToRow_1x0() throws Exception {
 		openPanel(
 				"// filler filler filler filler filler",
@@ -342,6 +358,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_CREATE_beforeFirstRow() throws Exception {
 		openPanel(
 				"// filler filler filler filler filler",
@@ -376,6 +393,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_CREATE_beforeFirstColumn() throws Exception {
 		openPanel(
 				"// filler filler filler filler filler",
@@ -410,6 +428,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_CREATE_insertRow_endOfComponent() throws Exception {
 		openPanel(
 				"// filler filler filler filler filler",
@@ -452,6 +471,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_CREATE_insertColumn_endOfComponent() throws Exception {
 		openPanel(
 				"// filler filler filler filler filler",
@@ -502,6 +522,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 	/**
 	 * When {@link MigLayoutInfo} is inherited, we can not change its dimensions.
 	 */
+	@Test
 	public void test_CREATE_inherited_columnOperations() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -548,6 +569,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 	/**
 	 * When {@link MigLayoutInfo} is inherited, we can not change its dimensions.
 	 */
+	@Test
 	public void test_CREATE_inherited_rowOperations() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -597,7 +619,9 @@ public class MigLayoutGefTest extends SwingGefTest {
 	// PASTE
 	//
 	////////////////////////////////////////////////////////////////////////////
-	public void DISABLE_test_PASTE_virtual_1x0() throws Exception {
+	@Ignore
+	@Test
+	public void test_PASTE_virtual_1x0() throws Exception {
 		openPanel(
 				"// filler filler filler filler filler",
 				"public class Test extends JPanel {",
@@ -638,6 +662,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 	// MOVE
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_MOVE_virtual_1x0() throws Exception {
 		openPanel(
 				"// filler filler filler filler filler",
@@ -668,6 +693,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_ADD_virtual_0x0() throws Exception {
 		openPanel(
 				"public class Test extends JPanel {",
@@ -715,6 +741,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 	/**
 	 * When {@link MigLayoutInfo} is inherited, we can not change its dimensions.
 	 */
+	@Test
 	public void test_headerColumn_MOVE_inherited() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -747,6 +774,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 		}
 	}
 
+	@Test
 	public void test_headerColumn_MOVE_forward_beforeOther() throws Exception {
 		openPanel(
 				"public class Test extends JPanel {",
@@ -772,6 +800,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_headerColumn_MOVE_forward_afterLast() throws Exception {
 		openPanel(
 				"public class Test extends JPanel {",
@@ -805,6 +834,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 	/**
 	 * When {@link MigLayoutInfo} is inherited, we can not change its dimensions.
 	 */
+	@Test
 	public void test_headerRow_MOVE_inherited() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -837,6 +867,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 		}
 	}
 
+	@Test
 	public void test_headerRow_MOVE_forward_beforeOther() throws Exception {
 		openPanel(
 				"public class Test extends JPanel {",
@@ -862,6 +893,7 @@ public class MigLayoutGefTest extends SwingGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_headerRow_MOVE_forward_afterLast() throws Exception {
 		openPanel(
 				"public class Test extends JPanel {",

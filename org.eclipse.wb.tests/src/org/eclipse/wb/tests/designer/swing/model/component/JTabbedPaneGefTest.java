@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.component;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.internal.swing.model.component.JTabbedPaneInfo;
@@ -38,6 +40,7 @@ public class JTabbedPaneGefTest extends SwingGefTest {
 	// Canvas
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_childrenForActiveTab() throws Exception {
 		ContainerInfo panel =
 				openContainer(
@@ -87,6 +90,7 @@ public class JTabbedPaneGefTest extends SwingGefTest {
 		assertSelectionModels(panel_1);
 	}
 
+	@Test
 	public void test_tab_MOVE() throws Exception {
 		ContainerInfo panel =
 				openContainer(

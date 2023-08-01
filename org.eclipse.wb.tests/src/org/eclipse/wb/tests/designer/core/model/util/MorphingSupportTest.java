@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.util;
 
+import org.junit.Test;
+
 import com.google.common.collect.ImmutableList;
 
 import org.eclipse.wb.core.model.JavaInfo;
@@ -67,6 +69,7 @@ public class MorphingSupportTest extends SwingModelTest {
 	// Validate
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_validate_noAssociationMethod() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -106,6 +109,7 @@ public class MorphingSupportTest extends SwingModelTest {
 		assertNotNull(message);
 	}
 
+	@Test
 	public void test_validate_hasMethod_notAssociation() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -154,6 +158,7 @@ public class MorphingSupportTest extends SwingModelTest {
 	/**
 	 * {@link MethodInvocation} that can not exist for new component, should be removed.
 	 */
+	@Test
 	public void test_morph_removeMethodInvocations() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -224,6 +229,7 @@ public class MorphingSupportTest extends SwingModelTest {
 	/**
 	 * {@link Assignment} that can not exist for new component, should be removed.
 	 */
+	@Test
 	public void test_morph_removeFieldAssignments() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -292,6 +298,7 @@ public class MorphingSupportTest extends SwingModelTest {
 	 * If source is created using {@link ClassInstanceCreation} and target has constructor with same
 	 * parameter types, then use same arguments.
 	 */
+	@Test
 	public void test_morph_useConstructorWithSameArguments() throws Exception {
 		String[] lines1 =
 			{
@@ -327,6 +334,7 @@ public class MorphingSupportTest extends SwingModelTest {
 	/**
 	 * Test for morphing when {@link ConstructorParentAssociation} is used.
 	 */
+	@Test
 	public void test_morph_ConstructorParentAssociation() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -428,6 +436,7 @@ public class MorphingSupportTest extends SwingModelTest {
 	/**
 	 * Test for morphing when {@link StaticFactoryCreationSupport} is used.
 	 */
+	@Test
 	public void test_morph_StaticFactoryCreationSupport() throws Exception {
 		setFileContentSrc(
 				"test/MyFactory.java",
@@ -491,6 +500,7 @@ public class MorphingSupportTest extends SwingModelTest {
 	 * Test for morphing when {@link StaticFactoryCreationSupport} and
 	 * {@link FactoryParentAssociation} are used.
 	 */
+	@Test
 	public void test_morph_StaticFactoryCreationSupport_FactoryParentAssociation() throws Exception {
 		setFileContentSrc(
 				"test/MyFactory.java",
@@ -576,6 +586,7 @@ public class MorphingSupportTest extends SwingModelTest {
 	/**
 	 * Test for morphing when {@link InstanceFactoryCreationSupport} is used.
 	 */
+	@Test
 	public void test_morph_InstanceFactoryCreationSupport() throws Exception {
 		setFileContentSrc(
 				"test/MyFactory.java",
@@ -640,6 +651,7 @@ public class MorphingSupportTest extends SwingModelTest {
 	/**
 	 * During morphing we move children from source to parent.
 	 */
+	@Test
 	public void test_morph_keepChildren() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -714,6 +726,7 @@ public class MorphingSupportTest extends SwingModelTest {
 	/**
 	 * Morphing and {@link LazyVariableSupport} - it should replace return type for accessor.
 	 */
+	@Test
 	public void test_morph_lazyVariable() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -784,6 +797,7 @@ public class MorphingSupportTest extends SwingModelTest {
 	 * {@link JavaInfo}. This was caused by using old (source) {@link JavaInfo} in reused
 	 * {@link VariableSupport}.
 	 */
+	@Test
 	public void test_morph_andSetProperty() throws Exception {
 		String[] lines =
 			{
@@ -850,6 +864,7 @@ public class MorphingSupportTest extends SwingModelTest {
 	/**
 	 * Test that "Morph" sub-menu is contributed during broadcast.
 	 */
+	@Test
 	public void test_actions() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -880,6 +895,7 @@ public class MorphingSupportTest extends SwingModelTest {
 	/**
 	 * Thoroughly test one action from "Morph" sub-menu.
 	 */
+	@Test
 	public void test_actions_run() throws Exception {
 		String[] lines =
 			{
@@ -934,6 +950,7 @@ public class MorphingSupportTest extends SwingModelTest {
 	 * {@link JavaEventListener#replaceChildAfter(JavaInfo, JavaInfo, JavaInfo)} during morphing
 	 * operations.
 	 */
+	@Test
 	public void test_morph_invoke_replaceChildren() throws Exception {
 		// prepare "before" state
 		final boolean[] invokeBeforeState = {false};

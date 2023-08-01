@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.property;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.GenericProperty;
 import org.eclipse.wb.internal.core.utils.jdt.core.ProjectUtils;
 import org.eclipse.wb.internal.rcp.Activator;
@@ -69,6 +71,7 @@ public class ImageDescriptorPropertyEditorTestPlugin extends ImageDescriptorProp
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_ThisPluginImage_OLD() throws Exception {
 		ensureManagers();
 		// now we have ResourceManager, so use it for image
@@ -78,6 +81,7 @@ public class ImageDescriptorPropertyEditorTestPlugin extends ImageDescriptorProp
 				"org.eclipse.wb.swt.ResourceManager.getPluginImageDescriptor(\"TestProject\", \"icons/1.png\")");
 	}
 
+	@Test
 	public void test_ThisPluginImage_NEW_workspace() throws Exception {
 		ensureManagers();
 		// now we have ResourceManager, so use it for image
@@ -87,6 +91,7 @@ public class ImageDescriptorPropertyEditorTestPlugin extends ImageDescriptorProp
 				"org.eclipse.wb.swt.ResourceManager.getPluginImageDescriptor(\"TestProject\", \"icons/1.png\")");
 	}
 
+	@Test
 	public void test_PluginImage_NEW() throws Exception {
 		ensureManagers();
 		// now we have ResourceManager, so use it for image
@@ -96,6 +101,7 @@ public class ImageDescriptorPropertyEditorTestPlugin extends ImageDescriptorProp
 				"org.eclipse.wb.swt.ResourceManager.getPluginImageDescriptor(\"org.eclipse.jdt.ui\", \"/icons/full/elcl16/ch_cancel.png\")");
 	}
 
+	@Test
 	public void test_ThisPlugin_Value() throws Exception {
 		ensureManagers();
 		GenericProperty property =
@@ -110,6 +116,7 @@ public class ImageDescriptorPropertyEditorTestPlugin extends ImageDescriptorProp
 		assertEquals("icons/1.png", values[1]);
 	}
 
+	@Test
 	public void test_Plugin_Value() throws Exception {
 		ensureManagers();
 		GenericProperty property =

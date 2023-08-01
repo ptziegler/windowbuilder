@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor.validator;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.gef.policy.validator.BorderOfChildLayoutRequestValidator;
 import org.eclipse.wb.core.gef.policy.validator.CachingLayoutRequestValidator;
 import org.eclipse.wb.core.gef.policy.validator.CompatibleLayoutRequestValidator;
@@ -46,6 +48,7 @@ public class LayoutRequestValidatorsTest extends AbstractLayoutRequestValidatorT
 	/**
 	 * Test for {@link ILayoutRequestValidator#TRUE}.
 	 */
+	@Test
 	public void test_TRUE() throws Exception {
 		ILayoutRequestValidator validator = ILayoutRequestValidator.TRUE;
 		assertTrue(validator);
@@ -54,6 +57,7 @@ public class LayoutRequestValidatorsTest extends AbstractLayoutRequestValidatorT
 	/**
 	 * Test for {@link ILayoutRequestValidator#FALSE}.
 	 */
+	@Test
 	public void test_FALSE() throws Exception {
 		ILayoutRequestValidator validator = ILayoutRequestValidator.FALSE;
 		assertFalse(validator);
@@ -67,6 +71,7 @@ public class LayoutRequestValidatorsTest extends AbstractLayoutRequestValidatorT
 	/**
 	 * Test for {@link LayoutRequestValidators#finalize(ILayoutRequestValidator)}.
 	 */
+	@Test
 	public void test_finalize() throws Exception {
 		ILayoutRequestValidator specificValidator = ILayoutRequestValidator.TRUE;
 		ILayoutRequestValidator validator = LayoutRequestValidators.finalize(specificValidator);
@@ -78,6 +83,7 @@ public class LayoutRequestValidatorsTest extends AbstractLayoutRequestValidatorT
 	/**
 	 * Test for {@link LayoutRequestValidators#modelType(Class)}.
 	 */
+	@Test
 	public void test_modelType() throws Exception {
 		ILayoutRequestValidator validator = LayoutRequestValidators.modelType(ContainerInfo.class);
 		assertHas_ModelType(validator, ContainerInfo.class);
@@ -88,6 +94,7 @@ public class LayoutRequestValidatorsTest extends AbstractLayoutRequestValidatorT
 	/**
 	 * Test for {@link LayoutRequestValidators#componentType(String)}.
 	 */
+	@Test
 	public void test_componentType() throws Exception {
 		ILayoutRequestValidator validator =
 				LayoutRequestValidators.componentType("javax.swing.JButton");
@@ -177,6 +184,7 @@ public class LayoutRequestValidatorsTest extends AbstractLayoutRequestValidatorT
 	/**
 	 * Test for {@link LayoutRequestValidators#and(ILayoutRequestValidator...)}.
 	 */
+	@Test
 	public void test_Compound_and_true() throws Exception {
 		ILayoutRequestValidator validator =
 				LayoutRequestValidators.and(ILayoutRequestValidator.TRUE, ILayoutRequestValidator.TRUE);
@@ -186,6 +194,7 @@ public class LayoutRequestValidatorsTest extends AbstractLayoutRequestValidatorT
 	/**
 	 * Test for {@link LayoutRequestValidators#and(ILayoutRequestValidator...)}.
 	 */
+	@Test
 	public void test_Compound_and_false() throws Exception {
 		ILayoutRequestValidator validator =
 				LayoutRequestValidators.and(ILayoutRequestValidator.TRUE, ILayoutRequestValidator.FALSE);
@@ -195,6 +204,7 @@ public class LayoutRequestValidatorsTest extends AbstractLayoutRequestValidatorT
 	/**
 	 * Test for {@link LayoutRequestValidators#or(ILayoutRequestValidator...)}.
 	 */
+	@Test
 	public void test_Compound_or_true() throws Exception {
 		ILayoutRequestValidator validator =
 				LayoutRequestValidators.or(ILayoutRequestValidator.TRUE, ILayoutRequestValidator.FALSE);
@@ -204,6 +214,7 @@ public class LayoutRequestValidatorsTest extends AbstractLayoutRequestValidatorT
 	/**
 	 * Test for {@link LayoutRequestValidators#or(ILayoutRequestValidator...)}.
 	 */
+	@Test
 	public void test_Compound_or_false() throws Exception {
 		ILayoutRequestValidator validator =
 				LayoutRequestValidators.or(ILayoutRequestValidator.FALSE, ILayoutRequestValidator.FALSE);

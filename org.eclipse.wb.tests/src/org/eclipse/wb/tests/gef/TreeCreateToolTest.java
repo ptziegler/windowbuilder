@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.gef;
+import org.junit.Before;
+
+import org.junit.Test;
 
 import org.eclipse.wb.gef.core.EditPart;
 import org.eclipse.wb.gef.core.requests.ICreationFactory;
@@ -30,7 +33,8 @@ public class TreeCreateToolTest extends TreeToolTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		// create test factory
 		ICreationFactory factory = new ICreationFactory() {
@@ -57,6 +61,7 @@ public class TreeCreateToolTest extends TreeToolTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_Move_1() throws Exception {
 		RequestsLogger actualLogger = new RequestsLogger();
 		//
@@ -152,6 +157,7 @@ public class TreeCreateToolTest extends TreeToolTest {
 		}
 	}
 
+	@Test
 	public void test_Move_2() throws Exception {
 		RequestsLogger actualLogger = new RequestsLogger();
 		//
@@ -199,6 +205,7 @@ public class TreeCreateToolTest extends TreeToolTest {
 		}
 	}
 
+	@Test
 	public void test_Move_3() throws Exception {
 		RequestsLogger actualLogger = new RequestsLogger();
 		//

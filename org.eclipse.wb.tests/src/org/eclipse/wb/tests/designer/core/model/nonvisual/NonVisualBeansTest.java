@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.nonvisual;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.core.model.association.InvocationChildAssociation;
 import org.eclipse.wb.internal.core.model.generation.statement.lazy.LazyStatementGeneratorDescription;
@@ -49,6 +51,7 @@ public class NonVisualBeansTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_noBeans() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -62,6 +65,7 @@ public class NonVisualBeansTest extends SwingModelTest {
 		assertNull(NonVisualBeanContainerInfo.find(panel));
 	}
 
+	@Test
 	public void test_constructorBean() throws Exception {
 		// prepare source
 		ContainerInfo panel =
@@ -87,6 +91,7 @@ public class NonVisualBeansTest extends SwingModelTest {
 		Assertions.assertThat(bean.getAssociation()).isInstanceOf(NonVisualAssociation.class);
 	}
 
+	@Test
 	public void test_swingBean() throws Exception {
 		// prepare source
 		ContainerInfo panel =
@@ -107,6 +112,7 @@ public class NonVisualBeansTest extends SwingModelTest {
 	/**
 	 * Test for {@link NonVisualBeanInfo#isNVO(JavaInfo)}.
 	 */
+	@Test
 	public void test_isNVO() throws Exception {
 		JavaInfo panel =
 				parseContainer(
@@ -124,6 +130,7 @@ public class NonVisualBeansTest extends SwingModelTest {
 		assertTrue(NonVisualBeanInfo.isNVO(button));
 	}
 
+	@Test
 	public void test_staticFactory() throws Exception {
 		setFileContentSrc(
 				"test/MyStaticFactory.java",
@@ -150,6 +157,7 @@ public class NonVisualBeansTest extends SwingModelTest {
 		test_nonVisual(panel);
 	}
 
+	@Test
 	public void test_instanceFactory() throws Exception {
 		setFileContentSrc(
 				"test/MyInstanceFactory.java",
@@ -177,6 +185,7 @@ public class NonVisualBeansTest extends SwingModelTest {
 		test_nonVisual(panel);
 	}
 
+	@Test
 	public void test_CREATE() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -205,6 +214,7 @@ public class NonVisualBeansTest extends SwingModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_moveBean() throws Exception {
 		// prepare source
 		ContainerInfo panel =
@@ -239,6 +249,7 @@ public class NonVisualBeansTest extends SwingModelTest {
 	/**
 	 * We should be able to move NVO to container, so make it VO.
 	 */
+	@Test
 	public void test_convertInto_VO() throws Exception {
 		// prepare source
 		ContainerInfo panel =
@@ -281,6 +292,7 @@ public class NonVisualBeansTest extends SwingModelTest {
 	// Lazy
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_lazy_parse() throws Exception {
 		// prepare source
 		ContainerInfo panel =
@@ -310,6 +322,7 @@ public class NonVisualBeansTest extends SwingModelTest {
 		Assertions.assertThat(bean.getAssociation()).isInstanceOf(NonVisualAssociation.class);
 	}
 
+	@Test
 	public void test_lazy_CREATE() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

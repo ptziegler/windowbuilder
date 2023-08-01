@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.AbstractComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
@@ -43,6 +45,7 @@ public class AbstractComponentTest extends SwingModelTest {
 	 * so will not able to dispose its {@link Image}. We need some solution to clean up
 	 * {@link AbstractComponentInfo} during delete.
 	 */
+	@Test
 	public void test_disposeImage_whenDeleteModel() throws Exception {
 		parseContainer(
 				"public class Test extends JPanel {",
@@ -71,6 +74,7 @@ public class AbstractComponentTest extends SwingModelTest {
 	/**
 	 * Test for {@link AbstractComponentInfo#getComponentObject()}.
 	 */
+	@Test
 	public void test_getComponentObject() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -95,6 +99,7 @@ public class AbstractComponentTest extends SwingModelTest {
 	 * Test for {@link AbstractComponentInfo#getAbsoluteBounds()} when we have some bounds for top
 	 * level.
 	 */
+	@Test
 	public void test_getAbsolute_topLevel() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -112,6 +117,7 @@ public class AbstractComponentTest extends SwingModelTest {
 	 * Test for {@link AbstractComponentInfo#getAbsoluteBounds()} when we have some bounds for inner
 	 * component.
 	 */
+	@Test
 	public void test_getAbsolute_innerComponent() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

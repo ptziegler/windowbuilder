@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.gbl;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.utils.execution.ExecutionUtils;
 import org.eclipse.wb.internal.core.utils.execution.RunnableEx;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
@@ -33,6 +35,7 @@ public class GridBagRowTest extends AbstractGridBagLayoutTest {
 	 * Test for {@link RowInfo#getAlignment()}.<br>
 	 * No components, so unknown alignment.
 	 */
+	@Test
 	public void test_getAlignment_1() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -53,6 +56,7 @@ public class GridBagRowTest extends AbstractGridBagLayoutTest {
 	 * Test for {@link RowInfo#getAlignment()}.<br>
 	 * Single component with {@link GridBagConstraints#NORTH}, so "top" alignment.
 	 */
+	@Test
 	public void test_getAlignment_2() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -80,6 +84,7 @@ public class GridBagRowTest extends AbstractGridBagLayoutTest {
 	 * Test for {@link RowInfo#getAlignment()}.<br>
 	 * Two components with different alignments, so "unknown" alignment for {@link RowInfo}.
 	 */
+	@Test
 	public void test_getAlignment_3() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -151,6 +156,7 @@ public class GridBagRowTest extends AbstractGridBagLayoutTest {
 	/**
 	 * Delete first row, component in next row moved.
 	 */
+	@Test
 	public void test_DELETE_1() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -209,6 +215,7 @@ public class GridBagRowTest extends AbstractGridBagLayoutTest {
 	/**
 	 * When delete row, height of spanned components may be decreased.
 	 */
+	@Test
 	public void test_DELETE_2() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -275,6 +282,7 @@ public class GridBagRowTest extends AbstractGridBagLayoutTest {
 	/**
 	 * Move row backward.
 	 */
+	@Test
 	public void test_MOVE_backward() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -362,6 +370,7 @@ public class GridBagRowTest extends AbstractGridBagLayoutTest {
 	/**
 	 * Move row forward.
 	 */
+	@Test
 	public void test_MOVE_forward() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

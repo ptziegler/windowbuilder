@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.association;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.association.AssociationObject;
 import org.eclipse.wb.core.model.association.AssociationObjectFactories;
 import org.eclipse.wb.core.model.association.AssociationObjectFactory;
@@ -41,6 +43,7 @@ public class AssociationObjectFactoriesTest extends SwingModelTest {
 	/**
 	 * Test for {@link AssociationObjectFactories#no()}.
 	 */
+	@Test
 	public void test_no() throws Exception {
 		AssociationObjectFactory factory = AssociationObjectFactories.no();
 		assertEquals("NO", factory.toString());
@@ -56,6 +59,7 @@ public class AssociationObjectFactoriesTest extends SwingModelTest {
 	/**
 	 * Test for {@link AssociationObjectFactories#invocationChild(String, boolean)}.
 	 */
+	@Test
 	public void test_invocationChild() throws Exception {
 		String source = "%parent%.add(%child%)";
 		// check factory

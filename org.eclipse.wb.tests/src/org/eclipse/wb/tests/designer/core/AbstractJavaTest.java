@@ -9,7 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.utils.ast.AstEditor;
 import org.eclipse.wb.internal.core.utils.ast.AstNodeUtils;
@@ -52,6 +51,7 @@ import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 import org.eclipse.jdt.core.dom.VariableDeclarationStatement;
 
 import org.apache.commons.lang.StringUtils;
+import org.junit.After;
 
 import java.util.List;
 
@@ -65,7 +65,8 @@ public class AbstractJavaTest extends AbstractJavaProjectTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		// don't ignore model compilation problems
 		m_ignoreModelCompileProblems = false;
 		// clear "last"
@@ -73,24 +74,6 @@ public class AbstractJavaTest extends AbstractJavaProjectTest {
 		m_lastModelUnit = null;
 		// continue
 		super.tearDown();
-	}
-
-	@Override
-	public void test_tearDown() throws Exception {
-		do_projectDispose();
-	}
-
-	////////////////////////////////////////////////////////////////////////////
-	//
-	// Project operations
-	//
-	////////////////////////////////////////////////////////////////////////////
-	@Override
-	public void do_projectDispose() throws Exception {
-		super.do_projectDispose();
-		// clear "last"
-		m_lastEditor = null;
-		m_lastModelUnit = null;
 	}
 
 	////////////////////////////////////////////////////////////////////////////

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.editor.structure.property.IPropertiesMenuContributor;
 import org.eclipse.wb.internal.core.model.property.Property;
@@ -52,6 +54,7 @@ public class ExposePropertySupportTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_validOrInvalidProperty() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -77,6 +80,7 @@ public class ExposePropertySupportTest extends SwingModelTest {
 	// Validate
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_validate() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -118,6 +122,7 @@ public class ExposePropertySupportTest extends SwingModelTest {
 	/**
 	 * Property with primitive type.
 	 */
+	@Test
 	public void test_getPreviewSource_primitive() throws Exception {
 		parseContainer(
 				"public class Test extends JPanel {",
@@ -144,6 +149,7 @@ public class ExposePropertySupportTest extends SwingModelTest {
 	/**
 	 * Test case when parameter of setter conflicts with existing {@link VariableDeclaration}.
 	 */
+	@Test
 	public void test_getPreviewSource_parameter() throws Exception {
 		parseContainer(
 				"public class Test extends JPanel {",
@@ -171,6 +177,7 @@ public class ExposePropertySupportTest extends SwingModelTest {
 	/**
 	 * Property with qualified type name.
 	 */
+	@Test
 	public void test_getPreviewSource_qualified() throws Exception {
 		parseContainer(
 				"public class Test extends JPanel {",
@@ -197,6 +204,7 @@ public class ExposePropertySupportTest extends SwingModelTest {
 	/**
 	 * Property with array of objects type name.
 	 */
+	@Test
 	public void test_getPreviewSource_qualifiedArray() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -235,6 +243,7 @@ public class ExposePropertySupportTest extends SwingModelTest {
 	/**
 	 * <code>protected</code> modifier for exposed.
 	 */
+	@Test
 	public void test_getPreviewSource_protected() throws Exception {
 		parseContainer(
 				"public class Test extends JPanel {",
@@ -295,6 +304,7 @@ public class ExposePropertySupportTest extends SwingModelTest {
 	/**
 	 * Expose <code>String</code> property.
 	 */
+	@Test
 	public void test_expose_String() throws Exception {
 		parseContainer(
 				"public class Test extends JPanel {",
@@ -325,6 +335,7 @@ public class ExposePropertySupportTest extends SwingModelTest {
 	/**
 	 * Expose <code>String[]</code> property.
 	 */
+	@Test
 	public void test_expose_StringArray() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -379,6 +390,7 @@ public class ExposePropertySupportTest extends SwingModelTest {
 	// Dialog UI
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_animateDialog() throws Exception {
 		parseContainer(
 				"public class Test extends JPanel {",

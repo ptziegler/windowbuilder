@@ -9,6 +9,10 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.nls;
+import org.junit.Ignore;
+import org.junit.After;
+
+import org.junit.Test;
 
 import com.google.common.base.Function;
 import com.google.common.collect.ImmutableList;
@@ -64,7 +68,8 @@ public class NlsSupportTest extends SwingModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		waitEventLoop(0);
 		if (m_frame != null) {
 			m_frame.refresh_dispose();
@@ -126,6 +131,7 @@ public class NlsSupportTest extends SwingModelTest {
 	/**
 	 * Test for {@link NlsSupport#getKeySource(String)}.
 	 */
+	@Test
 	public void test_getKeySource() throws Exception {
 		prepareUsualState();
 		NlsSupport nlsSupport = NlsSupport.get(m_frame);
@@ -141,6 +147,7 @@ public class NlsSupportTest extends SwingModelTest {
 		assertSame(null, nlsSupport.getKeySource("no.such.key"));
 	}
 
+	@Test
 	public void test_getValue_default() throws Exception {
 		prepareUsualState();
 		// check with default locale
@@ -148,6 +155,7 @@ public class NlsSupportTest extends SwingModelTest {
 		assertEquals("My JFrame", ((JFrame) m_frame.getObject()).getTitle());
 	}
 
+	@Test
 	public void test_getValue_null() throws Exception {
 		prepareUsualState();
 		AbstractSource.setLocaleInfo(m_frame, null);
@@ -155,6 +163,7 @@ public class NlsSupportTest extends SwingModelTest {
 		assertEquals("My JFrame", ((JFrame) m_frame.getObject()).getTitle());
 	}
 
+	@Test
 	public void test_getValue_it() throws Exception {
 		prepareUsualState();
 		// check with Italian locale (I don't use Russian because it will be used as default in my case...)
@@ -163,6 +172,7 @@ public class NlsSupportTest extends SwingModelTest {
 		assertEquals("My JFrame IT", ((JFrame) m_frame.getObject()).getTitle());
 	}
 
+	@Test
 	public void test_getValue_it_IT() throws Exception {
 		prepareUsualState();
 		AbstractSource.setLocaleInfo(m_frame, new LocaleInfo(new Locale("it_IT")));
@@ -173,6 +183,7 @@ public class NlsSupportTest extends SwingModelTest {
 	/**
 	 * Check for "bad expression" when there are no bundle files.
 	 */
+	@Test
 	public void test_getValue_removeResources() throws Exception {
 		createUsualAccessor();
 		//
@@ -203,6 +214,7 @@ public class NlsSupportTest extends SwingModelTest {
 	 * <p>
 	 * Note, that this feature works only for "old Eclipse" source, with "Messages" class.
 	 */
+	@Test
 	public void test_useSelectedLocale_forBinaryComponents() throws Exception {
 		createUsualAccessorProperties();
 		setFileContentSrc(
@@ -235,6 +247,7 @@ public class NlsSupportTest extends SwingModelTest {
 	// NLSSource
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_SourceDescription() throws Exception {
 		prepareUsualState();
 		SourceDescription[] sourceDescriptions = NlsSupport.getSourceDescriptions(m_frame);
@@ -256,11 +269,13 @@ public class NlsSupportTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_NLSSource_getRoot() throws Exception {
 		prepareUsualState();
 		assertSame(m_frame, m_support.getRoot());
 	}
 
+	@Test
 	public void test_NLSSource_getSources() throws Exception {
 		prepareUsualState();
 		AbstractSource[] sources = m_support.getSources();
@@ -268,6 +283,7 @@ public class NlsSupportTest extends SwingModelTest {
 		assertInstanceOf(EclipseSource.class, sources[0]);
 	}
 
+	@Test
 	public void test_NLSSource_getLocales() throws Exception {
 		prepareUsualState();
 		LocaleInfo[] locales = m_support.getLocales();
@@ -279,6 +295,7 @@ public class NlsSupportTest extends SwingModelTest {
 	/**
 	 * User asked to provide global configuration to set locales which always will exists.
 	 */
+	@Test
 	public void test_NLSSource_getLocales_alwaysVisibleLocales() throws Exception {
 		prepareUsualState();
 		ToolkitDescription toolkit = m_frame.getDescription().getToolkit();
@@ -299,6 +316,7 @@ public class NlsSupportTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_NLSSource_isExternalized() throws Exception {
 		prepareUsualState();
 		// externalized expression
@@ -313,6 +331,7 @@ public class NlsSupportTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_NLSSource_isExternallyChanged() throws Exception {
 		prepareUsualState();
 		assertFalse(m_support.isExternallyChanged());
@@ -320,6 +339,7 @@ public class NlsSupportTest extends SwingModelTest {
 		assertTrue(m_support.isExternallyChanged());
 	}
 
+	@Test
 	public void test_NLSSource_setValue() throws Exception {
 		prepareUsualState();
 		// set value
@@ -330,6 +350,7 @@ public class NlsSupportTest extends SwingModelTest {
 		assertTrue(newProperties.contains("frame.title=New title"));
 	}
 
+	@Test
 	public void test_NLSSource_externalize() throws Exception {
 		prepareUsualState();
 		// set value
@@ -351,6 +372,7 @@ public class NlsSupportTest extends SwingModelTest {
 	/**
 	 * Test for {@link NlsSupport#getAttachedSource(IEditableSupport, IEditableSource)}.
 	 */
+	@Test
 	public void test_getAttachedSource() throws Exception {
 		setFileContentSrc("test/messages.properties", getSourceDQ("#Field ResourceBundle: m_bundle"));
 		waitForAutoBuild();
@@ -391,6 +413,7 @@ public class NlsSupportTest extends SwingModelTest {
 	// GenericProperty.setValue()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_GenericProperty_setValue_clearProperty() throws Exception {
 		prepareUsualState();
 		m_frame.refresh();
@@ -411,6 +434,7 @@ public class NlsSupportTest extends SwingModelTest {
 		assertFalse(newProperties.contains("Test.this.name=myName"));
 	}
 
+	@Test
 	public void test_GenericProperty_setValue_forAlreadyExternalized() throws Exception {
 		prepareUsualState();
 		m_frame.refresh();
@@ -426,6 +450,7 @@ public class NlsSupportTest extends SwingModelTest {
 		assertEquals("New title", ((JFrame) m_frame.getObject()).getTitle());
 	}
 
+	@Test
 	public void test_GenericProperty_setValue_setKey_forNewProperty() throws Exception {
 		createUsualAccessorProperties();
 		m_frame =
@@ -460,6 +485,7 @@ public class NlsSupportTest extends SwingModelTest {
 		assertTrue(newProperties.contains("frame.title=My JFrame"));
 	}
 
+	@Test
 	public void test_GenericProperty_setValue_setKey_forExistingProperty() throws Exception {
 		createUsualAccessorProperties();
 		m_frame =
@@ -493,6 +519,7 @@ public class NlsSupportTest extends SwingModelTest {
 		assertTrue(newProperties.contains("frame.title=My JFrame"));
 	}
 
+	@Test
 	public void test_GenericProperty_setValue_autoExternalizeEnabled() throws Exception {
 		createUsualAccessorProperties();
 		m_frame =
@@ -525,6 +552,7 @@ public class NlsSupportTest extends SwingModelTest {
 		assertTrue(newProperties.contains("Test.this.name=myName"));
 	}
 
+	@Test
 	public void test_GenericProperty_setValue_autoExternalizeDisable() throws Exception {
 		createUsualAccessorProperties();
 		m_frame =
@@ -576,6 +604,7 @@ public class NlsSupportTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_liveImage_whenExternalized() throws Exception {
 		createUsualAccessorProperties();
 		// use model that sets value for Property
@@ -631,7 +660,9 @@ public class NlsSupportTest extends SwingModelTest {
 	/**
 	 * When user renames component, we should rename associated NLS keys.
 	 */
-	public void DISABLE_test_renameKeysWhenVariable() throws Exception {
+	@Ignore
+	@Test
+	public void test_renameKeysWhenVariable() throws Exception {
 		setFileContentSrc(
 				"test/messages.properties",
 				getSourceDQ("Test.frame.title=My JFrame", "frame.name=My name", "foo.bar=baz"));

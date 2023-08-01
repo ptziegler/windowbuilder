@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.property;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.internal.xwt.model.property.editor.ImagePropertyEditor;
@@ -46,6 +48,7 @@ public class ImagePropertyEditorTest extends XwtModelTest {
 	// getText()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getText_noValue() throws Exception {
 		XmlObjectInfo shell = parse("<Shell/>");
 		refresh();
@@ -56,6 +59,7 @@ public class ImagePropertyEditorTest extends XwtModelTest {
 		assertEquals(null, getPropertyClipboardSource(property));
 	}
 
+	@Test
 	public void test_getText_hasValue() throws Exception {
 		XmlObjectInfo shell = parse("<Shell image='my.png'/>");
 		refresh();
@@ -71,6 +75,7 @@ public class ImagePropertyEditorTest extends XwtModelTest {
 	// Dialog
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_dialog_inClasspath() throws Exception {
 		XmlObjectInfo shell = parse("<Shell/>");
 		refresh();
@@ -91,6 +96,7 @@ public class ImagePropertyEditorTest extends XwtModelTest {
 	}
 
 	@DisposeProjectAfter
+	@Test
 	public void test_dialog_inSubPackage() throws Exception {
 		TestUtils.createImagePNG(m_testProject, "src/test/images/testImage.png", 16, 16);
 		// parse
@@ -113,6 +119,7 @@ public class ImagePropertyEditorTest extends XwtModelTest {
 	}
 
 	@DisposeProjectAfter
+	@Test
 	public void test_dialog_openWith_inSubPackage() throws Exception {
 		TestUtils.createImagePNG(m_testProject, "src/test/images/testImage.png", 16, 16);
 		// parse
@@ -148,6 +155,7 @@ public class ImagePropertyEditorTest extends XwtModelTest {
 	}
 
 	@DisposeProjectAfter
+	@Test
 	public void test_dialog_inSourceFolder() throws Exception {
 		TestUtils.createImagePNG(m_testProject, "src/images/testImage.png", 16, 16);
 		// parse

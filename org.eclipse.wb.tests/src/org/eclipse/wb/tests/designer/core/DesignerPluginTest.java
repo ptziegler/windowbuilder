@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core;
+import org.junit.Before;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
@@ -32,7 +35,8 @@ public class DesignerPluginTest extends DesignerTestCase {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 	}
 
@@ -41,10 +45,12 @@ public class DesignerPluginTest extends DesignerTestCase {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getDefault() {
 		assertNotNull(DesignerPlugin.getDefault());
 	}
 
+	@Test
 	public void test_log_message() {
 		final String message = "Information message";
 		ILog log = DesignerPlugin.getDefault().getLog();
@@ -67,6 +73,7 @@ public class DesignerPluginTest extends DesignerTestCase {
 		}
 	}
 
+	@Test
 	public void test_log_Exception() {
 		final Exception exception = new Exception();
 		ILog log = DesignerPlugin.getDefault().getLog();
@@ -94,6 +101,7 @@ public class DesignerPluginTest extends DesignerTestCase {
 	 * However we should allow {@link JFrame#setDefaultCloseOperation(int)} with
 	 * {@link JFrame#EXIT_ON_CLOSE}.
 	 */
+	@Test
 	public void test_preventExit_JFrame() {
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

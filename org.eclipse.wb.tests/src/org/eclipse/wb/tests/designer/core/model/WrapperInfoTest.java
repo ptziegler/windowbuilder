@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.core.model.WrapperMethodInfo;
@@ -60,6 +63,7 @@ public class WrapperInfoTest extends SwingModelTest {
 	/**
 	 * Test for {@link WrapperMethodInfo#isWrapper(AstEditor, Class)}.
 	 */
+	@Test
 	public void test_isWrapper_forInterface() throws Exception {
 		parseContainer(
 				"public class Test extends JPanel {",
@@ -70,6 +74,7 @@ public class WrapperInfoTest extends SwingModelTest {
 		assertFalse(WrapperMethodInfo.isWrapper(m_lastEditor, java.util.List.class));
 	}
 
+	@Test
 	public void test_parse_noControl() throws Exception {
 		configureWrapperContents();
 		ContainerInfo container =
@@ -102,6 +107,7 @@ public class WrapperInfoTest extends SwingModelTest {
 	/**
 	 * If we delete wrapper, then wrapped component should be deleted.
 	 */
+	@Test
 	public void test_deleteWrapper() throws Exception {
 		configureWrapperContents();
 		ContainerInfo container =
@@ -135,6 +141,7 @@ public class WrapperInfoTest extends SwingModelTest {
 	/**
 	 * We should be able to delete wrapped.
 	 */
+	@Test
 	public void test_deleteWrapped() throws Exception {
 		configureWrapperContents();
 		ContainerInfo container =
@@ -164,6 +171,7 @@ public class WrapperInfoTest extends SwingModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_parse_aroundControl() throws Exception {
 		configureWrapperContents();
 		ContainerInfo container =
@@ -190,6 +198,7 @@ public class WrapperInfoTest extends SwingModelTest {
 				"    {new: test.TestWrapper} {local-unique: wrapper} {/new TestWrapper(panel)/}");
 	}
 
+	@Test
 	public void test_materialize() throws Exception {
 		configureWrapperContents();
 		ContainerInfo container =
@@ -218,6 +227,7 @@ public class WrapperInfoTest extends SwingModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_CREATE() throws Exception {
 		configureWrapperContents();
 		ContainerInfo container =
@@ -266,6 +276,7 @@ public class WrapperInfoTest extends SwingModelTest {
 	/**
 	 * Viewers should use code generation settings.
 	 */
+	@Test
 	public void test_CREATE_useFieldVariable() throws Exception {
 		configureWrapperContents();
 		String[] lines =
@@ -292,6 +303,7 @@ public class WrapperInfoTest extends SwingModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_MOVE_noControl() throws Exception {
 		configureWrapperContents();
 		ContainerInfo container =
@@ -325,6 +337,7 @@ public class WrapperInfoTest extends SwingModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_MOVE_withControl() throws Exception {
 		configureWrapperContents();
 		ContainerInfo container =
@@ -360,7 +373,9 @@ public class WrapperInfoTest extends SwingModelTest {
 				"}");
 	}
 
-	public void DISABLE_test_clipboard() throws Exception {
+	@Ignore
+	@Test
+	public void test_clipboard() throws Exception {
 		configureWrapperContents();
 		ContainerInfo container =
 				parseContainer(
@@ -426,6 +441,7 @@ public class WrapperInfoTest extends SwingModelTest {
 	 * "container.getViewer()" and iterate over "container" children, and see that child is wrapped
 	 * component, we should check also children of "child" if one of them is "viewer".
 	 */
+	@Test
 	public void test_exposed() throws Exception {
 		// Viewer
 		// Note, that it extends java.awt.Component to be exposable in Swing.

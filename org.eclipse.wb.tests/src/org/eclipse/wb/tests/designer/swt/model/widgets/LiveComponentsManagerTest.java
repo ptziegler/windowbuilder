@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.AbstractComponentInfo;
 import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.internal.core.laf.IBaselineSupport;
@@ -61,6 +63,7 @@ public class LiveComponentsManagerTest extends RcpModelTest {
 	 * Check that after "live image" source is not changed, and even {@link ICompilationUnit} is not
 	 * touched by {@link AstEditor#commitChanges()}.
 	 */
+	@Test
 	public void test_liveImage_noSourceChange() throws Exception {
 		parseSource(
 				"test",
@@ -92,6 +95,7 @@ public class LiveComponentsManagerTest extends RcpModelTest {
 		}
 	}
 
+	@Test
 	public void test_liveImage_onShell() throws Exception {
 		parseComposite(
 				"// filler filler filler",
@@ -123,6 +127,7 @@ public class LiveComponentsManagerTest extends RcpModelTest {
 	 * during refresh. Right now this means that if we cache live images, we should use keep in
 	 * {@link AbstractComponentInfo} copy of cached image.
 	 */
+	@Test
 	public void test_liveImage_noDispose() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -153,6 +158,7 @@ public class LiveComponentsManagerTest extends RcpModelTest {
 		}
 	}
 
+	@Test
 	public void test_liveImage_onComposite() throws Exception {
 		parseComposite(
 				"public class Test extends Composite {",
@@ -169,6 +175,7 @@ public class LiveComponentsManagerTest extends RcpModelTest {
 	 * Test that live images work when there is visible variable with name "shell", because there was
 	 * problem in {@link LiveImagesManager} that it used also name "shell".
 	 */
+	@Test
 	public void test_liveImage_withShell() throws Exception {
 		parseComposite(
 				"class Test {",
@@ -186,6 +193,7 @@ public class LiveComponentsManagerTest extends RcpModelTest {
 	 * Sometimes component has zero or just too small size by default, so we need some way to force
 	 * its "live" size.
 	 */
+	@Test
 	public void test_liveImage_forcedSize() throws Exception {
 		setFileContentSrc(
 				"test/MyCanvas.java",
@@ -222,6 +230,7 @@ public class LiveComponentsManagerTest extends RcpModelTest {
 	 * If exception happens during live image creation, we still should return some image (not
 	 * <code>null</code>) to prevent problems on other levels.
 	 */
+	@Test
 	public void test_liveImage_whenException() throws Exception {
 		setFileContentSrc(
 				"test/MyComposite.java",
@@ -272,6 +281,7 @@ public class LiveComponentsManagerTest extends RcpModelTest {
 		}
 	}
 
+	@Test
 	public void test_liveImage_copyPaste() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -303,6 +313,7 @@ public class LiveComponentsManagerTest extends RcpModelTest {
 	// Style
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_liveStyle_standardControl() throws Exception {
 		parseComposite(
 				"// filler filler filler",
@@ -344,6 +355,7 @@ public class LiveComponentsManagerTest extends RcpModelTest {
 		}
 	}
 
+	@Test
 	public void test_liveStyle_customControl() throws Exception {
 		setFileContentSrc(
 				"test/MyComposite.java",
@@ -372,6 +384,7 @@ public class LiveComponentsManagerTest extends RcpModelTest {
 				+ " found.", (actualStyle & SWT.NO_RADIO_GROUP) == SWT.NO_RADIO_GROUP);
 	}
 
+	@Test
 	public void test_liveStyle_forMenu() throws Exception {
 		parseComposite(
 				"// filler filler filler",
@@ -397,6 +410,7 @@ public class LiveComponentsManagerTest extends RcpModelTest {
 		}
 	}
 
+	@Test
 	public void test_liveStyle_forMenuItem() throws Exception {
 		parseComposite(
 				"// filler filler filler",
@@ -441,6 +455,7 @@ public class LiveComponentsManagerTest extends RcpModelTest {
 		}
 	}
 
+	@Test
 	public void test_liveStyle_forStaticFactory() throws Exception {
 		setFileContentSrc(
 				"test/MenuStaticFactory.java",
@@ -478,6 +493,7 @@ public class LiveComponentsManagerTest extends RcpModelTest {
 				(actualStyle & SWT.PUSH) == SWT.PUSH);
 	}
 
+	@Test
 	public void test_liveStyle_copyPaste() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -527,6 +543,7 @@ public class LiveComponentsManagerTest extends RcpModelTest {
 	// Baseline
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_liveBaseline() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

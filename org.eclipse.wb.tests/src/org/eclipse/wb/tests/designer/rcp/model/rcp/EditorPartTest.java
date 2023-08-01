@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.rcp;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
@@ -53,6 +55,7 @@ public class EditorPartTest extends RcpModelTest {
 	/**
 	 * Test for many elements of {@link EditorPartInfo}.
 	 */
+	@Test
 	public void test_0() throws Exception {
 		EditorPartInfo part =
 				parseJavaInfo(
@@ -90,6 +93,7 @@ public class EditorPartTest extends RcpModelTest {
 	/**
 	 * Test for {@link IEditorInput} implementation.
 	 */
+	@Test
 	public void test_IEditorInput() throws Exception {
 		EditorPartInfo part =
 				parseJavaInfo(
@@ -121,6 +125,7 @@ public class EditorPartTest extends RcpModelTest {
 	/**
 	 * Test for {@link IEditorSite} implementation.
 	 */
+	@Test
 	public void test_IEditorSite() throws Exception {
 		EditorPartInfo part =
 				parseJavaInfo(
@@ -164,6 +169,7 @@ public class EditorPartTest extends RcpModelTest {
 	/**
 	 * Test that we can expose {@link Control} from {@link EditorPart}.
 	 */
+	@Test
 	public void test_exposeControl_usingField() throws Exception {
 		setFileContentSrc(
 				"test/MyEditor.java",
@@ -209,6 +215,7 @@ public class EditorPartTest extends RcpModelTest {
 	/**
 	 * Test that we can expose {@link Control} from {@link EditorPart}.
 	 */
+	@Test
 	public void test_exposeControl_usingMethod() throws Exception {
 		setFileContentSrc(
 				"test/MyEditor.java",
@@ -263,6 +270,7 @@ public class EditorPartTest extends RcpModelTest {
 	 * Valid "editor" extension for this {@link EditorPart} class, so we have "Extension" property and
 	 * its sub-properties.
 	 */
+	@Test
 	public void test_extensionProperties_hasExtension() throws Exception {
 		do_projectDispose();
 		do_projectCreate();

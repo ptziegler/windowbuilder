@@ -9,12 +9,12 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.gef;
-
 import org.eclipse.wb.gef.core.EditPart;
 
 import org.eclipse.swt.widgets.Display;
 
-import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Before;
 
 import java.lang.reflect.Method;
 
@@ -22,18 +22,10 @@ import java.lang.reflect.Method;
  * @author lobas_av
  *
  */
-public class GefTestCase extends TestCase {
-	////////////////////////////////////////////////////////////////////////////
-	//
-	// Constructor
-	//
-	////////////////////////////////////////////////////////////////////////////
-	public GefTestCase(Class<?> _class) {
-		super(_class.getName());
-	}
+public class GefTestCase extends Assert {
 
-	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		// check create display for initialize figure's colors
 		Display.getDefault();
 	}

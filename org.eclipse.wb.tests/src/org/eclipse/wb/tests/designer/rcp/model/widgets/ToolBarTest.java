@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.generic.FlowContainer;
 import org.eclipse.wb.internal.core.model.generic.FlowContainerFactory;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
@@ -52,6 +54,7 @@ public class ToolBarTest extends RcpModelTest {
 	/**
 	 * Test for {@link ToolBarInfo#isHorizontal()}.
 	 */
+	@Test
 	public void test_isHorizontal() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -78,6 +81,7 @@ public class ToolBarTest extends RcpModelTest {
 	/**
 	 * {@link ToolBar} with {@link ToolItem}'s.
 	 */
+	@Test
 	public void test_parseItems() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -122,6 +126,7 @@ public class ToolBarTest extends RcpModelTest {
 	/**
 	 * Test that presentation returns different icons for {@link ToolItem}s with different styles.
 	 */
+	@Test
 	public void test_ToolItem_presentation() throws Exception {
 		ToolBarInfo toolBar =
 				parseJavaInfo(
@@ -161,6 +166,7 @@ public class ToolBarTest extends RcpModelTest {
 	/**
 	 * Test for {@link ToolItem#setControl(org.eclipse.swt.widgets.Control)}.
 	 */
+	@Test
 	public void test_setControl_get() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -204,6 +210,7 @@ public class ToolBarTest extends RcpModelTest {
 	/**
 	 * Test for {@link ToolItemInfo#command_CREATE(ControlInfo)}.
 	 */
+	@Test
 	public void test_setControl_CREATE() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -250,6 +257,7 @@ public class ToolBarTest extends RcpModelTest {
 	/**
 	 * Test for {@link ToolItemInfo#command_ADD(ControlInfo)}.
 	 */
+	@Test
 	public void test_setControl_ADD() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -297,6 +305,7 @@ public class ToolBarTest extends RcpModelTest {
 	/**
 	 * Move {@link ControlInfo} from one {@link ToolItemInfo} to other.
 	 */
+	@Test
 	public void test_setControl_MOVE() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -360,6 +369,7 @@ public class ToolBarTest extends RcpModelTest {
 	/**
 	 * When we move {@link ToolItemInfo} with {@link ControlInfo}, they should move together.
 	 */
+	@Test
 	public void test_setControl_MOVEItem() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -423,6 +433,7 @@ public class ToolBarTest extends RcpModelTest {
 	 * When we move {@link ControlInfo} out from {@link ToolItemInfo}, the
 	 * {@link ToolItem#setControl(org.eclipse.swt.widgets.Control)} invocation should be removed.
 	 */
+	@Test
 	public void test_setControl_moveOut() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -473,6 +484,7 @@ public class ToolBarTest extends RcpModelTest {
 	/**
 	 * Test for {@link ToolBarInfo#command_absolute_CREATE(ToolItemInfo, ToolItemInfo)}.
 	 */
+	@Test
 	public void test_CREATE() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -540,6 +552,7 @@ public class ToolBarTest extends RcpModelTest {
 	/**
 	 * Test for {@link ToolBarInfo#command_absolute_MOVE(ToolItemInfo, ToolItemInfo)}.
 	 */
+	@Test
 	public void test_MOVE() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

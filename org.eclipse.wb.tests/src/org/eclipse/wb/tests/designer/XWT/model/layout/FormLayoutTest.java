@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.layout;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.draw2d.IPositionConstants;
 import org.eclipse.wb.internal.core.model.property.Property;
@@ -54,6 +56,7 @@ public class FormLayoutTest extends XwtModelTest {
 	// Properties
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_attachmentPropertiesExist() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -82,6 +85,7 @@ public class FormLayoutTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_deleteAttachment_using_property() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -114,6 +118,7 @@ public class FormLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_FormData_width_height() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -144,6 +149,7 @@ public class FormLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_attachmentsExist() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -178,6 +184,7 @@ public class FormLayoutTest extends XwtModelTest {
 	// Control attachments
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_change_to_control_below() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -240,6 +247,7 @@ public class FormLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_change_to_control() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -300,6 +308,7 @@ public class FormLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_parse_control_attachment() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -343,6 +352,7 @@ public class FormLayoutTest extends XwtModelTest {
 	// Layout managing tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_delete() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -384,6 +394,7 @@ public class FormLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_deleteAttachment() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -419,6 +430,7 @@ public class FormLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_deleteSingleAttachment() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -465,6 +477,7 @@ public class FormLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_deleteAttachmentAndAttach() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -512,6 +525,7 @@ public class FormLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_FormAttachment_use_three_properties() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -555,6 +569,7 @@ public class FormLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_setLayout() throws Exception {
 		CompositeInfo shell = parse("<Shell/>");
 		setFormLayout(
@@ -566,6 +581,7 @@ public class FormLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_changeFromGridEmpty() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -584,6 +600,7 @@ public class FormLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_changeFromGridWithData() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -625,6 +642,7 @@ public class FormLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_changeFromAbsolute() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -659,6 +677,7 @@ public class FormLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_changeToGridWithData() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -692,6 +711,7 @@ public class FormLayoutTest extends XwtModelTest {
 	// Test for copy/paste.
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_clipboard() throws Exception {
 		CompositeInfo composite =
 				parse(

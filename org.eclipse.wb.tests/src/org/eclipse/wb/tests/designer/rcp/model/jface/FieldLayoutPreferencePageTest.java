@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
 
+import org.junit.Test;
+
 import com.google.common.collect.Lists;
 
 import org.eclipse.wb.core.editor.palette.PaletteEventListener;
@@ -66,6 +68,7 @@ public class FieldLayoutPreferencePageTest extends RcpModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_parse() throws Exception {
 		FieldLayoutPreferencePageInfo page =
 				parseJavaInfo(
@@ -128,6 +131,7 @@ public class FieldLayoutPreferencePageTest extends RcpModelTest {
 	/**
 	 * Test for {@link FieldLayoutPreferencePageInfo#schedule_CREATE(FieldEditorInfo)}.
 	 */
+	@Test
 	public void test_CREATE() throws Exception {
 		FieldLayoutPreferencePageInfo page =
 				parseJavaInfo(
@@ -208,6 +212,7 @@ public class FieldLayoutPreferencePageTest extends RcpModelTest {
 	/**
 	 * Test for {@link FieldEditorInfo} copy/paste.
 	 */
+	@Test
 	public void test_copyPaste() throws Exception {
 		FieldLayoutPreferencePageInfo page =
 				parseJavaInfo(
@@ -287,6 +292,7 @@ public class FieldLayoutPreferencePageTest extends RcpModelTest {
 	 * "System" and "FieldEditors" categories should be visible and open, and all other - also
 	 * visible.
 	 */
+	@Test
 	public void test_paletteTweaks_1() throws Exception {
 		FieldLayoutPreferencePageInfo page =
 				parseJavaInfo(

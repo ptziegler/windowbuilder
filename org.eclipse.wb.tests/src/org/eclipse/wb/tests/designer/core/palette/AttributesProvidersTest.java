@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.palette;
 
+import org.junit.Test;
+
 import com.google.common.collect.ImmutableMap;
 
 import org.eclipse.wb.internal.core.editor.palette.model.entry.AttributesProvider;
@@ -46,6 +48,7 @@ public class AttributesProvidersTest extends AbstractPaletteTest {
 	/**
 	 * Test for {@link AttributesProviders#get(IConfigurationElement)}.
 	 */
+	@Test
 	public void test_getIConfigurationElement() throws Exception {
 		String POINT_ID = "org.eclipse.wb.tests.testPoint";
 		try {
@@ -74,6 +77,7 @@ public class AttributesProvidersTest extends AbstractPaletteTest {
 	/**
 	 * Test for {@link AttributesProviders#get(Attributes)}.
 	 */
+	@Test
 	public void test_getXML() throws Exception {
 		SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
 		parser.parse(
@@ -92,6 +96,7 @@ public class AttributesProvidersTest extends AbstractPaletteTest {
 	/**
 	 * Test for {@link AttributesProviders#get(Map)}.
 	 */
+	@Test
 	public void test_getMap() throws Exception {
 		Map<String, String> attributes = ImmutableMap.of("attr", "someValue");
 		AttributesProvider provider = AttributesProviders.get(attributes);

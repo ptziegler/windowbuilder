@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.rcp.model.widgets.TableCursorInfo;
 import org.eclipse.wb.internal.rcp.model.widgets.TableInfo;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
@@ -42,6 +44,7 @@ public class TableTest extends RcpModelTest {
 	/**
 	 * Test for parsing with {@link TableCursorInfo}.
 	 */
+	@Test
 	public void test_TableCursor_parse() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -63,6 +66,7 @@ public class TableTest extends RcpModelTest {
 	/**
 	 * Test for adding new {@link TableCursorInfo}.
 	 */
+	@Test
 	public void test_TableCursor_new() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

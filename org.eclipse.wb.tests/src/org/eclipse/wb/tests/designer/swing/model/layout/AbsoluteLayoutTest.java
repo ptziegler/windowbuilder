@@ -9,6 +9,10 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout;
+import org.junit.Ignore;
+import org.junit.After;
+
+import org.junit.Test;
 
 import org.eclipse.wb.core.model.IJavaInfoInitializationParticipator;
 import org.eclipse.wb.core.model.JavaInfo;
@@ -70,7 +74,8 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		super.tearDown();
 		preferences.setValue(IPreferenceConstants.P_CREATION_FLOW, false);
 	}
@@ -92,6 +97,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test for {@link AbsoluteLayoutInfo} as object, setBounds().
 	 */
+	@Test
 	public void test_object() throws Exception {
 		String buttonText = "The Button";
 		ContainerInfo panel =
@@ -203,6 +209,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 		}
 	}
 
+	@Test
 	public void test_parseReplacedContentPane() throws Exception {
 		ContainerInfo frame =
 				parseContainer(
@@ -225,6 +232,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test "Layout" property.
 	 */
+	@Test
 	public void test_layoutComplexProperty() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -244,6 +252,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test for implicit absolute layout.
 	 */
+	@Test
 	public void test_implicit() throws Exception {
 		setFileContentSrc(
 				"test/AbsolutePanel.java",
@@ -286,6 +295,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 		}
 	}
 
+	@Test
 	public void test_absoluteOnContentPane() throws Exception {
 		ContainerInfo frame =
 				parseContainer(
@@ -313,6 +323,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	 * Test that {@link JavaInfo#initialize()} is invoked for {@link AbsoluteLayoutInfo}.<br>
 	 * Case when we invoke <code>setLayout(null)</code>.
 	 */
+	@Test
 	public void test_initialize_setLayout() throws Exception {
 		addParticipatorExtension(AbsoluteLayout_Participator.class.getName());
 		try {
@@ -337,6 +348,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	 * Test that {@link JavaInfo#initialize()} is invoked for {@link AbsoluteLayoutInfo}.<br>
 	 * Implicit layout.
 	 */
+	@Test
 	public void test_initialize_implicitLayout() throws Exception {
 		addParticipatorExtension(AbsoluteLayout_Participator.class.getName());
 		try {
@@ -388,6 +400,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test for setBounds().
 	 */
+	@Test
 	public void test_setBounds() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -423,6 +436,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test for setLocation(Point), setSize(Dimension).
 	 */
+	@Test
 	public void test_setLocationSize() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -454,6 +468,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test for replacing absolute layout.
 	 */
+	@Test
 	public void test_setLayout() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -489,6 +504,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	 * Check for removing absolute layout related method invocations on removing
 	 * {@link AbsoluteLayoutInfo}.
 	 */
+	@Test
 	public void test_removeComponentConstraints() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -524,6 +540,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Set {@link AbsoluteLayoutInfo} using {@link ContainerInfo#setLayout(LayoutInfo)}.
 	 */
+	@Test
 	public void test_onSet_setLayout() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -567,6 +584,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test for removing "real" layout when implicit is "absolute".
 	 */
+	@Test
 	public void test_onSet_implicit() throws Exception {
 		setFileContentSrc(
 				"test/AbsolutePanel.java",
@@ -629,6 +647,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	// Move
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_moveUsingPoint() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -663,6 +682,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 				"}");
 	}
 
+	@Test
 	public void test_moveAddBounds() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -696,6 +716,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 				"}");
 	}
 
+	@Test
 	public void test_moveChangeBoundsAsRectangle() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -730,6 +751,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 				"}");
 	}
 
+	@Test
 	public void test_moveUsingSetLocation() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -764,6 +786,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 				"}");
 	}
 
+	@Test
 	public void test_moveAddSetLocation() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -804,6 +827,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	// Resize
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_resizeUsingPoint() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -838,6 +862,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 				"}");
 	}
 
+	@Test
 	public void test_resizeChangeBoundsAsRectangle() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -872,6 +897,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 				"}");
 	}
 
+	@Test
 	public void test_resizeUsingSetSize() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -906,6 +932,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 				"}");
 	}
 
+	@Test
 	public void test_resizeAddSetSize() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -949,6 +976,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test that we have "Order" sub-menu in context menu.
 	 */
+	@Test
 	public void test_ordering() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1007,6 +1035,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test for <code>Autosize component</code> action.
 	 */
+	@Test
 	public void test_autoSize() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1088,6 +1117,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test "Bounds" property.
 	 */
+	@Test
 	public void test_BoundsProperty() throws Exception {
 		Property boundsProperty = prepareBoundsProperty();
 		assertNotNull(boundsProperty);
@@ -1105,6 +1135,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test setting "x" sub-property of "Bounds" property.
 	 */
+	@Test
 	public void test_BoundsProperty_set_x() throws Exception {
 		Property subProperty = getBoundsPropertySubProperty("x");
 		assertNotNull(subProperty);
@@ -1125,6 +1156,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test getting "x" sub-property of "Bounds" property.
 	 */
+	@Test
 	public void test_BoundsProperty_get_x() throws Exception {
 		Property subProperty = getBoundsPropertySubProperty("x");
 		assertNotNull(subProperty);
@@ -1139,6 +1171,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test setting "y" sub-property of "Bounds" property.
 	 */
+	@Test
 	public void test_BoundsProperty_set_y() throws Exception {
 		Property subProperty = getBoundsPropertySubProperty("y");
 		assertNotNull(subProperty);
@@ -1159,6 +1192,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test getting "y" sub-property of "Bounds" property.
 	 */
+	@Test
 	public void test_BoundsProperty_get_y() throws Exception {
 		Property subProperty = getBoundsPropertySubProperty("y");
 		assertNotNull(subProperty);
@@ -1170,6 +1204,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test setting "width" sub-property of "Bounds" property.
 	 */
+	@Test
 	public void test_BoundsProperty_set_width() throws Exception {
 		Property subProperty = getBoundsPropertySubProperty("width");
 		assertNotNull(subProperty);
@@ -1190,6 +1225,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test getting "width" sub-property of "Bounds" property.
 	 */
+	@Test
 	public void test_BoundsProperty_get_width() throws Exception {
 		Property subProperty = getBoundsPropertySubProperty("width");
 		assertNotNull(subProperty);
@@ -1201,6 +1237,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test setting "height" sub-property of "Bounds" property.
 	 */
+	@Test
 	public void test_BoundsProperty_set_height() throws Exception {
 		Property subProperty = getBoundsPropertySubProperty("height");
 		assertNotNull(subProperty);
@@ -1221,6 +1258,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test getting "height" sub-property of "Bounds" property.
 	 */
+	@Test
 	public void test_BoundsProperty_get_height() throws Exception {
 		Property subProperty = getBoundsPropertySubProperty("height");
 		assertNotNull(subProperty);
@@ -1263,6 +1301,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	 * On absolute layout components can not be reordered, but can be moved, i.e. bounds can be
 	 * changed.
 	 */
+	@Test
 	public void test_canMove() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -1303,6 +1342,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test for {@link AbsoluteLayoutInfo#command_CREATE(ComponentInfo, ComponentInfo)}.
 	 */
+	@Test
 	public void test_CREATE() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1344,6 +1384,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test for {@link AbsoluteLayoutInfo#command_MOVE(ComponentInfo, ComponentInfo)}.
 	 */
+	@Test
 	public void test_MOVE() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1394,6 +1435,7 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test applying creation flow order.
 	 */
+	@Test
 	public void test_BOUNDS_CreationFlow() throws Exception {
 		preferences.setValue(IPreferenceConstants.P_CREATION_FLOW, true);
 		ContainerInfo panel =
@@ -1448,7 +1490,9 @@ public class AbsoluteLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test for copy/paste.
 	 */
-	public void DISABLE_test_clipboard() throws Exception {
+	@Ignore
+	@Test
+	public void test_clipboard() throws Exception {
 		String[] lines1 =
 			{
 					"public class Test extends JPanel {",

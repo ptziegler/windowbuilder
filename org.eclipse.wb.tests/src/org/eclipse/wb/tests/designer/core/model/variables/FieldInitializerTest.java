@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.variables;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.eval.ExecutionFlowDescription;
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.core.model.association.AssociationObjects;
@@ -63,6 +65,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_object() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -108,6 +111,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	// getReferenceExpression()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getReferenceExpression() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -182,6 +186,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	 * No related statements.<br>
 	 * Target: beginning of root method (main).
 	 */
+	@Test
 	public void test_getTarget_1() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -200,6 +205,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	 * No related statements, has child.<br>
 	 * Target: before first related statement.
 	 */
+	@Test
 	public void test_getTarget_3() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -219,6 +225,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	 * No related statements, invocation-kind, but has association.<br>
 	 * Target: before association.
 	 */
+	@Test
 	public void test_getTarget_4() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -240,6 +247,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	 * Has related statements with {@link MethodInvocation}.<br>
 	 * Target: before first related statement.
 	 */
+	@Test
 	public void test_getTarget_5() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -260,6 +268,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	 * Has related statement with {@link FieldAccess}.<br>
 	 * Target: before first related statement.
 	 */
+	@Test
 	public void test_getTarget_6() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -289,6 +298,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	 * Has related statements, but not invocation of <b>its</b> method.<br>
 	 * Target: beginning of root method (main).
 	 */
+	@Test
 	public void test_getTarget_7() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -311,6 +321,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	 * Special case: "application" pattern, i.e. first root method is static "main".<br>
 	 * Target: beginning of first <em>non-static</em> method on execution flow.
 	 */
+	@Test
 	public void test_getTarget_8() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -342,6 +353,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	 * method.<br>
 	 * Target: beginning of first <em>non-static</em> method on execution flow.
 	 */
+	@Test
 	public void test_getTarget_9() throws Exception {
 		setFileContentSrc(
 				"test/InstanceFactory.java",
@@ -388,6 +400,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	 * Non-visual object is special, because it has no {@link Statement} for associaion.<br>
 	 * Target: after {@link SuperConstructorInvocation}.
 	 */
+	@Test
 	public void test_getTarget_forNonVisualBean_whenSuper() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -415,6 +428,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	/**
 	 * Test adding new component, with "private" method modifier.
 	 */
+	@Test
 	public void test_ADD_private() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -452,6 +466,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	/**
 	 * Test adding new component, with "package private" method modifier.
 	 */
+	@Test
 	public void test_ADD_package() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -489,6 +504,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	/**
 	 * Test adding new component, static context.
 	 */
+	@Test
 	public void test_ADD_static() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -525,6 +541,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	/**
 	 * Force <code>static</code> modifier.
 	 */
+	@Test
 	public void test_ADD_forceStatic() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -561,6 +578,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	/**
 	 * Test adding new component, with "this." prefix.
 	 */
+	@Test
 	public void test_ADD_thisPrefix() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -608,6 +626,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	/**
 	 * Support for "%variable-name%" in creation source.
 	 */
+	@Test
 	public void test_ADD_variableName_inCreationSource() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -656,6 +675,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	/**
 	 * Support for generic components and type arguments.
 	 */
+	@Test
 	public void test_ADD_typeArguments() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -713,6 +733,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	/**
 	 * {@link FieldDeclaration} should be removed.
 	 */
+	@Test
 	public void test_delete_1() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -738,6 +759,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	/**
 	 * {@link VariableDeclaration} should be removed by one.
 	 */
+	@Test
 	public void test_delete_2() throws Exception {
 		parseContainer(
 				"// filler filler filler",
@@ -778,6 +800,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	/**
 	 * Component is root, so its variable should not be removed.
 	 */
+	@Test
 	public void test_delete_3() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -809,6 +832,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	 * Test for moving component with {@link FieldInitializerVariableSupport}.<br>
 	 * Component has related nodes.
 	 */
+	@Test
 	public void test_move_withRelatedNodes() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -850,6 +874,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	 * Test for moving component with {@link FieldInitializerVariableSupport}.<br>
 	 * Component has no related nodes.
 	 */
+	@Test
 	public void test_move_noRelatedNodes() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -888,6 +913,7 @@ public class FieldInitializerTest extends AbstractVariableTest {
 	// setType()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_setType() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

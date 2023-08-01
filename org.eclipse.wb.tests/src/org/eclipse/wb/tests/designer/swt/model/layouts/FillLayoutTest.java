@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.layouts;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.association.Association;
 import org.eclipse.wb.core.model.association.ConstructorAssociation;
 import org.eclipse.wb.internal.core.model.creation.ConstructorCreationSupport;
@@ -46,6 +48,7 @@ public class FillLayoutTest extends RcpModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_isHorizontal_1() throws Exception {
 		test_isHorizontal(new String[]{
 				"class Test {",
@@ -56,6 +59,7 @@ public class FillLayoutTest extends RcpModelTest {
 		"}"});
 	}
 
+	@Test
 	public void test_isHorizontal_2() throws Exception {
 		test_isHorizontal(new String[]{
 				"class Test {",
@@ -88,6 +92,7 @@ public class FillLayoutTest extends RcpModelTest {
 	 * {@link NotImplementedException} if {@link LayoutDataInfo} is not supported by this
 	 * {@link LayoutInfo}.
 	 */
+	@Test
 	public void test_NoVirtualLayoutData() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -106,6 +111,7 @@ public class FillLayoutTest extends RcpModelTest {
 		}
 	}
 
+	@Test
 	public void test_AddControls() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -162,6 +168,7 @@ public class FillLayoutTest extends RcpModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_MoveControls() throws Exception {
 		CompositeInfo shellInfo =
 				parseComposite(
@@ -241,6 +248,7 @@ public class FillLayoutTest extends RcpModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_ReparentControls() throws Exception {
 		CompositeInfo shellInfo =
 				parseComposite(

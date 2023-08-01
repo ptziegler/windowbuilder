@@ -9,6 +9,10 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.xml;
+import org.junit.Before;
+import org.junit.After;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.utils.xml.parser.QAttribute;
 import org.eclipse.wb.internal.core.utils.xml.parser.QException;
@@ -48,7 +52,8 @@ public class QParserTest extends AbstractJavaProjectTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		if (m_testProject == null) {
 			do_projectCreate();
@@ -56,7 +61,8 @@ public class QParserTest extends AbstractJavaProjectTest {
 	}
 
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		handler = null;
 		super.tearDown();
 	}
@@ -173,6 +179,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 	// Bad
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_badEmpty() throws Exception {
 		try {
 			parseSource("");
@@ -181,6 +188,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 		}
 	}
 
+	@Test
 	public void test_badEmpty_line1() throws Exception {
 		try {
 			parseSource("");
@@ -189,6 +197,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 		}
 	}
 
+	@Test
 	public void test_badEmpty_line2_slashN() throws Exception {
 		try {
 			parseSource("\n");
@@ -197,6 +206,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 		}
 	}
 
+	@Test
 	public void test_badEmpty_line2_slashR() throws Exception {
 		try {
 			parseSource("\r");
@@ -205,6 +215,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 		}
 	}
 
+	@Test
 	public void test_badEmpty_line2_slashR_slashN() throws Exception {
 		try {
 			parseSource("\r\n");
@@ -213,6 +224,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 		}
 	}
 
+	@Test
 	public void test_badEmpty_line3_slashR_space_slashN() throws Exception {
 		try {
 			parseSource("\r \n");
@@ -221,6 +233,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 		}
 	}
 
+	@Test
 	public void test_badEmpty_line1_column3() throws Exception {
 		try {
 			parseSource("123");
@@ -229,6 +242,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 		}
 	}
 
+	@Test
 	public void test_bad_noCloseAngleBrace_afterSlash() throws Exception {
 		try {
 			parseSource("<root/foo");
@@ -242,6 +256,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 	// Prefixes
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_withComment() throws Exception {
 		parseSource("<root><!-- abc --></root>");
 		assertParseEvents(
@@ -252,6 +267,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 				"endDocument");
 	}
 
+	@Test
 	public void test_withXMLVersion() throws Exception {
 		String prefix = "<?xml version='1.0' encoding='UTF-8'?>";
 		int prefixLength = prefix.length() + "\n".length();
@@ -264,6 +280,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 				"endDocument");
 	}
 
+	@Test
 	public void test_withDocType() throws Exception {
 		String prefix = "<!DOCTYPE strict>";
 		int prefixLength = prefix.length() + "\n".length();
@@ -281,6 +298,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 	// Tags
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_rootElement_closed() throws Exception {
 		parseSource("<root/>");
 		assertParseEvents(
@@ -291,6 +309,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 				"endDocument");
 	}
 
+	@Test
 	public void test_rootElement_ignoreAllAfterCloseRoot() throws Exception {
 		parseSource("<root></root>ignored");
 		assertParseEvents(
@@ -301,6 +320,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 				"endDocument");
 	}
 
+	@Test
 	public void test_rootElement_open() throws Exception {
 		parseSource("<root></root>");
 		assertParseEvents(
@@ -311,6 +331,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 				"endDocument");
 	}
 
+	@Test
 	public void test_withSubTag() throws Exception {
 		parseSource("<root><inner/></root>");
 		assertParseEvents(
@@ -323,6 +344,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 				"endDocument");
 	}
 
+	@Test
 	public void test_useAdapter() throws Exception {
 		handler = new QHandlerAdapter() {
 		};
@@ -334,6 +356,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 	// Attributes
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_attribute() throws Exception {
 		parseSource("<root foo='baar'/>");
 		assertParseEvents(
@@ -345,6 +368,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 				"endDocument");
 	}
 
+	@Test
 	public void test_attribute_inOpen() throws Exception {
 		parseSource("<root foo='baar'></root>");
 		assertParseEvents(
@@ -356,6 +380,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 				"endDocument");
 	}
 
+	@Test
 	public void test_attribute_whitespaceBeforeEquals() throws Exception {
 		parseSource("<root foo ='baar'/>");
 		assertParseEvents(
@@ -367,6 +392,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 				"endDocument");
 	}
 
+	@Test
 	public void test_attribute_whitespaceBeforeEquals2() throws Exception {
 		parseSource("<root foo  ='baar'/>");
 		assertParseEvents(
@@ -378,6 +404,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 				"endDocument");
 	}
 
+	@Test
 	public void test_attribute_whitespaceAfterEquals() throws Exception {
 		parseSource("<root foo= 'baar'/>");
 		assertParseEvents(
@@ -389,6 +416,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 				"endDocument");
 	}
 
+	@Test
 	public void test_attribute_invalidBeforeEquals() throws Exception {
 		try {
 			parseSource("<root foo invalid=/>");
@@ -397,6 +425,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 		}
 	}
 
+	@Test
 	public void test_attribute_invalidAfterEquals() throws Exception {
 		try {
 			parseSource("<root foo=invalid/>");
@@ -405,6 +434,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 		}
 	}
 
+	@Test
 	public void test_attribute_normalizeWhitespaces() throws Exception {
 		parseSource("<root foo='a\n\r\t b'/>");
 		assertParseEvents(
@@ -416,6 +446,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 				"endDocument");
 	}
 
+	@Test
 	public void test_attribute_entity() throws Exception {
 		parseSource("<root foo='&#65;&#66;'/>");
 		assertParseEvents(
@@ -432,6 +463,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 	// Text
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_text_simple() throws Exception {
 		parseSource("<root>abc</root>");
 		assertParseEvents(
@@ -443,6 +475,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 				"endDocument");
 	}
 
+	@Test
 	public void test_text_CDATA() throws Exception {
 		parseSource("<root><![CDATA[abc]]></root>");
 		assertParseEvents(
@@ -454,6 +487,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 				"endDocument");
 	}
 
+	@Test
 	public void test_text_slashR_slashN() throws Exception {
 		parseSource("<root>\r\n123\r\n</root>");
 		assertParseEvents(
@@ -465,6 +499,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 				"endDocument");
 	}
 
+	@Test
 	public void test_textSpecial_lt() throws Exception {
 		parseSource("<root>&lt;</root>");
 		assertParseEvents(
@@ -476,6 +511,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 				"endDocument");
 	}
 
+	@Test
 	public void test_textSpecial_gt() throws Exception {
 		parseSource("<root>&gt;</root>");
 		assertParseEvents(
@@ -487,6 +523,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 				"endDocument");
 	}
 
+	@Test
 	public void test_textSpecial_amp() throws Exception {
 		parseSource("<root>&amp;</root>");
 		assertParseEvents(
@@ -498,6 +535,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 				"endDocument");
 	}
 
+	@Test
 	public void test_textSpecial_quot() throws Exception {
 		parseSource("<root>&quot;</root>");
 		assertParseEvents(
@@ -509,6 +547,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 				"endDocument");
 	}
 
+	@Test
 	public void test_textSpecial_apos() throws Exception {
 		parseSource("<root>&apos;</root>");
 		assertParseEvents(
@@ -520,6 +559,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 				"endDocument");
 	}
 
+	@Test
 	public void test_textSpecial_hexNumber() throws Exception {
 		parseSource("<root>&#x41;</root>");
 		assertParseEvents(
@@ -531,6 +571,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 				"endDocument");
 	}
 
+	@Test
 	public void test_textSpecial_decNumber() throws Exception {
 		parseSource("<root>&#65;</root>");
 		assertParseEvents(
@@ -545,6 +586,7 @@ public class QParserTest extends AbstractJavaProjectTest {
 	/**
 	 * For use cases of {@link QParser} we don't need to know values of entities.
 	 */
+	@Test
 	public void test_textSpecial_unknownEntity() throws Exception {
 		parseSource("<root>&unknown;</root>");
 		assertParseEvents(

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.forms.table;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.creation.ConstructorCreationSupport;
 import org.eclipse.wb.internal.core.model.creation.ExposedPropertyCreationSupport;
 import org.eclipse.wb.internal.core.model.variable.EmptyVariableSupport;
@@ -45,6 +47,7 @@ public class TableWrapLayoutExposedTest extends AbstractFormsTest {
 	/**
 	 * Test for simple exposed "Button" without explicit {@link LayoutDataInfo} set.
 	 */
+	@Test
 	public void test_deleteExposedComponent_noExplicitData() throws Exception {
 		configureForDelete();
 		// parse
@@ -90,6 +93,7 @@ public class TableWrapLayoutExposedTest extends AbstractFormsTest {
 	/**
 	 * Test for simple exposed "Button" with explicit {@link LayoutDataInfo} set.
 	 */
+	@Test
 	public void test_deleteExposedComponent_withExplicitData() throws Exception {
 		configureForDelete();
 		// parse
@@ -136,6 +140,7 @@ public class TableWrapLayoutExposedTest extends AbstractFormsTest {
 	/**
 	 * Test when delete first of two exposed components.
 	 */
+	@Test
 	public void test_deleteWhenTwoExposed() throws Exception {
 		createASTCompilationUnit(
 				"test",

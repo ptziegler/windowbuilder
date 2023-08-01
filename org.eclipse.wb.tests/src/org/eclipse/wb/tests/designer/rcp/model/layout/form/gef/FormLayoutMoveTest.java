@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.layout.form.gef;
 
+import org.junit.Test;
+
 import org.eclipse.wb.draw2d.IPositionConstants;
 import org.eclipse.wb.gef.core.policies.EditPolicy;
 import org.eclipse.wb.gef.graphical.GraphicalEditPart;
@@ -44,6 +46,7 @@ public class FormLayoutMoveTest extends RcpGefTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_move_with_both_sides_attached() throws Exception {
 		CompositeInfo shell =
 				openComposite(
@@ -76,6 +79,7 @@ public class FormLayoutMoveTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_move_with_both_sides_attached_left_control_attached() throws Exception {
 		prepareComponent();
 		CompositeInfo shell =
@@ -133,6 +137,7 @@ public class FormLayoutMoveTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_move_left_to_container() throws Exception {
 		ControlInfo shell = openEditor1(100);
 		ControlInfo button = (ControlInfo) shell.getChildrenJava().get(1);
@@ -153,6 +158,7 @@ public class FormLayoutMoveTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_attach_to_component_seq_left_to_right() throws Exception {
 		ControlInfo shell = openEditor3();
 		ControlInfo button1 = (ControlInfo) shell.getChildrenJava().get(1);
@@ -163,6 +169,7 @@ public class FormLayoutMoveTest extends RcpGefTest {
 		Assertions.assertThat(m_lastEditor.getSource()).contains("data2.left = new FormAttachment(button, 6);");
 	}
 
+	@Test
 	public void test_attach_to_component_par_left_to_left() throws Exception {
 		ControlInfo shell = openEditor3();
 		ControlInfo button2 = (ControlInfo) shell.getChildrenJava().get(2);
@@ -217,6 +224,7 @@ public class FormLayoutMoveTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_move_from_left_to_right_by_half_of_shell() throws Exception {
 		ControlInfo shell = openEditor1(100);
 		ControlInfo button = (ControlInfo) shell.getChildrenJava().get(1);
@@ -237,6 +245,7 @@ public class FormLayoutMoveTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_move_twice() throws Exception {
 		ControlInfo shell = openEditor1(100);
 		ControlInfo button = (ControlInfo) shell.getChildrenJava().get(1);
@@ -259,6 +268,7 @@ public class FormLayoutMoveTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_move_leftAttached_to_right_50_100() throws Exception {
 		ControlInfo shell = openEditor1(50);
 		ControlInfo button = (ControlInfo) shell.getChildrenJava().get(1);
@@ -279,6 +289,7 @@ public class FormLayoutMoveTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_move_right_to_container() throws Exception {
 		ControlInfo shell = openEditor1(100);
 		ControlInfo button = (ControlInfo) shell.getChildrenJava().get(1);
@@ -299,6 +310,7 @@ public class FormLayoutMoveTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_move_from_right_to_left_by_half_of_shell() throws Exception {
 		ControlInfo shell = openEditor2(100);
 		// prepare objects
@@ -320,6 +332,7 @@ public class FormLayoutMoveTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_move_left_to_0() throws Exception {
 		ControlInfo shell = openEditor1(100);
 		ControlInfo button = (ControlInfo) shell.getChildrenJava().get(1);
@@ -340,6 +353,7 @@ public class FormLayoutMoveTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_move_left_to_container_gap() throws Exception {
 		ControlInfo shell = openEditor1(100);
 		// prepare objects
@@ -362,6 +376,7 @@ public class FormLayoutMoveTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_move_right_to_container_gap() throws Exception {
 		ControlInfo shell = openEditor1(100);
 		ControlInfo button = (ControlInfo) shell.getChildrenJava().get(1);

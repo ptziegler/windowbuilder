@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.utils.exception.DesignerException;
 import org.eclipse.wb.internal.core.utils.jdt.core.ProjectUtils;
@@ -54,6 +56,7 @@ public class ControlTest extends XwtModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_parse() throws Exception {
 		ControlInfo shell =
 				parse(
@@ -138,6 +141,7 @@ public class ControlTest extends XwtModelTest {
 	/**
 	 * Test that {@link ControlInfo} has "Style" property.
 	 */
+	@Test
 	public void test_hasStyleProperty() throws Exception {
 		ControlInfo shell = parse("<Shell/>");
 		refresh();
@@ -153,6 +157,7 @@ public class ControlTest extends XwtModelTest {
 	/**
 	 * Test that custom component can be rendered as "root".
 	 */
+	@Test
 	public void test_renderMyComponent() throws Exception {
 		prepareMyComponent("public int myValue = 123;");
 		ControlInfo model = parse("<t:MyComponent/>");
@@ -169,6 +174,7 @@ public class ControlTest extends XwtModelTest {
 	 * <p>
 	 * http://www.eclipse.org/forums/index.php?t=msg&th=167978&start=0&
 	 */
+	@Test
 	public void test_parse_nestedXWT() throws Exception {
 		setFileContentSrc(
 				"test/MyComposite.java",
@@ -215,6 +221,7 @@ public class ControlTest extends XwtModelTest {
 	 * are no classpath, types, etc. But would be good to show good warning instead of just failure.
 	 */
 	@DisposeProjectAfter
+	@Test
 	public void test_parse_notJavaProject() throws Exception {
 		ProjectUtils.removeNature(m_project, JavaCore.NATURE_ID);
 		// parse

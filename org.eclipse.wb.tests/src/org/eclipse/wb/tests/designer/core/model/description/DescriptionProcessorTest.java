@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.description;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.description.ComponentDescription;
 import org.eclipse.wb.internal.core.model.description.IDescriptionProcessor;
 import org.eclipse.wb.internal.core.model.description.helpers.ComponentDescriptionHelper;
@@ -31,6 +33,7 @@ public class DescriptionProcessorTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ComponentDescriptionHelper#getDescriptionProcessors()}.
 	 */
+	@Test
 	public void test_getDescriptionProcessors() throws Exception {
 		// dynamic processor is not yet registered, so can not be found
 		assertNull(getMyProcessor());

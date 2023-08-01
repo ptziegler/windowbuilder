@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.rcp.model.jface.WindowInfo;
 import org.eclipse.wb.internal.rcp.model.jface.WindowTopBoundsSupport;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
@@ -42,6 +44,7 @@ public class WindowTopBoundsSupportTest extends RcpModelTest {
 	 * <p>
 	 * {@link Window} with default source, i.e. no any special method.
 	 */
+	@Test
 	public void test_apply_defaultSize() throws Exception {
 		WindowInfo window =
 				parseJavaInfo(
@@ -61,6 +64,7 @@ public class WindowTopBoundsSupportTest extends RcpModelTest {
 	 * <p>
 	 * {@link Window} with <code>getInitialSize()</code>.
 	 */
+	@Test
 	public void test_apply_getInitialSize() throws Exception {
 		WindowInfo window =
 				parseJavaInfo(
@@ -88,6 +92,7 @@ public class WindowTopBoundsSupportTest extends RcpModelTest {
 	 * <p>
 	 * {@link Window} with default source, i.e. no any special method.
 	 */
+	@Test
 	public void test_setSize_defaultSize() throws Exception {
 		WindowInfo window =
 				parseJavaInfo(
@@ -110,6 +115,7 @@ public class WindowTopBoundsSupportTest extends RcpModelTest {
 	 * <p>
 	 * {@link Window} with <code>getInitialSize()</code>.
 	 */
+	@Test
 	public void test_setSize_getInitialSize() throws Exception {
 		WindowInfo window =
 				parseJavaInfo(

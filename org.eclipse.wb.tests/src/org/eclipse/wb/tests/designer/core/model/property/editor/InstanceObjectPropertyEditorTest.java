@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property.editor;
 
+import org.junit.Test;
+
 import com.google.common.collect.Maps;
 
 import org.eclipse.wb.core.model.JavaInfo;
@@ -55,6 +57,7 @@ public class InstanceObjectPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Test editor parameters validation.
 	 */
+	@Test
 	public void test_configure() throws Exception {
 		parseContainer(
 				"// filler filler filler",
@@ -90,6 +93,7 @@ public class InstanceObjectPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Test creating property & editor with empty value.
 	 */
+	@Test
 	public void test_parse_noValue() throws Exception {
 		configureContents();
 		ContainerInfo container =
@@ -113,6 +117,7 @@ public class InstanceObjectPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Test creating property & editor with not empty value.
 	 */
+	@Test
 	public void test_parse_withValue() throws Exception {
 		configureContents();
 		ContainerInfo container =
@@ -143,6 +148,7 @@ public class InstanceObjectPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Test setting property value using dialog.
 	 */
+	@Test
 	public void test_dialog() throws Exception {
 		configureContents();
 		ContainerInfo container =
@@ -207,6 +213,7 @@ public class InstanceObjectPropertyEditorTest extends SwingModelTest {
 	 * Test setting property value using double click and 'source' as template for anonymous class
 	 * instance.
 	 */
+	@Test
 	public void test_doubleClick() throws Exception {
 		configureContents();
 		ContainerInfo container =
@@ -241,6 +248,7 @@ public class InstanceObjectPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Test property "Restore default value".
 	 */
+	@Test
 	public void test_restore_default() throws Exception {
 		configureContents();
 		ContainerInfo container =
@@ -276,6 +284,7 @@ public class InstanceObjectPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Test for sub properties
 	 */
+	@Test
 	public void test_sub_properties() throws Exception {
 		configureContents();
 		ContainerInfo container =

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.hierarchy.ComponentClassProperty;
 import org.eclipse.wb.internal.core.model.property.table.PropertyTooltipProvider;
 import org.eclipse.wb.internal.core.model.property.table.PropertyTooltipTextProvider;
@@ -33,6 +35,7 @@ public class ComponentClassPropertyTest extends SwingModelTest {
 	 * Explicit {@link AbsoluteLayoutInfo} has <code>null</code> class, so can not have "Class"
 	 * property.
 	 */
+	@Test
 	public void test_noForNullClass() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -44,6 +47,7 @@ public class ComponentClassPropertyTest extends SwingModelTest {
 		assertNull(panel.getLayout().getPropertyByTitle("Class"));
 	}
 
+	@Test
 	public void test_property() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

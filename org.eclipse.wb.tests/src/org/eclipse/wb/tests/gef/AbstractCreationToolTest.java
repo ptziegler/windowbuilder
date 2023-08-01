@@ -9,13 +9,15 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.gef;
-
 import org.eclipse.wb.gef.core.requests.AbstractCreateRequest;
 import org.eclipse.wb.gef.core.tools.AbstractCreationTool;
 
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.swt.SWT;
+
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * @author lobas_av
@@ -27,20 +29,12 @@ public abstract class AbstractCreationToolTest extends RequestTestCase {
 
 	////////////////////////////////////////////////////////////////////////////
 	//
-	// Constructor
-	//
-	////////////////////////////////////////////////////////////////////////////
-	public AbstractCreationToolTest(Class<?> _class) {
-		super(_class);
-	}
-
-	////////////////////////////////////////////////////////////////////////////
-	//
 	// SetUp
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		// configure
 		configureTestCase();
@@ -53,6 +47,7 @@ public abstract class AbstractCreationToolTest extends RequestTestCase {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_Move_DND() throws Exception {
 		RequestsLogger actualLogger = new RequestsLogger();
 		//
@@ -170,6 +165,7 @@ public abstract class AbstractCreationToolTest extends RequestTestCase {
 		}
 	}
 
+	@Test
 	public void test_Move_DND_InvalidInput() throws Exception {
 		RequestsLogger actualLogger = new RequestsLogger();
 		//

@@ -9,7 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.eval;
-
 import org.eclipse.wb.core.eval.AstEvaluationEngine;
 import org.eclipse.wb.core.eval.EvaluationContext;
 import org.eclipse.wb.core.eval.ExecutionFlowDescription;
@@ -28,6 +27,8 @@ import org.eclipse.jdt.core.dom.Statement;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.Collections;
 import java.util.List;
@@ -45,7 +46,8 @@ public class EngineTest extends AbstractEngineTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		if (m_testProject == null) {
 			do_projectCreate();
@@ -66,6 +68,7 @@ public class EngineTest extends AbstractEngineTest {
 	// Fail
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_fail() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -86,6 +89,7 @@ public class EngineTest extends AbstractEngineTest {
 	/**
 	 * Test that {@link EvaluationContext#evaluationFailed(Expression, Throwable)} is notified.
 	 */
+	@Test
 	public void test_EvaluationContext_evaluationFailed_noResult() throws Exception {
 		setFileContentSrc(
 				"test/MyObject.java",
@@ -135,6 +139,7 @@ public class EngineTest extends AbstractEngineTest {
 	/**
 	 * Test that {@link EvaluationContext#evaluationFailed(Expression, Throwable)} is notified.
 	 */
+	@Test
 	public void test_EvaluationContext_evaluationFailed_returnResult() throws Exception {
 		setFileContentSrc(
 				"test/MyObject.java",
@@ -179,10 +184,12 @@ public class EngineTest extends AbstractEngineTest {
 	// Simple tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_null() throws Exception {
 		assertEquals(null, evaluateExpression("null", "java.lang.Object"));
 	}
 
+	@Test
 	public void test_parenthesis() throws Exception {
 		assertEquals(null, evaluateExpression("(null)", "java.lang.Object"));
 	}
@@ -192,6 +199,7 @@ public class EngineTest extends AbstractEngineTest {
 	// SimpleName
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_SimpleName_notFound() throws Exception {
 		createTypeDeclaration(
 				"test",
@@ -224,6 +232,7 @@ public class EngineTest extends AbstractEngineTest {
 		}
 	}
 
+	@Test
 	public void test_SimpleName_local() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration(
@@ -243,6 +252,7 @@ public class EngineTest extends AbstractEngineTest {
 		assertEquals("12345", actual);
 	}
 
+	@Test
 	public void test_SimpleName_field() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration(
@@ -262,6 +272,7 @@ public class EngineTest extends AbstractEngineTest {
 		assertEquals("12345", actual);
 	}
 
+	@Test
 	public void test_SimpleName_assignment() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration(
@@ -282,6 +293,7 @@ public class EngineTest extends AbstractEngineTest {
 		assertEquals("12345", actual);
 	}
 
+	@Test
 	public void test_SimpleName_recursiveAssignment() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(new String[]{
@@ -296,6 +308,7 @@ public class EngineTest extends AbstractEngineTest {
 		assertEquals(5, actual);
 	}
 
+	@Test
 	public void test_SimpleName_inv_good() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(new String[]{
@@ -311,6 +324,7 @@ public class EngineTest extends AbstractEngineTest {
 		assertEquals("12345", actual);
 	}
 
+	@Test
 	public void test_SimpleName_inv_noInvocation() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -332,6 +346,7 @@ public class EngineTest extends AbstractEngineTest {
 	 * If there are two invocations of method, so two variants of value for parameter, choose first
 	 * one, don't just fail.
 	 */
+	@Test
 	public void test_SimpleName_inv_twoInvocation() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(new String[]{
@@ -348,6 +363,7 @@ public class EngineTest extends AbstractEngineTest {
 		assertEquals("111", actual);
 	}
 
+	@Test
 	public void test_SimpleName_inheritedConstant() throws Exception {
 		setFileContentSrc(
 				"test/SuperClass.java",
@@ -370,6 +386,7 @@ public class EngineTest extends AbstractEngineTest {
 		assertEquals(555, evaluateSingleMethod(typeDeclaration, "foo()"));
 	}
 
+	@Test
 	public void test_SimpleName_localConstant() throws Exception {
 		waitForAutoBuild();
 		TypeDeclaration typeDeclaration =
@@ -384,6 +401,7 @@ public class EngineTest extends AbstractEngineTest {
 		assertEquals(222, evaluateSingleMethod(typeDeclaration, "foo()"));
 	}
 
+	@Test
 	public void test_SimpleName_fieldWithoutInitializer() throws Exception {
 		waitForAutoBuild();
 		TypeDeclaration typeDeclaration =
@@ -398,6 +416,7 @@ public class EngineTest extends AbstractEngineTest {
 		assertEquals(null, evaluateSingleMethod(typeDeclaration, "foo()"));
 	}
 
+	@Test
 	public void test_SimpleName_interfaceConstant() throws Exception {
 		setFileContentSrc(
 				"test/IConstants.java",
@@ -424,6 +443,7 @@ public class EngineTest extends AbstractEngineTest {
 	/**
 	 * Test for usual {@link QualifiedName}.
 	 */
+	@Test
 	public void test_QualifiedName_1() throws Exception {
 		assertEquals(
 				Collections.EMPTY_LIST,
@@ -433,6 +453,7 @@ public class EngineTest extends AbstractEngineTest {
 	/**
 	 * Test for {@link QualifiedName} for field implemented in interface.
 	 */
+	@Test
 	public void test_QualifiedName_2() throws Exception {
 		Integer actualValue =
 				(Integer) evaluateExpression("javax.swing.JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS", "int");
@@ -442,6 +463,7 @@ public class EngineTest extends AbstractEngineTest {
 	/**
 	 * Test for array.length
 	 */
+	@Test
 	public void test_QualifiedName_3() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -459,6 +481,7 @@ public class EngineTest extends AbstractEngineTest {
 	/**
 	 * Test for java.awt.Dimension.x
 	 */
+	@Test
 	public void test_QualifiedName_4() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -478,6 +501,7 @@ public class EngineTest extends AbstractEngineTest {
 	// FieldAccess
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_FieldAccess() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -502,6 +526,7 @@ public class EngineTest extends AbstractEngineTest {
 	// Assignment
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_assignment() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -533,22 +558,13 @@ public class EngineTest extends AbstractEngineTest {
 	// ConditionalExpression
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_ConditionalExpression_1() throws Exception {
 		assertEquals(1, evaluateExpression("true ? 1 : 2", "int"));
 	}
 
+	@Test
 	public void test_ConditionalExpression_2() throws Exception {
 		assertEquals(2, evaluateExpression("false? 1 : 2", "int"));
-	}
-
-	////////////////////////////////////////////////////////////////////////////
-	//
-	// Project disposing
-	//
-	////////////////////////////////////////////////////////////////////////////
-	@Override
-	public void test_tearDown() throws Exception {
-		//System.exit(0);
-		do_projectDispose();
 	}
 }

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.property;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.utils.jdt.core.ProjectUtils;
 import org.eclipse.wb.internal.rcp.Activator;
@@ -69,6 +71,7 @@ public class ImagePropertyEditorTestPlugin extends ImagePropertyEditorTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_ThisPluginImage_OLD() throws Exception {
 		ProjectUtils.ensureResourceType(
 				m_testProject.getJavaProject(),
@@ -85,6 +88,7 @@ public class ImagePropertyEditorTestPlugin extends ImagePropertyEditorTest {
 				"org.eclipse.wb.swt.ResourceManager.getPluginImage(\"TestProject\", \"icons/1.png\")");
 	}
 
+	@Test
 	public void test_ThisPluginImage_NEW_workspace() throws Exception {
 		ProjectUtils.ensureResourceType(
 				m_testProject.getJavaProject(),
@@ -101,6 +105,7 @@ public class ImagePropertyEditorTestPlugin extends ImagePropertyEditorTest {
 				"org.eclipse.wb.swt.ResourceManager.getPluginImage(\"TestProject\", \"icons/1.png\")");
 	}
 
+	@Test
 	public void test_PluginImage_NEW() throws Exception {
 		ProjectUtils.ensureResourceType(
 				m_testProject.getJavaProject(),
@@ -117,6 +122,7 @@ public class ImagePropertyEditorTestPlugin extends ImagePropertyEditorTest {
 				"org.eclipse.wb.swt.ResourceManager.getPluginImage(\"org.eclipse.jdt.ui\", \"/icons/full/elcl16/ch_cancel.png\")");
 	}
 
+	@Test
 	public void test_ThisPlugin_Value() throws Exception {
 		ProjectUtils.ensureResourceType(
 				m_testProject.getJavaProject(),
@@ -138,6 +144,7 @@ public class ImagePropertyEditorTestPlugin extends ImagePropertyEditorTest {
 		assertEquals("icons/1.png", values[1]);
 	}
 
+	@Test
 	public void test_Plugin_Value() throws Exception {
 		ProjectUtils.ensureResourceType(
 				m_testProject.getJavaProject(),

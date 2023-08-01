@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.association.RootAssociation;
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.editor.string.StringPropertyEditor;
@@ -64,6 +66,7 @@ public class ControlTest extends RcpModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_MethodMain() throws Exception {
 		CompositeInfo shellInfo =
 				parseComposite(
@@ -124,6 +127,7 @@ public class ControlTest extends RcpModelTest {
 	 * Test that we can parse "SWT Application" pattern.<br>
 	 * This checks that we can follow "app.open()" local method invocation.
 	 */
+	@Test
 	public void test_application() throws Exception {
 		m_waitForAutoBuild = true;
 		parseComposite(
@@ -157,6 +161,7 @@ public class ControlTest extends RcpModelTest {
 	 * For eSWT we use same {@link Display} for all applications, so we should ignore creation of new
 	 * {@link Display}'s by custom applications.
 	 */
+	@Test
 	public void test_newDisplay() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -171,6 +176,7 @@ public class ControlTest extends RcpModelTest {
 				shell.getDescription().getComponentClass().getName());
 	}
 
+	@Test
 	public void test_classLoader_1() throws Exception {
 		test_classLoader(new String[]{
 				"class Test {",
@@ -180,6 +186,7 @@ public class ControlTest extends RcpModelTest {
 		"}"});
 	}
 
+	@Test
 	public void test_classLoader_2() throws Exception {
 		test_classLoader(new String[]{
 				"class Test extends Composite {",
@@ -213,6 +220,7 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * Test that descriptions for SWT are shared, when needed.
 	 */
+	@Test
 	public void test_sharingDescriptions() throws Exception {
 		CompositeInfo shell_1 =
 				(CompositeInfo) parseSource(
@@ -248,6 +256,7 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * Creation of inner non-static class should be ignored.
 	 */
+	@Test
 	public void test_nonStaticInnerClass() throws Exception {
 		m_waitForAutoBuild = true;
 		parseSource(
@@ -274,6 +283,7 @@ public class ControlTest extends RcpModelTest {
 	 * test checks that after shot we have sizes for controls/layouts that represent required sizes,
 	 * not minimal ones.
 	 */
+	@Test
 	public void test_preferredBounds_usualBounds() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -300,6 +310,7 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * Test that {@link Control}-s are disposed.
 	 */
+	@Test
 	public void test_disposeHierarchy() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -329,6 +340,7 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * Test for {@link ColorDefaultConverter}.
 	 */
+	@Test
 	public void test_ColorConverter() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -352,6 +364,7 @@ public class ControlTest extends RcpModelTest {
 	// getAbsoluteBounds()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getAbsoluteBounds() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -393,6 +406,7 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * Test that control's without variable still can be created.
 	 */
+	@Test
 	public void test_executeNoVariable() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -413,6 +427,7 @@ public class ControlTest extends RcpModelTest {
 	// "expose" action
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_exposeAction() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -485,6 +500,7 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * Actual (is default) constructor throws exception. So, create placeholder.
 	 */
+	@Test
 	public void test_constructorEvaluation_exceptionActual_sameDefault() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -518,6 +534,7 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * Actual constructor throws exception. No default constructor. So, create placeholder.
 	 */
+	@Test
 	public void test_constructorEvaluation_exceptionActual_noDefault() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -552,6 +569,7 @@ public class ControlTest extends RcpModelTest {
 	 * Actual constructor throws exception. Default constructor throws exception. So, create
 	 * placeholder.
 	 */
+	@Test
 	public void test_constructorEvaluation_exceptionActual_exceptionDefault() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -602,6 +620,7 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * Exception in actual constructor. So, default constructor is used, successfully.
 	 */
+	@Test
 	public void test_constructorEvaluation_exceptionActual_goodDefault() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -651,6 +670,7 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * If placeholder used instead of real object, we can not access its exposed components.
 	 */
+	@Test
 	public void test_constructorEvaluation_placeholder_ignoreExposed() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -684,6 +704,7 @@ public class ControlTest extends RcpModelTest {
 	 * If instance of anonymous {@link Control} subclass is created, create instead nearest
 	 * non-abstract {@link Control} super class.
 	 */
+	@Test
 	public void test_newAnonymousControl() throws Exception {
 		setFileContentSrc(
 				"test/MyAbstractButton.java",
@@ -717,6 +738,7 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * If some method invoked two times, visit it only first time.
 	 */
+	@Test
 	public void test_duplicateMethodInvocation() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -742,6 +764,7 @@ public class ControlTest extends RcpModelTest {
 	 * Sometimes (because of unsupported code patterns) "parent" argument becomes <code>null</code>.
 	 * New should check for this and show specific error message.
 	 */
+	@Test
 	public void test_nullAsParent() throws Exception {
 		try {
 			parseComposite(
@@ -764,6 +787,7 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * If unknown {@link Composite} passed into method, this should be handled correctly.
 	 */
+	@Test
 	public void test_unknownCompositeParameter() throws Exception {
 		parseComposite(
 				"public class Test {",
@@ -784,6 +808,7 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * It seems that sometimes users may dispose our shared {@link Shell}. Try to avoid this.
 	 */
+	@Test
 	public void test_disposeSharedShell() throws Exception {
 		CompositeInfo composite =
 				parseComposite(
@@ -803,6 +828,7 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * Some users try to put some other parameter before standard "parent" and "style".
 	 */
+	@Test
 	public void test_parentNotAsFirstParameter() throws Exception {
 		useStrictEvaluationMode(false);
 		CompositeInfo composite =
@@ -829,6 +855,7 @@ public class ControlTest extends RcpModelTest {
 	 * We should not intercept {@link Control#computeSize(int, int, boolean)} and return
 	 * <code>null</code>.
 	 */
+	@Test
 	public void test_dontIntercept_computeSize_1() throws Exception {
 		CompositeInfo composite =
 				parseComposite(
@@ -849,6 +876,7 @@ public class ControlTest extends RcpModelTest {
 	/**
 	 * We should not intercept {@link Control#computeSize(int, int)} and return <code>null</code>.
 	 */
+	@Test
 	public void test_dontIntercept_computeSize_2() throws Exception {
 		CompositeInfo composite =
 				parseComposite(

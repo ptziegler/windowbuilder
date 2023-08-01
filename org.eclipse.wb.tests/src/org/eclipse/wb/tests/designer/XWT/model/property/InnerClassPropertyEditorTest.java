@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.property;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.utils.jdt.core.ProjectUtils;
@@ -49,6 +51,7 @@ public class InnerClassPropertyEditorTest extends XwtModelTest {
 	// getText()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getText_noValue() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -66,6 +69,7 @@ public class InnerClassPropertyEditorTest extends XwtModelTest {
 		assertEquals("<double click>", getPropertyText(property));
 	}
 
+	@Test
 	public void test_getText_hasValue() throws Exception {
 		prepareMyLabelProvider();
 		parse(
@@ -94,6 +98,7 @@ public class InnerClassPropertyEditorTest extends XwtModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@DisposeProjectAfter
+	@Test
 	public void test_generateInner() throws Exception {
 		// create existing class, to generate other name
 		setFileContentSrc(
@@ -149,6 +154,7 @@ public class InnerClassPropertyEditorTest extends XwtModelTest {
 	 * "contentProvider" uses "private static" modifier in template.
 	 */
 	@DisposeProjectAfter
+	@Test
 	public void test_generateInner_contentProvider() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -195,6 +201,7 @@ public class InnerClassPropertyEditorTest extends XwtModelTest {
 	}
 
 	@DisposeProjectAfter
+	@Test
 	public void test_generateAnonymous() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -246,6 +253,7 @@ public class InnerClassPropertyEditorTest extends XwtModelTest {
 	}
 
 	@DisposeProjectAfter
+	@Test
 	public void test_generateAnonymous_disabled() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -279,6 +287,7 @@ public class InnerClassPropertyEditorTest extends XwtModelTest {
 		assertFalse(property.isModified());
 	}
 
+	@Test
 	public void test_openOnDoubleClick() throws Exception {
 		prepareMyLabelProvider();
 		parse(
@@ -306,6 +315,7 @@ public class InnerClassPropertyEditorTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_selectExisting() throws Exception {
 		prepareMyLabelProvider();
 		parse(

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.base64;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.utils.base64.Base64Utils;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 
@@ -43,12 +45,14 @@ public class Base64UtilsTest extends DesignerTestCase {
 	// Encoding
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_encodeString() throws Exception {
 		String encodedString = Base64Utils.encode(UNENCODED_STRING);
 		assertEquals(ENCODED_STRING, encodedString);
 		assertTrue(StringUtils.isAsciiPrintable(encodedString));
 	}
 
+	@Test
 	public void test_encodeBytes() throws Exception {
 		String encodedString = Base64Utils.encode(UNENCODED_BYTES);
 		assertEquals(ENCODED_BYTES, encodedString);
@@ -60,11 +64,13 @@ public class Base64UtilsTest extends DesignerTestCase {
 	// Decoding
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_decodeString() throws Exception {
 		String decodedString = Base64Utils.decode(ENCODED_STRING);
 		assertEquals(UNENCODED_STRING, decodedString);
 	}
 
+	@Test
 	public void test_decodeBytes() throws Exception {
 		byte[] decodedBytes = Base64Utils.decodeToBytes(ENCODED_BYTES);
 		assertTrue(Arrays.equals(UNENCODED_BYTES, decodedBytes));

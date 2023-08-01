@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.creation;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.model.creation.factory.StaticFactoryCreationSupport;
@@ -63,6 +66,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Test for {@link FactoryDescriptionHelper#isFactoryMethod(MethodDeclaration)}.
 	 */
+	@Test
 	public void test_isFactoryMethod() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration(
@@ -93,6 +97,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Check that only "public static" methods with "@wbp.factory" tag are included.
 	 */
+	@Test
 	public void test_descriptions_javaDoc() throws Exception {
 		// prepare factory with one good and several bad methods
 		setFileContentSrc(
@@ -142,6 +147,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Check for "@wbp.factory.parameter.source" tag.
 	 */
+	@Test
 	public void test_descriptions_javaDoc_defaultSource() throws Exception {
 		setFileContentSrc(
 				"test/StaticFactory.java",
@@ -186,6 +192,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Check that parameter with name "parent" automatically marked as parent.
 	 */
+	@Test
 	public void test_descriptions_javaDoc_parent() throws Exception {
 		setFileContentSrc(
 				"test/StaticFactory.java",
@@ -218,6 +225,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Check that "Factory" suffix in class name makes all "public static" methods a factory methods.
 	 */
+	@Test
 	public void test_descriptions_suffixFactory() throws Exception {
 		setFileContentSrc(
 				"test/StaticFactory.java",
@@ -250,6 +258,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	 * Check that single "@wbp.factory" tag for class makes all "public static" methods a factory
 	 * methods.
 	 */
+	@Test
 	public void test_descriptions_javaDoc_forClass() throws Exception {
 		// prepare factory
 		setFileContentSrc(
@@ -285,6 +294,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Check that "void" methods are ignored.
 	 */
+	@Test
 	public void test_descriptions_javaDoc_forClass_withSetters() throws Exception {
 		setFileContentSrc(
 				"test/StaticFactory.java",
@@ -313,6 +323,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Check that parameters are automatically bound to the properties by name/title.
 	 */
+	@Test
 	public void test_descriptions_javaDoc_autoBinding() throws Exception {
 		setFileContentSrc(
 				"test/StaticFactory.java",
@@ -345,6 +356,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Check that with "@wbp.factory.parameters.noBinding" no parameters auto-binding done.
 	 */
+	@Test
 	public void test_descriptions_javaDoc_noBinding() throws Exception {
 		setFileContentSrc(
 				"test/StaticFactory.java",
@@ -375,6 +387,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Check for factory methods described in XML.
 	 */
+	@Test
 	public void test_descriptions_XML() throws Exception {
 		// prepare factory
 		setFileContentSrc(
@@ -418,6 +431,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Factory has instance methods, described in XML, but we ask static methods, so empty map.
 	 */
+	@Test
 	public void test_descriptions_XML_instanceMethods_askStatic() throws Exception {
 		// prepare factory
 		setFileContentSrc(
@@ -452,6 +466,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Factory has static methods, described in XML, but we ask instance methods, so empty map.
 	 */
+	@Test
 	public void test_descriptions_XML_staticMethods_askInstance() throws Exception {
 		// prepare factory
 		setFileContentSrc(
@@ -486,6 +501,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * If method is described in as factory in some class, it is also factory in sub-classes.
 	 */
+	@Test
 	public void test_descriptions_XML_instanceFactory_inheritance() throws Exception {
 		setFileContentSrc(
 				"test/SuperToolkit.java",
@@ -530,6 +546,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Check for factory methods described in XML, with plain text "description" for method.
 	 */
+	@Test
 	public void test_descriptions_XML_textualDescription_plainText() throws Exception {
 		// prepare factory
 		setFileContentSrc(
@@ -566,6 +583,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Check for factory methods described in XML, with HTML "description" for method.
 	 */
+	@Test
 	public void test_descriptions_XML_textualDescription_HTML_1() throws Exception {
 		// prepare factory
 		setFileContentSrc(
@@ -602,6 +620,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Check for factory methods described in XML, with HTML "description" for method.
 	 */
+	@Test
 	public void test_descriptions_XML_textualDescription_HTML_2() throws Exception {
 		// prepare factory
 		setFileContentSrc(
@@ -640,6 +659,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	 * <p>
 	 * We should support "entities", in decimal and hexadecimal forms.
 	 */
+	@Test
 	public void test_descriptions_XML_textualDescription_HTML_3() throws Exception {
 		// prepare factory
 		setFileContentSrc(
@@ -676,6 +696,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Check for factory methods described in XML, with text "name" for method.
 	 */
+	@Test
 	public void test_descriptions_XML_presentationName() throws Exception {
 		// prepare factory
 		setFileContentSrc(
@@ -712,6 +733,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Check for factory methods described in XML, with text "parameter" tags for method.
 	 */
+	@Test
 	public void test_descriptions_XML_parameters() throws Exception {
 		// prepare factory
 		setFileContentSrc(
@@ -751,6 +773,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Check for cached descriptions.
 	 */
+	@Test
 	public void test_descriptions_cached() throws Exception {
 		setFileContentSrc(
 				"test/StaticFactory.java",
@@ -784,7 +807,9 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * We don't support member classes as factories.
 	 */
-	public void DISABLE_test_descriptions_memberClass() throws Exception {
+	@Ignore
+	@Test
+	public void test_descriptions_memberClass() throws Exception {
 		setFileContentSrc(
 				"test/SomeObject.java",
 				getTestSource(
@@ -811,6 +836,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	 * If something, in this case {@link ClassNotFoundException}, causes exception during loading
 	 * factory, we should just ignore it.
 	 */
+	@Test
 	public void test_descriptions_exceptionInJavaInternals() throws Exception {
 		// create MyFactory that references not existing class
 		setFileContentSrc(
@@ -848,6 +874,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Check for parameters binding using index.
 	 */
+	@Test
 	public void test_descriptions_bindByIndex() throws Exception {
 		setFileContentSrc(
 				"test/StaticFactory.java",
@@ -881,6 +908,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Check for parameters binding using index, but with invalid value.
 	 */
+	@Test
 	public void test_descriptions_bindByIndex_invalid() throws Exception {
 		setFileContentSrc(
 				"test/StaticFactory.java",
@@ -909,6 +937,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Check for parameters binding using name, but with invalid value.
 	 */
+	@Test
 	public void test_descriptions_bindByName_invalid() throws Exception {
 		setFileContentSrc(
 				"test/StaticFactory.java",
@@ -977,6 +1006,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Test icons in {@link FactoryMethodDescription}.
 	 */
+	@Test
 	public void test_descriptions_icon() throws Exception {
 		// prepare factory
 		{
@@ -1035,6 +1065,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Test for {@link FactoryMethodDescription#getInvocations()}.
 	 */
+	@Test
 	public void test_descriptions_getInvocations() throws Exception {
 		// prepare factory
 		setFileContentSrc(
@@ -1102,6 +1133,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * No factory units.
 	 */
+	@Test
 	public void test_getFactoryUnits_noUnits() throws Exception {
 		m_waitForAutoBuild = true;
 		ContainerInfo panel =
@@ -1118,6 +1150,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	 * Test for case when {@link ICompilationUnit#findPrimaryType()} return <code>null</code> when no
 	 * primary type, i.e. type with name of unit.
 	 */
+	@Test
 	public void test_getFactoryUnits_noPrimaryType() throws Exception {
 		setFileContentSrc("test/NoPrimaryType.java", getSourceDQ("package test;", "class Foo {", "}"));
 		waitForAutoBuild();
@@ -1134,6 +1167,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * We have factory class, however it is not marked with tag or <code>*.wbp-factory.xml</code>.
 	 */
+	@Test
 	public void test_getFactoryUnits_noTagOrDescription_notFactorySuffix() throws Exception {
 		setFileContentSrc(
 				"test/StaticFactory_.java",
@@ -1160,6 +1194,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	 * We have factory class, that is not marked with tag or <code>*.wbp-factory.xml</code>. However
 	 * if has suffix "Factory" , so considered as factory.
 	 */
+	@Test
 	public void test_getFactoryUnits_noTagOrDescription_hasFactorySuffix() throws Exception {
 		ICompilationUnit factoryUnit =
 				createModelCompilationUnit(
@@ -1187,6 +1222,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Test for factory with <code>@wbp.factory</code> in source.
 	 */
+	@Test
 	public void test_getFactoryUnits_tag() throws Exception {
 		ICompilationUnit factoryUnit =
 				createModelCompilationUnit(
@@ -1217,6 +1253,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Test for factory with <code>@wbp.factory</code> in source, but not active.
 	 */
+	@Test
 	public void test_getFactoryUnits_tagInComment() throws Exception {
 		setFileContentSrc(
 				"test/StaticFactory_.java",
@@ -1243,6 +1280,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * We have factory class and <code>*.wbp-factory.xml</code>.
 	 */
+	@Test
 	public void test_getFactoryUnits_description() throws Exception {
 		ICompilationUnit factoryUnit =
 				createModelCompilationUnit(
@@ -1279,6 +1317,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * We have factory class and <code>*.wbp-factory.xml</code>, but not factory methods.
 	 */
+	@Test
 	public void test_getFactoryUnits_descriptionNoMethods() throws Exception {
 		setFileContentSrc(
 				"test/StaticFactory_.java",
@@ -1312,6 +1351,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Test for {@link FactoryDescriptionHelper#isFactoryInvocation(AstEditor, MethodInvocation)}.
 	 */
+	@Test
 	public void test_isFactoryInvocation_static() throws Exception {
 		setFileContentSrc(
 				"test/StaticFactory.java",
@@ -1347,6 +1387,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Test for {@link FactoryDescriptionHelper#isFactoryInvocation(AstEditor, MethodInvocation)}.
 	 */
+	@Test
 	public void test_isFactoryInvocation_instance() throws Exception {
 		setFileContentSrc(
 				"test/InstanceFactory.java",
@@ -1388,6 +1429,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Description by default.
 	 */
+	@Test
 	public void test_isFactory_descriptions_default_1() throws Exception {
 		// prepare factory
 		setFileContentSrc(
@@ -1438,6 +1480,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_isFactory_descriptions_default_2() throws Exception {
 		// prepare factory
 		setFileContentSrc(
@@ -1488,6 +1531,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Description with use 'factory=false'.
 	 */
+	@Test
 	public void test_isFactory_descriptions_1() throws Exception {
 		// prepare factory
 		setFileContentSrc(
@@ -1544,6 +1588,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Description with use 'allMethodsAreFactories'.
 	 */
+	@Test
 	public void test_isFactory_descriptions_2() throws Exception {
 		// prepare factory
 		setFileContentSrc(
@@ -1598,6 +1643,7 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	/**
 	 * Description with various options.
 	 */
+	@Test
 	public void test_isFactory_descriptions_mixed() throws Exception {
 		// prepare factory
 		setFileContentSrc(

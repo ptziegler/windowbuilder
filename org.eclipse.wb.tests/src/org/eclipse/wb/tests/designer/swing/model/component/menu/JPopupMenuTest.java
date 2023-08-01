@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.component.menu;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.core.model.association.Association;
 import org.eclipse.wb.core.model.association.InvocationVoidAssociation;
@@ -65,6 +68,7 @@ public class JPopupMenuTest extends SwingModelTest {
 	/**
 	 * Test that we can parse {@link JPopupMenu}.
 	 */
+	@Test
 	public void test_parse() throws Exception {
 		ContainerInfo panelInfo =
 				parseContainer(
@@ -131,6 +135,7 @@ public class JPopupMenuTest extends SwingModelTest {
 	/**
 	 * Even when {@link JPopupMenu} has no items, it still has non-zero size.
 	 */
+	@Test
 	public void test_noItems() throws Exception {
 		ContainerInfo panelInfo =
 				parseContainer(
@@ -158,6 +163,7 @@ public class JPopupMenuTest extends SwingModelTest {
 	 * <p>
 	 * {@link JSeparator} should be {@link IMenuItemInfo}.
 	 */
+	@Test
 	public void test_IMenuInfo_withSeparator() throws Exception {
 		ContainerInfo panelInfo =
 				parseContainer(
@@ -226,6 +232,7 @@ public class JPopupMenuTest extends SwingModelTest {
 	/**
 	 * Test that we can add new {@link JPopupMenu}.
 	 */
+	@Test
 	public void test_CREATE() throws Exception {
 		ContainerInfo panelInfo =
 				parseContainer(
@@ -274,6 +281,7 @@ public class JPopupMenuTest extends SwingModelTest {
 	/**
 	 * Test that we can move {@link JPopupMenu}.
 	 */
+	@Test
 	public void test_MOVE() throws Exception {
 		ContainerInfo panelInfo =
 				parseContainer(
@@ -324,6 +332,7 @@ public class JPopupMenuTest extends SwingModelTest {
 	/**
 	 * Test that we can move {@link JPopupMenu} to the container.
 	 */
+	@Test
 	public void test_MOVE_toTheContainer() throws Exception {
 		ContainerInfo panelInfo =
 				parseContainer(
@@ -359,7 +368,9 @@ public class JPopupMenuTest extends SwingModelTest {
 	/**
 	 * Test that we can paste {@link JPopupMenu}.
 	 */
-	public void DISABLE_test_PASTE() throws Exception {
+	@Ignore
+	@Test
+	public void test_PASTE() throws Exception {
 		ContainerInfo panelInfo =
 				parseContainer(
 						"public class Test extends JPanel {",
@@ -426,6 +437,7 @@ public class JPopupMenuTest extends SwingModelTest {
 	/**
 	 * Tests for popup menu to have a special popup menu tracking listener.
 	 */
+	@Test
 	public void test_hasTrackingListener() throws Exception {
 		ContainerInfo panelInfo =
 				parseContainer(
@@ -450,6 +462,7 @@ public class JPopupMenuTest extends SwingModelTest {
 	/**
 	 * Test for parsing adding separator using {@link JPopupMenu#addSeparator()}.
 	 */
+	@Test
 	public void test_separator_addSeparator() throws Exception {
 		parseContainer(
 				"public class Test extends JPanel {",
@@ -495,6 +508,7 @@ public class JPopupMenuTest extends SwingModelTest {
 	/**
 	 * Test for parsing adding separator as explicit {@link JPopupMenu.Separator} creation.
 	 */
+	@Test
 	public void test_separator_newSeparator() throws Exception {
 		parseContainer(
 				"public class Test extends JPanel {",
@@ -519,6 +533,7 @@ public class JPopupMenuTest extends SwingModelTest {
 	/**
 	 * Test for adding {@link JPopupMenuSeparatorInfo} using {@link JPopupMenu#addSeparator()}.
 	 */
+	@Test
 	public void test_separator_create_addSeparator() throws Exception {
 		parseContainer(
 				"public class Test extends JPanel {",

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.execution;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.internal.core.editor.DesignPageSite;
@@ -52,6 +54,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ExecutionUtils#sleep(int)}.
 	 */
+	@Test
 	public void test_sleep() throws Exception {
 		long begin = System.currentTimeMillis();
 		ExecutionUtils.sleep(60);
@@ -62,6 +65,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ExecutionUtils#waitEventLoop(int)}.
 	 */
+	@Test
 	public void test_waitEventLoop() throws Exception {
 		final AtomicBoolean executed = new AtomicBoolean();
 		Display.getDefault().asyncExec(new Runnable() {
@@ -84,6 +88,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ExecutionUtils#waitEventLoop(int)}.
 	 */
+	@Test
 	public void test_waitEventLoop_notThreadSWT() throws Exception {
 		long begin = System.nanoTime();
 		{
@@ -105,6 +110,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	// void, ignore
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_void_ignore_noException() throws Exception {
 		boolean success = ExecutionUtils.runIgnore(new RunnableEx() {
 			@Override
@@ -114,6 +120,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 		assertTrue(success);
 	}
 
+	@Test
 	public void test_void_ignore_withException() throws Exception {
 		boolean success = ExecutionUtils.runIgnore(new RunnableEx() {
 			@Override
@@ -129,6 +136,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	// void, log
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_void_log_noException() throws Exception {
 		boolean success = ExecutionUtils.runLog(new RunnableEx() {
 			@Override
@@ -138,6 +146,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 		assertTrue(success);
 	}
 
+	@Test
 	public void test_void_log_withException() throws Exception {
 		final Exception exception = new Exception();
 		ILog log = DesignerPlugin.getDefault().getLog();
@@ -176,6 +185,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ExecutionUtils#runLogLater(RunnableEx)}.
 	 */
+	@Test
 	public void test_void_log_later_noException() throws Exception {
 		final boolean[] executed = new boolean[]{false};
 		ExecutionUtils.runLogLater(new RunnableEx() {
@@ -196,6 +206,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	// void, rethrow
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_void_rethrow_noException() throws Exception {
 		ExecutionUtils.runRethrow(new RunnableEx() {
 			@Override
@@ -204,6 +215,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 		});
 	}
 
+	@Test
 	public void test_void_rethrow_withException() throws Exception {
 		final Exception exception = new Exception();
 		try {
@@ -221,6 +233,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ExecutionUtils#runRethrow(RunnableEx, String, Object...)}.
 	 */
+	@Test
 	public void test_void_rethrowMessage_noException() throws Exception {
 		ExecutionUtils.runRethrow(new RunnableEx() {
 			@Override
@@ -232,6 +245,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ExecutionUtils#runRethrow(RunnableEx, String, Object...)}.
 	 */
+	@Test
 	public void test_void_rethrowMessage_withException() throws Exception {
 		final Exception exception = new Exception();
 		try {
@@ -255,6 +269,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ExecutionUtils#runDesignTime(RunnableEx)}.
 	 */
+	@Test
 	public void test_void_runDesignTime_void() throws Exception {
 		ExecutionUtils.runDesignTime(new RunnableEx() {
 			@Override
@@ -267,6 +282,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ExecutionUtils#runDesignTime(RunnableObjectEx)}.
 	 */
+	@Test
 	public void test_void_runDesignTime_Object() throws Exception {
 		final Object o = new Object();
 		Object result = ExecutionUtils.runDesignTime(new RunnableObjectEx<Object>() {
@@ -284,6 +300,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	// object, ignore
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_object_ignore_noException() throws Exception {
 		final Object myResult = new Object();
 		Object result = ExecutionUtils.runObjectIgnore(new RunnableObjectEx<Object>() {
@@ -295,6 +312,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 		assertSame(myResult, result);
 	}
 
+	@Test
 	public void test_object_ignore_withException() throws Exception {
 		final Object myResult = new Object();
 		Object result = ExecutionUtils.runObjectIgnore(new RunnableObjectEx<Object>() {
@@ -311,6 +329,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	// object, rethrow
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_object_rethrow_noException() throws Exception {
 		Object result = ExecutionUtils.runObject(new RunnableObjectEx<Object>() {
 			@Override
@@ -321,6 +340,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 		assertNull(result);
 	}
 
+	@Test
 	public void test_object_rethrow_noException2() throws Exception {
 		final Object myResult = new Object();
 		Object result = ExecutionUtils.runObject(new RunnableObjectEx<Object>() {
@@ -332,6 +352,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 		assertSame(myResult, result);
 	}
 
+	@Test
 	public void test_object_rethrow_noException3() throws Exception {
 		final Integer myResult = 12345;
 		Integer result = ExecutionUtils.runObject(new RunnableObjectEx<Integer>() {
@@ -343,6 +364,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 		assertSame(myResult, result);
 	}
 
+	@Test
 	public void test_object_rethrow_withException() throws Exception {
 		final Exception exception = new Exception();
 		try {
@@ -357,6 +379,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_object_rethrow_withError() throws Exception {
 		class MyError extends Error {
 			private static final long serialVersionUID = 0L;
@@ -383,6 +406,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ExecutionUtils#runObject(RunnableObjectEx, String, Object...)}.
 	 */
+	@Test
 	public void test_object_rethrowMessage_noException() throws Exception {
 		Object result = ExecutionUtils.runObject(new RunnableObjectEx<Object>() {
 			@Override
@@ -396,6 +420,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ExecutionUtils#runObject(RunnableObjectEx, String, Object...)}.
 	 */
+	@Test
 	public void test_object_rethrowMessage_withException() throws Exception {
 		final Exception exception = new Exception();
 		try {
@@ -416,6 +441,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	// object, log
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_object_log_noException() throws Exception {
 		final Object myResult = new Object();
 		Object result = ExecutionUtils.runObjectLog(new RunnableObjectEx<Object>() {
@@ -427,6 +453,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 		assertSame(myResult, result);
 	}
 
+	@Test
 	public void test_object_log_withException() throws Exception {
 		final Object myResult = new Object();
 		//
@@ -453,6 +480,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ExecutionUtils#runLogUI(RunnableEx)}.
 	 */
+	@Test
 	public void test_runLogUI_noException() throws Exception {
 		final boolean[] executed = new boolean[1];
 		final boolean[] success = new boolean[1];
@@ -487,6 +515,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ExecutionUtils#runLogUI(RunnableEx)}.
 	 */
+	@Test
 	public void test_runLogUI_withException() throws Exception {
 		final Exception exception = new Exception();
 		ILog log = DesignerPlugin.getDefault().getLog();
@@ -534,6 +563,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ExecutionUtils#runRethrowUI(RunnableEx)}.
 	 */
+	@Test
 	public void test_runRethrowUI() throws Exception {
 		Runnable runnable = new Runnable() {
 			@Override
@@ -557,6 +587,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ExecutionUtils#runAsync(RunnableEx)}.
 	 */
+	@Test
 	public void test_runAsync() throws Exception {
 		final boolean[] executed = new boolean[1];
 		Runnable runnable = new Runnable() {
@@ -590,6 +621,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ExecutionUtils#runObjectUI(RunnableObjectEx)}.
 	 */
+	@Test
 	public void test_UI_object() throws Exception {
 		Runnable runnable = new Runnable() {
 			@Override
@@ -618,6 +650,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	// edit
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_edit() throws Exception {
 		final AtomicBoolean refreshed = new AtomicBoolean();
 		final TestObjectInfo object = new TestObjectInfo() {
@@ -643,6 +676,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 		assertTrue(refreshed.get());
 	}
 
+	@Test
 	public void test_edit_exception_withSite() throws Exception {
 		final TestObjectInfo object = new TestObjectInfo();
 		final Exception exception = new Exception();
@@ -667,6 +701,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 		assertTrue(exceptionHandled[0]);
 	}
 
+	@Test
 	public void test_edit_exception_noSite() throws Exception {
 		final AtomicBoolean refreshed = new AtomicBoolean();
 		final TestObjectInfo object = new TestObjectInfo() {
@@ -695,6 +730,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	/**
 	 * When we throw {@link RuntimeException}, no need to wrap it.
 	 */
+	@Test
 	public void test_edit_exception_noSite_RuntimeException() throws Exception {
 		ObjectInfo object = new TestObjectInfo() {
 			@Override
@@ -720,6 +756,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ExecutionUtils#runLater(ObjectInfo, RunnableEx)} .
 	 */
+	@Test
 	public void test_edit_later() throws Exception {
 		final AtomicBoolean refreshed = new AtomicBoolean();
 		final TestObjectInfo object = new TestObjectInfo() {
@@ -758,6 +795,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ExecutionUtils#runObject(ObjectInfo, RunnableObjectEx)}.
 	 */
+	@Test
 	public void test_edit_object() throws Exception {
 		final AtomicBoolean refreshed = new AtomicBoolean();
 		final TestObjectInfo object = new TestObjectInfo() {
@@ -785,6 +823,7 @@ public class ExecutionUtilsTest extends SwingModelTest {
 	// refresh
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_refresh() throws Exception {
 		final AtomicBoolean refreshed = new AtomicBoolean();
 		final TestObjectInfo object = new TestObjectInfo() {

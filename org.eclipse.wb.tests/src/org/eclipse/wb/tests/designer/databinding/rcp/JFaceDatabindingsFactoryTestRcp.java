@@ -99,14 +99,4 @@ public class JFaceDatabindingsFactoryTestRcp extends RcpModelTest {
 		//
 		assertTrue(shell.getChildrenControls().isEmpty());
 	}
-
-	////////////////////////////////////////////////////////////////////////////
-	//
-	// Project disposing
-	//
-	////////////////////////////////////////////////////////////////////////////
-	@Override
-	public void test_tearDown() throws Exception {
-		do_projectDispose();
-	}
 }

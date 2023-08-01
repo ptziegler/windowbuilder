@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.util.generic;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.creation.CreationSupport;
 import org.eclipse.wb.internal.core.model.description.ComponentDescription;
 import org.eclipse.wb.internal.core.model.property.ITypedProperty;
@@ -93,6 +95,7 @@ public class ModelMethodPropertyTest extends SwingModelTest {
 		waitForAutoBuild();
 	}
 
+	@Test
 	public void test_valueProperty() throws Exception {
 		prepareMyPanel("getter=getValue setter=setValue title=value category=normal");
 		ContainerInfo panel =
@@ -119,6 +122,7 @@ public class ModelMethodPropertyTest extends SwingModelTest {
 		assertSame(property, panel.getPropertyByTitle("value"));
 	}
 
+	@Test
 	public void test_primitiveType() throws Exception {
 		prepareMyPanel0("getter=getValue setter=setValue title=value type=int");
 		ContainerInfo panel =
@@ -137,6 +141,7 @@ public class ModelMethodPropertyTest extends SwingModelTest {
 		assertSame(int.class, ((ITypedProperty) property).getType());
 	}
 
+	@Test
 	public void test_propertyEditor_StringList() throws Exception {
 		prepareMyPanel("getter=getValue setter=setValue title=value editor=strings(A,B,C)");
 		ContainerInfo panel =
@@ -165,6 +170,7 @@ public class ModelMethodPropertyTest extends SwingModelTest {
 	// No required parameter
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_noRequiredParameters_getter() throws Exception {
 		prepareMyPanel("_getter=getValue setter=setValue title=value");
 		parseContainer(
@@ -179,6 +185,7 @@ public class ModelMethodPropertyTest extends SwingModelTest {
 		Assertions.assertThat(warnings.get(0).getMessage()).contains("'getter'");
 	}
 
+	@Test
 	public void test_noRequiredParameters_setter() throws Exception {
 		prepareMyPanel("getter=getValue _setter=setValue title=value");
 		parseContainer(
@@ -193,6 +200,7 @@ public class ModelMethodPropertyTest extends SwingModelTest {
 		Assertions.assertThat(warnings.get(0).getMessage()).contains("'setter'");
 	}
 
+	@Test
 	public void test_noRequiredParameters_title() throws Exception {
 		prepareMyPanel("getter=getValue setter=setValue _title=value");
 		parseContainer(
@@ -212,6 +220,7 @@ public class ModelMethodPropertyTest extends SwingModelTest {
 	// Invalid value for parameter
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_invalidParameter_getter() throws Exception {
 		prepareMyPanel("getter=noSuchMethod setter=foo title=bar");
 		parseContainer(
@@ -226,6 +235,7 @@ public class ModelMethodPropertyTest extends SwingModelTest {
 		Assertions.assertThat(warnings.get(0).getMessage()).contains("Invalid").contains("getter");
 	}
 
+	@Test
 	public void test_invalidParameter_setter() throws Exception {
 		prepareMyPanel("getter=getValue setter=noSuchMethod title=bar");
 		parseContainer(

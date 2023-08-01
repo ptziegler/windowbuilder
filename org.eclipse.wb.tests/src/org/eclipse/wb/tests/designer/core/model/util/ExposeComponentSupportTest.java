@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.util;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.util.ExposeComponentSupport;
 import org.eclipse.wb.internal.core.model.variable.VariableSupport;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
@@ -43,6 +45,7 @@ public class ExposeComponentSupportTest extends SwingModelTest {
 	/**
 	 * No "expose" action, because not supported {@link VariableSupport} type.
 	 */
+	@Test
 	public void test_1_unsupportedVariable() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -58,6 +61,7 @@ public class ExposeComponentSupportTest extends SwingModelTest {
 	/**
 	 * No "expose" action, because component is already exposed.
 	 */
+	@Test
 	public void test_2_alreadyExposed() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -79,6 +83,7 @@ public class ExposeComponentSupportTest extends SwingModelTest {
 	/**
 	 * Method with "return;", i.e. without expression should not cause problems.
 	 */
+	@Test
 	public void test_returnWithoutExpression() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -100,6 +105,7 @@ public class ExposeComponentSupportTest extends SwingModelTest {
 	/**
 	 * Method without body should not cause problems.
 	 */
+	@Test
 	public void test_abstractMethod() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -119,6 +125,7 @@ public class ExposeComponentSupportTest extends SwingModelTest {
 	/**
 	 * Has "expose" action, can be exposed.
 	 */
+	@Test
 	public void test_3_hasAction() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -136,6 +143,7 @@ public class ExposeComponentSupportTest extends SwingModelTest {
 	/**
 	 * Do expose.
 	 */
+	@Test
 	public void test_expose() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

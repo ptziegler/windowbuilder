@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.internal.core.model.ObjectReferenceInfo;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
@@ -23,6 +25,7 @@ public class ObjectReferenceInfoTest extends DesignerTestCase {
 	/**
 	 * Can not create {@link ObjectReferenceInfo} for <code>null</code> {@link ObjectInfo}.
 	 */
+	@Test
 	public void test_notNull() throws Exception {
 		try {
 			new TestObjectInfo(null);
@@ -34,6 +37,7 @@ public class ObjectReferenceInfoTest extends DesignerTestCase {
 	/**
 	 * {@link ObjectReferenceInfo} redirects invocations to {@link ObjectInfo}.
 	 */
+	@Test
 	public void test_redirect() throws Exception {
 		TestObjectInfo object = new TestObjectInfo();
 		ObjectReferenceInfo reference = new ObjectReferenceInfo(object);

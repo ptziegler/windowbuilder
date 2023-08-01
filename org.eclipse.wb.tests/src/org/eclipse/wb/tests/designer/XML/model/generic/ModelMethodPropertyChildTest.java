@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.generic;
 
+import org.junit.Test;
+
 import com.google.common.collect.Maps;
 
 import org.eclipse.wb.internal.core.model.property.Property;
@@ -77,6 +79,7 @@ public class ModelMethodPropertyChildTest extends AbstractCoreTest {
 		"  </parameters>"});
 	}
 
+	@Test
 	public void test_valueProperty() throws Exception {
 		prepareMyPanel("getter=getValue setter=setValue title=value category=normal type=java.lang.String"
 				+ " child="
@@ -128,6 +131,7 @@ public class ModelMethodPropertyChildTest extends AbstractCoreTest {
 		}
 	}
 
+	@Test
 	public void test_noRequiredParameters() throws Exception {
 		prepareMyPanel("");
 		parse("<t:MyComponent/>");
@@ -138,6 +142,7 @@ public class ModelMethodPropertyChildTest extends AbstractCoreTest {
 				"'title'");
 	}
 
+	@Test
 	public void test_noParameter_getter() throws Exception {
 		prepareMyPanel("getter=noSuchMethod setter=foo title=bar type=java.lang.String");
 		parse("<t:MyComponent/>");
@@ -147,6 +152,7 @@ public class ModelMethodPropertyChildTest extends AbstractCoreTest {
 		Assertions.assertThat(warnings.get(0).getMessage()).contains("Invalid").contains("getter");
 	}
 
+	@Test
 	public void test_noParameter_setter() throws Exception {
 		prepareMyPanel("getter=getValue setter=noSuchMethod title=bar type=java.lang.String");
 		parse("<t:MyComponent/>");

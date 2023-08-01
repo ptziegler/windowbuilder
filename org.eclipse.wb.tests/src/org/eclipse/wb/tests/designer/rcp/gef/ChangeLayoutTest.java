@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.gef;
 
+import org.junit.Test;
+
 import org.eclipse.wb.gef.core.policies.EditPolicy;
 import org.eclipse.wb.gef.graphical.GraphicalEditPart;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
@@ -38,6 +40,7 @@ public class ChangeLayoutTest extends RcpGefTest {
 	// Canvas
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_removeSelectionPolicy_whenDropFillLayout() throws Exception {
 		CompositeInfo composite =
 				openComposite(

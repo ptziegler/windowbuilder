@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.parser;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.core.model.association.RootAssociation;
 import org.eclipse.wb.core.model.broadcast.JavaInfoSetObjectAfter;
@@ -74,6 +76,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * No any Swing, eRCP or RCP classes, for no GUI toolkit.
 	 */
+	@Test
 	public void test_noToolkit() throws Exception {
 		try {
 			parseContainer(
@@ -91,6 +94,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * No known entry point and no {@link ClassInstanceCreation}-s, so probably not GUI class.
 	 */
+	@Test
 	public void test_bad_DataBean() throws Exception {
 		try {
 			parseContainer(
@@ -113,6 +117,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * Test for case of empty main() method - no root can be found, so exception thrown.
 	 */
+	@Test
 	public void test_emptyMain() throws Exception {
 		try {
 			parseContainer(
@@ -132,6 +137,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * Test when there are no root method, so exception thrown.
 	 */
+	@Test
 	public void test_noMain() throws Exception {
 		try {
 			parseContainer(
@@ -150,6 +156,7 @@ public class SwingParserTest extends SwingModelTest {
 	 * No root component, and unit has compilation errors. Most probably parsing failed because of
 	 * these errors.
 	 */
+	@Test
 	public void test_noRootComponent_withCompilationErrors() throws Exception {
 		try {
 			m_ignoreCompilationProblems = true;
@@ -171,6 +178,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * Automatically use constructor as entry point: good guess.
 	 */
+	@Test
 	public void test_goodSuperClass_useConstructor() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -186,6 +194,7 @@ public class SwingParserTest extends SwingModelTest {
 		assertNoErrors(panel);
 	}
 
+	@Test
 	public void test_parse_unknownSuperClassForAnonymous() throws Exception {
 		m_ignoreCompilationProblems = true;
 		ContainerInfo panel =
@@ -202,6 +211,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * If several constructors, then default (without parameters) should be used.
 	 */
+	@Test
 	public void test_severalConstructors_useDefault() throws Exception {
 		parseContainer(
 				"public class Test extends JPanel {",
@@ -215,6 +225,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * Several constructors, but no default (without parameters), so fail.
 	 */
+	@Test
 	public void test_severalConstructors_noDefault() throws Exception {
 		try {
 			parseContainer(
@@ -234,6 +245,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * Test for using {@link EventQueue#invokeLater(Runnable)} in <code>main()</code>.
 	 */
+	@Test
 	public void test_EventQueue_invokeLater() throws Exception {
 		parseContainer(
 				"public class Test {",
@@ -253,6 +265,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * Test for using {@link SwingUtilities#invokeLater(Runnable)} in <code>main()</code>.
 	 */
+	@Test
 	public void test_SwingUtilities_invokeLater() throws Exception {
 		parseContainer(
 				"public class Test {",
@@ -272,6 +285,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * Test for using {@link EventQueue#invokeAndWait(Runnable)} in <code>main()</code>.
 	 */
+	@Test
 	public void test_EventQueue_invokeAndWait() throws Exception {
 		parseContainer(
 				"public class Test {",
@@ -295,6 +309,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * Test for using {@link SwingUtilities#invokeAndWait(Runnable)} in <code>main()</code>.
 	 */
+	@Test
 	public void test_SwingUtilities_invokeAndWait() throws Exception {
 		parseContainer(
 				"public class Test {",
@@ -319,6 +334,7 @@ public class SwingParserTest extends SwingModelTest {
 	 * Test for using @wbp.parser.entryPoint to force starting execution flow from some constructor,
 	 * even if we don't know superclass.
 	 */
+	@Test
 	public void test_entryPointTag_forConstructor() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -340,6 +356,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * Test for using @wbp.parser.entryPoint to force starting execution flow from method.
 	 */
+	@Test
 	public void test_entryPointTag_forMethod() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -373,6 +390,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * Automatically use constructor as entry point: good guess.
 	 */
+	@Test
 	public void test_alwaysTryConstructor_success() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -391,6 +409,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * Automatically use constructor as entry point: no, still no GUI in constructor.
 	 */
+	@Test
 	public void test_alwaysTryConstructor_fail() throws Exception {
 		try {
 			parseContainer(
@@ -417,6 +436,7 @@ public class SwingParserTest extends SwingModelTest {
 	 * 2. related nodes;<br>
 	 * 3. parent/child link using method "add(Component)";
 	 */
+	@Test
 	public void test_panelButton_1a() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -465,6 +485,7 @@ public class SwingParserTest extends SwingModelTest {
 	 *
 	 * @author scheglov_ke
 	 */
+	@Test
 	public void test_panelButton_1b() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -505,6 +526,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * Support for setLayout().
 	 */
+	@Test
 	public void test_panelButton_2() throws Exception {
 		final ContainerInfo panel =
 				parseContainer(
@@ -544,6 +566,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * We should be able to parse forms in default package.
 	 */
+	@Test
 	public void test_parse_defaultPackage() throws Exception {
 		setFileContentSrc(
 				"MyButton.java",
@@ -580,6 +603,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * Test that we skip non-root objects.
 	 */
+	@Test
 	public void test_canBeRoot() throws Exception {
 		ContainerInfo frame =
 				parseContainer(
@@ -595,6 +619,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * Test that we select biggest root.
 	 */
+	@Test
 	public void test_severalRoots() throws Exception {
 		ContainerInfo frame =
 				parseContainer(
@@ -607,6 +632,7 @@ public class SwingParserTest extends SwingModelTest {
 		assertTrue(frame.getCreationSupport() instanceof ThisCreationSupport);
 	}
 
+	@Test
 	public void test_localConstructor() throws Exception {
 		m_waitForAutoBuild = true;
 		ContainerInfo frame =
@@ -637,6 +663,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * We try actual constructor first. It does not throw any exception, so it is used.
 	 */
+	@Test
 	public void test_constructorEvaluation_goodActual_success() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -678,6 +705,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * We try first actual constructor, but it throws exception. So, default constructor is used.
 	 */
+	@Test
 	public void test_constructorEvaluation_exceptionActual_goodDefault_success() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -730,6 +758,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * Actual constructor is default, so exception should be logged only once.
 	 */
+	@Test
 	public void test_constructorEvaluation_exceptionActual_sameDefault() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -774,6 +803,7 @@ public class SwingParserTest extends SwingModelTest {
 	 * We try first actual constructor, but it throws exception. So, we try default constructor, but
 	 * it also throws exception. So we use placeholder instead.
 	 */
+	@Test
 	public void test_constructorEvaluation_exceptionActual_exceptionDefault() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -832,6 +862,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * For standard AWT/Swing components actual constructor should be used.
 	 */
+	@Test
 	public void test_constructorEvaluation_standardComponent() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -858,6 +889,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * Check that all {@link Frame}'s are disposed, so not visible.
 	 */
+	@Test
 	public void test_windowsDisposing() throws Exception {
 		parseContainer(
 				"// filler filler filler",
@@ -883,6 +915,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * Test for using undefined method.
 	 */
+	@Test
 	public void test_compilationErrors_undefinedMethod() throws Exception {
 		m_ignoreCompilationProblems = true;
 		try {
@@ -905,6 +938,7 @@ public class SwingParserTest extends SwingModelTest {
 	// Special classes
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_unknownClass() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -920,6 +954,7 @@ public class SwingParserTest extends SwingModelTest {
 	 * Creation of inner non-static class should be ignored.
 	 */
 	@WaitForAutoBuildAfter
+	@Test
 	public void test_nonStaticInnerClass() throws Exception {
 		m_waitForAutoBuild = true;
 		ContainerInfo panel =
@@ -938,6 +973,7 @@ public class SwingParserTest extends SwingModelTest {
 	 * We can not use ByteBuddy to create non-abstract version of standard Swing class (from system
 	 * {@link ClassLoader}).
 	 */
+	@Test
 	public void test_abstractStandardSwingClass() throws Exception {
 		ContainerInfo component =
 				parseContainer(
@@ -956,6 +992,7 @@ public class SwingParserTest extends SwingModelTest {
 	 * Parse factory should ignore interface creations.
 	 */
 	@WaitForAutoBuildAfter
+	@Test
 	public void test_ignoreInterfaces() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -975,6 +1012,7 @@ public class SwingParserTest extends SwingModelTest {
 	 * If instance of anonymous {@link Component} subclass is created, create instead nearest
 	 * non-abstract {@link Component} superclass.
 	 */
+	@Test
 	public void test_newAnonymousClass() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -997,6 +1035,7 @@ public class SwingParserTest extends SwingModelTest {
 	 * We should execute all <code>add(Type)</code> methods, if <code>Type</code> is {@link Component}
 	 * subclass.
 	 */
+	@Test
 	public void test_execute_addMethod() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -1027,6 +1066,7 @@ public class SwingParserTest extends SwingModelTest {
 	 * We should execute all <code>add(Type[,...])</code> methods, if <code>Type</code> is
 	 * {@link Component} subclass.
 	 */
+	@Test
 	public void test_execute_addMethod_withConstraints() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -1054,6 +1094,7 @@ public class SwingParserTest extends SwingModelTest {
 	 * We don't support using {@link SuperMethodInvocation} as association, so we rewrite it to be
 	 * just {@link MethodInvocation}.
 	 */
+	@Test
 	public void test_SuperMethodInvocation_association() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1087,6 +1128,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * {@link JList#JList(Object[])} should not be used with <code>null</code> argument.
 	 */
+	@Test
 	public void test_JList_new_ObjectArray() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1103,6 +1145,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * {@link JList#JList(java.util.Vector)} should not be used with <code>null</code> argument.
 	 */
+	@Test
 	public void test_JList_new_Vector() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1119,6 +1162,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * {@link JList#setListData(Object[])} should not be used with <code>null</code> argument.
 	 */
+	@Test
 	public void test_JList_setListData_ObjectArray() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1136,6 +1180,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * {@link JList#setListData(java.util.Vector)} should not be used with <code>null</code> argument.
 	 */
+	@Test
 	public void test_JList_setListData_Vector() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1159,6 +1204,7 @@ public class SwingParserTest extends SwingModelTest {
 	 * {@link JComboBox#setModel(javax.swing.ComboBoxModel)} should not be used with <code>null</code>
 	 * argument.
 	 */
+	@Test
 	public void test_JComboBox_setModel() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1177,6 +1223,7 @@ public class SwingParserTest extends SwingModelTest {
 	 * {@link JComboBox#JComboBox(javax.swing.ComboBoxModel)} should not be used with
 	 * <code>null</code> argument.
 	 */
+	@Test
 	public void test_JComboBox_constructor_ComboBoxModel() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1193,6 +1240,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * {@link JComboBox#JComboBox(Object[])} should not be used with <code>null</code> argument.
 	 */
+	@Test
 	public void test_JComboBox_constructor_Objects() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1209,6 +1257,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * {@link JComboBox#JComboBox(T[])} should not be used with <code>null</code> argument.
 	 */
+	@Test
 	public void test_JComboBox_constructor_Generic() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1226,6 +1275,7 @@ public class SwingParserTest extends SwingModelTest {
 	 * {@link JComboBox#JComboBox(java.util.Vector)} should not be used with <code>null</code>
 	 * argument.
 	 */
+	@Test
 	public void test_JComboBox_constructor_Vector() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1243,6 +1293,7 @@ public class SwingParserTest extends SwingModelTest {
 	 * We should ignore {@link JComboBox#setRenderer(javax.swing.ListCellRenderer)} invocation if it
 	 * is done with anonymous implementation.
 	 */
+	@Test
 	public void test_JComboBox_setRenderer_anonymous() throws Exception {
 		useStrictEvaluationMode(false);
 		ContainerInfo panel =
@@ -1278,6 +1329,7 @@ public class SwingParserTest extends SwingModelTest {
 	 * We should ignore {@link JComboBox#setRenderer(javax.swing.ListCellRenderer)} invocation with
 	 * <code>null</code> argument.
 	 */
+	@Test
 	public void test_JComboBox_setRenderer_null() throws Exception {
 		useStrictEvaluationMode(false);
 		ContainerInfo panel =
@@ -1300,6 +1352,7 @@ public class SwingParserTest extends SwingModelTest {
 	 * We should ignore {@link AbstractButton#setModel(javax.swing.ButtonModel)} invocation with
 	 * <code>null</code> argument.
 	 */
+	@Test
 	public void test_AbstractButton_setModel_null() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1322,6 +1375,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * Test for using "preferredRoot" parameter to force root selection.
 	 */
+	@Test
 	public void test_preferredRoot_singlePreferred() throws Exception {
 		setJavaContentSrc("test", "MyPanel", new String[]{
 				"public class MyPanel extends JPanel {",
@@ -1354,6 +1408,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * Test for using "preferredRoot" parameter to force root selection.
 	 */
+	@Test
 	public void test_preferredRoot_twoPreferred() throws Exception {
 		setJavaContentSrc("test", "MyPanel", new String[]{
 				"public class MyPanel extends JPanel {",
@@ -1384,6 +1439,7 @@ public class SwingParserTest extends SwingModelTest {
 	/**
 	 * Test for using "@wbp.parser.preferredRoot" comment to force root selection.
 	 */
+	@Test
 	public void test_preferredRoot_useEndOfLineComment() throws Exception {
 		parseContainer(
 				"public class Test {",
@@ -1406,6 +1462,7 @@ public class SwingParserTest extends SwingModelTest {
 	// Event listener
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_eventListeners() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

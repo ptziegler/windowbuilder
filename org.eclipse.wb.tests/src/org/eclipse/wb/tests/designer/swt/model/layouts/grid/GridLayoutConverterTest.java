@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.layouts.grid;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.swt.model.layout.grid.GridDataInfo;
 import org.eclipse.wb.internal.swt.model.layout.grid.GridLayoutConverter;
@@ -44,6 +46,7 @@ public class GridLayoutConverterTest extends RcpModelTest {
 	/**
 	 * No controls.
 	 */
+	@Test
 	public void test_empty() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -64,6 +67,7 @@ public class GridLayoutConverterTest extends RcpModelTest {
 	/**
 	 * Control in single column, in normal order.
 	 */
+	@Test
 	public void test_singleColumn_normalOrder() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -96,6 +100,7 @@ public class GridLayoutConverterTest extends RcpModelTest {
 	/**
 	 * We should not move control if it is already in right order.
 	 */
+	@Test
 	public void test_noReorderIfRightOrder() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -130,6 +135,7 @@ public class GridLayoutConverterTest extends RcpModelTest {
 	/**
 	 * Control in single column, in reverse order.
 	 */
+	@Test
 	public void test_singleColumn_reverseOrder() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -162,6 +168,7 @@ public class GridLayoutConverterTest extends RcpModelTest {
 	/**
 	 * Control in two rows, no fillers.
 	 */
+	@Test
 	public void test_twoRows_noFillers() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -194,6 +201,7 @@ public class GridLayoutConverterTest extends RcpModelTest {
 	/**
 	 * Control in two rows, on diagonal, with fillers.
 	 */
+	@Test
 	public void test_twoRows_withFillers() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -228,6 +236,7 @@ public class GridLayoutConverterTest extends RcpModelTest {
 	/**
 	 * Three controls, one spanned horizontally.
 	 */
+	@Test
 	public void test_spanHorizontal() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -271,6 +280,7 @@ public class GridLayoutConverterTest extends RcpModelTest {
 	/**
 	 * Three controls, one spanned vertically.
 	 */
+	@Test
 	public void test_spanVertical() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

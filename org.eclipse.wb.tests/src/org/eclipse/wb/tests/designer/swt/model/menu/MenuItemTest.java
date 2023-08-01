@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.menu;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.core.editor.IDesignPageSite;
 import org.eclipse.wb.internal.core.editor.DesignPageSite;
@@ -57,6 +60,7 @@ public class MenuItemTest extends RcpModelTest {
 	/**
 	 * Test for parsing {@link MenuInfo}, {@link MenuItemInfo} and its basic properties.
 	 */
+	@Test
 	public void test_parse() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -96,6 +100,7 @@ public class MenuItemTest extends RcpModelTest {
 	/**
 	 * Test for {@link MenuItemStylePresentation}.
 	 */
+	@Test
 	public void test_MenuItemStylePresentation() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -155,6 +160,7 @@ public class MenuItemTest extends RcpModelTest {
 	/**
 	 * Test that {@link MenuItemInfo} can be adapted to {@link IMenuItemInfo}.
 	 */
+	@Test
 	public void test_impl() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -198,6 +204,7 @@ public class MenuItemTest extends RcpModelTest {
 	/**
 	 * Set {@link MenuItemInfo} style to {@link SWT#NONE}.
 	 */
+	@Test
 	public void test_setStyle_toNONE() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -233,6 +240,7 @@ public class MenuItemTest extends RcpModelTest {
 	/**
 	 * Set {@link MenuItemInfo} style to {@link SWT#CASCADE}. A sub menu should be added.
 	 */
+	@Test
 	public void test_setStyle_toCascade() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -275,6 +283,7 @@ public class MenuItemTest extends RcpModelTest {
 	 * <p>
 	 * Only the style should changed.
 	 */
+	@Test
 	public void test_setStyle_noCascade() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -312,6 +321,7 @@ public class MenuItemTest extends RcpModelTest {
 	 * <p>
 	 * Sub menu should be removed.
 	 */
+	@Test
 	public void test_setStyle_fromCascade() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -353,6 +363,7 @@ public class MenuItemTest extends RcpModelTest {
 	 * <p>
 	 * No sub menu, so nothing to remove.
 	 */
+	@Test
 	public void test_setStyle_fromCascade_noSubMenu() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -390,6 +401,7 @@ public class MenuItemTest extends RcpModelTest {
 	 * <p>
 	 * <code>setText()</code> should be removed.
 	 */
+	@Test
 	public void test_setStyle_toSeparator() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -428,6 +440,7 @@ public class MenuItemTest extends RcpModelTest {
 	 * <p>
 	 * Sub menu and <code>setText</code> should be removed because the separator doesn't need it.
 	 */
+	@Test
 	public void test_setStyle_fromCascade_toSeparator() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -473,7 +486,9 @@ public class MenuItemTest extends RcpModelTest {
 	/**
 	 * Test adding a selection listener to menu item.
 	 */
-	public void DISABLE_test_addSelectionListener() throws Exception {
+	@Ignore
+	@Test
+	public void test_addSelectionListener() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
 						"public class Test extends Shell {",
@@ -531,6 +546,7 @@ public class MenuItemTest extends RcpModelTest {
 	/**
 	 * {@link MenuItemInfo} does not accept anything with create/paste.
 	 */
+	@Test
 	public void test_IMenuItemInfo_noCreateOrPaste() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -569,6 +585,7 @@ public class MenuItemTest extends RcpModelTest {
 	/**
 	 * {@link MenuInfo} can be moved on {@link MenuItemInfo}.
 	 */
+	@Test
 	public void test_IMenuItemInfo_move() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

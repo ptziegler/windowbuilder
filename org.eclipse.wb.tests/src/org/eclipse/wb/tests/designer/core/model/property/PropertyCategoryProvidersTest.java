@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.PropertyManager;
 import org.eclipse.wb.internal.core.model.property.category.PropertyCategory;
@@ -42,6 +44,7 @@ public class PropertyCategoryProvidersTest extends SwingModelTest {
 	/**
 	 * Test for {@link PropertyCategoryProviders#fromProperty()}.
 	 */
+	@Test
 	public void test_fromProperty() throws Exception {
 		PropertyCategoryProvider provider = PropertyCategoryProviders.fromProperty();
 		Property property = new PropertyWithTitle("title");
@@ -62,6 +65,7 @@ public class PropertyCategoryProvidersTest extends SwingModelTest {
 	/**
 	 * Test for {@link PropertyCategoryProviders#forcedByUser()}.
 	 */
+	@Test
 	public void test_forcedByUser() throws Exception {
 		PropertyCategoryProvider provider = PropertyCategoryProviders.forcedByUser();
 		ContainerInfo panel =
@@ -89,6 +93,7 @@ public class PropertyCategoryProvidersTest extends SwingModelTest {
 	/**
 	 * Test for {@link PropertyCategoryProviders#combine(PropertyCategoryProvider...)}.
 	 */
+	@Test
 	public void test_combine_empty() throws Exception {
 		PropertyCategoryProvider provider = PropertyCategoryProviders.combine();
 		Property property = new PropertyWithTitle("title");
@@ -102,6 +107,7 @@ public class PropertyCategoryProvidersTest extends SwingModelTest {
 	/**
 	 * Test for {@link PropertyCategoryProviders#combine(PropertyCategoryProvider...)}.
 	 */
+	@Test
 	public void test_combine_atLeastNormal() throws Exception {
 		PropertyCategoryProvider atLeastNormal = new PropertyCategoryProvider() {
 			@Override
@@ -141,6 +147,7 @@ public class PropertyCategoryProvidersTest extends SwingModelTest {
 	/**
 	 * Test for {@link PropertyCategoryProviders#def()}.
 	 */
+	@Test
 	public void test_def() throws Exception {
 		PropertyCategoryProvider provider = PropertyCategoryProviders.def();
 		ContainerInfo panel =

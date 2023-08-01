@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.component;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.JDialogInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
@@ -42,6 +44,7 @@ public class JDialogTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_0() throws Exception {
 		JDialogInfo dialog =
 				(JDialogInfo) parseContainer(
@@ -81,6 +84,7 @@ public class JDialogTest extends SwingModelTest {
 	 * We don't support parsing <code>innstanceOfJDialog.add()</code>, because it adds components on
 	 * "contentPane", so we rewrite source (and AST) to use "canonical" pattern.
 	 */
+	@Test
 	public void test_parseWithout_getContentPane_this() throws Exception {
 		parseJavaInfo(
 				"public class Test extends JDialog {",
@@ -116,6 +120,7 @@ public class JDialogTest extends SwingModelTest {
 	 * We don't support parsing <code>innstanceOfJDialog.add()</code>, because it adds components on
 	 * "contentPane", so we rewrite source (and AST) to use "canonical" pattern.
 	 */
+	@Test
 	public void test_parseWithout_getContentPane_instance() throws Exception {
 		parseJavaInfo(
 				"public class Test {",
@@ -151,6 +156,7 @@ public class JDialogTest extends SwingModelTest {
 	 * We should sometimes rewrite code to use <code>getContentPane()</code>, but not in this case,
 	 * because here <code>setLayout()</code> has no parameters and is just local method.
 	 */
+	@Test
 	public void test_rewrite_setLayout_noCorrectSignature() throws Exception {
 		parseJavaInfo(
 				"public class Test extends JDialog {",
@@ -182,6 +188,7 @@ public class JDialogTest extends SwingModelTest {
 	 * this is really invocation for {@link JDialog}. However if inner {@link JPanel} uses
 	 * {@link JPanel#setLayout(java.awt.LayoutManager)}, then we should not change this code.
 	 */
+	@Test
 	public void test_rewrite_setLayout_ofInnerJPanel() throws Exception {
 		parseJavaInfo(
 				"public class Test extends JDialog {",

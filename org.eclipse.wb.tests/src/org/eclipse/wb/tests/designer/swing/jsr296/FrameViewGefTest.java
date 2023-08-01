@@ -9,6 +9,10 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.jsr296;
+import org.junit.Ignore;
+import org.junit.Before;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.swing.jsr296.model.FrameViewInfo;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
@@ -26,7 +30,8 @@ public class FrameViewGefTest extends SwingGefTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		m_testProject.addBundleJars("org.eclipse.wb.tests.support", "/resources/Swing/jsr296");
 	}
@@ -45,7 +50,9 @@ public class FrameViewGefTest extends SwingGefTest {
 	// Canvas
 	//
 	////////////////////////////////////////////////////////////////////////////
-	public void DISABLE_test_0() throws Exception {
+	@Ignore
+	@Test
+	public void test_0() throws Exception {
 		FrameViewInfo view =
 				openEditor(
 						"import org.jdesktop.application.*;",

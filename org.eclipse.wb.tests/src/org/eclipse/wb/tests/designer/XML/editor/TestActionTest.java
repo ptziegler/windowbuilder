@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.editor;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.xml.editor.actions.TestAction;
 import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
 import org.eclipse.wb.tests.gef.EventSender;
@@ -33,6 +35,7 @@ public class TestActionTest extends XwtGefTest {
 	/**
 	 * Test that {@link TestAction} shows {@link Shell} with valid bounds.
 	 */
+	@Test
 	public void test_run() throws Exception {
 		openEditor("<Shell text='My Shell'/>");
 		//

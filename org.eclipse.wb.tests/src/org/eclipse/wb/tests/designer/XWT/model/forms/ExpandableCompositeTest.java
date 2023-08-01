@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.forms;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.internal.xwt.model.forms.ExpandableCompositeInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.AbstractPositionInfo;
@@ -43,6 +45,7 @@ public class ExpandableCompositeTest extends XwtModelTest {
 	/**
 	 * No any children {@link ControlInfo}'s, so for all positions <code>null</code>.
 	 */
+	@Test
 	public void test_childrenNo() throws Exception {
 		ExpandableCompositeInfo composite =
 				parse(
@@ -59,6 +62,7 @@ public class ExpandableCompositeTest extends XwtModelTest {
 	/**
 	 * Test for {@link ExpandableCompositeInfo#getControl(String)}.
 	 */
+	@Test
 	public void test_children() throws Exception {
 		ExpandableCompositeInfo composite =
 				parse(
@@ -82,6 +86,7 @@ public class ExpandableCompositeTest extends XwtModelTest {
 	/**
 	 * Each {@link ControlInfo} text is decorated with its position method.
 	 */
+	@Test
 	public void test_presentation_decorateText() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -100,6 +105,7 @@ public class ExpandableCompositeTest extends XwtModelTest {
 	 * Even when no "real" {@link ControlInfo} children, tree still has {@link AbstractPositionInfo}
 	 * placeholders.
 	 */
+	@Test
 	public void test_getChildrenTree_placeholders() throws Exception {
 		ExpandableCompositeInfo composite =
 				parse(

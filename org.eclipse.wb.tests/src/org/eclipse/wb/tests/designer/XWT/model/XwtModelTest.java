@@ -9,6 +9,8 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model;
+import org.junit.Before;
+import org.junit.After;
 
 import com.google.common.collect.ImmutableList;
 
@@ -48,14 +50,16 @@ public abstract class XwtModelTest extends AbstractXmlModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		configureForTestPreferences(RcpToolkitDescription.INSTANCE);
 		m_getSource_includeStandardNamespaces = true;
 	}
 
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		configureDefaultPreferences(RcpToolkitDescription.INSTANCE);
 		super.tearDown();
 	}

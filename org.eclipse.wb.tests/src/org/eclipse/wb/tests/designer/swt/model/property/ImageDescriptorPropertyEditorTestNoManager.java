@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.property;
+import org.junit.Before;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.rcp.ToolkitProvider;
@@ -35,7 +38,8 @@ public class ImageDescriptorPropertyEditorTestNoManager extends ImageDescriptorP
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		ToolkitProvider.DESCRIPTION.getPreferences().setValue(
 				IPreferenceConstants.P_USE_RESOURCE_MANAGER,
@@ -59,6 +63,7 @@ public class ImageDescriptorPropertyEditorTestNoManager extends ImageDescriptorP
 	/**
 	 * No value for property.
 	 */
+	@Test
 	public void test_textSource_noValue() throws Exception {
 		Property property =
 				new GenericPropertyNoValue(null, null, ImageDescriptorPropertyEditor.INSTANCE);
@@ -69,6 +74,7 @@ public class ImageDescriptorPropertyEditorTestNoManager extends ImageDescriptorP
 	/**
 	 * "null" value for property.
 	 */
+	@Test
 	public void test_textSource_nullValue() throws Exception {
 		assert_getText_getClipboardSource_forSource("null", "(null)", "null");
 	}
@@ -77,6 +83,7 @@ public class ImageDescriptorPropertyEditorTestNoManager extends ImageDescriptorP
 	 * Test for {@link ImageDescriptor#createFromFile(Class, String)} with <code>null</code> as
 	 * location.
 	 */
+	@Test
 	public void test_textSource_absolutePath() throws Exception {
 		File file = createTempImage();
 		try {
@@ -94,6 +101,7 @@ public class ImageDescriptorPropertyEditorTestNoManager extends ImageDescriptorP
 	 * Test for {@link ImageDescriptor#createFromFile(Class, String)} with this {@link Class} as
 	 * location.
 	 */
+	@Test
 	public void test_textSource_image_over_classpath() throws Exception {
 		assert_getText_getClipboardSource_forSource(
 				"ImageDescriptor.createFromFile(getClass(), \"/javax/swing/plaf/basic/icons/JavaCup16.png\")",
@@ -105,6 +113,7 @@ public class ImageDescriptorPropertyEditorTestNoManager extends ImageDescriptorP
 	 * Test for {@link ImageDescriptor#createFromFile(Class, String)} with some other {@link Class} as
 	 * location.
 	 */
+	@Test
 	public void test_textSource_image_over_classpath_OtherClass() throws Exception {
 		assert_getText_getClipboardSource_forSource(
 				"ImageDescriptor.createFromFile(String.class, \"/javax/swing/plaf/basic/icons/JavaCup16.png\")",

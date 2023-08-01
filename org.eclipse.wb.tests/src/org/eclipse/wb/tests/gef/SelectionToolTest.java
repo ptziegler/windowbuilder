@@ -9,7 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.gef;
-
 import org.eclipse.wb.gef.core.EditPart;
 import org.eclipse.wb.gef.core.IEditPartViewer;
 import org.eclipse.wb.gef.core.events.IEditPartClickListener;
@@ -24,6 +23,9 @@ import org.eclipse.wb.gef.graphical.tools.SelectionTool;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.swt.SWT;
 
+import org.junit.Before;
+import org.junit.Test;
+
 import java.lang.reflect.Field;
 
 /**
@@ -36,20 +38,12 @@ public class SelectionToolTest extends RequestTestCase {
 
 	////////////////////////////////////////////////////////////////////////////
 	//
-	// Constructor
-	//
-	////////////////////////////////////////////////////////////////////////////
-	public SelectionToolTest() {
-		super(SelectionTool.class);
-	}
-
-	////////////////////////////////////////////////////////////////////////////
-	//
 	// SetUp
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		// configure
 		m_tool = new SelectionTool();
@@ -63,6 +57,7 @@ public class SelectionToolTest extends RequestTestCase {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_Click() throws Exception {
 		final RequestsLogger actualLogger = new RequestsLogger();
 		m_viewer.addEditPartClickListener(new IEditPartClickListener() {
@@ -114,6 +109,7 @@ public class SelectionToolTest extends RequestTestCase {
 		actualLogger.assertEmpty();
 	}
 
+	@Test
 	public void test_Move() throws Exception {
 		RequestsLogger actualLogger = new RequestsLogger();
 		//
@@ -187,6 +183,7 @@ public class SelectionToolTest extends RequestTestCase {
 		}
 	}
 
+	@Test
 	public void test_DragTracker() throws Exception {
 		RequestsLogger actualLogger = new RequestsLogger();
 		//
@@ -275,6 +272,7 @@ public class SelectionToolTest extends RequestTestCase {
 		}
 	}
 
+	@Test
 	public void test_DragTracker_MoveHandle() throws Exception {
 		RequestsLogger actualLogger = new RequestsLogger();
 		//

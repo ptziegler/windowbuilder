@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.generic;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.draw2d.IPositionConstants;
@@ -38,6 +41,7 @@ public abstract class FlowContainerAbstractGefTest extends SwingGefTest {
 	// Canvas
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_canvas_CREATE_empty() throws Exception {
 		prepareFlowPanel();
 		ContainerInfo mainPanel =
@@ -78,6 +82,7 @@ public abstract class FlowContainerAbstractGefTest extends SwingGefTest {
 		canvas.assertPrimarySelected(newButton);
 	}
 
+	@Test
 	public void test_canvas_CREATE() throws Exception {
 		prepareFlowPanel();
 		ContainerInfo mainPanel =
@@ -127,6 +132,7 @@ public abstract class FlowContainerAbstractGefTest extends SwingGefTest {
 		canvas.assertPrimarySelected(newButton);
 	}
 
+	@Test
 	public void test_canvas_MOVE() throws Exception {
 		prepareFlowPanel();
 		ContainerInfo mainPanel =
@@ -178,7 +184,9 @@ public abstract class FlowContainerAbstractGefTest extends SwingGefTest {
 				"}");
 	}
 
-	public void DISABLE_test_canvas_PASTE() throws Exception {
+	@Ignore
+	@Test
+	public void test_canvas_PASTE() throws Exception {
 		prepareFlowPanel();
 		ContainerInfo mainPanel =
 				openContainer(
@@ -254,6 +262,7 @@ public abstract class FlowContainerAbstractGefTest extends SwingGefTest {
 		}
 	}
 
+	@Test
 	public void test_canvas_ADD() throws Exception {
 		prepareFlowPanel();
 		ContainerInfo mainPanel =
@@ -311,6 +320,7 @@ public abstract class FlowContainerAbstractGefTest extends SwingGefTest {
 	// Tree
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_tree_CREATE() throws Exception {
 		prepareFlowPanel();
 		ContainerInfo mainPanel =
@@ -360,6 +370,7 @@ public abstract class FlowContainerAbstractGefTest extends SwingGefTest {
 		tree.assertPrimarySelected(newButton);
 	}
 
+	@Test
 	public void test_tree_MOVE() throws Exception {
 		prepareFlowPanel();
 		ContainerInfo mainPanel =
@@ -414,7 +425,9 @@ public abstract class FlowContainerAbstractGefTest extends SwingGefTest {
 				"}");
 	}
 
-	public void DISABLE_test_tree_PASTE() throws Exception {
+	@Ignore
+	@Test
+	public void test_tree_PASTE() throws Exception {
 		prepareFlowPanel();
 		ContainerInfo mainPanel =
 				openContainer(
@@ -490,6 +503,7 @@ public abstract class FlowContainerAbstractGefTest extends SwingGefTest {
 		}
 	}
 
+	@Test
 	public void test_tree_ADD() throws Exception {
 		prepareFlowPanel();
 		ContainerInfo mainPanel =

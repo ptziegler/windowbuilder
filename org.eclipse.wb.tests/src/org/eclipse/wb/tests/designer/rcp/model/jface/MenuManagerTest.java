@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.controls.Separator;
 import org.eclipse.wb.core.model.AbstractComponentInfo;
 import org.eclipse.wb.core.model.association.InvocationVoidAssociation;
@@ -60,6 +62,7 @@ public class MenuManagerTest extends RcpModelTest {
 	/**
 	 * {@link MenuManager} in simple SWT application.
 	 */
+	@Test
 	public void test_standalone() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -81,6 +84,7 @@ public class MenuManagerTest extends RcpModelTest {
 	/**
 	 * Empty {@link MenuManagerInfo}.
 	 */
+	@Test
 	public void test_empty() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -111,6 +115,7 @@ public class MenuManagerTest extends RcpModelTest {
 	/**
 	 * Test for bounds of children {@link ContributionItemInfo}.
 	 */
+	@Test
 	public void test_itemBounds() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -180,6 +185,7 @@ public class MenuManagerTest extends RcpModelTest {
 	/**
 	 * Test for {@link MenuManager} without child {@link ContributionItem}'s.
 	 */
+	@Test
 	public void test_emptySubMenu() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -220,6 +226,7 @@ public class MenuManagerTest extends RcpModelTest {
 	/**
 	 * <code>setVisible(false)</code> causes no {@link Menu} for {@link MenuManager}, so we ignore it.
 	 */
+	@Test
 	public void test_ignore_setVisible() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -248,6 +255,7 @@ public class MenuManagerTest extends RcpModelTest {
 	 * <code>setRemoveAllWhenShown(true)</code> causes no {@link Menu} for {@link MenuManager}, so we
 	 * ignore it.
 	 */
+	@Test
 	public void test_ignore_setRemoveAllWhenShown_true_() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -277,6 +285,7 @@ public class MenuManagerTest extends RcpModelTest {
 	// IMenuInfo
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_IMenuInfo_0() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -339,6 +348,7 @@ public class MenuManagerTest extends RcpModelTest {
 	/**
 	 * Test for {@link MenuManagerInfo} models.
 	 */
+	@Test
 	public void test_IMenuInfo_1() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -475,6 +485,7 @@ public class MenuManagerTest extends RcpModelTest {
 	/**
 	 * Test for {@link MenuManagerInfo} and "create" {@link ActionInfo}.
 	 */
+	@Test
 	public void test_IMenuInfo_CREATE_action() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -534,6 +545,7 @@ public class MenuManagerTest extends RcpModelTest {
 	/**
 	 * Test for {@link MenuManagerInfo} and "create" {@link ActionInfo}.
 	 */
+	@Test
 	public void test_IMenuInfo_CREATE_actionIntoSubMenu() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -602,6 +614,7 @@ public class MenuManagerTest extends RcpModelTest {
 	/**
 	 * Test for {@link MenuManagerInfo} and "create" {@link MenuManagerInfo}.
 	 */
+	@Test
 	public void test_IMenuInfo_CREATE_menuManager() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -649,6 +662,7 @@ public class MenuManagerTest extends RcpModelTest {
 	/**
 	 * Test for {@link MenuManagerInfo} and "create" {@link Separator}.
 	 */
+	@Test
 	public void test_IMenuInfo_CREATE_separator() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -697,6 +711,7 @@ public class MenuManagerTest extends RcpModelTest {
 	/**
 	 * Test for {@link MenuManagerInfo} and "move".
 	 */
+	@Test
 	public void test_IMenuInfo_MOVE_1() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -770,6 +785,7 @@ public class MenuManagerTest extends RcpModelTest {
 	 * Test for {@link MenuManagerInfo} and "move".<br>
 	 * Move {@link ActionContributionItemInfo} from one {@link MenuManagerInfo} into other.
 	 */
+	@Test
 	public void test_IMenuInfo_MOVE_2() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -859,6 +875,7 @@ public class MenuManagerTest extends RcpModelTest {
 	 * Test for {@link MenuManagerInfo} and "move".<br>
 	 * Move {@link MenuManagerInfo} before other.
 	 */
+	@Test
 	public void test_IMenuInfo_MOVE_3() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -927,6 +944,7 @@ public class MenuManagerTest extends RcpModelTest {
 	/**
 	 * Test for {@link MenuManagerInfo} and "paste".
 	 */
+	@Test
 	public void test_IMenuInfo_PASTE() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(

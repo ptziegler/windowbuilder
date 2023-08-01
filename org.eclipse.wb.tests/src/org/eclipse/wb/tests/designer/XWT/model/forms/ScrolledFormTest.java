@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.forms;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.xwt.model.forms.ScrolledFormInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.CompositeInfo;
 import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
@@ -34,6 +36,7 @@ public class ScrolledFormTest extends XwtModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_parse() throws Exception {
 		parse(
 				"<!-- Forms API -->",
@@ -54,6 +57,7 @@ public class ScrolledFormTest extends XwtModelTest {
 		refresh();
 	}
 
+	@Test
 	public void test_create() throws Exception {
 		CompositeInfo shell =
 				parse(

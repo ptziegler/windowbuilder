@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.xml.model.AbstractComponentInfo;
 import org.eclipse.wb.internal.core.xml.model.TopBoundsSupport;
 import org.eclipse.wb.tests.designer.XML.model.description.AbstractCoreTest;
@@ -36,6 +38,7 @@ public class TopBoundsSupportTest extends AbstractCoreTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_0() throws Exception {
 		AbstractComponentInfo shell = parse("<Shell/>");
 		shell.refresh();

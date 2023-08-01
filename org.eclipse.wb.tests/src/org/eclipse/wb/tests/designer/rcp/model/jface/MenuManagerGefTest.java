@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
+import org.junit.After;
+
+import org.junit.Test;
 
 import org.eclipse.wb.gef.core.EditPart;
 import org.eclipse.wb.gef.graphical.GraphicalEditPart;
@@ -56,7 +59,8 @@ public class MenuManagerGefTest extends RcpGefTest {
 	}
 
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		menuTester = null;
 		super.tearDown();
 	}
@@ -69,6 +73,7 @@ public class MenuManagerGefTest extends RcpGefTest {
 	/**
 	 * Use existing {@link ActionInfo}, place it on {@link MenuManagerInfo}.
 	 */
+	@Test
 	public void test_CREATE() throws Exception {
 		ApplicationWindowInfo window =
 				(ApplicationWindowInfo) openJavaInfo(
@@ -160,6 +165,7 @@ public class MenuManagerGefTest extends RcpGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_MOVE() throws Exception {
 		ApplicationWindowInfo window =
 				(ApplicationWindowInfo) openJavaInfo(

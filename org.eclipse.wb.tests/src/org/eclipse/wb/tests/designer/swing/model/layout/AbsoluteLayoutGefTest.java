@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
@@ -37,7 +40,9 @@ public class AbsoluteLayoutGefTest extends SwingGefTest {
 	// Canvas
 	//
 	////////////////////////////////////////////////////////////////////////////
-	public void DISABLE_test_canvas_CREATE() throws Exception {
+	@Ignore
+	@Test
+	public void test_canvas_CREATE() throws Exception {
 		prepareBox();
 		ContainerInfo panel =
 				openContainer(
@@ -65,7 +70,9 @@ public class AbsoluteLayoutGefTest extends SwingGefTest {
 				"}");
 	}
 
-	public void DISABLE_test_canvas_PASTE() throws Exception {
+	@Ignore
+	@Test
+	public void test_canvas_PASTE() throws Exception {
 		prepareBox();
 		ContainerInfo panel =
 				openContainer(
@@ -117,6 +124,7 @@ public class AbsoluteLayoutGefTest extends SwingGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_canvas_MOVE() throws Exception {
 		prepareBox();
 		ContainerInfo panel =
@@ -149,7 +157,9 @@ public class AbsoluteLayoutGefTest extends SwingGefTest {
 				"}");
 	}
 
-	public void DISABLE_test_canvas_ADD() throws Exception {
+	@Ignore
+	@Test
+	public void test_canvas_ADD() throws Exception {
 		prepareBox();
 		ContainerInfo panel =
 				openContainer(
@@ -199,6 +209,7 @@ public class AbsoluteLayoutGefTest extends SwingGefTest {
 	// Tree
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_tree_CREATE() throws Exception {
 		prepareBox();
 		ContainerInfo panel =
@@ -228,7 +239,9 @@ public class AbsoluteLayoutGefTest extends SwingGefTest {
 		tree.assertPrimarySelected(newBox);
 	}
 
-	public void DISABLE_test_tree_PASTE() throws Exception {
+	@Ignore
+	@Test
+	public void test_tree_PASTE() throws Exception {
 		prepareBox();
 		ContainerInfo panel =
 				openContainer(
@@ -280,6 +293,7 @@ public class AbsoluteLayoutGefTest extends SwingGefTest {
 				"}");
 	}
 
+	@Test
 	public void test_tree_MOVE() throws Exception {
 		prepareBox();
 		ContainerInfo panel =
@@ -325,6 +339,7 @@ public class AbsoluteLayoutGefTest extends SwingGefTest {
 		tree.assertPrimarySelected(boxB);
 	}
 
+	@Test
 	public void test_tree_ADD() throws Exception {
 		prepareBox();
 		ContainerInfo panel =

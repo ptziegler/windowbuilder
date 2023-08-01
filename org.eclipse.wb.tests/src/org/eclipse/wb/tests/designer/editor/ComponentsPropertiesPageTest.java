@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.editor.structure.property.PropertyCategoryProviderProvider;
 import org.eclipse.wb.core.editor.structure.property.PropertyListProcessor;
 import org.eclipse.wb.core.model.ObjectInfo;
@@ -62,6 +64,7 @@ public class ComponentsPropertiesPageTest extends SwingGefTest {
 	/**
 	 * Test for using {@link PropertyCategoryProviderProvider}.
 	 */
+	@Test
 	public void test_PropertyCategoryProvider_Provider() throws Exception {
 		ContainerInfo panel = openContainer("public class Test extends JPanel {", "  public Test() {",
 				"    // filler filler filler", "  }", "}");
@@ -108,6 +111,7 @@ public class ComponentsPropertiesPageTest extends SwingGefTest {
 	/**
 	 * Test for using {@link PropertyListProcessor}.
 	 */
+	@Test
 	public void test_PropertyList_Processor() throws Exception {
 		ContainerInfo panel = openContainer("public class Test extends JPanel {", "  public Test() {",
 				"    // filler filler filler", "  }", "}");

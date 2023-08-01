@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.generic;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import com.google.common.collect.ImmutableList;
 
@@ -68,6 +71,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 	/**
 	 * No special container association, so only {@link Association} from component will be used.
 	 */
+	@Test
 	public void test_getConfigurations_noContainerAssociation() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -80,6 +84,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 	/**
 	 * Ask "forCanvas", return common configuration for both - canvas/tree.
 	 */
+	@Test
 	public void test_getConfigurations_forCanvas_common() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -93,6 +98,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 	/**
 	 * Ask "forCanvas", return explicit "forCanvas".
 	 */
+	@Test
 	public void test_getConfigurations_forCanvas_explicit() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -106,6 +112,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 	/**
 	 * Ask "forCanvas", but only "forTree" exist.
 	 */
+	@Test
 	public void test_getConfigurations_forCanvas_onlyForTree() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -118,6 +125,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 	/**
 	 * Ask "forTree", return common configuration for both - canvas/tree.
 	 */
+	@Test
 	public void test_getConfigurations_forTree_common() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(false, new String[][]{
@@ -130,6 +138,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 	/**
 	 * Ask "forTree", return explicit "forTree".
 	 */
+	@Test
 	public void test_getConfigurations_forTree_explicit() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(false, new String[][]{
@@ -142,6 +151,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 	/**
 	 * Several different configurations.
 	 */
+	@Test
 	public void test_getConfigurations_3_count() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -163,6 +173,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 	/**
 	 * Ignore if <code>simpleContainer</code> value is not <code>true</code>.
 	 */
+	@Test
 	public void test_getConfigurations_ignoreFalse() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -175,6 +186,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 	/**
 	 * Use default component/reference validator.
 	 */
+	@Test
 	public void test_getConfigurations_defaultValidators() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -190,6 +202,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 	// Container validation MVEL scripts
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getConfigurations_validateContainer_isContainerType() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -200,6 +213,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 		assertConfiguration(configurations.get(0), "%parent%.add(%child%)", "java.awt.Component");
 	}
 
+	@Test
 	public void test_getConfigurations_validateContainer_scriptToFalse() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -217,6 +231,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 	/**
 	 * Exception when no "component" validator.
 	 */
+	@Test
 	public void test_getConfigurations_noComponentValidator() throws Exception {
 		try {
 			getConfigurations(true, new String[][]{
@@ -227,6 +242,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_getConfigurations_explicitComponentTypes() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -243,6 +259,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 	/**
 	 * Use default component validator.
 	 */
+	@Test
 	public void test_getConfigurations_defaultComponent() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -253,6 +270,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 		assertConfiguration(configurations.get(0), "%parent%.add(%child%)", "java.awt.Component");
 	}
 
+	@Test
 	public void test_getConfigurations_componentValidatorExpression() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -266,6 +284,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 				"isComponentType(java.awt.Component)");
 	}
 
+	@Test
 	public void test_getConfigurations_commandValidatorExpression() throws Exception {
 		List<SimpleContainerConfiguration> configurations =
 				getConfigurations(true, new String[][]{
@@ -377,6 +396,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 	 * CREATE/MOVE methods in container {@link JavaInfo} and use them instead of generic
 	 * implementation.
 	 */
+	@Test
 	public void test_duckTyping() throws Exception {
 		final JavaInfo component = mock(JavaInfo.class);
 		final MySimpleContainer container = mock(MySimpleContainer.class);
@@ -457,6 +477,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 	// Validation
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_validateMethods() throws Exception {
 		final JavaInfo container = mock(JavaInfo.class);
 		final JavaInfo component = mock(JavaInfo.class);
@@ -479,6 +500,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 	/**
 	 * Test for {@link SimpleContainerConfigurable#command_CREATE(Object, Object)}.
 	 */
+	@Test
 	public void test_CREATE() throws Exception {
 		prepareSimplePanel();
 		ContainerInfo panel =
@@ -514,6 +536,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 	/**
 	 * Ensure that we can: create, delete and create new component again.
 	 */
+	@Test
 	public void test_CREATE_twoTimes() throws Exception {
 		prepareSimplePanel();
 		ContainerInfo panel =
@@ -553,6 +576,7 @@ public class SimpleContainerModelTest extends SwingModelTest {
 	/**
 	 * Test for {@link SimpleContainerConfigurable#command_absolute_MOVE(Object, Object)}.
 	 */
+	@Test
 	public void test_MOVE() throws Exception {
 		prepareSimplePanel();
 		ContainerInfo panel =
@@ -602,7 +626,9 @@ public class SimpleContainerModelTest extends SwingModelTest {
 	/**
 	 * {@link SimpleContainer} should automatically copy its child into clipboard.
 	 */
-	public void DISABLE_test_clipboard() throws Exception {
+	@Ignore
+	@Test
+	public void test_clipboard() throws Exception {
 		prepareSimplePanel();
 		ContainerInfo rootPanel =
 				parseContainer(

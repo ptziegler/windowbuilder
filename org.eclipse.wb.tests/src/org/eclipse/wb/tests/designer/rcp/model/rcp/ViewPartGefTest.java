@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.rcp;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.rcp.model.rcp.ViewPartInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpGefTest;
@@ -33,7 +36,9 @@ public class ViewPartGefTest extends RcpGefTest {
 	 * popup should be on separate layer. So, this caused problems with count of children on content
 	 * figure.
 	 */
-	public void DISABLE_test_withMenuManager() throws Exception {
+	@Ignore
+	@Test
+	public void test_withMenuManager() throws Exception {
 		openJavaInfo(
 				"import org.eclipse.jface.action.*;",
 				"import org.eclipse.ui.*;",

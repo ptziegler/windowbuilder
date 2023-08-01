@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.AbstractComponentInfo;
 import org.eclipse.wb.internal.core.model.JavaInfoUtils;
 import org.eclipse.wb.internal.core.model.clipboard.JavaInfoMemento;
@@ -55,6 +57,7 @@ public class LiveImagesManagerTest extends RcpModelTest {
 	 * Check that after "live image" source is not changed, and even {@link ICompilationUnit} is not
 	 * touched by {@link AstEditor#commitChanges()}.
 	 */
+	@Test
 	public void test_noSourceChange() throws Exception {
 		parseSource(
 				"test",
@@ -89,6 +92,7 @@ public class LiveImagesManagerTest extends RcpModelTest {
 	/**
 	 * Test for "live" image when top-level component is {@link Shell}.
 	 */
+	@Test
 	public void test_onShell() throws Exception {
 		parseComposite(
 				"// filler filler filler",
@@ -105,6 +109,7 @@ public class LiveImagesManagerTest extends RcpModelTest {
 	/**
 	 * Test for "live" image when top-level component is {@link Composite}.
 	 */
+	@Test
 	public void test_onComposite() throws Exception {
 		parseComposite(
 				"public class Test extends Composite {",
@@ -123,6 +128,7 @@ public class LiveImagesManagerTest extends RcpModelTest {
 	 * during refresh. Right now this means that if we cache live images, we should use keep in
 	 * {@link AbstractComponentInfo} copy of cached image.
 	 */
+	@Test
 	public void test_noDispose() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -157,6 +163,7 @@ public class LiveImagesManagerTest extends RcpModelTest {
 	 * Test that live images work when there is visible variable with name "shell", because there was
 	 * problem in {@link LiveImagesManager} that it used also name "shell".
 	 */
+	@Test
 	public void test_withShell() throws Exception {
 		parseComposite(
 				"public class Test {",
@@ -174,6 +181,7 @@ public class LiveImagesManagerTest extends RcpModelTest {
 	/**
 	 * Test for custom component.
 	 */
+	@Test
 	public void test_customComponent() throws Exception {
 		setFileContentSrc(
 				"test/MyComposite.java",
@@ -200,6 +208,7 @@ public class LiveImagesManagerTest extends RcpModelTest {
 	/**
 	 * Test for "live" image during paste.
 	 */
+	@Test
 	public void test_copyPaste() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -225,6 +234,7 @@ public class LiveImagesManagerTest extends RcpModelTest {
 	/**
 	 * Test that we can use "live" and {@link ImplicitFactoryCreationSupport}.
 	 */
+	@Test
 	public void test_instanceFactory() throws Exception {
 		setFileContentSrc(
 				"test/InstanceFactory.java",

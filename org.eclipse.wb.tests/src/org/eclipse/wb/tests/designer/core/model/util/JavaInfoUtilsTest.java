@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.util;
 
+import org.junit.Test;
+
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
@@ -110,6 +112,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	// Assertions
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_assertIsNotDeleted() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -135,6 +138,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	// getTypeDeclaration()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getTypeDeclaration() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -151,6 +155,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	// getMethodDeclaration()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getMethodDeclaration_1() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -163,6 +168,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 		assertSame(typeDeclaration.getMethods()[0], JavaInfoUtils.getMethodDeclaration(panel));
 	}
 
+	@Test
 	public void test_getMethodDeclaration_2() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -186,6 +192,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#getState(JavaInfo)}.
 	 */
+	@Test
 	public void test_EditorState_getState() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -200,6 +207,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#getClassLoader(JavaInfo)}.
 	 */
+	@Test
 	public void test_EditorState_getEditorLoader() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -219,6 +227,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#isLocalField(JavaInfo, IField)}.
 	 */
+	@Test
 	public void test_isLocalField() throws Exception {
 		IType constants_1 =
 				createModelType(
@@ -267,6 +276,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#isImplicitlyCreated(JavaInfo)}.
 	 */
+	@Test
 	public void test_isImplicitlyCreated() throws Exception {
 		ContainerInfo frame =
 				parseContainer(
@@ -289,6 +299,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	// scheduleSave()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_scheduleSave() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -316,6 +327,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#scheduleOpenNode(JavaInfo, ASTNode)}.
 	 */
+	@Test
 	public void test_scheduleOpenNode() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -353,6 +365,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Test for {@link JavaInfoUtils#getParameter(JavaInfo, String)}.<br>
 	 * Normal component, created using {@link ClassInstanceCreation}.
 	 */
+	@Test
 	public void test_getParameter_normalComponent() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -370,6 +383,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Test for {@link JavaInfoUtils#getParameter(JavaInfo, String)}.<br>
 	 * Factory component, with parameter in XML {@link FactoryMethodDescription}.
 	 */
+	@Test
 	public void test_getParameter_factoryComponent() throws Exception {
 		// prepare factory
 		setFileContentSrc(
@@ -411,6 +425,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#hasTrueParameter(JavaInfo, String)}.
 	 */
+	@Test
 	public void test_hasTrueParameter() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -445,6 +460,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#setParameter(JavaInfo, String, String)}.
 	 */
+	@Test
 	public void test_setParameter() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -462,6 +478,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 		assertSame(parameterValue, JavaInfoUtils.getParameter(panel, parameterName));
 	}
 
+	@Test
 	public void test_getParameters() throws Exception {
 		setJavaContentSrc("test", "MyPanel", new String[]{
 				"public class MyPanel extends JPanel {",
@@ -517,6 +534,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#executeScriptParameter(JavaInfo, String)}.
 	 */
+	@Test
 	public void test_executeScriptParameter() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -545,6 +563,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#executeScript(JavaInfo, String)}.
 	 */
+	@Test
 	public void test_executeScript() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -568,6 +587,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test that we can leave block when move up.
 	 */
+	@Test
 	public void test_getTarget_before_1() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -590,6 +610,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test that we can go up after leaving block.
 	 */
+	@Test
 	public void test_getTarget_before_2() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -612,6 +633,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test that we stop on not related statement.
 	 */
+	@Test
 	public void test_getTarget_before_3() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -635,6 +657,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test that we can stop at first statement of method.
 	 */
+	@Test
 	public void test_getTarget_before_4() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -656,6 +679,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test that we can add as last child.
 	 */
+	@Test
 	public void test_getTarget_last_1() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -676,6 +700,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test that we can stop at last statement of method.
 	 */
+	@Test
 	public void test_getTarget_last_2() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -694,6 +719,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test that we can add without any child in main().
 	 */
+	@Test
 	public void test_getTarget_last_4() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -710,6 +736,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test that we can add without any child in constructor, but with parent statement.
 	 */
+	@Test
 	public void test_getTarget_last_5() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -727,6 +754,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Test that we can add without any child in constructor, but with parent statement in
 	 * {@link Block}.
 	 */
+	@Test
 	public void test_getTarget_last_parentStatementInBlock() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -749,6 +777,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * <p>
 	 * We test also that "this." and "null" expressions are recognized as "this" component.
 	 */
+	@Test
 	public void test_getTarget_last_6_ignoreNonExecutable() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -767,6 +796,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test that we can add without any child or statement in constructor.
 	 */
+	@Test
 	public void test_getTarget_last_7() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -783,6 +813,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test that we can add without any child and with statements in different method.
 	 */
+	@Test
 	public void test_getTarget_last_8() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -806,6 +837,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * <p>
 	 * This test: no components in configure(), but has component before configure().
 	 */
+	@Test
 	public void test_getTarget_last_dontUseConfigure_1() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -833,6 +865,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * <p>
 	 * This test: has component in configure().
 	 */
+	@Test
 	public void test_getTarget_last_dontUseConfigure_2() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -861,6 +894,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * <p>
 	 * This test: component is only in configure().
 	 */
+	@Test
 	public void test_getTarget_last_dontUseConfigure_3() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -880,6 +914,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * If target is NVO, then its parent is not {@link JavaInfo}, but this should not cause problems.
 	 */
+	@Test
 	public void test_getTarget_last_nonVisual() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -905,6 +940,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test target after container with children.
 	 */
+	@Test
 	public void test_getTarget_afterContainer_withChildren() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -930,6 +966,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test target after {@link JFrame} with its "contentPane" and children.
 	 */
+	@Test
 	public void test_getTarget_afterContainer_withImplicitChild() throws Exception {
 		ContainerInfo frame =
 				parseContainer(
@@ -954,6 +991,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Test target: as last child of panel2, i.e. that we don't leave block of "panel2" because is
 	 * will become invisible.
 	 */
+	@Test
 	public void test_getTarget_10() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -975,6 +1013,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test target: as last child of lazy created panel2
 	 */
+	@Test
 	public void test_getTarget_11() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1001,6 +1040,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test that when parent has local variable, we don't leave method that defines it.
 	 */
+	@Test
 	public void test_getTarget_12() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1024,6 +1064,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test target: as last child of "panel", we should not leave block of "panel".
 	 */
+	@Test
 	public void test_getTarget_13() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1046,6 +1087,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * on practice we can not know if we can leave block, for example we should leave block if this is
 	 * block of child.
 	 */
+	@Test
 	public void test_getTarget_14() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1068,6 +1110,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * We set {@link JavaEventListener#target_isTerminalStatement(JavaInfo, Statement, boolean[])}
 	 * that say that one of the {@link Statement}'s is terminal.
 	 */
+	@Test
 	public void test_getTarget_15_broadcast() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1109,6 +1152,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Test for {@link JavaInfoUtils#getTarget(JavaInfo, JavaInfo)}.<br>
 	 * Target for {@link ExposedPropertyCreationSupport} is same as for its host {@link JavaInfo}.
 	 */
+	@Test
 	public void test_getTarget_16_exposed() throws Exception {
 		ContainerInfo frame =
 				parseContainer(
@@ -1135,6 +1179,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Only children with "visible" {@link Association} can be used as reference.<br>
 	 * For now "visible" means that {@link Association#getStatement()} is not <code>null</code>.
 	 */
+	@Test
 	public void test_getTarget_16_invisibleAssociation() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -1188,6 +1233,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Empty constructor, no any child or statement.<br>
 	 * This is just basic test, see {@link ThisForcedMethodTest} for more tests.
 	 */
+	@Test
 	public void test_getTarget_forcedMethod_1() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1221,6 +1267,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Constructor, with related statements and "super" constructor invocation.<br>
 	 * This is just basic test, see {@link ThisForcedMethodTest} for more tests.
 	 */
+	@Test
 	public void test_getTarget_forcedMethod_2() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1281,6 +1328,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * New components should be added <em>before</em> the <code>setEnabled()</code> invocation.
 	 */
+	@Test
 	public void test_getTarget_order_last1() throws Exception {
 		prepare_getTarget_last();
 		// parse
@@ -1301,6 +1349,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * New components should be added <em>before</em> the <code>setEnabled()</code> invocation.
 	 */
+	@Test
 	public void test_getTarget_order_last2() throws Exception {
 		prepare_getTarget_last();
 		// parse
@@ -1321,6 +1370,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * New components should be added <em>before</em> <code>processChildren</code> invocation, even if
 	 * it has references on children.
 	 */
+	@Test
 	public void test_getTarget_order_last3() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -1362,6 +1412,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Yes, there is <code>setExpanded(true)</code> invocation for child of {@link JPanel}, and it
 	 * should be last, but when we add new children on {@link JPanel} itself, we don't care.
 	 */
+	@Test
 	public void test_getTarget_order_last4() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -1404,6 +1455,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * invocation of accessor. So, target "before component" should be before this invocation, not
 	 * before "create" method invocation.
 	 */
+	@Test
 	public void test_getTarget_lazy_beforeImplicitFactory() throws Exception {
 		setFileContentSrc(
 				"test/MyBar.java",
@@ -1467,6 +1519,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Test for {@link JavaInfoUtils#add(JavaInfo, Association, JavaInfo, JavaInfo)}.<br>
 	 * By default target is "after last related statement".
 	 */
+	@Test
 	public void test_add_target_defaultAfterLastStatement() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1498,6 +1551,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Test for {@link JavaInfoUtils#add(JavaInfo, Association, JavaInfo, JavaInfo)}.<br>
 	 * Add new component after existing component with exposed child.
 	 */
+	@Test
 	public void test_add_target_afterExposedComponent() throws Exception {
 		setFileContentSrc(
 				"test/ComplexPanel.java",
@@ -1549,6 +1603,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Test for {@link JavaInfoUtils#addTarget(JavaInfo, Association, JavaInfo, StatementTarget)}.<br>
 	 * We specify {@link StatementTarget} - after "setFont()".
 	 */
+	@Test
 	public void test_add_target_explicitTarget() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1587,6 +1642,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Test for {@link JavaInfoUtils#addFirst(JavaInfo, Association, JavaInfo)}.<br>
 	 * No other components, so just add before all related statements.
 	 */
+	@Test
 	public void test_addFirst_1() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1625,6 +1681,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Test for {@link JavaInfoUtils#addFirst(JavaInfo, Association, JavaInfo)}.<br>
 	 * Add before existing {@link JLabel}.
 	 */
+	@Test
 	public void test_addFirst_2() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1672,6 +1729,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Test for {@link JavaInfoUtils#add(JavaInfo, Association, JavaInfo, JavaInfo)}.<br>
 	 * Creation generic component by default & with specified argument.
 	 */
+	@Test
 	public void test_create_withTypeParameters() throws Exception {
 		// prepare generic MyButton
 		setFileContentSrc(
@@ -1752,6 +1810,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * When container {@link AssociationObject} is not specified, then only {@link Association} from
 	 * component should be used.
 	 */
+	@Test
 	public void test_add_association_noContainerAssociation() throws Exception {
 		prepareMyButton();
 		ContainerInfo panel =
@@ -1782,6 +1841,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * When container {@link AssociationObject} is not required, then only {@link Association} from
 	 * component should be used.
 	 */
+	@Test
 	public void test_add_association_notRequiredContainerAssociation() throws Exception {
 		prepareMyButton();
 		ContainerInfo panel =
@@ -1814,6 +1874,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * When container {@link AssociationObject} is required, then it will be mixed with
 	 * {@link Association} from component.
 	 */
+	@Test
 	public void test_add_association_requiredContainerAssociation() throws Exception {
 		prepareMyButton();
 		ContainerInfo panel =
@@ -1886,6 +1947,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Test for {@link JavaInfoUtils#move(JavaInfo, Association, boolean, JavaInfo, JavaInfo)}.<br>
 	 * Move inside of same parent.
 	 */
+	@Test
 	public void test_move_inSameParent_local() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1926,6 +1988,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Test for {@link JavaInfoUtils#move(JavaInfo, Association, boolean, JavaInfo, JavaInfo)}.<br>
 	 * Move inside of same parent, {@link LazyVariableSupport}.
 	 */
+	@Test
 	public void test_move_inSameParent_lazy() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1981,6 +2044,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Move inside of same parent.<br>
 	 * Bad attempt to move component before itself.
 	 */
+	@Test
 	public void test_move_ignoreBecauseBeforeItself() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2014,6 +2078,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * .<br>
 	 * We implement {@link IMoveTargetProvider} and place component before <code>setEnabled()</code>.
 	 */
+	@Test
 	public void test_move_IMoveTargetProvider() throws Exception {
 		final ContainerInfo panel =
 				parseContainer(
@@ -2077,6 +2142,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Test for {@link JavaInfoUtils#move(JavaInfo, Association, boolean, JavaInfo, JavaInfo)}.<br>
 	 * Move into new parent, before other component.
 	 */
+	@Test
 	public void test_move_otherParent_beforeComponent() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2119,6 +2185,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Test for {@link JavaInfoUtils#move(JavaInfo, Association, boolean, JavaInfo, JavaInfo)}.<br>
 	 * Move into new parent, as last component.
 	 */
+	@Test
 	public void test_move_otherParent_asLast() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2161,6 +2228,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * When we move "button" in code like this <code>inner.add(new JButton())</code> we should
 	 * materialize "button" to avoid its removing with association.
 	 */
+	@Test
 	public void test_move_otherParent_materialize() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2193,6 +2261,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Test for {@link JavaInfoUtils#move(JavaInfo, Association, boolean, JavaInfo, JavaInfo)}.<br>
 	 * Move inside of same parent, but using alternative association.
 	 */
+	@Test
 	public void test_move_sameParent_alternativeAssociation() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -2252,6 +2321,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Move inside of same parent, but using alternative association.<br>
 	 * Uses also component with "parent" in constructor.
 	 */
+	@Test
 	public void test_move_sameParent_alternativeAssociation_parentInConstructor() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -2329,6 +2399,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Move into new parent.<br>
 	 * Uses also component with "parent" in constructor.
 	 */
+	@Test
 	public void test_move_otherParent_parentInConstructor() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -2416,6 +2487,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * <p>
 	 * Don't move {@link Statement} in "configure" method.
 	 */
+	@Test
 	public void test_move_dontMoveStatementsInConfigure() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2463,6 +2535,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#move(JavaInfo, Association, boolean, JavaInfo, JavaInfo)}.
 	 */
+	@Test
 	public void test_move_componentInSeparateMethod() throws Exception {
 		parseContainer(
 				"public class Test extends JPanel {",
@@ -2513,6 +2586,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * However after preparing this {@link MethodInvocation} was removed because of moving component
 	 * from its old parent.
 	 */
+	@Test
 	public void test_move_removeInvocation_whichIsAfterAssociation() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -2585,6 +2659,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#sortComponentsByFlow(java.util.List)}.
 	 */
+	@Test
 	public void test_sortComponentsByFlow() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2623,6 +2698,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#sortNodesByFlow(java.util.List)}.
 	 */
+	@Test
 	public void test_sortNodesByFlow() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2640,6 +2716,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#sortNodesByFlow(java.util.List)}.
 	 */
+	@Test
 	public void test_sortNodesByFlow_withBlock() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2659,6 +2736,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#sortNodesByFlow(java.util.List)}.
 	 */
+	@Test
 	public void test_sortNodesByFlow_nestedBlockStatement() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2678,6 +2756,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#sortNodesByFlow(java.util.List)}.
 	 */
+	@Test
 	public void test_sortNodesByFlow_nestedBodyDeclarationParts() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2695,6 +2774,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#sortNodesByFlow(java.util.List)}.
 	 */
+	@Test
 	public void test_sortNodesByFlow_nestedStatementParts() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2714,6 +2794,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * <p>
 	 * Nodes not included into execution flow should be removed.
 	 */
+	@Test
 	public void test_sortNodesByFlow_nodeNotInExecutionFlow() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2737,6 +2818,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#sortNodesByFlow(java.util.List)}.
 	 */
+	@Test
 	public void test_sortNodesByFlow_withLocalMethodInvocation() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2757,6 +2839,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#sortNodesByFlow(java.util.List)}.
 	 */
+	@Test
 	public void test_sortNodesByFlow_Statement_itsNode() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2811,6 +2894,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#isCreatedAtTarget(JavaInfo, NodeTarget)}.
 	 */
+	@Test
 	public void test_isCreatedAtTarget_afterStatement() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2863,6 +2947,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#isCreatedAtTarget(JavaInfo, NodeTarget)}.
 	 */
+	@Test
 	public void test_isCreatedAtTarget_afterStatement_blocks() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2894,6 +2979,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#isCreatedAtTarget(JavaInfo, NodeTarget)}.
 	 */
+	@Test
 	public void test_isCreatedAtTarget_beforeStatement() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2940,6 +3026,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#isCreatedAtTarget(JavaInfo, NodeTarget)}.
 	 */
+	@Test
 	public void test_isCreatedAtTarget_beginOfBlock() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2981,6 +3068,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#isCreatedAtTarget(JavaInfo, NodeTarget)}.
 	 */
+	@Test
 	public void test_isCreatedAtTarget_ifNodeIsConstructor() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -3004,6 +3092,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#isCreatedAtTarget(JavaInfo, NodeTarget)}.
 	 */
+	@Test
 	public void test_isCreatedAtTarget_endOfBlock() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -3045,6 +3134,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#isCreatedAtTarget(JavaInfo, NodeTarget)}.
 	 */
+	@Test
 	public void test_isCreatedAtTarget_afterBodyDeclaration() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -3098,6 +3188,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#isCreatedAtTarget(JavaInfo, NodeTarget)}.
 	 */
+	@Test
 	public void test_isCreatedAtTarget_beforeBodyDeclaration() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -3144,6 +3235,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#isCreatedAtTarget(JavaInfo, NodeTarget)}.
 	 */
+	@Test
 	public void test_isCreatedAtTarget_beginOfTypeDeclaration() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -3165,6 +3257,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#isCreatedAtTarget(JavaInfo, NodeTarget)}.
 	 */
+	@Test
 	public void test_isCreatedAtTarget_endOfTypeDeclaration() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -3202,6 +3295,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#getStatementTarget_whenAllCreated(List)}.
 	 */
+	@Test
 	public void test_getStatementTarget_whenAllCreated() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -3233,6 +3327,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#getStatementTarget_whenAllCreated(List)}.
 	 */
+	@Test
 	public void test_getStatementTarget_whenAllCreated_fieldInitializer_this() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -3258,6 +3353,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#getStatementTarget_whenAllCreated(List)}.
 	 */
+	@Test
 	public void test_getStatementTarget_whenAllCreated_fieldInitializer_main() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -3283,6 +3379,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#getStatementTarget_whenAllCreated(List)}.
 	 */
+	@Test
 	public void test_getStatementTarget_whenAllCreated_lazy() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -3318,6 +3415,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#getNodeTarget_relativeCreation(JavaInfo, boolean)}.
 	 */
+	@Test
 	public void test_getNodeTarget_relativeCreation_relatedStatement() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -3349,6 +3447,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#getNodeTarget_relativeCreation(JavaInfo, boolean)}.
 	 */
+	@Test
 	public void test_getNodeTarget_relativeCreation_relativeFieldDeclaration() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -3377,6 +3476,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_getNodeTarget_relativeCreation_wrapperVariableExists() throws Exception {
 		WrapperInfoTest.configureWrapperContents();
 		ContainerInfo container =
@@ -3392,6 +3492,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 		assertEquals("after JButton button=wrapper.getControl();", nodeTarget.toString().trim());
 	}
 
+	@Test
 	public void test_getNodeTarget_relativeCreation_wrapperVariableNoExists() throws Exception {
 		WrapperInfoTest.configureWrapperContents();
 		ContainerInfo container =
@@ -3413,6 +3514,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 		assertEquals("after JButton button=wrapper.getControl();", nodeTarget.toString().trim());
 	}
 
+	@Test
 	public void test_getNodeTarget_relativeCreation_wrapperVariableExistsAsField() throws Exception {
 		WrapperInfoTest.configureWrapperContents();
 		ContainerInfo container =
@@ -3430,6 +3532,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 		assertEquals("after button=wrapper.getControl();", nodeTarget.toString().trim());
 	}
 
+	@Test
 	public void test_getNodeTarget_relativeCreation_wrapperVariableNoExistsAsField() throws Exception {
 		WrapperInfoTest.configureWrapperContents();
 		ContainerInfo container =
@@ -3462,6 +3565,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Test for {@link JavaInfoUtils#addChildExposedByMethod(JavaInfo, String)}.<br>
 	 * Test also for exposing {@link InstanceFactoryInfo}.
 	 */
+	@Test
 	public void test_addChildExposedByMethod_exposedInstanceFactory() throws Exception {
 		setFileContentSrc(
 				"test/MyFactory.java",
@@ -3528,6 +3632,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * <p>
 	 * We should ignore if getter throws exception.
 	 */
+	@Test
 	public void test_addChildredExposedByMethods_exception() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -3555,6 +3660,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * <p>
 	 * If component has getter that returns itself, we should ignore it.
 	 */
+	@Test
 	public void test_addChildredExposedByMethods_recursion() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -3581,6 +3687,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * Even if getter {@link Method} is public, we can invoke it only if declaring class is also
 	 * public.
 	 */
+	@Test
 	public void test_addChildredExposedByMethods_publicMethod_privateClass() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -3617,6 +3724,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Protected {@link Method} is visible not only in subclass, but also in same package.
 	 */
+	@Test
 	public void test_addChildredExposedByMethods_protectedMethod_visibleInSamePackage()
 			throws Exception {
 		setFileContentSrc(
@@ -3659,6 +3767,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#isIndirectlyExposed(JavaInfo)}.
 	 */
+	@Test
 	public void test_isIndirectlyExposed_notExposed() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -3679,6 +3788,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#isIndirectlyExposed(JavaInfo)}.
 	 */
+	@Test
 	public void test_isIndirectlyExposed_exposedDirectly() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -3713,6 +3823,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#isIndirectlyExposed(JavaInfo)}.
 	 */
+	@Test
 	public void test_isIndirectlyExposed_exposedIndirectly() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -3749,6 +3860,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#isIndirectlyExposed(JavaInfo)}.
 	 */
+	@Test
 	public void test_isIndirectlyExposed_exposedDirectly_Wrapper() throws Exception {
 		parseContainer(
 				"// filler filler filler",
@@ -3764,6 +3876,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#isIndirectlyExposed(JavaInfo)}.
 	 */
+	@Test
 	public void test_isIndirectlyExposed_exposedUndirectly_Wrapper() throws Exception {
 		parseContainer(
 				"// filler filler filler",
@@ -3818,6 +3931,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * <p>
 	 * {@link FlowLayout} is ordered layout manager, so it allows move only if reordering is allowed.
 	 */
+	@Test
 	public void test_canMove_FlowLayout() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -3853,6 +3967,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * <p>
 	 * Force move enablement.
 	 */
+	@Test
 	public void test_canMove_forceMoveEnable() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -3898,6 +4013,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	 * <p>
 	 * Force move disabled.
 	 */
+	@Test
 	public void test_canMove_forceMoveDisable() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -3936,6 +4052,7 @@ public class JavaInfoUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoUtils#canReparent(JavaInfo)}.
 	 */
+	@Test
 	public void test_canReparent_disabledByAssociation() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",

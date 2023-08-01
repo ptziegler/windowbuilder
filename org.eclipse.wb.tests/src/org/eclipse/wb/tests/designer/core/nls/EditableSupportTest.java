@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.nls;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import com.google.common.collect.Lists;
 
@@ -60,6 +63,7 @@ public class EditableSupportTest extends AbstractNlsTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_possibleSource() throws Exception {
 		NlsTestUtils.create_EclipseOld_Accessor(this, false);
 		setFileContentSrc("test/messages.properties", getSourceDQ("# some comment"));
@@ -89,6 +93,7 @@ public class EditableSupportTest extends AbstractNlsTest {
 	/**
 	 * Test for {@link RenameKeyCommand}.
 	 */
+	@Test
 	public void test_RenameKeyCommand() throws Exception {
 		NlsTestUtils.create_EclipseOld_Accessor(this, false);
 		setFileContentSrc(
@@ -146,6 +151,7 @@ public class EditableSupportTest extends AbstractNlsTest {
 	/**
 	 * Test for {@link InternalizeKeyCommand}.
 	 */
+	@Test
 	public void test_InternalizeKeyCommand() throws Exception {
 		NlsTestUtils.create_EclipseOld_Accessor(this, false);
 		setFileContentSrc(
@@ -197,6 +203,7 @@ public class EditableSupportTest extends AbstractNlsTest {
 	/**
 	 * Test for {@link RemoveLocaleCommand}.
 	 */
+	@Test
 	public void test_RemoveLocaleCommand() throws Exception {
 		NlsTestUtils.create_EclipseOld_Accessor(this, false);
 		setFileContentSrc("test/messages.properties", getSourceDQ("frame.title=My JFrame"));
@@ -248,6 +255,7 @@ public class EditableSupportTest extends AbstractNlsTest {
 	/**
 	 * Test for {@link IEditableSource#addKey(String, String)}.
 	 */
+	@Test
 	public void test_addKey() throws Exception {
 		m_testProject.addPlugin("org.eclipse.osgi");
 		NlsTestUtils.create_EclipseModern_AccessorAndProperties();
@@ -297,7 +305,9 @@ public class EditableSupportTest extends AbstractNlsTest {
 		}
 	}
 
-	public void DISABLE_test_existingSource() throws Exception {
+	@Ignore
+	@Test
+	public void test_existingSource() throws Exception {
 		NlsTestUtils.create_EclipseOld_Accessor(this, false);
 		setFileContentSrc("test/messages.properties", getSourceDQ("frame.title=My JFrame"));
 		waitForAutoBuild();
@@ -358,7 +368,9 @@ public class EditableSupportTest extends AbstractNlsTest {
 		}
 	}
 
-	public void DISABLE_test_addSource() throws Exception {
+	@Ignore
+	@Test
+	public void test_addSource() throws Exception {
 		waitForAutoBuild();
 		ContainerInfo frame =
 				parseContainer(
@@ -706,6 +718,7 @@ public class EditableSupportTest extends AbstractNlsTest {
 		return editableSource;
 	}
 
+	@Test
 	public void test_EclipseSource_defaultValue() throws Exception {
 		NlsTestUtils.create_EclipseOld_Accessor(this, true);
 		setFileContentSrc("test/messages.properties", getSourceDQ("frame.title=My JFrame"));
@@ -751,6 +764,7 @@ public class EditableSupportTest extends AbstractNlsTest {
 	/**
 	 * Default value can not be changed when use {@link IEditableSupport}.
 	 */
+	@Test
 	public void test_EclipseSource_defaultValue2() throws Exception {
 		NlsTestUtils.create_EclipseOld_Accessor(this, true);
 		setFileContentSrc("test/messages.properties", getSourceDQ("frame.title=My JFrame"));
@@ -795,6 +809,7 @@ public class EditableSupportTest extends AbstractNlsTest {
 	/**
 	 * Test for attaching possible source and for generating unique keys.
 	 */
+	@Test
 	public void test_externalize_uniqueKeys() throws Exception {
 		NlsTestUtils.create_EclipseOld_Accessor(this, false);
 		setFileContentSrc(
@@ -866,6 +881,7 @@ public class EditableSupportTest extends AbstractNlsTest {
 		}
 	}
 
+	@Test
 	public void test_StringPropertyInfo() throws Exception {
 		ContainerInfo frame =
 				parseContainer(
@@ -893,7 +909,9 @@ public class EditableSupportTest extends AbstractNlsTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	// Disabled because the Linux build gets stuck
-	public void DISABLE_test_renameConflict_cancel() throws Exception {
+	@Ignore
+	@Test
+	public void test_renameConflict_cancel() throws Exception {
 		NlsTestUtils.create_EclipseOld_Accessor(this, false);
 		setFileContentSrc(
 				"test/messages.properties",
@@ -947,7 +965,9 @@ public class EditableSupportTest extends AbstractNlsTest {
 	}
 
 	// Disabled because the Linux build gets stuck
-	public void DISABLE_test_renameConflict_keep() throws Exception {
+	@Ignore
+	@Test
+	public void test_renameConflict_keep() throws Exception {
 		NlsTestUtils.create_EclipseOld_Accessor(this, false);
 		setFileContentSrc(
 				"test/messages.properties",
@@ -988,7 +1008,9 @@ public class EditableSupportTest extends AbstractNlsTest {
 	}
 
 	// Disabled because the Linux build gets stuck
-	public void DISABLE_test_renameConflict_useSourceValue() throws Exception {
+	@Ignore
+	@Test
+	public void test_renameConflict_useSourceValue() throws Exception {
 		NlsTestUtils.create_EclipseOld_Accessor(this, false);
 		setFileContentSrc(
 				"test/messages.properties",

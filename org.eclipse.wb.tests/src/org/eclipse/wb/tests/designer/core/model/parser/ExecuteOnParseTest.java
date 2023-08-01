@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.parser;
 
+import org.junit.Test;
+
 import com.google.common.collect.ImmutableList;
 
 import org.eclipse.wb.core.eval.AstEvaluationEngine;
@@ -120,6 +122,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * If "super" class invokes in constructor some method, this method should be added into execution
 	 * flow.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_1() throws Exception {
 		setFileContentSrc(
 				"test/BasePanel.java",
@@ -152,6 +155,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * Same as {@link #test_byteCodeExecutionFlow()}, but additional component in constructor.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_2() throws Exception {
 		setFileContentSrc(
 				"test/BasePanel.java",
@@ -189,6 +193,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * Same as {@link #test_byteCodeExecutionFlow()}, but with {@link SuperConstructorInvocation} with
 	 * parameters.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_3() throws Exception {
 		setFileContentSrc(
 				"test/BasePanel.java",
@@ -228,6 +233,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * All what was written above is not true anymore, 20080308.<br>
 	 * We support binary execution flow, so if superclass invokes some method, we will intercept this.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_4() throws Exception {
 		setFileContentSrc(
 				"test/BasePanel.java",
@@ -264,6 +270,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * Test that method "createClient()" is visited and creates {@link JButton}, that is bound to
 	 * "this".
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_5() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -324,6 +331,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * Test that method "createClient()" is visited, creates {@link JButton} and "clientButton" is
 	 * placed before "constructorButton".
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_6() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -374,6 +382,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * Test that we don't visit fields more than one time.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_7() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -422,6 +431,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * Test that we can invoke {@link SuperMethodInvocation} as <em>first</em> statement.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_8() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -476,6 +486,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * Test that we can invoke {@link SuperMethodInvocation} as <em>last</em> statement.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_9() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -530,6 +541,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * {@link JButton} created in "createClient()" is added into exposed {@link Container}.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_10() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -577,6 +589,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * The JFace {@link Dialog} like panel - it has {@link MethodDeclaration} with parameter for which
 	 * we should create {@link JavaInfo}.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_11() throws Exception {
 		setFileContentSrc(
 				"test/MyDialog.java",
@@ -641,6 +654,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * In addition to several methods, configureShell() parameter is alias for "this", so we check
 	 * that it is correctly bound as child of "this".
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_12() throws Exception {
 		setFileContentSrc(
 				"test/MyDialog.java",
@@ -701,6 +715,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * The JFace {@link Dialog} like panel, using casted creation support.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_13() throws Exception {
 		setFileContentSrc(
 				"test/MyDialog.java",
@@ -766,6 +781,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * Overridden method that accepts "primitive" parameter, so does not have {@link JavaInfoUtils}.<br>
 	 * No any exception should happen.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_14() throws Exception {
 		setFileContentSrc(
 				"test/MyDialog.java",
@@ -798,6 +814,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * Invoke <b>two<b> methods from super constructor. There was bug, that only first method
 	 * associated with <code>super</code>.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_15() throws Exception {
 		setFileContentSrc(
 				"test/BasePanel.java",
@@ -862,6 +879,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * Invoke <b>two<b> methods from super constructor. First method initializes field. Second method
 	 * uses it.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_16() throws Exception {
 		setFileContentSrc(
 				"test/BasePanel.java",
@@ -906,6 +924,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * Method <code>configureContentArea</code> parameter should be ignored.<br>
 	 * No any special meaning for dialogs, but we just want to test "disabling" feature. :-)
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_17() throws Exception {
 		setFileContentSrc(
 				"test/MyDialog.java",
@@ -949,6 +968,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * Test for case when there are two possible "next" components during binary binding (binary
 	 * because <code>add2()</code> is marked as executable, but component is not marked as child).
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_18() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -992,6 +1012,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * <p>
 	 * Here first time we visit from binary execution flow, and second time from Test() constructor.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_duplicateMethodInvocation() throws Exception {
 		setFileContentSrc(
 				"test/BasePanel.java",
@@ -1028,6 +1049,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * We should not visit {@link MethodDeclaration} several times from binary execution flow.
 	 * Especially when there are parameter for which we create {@link JavaInfo}.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_duplicateMethodInvocation2() throws Exception {
 		setFileContentSrc(
 				"test/BasePanel.java",
@@ -1064,6 +1086,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * We can visit {@link MethodDeclaration} multiple times if it has no parameters and has just
 	 * <code>return (simpleName);</code>.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_duplicateMethodInvocation3() throws Exception {
 		setFileContentSrc(
 				"test/BasePanel.java",
@@ -1104,6 +1127,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * We can visit {@link MethodDeclaration} multiple times if it is "lazy" creation.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_duplicateMethodInvocation_lazy() throws Exception {
 		setFileContentSrc(
 				"test/BasePanel.java",
@@ -1148,6 +1172,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * Attempt to execute infinite recursion. Ignore it.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_infiniteRecursion() throws Exception {
 		setFileContentSrc(
 				"test/BasePanel.java",
@@ -1184,6 +1209,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * We should be able to intercept methods when they are called as result of
 	 * {@link SuperMethodInvocation}.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_callSuper_andIntercept() throws Exception {
 		setFileContentSrc(
 				"test/BasePanel.java",
@@ -1222,6 +1248,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * {@link Method#isBridge()} may cause double "super" invocation, so we should not clear "super"
 	 * flag.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_callSuper_whenBridgeMethod() throws Exception {
 		setFileContentSrc(
 				"test/PanelA.java",
@@ -1260,6 +1287,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * Just test with potential execution flow, that is not really used.
 	 */
+	@Test
 	public void test_exposedComponents_binaryExecutionFlow_noOverride() throws Exception {
 		setFileContentSrc(
 				"test/BasePanel.java",
@@ -1301,6 +1329,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * "super.createContents()". So, it seems that we should try to replace implicit layout after
 	 * "super".
 	 */
+	@Test
 	public void test_binaryExecutionFlow_setLayoutInSuper() throws Exception {
 		setFileContentSrc(
 				"test/BasePanel.java",
@@ -1331,6 +1360,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * return from "super" creation, so before we can set "object" for "this". However this means that
 	 * exposed components will not work in intercepted methods. We should fix this.
 	 */
+	@Test
 	public void test_exposedComponents_binaryExecutionFlow_withOverride2() throws Exception {
 		setFileContentSrc(
 				"test/BasePanel.java",
@@ -1374,6 +1404,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * return from "super" creation, so before we can set "object" for "this". However this means that
 	 * exposed components will not work in intercepted methods. We should fix this.
 	 */
+	@Test
 	public void test_exposedComponents_binaryExecutionFlow_decideCreationByOverrideResult()
 			throws Exception {
 		setFileContentSrc(
@@ -1421,6 +1452,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * <p>
 	 * Here we test for <code>binaryExecutionFlow.dontVisit</code> tag support.
 	 */
+	@Test
 	public void test_exposedComponents_binaryExecutionFlow_dontVisit() throws Exception {
 		setFileContentSrc(
 				"test/BasePanel.java",
@@ -1461,6 +1493,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * Sometimes we want to prevent interception for all standard methods in toolkit, i.e. in some
 	 * package.
 	 */
+	@Test
 	public void test_binaryExecutionFlow_disableForPackage_withException() throws Exception {
 		setFileContentSrc(
 				"test/BasePanel.java",
@@ -1512,6 +1545,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * Sometimes we want to prevent interception for all standard methods in toolkit, i.e. in some
 	 * package.
 	 */
+	@Test
 	public void test_binaryExecutionFlow_disableForPackage_noExceptions() throws Exception {
 		setFileContentSrc(
 				"test/BasePanel.java",
@@ -1562,6 +1596,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * Sometimes we know, that bytecode execution flow is not used in component, so no reason to
 	 * intercept methods. This makes SmartGWT much faster.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_disableForClass() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -1607,6 +1642,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * Exposed component may be created in "super" of intercepted method. And we need it directly
 	 * after "super", so we should try to get its object.
 	 */
+	@Test
 	public void test_exposedComponents_binaryExecutionFlow_prepareObjectsForExposed()
 			throws Exception {
 		setFileContentSrc(
@@ -1649,6 +1685,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * When we search for exposed children, we should not use binary execution flow.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_whenSearchExposedChildren() throws Exception {
 		setFileContentSrc(
 				"test/BasePanel.java",
@@ -1679,6 +1716,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * We call <code>setVisible()</code> when make screen shot, but this is when refresh already
 	 * finished, so this should not cause binary execution flow.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_ignoreSwingMethods() throws Exception {
 		setFileContentSrc(
 				"test/Super.java",
@@ -1709,6 +1747,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * We should not intercept standard Swing methods.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_ignoreSwingMethods2() throws Exception {
 		setFileContentSrc(
 				"test/Super.java",
@@ -1741,6 +1780,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * not able to find value of "value" (because "myMethod" is not in execution flow), use default
 	 * value and fail.
 	 */
+	@Test
 	public void test_byteCodeExecutionFlow_anyParameterValue() throws Exception {
 		setFileContentSrc(
 				"test/Super.java",
@@ -1780,6 +1820,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * Test for using "bindBinary.toDepth" parameter to force root selection then no 'parent'
 	 * references (exists 'children' references).
 	 */
+	@Test
 	public void test_bindBinary_toDepth() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -1867,6 +1908,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * When {@link ThisCreationSupport} evaluates {@link SuperConstructorInvocation}, this should
 	 * cause evaluation of other components.
 	 */
+	@Test
 	public void test_layoutInSuperConstructor_1() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1894,6 +1936,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * {@link GridBagLayout} (to check that we set object) as argument of
 	 * {@link SuperConstructorInvocation}.
 	 */
+	@Test
 	public void test_layoutInSuperConstructor_2() throws Exception {
 		// parsing will fail, if we don't set GribBagLayout instance after parsing super()
 		// (because we need GridBagLayout instance for virtual GridBagConstraints)
@@ -1915,6 +1958,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * Test for
 	 * {@link JavaEventListener#evaluateAfter(EvaluationContext, org.eclipse.jdt.core.dom.ASTNode)}.
 	 */
+	@Test
 	public void test_evaluateBroadcast() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1948,6 +1992,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 		assertFalse(expectedIterator_after.hasNext());
 	}
 
+	@Test
 	public void test_instanceMethod_simple() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1969,6 +2014,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * When we intercept method, we should not try to route to abstract {@link MethodDeclaration}.
 	 */
+	@Test
 	public void test_instanceMethod_abstractMethod() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -1994,6 +2040,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 		assertEquals("<dynamic>", ((JPanel) panel.getObject()).getName());
 	}
 
+	@Test
 	public void test_instanceMethod_complex() throws Exception {
 		try {
 			parseContainer(
@@ -2025,6 +2072,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * If some method invoked several times, we invoke it only one time.
 	 */
+	@Test
 	public void test_duplicateMethodInvocation_1() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2051,6 +2099,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * <p>
 	 * In this case there is only one invocation on execution flow.
 	 */
+	@Test
 	public void test_duplicateMethodInvocation_2() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2077,6 +2126,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * Test that <code>addSeparator()</code> executed only once.
 	 */
+	@Test
 	public void test_duplicateEvaluateExpression() throws Exception {
 		ContainerInfo toolBar =
 				parseContainer(
@@ -2102,6 +2152,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * Test that we can execute assignment.
 	 */
+	@Test
 	public void test_executeAssignment() throws Exception {
 		ContainerInfo panel =
 				(ContainerInfo) parseSource(
@@ -2122,6 +2173,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * Test that assignments done using {@link FieldAccess} are also executed.
 	 */
+	@Test
 	public void test_executeAssignment_FieldAccess() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -2162,6 +2214,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	// varArgs, ellipsis
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_Java5_varArgs() throws Exception {
 		setFileContentSrc(
 				"test/MyFactory.java",
@@ -2221,6 +2274,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * 2. related nodes;<br>
 	 * 3. parent/child link using method "add(Component)";
 	 */
+	@Test
 	public void test_PanelButton_1a() throws Exception {
 		ContainerInfo panel = parsePanelWithButton();
 		assert_isCleanHierarchy(panel);
@@ -2230,6 +2284,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 				"  {new: javax.swing.JButton} {local-unique: button} {/new JButton()/ /button.setText('New button')/ /panel.add(button)/}");
 	}
 
+	@Test
 	public void test_Frame() throws Exception {
 		ContainerInfo frame =
 				(ContainerInfo) parseSource(
@@ -2260,6 +2315,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 		assert_creation(frame);
 	}
 
+	@Test
 	public void test_FrameButton() throws Exception {
 		ContainerInfo frame =
 				parseContainer(
@@ -2352,6 +2408,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 		assert_creation(frame);
 	}
 
+	@Test
 	public void test_ThisFrameButton() throws Exception {
 		ContainerInfo frame =
 				parseContainer(
@@ -2374,6 +2431,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 		assert_creation(frame);
 	}
 
+	@Test
 	public void test_otherMethodInvocation() throws Exception {
 		m_waitForAutoBuild = true;
 		ContainerInfo panel =
@@ -2389,6 +2447,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 		assertRelatedNodes(panel, new String[]{"new JPanel()"});
 	}
 
+	@Test
 	public void test_this_relatedNode_1() throws Exception {
 		JavaInfo panel =
 				parseContainer(
@@ -2400,6 +2459,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 		assertRelatedNodes(panel, new String[]{"setEnabled(true)"});
 	}
 
+	@Test
 	public void test_this_relatedNode_2() throws Exception {
 		JavaInfo panel =
 				parseContainer(
@@ -2415,6 +2475,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * Test that invocation of local instance method does not cause any serious problem. However we
 	 * know that {@link JButton#setText(String)} will be not executed.
 	 */
+	@Test
 	public void test_localMethodInvocation() throws Exception {
 		parseContainer(
 				"class Test {",
@@ -2440,6 +2501,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * Test for {@link GlobalState#isParsing()}.
 	 */
+	@Test
 	public void test_isParsing() throws Exception {
 		parseContainer(
 				"// filler filler filler",
@@ -2453,6 +2515,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * If we can not load "super" {@link Class}, we should not fall with {@link NullPointerException}.
 	 */
+	@Test
 	public void test_ignoreNullSuperClass() throws Exception {
 		setFileContentSrc(
 				"test/NoClass.java",
@@ -2482,6 +2545,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * Assert that <code>this.someField = new Component()</code> is handled correctly.
 	 */
+	@Test
 	public void test_assignToThisField() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2503,6 +2567,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * Assert that <code>this.someField = new Component()</code> is handled correctly.
 	 */
+	@Test
 	public void test_assignToThisField_applicationPattern() throws Exception {
 		parseContainer(
 				"public class Test {",
@@ -2527,6 +2592,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * There was problem that field without initializer considered as "this".
 	 */
+	@Test
 	public void test_useEmptyField() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2544,6 +2610,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 				"  {implicit-layout: java.awt.FlowLayout} {implicit-layout} {}");
 	}
 
+	@Test
 	public void test_useUnknownParameter_inConstructor() throws Exception {
 		try {
 			parseContainer(
@@ -2563,6 +2630,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_useUnknownParameter_inLazy() throws Exception {
 		try {
 			parseContainer(
@@ -2593,6 +2661,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * We should not enter into <code>keyPressed()</code>, so no <code>foo()</code> invocation and
 	 * execution problem back to event, because of no <code>"e"</code> variable.
 	 */
+	@Test
 	public void test_dontVisit_AnonymouseClassDeclaration() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2615,6 +2684,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * Test that even if {@link JavaInfo} creation is part of other {@link MethodInvocation}, it is
 	 * still executed.
 	 */
+	@Test
 	public void test_createAssociateAndInvokeMethod() throws Exception {
 		setJavaContentSrc("test", "MyButton", new String[]{
 				"public class MyButton extends JButton {",
@@ -2655,6 +2725,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * Test for {@link JavaInfoEvaluationHelper#getDefaultValue(ITypeBinding)}.
 	 */
+	@Test
 	public void test_defaultParameterValues() throws Exception {
 		// no binding
 		assertSame(null, JavaInfoEvaluationHelper.getDefaultValue(null));
@@ -2726,6 +2797,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * In non-strict mode default value for unknown parameter will be used, without showing exception
 	 * to user.
 	 */
+	@Test
 	public void test_useUnknownParameter_nonStrictMode() throws Exception {
 		useStrictEvaluationMode(false);
 		ContainerInfo panel =
@@ -2745,6 +2817,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * There was problem that {@link SuperMethodInvocation} incorrectly considered as {@link JavaInfo}
 	 * creation. So, if it throws exception, we consider it as serious and terminate parsing.
 	 */
+	@Test
 	public void test_exceptionIn_SuperMethodInvocation() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -2775,6 +2848,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * Test that we provide {@link Vector} value for {@link Vector} unknown parameter.
 	 */
+	@Test
 	public void test_unknownVectorParameter() throws Exception {
 		setFileContentSrc(
 				"test/MyList.java",
@@ -2805,6 +2879,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * hierarchy, then we should clear its value, to prevent re-using its value again and again. We
 	 * should evaluate this {@link Expression} as any other.
 	 */
+	@Test
 	public void test_disconnectedModel() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -2839,6 +2914,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * In addition to first case, there was also second one. When we clear value, we should not clear
 	 * too much - we should only remove reference on model, but not reference on assigned value.
 	 */
+	@Test
 	public void test_disconnectedModel_useItsVariable() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2860,6 +2936,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	// Return from method
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_returnFromMethod_validJavaInfo() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -2875,6 +2952,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 		assert_creation(panel);
 	}
 
+	@Test
 	public void test_returnFromMethod_invalidObject() throws Exception {
 		setFileContentSrc(
 				"test/MyBadObject.java",
@@ -2909,6 +2987,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * During parsing/execution we should ensure that {@link Beans#isDesignTime()} returns
 	 * <code>true</code>.
 	 */
+	@Test
 	public void test_isDesignTime_forComponent() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -2940,6 +3019,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * {@link Beans#isDesignTime()} should return <code>true</code> also when we parse/execute root.
 	 */
+	@Test
 	public void test_isDesignTime_forRoot() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -2974,6 +3054,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * Test: real values from arguments of super()
 	 */
+	@Test
 	public void test_constructorParameters_real() throws Exception {
 		prepare_constructorParameters();
 		parseContainer(
@@ -2987,6 +3068,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * Test: values for super() in {@link Javadoc} tags.
 	 */
+	@Test
 	public void test_constructorParameters_parameters() throws Exception {
 		prepare_constructorParameters();
 		parseContainer(
@@ -3007,6 +3089,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	/**
 	 * Test for using {@link IThisMethodParameterEvaluator} for unknown constructor parameters.
 	 */
+	@Test
 	public void test_constructorParameters_IThisMethodParameterEvaluator() throws Exception {
 		prepare_ThisEvaluatorObject();
 		// parse, if all good, it will be parsed
@@ -3027,6 +3110,7 @@ public class ExecuteOnParseTest extends SwingModelTest {
 	 * Test that explicit value is evaluated correctly, not just fake from
 	 * {@link IThisMethodParameterEvaluator} used.
 	 */
+	@Test
 	public void test_constructorParameters_IThisMethodParameterEvaluator_explicitValue()
 			throws Exception {
 		prepare_ThisEvaluatorObject();

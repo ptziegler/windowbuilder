@@ -9,7 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.eval;
-
 import org.eclipse.wb.core.eval.AstEvaluationEngine;
 import org.eclipse.wb.core.eval.EvaluationContext;
 import org.eclipse.wb.core.eval.ExecutionFlowDescription;
@@ -37,6 +36,8 @@ import org.eclipse.jdt.core.dom.ThisExpression;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -53,7 +54,8 @@ public class MethodInvocationTest extends AbstractEngineTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		if (m_testProject == null) {
 			do_projectCreate();
@@ -74,11 +76,13 @@ public class MethodInvocationTest extends AbstractEngineTest {
 	// MethodInvocation
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_System_currentTimeMillis() throws Exception {
 		Object actual = evaluateExpression("System.currentTimeMillis()", "long");
 		assertTrue(actual instanceof Long);
 	}
 
+	@Test
 	public void test_staticPublicMethod() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -95,6 +99,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 		assertEquals(10, actual);
 	}
 
+	@Test
 	public void test_instancePublicMethod_bad() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -119,6 +124,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 	/**
 	 * If method just returns some value, we can try to evaluate it.
 	 */
+	@Test
 	public void test_instancePublicMethod_simpleReturn() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -139,6 +145,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 	 * We try to evaluate {@link ReturnStatement}, but it causes exception. So, we wrap it into usual
 	 * one.
 	 */
+	@Test
 	public void test_instancePublicMethod_simpleReturn_fail() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -170,6 +177,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 	/**
 	 * Test for <code>@wbp.eval.method.return parameterName</code> support.
 	 */
+	@Test
 	public void test_instancePublicMethod_withReturnTag() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -194,6 +202,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 	 * <p>
 	 * Some text before tag.
 	 */
+	@Test
 	public void test_instancePublicMethod_withReturnTag2() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -214,6 +223,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 		assertEquals(5, evaluateSingleMethod(typeDeclaration, "root()"));
 	}
 
+	@Test
 	public void test_staticPublicMethod_inner() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -232,10 +242,12 @@ public class MethodInvocationTest extends AbstractEngineTest {
 		assertEquals(15, actual);
 	}
 
+	@Test
 	public void test_publicMethod_1() throws Exception {
 		assertTrue(evaluateExpression("Runtime.getRuntime().totalMemory()", "long") instanceof Long);
 	}
 
+	@Test
 	public void test_staticImportMethod() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -249,6 +261,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 		Assertions.assertThat(actual).isGreaterThan(1200L * 1000L * 1000L * 1000L);
 	}
 
+	@Test
 	public void test_methodInvocation_invalidArguments() throws Exception {
 		try {
 			m_ignoreModelCompileProblems = true;
@@ -260,6 +273,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 		}
 	}
 
+	@Test
 	public void test_methodInvocation_nullExpression() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -278,6 +292,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 		}
 	}
 
+	@Test
 	public void test_methodInvocation_generic() throws Exception {
 		Object actual =
 				evaluateExpression("java.util.Arrays.asList(\"a\", \"b\", \"c\")", "java.util.List");
@@ -289,6 +304,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 	// MethodInvocation: varArgs
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_staticPublicMethod_varArgsObject() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration("test", "Test.java", getSource(getDoubleQuotes(new String[]{
@@ -310,6 +326,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 		assertEquals("p1p2p3", actual);
 	}
 
+	@Test
 	public void test_staticPublicMethod_varArgsObject_useArray() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration("test", "Test.java", getSource(getDoubleQuotes(new String[]{
@@ -331,6 +348,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 		assertEquals("p1p2p3", actual);
 	}
 
+	@Test
 	public void test_staticPublicMethod_varArgsEmpty() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration("test", "Test.java", getSource(getDoubleQuotes(new String[]{
@@ -352,6 +370,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 		assertEquals("parameters: ", actual);
 	}
 
+	@Test
 	public void test_staticPublicMethod_varArgsInt() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration("test", "Test.java", getSource(getDoubleQuotes(new String[]{
@@ -373,6 +392,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 		assertEquals(1 + 2 + 3, actual);
 	}
 
+	@Test
 	public void test_staticPublicMethod_varArgsDouble() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration("test", "Test.java", getSource(getDoubleQuotes(new String[]{
@@ -414,6 +434,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 	/**
 	 * Using {@link InvocationEvaluatorInterceptor#resolveMethod(Class, String)}.
 	 */
+	@Test
 	public void test_InvocationEvaluatorInterceptor_resolveMethod() throws Exception {
 		setFileContentSrc(
 				"test/MyObject.java",
@@ -470,6 +491,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 	/**
 	 * Using {@link InvocationEvaluatorInterceptor#evaluate(MethodInvocation)} .
 	 */
+	@Test
 	public void test_InvocationEvaluatorInterceptor_MethodInvocation() throws Exception {
 		setFileContentSrc(
 				"test/MyObject.java",
@@ -520,6 +542,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 	/**
 	 * Using {@link InvocationEvaluatorInterceptor#rewriteException(Throwable)}.
 	 */
+	@Test
 	public void test_InvocationEvaluatorInterceptor_rewriteException() throws Exception {
 		setFileContentSrc(
 				"test/MyObject.java",
@@ -559,14 +582,17 @@ public class MethodInvocationTest extends AbstractEngineTest {
 	// ClassInstanceCreation
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_creation_1() throws Exception {
 		assertEquals(0, evaluateExpression("new java.util.ArrayList().size()", "int"));
 	}
 
+	@Test
 	public void test_creation_2() throws Exception {
 		assertEquals(0, evaluateExpression("new java.util.ArrayList(5).size()", "int"));
 	}
 
+	@Test
 	public void test_creation_invalidArguments() throws Exception {
 		try {
 			m_ignoreModelCompileProblems = true;
@@ -578,6 +604,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 		}
 	}
 
+	@Test
 	public void test_creation_String() throws Exception {
 		assertEquals(
 				new String(new char[]{'a', 'b', 'c', 'd'}, 1, 2),
@@ -586,6 +613,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 						"java.lang.String"));
 	}
 
+	@Test
 	public void test_creation_innerStatic() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -601,6 +629,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 		Assertions.assertThat(actual).isNotNull();
 	}
 
+	@Test
 	public void test_creation_innerNotStatic() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
@@ -616,6 +645,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 		Assertions.assertThat(actual).isNull();
 	}
 
+	@Test
 	public void test_creation_varArgsDouble() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration("test", "Test.java", getSource(getDoubleQuotes(new String[]{
@@ -636,6 +666,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 		assertEquals(1.0 + 2.0 + 3.0, ReflectionUtils.getFieldObject(actual, "result"));
 	}
 
+	@Test
 	public void test_creation_varArgsEmpty() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration("test", "Test.java", getSource(getDoubleQuotes(new String[]{
@@ -656,6 +687,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 		assertEquals("", ReflectionUtils.getFieldObject(actual, "result"));
 	}
 
+	@Test
 	public void test_creation_genericType() throws Exception {
 		setFileContentSrc(
 				"test/MyObject.java",
@@ -672,6 +704,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 		assertNotNull(object);
 	}
 
+	@Test
 	public void test_creation_genericType_array() throws Exception {
 		setFileContentSrc(
 				"test/MyObject.java",
@@ -714,6 +747,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 	 * During evaluation of {@link ClassInstanceCreation} with {@link AnonymousClassDeclaration} we
 	 * use {@link InvocationEvaluatorInterceptor}.
 	 */
+	@Test
 	public void test_anonymous_InvocationEvaluatorInterceptor_evaluateAnonymous() throws Exception {
 		setFileContentSrc(
 				"test/MyClass.java",
@@ -759,6 +793,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 	 * During evaluation of {@link ClassInstanceCreation} with {@link AnonymousClassDeclaration} we
 	 * use {@link InvocationEvaluatorInterceptor}. "concrete" type should be not abstract.
 	 */
+	@Test
 	public void test_anonymous_InvocationEvaluatorInterceptor_evaluateAnonymousAbstract()
 			throws Exception {
 		setFileContentSrc(
@@ -812,6 +847,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 	/**
 	 * We don't evaluate {@link ClassInstanceCreation} with {@link AnonymousClassDeclaration}.
 	 */
+	@Test
 	public void test_anonymous_AnonymousEvaluationError() throws Exception {
 		setFileContentSrc(
 				"test/MyClass.java",
@@ -843,6 +879,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 	/**
 	 * We still should evaluate anonymous listeners or handlers.
 	 */
+	@Test
 	public void test_anonymous_evaluateListener() throws Exception {
 		setFileContentSrc(
 				"test/MyListener.java",
@@ -871,6 +908,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 	/**
 	 * We still should evaluate anonymous listeners or handlers.
 	 */
+	@Test
 	public void test_anonymous_evaluateHandler() throws Exception {
 		setFileContentSrc(
 				"test/MyHandler.java",
@@ -899,6 +937,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 	/**
 	 * We still should evaluate anonymous listeners or handlers.
 	 */
+	@Test
 	public void test_anonymous_evaluateListenerAdapter() throws Exception {
 		setFileContentSrc(
 				"test/MyListener.java",
@@ -959,6 +998,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 	 * <p>
 	 * Default constructor is OK.
 	 */
+	@Test
 	public void test_creation_InvocationEvaluatorInterceptor_goodResult() throws Exception {
 		setFileContentSrc(
 				"test/MyObject.java",
@@ -1005,6 +1045,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 	 * <p>
 	 * Default constructor is throws {@link Exception}.
 	 */
+	@Test
 	public void test_creation_InvocationEvaluatorInterceptor_badResult() throws Exception {
 		setFileContentSrc(
 				"test/MyObject.java",
@@ -1057,6 +1098,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 	 * <p>
 	 * Here {@link ThisExpression} value is compatible.
 	 */
+	@Test
 	public void test_creation_useThisExpression_compatible() throws Exception {
 		String[] myObjectLines =
 				new String[]{
@@ -1077,6 +1119,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 	 * <p>
 	 * Here {@link ThisExpression} value is NOT compatible.
 	 */
+	@Test
 	public void test_creation_useThisExpression_notCompatible() throws Exception {
 		String[] myObjectLines =
 				new String[]{
@@ -1137,6 +1180,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 	// SuperMethodInvocation
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_SuperMethodInvocation() throws Exception {
 		setFileContentSrc(
 				"test/Base.java",
@@ -1153,6 +1197,7 @@ public class MethodInvocationTest extends AbstractEngineTest {
 		assertEquals(5, evaluate);
 	}
 
+	@Test
 	public void test_SuperMethodInvocation_withException() throws Exception {
 		setFileContentSrc(
 				"test/Base.java",
@@ -1206,16 +1251,5 @@ public class MethodInvocationTest extends AbstractEngineTest {
 		// evaluate
 		Object evaluate = AstEvaluationEngine.evaluate(context, expression);
 		return evaluate;
-	}
-
-	////////////////////////////////////////////////////////////////////////////
-	//
-	// Project disposing
-	//
-	////////////////////////////////////////////////////////////////////////////
-	@Override
-	public void test_tearDown() throws Exception {
-		//System.exit(0);
-		do_projectDispose();
 	}
 }

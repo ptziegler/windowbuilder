@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.rcp;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.core.model.broadcast.ObjectEventListener;
 import org.eclipse.wb.internal.core.DesignerPlugin;
@@ -56,7 +59,9 @@ public class ViewPartTest extends RcpModelTest {
 	/**
 	 * Test for many elements of {@link ViewPartInfo}.
 	 */
-	public void DISABLE_test_0() throws Exception {
+	@Ignore
+	@Test
+	public void test_0() throws Exception {
 		ViewPartInfo part =
 				parseJavaInfo(
 						"import org.eclipse.jface.action.*;",
@@ -136,6 +141,7 @@ public class ViewPartTest extends RcpModelTest {
 	/**
 	 * Test for {@link IViewSite} implementation.
 	 */
+	@Test
 	public void test_IViewSite() throws Exception {
 		ViewPartInfo part =
 				parseJavaInfo(
@@ -178,6 +184,7 @@ public class ViewPartTest extends RcpModelTest {
 	/**
 	 * Test for {@link ViewPartInfo} without {@link ContributionManagerInfo}.
 	 */
+	@Test
 	public void test_noContributionManegers() throws Exception {
 		parseJavaInfo(
 				"import org.eclipse.jface.action.*;",
@@ -206,6 +213,7 @@ public class ViewPartTest extends RcpModelTest {
 	/**
 	 * Test for "normal" {@link GenericProperty}'s.
 	 */
+	@Test
 	public void test_normalProperties() throws Exception {
 		ViewPartInfo part =
 				parseJavaInfo(
@@ -261,6 +269,7 @@ public class ViewPartTest extends RcpModelTest {
 	/**
 	 * Current project is not a plugin project, so no "Extension" property.
 	 */
+	@Test
 	public void test_extensionProperties_notPlugin() throws Exception {
 		ViewPartInfo part =
 				parseJavaInfo(
@@ -280,6 +289,7 @@ public class ViewPartTest extends RcpModelTest {
 	/**
 	 * No "view" extension for this {@link ViewPart} class, so no "Extension" property.
 	 */
+	@Test
 	public void test_extensionProperties_noExtension() throws Exception {
 		PdeProjectConversionUtils.convertToPDE(m_testProject.getProject(), null, "testplugin.Activator");
 		AbstractPdeTest.createPluginXML(new String[]{
@@ -308,6 +318,7 @@ public class ViewPartTest extends RcpModelTest {
 	 * Valid "view" extension for this {@link ViewPart} class, so we have "Extension" property and its
 	 * sub-properties.
 	 */
+	@Test
 	public void test_extensionProperties_hasExtension() throws Exception {
 		do_projectDispose();
 		do_projectCreate();
@@ -380,6 +391,7 @@ public class ViewPartTest extends RcpModelTest {
 	/**
 	 * Test for {@link ViewCategoryPropertyEditor}.
 	 */
+	@Test
 	public void test_ViewCategory_PropertyEditor() throws Exception {
 		do_projectDispose();
 		do_projectCreate();

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.editor;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.editor.IDesignPageSite;
 import org.eclipse.wb.internal.core.editor.actions.SelectSupport;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
@@ -31,6 +33,7 @@ public class SelectSupportTest extends XwtGefTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_all() throws Exception {
 		XmlObjectInfo shell =
 				openEditor(
@@ -102,6 +105,7 @@ public class SelectSupportTest extends XwtGefTest {
 		}
 	}
 
+	@Test
 	public void test_disposeHierarchy() throws Exception {
 		openEditor("<Shell/>");
 		// reparse

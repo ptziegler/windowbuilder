@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.refactoring;
+import org.junit.Before;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.utils.refactoring.RefactoringUtils;
 import org.eclipse.wb.internal.core.utils.xml.AbstractDocumentEditContext;
@@ -49,7 +52,8 @@ public class RefactoringUtilsTest extends AbstractJavaTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		if (m_testProject == null) {
 			do_projectCreate();
@@ -74,6 +78,7 @@ public class RefactoringUtilsTest extends AbstractJavaTest {
 	 * Test for
 	 * {@link RefactoringUtils#modifyXML(IFile, DocumentModelVisitor, AbstractDocumentEditContext)}.
 	 */
+	@Test
 	public void test_modifyXML_noChanges() throws Exception {
 		IFile file =
 				setFileContentSrc(
@@ -94,6 +99,7 @@ public class RefactoringUtilsTest extends AbstractJavaTest {
 	 * Test for
 	 * {@link RefactoringUtils#modifyXML(IFile, DocumentModelVisitor, AbstractDocumentEditContext)}.
 	 */
+	@Test
 	public void test_modifyXML_doChanges() throws Exception {
 		IFile file =
 				setFileContentSrc(
@@ -138,6 +144,7 @@ public class RefactoringUtilsTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link RefactoringUtils#createDeleteTypeChange(IType)}.
 	 */
+	@Test
 	public void test_createDeleteTypeChange() throws Exception {
 		IType type =
 				createModelType(
@@ -163,6 +170,7 @@ public class RefactoringUtilsTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link RefactoringUtils#createRenameTypeChange(IType, String, IProgressMonitor)}.
 	 */
+	@Test
 	public void test_createRenameTypeChange() throws Exception {
 		IType type =
 				createModelType(
@@ -203,6 +211,7 @@ public class RefactoringUtilsTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link RefactoringUtils#mergeTextChanges(Change, Change)}.
 	 */
+	@Test
 	public void test_mergeTextChanges_twoTextFileChanges() throws Exception {
 		IFile file = setFileContent("Test.txt", "abc");
 		// change 1
@@ -234,6 +243,7 @@ public class RefactoringUtilsTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link RefactoringUtils#mergeTextChanges(Change, Change)}.
 	 */
+	@Test
 	public void test_mergeTextChanges_sourceIsCompositeChange() throws Exception {
 		IFile file = setFileContent("Test.txt", "abc");
 		// change 1
@@ -273,6 +283,7 @@ public class RefactoringUtilsTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link RefactoringUtils#mergeTextChange(RefactoringParticipant, Change)}.
 	 */
+	@Test
 	public void test_mergeTextChange() throws Exception {
 		IFile file = setFileContent("Test.txt", "abc");
 		// existing change

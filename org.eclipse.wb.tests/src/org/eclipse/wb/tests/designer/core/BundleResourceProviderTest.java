@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.BundleResourceProvider;
 import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.internal.core.utils.check.AssertionFailedException;
@@ -38,6 +40,7 @@ public class BundleResourceProviderTest extends DesignerTestCase {
 	// Constructor
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_noSuchBundle() throws Exception {
 		try {
 			BundleResourceProvider.get("no.such.bundle");
@@ -46,6 +49,7 @@ public class BundleResourceProviderTest extends DesignerTestCase {
 		}
 	}
 
+	@Test
 	public void test_instanceBundle() throws Exception {
 		Bundle bundle = Platform.getBundle(BUNDLE_ID);
 		BundleResourceProvider.get(bundle);
@@ -59,6 +63,7 @@ public class BundleResourceProviderTest extends DesignerTestCase {
 	/**
 	 * Test for {@link BundleResourceProvider#getFile(String)}.
 	 */
+	@Test
 	public void test_getFile() throws Exception {
 		BundleResourceProvider provider = BundleResourceProvider.get(BUNDLE_ID);
 		// no such file
@@ -79,6 +84,7 @@ public class BundleResourceProviderTest extends DesignerTestCase {
 	/**
 	 * Test for {@link BundleResourceProvider#getFileString(String)}.
 	 */
+	@Test
 	public void test_getFileString() throws Exception {
 		BundleResourceProvider provider = BundleResourceProvider.get(BUNDLE_ID);
 		// no such file
@@ -108,6 +114,7 @@ public class BundleResourceProviderTest extends DesignerTestCase {
 	/**
 	 * Test for {@link BundleResourceProvider#getImage(String)}.
 	 */
+	@Test
 	public void test_getImage() throws Exception {
 		BundleResourceProvider provider = BundleResourceProvider.get(BUNDLE_ID);
 		// no such file
@@ -128,6 +135,7 @@ public class BundleResourceProviderTest extends DesignerTestCase {
 	/**
 	 * Test for {@link BundleResourceProvider#getImage(String)}.
 	 */
+	@Test
 	public void test_getImage_disposeWhenUninstall() throws Exception {
 		TestBundle testBundle = new TestBundle();
 		Image image;
@@ -154,6 +162,7 @@ public class BundleResourceProviderTest extends DesignerTestCase {
 	/**
 	 * Test for {@link BundleResourceProvider#getImageDescriptor(String)}.
 	 */
+	@Test
 	public void test_getImageDescriptor() throws Exception {
 		BundleResourceProvider provider = BundleResourceProvider.get(BUNDLE_ID);
 		// no such file

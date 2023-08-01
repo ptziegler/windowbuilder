@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.generic;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.broadcast.ObjectEventListener;
 import org.eclipse.wb.internal.core.editor.multi.MultiMode;
 import org.eclipse.wb.internal.core.gef.policy.OpenListenerEditPolicy;
@@ -38,6 +40,7 @@ public class OpenListenerEditPolicyTest extends SwingGefTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_newHandler() throws Exception {
 		openContainer(
 				"// filler filler filler filler filler",
@@ -88,6 +91,7 @@ public class OpenListenerEditPolicyTest extends SwingGefTest {
 	 * <p>
 	 * http://www.eclipse.org/forums/index.php/t/217349/
 	 */
+	@Test
 	public void test_existingHandler() throws Exception {
 		openContainer(
 				"// filler filler filler filler filler",

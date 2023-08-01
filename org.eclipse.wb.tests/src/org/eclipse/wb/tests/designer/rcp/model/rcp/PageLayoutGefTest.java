@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.rcp;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.utils.jdt.core.CodeUtils;
 import org.eclipse.wb.internal.rcp.model.rcp.perspective.PageLayoutInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpGefTest;
@@ -25,6 +27,7 @@ public class PageLayoutGefTest extends RcpGefTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_normal() throws Exception {
 		openJavaInfo(
 				"public class Test implements IPerspectiveFactory {",
@@ -50,6 +53,7 @@ public class PageLayoutGefTest extends RcpGefTest {
 	/**
 	 * If unknown ID is used as reference, we may be will render bad, but should not fail.
 	 */
+	@Test
 	public void test_referenceUnknownView() throws Exception {
 		openJavaInfo(
 				"public class Test implements IPerspectiveFactory {",

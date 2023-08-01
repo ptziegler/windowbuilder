@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.property;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.category.PropertyCategory;
@@ -62,6 +64,7 @@ public class ObjectPropertyEditorTest extends XwtModelTest {
 		waitForAutoBuild();
 	}
 
+	@Test
 	public void test_setComponent() throws Exception {
 		prepareMyComponent_setButton();
 		parse(
@@ -125,6 +128,7 @@ public class ObjectPropertyEditorTest extends XwtModelTest {
 	/**
 	 * {@link ObjectPropertyEditor} should select current value in dialog.
 	 */
+	@Test
 	public void test_initialSelection() throws Exception {
 		prepareMyComponent_setButton();
 		parse(
@@ -169,6 +173,7 @@ public class ObjectPropertyEditorTest extends XwtModelTest {
 	/**
 	 * Test for case when one of the models is just {@link ObjectInfo}, not {@link XmlObjectInfo}.
 	 */
+	@Test
 	public void test_withObjectInfo() throws Exception {
 		prepareMyComponent_setButton();
 		XmlObjectInfo shell =

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.swing2swt;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.generic.FlowContainerFactory;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.rcp.swing2swt.layout.BoxLayoutInfo;
@@ -37,6 +39,7 @@ public class BoxLayoutTest extends AbstractSwing2SwtTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_parse() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -59,6 +62,7 @@ public class BoxLayoutTest extends AbstractSwing2SwtTest {
 	/**
 	 * Test for "axis" property and {@link BoxLayoutInfo#isHorizontal()}.
 	 */
+	@Test
 	public void test_axis() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

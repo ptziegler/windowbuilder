@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.util;
 
+import org.junit.Test;
+
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 
@@ -46,6 +48,7 @@ public class ScriptUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ScriptUtils#evaluate(String)}.
 	 */
+	@Test
 	public void test_evaluate_noVariables() throws Exception {
 		assertEquals(5, ScriptUtils.evaluate("2 + 3"));
 		assertEquals("abc", ScriptUtils.evaluate("'a' + 'bc'"));
@@ -54,6 +57,7 @@ public class ScriptUtilsTest extends SwingModelTest {
 	/**
 	 * Use {@link ReflectionUtils} methods.
 	 */
+	@Test
 	public void test_evaluate_ReflectionUtils() throws Exception {
 		String script = getSource("return ReflectionUtils.invokeMethod2('abc', 'length')");
 		assertEquals(3, ScriptUtils.evaluate(script));
@@ -62,6 +66,7 @@ public class ScriptUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ScriptUtils#evaluate(String, Object)}.
 	 */
+	@Test
 	public void test_evaluate_withContext() throws Exception {
 		assertEquals(3, ScriptUtils.evaluate("size()", ImmutableList.of(1, 2, 3)));
 	}
@@ -69,6 +74,7 @@ public class ScriptUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ScriptUtils#evaluate(String, Map)}.
 	 */
+	@Test
 	public void test_evaluate_withVariables() throws Exception {
 		Map<String, Object> variables = ImmutableMap.<String, Object>of("a", 2, "b", 3);
 		assertEquals(6, ScriptUtils.evaluate("a * b", variables));
@@ -80,6 +86,7 @@ public class ScriptUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ScriptUtils#evaluate(String, String, Object, String, Object)}.
 	 */
+	@Test
 	public void test_evaluate_withOneVariable() throws Exception {
 		assertEquals(10, ScriptUtils.evaluate("a * 2", "a", 5));
 	}
@@ -87,6 +94,7 @@ public class ScriptUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ScriptUtils#evaluate(ClassLoader, String, String, Object, String, Object)}.
 	 */
+	@Test
 	public void test_evaluate_withTwoVariables() throws Exception {
 		assertEquals(15, ScriptUtils.evaluate("a * b", "a", 5, "b", 3));
 	}
@@ -94,6 +102,7 @@ public class ScriptUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ScriptUtils#evaluate(String)}.
 	 */
+	@Test
 	public void test_evaluate_accessToSwingClasses() throws Exception {
 		assertEquals(
 				javax.swing.SwingConstants.LEFT,
@@ -108,6 +117,7 @@ public class ScriptUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ScriptUtils#evaluate(ClassLoader, String)}.
 	 */
+	@Test
 	public void test_evaluate_useDesignerClassLoader_noVariables() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -140,6 +150,7 @@ public class ScriptUtilsTest extends SwingModelTest {
 	 * <p>
 	 * There was bug with creating new {@link Object} with patched MVEL.
 	 */
+	@Test
 	public void test_evaluate_useDesignerClassLoader_createObject() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -166,6 +177,7 @@ public class ScriptUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ScriptUtils#evaluate(ClassLoader, String, Map)}.
 	 */
+	@Test
 	public void test_evaluate_useDesignerClassLoader_withVariables() throws Exception {
 		parseContainer(
 				"// filler filler filler",
@@ -185,6 +197,7 @@ public class ScriptUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ScriptUtils#evaluate(ClassLoader, String, String, Object)}.
 	 */
+	@Test
 	public void test_evaluate_useDesignerClassLoader_withOneVariable() throws Exception {
 		setFileContentSrc(
 				"test/Constants.java",
@@ -204,6 +217,7 @@ public class ScriptUtilsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ScriptUtils#evaluate(ClassLoader, String, String, Object, String, Object)}.
 	 */
+	@Test
 	public void test_evaluate_useDesignerClassLoader_withTwoVariables() throws Exception {
 		setFileContentSrc(
 				"test/Constants.java",

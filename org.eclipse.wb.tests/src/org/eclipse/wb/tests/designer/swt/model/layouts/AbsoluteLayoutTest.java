@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.layouts;
+import org.junit.After;
+
+import org.junit.Test;
 
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.core.model.ObjectInfoUtils;
@@ -65,7 +68,8 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		super.tearDown();
 		preferences.setValue(IPreferenceConstants.P_CREATION_FLOW, false);
 		preferences.setToDefault(IPreferenceConstants.P_AUTOSIZE_ON_PROPERTY_CHANGE);
@@ -95,6 +99,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	 *   because active JavaInfo is DefaultJavaInfo, then we've end up with invalid toolkit.
 	 * </pre>
 	 */
+	@Test
 	public void test_invalidAbsoluteLayoutToolkit() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -124,6 +129,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	// Layout
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_parse() throws Exception {
 		CompositeInfo shellInfo =
 				parseComposite(
@@ -157,6 +163,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 		assertNotNull(ObjectInfoUtils.getId(layout));
 	}
 
+	@Test
 	public void test_setLayout() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -203,6 +210,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	 * Test that {@link LayoutInfo#onSet()} for {@link AbsoluteLayoutInfo} adds
 	 * <code>setBounds()</code> invocation for {@link ControlInfo}'s.
 	 */
+	@Test
 	public void test_onSet() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -248,6 +256,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	 * When we set layout for child {@link CompositeInfo} on {@link AbsoluteLayoutInfo}, we should
 	 * warn user.
 	 */
+	@Test
 	public void test_onSetLayout_forChild_keepAbsolute() throws Exception {
 		parseComposite(
 				"public class Test extends Shell {",
@@ -290,6 +299,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	 * When we set layout for child {@link CompositeInfo} on {@link AbsoluteLayoutInfo}, we should
 	 * warn user.
 	 */
+	@Test
 	public void test_onSetLayout_forChild_useFormLayout() throws Exception {
 		parseComposite(
 				"public class Test extends Shell {",
@@ -345,6 +355,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	 * Test for delete {@link AbsoluteLayoutInfo}, any location/size related invocation should be
 	 * removed.
 	 */
+	@Test
 	public void test_delete() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -390,6 +401,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	/**
 	 * Test for {@link AbsoluteLayoutInfo#commandCreate(ControlInfo, ControlInfo)}.
 	 */
+	@Test
 	public void test_create() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -416,6 +428,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	/**
 	 * Test for {@link AbsoluteLayoutInfo#commandCreate(ControlInfo, ControlInfo)}.
 	 */
+	@Test
 	public void test_create_withReference() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -492,6 +505,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 		assertEditor(expectedLines);
 	}
 
+	@Test
 	public void test_command_changeBounds_set_location_only() throws Exception {
 		check_changeBounds(
 				new String[]{""},
@@ -500,12 +514,14 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 				null);
 	}
 
+	@Test
 	public void test_command_changeBounds_set_size_after_location() throws Exception {
 		check_changeBounds(new String[]{"    button.setLocation(10, 10);"}, new String[]{
 				"    button.setSize(25, 60);",
 		"    button.setLocation(10, 10);"}, new Point(10, 10), new Dimension(25, 60));
 	}
 
+	@Test
 	public void test_command_changeBounds_set_size_only() throws Exception {
 		check_changeBounds(new String[]{
 				"    button.setSize(25, 60);",
@@ -514,6 +530,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 		"    button.setLocation(20, 20);"}, null, new Dimension(30, 100));
 	}
 
+	@Test
 	public void test_command_changeBounds_set_location_and_size() throws Exception {
 		check_changeBounds(
 				new String[]{""},
@@ -522,6 +539,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 				new Dimension(25, 70));
 	}
 
+	@Test
 	public void test_command_changeBounds_set_location_only_after_setBounds_set() throws Exception {
 		check_changeBounds(
 				new String[]{"    button.setBounds(10, 10, 25, 70);"},
@@ -530,6 +548,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 				null);
 	}
 
+	@Test
 	public void test_command_changeBounds_set_size_only_after_setBounds_set() throws Exception {
 		check_changeBounds(
 				new String[]{"    button.setBounds(30, 30, 25, 70);"},
@@ -538,6 +557,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 				new Dimension(100, 100));
 	}
 
+	@Test
 	public void test_command_changeBounds_set_location_and_size_after_setBounds_set()
 			throws Exception {
 		check_changeBounds(
@@ -547,6 +567,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 				new Dimension(25, 70));
 	}
 
+	@Test
 	public void test_command_changeBounds_set_location_only_as_Rectangle() throws Exception {
 		check_changeBounds(
 				new String[]{"    button.setBounds(new Rectangle(10, 10, 25, 80));"},
@@ -555,6 +576,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 				null);
 	}
 
+	@Test
 	public void test_command_changeBounds_set_size_only_as_Rectangle() throws Exception {
 		check_changeBounds(
 				new String[]{"    button.setBounds(new Rectangle(0, 0, 25, 80));"},
@@ -563,6 +585,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 				new Dimension(20, 60));
 	}
 
+	@Test
 	public void test_command_changeBounds_set_location_and_size_as_Rectangle() throws Exception {
 		check_changeBounds(
 				new String[]{"    button.setBounds(new Rectangle(0, 0, 20, 60));"},
@@ -571,6 +594,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 				new Dimension(25, 80));
 	}
 
+	@Test
 	public void test_command_changeBounds_set_location_only_as_Point() throws Exception {
 		check_changeBounds(
 				new String[]{"    button.setLocation(new Point(10, 10));"},
@@ -579,6 +603,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 				null);
 	}
 
+	@Test
 	public void test_command_changeBounds_set_size_only_as_Point() throws Exception {
 		check_changeBounds(
 				new String[]{"    button.setSize(new Point(20, 50));"},
@@ -587,6 +612,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 				new Dimension(25, 40));
 	}
 
+	@Test
 	public void test_command_changeBounds_setBoundsInts_removeUnused() throws Exception {
 		check_changeBounds(
 				new String[]{
@@ -600,6 +626,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 				new Dimension(25, 40));
 	}
 
+	@Test
 	public void test_command_changeBounds_setBoundsRectangle_removeUnused() throws Exception {
 		check_changeBounds(
 				new String[]{
@@ -621,6 +648,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	/**
 	 * Modify not "text" or "image" property, no size change.
 	 */
+	@Test
 	public void test_autoSize_otherProperty() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -648,6 +676,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	/**
 	 * Modify "text" property, so bigger size expected.
 	 */
+	@Test
 	public void test_autoSize_textProperty() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -676,6 +705,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	/**
 	 * Modify "image" property, so bigger size expected.
 	 */
+	@Test
 	public void test_autoSize_imageProperty() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -706,6 +736,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	 * Modify "text" property, but {@link IPreferenceConstants#P_AUTOSIZE_ON_PROPERTY_CHANGE} is not
 	 * enabled, so no auto-size
 	 */
+	@Test
 	public void test_autoSize_textProperty_notEnabled() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -739,6 +770,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	/**
 	 * Test for <code>Autosize control</code> action.
 	 */
+	@Test
 	public void test_autoSizeAction_1() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -783,6 +815,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	/**
 	 * Test for <code>Autosize control</code> action.
 	 */
+	@Test
 	public void test_autoSizeAction_2() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -845,6 +878,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	/**
 	 * Test "Bounds" property.
 	 */
+	@Test
 	public void test_BoundsProperty() throws Exception {
 		Property boundsProperty = prepareBoundsProperty();
 		assertNotNull(boundsProperty);
@@ -862,6 +896,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	/**
 	 * Test setting "x" sub-property of "Bounds" property.
 	 */
+	@Test
 	public void test_BoundsProperty_set_x() throws Exception {
 		Property subProperty = getBoundsPropertySubProperty("x");
 		assertNotNull(subProperty);
@@ -881,6 +916,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	/**
 	 * Test getting "x" sub-property of "Bounds" property.
 	 */
+	@Test
 	public void test_BoundsProperty_get_x() throws Exception {
 		Property subProperty = getBoundsPropertySubProperty("x");
 		assertNotNull(subProperty);
@@ -892,6 +928,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	/**
 	 * Test setting "y" sub-property of "Bounds" property.
 	 */
+	@Test
 	public void test_BoundsProperty_set_y() throws Exception {
 		Property subProperty = getBoundsPropertySubProperty("y");
 		assertNotNull(subProperty);
@@ -911,6 +948,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	/**
 	 * Test getting "y" sub-property of "Bounds" property.
 	 */
+	@Test
 	public void test_BoundsProperty_get_y() throws Exception {
 		Property subProperty = getBoundsPropertySubProperty("y");
 		assertNotNull(subProperty);
@@ -922,6 +960,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	/**
 	 * Test setting "width" sub-property of "Bounds" property.
 	 */
+	@Test
 	public void test_BoundsProperty_set_width() throws Exception {
 		Property subProperty = getBoundsPropertySubProperty("width");
 		assertNotNull(subProperty);
@@ -941,6 +980,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	/**
 	 * Test getting "width" sub-property of "Bounds" property.
 	 */
+	@Test
 	public void test_BoundsProperty_get_width() throws Exception {
 		Property subProperty = getBoundsPropertySubProperty("width");
 		assertNotNull(subProperty);
@@ -952,6 +992,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	/**
 	 * Test setting "height" sub-property of "Bounds" property.
 	 */
+	@Test
 	public void test_BoundsProperty_set_height() throws Exception {
 		Property subProperty = getBoundsPropertySubProperty("height");
 		assertNotNull(subProperty);
@@ -971,6 +1012,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	/**
 	 * Test getting "height" sub-property of "Bounds" property.
 	 */
+	@Test
 	public void test_BoundsProperty_get_height() throws Exception {
 		Property subProperty = getBoundsPropertySubProperty("height");
 		assertNotNull(subProperty);
@@ -987,6 +1029,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	/**
 	 * Test applying creation flow order.
 	 */
+	@Test
 	public void test_changeBounds_CreationFlow() throws Exception {
 		preferences.setValue(IPreferenceConstants.P_CREATION_FLOW, true);
 		CompositeInfo shell =
@@ -1030,6 +1073,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	// Clipboard
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_clipboard() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -1090,6 +1134,7 @@ public class AbsoluteLayoutTest extends RcpModelTest {
 	 * On absolute layout components can not be reordered, but can be moved, i.e. bounds can be
 	 * changed.
 	 */
+	@Test
 	public void test_canMove() throws Exception {
 		setFileContentSrc(
 				"test/MyShell.java",

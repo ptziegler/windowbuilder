@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.creation.IThisMethodParameterEvaluator;
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.editor.string.StringPropertyEditor;
@@ -44,6 +46,7 @@ public class ThisCompositeTest extends RcpModelTest {
 	 * Test for parsing "this" Composite. This tests that implementation of
 	 * {@link IThisMethodParameterEvaluator} for SWT is correct.
 	 */
+	@Test
 	public void test_create() throws Exception {
 		CompositeInfo compositeInfo =
 				parseComposite(
@@ -81,6 +84,7 @@ public class ThisCompositeTest extends RcpModelTest {
 	/**
 	 * Test for using {@link Shell#Shell(org.eclipse.swt.widgets.Display, int)} constructor.
 	 */
+	@Test
 	public void test_Shell_Display() throws Exception {
 		parseComposite(
 				"class Test extends Shell {",

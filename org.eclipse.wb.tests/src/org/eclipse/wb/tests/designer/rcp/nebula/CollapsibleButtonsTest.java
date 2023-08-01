@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.nebula;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.association.InvocationVoidAssociation;
 import org.eclipse.wb.internal.core.model.creation.factory.ImplicitFactoryCreationSupport;
 import org.eclipse.wb.internal.rcp.nebula.collapsiblebuttons.CollapsibleButtonsInfo;
@@ -43,6 +45,7 @@ public class CollapsibleButtonsTest extends AbstractNebulaTest {
 	/**
 	 * General test {@link CollapsibleButtonsInfo}.
 	 */
+	@Test
 	public void test_General() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -84,6 +87,7 @@ public class CollapsibleButtonsTest extends AbstractNebulaTest {
 	/**
 	 * Test adding button on {@link CollapsibleButtonsInfo}.
 	 */
+	@Test
 	public void test_createButton() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -131,6 +135,7 @@ public class CollapsibleButtonsTest extends AbstractNebulaTest {
 	/**
 	 * Test moving button on {@link CollapsibleButtonsInfo}.
 	 */
+	@Test
 	public void test_moveButton() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

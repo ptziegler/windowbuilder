@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.internal.swt.model.widgets.TreeInfo;
 import org.eclipse.wb.internal.swt.model.widgets.TreeItemInfo;
@@ -46,6 +48,7 @@ public class TreeTest extends RcpModelTest {
 	/**
 	 * Test for parsing {@link TreeItem} and bounds of {@link TreeItemInfo}.
 	 */
+	@Test
 	public void test_TreeItem_parse() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -102,6 +105,7 @@ public class TreeTest extends RcpModelTest {
 	/**
 	 * Test for parsing {@link TreeItemInfo} with {@link TreeItemInfo} child.
 	 */
+	@Test
 	public void test_TreeItem_parse_subItems() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -130,6 +134,7 @@ public class TreeTest extends RcpModelTest {
 		Assertions.assertThat(subItems).hasSize(1);
 	}
 
+	@Test
 	public void test_TreeItem_addToTable() throws Exception {
 		parseComposite(
 				"class Test extends Shell {",
@@ -160,6 +165,7 @@ public class TreeTest extends RcpModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_TreeItem_moveInTable() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -211,6 +217,7 @@ public class TreeTest extends RcpModelTest {
 	/**
 	 * Test for adding new {@link TreeItemInfo} on existing {@link TreeItemInfo}.
 	 */
+	@Test
 	public void test_TreeItem_addToItem() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -255,6 +262,7 @@ public class TreeTest extends RcpModelTest {
 	/**
 	 * Test for moving {@link TreeItemInfo} on other {@link TreeItemInfo}.
 	 */
+	@Test
 	public void test_TreeItem_moveToItem() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

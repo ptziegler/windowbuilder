@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property.editor;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.GenericProperty;
 import org.eclipse.wb.internal.core.model.property.editor.EnumPropertyEditor;
 import org.eclipse.wb.internal.core.model.property.editor.ITextValuePropertyEditor;
@@ -45,6 +47,7 @@ public class EnumPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Test using {@link EnumPropertyEditor}.
 	 */
+	@Test
 	public void test_externalEnum() throws Exception {
 		prepare_Foo_MyPanel();
 		ContainerInfo panel =
@@ -79,6 +82,7 @@ public class EnumPropertyEditorTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_getText_noValue() throws Exception {
 		prepare_Foo_MyPanel();
 		ContainerInfo panel =
@@ -99,6 +103,7 @@ public class EnumPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Test for {@link ITextValuePropertyEditor}.
 	 */
+	@Test
 	public void test_setText() throws Exception {
 		prepare_Foo_MyPanel();
 		ContainerInfo panel =
@@ -123,6 +128,7 @@ public class EnumPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Enum that is internal class <code>test.MyPanel.Foo</code>.
 	 */
+	@Test
 	public void test_innerEnum() throws Exception {
 		prepare_Foo();
 		setFileContentSrc(
@@ -159,6 +165,7 @@ public class EnumPropertyEditorTest extends SwingModelTest {
 	/**
 	 * We should be able to get elements of {@link Enum} even when it is constructor parameter.
 	 */
+	@Test
 	public void test_constructorParameter_enum() throws Exception {
 		prepare_Foo();
 		setFileContentSrc(

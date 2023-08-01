@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property.editor;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.editor.ByteObjectPropertyEditor;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
@@ -41,6 +43,7 @@ public class ByteObjectPropertyEditorTest extends AbstractTextPropertyEditorTest
 	/**
 	 * Test for {@link ByteObjectPropertyEditor#getText(Property)}.
 	 */
+	@Test
 	public void test_getText() throws Exception {
 		assert_getText(null, EDITOR, Property.UNKNOWN_VALUE);
 		assert_getText("null", EDITOR, null);
@@ -50,6 +53,7 @@ public class ByteObjectPropertyEditorTest extends AbstractTextPropertyEditorTest
 	/**
 	 * Test for {@link ByteObjectPropertyEditor#getEditorText(Property)}.
 	 */
+	@Test
 	public void test_getEditorText() throws Exception {
 		assert_getEditorText(null, EDITOR, Property.UNKNOWN_VALUE);
 		assert_getEditorText("null", EDITOR, null);
@@ -64,6 +68,7 @@ public class ByteObjectPropertyEditorTest extends AbstractTextPropertyEditorTest
 	/**
 	 * Test for {@link ByteObjectPropertyEditor#setEditorText(Property, String)}.
 	 */
+	@Test
 	public void test_setEditorText_value() throws Exception {
 		prepareBytePanel();
 		ContainerInfo panel =
@@ -89,6 +94,7 @@ public class ByteObjectPropertyEditorTest extends AbstractTextPropertyEditorTest
 	/**
 	 * Test for {@link ByteObjectPropertyEditor#setEditorText(Property, String)}.
 	 */
+	@Test
 	public void test_setEditorText_null() throws Exception {
 		prepareBytePanel();
 		ContainerInfo panel =
@@ -114,6 +120,7 @@ public class ByteObjectPropertyEditorTest extends AbstractTextPropertyEditorTest
 	/**
 	 * Test for {@link ByteObjectPropertyEditor#setEditorText(Property, String)}.
 	 */
+	@Test
 	public void test_setEditorText_removeValue_emptyString() throws Exception {
 		prepareBytePanel();
 		ContainerInfo panel =
@@ -139,6 +146,7 @@ public class ByteObjectPropertyEditorTest extends AbstractTextPropertyEditorTest
 	/**
 	 * Test for {@link ByteObjectPropertyEditor#setEditorText(Property, String)}.
 	 */
+	@Test
 	public void test_setEditorText_removeValue_whitespaceString() throws Exception {
 		prepareBytePanel();
 		ContainerInfo panel =
@@ -164,6 +172,7 @@ public class ByteObjectPropertyEditorTest extends AbstractTextPropertyEditorTest
 	/**
 	 * Test for {@link ByteObjectPropertyEditor#setEditorText(Property, String)}.
 	 */
+	@Test
 	public void test_setEditorText_invalidValue() throws Exception {
 		prepareBytePanel();
 		ContainerInfo panel =

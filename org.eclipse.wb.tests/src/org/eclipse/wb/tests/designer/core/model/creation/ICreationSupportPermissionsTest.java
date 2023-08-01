@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.creation;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.model.creation.ICreationSupportPermissions;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
@@ -30,6 +32,7 @@ public class ICreationSupportPermissionsTest extends SwingModelTest {
 	/**
 	 * Test for {@link ICreationSupportPermissions#FALSE}.
 	 */
+	@Test
 	public void test_FALSE() throws Exception {
 		JavaInfo javaInfo = null;
 		ICreationSupportPermissions permissions = ICreationSupportPermissions.FALSE;

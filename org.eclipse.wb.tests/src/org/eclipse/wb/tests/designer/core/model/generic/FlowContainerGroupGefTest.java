@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.generic;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.gef.policy.layout.ILayoutEditPolicyFactory;
 import org.eclipse.wb.gef.tree.TreeEditPart;
 import org.eclipse.wb.internal.core.model.nonvisual.FlowContainerGroupInfo;
@@ -31,6 +33,7 @@ public class FlowContainerGroupGefTest extends FlowContainerAbstractGefTest {
 	/**
 	 * Test hierarchy of created TreeEditParts
 	 */
+	@Test
 	public void test_group_hierarchy() throws Exception {
 		prepareFlowPanel();
 		ContainerInfo mainPanel =
@@ -70,6 +73,7 @@ public class FlowContainerGroupGefTest extends FlowContainerAbstractGefTest {
 	/**
 	 * Test group object policies
 	 */
+	@Test
 	public void test_group_add() throws Exception {
 		prepareFlowPanel();
 		ContainerInfo mainPanel =

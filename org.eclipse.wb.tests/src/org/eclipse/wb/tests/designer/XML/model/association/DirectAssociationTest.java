@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.association;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.internal.core.xml.model.association.Association;
 import org.eclipse.wb.internal.core.xml.model.association.Associations;
@@ -38,6 +40,7 @@ public class DirectAssociationTest extends AbstractCoreTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_toString() throws Exception {
 		Association association = Associations.direct();
 		assertEquals("direct", association.toString());
@@ -51,6 +54,7 @@ public class DirectAssociationTest extends AbstractCoreTest {
 	/**
 	 * Test for {@link Association#add(XmlObjectInfo, ElementTarget)}.
 	 */
+	@Test
 	public void test_add_noNext() throws Exception {
 		XmlObjectInfo container = parse("<Shell/>");
 		// add
@@ -74,6 +78,7 @@ public class DirectAssociationTest extends AbstractCoreTest {
 	/**
 	 * Test for {@link Association#add(XmlObjectInfo, ElementTarget)}.
 	 */
+	@Test
 	public void test_add_hasNext() throws Exception {
 		XmlObjectInfo container =
 				parse(
@@ -112,6 +117,7 @@ public class DirectAssociationTest extends AbstractCoreTest {
 	/**
 	 * Test for {@link Association#move(XmlObjectInfo, ElementTarget, XmlObjectInfo, XmlObjectInfo)}.
 	 */
+	@Test
 	public void test_move_noNext() throws Exception {
 		XmlObjectInfo container =
 				parse(
@@ -144,6 +150,7 @@ public class DirectAssociationTest extends AbstractCoreTest {
 	/**
 	 * Test for {@link Association#move(XmlObjectInfo, ElementTarget, XmlObjectInfo, XmlObjectInfo)}.
 	 */
+	@Test
 	public void test_move_hasNext() throws Exception {
 		XmlObjectInfo container =
 				parse(
@@ -177,6 +184,7 @@ public class DirectAssociationTest extends AbstractCoreTest {
 	/**
 	 * Test for {@link Association#move(XmlObjectInfo, ElementTarget, XmlObjectInfo, XmlObjectInfo)}.
 	 */
+	@Test
 	public void test_move_reparent() throws Exception {
 		parse(
 				"// filler filler filler filler filler",

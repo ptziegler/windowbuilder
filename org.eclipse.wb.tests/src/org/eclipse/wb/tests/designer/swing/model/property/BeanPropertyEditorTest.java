@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.property;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.description.helpers.DescriptionPropertiesHelper;
 import org.eclipse.wb.internal.core.model.property.GenericProperty;
 import org.eclipse.wb.internal.core.model.property.Property;
@@ -50,6 +52,7 @@ public class BeanPropertyEditorTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_ignore_SunBeansEditors() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -71,6 +74,7 @@ public class BeanPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Test for {@link DescriptionPropertiesHelper#getEditorForEditorType(Class)}.
 	 */
+	@Test
 	public void test_editorForEditor() throws Exception {
 		setFileContentSrc(
 				"test/MyEditor.java",
@@ -95,6 +99,7 @@ public class BeanPropertyEditorTest extends SwingModelTest {
 		assertNotNull(propertyEditor);
 	}
 
+	@Test
 	public void test_editorForEditor_beanInfo() throws Exception {
 		// create "value" editor
 		setFileContentSrc(
@@ -198,6 +203,7 @@ public class BeanPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Test for {@link DescriptionPropertiesHelper#getEditorForType(Class)}.
 	 */
+	@Test
 	public void test_EditorForType_exceptionDuringLoadingEditor() throws Exception {
 		setFileContentSrc(
 				"test/MyEditor.java",
@@ -254,6 +260,7 @@ public class BeanPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Test for {@link DescriptionPropertiesHelper#getEditorForType(Class)}.
 	 */
+	@Test
 	public void test_getEditorForType() throws Exception {
 		setFileContentSrc(
 				"test/MyBean.java",
@@ -286,6 +293,7 @@ public class BeanPropertyEditorTest extends SwingModelTest {
 	/**
 	 * Test for {@link DescriptionPropertiesHelper#getEditorForType(Class)}.
 	 */
+	@Test
 	public void test_getEditorForType_whenParsing() throws Exception {
 		setFileContentSrc(
 				"test/MyBean.java",
@@ -328,6 +336,7 @@ public class BeanPropertyEditorTest extends SwingModelTest {
 	 * {@link java.beans.PropertyEditor#getAsText()} and
 	 * {@link java.beans.PropertyEditor#setAsText(String)}.
 	 */
+	@Test
 	public void test_getAsText_setAsText() throws Exception {
 		prepare_TextPropertyEditor();
 		ContainerInfo panel =
@@ -512,6 +521,7 @@ public class BeanPropertyEditorTest extends SwingModelTest {
 	 * Test that {@link TextPropertyEditor} implements {@link IValueSourcePropertyEditor}, so we can
 	 * use {@link GenericProperty#setValue(Object)}. In particular - after using customizer.
 	 */
+	@Test
 	public void test_IValueSourcePropertyEditor_TextPropertyEditor() throws Exception {
 		prepare_TextPropertyEditor();
 		ContainerInfo panel =
@@ -547,6 +557,7 @@ public class BeanPropertyEditorTest extends SwingModelTest {
 	 * Test that {@link ComboPropertyEditor} implements {@link IValueSourcePropertyEditor}, so we can
 	 * use {@link GenericProperty#setValue(Object)}. In particular - after using customizer.
 	 */
+	@Test
 	public void test_IValueSourcePropertyEditor_ComboPropertyEditor() throws Exception {
 		prepare_ComboPropertyEditor();
 		ContainerInfo panel =
@@ -587,6 +598,7 @@ public class BeanPropertyEditorTest extends SwingModelTest {
 	 * Test that if {@link java.beans.PropertyEditor} is {@link PropertyEditorSupport}, then its
 	 * {@link PropertyEditorSupport#setSource(Object)} is called.
 	 */
+	@Test
 	public void test_PropertyEditorSupport_setSource_1() throws Exception {
 		configure_PropertyEditorSupport_setSource_forText();
 		ContainerInfo panel =
@@ -622,6 +634,7 @@ public class BeanPropertyEditorTest extends SwingModelTest {
 	 * Test that if {@link java.beans.PropertyEditor} is {@link PropertyEditorSupport}, then its
 	 * {@link PropertyEditorSupport#setSource(Object)} is called.
 	 */
+	@Test
 	public void test_PropertyEditorSupport_setSource_2() throws Exception {
 		configure_PropertyEditorSupport_setSource_forText();
 		ContainerInfo panel =
@@ -662,6 +675,7 @@ public class BeanPropertyEditorTest extends SwingModelTest {
 	 * Test that if {@link java.beans.PropertyEditor} is {@link PropertyEditorSupport}, then its
 	 * {@link PropertyEditorSupport#setSource(Object)} is called.
 	 */
+	@Test
 	public void test_PropertyEditorSupport_setSource_forCombo() throws Exception {
 		setFileContentSrc(
 				"test/MyEditor.java",

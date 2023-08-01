@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.ast;
+import org.junit.Before;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.utils.ast.AstVisitorEx;
 import org.eclipse.wb.tests.designer.core.AbstractJavaTest;
@@ -33,7 +36,8 @@ public class AstVisitorExTest extends AbstractJavaTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		if (m_testProject == null) {
 			do_projectCreate();
@@ -54,6 +58,7 @@ public class AstVisitorExTest extends AbstractJavaTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_preVisit_ASTNode() throws Exception {
 		CompilationUnit compilationUnit =
 				createASTCompilationUnit(
@@ -87,6 +92,7 @@ public class AstVisitorExTest extends AbstractJavaTest {
 		}
 	}
 
+	@Test
 	public void test_postVisit_ASTNode() throws Exception {
 		CompilationUnit compilationUnit =
 				createASTCompilationUnit(
@@ -120,6 +126,7 @@ public class AstVisitorExTest extends AbstractJavaTest {
 		}
 	}
 
+	@Test
 	public void test_visit_QualifiedName() throws Exception {
 		CompilationUnit compilationUnit =
 				createASTCompilationUnit(
@@ -155,6 +162,7 @@ public class AstVisitorExTest extends AbstractJavaTest {
 		}
 	}
 
+	@Test
 	public void test_endVisit_QualifiedName() throws Exception {
 		CompilationUnit compilationUnit =
 				createASTCompilationUnit(
@@ -190,6 +198,7 @@ public class AstVisitorExTest extends AbstractJavaTest {
 		}
 	}
 
+	@Test
 	public void test_endVisit_MethodInvocation() throws Exception {
 		CompilationUnit compilationUnit =
 				createASTCompilationUnit(
@@ -226,6 +235,7 @@ public class AstVisitorExTest extends AbstractJavaTest {
 		}
 	}
 
+	@Test
 	public void test_endVisit_SuperMethodInvocation() throws Exception {
 		CompilationUnit compilationUnit =
 				createASTCompilationUnit(
@@ -261,6 +271,7 @@ public class AstVisitorExTest extends AbstractJavaTest {
 		}
 	}
 
+	@Test
 	public void test_endVisit_TypeDeclaration() throws Exception {
 		CompilationUnit compilationUnit =
 				createASTCompilationUnit(
@@ -294,6 +305,7 @@ public class AstVisitorExTest extends AbstractJavaTest {
 		}
 	}
 
+	@Test
 	public void test_endVisit_TryStatement() throws Exception {
 		CompilationUnit compilationUnit =
 				createASTCompilationUnit(

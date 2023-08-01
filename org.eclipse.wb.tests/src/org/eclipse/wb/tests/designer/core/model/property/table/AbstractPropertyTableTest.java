@@ -9,6 +9,8 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property.table;
+import org.junit.Before;
+import org.junit.After;
 
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.editor.PropertyEditor;
@@ -33,7 +35,8 @@ public class AbstractPropertyTableTest extends DesignerTestCase {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		// create GUI
 		{
@@ -51,7 +54,8 @@ public class AbstractPropertyTableTest extends DesignerTestCase {
 	}
 
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		m_shell.dispose();
 		super.tearDown();
 	}

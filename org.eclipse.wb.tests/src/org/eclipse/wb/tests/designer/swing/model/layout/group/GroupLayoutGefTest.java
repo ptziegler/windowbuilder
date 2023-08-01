@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.group;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.swing.SwingGefTest;
@@ -31,6 +33,7 @@ public class GroupLayoutGefTest extends SwingGefTest {
 		System.exit(0);
 	}
 
+	@Test
 	public void test_reparent_while_child_created_after_layout() throws Exception {
 		prepareBox(50, 25);
 		ContainerInfo panel =

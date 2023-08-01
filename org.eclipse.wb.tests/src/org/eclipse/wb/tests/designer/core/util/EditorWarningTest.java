@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.utils.state.EditorWarning;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 
@@ -19,6 +21,7 @@ import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
  * @author scheglov_ke
  */
 public class EditorWarningTest extends DesignerTestCase {
+	@Test
 	public void test() throws Exception {
 		String message = "message";
 		Exception exception = new Exception();

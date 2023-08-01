@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor.validator;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.gef.policy.validator.ModelClassLayoutRequestValidator;
 import org.eclipse.wb.gef.core.policies.ILayoutRequestValidator;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
@@ -38,6 +40,7 @@ public class ModelClassLayoutRequestValidatorTest extends AbstractLayoutRequestV
 	/**
 	 * Test for create/move/add.
 	 */
+	@Test
 	public void test_CMA() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -67,6 +70,7 @@ public class ModelClassLayoutRequestValidatorTest extends AbstractLayoutRequestV
 	/**
 	 * Test for paste.
 	 */
+	@Test
 	public void test_validatePasteRequest() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

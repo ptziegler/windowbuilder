@@ -9,7 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.databinding.rcp;
-
 import org.eclipse.wb.internal.core.databinding.model.AstObjectInfo;
 import org.eclipse.wb.internal.core.databinding.parser.AstModelSupport;
 import org.eclipse.wb.internal.core.utils.ast.AstNodeUtils;
@@ -23,6 +22,9 @@ import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationStatement;
 
+import org.junit.BeforeClass;
+import org.junit.Test;
+
 import java.util.List;
 
 /**
@@ -35,7 +37,8 @@ public class AstModelSupportTest extends AbstractJavaTest {
 	// Project creation
 	//
 	////////////////////////////////////////////////////////////////////////////
-	public void test_setUp() throws Exception {
+	@BeforeClass
+	public static void setUpClass() throws Exception {
 		do_projectCreate();
 	}
 
@@ -44,6 +47,7 @@ public class AstModelSupportTest extends AbstractJavaTest {
 	// Method creation
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_method() throws Exception {
 		TypeDeclaration type =
 				createTypeDeclaration_Test(
@@ -84,6 +88,7 @@ public class AstModelSupportTest extends AbstractJavaTest {
 		assertFalse(support.isRepresentedBy(DomGenerics.arguments(invocation2).get(1)));
 	}
 
+	@Test
 	public void test_field_assignment_method() throws Exception {
 		TypeDeclaration type =
 				createTypeDeclaration_Test(
@@ -125,6 +130,7 @@ public class AstModelSupportTest extends AbstractJavaTest {
 		assertTrue(support.isRepresentedBy(DomGenerics.arguments(invocation).get(1)));
 	}
 
+	@Test
 	public void test_local_variable_method() throws Exception {
 		TypeDeclaration type =
 				createTypeDeclaration_Test(
@@ -165,6 +171,7 @@ public class AstModelSupportTest extends AbstractJavaTest {
 		assertFalse(support.isRepresentedBy(DomGenerics.arguments(invocation2).get(1)));
 	}
 
+	@Test
 	public void test_local_variable_assignment_method() throws Exception {
 		TypeDeclaration type =
 				createTypeDeclaration_Test(
@@ -210,6 +217,7 @@ public class AstModelSupportTest extends AbstractJavaTest {
 	// Constructor creation
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_constructor() throws Exception {
 		TypeDeclaration type =
 				createTypeDeclaration_Test(
@@ -247,6 +255,7 @@ public class AstModelSupportTest extends AbstractJavaTest {
 		assertFalse(support.isRepresentedBy(DomGenerics.arguments(invocation2).get(1)));
 	}
 
+	@Test
 	public void test_field_assignment_constructor() throws Exception {
 		TypeDeclaration type =
 				createTypeDeclaration_Test(
@@ -285,6 +294,7 @@ public class AstModelSupportTest extends AbstractJavaTest {
 		assertTrue(support.isRepresentedBy(DomGenerics.arguments(invocation).get(1)));
 	}
 
+	@Test
 	public void test_local_variable_constructor() throws Exception {
 		TypeDeclaration type =
 				createTypeDeclaration_Test(
@@ -322,6 +332,7 @@ public class AstModelSupportTest extends AbstractJavaTest {
 		assertFalse(support.isRepresentedBy(DomGenerics.arguments(invocation2).get(1)));
 	}
 
+	@Test
 	public void test_local_variable_assignment_constructor() throws Exception {
 		TypeDeclaration type =
 				createTypeDeclaration_Test(
@@ -360,15 +371,5 @@ public class AstModelSupportTest extends AbstractJavaTest {
 	}
 
 	private static class TestModel extends AstObjectInfo {
-	}
-
-	////////////////////////////////////////////////////////////////////////////
-	//
-	// Project disposing
-	//
-	////////////////////////////////////////////////////////////////////////////
-	@Override
-	public void test_tearDown() throws Exception {
-		do_projectDispose();
 	}
 }

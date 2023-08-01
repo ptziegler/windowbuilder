@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
 
+import org.junit.Test;
+
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
@@ -96,6 +98,7 @@ public class ActionTest extends RcpModelTest {
 	/**
 	 * Test for {@link ActionContainerInfo}.
 	 */
+	@Test
 	public void test_container() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -136,6 +139,7 @@ public class ActionTest extends RcpModelTest {
 	/**
 	 * Just parsing for some {@link ApplicationWindow}.
 	 */
+	@Test
 	public void test_0() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -177,6 +181,7 @@ public class ActionTest extends RcpModelTest {
 	/**
 	 * Presentation for {@link ActionInfo} should use image from {@link ImageDescriptor}.
 	 */
+	@Test
 	public void test_iconImage_1() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -223,6 +228,7 @@ public class ActionTest extends RcpModelTest {
 	/**
 	 * Presentation for {@link ActionInfo} should also try to use {@link IActionIconProvider}.
 	 */
+	@Test
 	public void test_iconImage_2() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -275,6 +281,7 @@ public class ActionTest extends RcpModelTest {
 	/**
 	 * Parameters of constructor for {@link Action} have bindings on properties.
 	 */
+	@Test
 	public void test_boundProperties() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -330,6 +337,7 @@ public class ActionTest extends RcpModelTest {
 	/**
 	 * No {@link ContributionManagerInfo} - no "Actions" palette category.
 	 */
+	@Test
 	public void test_palette_noManager() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -352,6 +360,7 @@ public class ActionTest extends RcpModelTest {
 	 * {@link ToolBarManager} entry, because no {@link CoolBarManager}. No {@link MenuManager},
 	 * because no "root" {@link MenuManager}.
 	 */
+	@Test
 	public void test_palette_hasToolBarManager() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -402,6 +411,7 @@ public class ActionTest extends RcpModelTest {
 	 * Users confused over how to deal with JFace {@link ApplicationWindow} and menus. So, we put
 	 * "JFace Actions" before "Menu" category.
 	 */
+	@Test
 	public void test_palette_actionsCategory_beforeMenu() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -437,6 +447,7 @@ public class ActionTest extends RcpModelTest {
 	 * {@link ToolBarManager} entry, because of presence of {@link CoolBarManager}. No
 	 * {@link MenuManager}, because no "root" {@link MenuManager}.
 	 */
+	@Test
 	public void test_palette_hasCoolBarManager() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -492,6 +503,7 @@ public class ActionTest extends RcpModelTest {
 	 * {@link ToolBarManager} entry, because no {@link CoolBarManager}. It has {@link MenuManager},
 	 * because of "root" {@link MenuManager} presence.
 	 */
+	@Test
 	public void test_palette_hasMenuBarManager() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -545,6 +557,7 @@ public class ActionTest extends RcpModelTest {
 	/**
 	 * When {@link ActionInfo} has {@link EmptyVariableSupport}, we still should have some name.
 	 */
+	@Test
 	public void test_palette_ActionUse_EntryInfo_EmptyVariable() throws Exception {
 		setFileContentSrc(
 				"test/MyAction.java",
@@ -595,6 +608,7 @@ public class ActionTest extends RcpModelTest {
 	 * When {@link IContributionManager#add(IAction)} is used, it creates internally some
 	 * {@link IContributionItem}.
 	 */
+	@Test
 	public void test_IContributionItem_void() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -688,6 +702,7 @@ public class ActionTest extends RcpModelTest {
 	 * When we delete {@link ActionInfo}, its {@link ActionContributionItemInfo} also should be
 	 * deleted.
 	 */
+	@Test
 	public void test_IContributionItem_deleteAction() throws Exception {
 		parseJavaInfo(
 				"import org.eclipse.jface.action.*;",
@@ -746,6 +761,7 @@ public class ActionTest extends RcpModelTest {
 	 * When {@link IContributionManager#add(IAction)} is used, it creates internally some
 	 * {@link IContributionItem}.
 	 */
+	@Test
 	public void test_IContributionItem_explicit() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -809,6 +825,7 @@ public class ActionTest extends RcpModelTest {
 	 * Even if we use same {@link ActionInfo} for two {@link ActionContributionItemInfo}, they should
 	 * have different objects.
 	 */
+	@Test
 	public void test_IContributionItem_sameAction() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -846,6 +863,7 @@ public class ActionTest extends RcpModelTest {
 	 * {@link ContributionManager}'s don't like {@link Separator}'s without other items, so sometimes
 	 * don't create them. However in design mode we still want to see them.
 	 */
+	@Test
 	public void test_IContributionItem_danglingSeparator() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -884,6 +902,7 @@ public class ActionTest extends RcpModelTest {
 	/**
 	 * {@link GroupMarker}'s are not visible, but we still want to show them at design canvas.
 	 */
+	@Test
 	public void test_GroupMarker() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -923,6 +942,7 @@ public class ActionTest extends RcpModelTest {
 	 * Test for {@link ContributionManagerInfo#command_CREATE(ActionInfo, ContributionItemInfo)}. <br>
 	 * Add as last/only item.
 	 */
+	@Test
 	public void test_CREATE_1() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -981,6 +1001,7 @@ public class ActionTest extends RcpModelTest {
 	 * Test for {@link ContributionManagerInfo#command_CREATE(ActionInfo, ContributionItemInfo)}. <br>
 	 * Add before existing item.
 	 */
+	@Test
 	public void test_CREATE_2() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -1043,6 +1064,7 @@ public class ActionTest extends RcpModelTest {
 	 * {@link ContributionManagerInfo#command_CREATE(ContributionItemInfo, ContributionItemInfo)}. <br>
 	 * Add {@link Separator}.
 	 */
+	@Test
 	public void test_CREATE_3() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -1095,6 +1117,7 @@ public class ActionTest extends RcpModelTest {
 	 * {@link ContributionManagerInfo#command_CREATE(ContributionItemInfo, ContributionItemInfo)}. <br>
 	 * Add external {@link ActionInfo}.
 	 */
+	@Test
 	public void test_CREATE_externalAction_1() throws Exception {
 		setFileContentSrc(
 				"test/MyAction.java",
@@ -1161,6 +1184,7 @@ public class ActionTest extends RcpModelTest {
 	 * {@link ContributionManagerInfo#command_CREATE(ContributionItemInfo, ContributionItemInfo)}. <br>
 	 * Add new {@link ActionInfo}.
 	 */
+	@Test
 	public void test_CREATE_newAction_1() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -1223,6 +1247,7 @@ public class ActionTest extends RcpModelTest {
 	 * Add new {@link ActionInfo}.<br>
 	 * In addition also creates <code>createActions()</code> method.
 	 */
+	@Test
 	public void test_CREATE_newAction_2() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -1281,6 +1306,7 @@ public class ActionTest extends RcpModelTest {
 	 * Test for
 	 * {@link ContributionManagerInfo#command_MOVE(ContributionItemInfo, ContributionItemInfo)}.
 	 */
+	@Test
 	public void test_MOVE_1() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -1344,6 +1370,7 @@ public class ActionTest extends RcpModelTest {
 	 * Test for
 	 * {@link ContributionManagerInfo#command_MOVE(ContributionItemInfo, ContributionItemInfo)}.
 	 */
+	@Test
 	public void test_MOVE_2() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(
@@ -1409,6 +1436,7 @@ public class ActionTest extends RcpModelTest {
 	 * {@link ContributionManagerInfo#command_MOVE(AbstractComponentInfo,AbstractComponentInfo)}.<br>
 	 * Move {@link ActionContributionItemInfo} from one {@link ToolBarManagerInfo} into other.
 	 */
+	@Test
 	public void test_IMenuInfo_MOVE_2() throws Exception {
 		ApplicationWindowInfo window =
 				parseJavaInfo(

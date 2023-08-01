@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.component;
 
+import org.junit.Test;
+
 import com.google.common.collect.ImmutableList;
 
 import org.eclipse.wb.core.model.ObjectInfo;
@@ -42,6 +44,7 @@ public class JLayeredPaneTest extends SwingModelTest {
 	 * Test for "Layer" property.<br>
 	 * Value is in constraints of {@link Container#add(java.awt.Component, Object)} method.
 	 */
+	@Test
 	public void test_layer_Constraints() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -86,6 +89,7 @@ public class JLayeredPaneTest extends SwingModelTest {
 	 * Test for "Layer" property.<br>
 	 * Constraints of {@link Container#add(java.awt.Component, Object)} has no layer.
 	 */
+	@Test
 	public void test_layer_noConstraints() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -130,6 +134,7 @@ public class JLayeredPaneTest extends SwingModelTest {
 	 * Test for "Layer" property.<br>
 	 * Value is in {@link JLayeredPane#setLayer(java.awt.Component, int)}.
 	 */
+	@Test
 	public void test_layer_setLayer_1() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -175,6 +180,7 @@ public class JLayeredPaneTest extends SwingModelTest {
 	 * Test for "Layer" property.<br>
 	 * Value is in {@link JLayeredPane#setLayer(java.awt.Component, int, int)}.
 	 */
+	@Test
 	public void test_layer_setLayer_2() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -220,6 +226,7 @@ public class JLayeredPaneTest extends SwingModelTest {
 	 * Test for "Layer" property.<br>
 	 * Value is in {@link JLayeredPane#setLayer(java.awt.Component, int)}.
 	 */
+	@Test
 	public void test_layer_setLayer_remove() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -263,6 +270,7 @@ public class JLayeredPaneTest extends SwingModelTest {
 	/**
 	 * Graphical children should be sorted according to layer.
 	 */
+	@Test
 	public void test_getGraphicalChildren() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

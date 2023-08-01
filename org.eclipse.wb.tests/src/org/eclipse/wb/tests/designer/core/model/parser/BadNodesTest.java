@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.parser;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.EnvironmentUtils;
 import org.eclipse.wb.internal.core.utils.exception.DesignerException;
 import org.eclipse.wb.internal.core.utils.exception.DesignerExceptionUtils;
@@ -54,6 +56,7 @@ public class BadNodesTest extends SwingModelTest {
 	 * If Eclipse is run using earlier version of JVM than version of {@link IJavaProject}, we should
 	 * show warning about this.
 	 */
+	@Test
 	public void test_incompatibleVersionJVM() throws Exception {
 		EnvironmentUtils.setForcedJavaVersion(1.5f);
 		try {
@@ -72,6 +75,7 @@ public class BadNodesTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_emptyCompilationUnit() throws Exception {
 		try {
 			parseSource("test", "Test.java", "");
@@ -85,6 +89,7 @@ public class BadNodesTest extends SwingModelTest {
 	/**
 	 * Parsing should fail because "text" is unknown.
 	 */
+	@Test
 	public void test_badNodeCreation_unknownArgument() throws Exception {
 		try {
 			parseContainer(
@@ -105,6 +110,7 @@ public class BadNodesTest extends SwingModelTest {
 	/**
 	 * If we can not evaluate parameter, we should use default value.
 	 */
+	@Test
 	public void test_badNodeCreation_exceptionInConstructorArgument() throws Exception {
 		setFileContentSrc(
 				"test/MyObject.java",
@@ -148,6 +154,7 @@ public class BadNodesTest extends SwingModelTest {
 	/**
 	 * Parsing is OK, because we specify value of parameter.
 	 */
+	@Test
 	public void test_forcedMethodParameter() throws Exception {
 		ContainerInfo panelInfo =
 				parseContainer(
@@ -176,6 +183,7 @@ public class BadNodesTest extends SwingModelTest {
 	/**
 	 * Parsing is OK, but there is bad node because "text" is unknown.
 	 */
+	@Test
 	public void test_badNodeInvocation() throws Exception {
 		parseContainer(
 				"class Test extends JPanel {",
@@ -206,6 +214,7 @@ public class BadNodesTest extends SwingModelTest {
 	/**
 	 * Hard error - syntax error. Parsing stops.
 	 */
+	@Test
 	public void test_error_syntax_1() throws Exception {
 		m_ignoreCompilationProblems = true;
 		ContainerInfo panel =
@@ -222,6 +231,7 @@ public class BadNodesTest extends SwingModelTest {
 	/**
 	 * Hard error - syntax error. Parsing stops.
 	 */
+	@Test
 	public void test_error_syntax_2() throws Exception {
 		m_ignoreCompilationProblems = true;
 		ContainerInfo panel =
@@ -241,6 +251,7 @@ public class BadNodesTest extends SwingModelTest {
 	 * Test for case when syntax is correct, but not existing class is used.<br>
 	 * No other components.
 	 */
+	@Test
 	public void test_error_noSuchClass_1() throws Exception {
 		// parsing is important
 		m_ignoreCompilationProblems = true;
@@ -261,6 +272,7 @@ public class BadNodesTest extends SwingModelTest {
 	 * Test for case when syntax is correct, but not existing class is used.<br>
 	 * Other component can be parsed.
 	 */
+	@Test
 	public void test_error_noSuchClass_2() throws Exception {
 		// parsing is important
 		m_ignoreCompilationProblems = true;
@@ -282,6 +294,7 @@ public class BadNodesTest extends SwingModelTest {
 	/**
 	 * Invalid method is invoked, it just ignore, other things are parsed and executed.
 	 */
+	@Test
 	public void test_error_noSuchMethod() throws Exception {
 		// parsing is important
 		m_ignoreCompilationProblems = true;
@@ -315,6 +328,7 @@ public class BadNodesTest extends SwingModelTest {
 	 * <p>
 	 * When we have compilation problem, this may cause typeBinding/variable exceptions.
 	 */
+	@Test
 	public void test_noSuchType_forVariable() throws Exception {
 		m_ignoreCompilationProblems = true;
 		ContainerInfo panel =
@@ -339,6 +353,7 @@ public class BadNodesTest extends SwingModelTest {
 	 * {@link MethodDeclaration} with compilation errors does not have {@link IMethodBinding}. We
 	 * ignore this.
 	 */
+	@Test
 	public void test_noMethodBinding_noInvocation() throws Exception {
 		m_ignoreCompilationProblems = true;
 		ContainerInfo panel =
@@ -364,6 +379,7 @@ public class BadNodesTest extends SwingModelTest {
 	 * ignore this. We don't enter this method because we can not find it, so not related nodes from
 	 * it.
 	 */
+	@Test
 	public void test_noMethodBinding_itIsInvoked() throws Exception {
 		m_ignoreCompilationProblems = true;
 		ContainerInfo panel =
@@ -388,6 +404,7 @@ public class BadNodesTest extends SwingModelTest {
 	/**
 	 * We should throw {@link DesignerException} with good information for user.
 	 */
+	@Test
 	public void test_doubleAssociationException() throws Exception {
 		m_ignoreCompilationProblems = true;
 		try {

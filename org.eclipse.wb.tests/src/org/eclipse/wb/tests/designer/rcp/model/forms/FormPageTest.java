@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.forms;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.rcp.model.forms.FormPageInfo;
 import org.eclipse.wb.internal.rcp.model.forms.ManagedFormInfo;
 import org.eclipse.wb.internal.rcp.model.forms.ScrolledFormInfo;
@@ -38,6 +40,7 @@ public class FormPageTest extends AbstractFormsTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_0() throws Exception {
 		FormPageInfo page =
 				parseJavaInfo(
@@ -76,6 +79,7 @@ public class FormPageTest extends AbstractFormsTest {
 		Assertions.assertThat(scrolledForm.getBounds().height).isGreaterThanOrEqualTo(450);
 	}
 
+	@Test
 	public void test_severalConstructors() throws Exception {
 		useStrictEvaluationMode(false);
 		FormPageInfo page =
@@ -99,6 +103,7 @@ public class FormPageTest extends AbstractFormsTest {
 	/**
 	 * We should try to support {@link FormEditor} subclass.
 	 */
+	@Test
 	public void test_subclassFormEditor() throws Exception {
 		setFileContentSrc(
 				"test/MyFormEditor.java",

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.FormLayout;
 
+import org.junit.Test;
+
 import com.google.common.collect.Lists;
 
 import org.eclipse.wb.core.model.ObjectInfo;
@@ -32,6 +34,7 @@ public class FormLayoutSelectionActionsTest extends AbstractFormLayoutTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_selectionActions() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

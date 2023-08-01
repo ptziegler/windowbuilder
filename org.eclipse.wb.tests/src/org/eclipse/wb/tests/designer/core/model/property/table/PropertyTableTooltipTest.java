@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property.table;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.editor.PropertyEditor;
 import org.eclipse.wb.internal.core.model.property.editor.TextDisplayPropertyEditor;
@@ -41,6 +43,7 @@ public class PropertyTableTooltipTest extends AbstractPropertyTableTest {
 	/**
 	 * Test for hover over empty space - no property.
 	 */
+	@Test
 	public void test_1_noProperty() throws Exception {
 		Property property = new TestProperty("text", true, "New button", stringEditor);
 		m_propertyTable.setInput(new Property[]{property});
@@ -54,6 +57,7 @@ public class PropertyTableTooltipTest extends AbstractPropertyTableTest {
 	/**
 	 * Test for long property title tooltip.
 	 */
+	@Test
 	public void test_2_shortPropertyTitle() throws Exception {
 		Property property = new TestProperty("text", true, "New button", stringEditor);
 		m_propertyTable.setInput(new Property[]{property});
@@ -67,6 +71,7 @@ public class PropertyTableTooltipTest extends AbstractPropertyTableTest {
 	/**
 	 * Test for long property title tooltip, hide using MouseExit.
 	 */
+	@Test
 	public void test_3_longPropertyTitle_hideExit() throws Exception {
 		prepare_test_3_showTooltip();
 		// move mouse outside - hide tooltip
@@ -80,6 +85,7 @@ public class PropertyTableTooltipTest extends AbstractPropertyTableTest {
 	/**
 	 * Test for long property title tooltip, hide using MouseExit.
 	 */
+	@Test
 	public void test_3_longPropertyTitle_hideClick() throws Exception {
 		prepare_test_3_showTooltip();
 		// click on tooltip - hide tooltip
@@ -104,6 +110,7 @@ public class PropertyTableTooltipTest extends AbstractPropertyTableTest {
 	/**
 	 * Test for {@link PropertyTooltipTextProvider}.
 	 */
+	@Test
 	public void test_4_textProvider() throws Exception {
 		Property property = new TestProperty("text", true, "New button", stringEditor) {
 			@Override
@@ -131,6 +138,7 @@ public class PropertyTableTooltipTest extends AbstractPropertyTableTest {
 	/**
 	 * Test for {@link PropertyTooltipProvider} that returns <code>null</code> as control.
 	 */
+	@Test
 	public void test_5_emptyProvider() throws Exception {
 		Property property = new TestProperty("text", true, "New button", stringEditor) {
 			@Override
@@ -160,6 +168,7 @@ public class PropertyTableTooltipTest extends AbstractPropertyTableTest {
 	/**
 	 * Test for {@link PropertyTooltipTextProvider} with {@link PropertyTooltipProvider#BELOW}.
 	 */
+	@Test
 	public void test_6_textProviderBelow() throws Exception {
 		Property property = new TestProperty("text", true, "New button", stringEditor) {
 			@Override
@@ -198,6 +207,7 @@ public class PropertyTableTooltipTest extends AbstractPropertyTableTest {
 	/**
 	 * Short text in {@link TextDisplayPropertyEditor} - no tooltip.
 	 */
+	@Test
 	public void test_7_value_noTooltip() throws Exception {
 		Property property = new TestProperty("text", true, "New button", stringEditor);
 		m_propertyTable.setInput(new Property[]{property});
@@ -212,6 +222,7 @@ public class PropertyTableTooltipTest extends AbstractPropertyTableTest {
 	/**
 	 * Long text in {@link TextDisplayPropertyEditor} - show tooltip.
 	 */
+	@Test
 	public void test_8_value_textTooltip() throws Exception {
 		Property property =
 				new TestProperty("text", true, "New button 01234567890123456789", stringEditor);

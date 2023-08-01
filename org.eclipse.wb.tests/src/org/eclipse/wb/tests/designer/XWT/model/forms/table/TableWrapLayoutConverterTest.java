@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.forms.table;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.rcp.model.forms.layout.table.TableWrapLayoutConverter;
 import org.eclipse.wb.internal.xwt.model.forms.layout.table.TableWrapDataInfo;
@@ -57,6 +59,7 @@ public class TableWrapLayoutConverterTest extends XwtModelTest {
 	/**
 	 * No controls.
 	 */
+	@Test
 	public void test_empty() throws Exception {
 		CompositeInfo shell = parse("<Shell/>");
 		setGridLayout(shell, new String[]{
@@ -72,6 +75,7 @@ public class TableWrapLayoutConverterTest extends XwtModelTest {
 	/**
 	 * Control in single column, in normal order.
 	 */
+	@Test
 	public void test_singleColumn_normalOrder() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -93,6 +97,7 @@ public class TableWrapLayoutConverterTest extends XwtModelTest {
 	/**
 	 * Control in single column, in reverse order.
 	 */
+	@Test
 	public void test_singleColumn_reverseOrder() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -114,6 +119,7 @@ public class TableWrapLayoutConverterTest extends XwtModelTest {
 	/**
 	 * Control in two columns, no fillers.
 	 */
+	@Test
 	public void test_twoRows_noFillers() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -135,6 +141,7 @@ public class TableWrapLayoutConverterTest extends XwtModelTest {
 	/**
 	 * Control in two columns/rows, on diagonal, with fillers.
 	 */
+	@Test
 	public void test_twoRows_withFillers() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -158,6 +165,7 @@ public class TableWrapLayoutConverterTest extends XwtModelTest {
 	/**
 	 * Three controls, one spanned horizontally.
 	 */
+	@Test
 	public void test_spanHorizontal() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -188,6 +196,7 @@ public class TableWrapLayoutConverterTest extends XwtModelTest {
 	/**
 	 * Three controls, one spanned vertically.
 	 */
+	@Test
 	public void test_spanVertical() throws Exception {
 		CompositeInfo shell =
 				parse(

@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.gbl;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import com.google.common.collect.ImmutableList;
 
@@ -75,6 +78,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	 * Test for case when {@link GridBagConstraints} used for component, but container does not use
 	 * {@link GridBagLayout}
 	 */
+	@Test
 	public void test_notGridBagLayout() throws Exception {
 		final ContainerInfo panel =
 				parseContainer(
@@ -101,6 +105,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	 * Test for {@link GridBagConstraintsInfo#getColumn()} and {@link GridBagConstraintsInfo#getRow()}
 	 * .
 	 */
+	@Test
 	public void test_access() throws Exception {
 		final ContainerInfo panel =
 				parseContainer(
@@ -130,6 +135,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 		assertSame(layout.getRows().get(0), constraints.getRow());
 	}
 
+	@Test
 	public void test_properties() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -181,6 +187,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	/**
 	 * We should know "real" location even in {@link GridBagConstraints#RELATIVE} used as location.
 	 */
+	@Test
 	public void test_locationRelative_1() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -230,6 +237,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	/**
 	 * We should know "real" location even in {@link GridBagConstraints#RELATIVE} used as location.
 	 */
+	@Test
 	public void test_locationRelative_2() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -293,6 +301,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	/**
 	 * Test for virtual {@link GridBagConstraintsInfo} and materializing it in short form.
 	 */
+	@Test
 	public void test_virtualShort() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -385,6 +394,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	/**
 	 * Test for virtual {@link GridBagConstraintsInfo} and materializing it in long form.
 	 */
+	@Test
 	public void test_virtualLong() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -418,6 +428,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	/**
 	 * Better message for "more than one constraints".
 	 */
+	@Test
 	public void test_moreThanOneConstraints() throws Exception {
 		try {
 			parseContainer(
@@ -446,6 +457,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	 * Test that {@link GridBagConstraintsInfo} materialized when we try to use method like
 	 * {@link GridBagConstraintsInfo#setX(int)}.
 	 */
+	@Test
 	public void test_accessMaterialize() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -481,6 +493,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	/**
 	 * Test for {@link GridBagConstraintsInfo#materializeLocation()}.
 	 */
+	@Test
 	public void test_accessMaterialize_2() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -517,6 +530,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	/**
 	 * Test for {@link GridBagConstraintsInfo#setX(int)}.
 	 */
+	@Test
 	public void test_setX() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -552,6 +566,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	/**
 	 * Test for "gridx" property.
 	 */
+	@Test
 	public void test_setProperty_gridx() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -626,6 +641,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	/**
 	 * Test for {@link GridBagConstraintsInfo#setY(int)}.
 	 */
+	@Test
 	public void test_setY() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -661,6 +677,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	/**
 	 * Test for "gridy" property.
 	 */
+	@Test
 	public void test_setProperty_gridy() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -723,6 +740,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	/**
 	 * Test for {@link GridBagConstraintsInfo#setWidth(int)}.
 	 */
+	@Test
 	public void test_accessLocation_width() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -758,6 +776,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	/**
 	 * Test for {@link GridBagConstraintsInfo#setHeight(int)}.
 	 */
+	@Test
 	public void test_accessLocation_height() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -798,6 +817,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	/**
 	 * Test for {@link GridBagConstraintsInfo#setInsets(String, int)}.
 	 */
+	@Test
 	public void test_accessOther_insets() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -887,6 +907,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	/**
 	 * Test alignments using prepared array.
 	 */
+	@Test
 	public void test_alignments() throws Exception {
 		for (AlignmentTestData testData : m_alignmentTestArray) {
 			assertSame(testData.m_horizontalAlignment, ReflectionUtils.invokeMethod2(
@@ -906,6 +927,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 		}
 	}
 
+	@Test
 	public void test_alignments_unknownHorizontal() throws Exception {
 		try {
 			ReflectionUtils.invokeMethod2(
@@ -920,6 +942,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 		}
 	}
 
+	@Test
 	public void test_alignments_unknownVertical() throws Exception {
 		try {
 			ReflectionUtils.invokeMethod2(
@@ -938,6 +961,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	 * Test {@link GridBagConstraintsInfo#getHorizontalAlignment()} and
 	 * {@link GridBagConstraintsInfo#getVerticalAlignment()}, i.e. from model parsed from source.
 	 */
+	@Test
 	public void test_getAlignment_bySource() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -964,6 +988,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	// setAlignment()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_setAlignment() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1062,18 +1087,22 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	// Context menu
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_contextMenu_horizontalLeft() throws Exception {
 		check_contextMenu_alignmentHorizontal("&Left", ColumnInfo.Alignment.LEFT, "WEST", "NONE");
 	}
 
+	@Test
 	public void test_contextMenu_horizontalCenter() throws Exception {
 		check_contextMenu_alignmentHorizontal("&Center", ColumnInfo.Alignment.CENTER, "CENTER", "NONE");
 	}
 
+	@Test
 	public void test_contextMenu_horizontalRight() throws Exception {
 		check_contextMenu_alignmentHorizontal("&Right", ColumnInfo.Alignment.RIGHT, "EAST", "NONE");
 	}
 
+	@Test
 	public void test_contextMenu_horizontalFill() throws Exception {
 		check_contextMenu_alignmentHorizontal(
 				"&Fill",
@@ -1082,27 +1111,35 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 				"HORIZONTAL");
 	}
 
+	@Test
 	public void test_contextMenu_verticalTop() throws Exception {
 		check_contextMenu_alignmentVertical("&Top", RowInfo.Alignment.TOP, "NORTH", "NONE");
 	}
 
+	@Test
 	public void test_contextMenu_verticalCenter() throws Exception {
 		check_contextMenu_alignmentVertical("&Center", RowInfo.Alignment.CENTER, "CENTER", "NONE");
 	}
 
+	@Test
 	public void test_contextMenu_verticalBottom() throws Exception {
 		check_contextMenu_alignmentVertical("&Bottom", RowInfo.Alignment.BOTTOM, "SOUTH", "NONE");
 	}
 
+	@Test
 	public void test_contextMenu_verticalFill() throws Exception {
 		check_contextMenu_alignmentVertical("&Fill", RowInfo.Alignment.FILL, "CENTER", "VERTICAL");
 	}
 
-	public void DISABLE_test_contextMenu_verticalBaseline() throws Exception {
+	@Ignore
+	@Test
+	public void test_contextMenu_verticalBaseline() throws Exception {
 		check_contextMenu_alignmentVertical("Baseline", RowInfo.Alignment.BASELINE, "BASELINE", "NONE");
 	}
 
-	public void DISABLE_test_contextMenu_verticalBaselineAbove() throws Exception {
+	@Ignore
+	@Test
+	public void test_contextMenu_verticalBaselineAbove() throws Exception {
 		check_contextMenu_alignmentVertical(
 				"Above baseline",
 				RowInfo.Alignment.BASELINE_ABOVE,
@@ -1110,7 +1147,9 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 				"NONE");
 	}
 
-	public void DISABLE_test_contextMenu_verticalBaselineBelow() throws Exception {
+	@Ignore
+	@Test
+	public void test_contextMenu_verticalBaselineBelow() throws Exception {
 		check_contextMenu_alignmentVertical(
 				"Below baseline",
 				RowInfo.Alignment.BASELINE_BELOW,
@@ -1207,6 +1246,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	/**
 	 * Test for {@link SetGrowAction}.
 	 */
+	@Test
 	public void test_contextMenu_grow() throws Exception {
 		final ContainerInfo panel =
 				parseContainer(
@@ -1295,6 +1335,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	/**
 	 * Template "${defaultName}" means that name should be based on name of type.
 	 */
+	@Test
 	public void test_nameTemplate_useDefaultName() throws Exception {
 		check_nameTemplate(
 				org.eclipse.wb.internal.core.model.variable.SyncParentChildVariableNameSupport.TEMPLATE_FOR_DEFAULT,
@@ -1314,6 +1355,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	/**
 	 * Generate name using "${dataAcronym}${controlName-cap}" template.
 	 */
+	@Test
 	public void test_nameTemplate_alternativeTemplate_1() throws Exception {
 		check_nameTemplate(
 				"${constraintsAcronym}${componentName-cap}",
@@ -1333,6 +1375,7 @@ public class GridBagConstraintsTest extends AbstractGridBagLayoutTest {
 	/**
 	 * Generate name using "${controlName}${dataClassName}" template.
 	 */
+	@Test
 	public void test_nameTemplate_alternativeTemplate_2() throws Exception {
 		check_nameTemplate(
 				"${componentName}${constraintsClassName}",

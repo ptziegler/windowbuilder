@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.variables;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.variable.FieldReuseVariableSupport;
 import org.eclipse.wb.internal.core.model.variable.FieldUniqueVariableSupport;
 import org.eclipse.wb.internal.core.model.variable.VariableSupport;
@@ -40,6 +42,7 @@ public class FieldReuseTest extends AbstractVariableTest {
 	// getReferenceExpression()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getReferenceExpression_local() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -65,6 +68,7 @@ public class FieldReuseTest extends AbstractVariableTest {
 		assertEquals("button", variableSupport.getReferenceExpression(target));
 	}
 
+	@Test
 	public void test_getReferenceExpression_remote() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -114,6 +118,7 @@ public class FieldReuseTest extends AbstractVariableTest {
 	/**
 	 * Test for {@link FieldReuseVariableSupport} when field is assigned for this component.
 	 */
+	@Test
 	public void test_1() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -151,6 +156,7 @@ public class FieldReuseTest extends AbstractVariableTest {
 	/**
 	 * Test for {@link FieldReuseVariableSupport} when field is declared with this component.
 	 */
+	@Test
 	public void test_2() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -207,6 +213,7 @@ public class FieldReuseTest extends AbstractVariableTest {
 	/**
 	 * Test for {@link FieldReuseVariableSupport#setName(String)} and static context.
 	 */
+	@Test
 	public void test_3() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -249,6 +256,7 @@ public class FieldReuseTest extends AbstractVariableTest {
 	/**
 	 * Test for {@link FieldReuseVariableSupport} when field is declared with this component.
 	 */
+	@Test
 	public void test_setType() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

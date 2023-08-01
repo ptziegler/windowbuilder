@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.rcp.model.widgets.ScrolledCompositeInfo;
 import org.eclipse.wb.internal.swt.model.layout.FillLayoutInfo;
 import org.eclipse.wb.internal.swt.model.layout.RowLayoutInfo;
@@ -40,6 +42,7 @@ public class ScrolledCompositeTest extends RcpModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_noContent() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -57,6 +60,7 @@ public class ScrolledCompositeTest extends RcpModelTest {
 		assertTrue(composite.hasRequired_setContent());
 	}
 
+	@Test
 	public void test_withContent() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -80,6 +84,7 @@ public class ScrolledCompositeTest extends RcpModelTest {
 		assertTrue(composite.hasRequired_setContent());
 	}
 
+	@Test
 	public void test_hasChildControl_withContent() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -110,6 +115,7 @@ public class ScrolledCompositeTest extends RcpModelTest {
 	/**
 	 * Test for {@link ScrolledCompositeInfo#command_CREATE(ControlInfo)}.
 	 */
+	@Test
 	public void test_CREATE() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -144,6 +150,7 @@ public class ScrolledCompositeTest extends RcpModelTest {
 	 * {@link ScrolledCompositeInfo}, it should be added <em>before</em> <code>setContent()</code> or
 	 * <code>setMinSize()</code> invocations.
 	 */
+	@Test
 	public void test_CREATE2() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -188,6 +195,7 @@ public class ScrolledCompositeTest extends RcpModelTest {
 	/**
 	 * Test for {@link ScrolledCompositeInfo#command_ADD(ControlInfo)}.
 	 */
+	@Test
 	public void test_ADD() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -224,6 +232,7 @@ public class ScrolledCompositeTest extends RcpModelTest {
 	 * Test for moving {@link ControlInfo} from {@link ScrolledCompositeInfo#command_ADD(ControlInfo)}
 	 * .
 	 */
+	@Test
 	public void test_MOVE_out() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

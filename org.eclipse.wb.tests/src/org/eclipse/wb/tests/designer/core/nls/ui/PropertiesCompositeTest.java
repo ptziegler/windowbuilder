@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.nls.ui;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.nls.edit.IEditableSource;
 import org.eclipse.wb.internal.core.nls.model.LocaleInfo;
 import org.eclipse.wb.internal.core.nls.ui.NewSourceDialog;
@@ -39,6 +41,7 @@ public class PropertiesCompositeTest extends AbstractDialogTest {
 	// Sources
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_noSources() throws Exception {
 		String initialSource = getTestSource(
 				"// filler filler filler",
@@ -59,6 +62,7 @@ public class PropertiesCompositeTest extends AbstractDialogTest {
 	/**
 	 * Now "real" sources, but two different "possible" sources.
 	 */
+	@Test
 	public void test_possibleSources() throws Exception {
 		setFileContentSrc(
 				"test/messages.properties",
@@ -88,6 +92,7 @@ public class PropertiesCompositeTest extends AbstractDialogTest {
 		});
 	}
 
+	@Test
 	public void test_existingSources() throws Exception {
 		setFileContentSrc(
 				"test/messages.properties",
@@ -113,6 +118,7 @@ public class PropertiesCompositeTest extends AbstractDialogTest {
 		});
 	}
 
+	@Test
 	public void test_properties() throws Exception {
 		setFileContentSrc("test/messages.properties", getSourceDQ("#Direct ResourceBundle"));
 		String initialSource = getTestSource(
@@ -241,6 +247,7 @@ public class PropertiesCompositeTest extends AbstractDialogTest {
 	/**
 	 * Open {@link NewSourceDialog} from {@link PropertiesComposite}.
 	 */
+	@Test
 	public void test_open_NewSourceDialog() throws Exception {
 		String initialSource = getTestSource(
 				"// filler filler filler",

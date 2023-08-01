@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.component.menu;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import com.google.common.collect.ImmutableList;
 
@@ -80,6 +83,7 @@ public class JMenuTest extends SwingModelTest {
 	 * When {@link JMenu} has no items, its size is very small, so we should add some text to make it
 	 * bigger.
 	 */
+	@Test
 	public void test_renderEmpty() throws Exception {
 		parseContainer(
 				"public class Test extends JFrame {",
@@ -103,6 +107,7 @@ public class JMenuTest extends SwingModelTest {
 	/**
 	 * We should dispose all {@link Image}s related to {@link JMenuInfo}.
 	 */
+	@Test
 	public void test_disposeImages() throws Exception {
 		parseContainer(
 				"public class Test extends JFrame {",
@@ -133,6 +138,7 @@ public class JMenuTest extends SwingModelTest {
 	 * Even if we place {@link JMenu} on generic {@link Container}, this should provide correct
 	 * bounds.
 	 */
+	@Test
 	public void test_onContainer() throws Exception {
 		parseContainer(
 				"public class Test extends JPanel {",
@@ -154,6 +160,7 @@ public class JMenuTest extends SwingModelTest {
 	/**
 	 * If we have deep hierarchy of {@link JMenu}s, we still should correctly fetch information.
 	 */
+	@Test
 	public void test_deepHierarchy() throws Exception {
 		parseContainer(
 				"public class Test extends JFrame {",
@@ -188,6 +195,7 @@ public class JMenuTest extends SwingModelTest {
 	/**
 	 * Test for {@link IMenuItemInfo} and {@link IMenuInfo} from {@link JMenuInfo}.
 	 */
+	@Test
 	public void test_IMenuItemInfo_IMenuInfo() throws Exception {
 		ContainerInfo frameInfo =
 				parseContainer(
@@ -251,6 +259,7 @@ public class JMenuTest extends SwingModelTest {
 	 * <p>
 	 * {@link JSeparator} should be {@link IMenuItemInfo}.
 	 */
+	@Test
 	public void test_IMenuInfo_withSeparator() throws Exception {
 		ContainerInfo frameInfo =
 				parseContainer(getDoubleQuotes(new String[]{
@@ -326,6 +335,7 @@ public class JMenuTest extends SwingModelTest {
 	/**
 	 * We can not drop new invalid objects.
 	 */
+	@Test
 	public void test_IMenuInfo_CREATE_noObject() throws Exception {
 		ContainerInfo frameInfo =
 				parseContainer(
@@ -362,6 +372,7 @@ public class JMenuTest extends SwingModelTest {
 	/**
 	 * We can drop new {@link JMenuItemInfo}.
 	 */
+	@Test
 	public void test_IMenuInfo_CREATE() throws Exception {
 		ContainerInfo frameInfo =
 				parseContainer(
@@ -407,6 +418,7 @@ public class JMenuTest extends SwingModelTest {
 	/**
 	 * We can drop any {@link Component}.
 	 */
+	@Test
 	public void test_IMenuInfo_CREATE_component() throws Exception {
 		parseContainer(
 				"public class Test extends JFrame {",
@@ -450,6 +462,7 @@ public class JMenuTest extends SwingModelTest {
 	/**
 	 * We can move {@link JMenuItemInfo}'s.
 	 */
+	@Test
 	public void test_IMenuInfo_MOVE() throws Exception {
 		ContainerInfo frameInfo =
 				parseContainer(
@@ -516,7 +529,9 @@ public class JMenuTest extends SwingModelTest {
 	/**
 	 * We can paste {@link JMenuItemInfo}'s.
 	 */
-	public void DISABLE_test_IMenuInfo_PASTE() throws Exception {
+	@Ignore
+	@Test
+	public void test_IMenuInfo_PASTE() throws Exception {
 		ContainerInfo frameInfo =
 				parseContainer(
 						"public class Test extends JFrame {",
@@ -594,6 +609,7 @@ public class JMenuTest extends SwingModelTest {
 	/**
 	 * We should understand {@link JMenu#add(Action)} and create corresponding {@link JMenuItemInfo}.
 	 */
+	@Test
 	public void test_addAction_parse() throws Exception {
 		createExternalAction();
 		ContainerInfo frameInfo =
@@ -632,6 +648,7 @@ public class JMenuTest extends SwingModelTest {
 	/**
 	 * We can drop existing {@link ActionInfo} instance.
 	 */
+	@Test
 	public void test_IMenuInfo_CREATE_existingAction() throws Exception {
 		createExternalAction();
 		String[] lines =
@@ -671,6 +688,7 @@ public class JMenuTest extends SwingModelTest {
 	/**
 	 * We can drop new {@link ActionInfo} instance.
 	 */
+	@Test
 	public void test_IMenuInfo_CREATE_newAction() throws Exception {
 		createExternalAction();
 		String[] lines =
@@ -709,6 +727,7 @@ public class JMenuTest extends SwingModelTest {
 	/**
 	 * We can drop new {@link ActionInfo} instance, using {@link LazyVariableSupport}.
 	 */
+	@Test
 	public void test_IMenuInfo_CREATE_newAction_lazy() throws Exception {
 		createExternalAction();
 		String[] lines1 =
@@ -787,6 +806,7 @@ public class JMenuTest extends SwingModelTest {
 	/**
 	 * We can drop new {@link ActionInfo} instance, using {@link LazyVariableSupport}.
 	 */
+	@Test
 	public void test_IMenuInfo_CREATE_newAction_lazy2() throws Exception {
 		createExternalAction();
 		String[] lines1 =
@@ -875,6 +895,7 @@ public class JMenuTest extends SwingModelTest {
 	/**
 	 * Test for parsing "item" created in {@link #test_IMenuInfo_CREATE_newAction_lazy2()}.
 	 */
+	@Test
 	public void test_IMenuInfo_CREATE_newAction_lazy3() throws Exception {
 		createExternalAction();
 		ContainerInfo frameInfo =
@@ -981,6 +1002,7 @@ public class JMenuTest extends SwingModelTest {
 	/**
 	 * Test for parsing adding separator using {@link JPopupMenu#addSeparator()}.
 	 */
+	@Test
 	public void test_separatorParse_addSeparator() throws Exception {
 		parseContainer(
 				"public class Test extends JFrame {",
@@ -1032,6 +1054,7 @@ public class JMenuTest extends SwingModelTest {
 	/**
 	 * Test for parsing adding separator using {@link JPopupMenu#addSeparator()}.
 	 */
+	@Test
 	public void test_separatorParse_newSeparator() throws Exception {
 		parseContainer(
 				"public class Test extends JFrame {",
@@ -1061,6 +1084,7 @@ public class JMenuTest extends SwingModelTest {
 	/**
 	 * We can drop any separator using {@link JMenu#addSeparator()} .
 	 */
+	@Test
 	public void test_separator_CREATE() throws Exception {
 		parseContainer(
 				"public class Test extends JFrame {",
@@ -1114,6 +1138,7 @@ public class JMenuTest extends SwingModelTest {
 	 * Tests that {@link JMenuBar}, {@link JMenu} and {@link JMenuItem} can be exposed and are
 	 * correctly bound into hierarchy.
 	 */
+	@Test
 	public void test_visualInheritance() throws Exception {
 		createModelType(
 				"test",

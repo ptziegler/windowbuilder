@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.util;
 
+import org.junit.Test;
+
 import com.google.common.collect.ImmutableList;
 
 import org.eclipse.wb.core.model.JavaInfo;
@@ -36,6 +38,7 @@ public class FactoryActionsSupportTest extends SwingModelTest {
 	// Previous type names
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_previousTypeNames() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -102,6 +105,7 @@ public class FactoryActionsSupportTest extends SwingModelTest {
 	/**
 	 * Test that factories from same package are automatically added to menu.
 	 */
+	@Test
 	public void test_actions_thisPackage() throws Exception {
 		setFileContentSrc(
 				"test/StaticFactory.java",
@@ -147,6 +151,7 @@ public class FactoryActionsSupportTest extends SwingModelTest {
 	/**
 	 * Test that factories from history are also added to menu.
 	 */
+	@Test
 	public void test_actions_fromHistory() throws Exception {
 		setFileContentSrc(
 				"test2/SecondStaticFactory.java",
@@ -192,6 +197,7 @@ public class FactoryActionsSupportTest extends SwingModelTest {
 	/**
 	 * Only factory methods that have compatible return type, can be added to menu.
 	 */
+	@Test
 	public void test_actions_onlyCompatibleTypes() throws Exception {
 		setFileContentSrc(
 				"test/StaticFactory.java",

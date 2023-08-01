@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.model;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.core.model.association.InvocationAssociation;
 import org.eclipse.wb.core.model.association.InvocationChildAssociation;
@@ -49,6 +51,7 @@ public class CardLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test for installing.
 	 */
+	@Test
 	public void test_setLayout() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -82,6 +85,7 @@ public class CardLayoutTest extends AbstractLayoutTest {
 	 * <p>
 	 * https://bugs.eclipse.org/bugs/show_bug.cgi?id=363376
 	 */
+	@Test
 	public void test_dangling() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -101,6 +105,7 @@ public class CardLayoutTest extends AbstractLayoutTest {
 	/**
 	 * {@link JPopupMenu} is not managed.
 	 */
+	@Test
 	public void test_managedComponents_excludeJPopupMenu() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -133,6 +138,7 @@ public class CardLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Exposed {@link ComponentInfo} is managed.
 	 */
+	@Test
 	public void test_managedComponents_includeExposedComponents() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -179,6 +185,7 @@ public class CardLayoutTest extends AbstractLayoutTest {
 	 * <p>
 	 * https://bugs.eclipse.org/bugs/show_bug.cgi?id=366817
 	 */
+	@Test
 	public void test_convert() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -217,6 +224,7 @@ public class CardLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test for {@link CardLayoutInfo#command_CREATE(ComponentInfo, ComponentInfo)}.
 	 */
+	@Test
 	public void test_CREATE() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -262,6 +270,7 @@ public class CardLayoutTest extends AbstractLayoutTest {
 	 * <p>
 	 * Create {@link JPopupMenu}.
 	 */
+	@Test
 	public void test_CREATE_JPopupMenu() throws Exception {
 		final ContainerInfo panel =
 				parseContainer(
@@ -309,6 +318,7 @@ public class CardLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test for reparenting, normal variable.
 	 */
+	@Test
 	public void test_MOVE_reorder() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -350,6 +360,7 @@ public class CardLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test for reparenting, normal variable.
 	 */
+	@Test
 	public void test_MOVE_reparent_variable() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -391,6 +402,7 @@ public class CardLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test for reparenting, lazy variable.
 	 */
+	@Test
 	public void test_MOVE_reparent_lazy() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -450,6 +462,7 @@ public class CardLayoutTest extends AbstractLayoutTest {
 	// Showing
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_visibility_JPanel() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -483,6 +496,7 @@ public class CardLayoutTest extends AbstractLayoutTest {
 		}
 	}
 
+	@Test
 	public void test_visibility_JFrame() throws Exception {
 		ContainerInfo frame =
 				parseContainer(
@@ -512,6 +526,7 @@ public class CardLayoutTest extends AbstractLayoutTest {
 		assertVisible(button_1, false);
 	}
 
+	@Test
 	public void test_show() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -559,6 +574,7 @@ public class CardLayoutTest extends AbstractLayoutTest {
 		assertVisible(text, true);
 	}
 
+	@Test
 	public void test_selecting() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -609,6 +625,7 @@ public class CardLayoutTest extends AbstractLayoutTest {
 	/**
 	 * Test that association using {@link Container#add(String, Component)} also works.
 	 */
+	@Test
 	public void test_selecting_deprecatedAdd() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

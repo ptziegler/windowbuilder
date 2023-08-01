@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.association;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.utils.check.AssertionFailedException;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.internal.core.xml.model.association.Association;
@@ -40,6 +42,7 @@ public class OrderAssociationTest extends AbstractCoreTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_toString() throws Exception {
 		Association association = OrderAssociation.INSTANCE;
 		assertEquals("order", association.toString());
@@ -48,6 +51,7 @@ public class OrderAssociationTest extends AbstractCoreTest {
 	/**
 	 * Test for {@link Association#add(XmlObjectInfo, ElementTarget)}.
 	 */
+	@Test
 	public void test_add_notImplemented() throws Exception {
 		XmlObjectInfo container = parse("<Shell/>");
 		// add
@@ -63,6 +67,7 @@ public class OrderAssociationTest extends AbstractCoreTest {
 	/**
 	 * Test for {@link Association#move(XmlObjectInfo, ElementTarget, XmlObjectInfo, XmlObjectInfo)}.
 	 */
+	@Test
 	public void test_reorder() throws Exception {
 		XmlObjectInfo container =
 				parse(
@@ -97,6 +102,7 @@ public class OrderAssociationTest extends AbstractCoreTest {
 	/**
 	 * Test for {@link Association#move(XmlObjectInfo, ElementTarget, XmlObjectInfo, XmlObjectInfo)}.
 	 */
+	@Test
 	public void test_reparent_notImplemented() throws Exception {
 		parse(
 				"// filler filler filler filler filler",

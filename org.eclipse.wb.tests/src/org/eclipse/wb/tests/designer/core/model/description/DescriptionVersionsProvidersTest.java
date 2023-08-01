@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.description;
 
+import org.junit.Test;
+
 import com.google.common.collect.ImmutableList;
 
 import org.eclipse.wb.internal.core.model.description.ComponentDescription;
@@ -54,6 +56,7 @@ public class DescriptionVersionsProvidersTest extends SwingModelTest {
 	/**
 	 * Test for {@link EmptyDescriptionVersionsProvider}.
 	 */
+	@Test
 	public void test_providerEmpty() throws Exception {
 		IDescriptionVersionsProvider provider = EmptyDescriptionVersionsProvider.INSTANCE;
 		Assertions.assertThat(provider.getVersions(Object.class)).isEmpty();
@@ -65,6 +68,7 @@ public class DescriptionVersionsProvidersTest extends SwingModelTest {
 	// DescriptionVersionsProvider_FromList
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_providerFromList_noCurrentInList() throws Exception {
 		try {
 			new FromListDescriptionVersionsProvider(ImmutableList.of("1.0", "2.0", "3.0"), "2.1") {
@@ -81,6 +85,7 @@ public class DescriptionVersionsProvidersTest extends SwingModelTest {
 	/**
 	 * Middle version - check this version all other before it.
 	 */
+	@Test
 	public void test_providerFromList_getVersions_middleVersion() throws Exception {
 		List<String> allVersions = ImmutableList.of("1.0", "2.0", "3.0");
 		String currentVersion = "2.0";
@@ -106,6 +111,7 @@ public class DescriptionVersionsProvidersTest extends SwingModelTest {
 	/**
 	 * Latest version - same as for middle, check this version all other before it.
 	 */
+	@Test
 	public void test_providerFromList_getVersions_latestVersion() throws Exception {
 		List<String> allVersions = ImmutableList.of("1.0", "2.0", "3.0");
 		String currentVersion = "3.0";
@@ -129,6 +135,7 @@ public class DescriptionVersionsProvidersTest extends SwingModelTest {
 	/**
 	 * Test for using {@link IDescriptionVersionsProvider}'s in {@link ComponentDescriptionHelper}.
 	 */
+	@Test
 	public void test_componentResourceVersions_20() throws Exception {
 		TestBundle testBundle = new TestBundle();
 		try {
@@ -187,6 +194,7 @@ public class DescriptionVersionsProvidersTest extends SwingModelTest {
 	/**
 	 * Test for using {@link IDescriptionVersionsProvider}'s in {@link ComponentDescriptionHelper}.
 	 */
+	@Test
 	public void test_componentResourceVersions_default() throws Exception {
 		TestBundle testBundle = new TestBundle();
 		try {
@@ -244,6 +252,7 @@ public class DescriptionVersionsProvidersTest extends SwingModelTest {
 	/**
 	 * Test for using {@link IDescriptionVersionsProvider}'s in {@link FactoryDescriptionHelper}.
 	 */
+	@Test
 	public void test_factoryResourceVersions_20() throws Exception {
 		TestBundle testBundle = new TestBundle();
 		try {

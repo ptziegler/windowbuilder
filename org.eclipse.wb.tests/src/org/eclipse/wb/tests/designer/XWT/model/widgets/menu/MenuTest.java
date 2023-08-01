@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.widgets.menu;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.EnvironmentUtils;
 import org.eclipse.wb.internal.core.model.menu.IMenuInfo;
 import org.eclipse.wb.internal.core.model.menu.IMenuItemInfo;
@@ -61,6 +63,7 @@ public class MenuTest extends XwtModelTest {
 	 * Test that {@link MenuStylePresentation} returns different icons for menus with different
 	 * styles.
 	 */
+	@Test
 	public void test_MenuStylePresentation() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -98,6 +101,7 @@ public class MenuTest extends XwtModelTest {
 	/**
 	 * Test that "bar" {@link MenuInfo} has reasonable bounds.
 	 */
+	@Test
 	public void test_boundsBar() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -121,6 +125,7 @@ public class MenuTest extends XwtModelTest {
 	/**
 	 * Test for {@link MenuInfo#isBar()}.
 	 */
+	@Test
 	public void test_isBar() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -139,6 +144,7 @@ public class MenuTest extends XwtModelTest {
 	/**
 	 * Test for {@link MenuInfo#isPopup()}.
 	 */
+	@Test
 	public void test_isPopup() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -157,6 +163,7 @@ public class MenuTest extends XwtModelTest {
 	/**
 	 * Test for {@link MenuLiveManager}.
 	 */
+	@Test
 	public void test_liveStyle() throws Exception {
 		parse("<Shell/>");
 		// BAR
@@ -185,6 +192,7 @@ public class MenuTest extends XwtModelTest {
 	/**
 	 * Test for asking unsupported adapter.
 	 */
+	@Test
 	public void test_impl_IMenuInfo_no() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -202,6 +210,7 @@ public class MenuTest extends XwtModelTest {
 	/**
 	 * Test for {@link IMenuInfo} of "bar" {@link MenuInfo}.
 	 */
+	@Test
 	public void test_impl_IMenuInfo_bar() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -234,6 +243,7 @@ public class MenuTest extends XwtModelTest {
 	/**
 	 * Test for {@link IMenuInfo} of "popup" {@link MenuInfo}.
 	 */
+	@Test
 	public void test_impl_IMenuInfo_popup() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -257,6 +267,7 @@ public class MenuTest extends XwtModelTest {
 	/**
 	 * Test for {@link IMenuPopupInfo} of "popup" {@link MenuInfo}.
 	 */
+	@Test
 	public void test_impl_IMenuPopupInfo_popup() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -289,6 +300,7 @@ public class MenuTest extends XwtModelTest {
 	 * Tests for {@link IMenuInfo#validateCreate(Object)} and
 	 * {@link IMenuInfo#commandCreate(Object, IMenuItemInfo)}.
 	 */
+	@Test
 	public void test_IMenuInfo_create_1() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -325,6 +337,7 @@ public class MenuTest extends XwtModelTest {
 	 * Tests for {@link IMenuInfo#commandCreate(Object, IMenuItemInfo)} with reference
 	 * {@link IMenuItemInfo}.
 	 */
+	@Test
 	public void test_IMenuInfo_create_2() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -356,6 +369,7 @@ public class MenuTest extends XwtModelTest {
 	/**
 	 * Test for adding {@link MenuItemInfo} with <code>CASCADE</code>.
 	 */
+	@Test
 	public void test_IMenuInfo_create_3() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -396,6 +410,7 @@ public class MenuTest extends XwtModelTest {
 	 * Tests for {@link IMenuInfo#validatePaste(Object)} and
 	 * {@link IMenuInfo#commandPaste(Object, IMenuItemInfo)}.
 	 */
+	@Test
 	public void test_IMenuInfo_paste_1() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -427,6 +442,7 @@ public class MenuTest extends XwtModelTest {
 	/**
 	 * Don't allow "paste" for non-menu components.
 	 */
+	@Test
 	public void test_IMenuInfo_paste_2() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -453,6 +469,7 @@ public class MenuTest extends XwtModelTest {
 	 * Tests for {@link IMenuInfo#validateMove(Object)} and
 	 * {@link IMenuInfo#commandMove(Object, IMenuItemInfo)}.
 	 */
+	@Test
 	public void test_IMenuInfo_move_1() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -485,6 +502,7 @@ public class MenuTest extends XwtModelTest {
 	/**
 	 * Don't allow moving non-menu component on {@link IMenuInfo}.
 	 */
+	@Test
 	public void test_IMenuInfo_move_2() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -509,6 +527,7 @@ public class MenuTest extends XwtModelTest {
 	/**
 	 * Add "bar" menu.
 	 */
+	@Test
 	public void test_commandCreate_bar() throws Exception {
 		final CompositeInfo shell = parse("<Shell/>");
 		refresh();
@@ -533,6 +552,7 @@ public class MenuTest extends XwtModelTest {
 	/**
 	 * Add "popup" menu.
 	 */
+	@Test
 	public void test_commandCreate_popup() throws Exception {
 		final CompositeInfo shell = parse("<Shell/>");
 		refresh();
@@ -562,6 +582,7 @@ public class MenuTest extends XwtModelTest {
 	/**
 	 * Test for copy/paste {@link MenuInfo} with {@link MenuItemInfo} and sub-menu.
 	 */
+	@Test
 	public void test_commandPaste() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -631,6 +652,7 @@ public class MenuTest extends XwtModelTest {
 	// Menu_Info.MOVE
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_commandMove_fromItem_toItem() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -676,6 +698,7 @@ public class MenuTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_commandMove_fromItem_toControl() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -726,6 +749,7 @@ public class MenuTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_commandMove_fromControl_toItem() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -776,6 +800,7 @@ public class MenuTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_commandMove_fromControl_toControl() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -827,6 +852,7 @@ public class MenuTest extends XwtModelTest {
 	/**
 	 * Test for adding a placeholder to menu without items.
 	 */
+	@Test
 	public void test_placeHolder() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -847,6 +873,7 @@ public class MenuTest extends XwtModelTest {
 	/**
 	 * Test fetching menu bar bounds and items bounds.
 	 */
+	@Test
 	public void test_fetchVisualDataBar() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -880,6 +907,7 @@ public class MenuTest extends XwtModelTest {
 	/**
 	 * Test fetching cascaded/popup menu bounds/image and items bounds.
 	 */
+	@Test
 	public void test_fetchVisualDataCascaded() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -910,6 +938,7 @@ public class MenuTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_menuAboveOtherGraphicalChildren() throws Exception {
 		CompositeInfo shell =
 				parse(

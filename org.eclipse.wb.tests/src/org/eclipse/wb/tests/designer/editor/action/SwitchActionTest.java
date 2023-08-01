@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor.action;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.editor.actions.SwitchAction;
 import org.eclipse.wb.internal.core.editor.multi.MultiMode;
@@ -28,7 +31,9 @@ public class SwitchActionTest extends SwingGefTest {
 	/**
 	 * Test for switching to source and back to design.
 	 */
-	public void DISABLE_test_1() throws Exception {
+	@Ignore
+	@Test
+	public void test_1() throws Exception {
 		openContainer(
 				"// filler filler filler",
 				"public class Test extends JPanel {",

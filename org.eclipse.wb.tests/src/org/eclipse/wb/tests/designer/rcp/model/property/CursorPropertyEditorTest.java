@@ -9,6 +9,8 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.property;
+import org.junit.Before;
+import org.junit.After;
 
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.rcp.ToolkitProvider;
@@ -36,7 +38,8 @@ public abstract class CursorPropertyEditorTest extends RcpModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		if (m_shell == null) {
 			m_shell = new Shell();
@@ -44,7 +47,8 @@ public abstract class CursorPropertyEditorTest extends RcpModelTest {
 	}
 
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		super.tearDown();
 		ToolkitProvider.DESCRIPTION.getPreferences().setToDefault(
 				IPreferenceConstants.P_USE_RESOURCE_MANAGER);

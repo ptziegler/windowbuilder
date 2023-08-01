@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.xwt.model.widgets.DragSourceInfo;
 import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
 
@@ -33,6 +35,7 @@ public class DragSourceTest extends XwtModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_0() throws Exception {
 		parse(
 				"<Shell xmlns:p1='clr-namespace:org.eclipse.swt.dnd'>",

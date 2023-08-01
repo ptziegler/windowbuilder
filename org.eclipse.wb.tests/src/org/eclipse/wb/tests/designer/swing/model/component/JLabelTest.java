@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.component;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.description.GenericPropertyDescription;
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.category.PropertyCategory;
@@ -44,6 +46,7 @@ public class JLabelTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_displayedMnemonic_property() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -81,6 +84,7 @@ public class JLabelTest extends SwingModelTest {
 	 * To be useful, "setDisplayedMnemonicIndex" should be added <em>after</em>
 	 * "setDisplayedMnemonic".
 	 */
+	@Test
 	public void test_displayedMnemonicIndex_location() throws Exception {
 		dontConvertSingleQuotesToDouble();
 		ContainerInfo panel =
@@ -111,6 +115,7 @@ public class JLabelTest extends SwingModelTest {
 	// "labelFor" property
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_labelFor_getText_noInvocation() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -134,6 +139,7 @@ public class JLabelTest extends SwingModelTest {
 		assertNull(getPropertyText(labelForProperty));
 	}
 
+	@Test
 	public void test_labelFor_getText_hasInvocation() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

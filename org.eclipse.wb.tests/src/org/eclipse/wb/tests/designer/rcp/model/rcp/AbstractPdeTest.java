@@ -9,6 +9,8 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.rcp;
+import org.junit.Before;
+import org.junit.After;
 
 import org.eclipse.wb.internal.core.utils.IOUtils2;
 import org.eclipse.wb.internal.rcp.model.rcp.PdeUtils;
@@ -21,7 +23,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.pde.core.plugin.IPluginElement;
 
-import junit.framework.TestCase;
+
 
 import java.io.ByteArrayInputStream;
 
@@ -39,7 +41,8 @@ public abstract class AbstractPdeTest extends RcpModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		PdeProjectConversionUtils.convertToPDE(m_testProject.getProject(), null, "testplugin.Activator");
 		setFileContentSrc(
@@ -61,7 +64,8 @@ public abstract class AbstractPdeTest extends RcpModelTest {
 	}
 
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		m_project = null;
 		m_utils = null;
 		do_projectDispose();

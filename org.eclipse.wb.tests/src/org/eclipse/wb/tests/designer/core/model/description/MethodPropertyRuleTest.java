@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.description;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.description.ComponentDescription;
 import org.eclipse.wb.internal.core.model.description.GenericPropertyDescription;
 import org.eclipse.wb.internal.core.model.description.rules.MethodPropertyRule;
@@ -44,6 +46,7 @@ public class MethodPropertyRuleTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_subPropertiesAndAccessors() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -89,6 +92,7 @@ public class MethodPropertyRuleTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_useNamesFromParameterDescription() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -125,6 +129,7 @@ public class MethodPropertyRuleTest extends SwingModelTest {
 		assertEquals("myArg_1", subProperties[1].getTitle());
 	}
 
+	@Test
 	public void test_noExtraTopLevelProperties() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -157,6 +162,7 @@ public class MethodPropertyRuleTest extends SwingModelTest {
 		assertNull(panel.getPropertyByTitle("html"));
 	}
 
+	@Test
 	public void test_registeredSubProperties() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",

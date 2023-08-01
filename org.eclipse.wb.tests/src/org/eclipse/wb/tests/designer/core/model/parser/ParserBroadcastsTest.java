@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.parser;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.IJavaInfoInitializationParticipator;
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.core.model.ObjectInfo;
@@ -48,6 +50,7 @@ public class ParserBroadcastsTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_noExternalListener() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -66,6 +69,7 @@ public class ParserBroadcastsTest extends SwingModelTest {
 	 * Test that any extra {@link IJavaInfoInitializationParticipator} for non-hierarchy components
 	 * are evicted.
 	 */
+	@Test
 	public void test_extraListenersEvicted() throws Exception {
 		addParticipatorExtension(MyParticipator.class.getName());
 		try {

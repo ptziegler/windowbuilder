@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.databinding.xwt;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.rcp.databinding.xwt.ui.property.BindingsProperty;
 import org.eclipse.wb.internal.xwt.model.widgets.ControlInfo;
 import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
@@ -33,6 +35,7 @@ public class DatabindingsProviderTest extends XwtModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_property() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -46,6 +49,7 @@ public class DatabindingsProviderTest extends XwtModelTest {
 		assertNotNull(property);
 	}
 
+	@Test
 	public void test_property_disabled() throws Exception {
 		/*setFileContentSrc(
     	"test/client/MyFormPanel.java",

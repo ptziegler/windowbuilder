@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.xwt.model.widgets.CompositeInfo;
@@ -50,6 +52,7 @@ public class ExpandBarTest extends XwtModelTest {
 	/**
 	 * {@link ExpandBar} with {@link ExpandItem}'s.
 	 */
+	@Test
 	public void test_parseItems() throws Exception {
 		ExpandBarInfo expandBar =
 				parse(
@@ -87,6 +90,7 @@ public class ExpandBarTest extends XwtModelTest {
 	 * We should show on design canvas only {@link ControlInfo}'s of expanded {@link ExpandItemInfo}
 	 * 's.
 	 */
+	@Test
 	public void test_presentationChildrenGraphical() throws Exception {
 		ExpandBarInfo expandBar =
 				parse(
@@ -145,6 +149,7 @@ public class ExpandBarTest extends XwtModelTest {
 	 * Note, that because of https://bugs.eclipse.org/bugs/show_bug.cgi?id=308061 value of "height" is
 	 * replaced with preferred height of Control.
 	 */
+	@Test
 	public void test_setControl_CREATE() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -176,6 +181,7 @@ public class ExpandBarTest extends XwtModelTest {
 	/**
 	 * Test for moving {@link Control} on {@link ExpandItem}.
 	 */
+	@Test
 	public void test_setControl_moveIn() throws Exception {
 		parse(
 				"<Shell>",
@@ -213,6 +219,7 @@ public class ExpandBarTest extends XwtModelTest {
 	/**
 	 * Test for moving {@link Control} from {@link ExpandItem}.
 	 */
+	@Test
 	public void test_setControl_moveOut() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -256,6 +263,7 @@ public class ExpandBarTest extends XwtModelTest {
 	/**
 	 * Create new {@link ExpandItem} on {@link ExpandBar}.
 	 */
+	@Test
 	public void test_CREATE() throws Exception {
 		ExpandBarInfo expandBar =
 				parse(
@@ -279,6 +287,7 @@ public class ExpandBarTest extends XwtModelTest {
 	/**
 	 * Test for moving {@link ExpandItemInfo}.
 	 */
+	@Test
 	public void test_MOVE() throws Exception {
 		ExpandBarInfo expandBar =
 				parse(

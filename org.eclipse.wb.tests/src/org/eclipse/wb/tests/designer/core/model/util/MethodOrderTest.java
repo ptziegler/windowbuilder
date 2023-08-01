@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.util;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.core.model.WrapperMethodInfo;
 import org.eclipse.wb.core.model.association.Association;
@@ -56,6 +58,7 @@ public class MethodOrderTest extends SwingModelTest {
 	// Parsing
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_MethodOrderDescription_parse_bad() throws Exception {
 		try {
 			MethodOrder.parse("noSuchMethodOrder");
@@ -72,6 +75,7 @@ public class MethodOrderTest extends SwingModelTest {
 	/**
 	 * No special {@link MethodOrder}, so {@link MethodOrderAfterCreation}.
 	 */
+	@Test
 	public void test_addMethodInvocation_default_default() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -96,6 +100,7 @@ public class MethodOrderTest extends SwingModelTest {
 	 * Add {@link MethodInvocation} for method without {@link MethodOrder}, so default
 	 * {@link MethodOrder} of component is used, and default is set to "afterCreation".
 	 */
+	@Test
 	public void test_this_addMethodInvocation_default_afterCreation() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -147,6 +152,7 @@ public class MethodOrderTest extends SwingModelTest {
 	 * Add {@link MethodInvocation} for method without {@link MethodOrder}, so default
 	 * {@link MethodOrder} of component is used, and default is set to "afterAssociation".
 	 */
+	@Test
 	public void test_this_addMethodInvocation_default_afterAssociation() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -225,6 +231,7 @@ public class MethodOrderTest extends SwingModelTest {
 	/**
 	 * Add <code>setEnabled()</code> as first {@link Statement}.
 	 */
+	@Test
 	public void test_first_addMethodInvocation() throws Exception {
 		prepare_first_setEnabled();
 		// parse
@@ -251,6 +258,7 @@ public class MethodOrderTest extends SwingModelTest {
 	 * <p>
 	 * Case when {@link JavaInfo} is "this" component.
 	 */
+	@Test
 	public void test_first_addMethodInvocation_inversionThis() throws Exception {
 		prepare_first_setEnabled();
 		// parse
@@ -277,6 +285,7 @@ public class MethodOrderTest extends SwingModelTest {
 	 * <p>
 	 * Case when {@link JavaInfo} is "local" component.
 	 */
+	@Test
 	public void test_first_addMethodInvocation_inversion() throws Exception {
 		prepare_first_setEnabled();
 		// parse
@@ -305,6 +314,7 @@ public class MethodOrderTest extends SwingModelTest {
 	/**
 	 * New components should be added <em>after</em> the <code>setEnabled()</code> invocation.
 	 */
+	@Test
 	public void test_first_getTarget() throws Exception {
 		prepare_first_setEnabled();
 		// parse
@@ -361,6 +371,7 @@ public class MethodOrderTest extends SwingModelTest {
 	 * Add <code>setEnabled()</code> after <code>setAutoscrolls()</code>.<br>
 	 * Target method invocation exists.
 	 */
+	@Test
 	public void test_addMethodInvocation_after_canReference() throws Exception {
 		prepare_setEnabled_after_setAutoscrolls();
 		ContainerInfo panel =
@@ -381,6 +392,7 @@ public class MethodOrderTest extends SwingModelTest {
 	 * Add <code>setEnabled()</code> after <code>setAutoscrolls()</code>.<br>
 	 * Target method invocation exists.
 	 */
+	@Test
 	public void test_addMethodInvocation_after_withTarget() throws Exception {
 		prepare_setEnabled_after_setAutoscrolls();
 		// parse
@@ -406,6 +418,7 @@ public class MethodOrderTest extends SwingModelTest {
 	 * Add <code>setEnabled()</code> after <code>setAutoscrolls()</code>.<br>
 	 * Target method invocation exists (two times).
 	 */
+	@Test
 	public void test_addMethodInvocation_after_withTarget2() throws Exception {
 		prepare_setEnabled_after_setAutoscrolls();
 		// parse
@@ -433,6 +446,7 @@ public class MethodOrderTest extends SwingModelTest {
 	 * Add <code>setEnabled()</code> after <code>setAutoscrolls()</code>.<br>
 	 * Target method invocation does not exist.
 	 */
+	@Test
 	public void test_addMethodInvocation_after_noTarget() throws Exception {
 		prepare_setEnabled_after_setAutoscrolls();
 		// parse
@@ -460,6 +474,7 @@ public class MethodOrderTest extends SwingModelTest {
 	 * Target method invocation does not exist, but exists invocation of other method, after which
 	 * target should be.
 	 */
+	@Test
 	public void test_addMethodInvocation_after_transitivity() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -505,6 +520,7 @@ public class MethodOrderTest extends SwingModelTest {
 	/**
 	 * Add <code>setAutoscrolls()</code> before <code>setEnabled()</code>.<br>
 	 */
+	@Test
 	public void test_addMethodInvocation_after_inversion() throws Exception {
 		prepare_setEnabled_after_setAutoscrolls();
 		// parse
@@ -559,6 +575,7 @@ public class MethodOrderTest extends SwingModelTest {
 	/**
 	 * Add <code>setEnabled()</code> as last {@link Statement}.
 	 */
+	@Test
 	public void test_addMethodInvocation_last() throws Exception {
 		prepare_setEnabled_last();
 		// parse
@@ -591,6 +608,7 @@ public class MethodOrderTest extends SwingModelTest {
 	/**
 	 * New components should be added <em>before</em> the <code>setEnabled()</code> invocation.
 	 */
+	@Test
 	public void test_getTarget_last() throws Exception {
 		prepare_setEnabled_last();
 		// parse
@@ -621,6 +639,7 @@ public class MethodOrderTest extends SwingModelTest {
 	// last: wrapper
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_addMethodInvocation_last_whenWrapper() throws Exception {
 		prepare_setEnabled_last_whenWrapper();
 		parseContainer(
@@ -643,6 +662,7 @@ public class MethodOrderTest extends SwingModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_getTarget_last_whenWrapper_andNonExecutableInvocation() throws Exception {
 		prepare_setEnabled_last_whenWrapper();
 		parseContainer(
@@ -716,6 +736,7 @@ public class MethodOrderTest extends SwingModelTest {
 	// beforeAssociation
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_beforeAssociation_addInvocation() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -769,6 +790,7 @@ public class MethodOrderTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_beforeAssociation_forThis_addInvocation() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -811,6 +833,7 @@ public class MethodOrderTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_beforeAssociation_forThis_exposed_addInvocation() throws Exception {
 		setFileContentSrc(
 				"test/MyFrame.java",
@@ -849,6 +872,7 @@ public class MethodOrderTest extends SwingModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_beforeAssociation_lazy() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -904,6 +928,7 @@ public class MethodOrderTest extends SwingModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_beforeAssociation_forRoot() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -918,6 +943,7 @@ public class MethodOrderTest extends SwingModelTest {
 		assertTarget(target, null, getStatement(panel, 0), false);
 	}
 
+	@Test
 	public void test_beforeAssociation_CREATE() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -969,6 +995,7 @@ public class MethodOrderTest extends SwingModelTest {
 	// afterAssociation
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_afterAssociation_forChild_addInvocation() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -1025,6 +1052,7 @@ public class MethodOrderTest extends SwingModelTest {
 	/**
 	 * If {@link Association} has no {@link Statement}, then we should fall to default association.
 	 */
+	@Test
 	public void test_afterAssociation_implicitAssociation() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -1087,6 +1115,7 @@ public class MethodOrderTest extends SwingModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_afterAssociation_forThis_addInvocation() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -1129,6 +1158,7 @@ public class MethodOrderTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_afterAssociation_forThis_exposed_addInvocation() throws Exception {
 		setFileContentSrc(
 				"test/MyFrame.java",
@@ -1167,6 +1197,7 @@ public class MethodOrderTest extends SwingModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_afterAssociation_forRoot() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1181,6 +1212,7 @@ public class MethodOrderTest extends SwingModelTest {
 		assertTarget(target, null, getStatement(panel, 0), false);
 	}
 
+	@Test
 	public void test_afterAssociation_CREATE() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -1237,6 +1269,7 @@ public class MethodOrderTest extends SwingModelTest {
 	 * method to which new {@link MethodInvocation} should be added. This is required for example for
 	 * {@link TitleAreaDialog} and its "title area" properties.
 	 */
+	@Test
 	public void test_this_addMethodInvocation_thisSpecific_0() throws Exception {
 		setFileContentSrc(
 				"test/MyDialog.java",
@@ -1287,6 +1320,7 @@ public class MethodOrderTest extends SwingModelTest {
 	 * Same as {@link #test_this_addMethodInvocation_thisSpecific_0()}, but first {@link Statement}
 	 * has {@link SuperMethodInvocation}.
 	 */
+	@Test
 	public void test_this_addMethodInvocation_thisSpecific_1() throws Exception {
 		setFileContentSrc(
 				"test/MyDialog.java",
@@ -1343,6 +1377,7 @@ public class MethodOrderTest extends SwingModelTest {
 	// "afterCreation"
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_afterCreation() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -1401,6 +1436,7 @@ public class MethodOrderTest extends SwingModelTest {
 	// Rules
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_rules_separateOrderForMethod() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -1446,6 +1482,7 @@ public class MethodOrderTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_rules_severalMethods() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -1508,6 +1545,7 @@ public class MethodOrderTest extends SwingModelTest {
 	// "afterChild" (i.e. after last specified children)
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_afterChildren_invocations() throws Exception {
 		configureProject_afterChildren();
 		ContainerInfo panel =
@@ -1544,6 +1582,7 @@ public class MethodOrderTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_afterChildren_betweenAddedChildren() throws Exception {
 		configureProject_afterChildren();
 		ContainerInfo panel =
@@ -1631,6 +1670,7 @@ public class MethodOrderTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_afterChildren_betweenChildren() throws Exception {
 		configureProject_afterChildren();
 		ContainerInfo panel =
@@ -1682,6 +1722,7 @@ public class MethodOrderTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_afterChildren_addChild() throws Exception {
 		configureProject_afterChildren();
 		ContainerInfo panel =
@@ -1800,6 +1841,7 @@ public class MethodOrderTest extends SwingModelTest {
 	// "afterParentChild" (i.e. after parent last specified children)
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_afterParentChildren_invocation() throws Exception {
 		configureProject_afterParentChildren();
 		ContainerInfo panel =
@@ -1837,6 +1879,7 @@ public class MethodOrderTest extends SwingModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_afterParentChildren_invocationAsLast() throws Exception {
 		configureProject_afterParentChildren();
 		ContainerInfo panel =
@@ -1874,6 +1917,7 @@ public class MethodOrderTest extends SwingModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_afterParentChildren_addChild() throws Exception {
 		configureProject_afterParentChildren();
 		ContainerInfo panel =
@@ -1921,6 +1965,7 @@ public class MethodOrderTest extends SwingModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_afterParentChildren_invocationBlockFirst() throws Exception {
 		configureProject_afterParentChildren();
 		ContainerInfo panel =
@@ -1957,6 +2002,7 @@ public class MethodOrderTest extends SwingModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_afterParentChildren_invocationBlockLast() throws Exception {
 		configureProject_afterParentChildren();
 		ContainerInfo panel =

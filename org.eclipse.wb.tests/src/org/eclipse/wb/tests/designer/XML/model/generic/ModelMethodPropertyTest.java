@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.generic;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.ITypedProperty;
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.category.PropertyCategory;
@@ -80,6 +82,7 @@ public class ModelMethodPropertyTest extends AbstractCoreTest {
 		"  </parameters>"});
 	}
 
+	@Test
 	public void test_valueProperty() throws Exception {
 		prepareMyPanel("getter=getValue setter=setValue title=value category=normal");
 		CompositeInfo panel = parse("<t:MyComponent/>");
@@ -100,6 +103,7 @@ public class ModelMethodPropertyTest extends AbstractCoreTest {
 		assertSame(property, panel.getPropertyByTitle("value"));
 	}
 
+	@Test
 	public void test_primitiveType() throws Exception {
 		prepareMyPanel0("getter=getValue setter=setValue title=value type=int");
 		CompositeInfo panel = parse("<t:MyComponent/>");
@@ -112,6 +116,7 @@ public class ModelMethodPropertyTest extends AbstractCoreTest {
 		assertSame(int.class, ((ITypedProperty) property).getType());
 	}
 
+	@Test
 	public void test_propertyEditor_StringList() throws Exception {
 		prepareMyPanel("getter=getValue setter=setValue title=value editor=strings(A,B,C)");
 		CompositeInfo panel = parse("<t:MyComponent/>");
@@ -134,6 +139,7 @@ public class ModelMethodPropertyTest extends AbstractCoreTest {
 	// No required parameter
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_noRequiredParameters_getter() throws Exception {
 		prepareMyPanel("_getter=getValue setter=setValue title=value");
 		parse("<t:MyComponent/>");
@@ -143,6 +149,7 @@ public class ModelMethodPropertyTest extends AbstractCoreTest {
 		Assertions.assertThat(warnings.get(0).getMessage()).contains("'getter'");
 	}
 
+	@Test
 	public void test_noRequiredParameters_setter() throws Exception {
 		prepareMyPanel("getter=getValue _setter=setValue title=value");
 		parse("<t:MyComponent/>");
@@ -152,6 +159,7 @@ public class ModelMethodPropertyTest extends AbstractCoreTest {
 		Assertions.assertThat(warnings.get(0).getMessage()).contains("'setter'");
 	}
 
+	@Test
 	public void test_noRequiredParameters_title() throws Exception {
 		prepareMyPanel("getter=getValue setter=setValue _title=value");
 		parse("<t:MyComponent/>");
@@ -166,6 +174,7 @@ public class ModelMethodPropertyTest extends AbstractCoreTest {
 	// Invalid value for parameter
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_invalidParameter_getter() throws Exception {
 		prepareMyPanel("getter=noSuchMethod setter=foo title=bar");
 		parse("<t:MyComponent/>");
@@ -175,6 +184,7 @@ public class ModelMethodPropertyTest extends AbstractCoreTest {
 		Assertions.assertThat(warnings.get(0).getMessage()).contains("Invalid").contains("getter");
 	}
 
+	@Test
 	public void test_invalidParameter_setter() throws Exception {
 		prepareMyPanel("getter=getValue setter=noSuchMethod title=bar");
 		parse("<t:MyComponent/>");

@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor;
+import org.junit.After;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.internal.core.editor.multi.MultiMode;
@@ -32,7 +35,8 @@ public class SplitModeTest extends SwingGefTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		super.tearDown();
 		{
 			IPreferenceStore preferences = DesignerPlugin.getPreferences();
@@ -55,6 +59,7 @@ public class SplitModeTest extends SwingGefTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_reparse_afterDelay() throws Exception {
 		IPreferenceStore preferences = DesignerPlugin.getPreferences();
 		preferences.setValue(
@@ -89,6 +94,7 @@ public class SplitModeTest extends SwingGefTest {
 		check_isEnabled(false);
 	}
 
+	@Test
 	public void test_reparse_afterSave() throws Exception {
 		IPreferenceStore preferences = DesignerPlugin.getPreferences();
 		preferences.setValue(

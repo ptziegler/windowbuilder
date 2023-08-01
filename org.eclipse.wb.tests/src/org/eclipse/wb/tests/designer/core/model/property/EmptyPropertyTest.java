@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.EmptyProperty;
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.editor.BooleanPropertyEditor;
@@ -36,12 +38,14 @@ public class EmptyPropertyTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_defaultEditor() throws Exception {
 		Property property = new EmptyProperty();
 		assertSame(BooleanPropertyEditor.INSTANCE, property.getEditor());
 		assertOtherFeatures(property);
 	}
 
+	@Test
 	public void test_myEditor() throws Exception {
 		Property property = new EmptyProperty(IntegerPropertyEditor.INSTANCE);
 		assertSame(IntegerPropertyEditor.INSTANCE, property.getEditor());

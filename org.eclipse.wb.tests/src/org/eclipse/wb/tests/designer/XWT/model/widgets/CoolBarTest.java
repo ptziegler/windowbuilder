@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.generic.FlowContainer;
 import org.eclipse.wb.internal.core.model.generic.SimpleContainer;
 import org.eclipse.wb.internal.core.xml.model.generic.FlowContainerFactory;
@@ -49,6 +51,7 @@ public class CoolBarTest extends XwtModelTest {
 	/**
 	 * Test for {@link CoolBarInfo#isHorizontal()}.
 	 */
+	@Test
 	public void test_isHorizontal() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -72,6 +75,7 @@ public class CoolBarTest extends XwtModelTest {
 	/**
 	 * {@link CoolBar} with {@link CoolItem}'s.
 	 */
+	@Test
 	public void test_items_withSize() throws Exception {
 		CoolBarInfo toolBar =
 				parse(
@@ -109,6 +113,7 @@ public class CoolBarTest extends XwtModelTest {
 	/**
 	 * {@link CoolBar} with {@link CoolItem}'s.
 	 */
+	@Test
 	public void test_items_noSize() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -137,6 +142,7 @@ public class CoolBarTest extends XwtModelTest {
 	// Control
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_Control_isEmpty() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -176,6 +182,7 @@ public class CoolBarTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_Control_CREATE() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -204,6 +211,7 @@ public class CoolBarTest extends XwtModelTest {
 				"</CoolBar>");
 	}
 
+	@Test
 	public void test_Control_moveOut() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -248,6 +256,7 @@ public class CoolBarTest extends XwtModelTest {
 	// Commands
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_CREATE() throws Exception {
 		CoolBarInfo coolBar = parse("<CoolBar/>");
 		refresh();

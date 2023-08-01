@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.ui;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.utils.ui.ImageUtils;
 import org.eclipse.wb.tests.designer.TestUtils;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
@@ -33,6 +35,7 @@ public class ImageUtilsTest extends DesignerTestCase {
 	// getBytesPNG()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getBytesPNG() throws Exception {
 		Image image = new Image(null, 32, 16);
 		try {
@@ -62,6 +65,7 @@ public class ImageUtilsTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ImageUtils#convertToSWT(java.awt.Image)}.
 	 */
+	@Test
 	public void test_convertToSWT_BufferedImage() throws Exception {
 		java.awt.Image awtImage = new BufferedImage(10, 20, BufferedImage.TYPE_INT_ARGB);
 		// do convert
@@ -78,6 +82,7 @@ public class ImageUtilsTest extends DesignerTestCase {
 	/**
 	 * Test for {@link ImageUtils#convertToSWT(java.awt.Image)}.
 	 */
+	@Test
 	public void test_convertToSWT_ToolkitImage() throws Exception {
 		java.awt.Image awtImage;
 		{

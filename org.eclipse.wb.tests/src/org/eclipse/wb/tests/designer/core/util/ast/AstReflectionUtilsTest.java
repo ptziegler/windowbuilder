@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.ast;
+import org.junit.Before;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.utils.ast.AstNodeUtils;
 import org.eclipse.wb.internal.core.utils.ast.AstReflectionUtils;
@@ -41,7 +44,8 @@ public class AstReflectionUtilsTest extends AbstractJavaTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		if (m_testProject == null) {
 			do_projectCreate();
@@ -65,6 +69,7 @@ public class AstReflectionUtilsTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstReflectionUtils#getClass(ClassLoader, ITypeBinding)}.
 	 */
+	@Test
 	public void test_getClass() throws Exception {
 		createTypeDeclaration_Test(
 				"// filler filler filler filler filler",
@@ -94,6 +99,7 @@ public class AstReflectionUtilsTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstReflectionUtils#updateForVarArgs(ClassLoader, IMethodBinding, Object[])}.
 	 */
+	@Test
 	public void test_updateForVarArgs_hasVarArgs() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -150,6 +156,7 @@ public class AstReflectionUtilsTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstReflectionUtils#updateForVarArgs(ClassLoader, IMethodBinding, Object[])}.
 	 */
+	@Test
 	public void test_updateForVarArgs_noVarArgs() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -188,6 +195,7 @@ public class AstReflectionUtilsTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstReflectionUtils#getConstructor(Class, SuperConstructorInvocation)}
 	 */
+	@Test
 	public void test_getConstructor_SuperConstructorInvocation() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -231,6 +239,7 @@ public class AstReflectionUtilsTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstReflectionUtils#getConstructor(Class, ClassInstanceCreation)}
 	 */
+	@Test
 	public void test_getConstructor_ClassInstanceCreation() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -278,6 +287,7 @@ public class AstReflectionUtilsTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link AstReflectionUtils#getMethod(Class, MethodInvocation)}.
 	 */
+	@Test
 	public void test_getMethod_MethodInvocation() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",

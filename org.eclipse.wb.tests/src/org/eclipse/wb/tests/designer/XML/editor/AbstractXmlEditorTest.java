@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.editor;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.xml.editor.AbstractXmlEditor;
 import org.eclipse.wb.internal.core.xml.editor.XmlDesignPage;
 import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
@@ -41,6 +43,7 @@ public class AbstractXmlEditorTest extends XwtGefTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getAdapter_StructuredTextEditor() throws Exception {
 		openEditor("<Shell/>");
 		// we can access it
@@ -48,6 +51,7 @@ public class AbstractXmlEditorTest extends XwtGefTest {
 		assertSame(m_sourcePage.getXmlEditor(), adapter);
 	}
 
+	@Test
 	public void test_doSaveAs() throws Exception {
 		openEditor("<Shell/>");
 		// disabled
@@ -59,6 +63,7 @@ public class AbstractXmlEditorTest extends XwtGefTest {
 	/**
 	 * Our editor accepts only {@link IFileEditorInput}.
 	 */
+	@Test
 	public void test_init_notFile() throws Exception {
 		AbstractXmlEditor editor = new AbstractXmlEditor() {
 			@Override

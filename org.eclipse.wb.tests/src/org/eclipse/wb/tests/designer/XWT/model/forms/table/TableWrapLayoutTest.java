@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.forms.table;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.gef.policy.layout.grid.IGridInfo;
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.internal.core.model.presentation.IObjectPresentation;
@@ -66,6 +68,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 	// Images
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_images() throws Exception {
 		assertNotNull(TableWrapLayoutImages.getImage("h/left.gif"));
 		assertNotNull(TableWrapLayoutImages.getImageDescriptor("v/top.gif"));
@@ -79,6 +82,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 	/**
 	 * Test for parsing empty {@link TableWrapLayoutInfo}.
 	 */
+	@Test
 	public void test_parseEmpty() throws Exception {
 		parse(
 				"<Shell>",
@@ -92,6 +96,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 	/**
 	 * Fillers should be filtered out from presentation children.
 	 */
+	@Test
 	public void test_excludeFillersFromPresentationChildren() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -120,6 +125,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 	/**
 	 * Test for {@link IGridInfo}.
 	 */
+	@Test
 	public void test_gridInfo() throws Exception {
 		parse(
 				"<Shell>",
@@ -199,6 +205,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 	/**
 	 * Test for {@link IGridInfo} when there are no controls.
 	 */
+	@Test
 	public void test_gridInfo_empty() throws Exception {
 		parse(
 				"<Shell>",
@@ -219,6 +226,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 	// setCells()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_setCells_horizontalSpan() throws Exception {
 		parse(
 				"<Shell>",
@@ -265,6 +273,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_setCells_horizontalSpan2() throws Exception {
 		parse(
 				"<Shell>",
@@ -296,6 +305,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_setCells_verticalSpan() throws Exception {
 		parse(
 				"<Shell>",
@@ -342,6 +352,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_setCells_verticalSpan2() throws Exception {
 		parse(
 				"<Shell>",
@@ -373,6 +384,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_setCells_move() throws Exception {
 		parse(
 				"<Shell>",
@@ -409,6 +421,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 	/**
 	 * When we delete {@link ControlInfo}, it should be replaced with filler.
 	 */
+	@Test
 	public void test_delete_replaceWithFillers() throws Exception {
 		parse(
 				"<Shell>",
@@ -439,6 +452,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 	/**
 	 * When we delete column, we should keep at least one column.
 	 */
+	@Test
 	public void test_delete_keepOneColumn() throws Exception {
 		parse(
 				"<Shell>",
@@ -460,6 +474,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_delete_removeEmptyDimensions() throws Exception {
 		parse(
 				"<Shell>",
@@ -499,6 +514,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 	// CREATE
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_CREATE_inEmptyCell() throws Exception {
 		parse(
 				"<Shell>",
@@ -528,6 +544,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_CREATE_insertRow() throws Exception {
 		parse(
 				"<Shell>",
@@ -559,6 +576,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_CREATE_insertColumn() throws Exception {
 		parse(
 				"<Shell>",
@@ -589,6 +607,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_CREATE_insertColumnRow() throws Exception {
 		parse(
 				"<Shell>",
@@ -625,6 +644,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_CREATE_appendRow() throws Exception {
 		parse(
 				"<Shell>",
@@ -651,6 +671,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_CREATE_appendColumn() throws Exception {
 		parse(
 				"<Shell>",
@@ -676,6 +697,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_CREATE_appendColumnRow() throws Exception {
 		parse(
 				"<Shell>",
@@ -702,6 +724,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_CREATE_insertColumnHorizontalSpan() throws Exception {
 		parse(
 				"<Shell>",
@@ -739,6 +762,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_CREATE_insertRowVerticalSpan() throws Exception {
 		parse(
 				"<Shell>",
@@ -780,6 +804,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 	 * Test for parsing "not balanced" {@link TableWrapLayoutInfo} and adding into <code>null</code>
 	 * cell.
 	 */
+	@Test
 	public void test_CREATE_notBalanced() throws Exception {
 		parse(
 				"<Shell>",
@@ -813,6 +838,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 	// Dimension operations
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_columnAccess() throws Exception {
 		parse(
 				"<Shell>",
@@ -912,6 +938,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_rowAccess() throws Exception {
 		parse(
 				"<Shell>",
@@ -1014,6 +1041,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_deleteColumn() throws Exception {
 		parse(
 				"<Shell>",
@@ -1055,6 +1083,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_deleteColumn_deleteAlsoEmptyRows() throws Exception {
 		parse(
 				"<Shell>",
@@ -1084,6 +1113,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_deleteRow() throws Exception {
 		parse(
 				"<Shell>",
@@ -1123,6 +1153,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_deleteRow_deleteAlsoEmptyColumns() throws Exception {
 		parse(
 				"<Shell>",
@@ -1158,6 +1189,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 	// MOVE COLUMN
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_MOVE_COLUMN_before() throws Exception {
 		parse(
 				"<Shell>",
@@ -1191,6 +1223,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_MOVE_COLUMN_after() throws Exception {
 		parse(
 				"<Shell>",
@@ -1229,6 +1262,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 	// MOVE ROW
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_MOVE_ROW_before() throws Exception {
 		parse(
 				"<Shell>",
@@ -1262,6 +1296,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_MOVE_ROW_after() throws Exception {
 		parse(
 				"<Shell>",
@@ -1301,6 +1336,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 	// MOVE
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_MOVE() throws Exception {
 		parse(
 				"<Shell>",
@@ -1330,6 +1366,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_MOVE_out() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -1364,6 +1401,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_MOVE_error_1() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -1396,6 +1434,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_MOVE_error_2() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -1430,6 +1469,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 	// ADD
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_ADD() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -1469,6 +1509,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 	// Special cases
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_CREATE_noReference() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -1501,6 +1542,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 	/**
 	 * There were problems when we increase/decrease number of columns using "numColumns" property.
 	 */
+	@Test
 	public void test_numColumns_inc() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -1536,6 +1578,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 	/**
 	 * There were problems when we increase/decrease number of columns using "numColumns" property.
 	 */
+	@Test
 	public void test_numColumns_dec() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -1577,6 +1620,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 	 * Test that when delete {@link TableWrapLayoutInfo}, fillers are also removed, because there are
 	 * not controls that user wants.
 	 */
+	@Test
 	public void test_DELETE_removeFillers() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -1609,6 +1653,7 @@ public class TableWrapLayoutTest extends XwtModelTest {
 	// Clipboard
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_clipboard() throws Exception {
 		final CompositeInfo shell =
 				parse(

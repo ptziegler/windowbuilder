@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.xwt.model.widgets.CompositeInfo;
 import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
 
@@ -33,6 +35,7 @@ public class CompositeGefTest extends XwtGefTest {
 	// Drop Layout
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_canvas_dropFillLayout() throws Exception {
 		CompositeInfo shell =
 				openEditor(
@@ -53,6 +56,7 @@ public class CompositeGefTest extends XwtGefTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_tree_dropFillLayout() throws Exception {
 		CompositeInfo shell =
 				openEditor(

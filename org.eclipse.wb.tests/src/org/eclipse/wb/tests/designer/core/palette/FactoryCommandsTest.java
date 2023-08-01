@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.palette;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.editor.palette.model.CategoryInfo;
 import org.eclipse.wb.core.editor.palette.model.PaletteInfo;
 import org.eclipse.wb.internal.core.editor.palette.PaletteManager;
@@ -32,6 +34,7 @@ public class FactoryCommandsTest extends AbstractPaletteTest {
 	// Add
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_add_static() throws Exception {
 		PaletteManager manager = loadManager();
 		// use loaded palette
@@ -70,6 +73,7 @@ public class FactoryCommandsTest extends AbstractPaletteTest {
 		}
 	}
 
+	@Test
 	public void test_add_instance() throws Exception {
 		PaletteManager manager = loadManager();
 		// use loaded palette
@@ -98,6 +102,7 @@ public class FactoryCommandsTest extends AbstractPaletteTest {
 	// Edit
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_edit() throws Exception {
 		PaletteManager manager = loadManager();
 		// use loaded palette

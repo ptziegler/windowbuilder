@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.creation;
 
+import org.junit.Test;
+
 import com.google.common.collect.Lists;
 
 import org.eclipse.wb.core.editor.palette.PaletteEventListener;
@@ -75,6 +77,7 @@ public class StaticFactoryCreationSupportTest extends SwingModelTest {
 	/**
 	 * Parse, check for parameters binding to properties.
 	 */
+	@Test
 	public void test_parse() throws Exception {
 		// prepare factory
 		setFileContentSrc(
@@ -180,6 +183,7 @@ public class StaticFactoryCreationSupportTest extends SwingModelTest {
 	 * Method with good JavaDoc comments. Argument of factory is bound to "text" property, but without
 	 * default value.
 	 */
+	@Test
 	public void test_parse2() throws Exception {
 		// prepare factory
 		setFileContentSrc(
@@ -210,6 +214,7 @@ public class StaticFactoryCreationSupportTest extends SwingModelTest {
 	/**
 	 * Users want factory-specific tweaks for properties.
 	 */
+	@Test
 	public void test_parse_factoryMethodSpecific_ComponentDescription() throws Exception {
 		setFileContentSrc(
 				"test/StaticFactory.java",
@@ -248,6 +253,7 @@ public class StaticFactoryCreationSupportTest extends SwingModelTest {
 	/**
 	 * Method without any description.
 	 */
+	@Test
 	public void test_parse_noFactory() throws Exception {
 		setFileContentSrc(
 				"test/StaticFactory_.java",
@@ -273,6 +279,7 @@ public class StaticFactoryCreationSupportTest extends SwingModelTest {
 	 * Parameter has name "parent", but in reality is not parent, and this may cause
 	 * {@link NullPointerException} sometimes.
 	 */
+	@Test
 	public void test_parse_invalidParent() throws Exception {
 		setFileContentSrc(
 				"test/StaticFactory.java",
@@ -310,6 +317,7 @@ public class StaticFactoryCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for adding.
 	 */
+	@Test
 	public void test_add() throws Exception {
 		// prepare factory
 		createModelCompilationUnit(
@@ -394,6 +402,7 @@ public class StaticFactoryCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for adding, with invocation to add.
 	 */
+	@Test
 	public void test_add_withInvocation() throws Exception {
 		// prepare factory
 		setFileContentSrc(
@@ -460,6 +469,7 @@ public class StaticFactoryCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for adding using local static factory method.
 	 */
+	@Test
 	public void test_add_localFactoryMethod() throws Exception {
 		m_waitForAutoBuild = true;
 		ContainerInfo panel =
@@ -514,6 +524,7 @@ public class StaticFactoryCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for automatic adding {@link StaticFactoryEntryInfo} for local factory methods.
 	 */
+	@Test
 	public void test_parse_localFactoryMethod_contributeToPalette() throws Exception {
 		m_waitForAutoBuild = true;
 		ContainerInfo panel =
@@ -555,6 +566,7 @@ public class StaticFactoryCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for {@link AbstractExplicitFactoryCreationSupport#canUseParent(JavaInfo)}.
 	 */
+	@Test
 	public void test_canUseParent_CREATE_false() throws Exception {
 		canUseParent_prepare_createButton();
 		ContainerInfo frame =
@@ -576,6 +588,7 @@ public class StaticFactoryCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for {@link AbstractExplicitFactoryCreationSupport#canUseParent(JavaInfo)}.
 	 */
+	@Test
 	public void test_canUseParent_CREATE_true() throws Exception {
 		canUseParent_prepare_createButton();
 		// parse source
@@ -598,6 +611,7 @@ public class StaticFactoryCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for {@link AbstractExplicitFactoryCreationSupport#canUseParent(JavaInfo)}.
 	 */
+	@Test
 	public void test_canUseParent_MOVE_true() throws Exception {
 		canUseParent_prepare_createButton();
 		// parse source
@@ -631,6 +645,7 @@ public class StaticFactoryCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for {@link AbstractExplicitFactoryCreationSupport#canUseParent(JavaInfo)}.
 	 */
+	@Test
 	public void test_canUseParent_MOVE_false() throws Exception {
 		canUseParent_prepare_createButton();
 		// parse source
@@ -689,6 +704,7 @@ public class StaticFactoryCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for using local static factory method. Use it one time.
 	 */
+	@Test
 	public void test_parse_localFactoryMethod_singleInvocation() throws Exception {
 		m_waitForAutoBuild = true;
 		ContainerInfo panel =
@@ -720,6 +736,7 @@ public class StaticFactoryCreationSupportTest extends SwingModelTest {
 	/**
 	 * Test for using local static factory method. Use it two times.
 	 */
+	@Test
 	public void test_parse_localFactoryMethod_twoInvocations() throws Exception {
 		m_waitForAutoBuild = true;
 		ContainerInfo panel =
@@ -758,6 +775,7 @@ public class StaticFactoryCreationSupportTest extends SwingModelTest {
 	 * source range are old. I don't know how to synchronize {@link IMethod} model with updated
 	 * buffer, so I've added save after adding constructor.
 	 */
+	@Test
 	public void test_parse_localFactoryMethod_noConstructor() throws Exception {
 		setFileContentSrc(
 				"test/BasePanel.java",

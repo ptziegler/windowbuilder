@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.util.generic;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.category.PropertyCategory;
 import org.eclipse.wb.internal.core.model.util.generic.CopyPropertyTopChildSupport;
@@ -42,6 +44,7 @@ public class CopyPropertyTopChildTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_copyExisting() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -89,6 +92,7 @@ public class CopyPropertyTopChildTest extends SwingModelTest {
 		assertSame(property, button.getPropertyByTitle("StackText"));
 	}
 
+	@Test
 	public void test_ignoreNotExisting() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -124,6 +128,7 @@ public class CopyPropertyTopChildTest extends SwingModelTest {
 		assertNull(property);
 	}
 
+	@Test
 	public void test_noParameter_from() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -155,6 +160,7 @@ public class CopyPropertyTopChildTest extends SwingModelTest {
 		Assertions.assertThat(warnings.get(0).getMessage()).contains("'from'");
 	}
 
+	@Test
 	public void test_noParameter_to() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.internal.core.laf.IBaselineSupport;
 import org.eclipse.wb.internal.core.utils.state.GlobalState;
@@ -57,6 +59,7 @@ public class ControlLiveManagerTest extends XwtModelTest {
 	/**
 	 * {@link Control_LiveManager} should not change {@link GlobalState}.
 	 */
+	@Test
 	public void test_GlobalState() throws Exception {
 		ControlInfo shell = parse("<Shell/>");
 		refresh();
@@ -75,6 +78,7 @@ public class ControlLiveManagerTest extends XwtModelTest {
 	/**
 	 * Check that after "live image" source is not changed.
 	 */
+	@Test
 	public void test_liveImage_noSourceChange() throws Exception {
 		parse("<Shell/>");
 		String originalSource = m_lastContext.getContent();
@@ -94,6 +98,7 @@ public class ControlLiveManagerTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_liveImage_onShell() throws Exception {
 		parse("<Shell/>");
 		// prepare buttons
@@ -123,6 +128,7 @@ public class ControlLiveManagerTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_buttonWithText() throws Exception {
 		parse("<Shell/>");
 		ControlInfo button = createButtonWithText();
@@ -135,6 +141,7 @@ public class ControlLiveManagerTest extends XwtModelTest {
 	 * Test that live image is not disposed during refresh. Right now this means that if we cache live
 	 * images, we should use keep copy of cached image.
 	 */
+	@Test
 	public void test_liveImage_noDispose() throws Exception {
 		CompositeInfo shell =
 				parse(
@@ -166,6 +173,7 @@ public class ControlLiveManagerTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_liveImage_onComposite() throws Exception {
 		parse("<Composite/>");
 		//
@@ -177,6 +185,7 @@ public class ControlLiveManagerTest extends XwtModelTest {
 	 * Sometimes component has zero or just too small size by default, so we need some way to force
 	 * its "live" size.
 	 */
+	@Test
 	public void test_liveImage_forcedSize() throws Exception {
 		setFileContentSrc(
 				"test/MyCanvas.java",
@@ -208,6 +217,7 @@ public class ControlLiveManagerTest extends XwtModelTest {
 	 * If exception happens during live image creation, we still should return some image (not
 	 * <code>null</code>) to prevent problems on other levels.
 	 */
+	@Test
 	public void test_liveImage_whenException() throws Exception {
 		setFileContentSrc(
 				"test/MyComposite.java",
@@ -253,6 +263,7 @@ public class ControlLiveManagerTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_liveImage_copyPaste() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -289,6 +300,7 @@ public class ControlLiveManagerTest extends XwtModelTest {
 	// Style
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_liveStyle_standardControl() throws Exception {
 		parse("<Shell/>");
 		// PUSH
@@ -325,6 +337,7 @@ public class ControlLiveManagerTest extends XwtModelTest {
 		}
 	}
 
+	@Test
 	public void test_liveStyle_customControl() throws Exception {
 		setFileContentSrc(
 				"test/MyComposite.java",
@@ -353,6 +366,7 @@ public class ControlLiveManagerTest extends XwtModelTest {
 	// Baseline
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_liveBaseline() throws Exception {
 		CompositeInfo shell =
 				parse(

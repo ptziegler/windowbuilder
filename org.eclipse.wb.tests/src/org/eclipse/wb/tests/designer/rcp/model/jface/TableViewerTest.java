@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.category.PropertyCategory;
 import org.eclipse.wb.internal.rcp.model.layout.grid.GridLayoutInfo;
@@ -42,6 +44,7 @@ public class TableViewerTest extends RcpModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_properties() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -67,6 +70,7 @@ public class TableViewerTest extends RcpModelTest {
 	/**
 	 * Test for {@link CheckboxTableViewer#newCheckList(Composite, int)} support.
 	 */
+	@Test
 	public void test_CheckboxTableViewer() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -89,6 +93,7 @@ public class TableViewerTest extends RcpModelTest {
 	/**
 	 * http://www.eclipse.org/forums/index.php?t=rview&goto=717822#msg_717822
 	 */
+	@Test
 	public void test_GridLayout_andExposedViewer() throws Exception {
 		setFileContentSrc(
 				"test/MyComposite.java",

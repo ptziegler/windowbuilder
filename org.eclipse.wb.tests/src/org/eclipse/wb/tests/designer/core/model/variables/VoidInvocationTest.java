@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.variables;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.model.JavaInfoUtils;
 import org.eclipse.wb.internal.core.model.creation.VoidInvocationCreationSupport;
@@ -54,6 +56,7 @@ public class VoidInvocationTest extends AbstractVariableTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_object() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -115,6 +118,7 @@ public class VoidInvocationTest extends AbstractVariableTest {
 	 * {@link VoidInvocationCreationSupport} does not return value, so has only factory properties, no
 	 * method/field based ones.
 	 */
+	@Test
 	public void test_noProperties() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -134,6 +138,7 @@ public class VoidInvocationTest extends AbstractVariableTest {
 		assertNotNull(PropertyUtils.getByPath(properties, "Factory/size"));
 	}
 
+	@Test
 	public void test_add() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -164,6 +169,7 @@ public class VoidInvocationTest extends AbstractVariableTest {
 		assertEquals("addSeparator()", separator.getVariableSupport().getTitle());
 	}
 
+	@Test
 	public void test_moveInner() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -205,6 +211,7 @@ public class VoidInvocationTest extends AbstractVariableTest {
 	/**
 	 * Good case - argument of <code>addItem()</code> is existing {@link JavaInfo}.
 	 */
+	@Test
 	public void test_parseComponent_hasComponent() throws Exception {
 		prepare_parseComponent();
 		String[] lines =
@@ -231,6 +238,7 @@ public class VoidInvocationTest extends AbstractVariableTest {
 	 * We specify that <code>addItem(Component)</code> requires {@link JavaInfo}, so if it is not
 	 * present (by any reason), we don't create "voidFactory" component.
 	 */
+	@Test
 	public void test_parseComponent_invalidComponent() throws Exception {
 		prepare_parseComponent();
 		String[] lines =

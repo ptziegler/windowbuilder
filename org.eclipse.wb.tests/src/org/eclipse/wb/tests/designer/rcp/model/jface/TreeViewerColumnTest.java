@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.rcp.model.jface.viewers.ViewerColumnInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
@@ -33,6 +35,7 @@ public class TreeViewerColumnTest extends RcpModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_0() throws Exception {
 		parseComposite(
 				"public class Test extends Shell {",

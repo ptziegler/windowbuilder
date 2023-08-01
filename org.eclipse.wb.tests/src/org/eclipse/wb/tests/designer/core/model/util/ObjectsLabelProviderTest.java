@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.util;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.core.model.broadcast.ObjectInfoPresentationDecorateIcon;
 import org.eclipse.wb.core.model.broadcast.ObjectInfoPresentationDecorateText;
@@ -45,6 +47,7 @@ public class ObjectsLabelProviderTest extends DesignerTestCase {
 	/**
 	 * Test for default icon/text, no any decorators.
 	 */
+	@Test
 	public void test_default() throws Exception {
 		TestObjectInfo theObject = new MyObjectInfo();
 		// do checks
@@ -55,6 +58,7 @@ public class ObjectsLabelProviderTest extends DesignerTestCase {
 	/**
 	 * Test for decorated icon/text.
 	 */
+	@Test
 	public void test_decorateImageText() throws Exception {
 		TestObjectInfo theObject = new MyObjectInfo();
 		theObject.addBroadcastListener(new ObjectInfoPresentationDecorateIcon() {

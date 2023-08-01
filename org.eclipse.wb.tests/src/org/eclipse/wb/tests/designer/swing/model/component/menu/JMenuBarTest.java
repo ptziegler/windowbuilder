@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.component.menu;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import com.google.common.collect.ImmutableList;
 
@@ -63,6 +66,7 @@ public class JMenuBarTest extends SwingModelTest {
 	/**
 	 * Test that we can parse {@link JMenuBar} with {@link JMenu} and two {@link JMenuItem}'s.
 	 */
+	@Test
 	public void test_parse() throws Exception {
 		ContainerInfo frameInfo =
 				parseContainer(
@@ -95,6 +99,7 @@ public class JMenuBarTest extends SwingModelTest {
 	 * When {@link JMenuBar} has no items, its height is zero, so we should add some text to make it
 	 * taller.
 	 */
+	@Test
 	public void test_renderEmpty() throws Exception {
 		ContainerInfo frame =
 				parseContainer(
@@ -113,6 +118,7 @@ public class JMenuBarTest extends SwingModelTest {
 	/**
 	 * Test for parsing {@link JMenuBar} as "this" component.
 	 */
+	@Test
 	public void test_standaloneJMenuBar() throws Exception {
 		JMenuBarInfo barInfo =
 				(JMenuBarInfo) parseContainer(getDoubleQuotes(new String[]{
@@ -150,6 +156,7 @@ public class JMenuBarTest extends SwingModelTest {
 	 * There was problem that when {@link JMenuBar} has two empty {@link JMenu}, both of them don't
 	 * have <code>"(Add items here)"</code> message.
 	 */
+	@Test
 	public void test_standaloneJMenuBar_2() throws Exception {
 		JMenuBarInfo barInfo =
 				(JMenuBarInfo) parseContainer(getDoubleQuotes(new String[]{
@@ -188,6 +195,7 @@ public class JMenuBarTest extends SwingModelTest {
 	/**
 	 * Test for {@link JMenuBarInfo} and its {@link IMenuInfo}.
 	 */
+	@Test
 	public void test_IMenuInfo_access() throws Exception {
 		ContainerInfo frameInfo =
 				parseContainer(
@@ -245,6 +253,7 @@ public class JMenuBarTest extends SwingModelTest {
 	/**
 	 * We can drop new {@link JMenuInfo}.
 	 */
+	@Test
 	public void test_IMenuInfo_CREATE() throws Exception {
 		ContainerInfo frameInfo =
 				parseContainer(
@@ -285,6 +294,7 @@ public class JMenuBarTest extends SwingModelTest {
 	/**
 	 * We can drop any new {@link ComponentInfo}, such as {@link JButton}.
 	 */
+	@Test
 	public void test_IMenuInfo_CREATE_JButton() throws Exception {
 		ContainerInfo frameInfo =
 				parseContainer(
@@ -336,6 +346,7 @@ public class JMenuBarTest extends SwingModelTest {
 	/**
 	 * We can move {@link JMenuInfo}'s.
 	 */
+	@Test
 	public void test_IMenuInfo_MOVE() throws Exception {
 		ContainerInfo frameInfo =
 				parseContainer(
@@ -383,7 +394,9 @@ public class JMenuBarTest extends SwingModelTest {
 	/**
 	 * We can paste {@link JMenuInfo}'s.
 	 */
-	public void DISABLE_test_IMenuInfo_PASTE() throws Exception {
+	@Ignore
+	@Test
+	public void test_IMenuInfo_PASTE() throws Exception {
 		ContainerInfo frameInfo =
 				parseContainer(
 						"public class Test extends JFrame {",
@@ -461,6 +474,7 @@ public class JMenuBarTest extends SwingModelTest {
 	/**
 	 * Adding {@link JMenuBarInfo} on {@link JFrame}.
 	 */
+	@Test
 	public void test_CREATE_noChildren() throws Exception {
 		ContainerInfo frame =
 				parseContainer(
@@ -488,6 +502,7 @@ public class JMenuBarTest extends SwingModelTest {
 	/**
 	 * Adding {@link JMenuBarInfo} on {@link JFrame}.
 	 */
+	@Test
 	public void test_CREATE_withStatement() throws Exception {
 		ContainerInfo frame =
 				parseContainer(
@@ -515,6 +530,7 @@ public class JMenuBarTest extends SwingModelTest {
 	/**
 	 * Adding {@link JMenuBarInfo} on {@link JFrame}.
 	 */
+	@Test
 	public void test_CREATE_withChildren() throws Exception {
 		ContainerInfo frame =
 				parseContainer(
@@ -548,6 +564,7 @@ public class JMenuBarTest extends SwingModelTest {
 	/**
 	 * We can not add new {@link JMenuItem} before exposed {@link JMenuItem}.
 	 */
+	@Test
 	public void test_CREATE_exposedItem_badReference() throws Exception {
 		String[] lines =
 			{

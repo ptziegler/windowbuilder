@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.forms;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.rcp.model.forms.SectionInfo;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 
@@ -37,6 +39,7 @@ public class SectionTest extends AbstractFormsTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_properties() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -55,6 +58,7 @@ public class SectionTest extends AbstractFormsTest {
 	 * Section has method "getDescriptionControl()", so when <code>DESCRIPTION</code> style is used,
 	 * it returns some {@link Control}. But we don't want it, because this is implementation details.
 	 */
+	@Test
 	public void test_getDescriptionControl() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -80,6 +84,7 @@ public class SectionTest extends AbstractFormsTest {
 	 * layout and no size set. When size is zero, {@link Section} fails to paint itself, because it
 	 * creates internally {@link Image} with its own size.
 	 */
+	@Test
 	public void test_zeroSize_absoluteLayout() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -97,6 +102,7 @@ public class SectionTest extends AbstractFormsTest {
 	 * layout and no size set. When size is zero, {@link Section} fails to paint itself, because it
 	 * creates internally {@link Image} with its own size.
 	 */
+	@Test
 	public void test_zeroSize_GridLayout() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property.editor;
 
+import org.junit.Test;
+
 import com.google.common.collect.Maps;
 
 import org.eclipse.wb.internal.core.model.property.Property;
@@ -43,11 +45,13 @@ public class DatePropertyEditorTest extends AbstractTextPropertyEditorTest {
 	// Configure
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_configure_default() throws Exception {
 		HashMap<String, Object> parameters = Maps.newHashMap();
 		/*DatePropertyEditor editor = */createEditor(DatePropertyEditor.class, parameters);
 	}
 
+	@Test
 	public void test_configure() throws Exception {
 		/*DatePropertyEditor editor = */createEditor(DatePropertyEditor.class, getEditorParameters());
 	}
@@ -57,6 +61,7 @@ public class DatePropertyEditorTest extends AbstractTextPropertyEditorTest {
 	// Parse
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_setValue_default() throws Exception {
 		configureContents(false);
 		ContainerInfo container =
@@ -91,6 +96,7 @@ public class DatePropertyEditorTest extends AbstractTextPropertyEditorTest {
 				"}");
 	}
 
+	@Test
 	public void test_setValue_custom() throws Exception {
 		configureContents(true);
 		ContainerInfo container =
@@ -128,6 +134,7 @@ public class DatePropertyEditorTest extends AbstractTextPropertyEditorTest {
 				"}");
 	}
 
+	@Test
 	public void test_setText_default() throws Exception {
 		configureContents(false);
 		long currentTimeMillis = System.currentTimeMillis();
@@ -172,6 +179,7 @@ public class DatePropertyEditorTest extends AbstractTextPropertyEditorTest {
 				"}");
 	}
 
+	@Test
 	public void test_setText_custom() throws Exception {
 		configureContents(true);
 		ContainerInfo container =

@@ -9,6 +9,10 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.MigLayout;
+import org.junit.Before;
+import org.junit.After;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.model.property.ComplexProperty;
 import org.eclipse.wb.internal.core.model.property.Property;
@@ -46,7 +50,8 @@ public class MigLayoutConstraintsPropertiesTest extends AbstractMigLayoutTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		ContainerInfo panel =
 				parseContainer(
@@ -70,7 +75,8 @@ public class MigLayoutConstraintsPropertiesTest extends AbstractMigLayoutTest {
 	}
 
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		{
 			m_constraints = null;
 			m_cellProperty = null;
@@ -87,6 +93,7 @@ public class MigLayoutConstraintsPropertiesTest extends AbstractMigLayoutTest {
 	/**
 	 * Test for {@link CellConstraintsSupport#getPropertyByTitle(String)}.
 	 */
+	@Test
 	public void test_getPropertyByTitle() throws Exception {
 		assertNull(m_constraints.getPropertyByTitle("noSuchProperty"));
 		assertSame(m_subProperties[0], m_constraints.getPropertyByTitle("grid x"));
@@ -94,6 +101,7 @@ public class MigLayoutConstraintsPropertiesTest extends AbstractMigLayoutTest {
 		assertSame(m_subProperties[4], m_constraints.getPropertyByTitle("h alignment"));
 	}
 
+	@Test
 	public void test_property_x() throws Exception {
 		Property property = m_subProperties[0];
 		assertEquals("grid x", property.getTitle());
@@ -114,6 +122,7 @@ public class MigLayoutConstraintsPropertiesTest extends AbstractMigLayoutTest {
 		}
 	}
 
+	@Test
 	public void test_property_y() throws Exception {
 		Property property = m_subProperties[1];
 		assertEquals("grid y", property.getTitle());
@@ -127,6 +136,7 @@ public class MigLayoutConstraintsPropertiesTest extends AbstractMigLayoutTest {
 		}
 	}
 
+	@Test
 	public void test_property_w() throws Exception {
 		Property property = m_subProperties[2];
 		assertEquals("grid width", property.getTitle());
@@ -148,6 +158,7 @@ public class MigLayoutConstraintsPropertiesTest extends AbstractMigLayoutTest {
 		}
 	}
 
+	@Test
 	public void test_property_h() throws Exception {
 		Property property = m_subProperties[3];
 		assertEquals("grid height", property.getTitle());
@@ -169,6 +180,7 @@ public class MigLayoutConstraintsPropertiesTest extends AbstractMigLayoutTest {
 		}
 	}
 
+	@Test
 	public void test_property_align_h() throws Exception {
 		Property property = m_subProperties[4];
 		assertEquals("h alignment", property.getTitle());
@@ -190,6 +202,7 @@ public class MigLayoutConstraintsPropertiesTest extends AbstractMigLayoutTest {
 		}
 	}
 
+	@Test
 	public void test_property_align_v() throws Exception {
 		Property property = m_subProperties[5];
 		assertEquals("v alignment", property.getTitle());

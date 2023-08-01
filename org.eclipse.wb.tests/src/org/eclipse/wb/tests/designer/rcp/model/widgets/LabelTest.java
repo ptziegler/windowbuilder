@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.widgets;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.swt.model.widgets.ButtonStylePresentation;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
@@ -39,6 +41,7 @@ public class LabelTest extends RcpModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_setText() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -71,6 +74,7 @@ public class LabelTest extends RcpModelTest {
 	 * Test that {@link ButtonStylePresentation} returns different icons for buttons with different
 	 * styles.
 	 */
+	@Test
 	public void test_ButtonStylePresentation() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

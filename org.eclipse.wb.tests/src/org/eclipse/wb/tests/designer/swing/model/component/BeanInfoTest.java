@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.component;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
@@ -38,6 +40,7 @@ public class BeanInfoTest extends SwingModelTest {
 	/**
 	 * Value <code>true</code> for "isContainer" can be ignored.
 	 */
+	@Test
 	public void test_isContainer_true() throws Exception {
 		prepareComponentFor_isContainer("Boolean.TRUE");
 		ContainerInfo panel =
@@ -54,6 +57,7 @@ public class BeanInfoTest extends SwingModelTest {
 	 * Value <code>false</code> for "isContainer" means that component is not container, so has no
 	 * layout.
 	 */
+	@Test
 	public void test_isContainer_false() throws Exception {
 		prepareComponentFor_isContainer("Boolean.FALSE");
 		ContainerInfo panel =

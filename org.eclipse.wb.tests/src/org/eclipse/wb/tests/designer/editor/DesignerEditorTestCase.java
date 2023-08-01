@@ -9,6 +9,8 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor;
+import org.junit.Before;
+import org.junit.After;
 
 import org.eclipse.wb.core.editor.IDesignPage;
 import org.eclipse.wb.core.editor.IDesignerEditor;
@@ -55,7 +57,7 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.ide.IDE;
 
-import junit.framework.TestCase;
+
 
 import org.apache.commons.lang.ArrayUtils;
 
@@ -73,7 +75,8 @@ public class DesignerEditorTestCase extends AbstractJavaInfoRelatedTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		waitEventLoop(1);
 		System.setProperty(DesignerPalette.FLAG_NO_PALETTE, "true");
@@ -81,7 +84,8 @@ public class DesignerEditorTestCase extends AbstractJavaInfoRelatedTest {
 	}
 
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		System.clearProperty(DesignerPalette.FLAG_NO_PALETTE);
 		waitEventLoop(0);
 		TestUtils.closeAllEditors();

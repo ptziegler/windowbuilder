@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
@@ -38,6 +40,7 @@ public class CellEditorTest extends RcpModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_TextCellEditor() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -59,6 +62,7 @@ public class CellEditorTest extends RcpModelTest {
 	/**
 	 * {@link CheckboxCellEditor} has no {@link Control}, so can not be used as viewer.
 	 */
+	@Test
 	public void test_CheckboxCellEditor() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -78,6 +82,7 @@ public class CellEditorTest extends RcpModelTest {
 	/**
 	 * {@link ComboBoxCellEditor} constructor has no items (for #setItems).
 	 */
+	@Test
 	public void test_ComboBoxCellEditor() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

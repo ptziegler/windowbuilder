@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.widgets;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.model.clipboard.JavaInfoMemento;
 import org.eclipse.wb.internal.core.model.property.Property;
@@ -51,7 +54,9 @@ public class TreeTest extends RcpModelTest {
 	/**
 	 * Test for parsing {@link TreeColumn} and bounds of {@link TreeColumnInfo}.
 	 */
-	public void DISABLE_test_TreeColumn() throws Exception {
+	@Ignore
+	@Test
+	public void test_TreeColumn() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
 						"class Test extends Shell {",
@@ -104,7 +109,9 @@ public class TreeTest extends RcpModelTest {
 	/**
 	 * Test for copy/paste {@link TreeColumn}.
 	 */
-	public void DISABLE_test_TreeColumn_copyPaste() throws Exception {
+	@Ignore
+	@Test
+	public void test_TreeColumn_copyPaste() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
 						"class Test extends Shell {",
@@ -170,6 +177,7 @@ public class TreeTest extends RcpModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_TreeColumn_setWidth() throws Exception {
 		parseComposite(
 				"class Test extends Shell {",
@@ -203,6 +211,7 @@ public class TreeTest extends RcpModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_add_TreeColumn() throws Exception {
 		parseComposite(
 				"class Test extends Shell {",
@@ -233,6 +242,7 @@ public class TreeTest extends RcpModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_move_TreeColumn() throws Exception {
 		parseComposite(
 				"class Test extends Shell {",
@@ -275,6 +285,7 @@ public class TreeTest extends RcpModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_reparent_TreeColumn() throws Exception {
 		parseComposite(
 				"class Test extends Shell {",
@@ -329,6 +340,7 @@ public class TreeTest extends RcpModelTest {
 				"}");
 	}
 
+	@Test
 	public void test_column_exposed() throws Exception {
 		setFileContentSrc(
 				"test/ExposedComposite.java",
@@ -373,6 +385,7 @@ public class TreeTest extends RcpModelTest {
 				"      {virtual-layout_data: org.eclipse.swt.layout.GridData} {virtual-layout-data} {}");
 	}
 
+	@Test
 	public void test_item_exposed() throws Exception {
 		setFileContentSrc(
 				"test/ExposedComposite.java",

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor.actions;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.editor.actions.CutAction;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
@@ -31,6 +33,7 @@ public class CutActionTest extends SwingGefTest {
 	/**
 	 * "Cut" action is disabled if no selection.
 	 */
+	@Test
 	public void test_noSelection() throws Exception {
 		openContainer(
 				"// filler filler filler",
@@ -48,6 +51,7 @@ public class CutActionTest extends SwingGefTest {
 	/**
 	 * "This" component can not be copied or deleted.
 	 */
+	@Test
 	public void test_thisSelection() throws Exception {
 		ContainerInfo panel =
 				openContainer(
@@ -66,6 +70,7 @@ public class CutActionTest extends SwingGefTest {
 	/**
 	 * Test for cut/paste single component.
 	 */
+	@Test
 	public void test_cutSingle() throws Exception {
 		ContainerInfo panel =
 				openContainer(

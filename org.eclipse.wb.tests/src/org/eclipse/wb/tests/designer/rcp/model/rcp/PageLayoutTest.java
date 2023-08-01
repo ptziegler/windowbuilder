@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.rcp;
 
+import org.junit.Test;
+
 import com.google.common.collect.Lists;
 
 import org.eclipse.wb.core.editor.palette.PaletteEventListener;
@@ -82,6 +84,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * No reason to edit "perspective" palette.
 	 */
+	@Test
 	public void test_canNotEditPalette() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -100,6 +103,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * Test for most generic {@link IPageLayout} parsing.
 	 */
+	@Test
 	public void test_0() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -144,6 +148,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * Test for {@link PageLayoutCreationSupport}.
 	 */
+	@Test
 	public void test_PageLayout_CreationSupport() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -172,6 +177,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * Test for {@link PageLayoutTopBoundsSupport}.
 	 */
+	@Test
 	public void test_PageLayout_TopBoundsSupport() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -197,6 +203,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * Test for {@link EditorAreaInfo}.
 	 */
+	@Test
 	public void test_EditorArea() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -232,6 +239,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * We should render perspective a little different when "editorAreaVisible == false".
 	 */
+	@Test
 	public void test_editorAreaVisible_false() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -269,6 +277,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * Test for {@link IPageLayout} properties.
 	 */
+	@Test
 	public void test_properties() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -299,6 +308,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link IPageLayout#addView(String, int, float, String)} and its
 	 * {@link PageLayoutAddCreationSupport}.
 	 */
+	@Test
 	public void test_PageLayout_add_CreationSupport() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -354,6 +364,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * Test for {@link SashLineInfo}'s.
 	 */
+	@Test
 	public void test_sashLines() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -460,6 +471,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Perspective elements don't have component class in {@link ComponentDescription}, so this caused
 	 * {@link NullPointerException} during deducing settings.
 	 */
+	@Test
 	public void test_deduceSettings() throws Exception {
 		{
 			GenerationSettings generationSettings =
@@ -484,6 +496,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link IPageLayout#addView(String, int, float, String)}.<br> {@link IPageLayout#LEFT}
 	 * relationship.
 	 */
+	@Test
 	public void test_addView_LEFT() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -522,6 +535,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link IPageLayout#addView(String, int, float, String)}.<br> {@link IPageLayout#RIGHT}
 	 * relationship.
 	 */
+	@Test
 	public void test_addView_RIGHT() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -560,6 +574,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link IPageLayout#addView(String, int, float, String)}.<br> {@link IPageLayout#TOP}
 	 * relationship.
 	 */
+	@Test
 	public void test_addView_TOP() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -598,6 +613,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link IPageLayout#addView(String, int, float, String)}.<br> {@link IPageLayout#BOTTOM}
 	 * relationship.
 	 */
+	@Test
 	public void test_addView_BOTTOM() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -635,6 +651,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * Eclipse allows to use "view" inside of {@link IFolderLayout} as reference.
 	 */
+	@Test
 	public void test_addView_viewInFolderAsReference() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -681,6 +698,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link IPageLayout#addView(String, int, float, String)}.<br>
 	 * Invalid relationship.
 	 */
+	@Test
 	public void test_addView_invalidRelatioship() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -714,6 +732,7 @@ public class PageLayoutTest extends RcpModelTest {
 	// Shortcuts
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_shortcuts_0() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -793,6 +812,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link FastViewContainerInfo#command_CREATE(String, FastViewInfo)}.<br>
 	 * Before existing {@link FastViewInfo}.
 	 */
+	@Test
 	public void test_fastView_CREATE_1() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -848,6 +868,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link FastViewContainerInfo#command_CREATE(String, FastViewInfo)}.<br>
 	 * No <code>addFastViews</code> method, create it.
 	 */
+	@Test
 	public void test_fastView_CREATE_2() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -894,6 +915,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link FastViewContainerInfo#command_MOVE(FastViewInfo, FastViewInfo)}.<br>
 	 * Before existing {@link FastViewInfo}.
 	 */
+	@Test
 	public void test_fastView_MOVE_1() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -940,6 +962,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link FastViewContainerInfo#command_MOVE(FastViewInfo, FastViewInfo)}.<br>
 	 * Move to last item.
 	 */
+	@Test
 	public void test_fastView_MOVE_2() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -990,6 +1013,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * Test for {@link ViewShortcutContainerInfo#command_CREATE(String, ViewShortcutInfo)}.
 	 */
+	@Test
 	public void test_viewShortcuts_CREATE() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1029,6 +1053,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link FastViewContainerInfo#command_MOVE(FastViewInfo, FastViewInfo)}.<br>
 	 * Before existing {@link FastViewInfo}.
 	 */
+	@Test
 	public void test_viewShortcuts_MOVE() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1073,6 +1098,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for
 	 * {@link PerspectiveShortcutContainerInfo#command_CREATE(String, PerspectiveShortcutInfo)}.
 	 */
+	@Test
 	public void test_perspectiveShortcuts_CREATE() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1114,6 +1140,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * .<br>
 	 * Before existing {@link PerspectiveShortcutInfo}.
 	 */
+	@Test
 	public void test_perspectiveShortcuts_MOVE() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1158,6 +1185,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link AbstractPartInfo#resize(int, int)}.<br>
 	 * Active {@link AbstractPartInfo}.
 	 */
+	@Test
 	public void test_abstractPart_resizeActive() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1187,6 +1215,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link AbstractPartInfo#resize(int, int)}.<br>
 	 * Active {@link AbstractPartInfo}, vertical
 	 */
+	@Test
 	public void test_abstractPart_resizeActiveVertical() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1217,6 +1246,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link AbstractPartInfo#resize(int, int)}.<br>
 	 * Active {@link AbstractPartInfo}, make bigger, but not more than <code>0.95</code>
 	 */
+	@Test
 	public void test_abstractPart_resizeActive_plusOver() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1246,6 +1276,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link AbstractPartInfo#resize(int, int)}.<br>
 	 * Passive {@link AbstractPartInfo}.
 	 */
+	@Test
 	public void test_abstractPart_resizePassive() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1275,6 +1306,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link AbstractPartInfo#resize(int, int)}.<br>
 	 * Passive {@link AbstractPartInfo}, make smaller.
 	 */
+	@Test
 	public void test_abstractPart_resizePassive_minus() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1305,6 +1337,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link AbstractPartInfo#resize(int, int)}.<br>
 	 * Passive {@link AbstractPartInfo}, make smaller, but not less than <code>0.05</code>
 	 */
+	@Test
 	public void test_abstractPart_resizePassive_minusOver() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1338,6 +1371,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * Test for morphing {@link PageLayoutAddViewInfo} into stand-alone/place-holder.
 	 */
+	@Test
 	public void test_addView_morphing() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1535,6 +1569,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link PageLayoutInfo#command_CREATE(String, int, float, IPageLayoutTopLevelInfo)}.<br>
 	 * Other reference already exists.
 	 */
+	@Test
 	public void test_CREATE_view_0() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1577,6 +1612,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link PageLayoutInfo#command_CREATE(String, int, float, IPageLayoutTopLevelInfo)}.<br>
 	 * No reference exist.
 	 */
+	@Test
 	public void test_CREATE_view_1() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1609,6 +1645,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link PageLayoutInfo#command_CREATE(String, int, float, IPageLayoutTopLevelInfo)}.<br>
 	 * Reference on other view.
 	 */
+	@Test
 	public void test_CREATE_view_2() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1650,6 +1687,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link PageLayoutInfo#command_CREATE(String, int, float, IPageLayoutTopLevelInfo)}.<br>
 	 * Reference on editor area, with existing reference as folder.
 	 */
+	@Test
 	public void test_CREATE_view_3() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1686,6 +1724,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link PageLayoutInfo#command_CREATE(String, int, float, IPageLayoutTopLevelInfo)}.<br>
 	 * Reference on editor area, with existing reference as folder.
 	 */
+	@Test
 	public void test_CREATE_view_4() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1725,6 +1764,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * Test for {@link PageLayoutInfo#command_CREATE(String, int, float, IPageLayoutTopLevelInfo)}.
 	 */
+	@Test
 	public void test_CREATE_view_TOP() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1754,6 +1794,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * Test for {@link PageLayoutInfo#command_CREATE(String, int, float, IPageLayoutTopLevelInfo)}.
 	 */
+	@Test
 	public void test_CREATE_view_BOTTOM() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1783,6 +1824,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * Test for {@link PageLayoutInfo#command_CREATE(String, int, float, IPageLayoutTopLevelInfo)}.
 	 */
+	@Test
 	public void test_CREATE_view_LEFT() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1812,6 +1854,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * Test for {@link PageLayoutInfo#command_CREATE(String, int, float, IPageLayoutTopLevelInfo)}.
 	 */
+	@Test
 	public void test_CREATE_view_RIGHT() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1841,6 +1884,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * Test for {@link PageLayoutInfo#command_CREATE(String, int, float, IPageLayoutTopLevelInfo)}.
 	 */
+	@Test
 	public void test_CREATE_view_invalidRelationship() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1868,6 +1912,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * {@link PageLayoutInfo#command_MOVE(AbstractPartInfo, int, float, IPageLayoutTopLevelInfo)} .<br>
 	 * Was: relative to some view. Become: relative to other view.
 	 */
+	@Test
 	public void test_MOVE_view_1() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1913,6 +1958,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * {@link PageLayoutInfo#command_MOVE(AbstractPartInfo, int, float, IPageLayoutTopLevelInfo)} .<br>
 	 * Was: relative to some view. Become: relative to same view, but different relatioship.
 	 */
+	@Test
 	public void test_MOVE_view_2() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1958,6 +2004,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * {@link PageLayoutInfo#command_MOVE(AbstractPartInfo, int, float, IPageLayoutTopLevelInfo)} .<br>
 	 * Attempt to move view before itself.
 	 */
+	@Test
 	public void test_MOVE_view_3() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -1991,6 +2038,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for
 	 * {@link PageLayoutInfo#command_MOVE(AbstractPartInfo, int, float, IPageLayoutTopLevelInfo)} .<br>
 	 */
+	@Test
 	public void test_MOVE_folder_1() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -2057,6 +2105,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for
 	 * {@link PageLayoutInfo#command_MOVE(FolderViewInfo, int, float, IPageLayoutTopLevelInfo)}.
 	 */
+	@Test
 	public void test_MOVE_FolderView_into_topView() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -2116,6 +2165,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * Test for {@link PageLayoutInfo#command_CREATE_folder(int, float, IPageLayoutTopLevelInfo)}.
 	 */
+	@Test
 	public void test_CREATE_folder() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -2158,6 +2208,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link PageLayoutInfo#convertIntoFolder(PageLayoutAddViewInfo)}.<br>
 	 * Converted view referenced editor area.
 	 */
+	@Test
 	public void test_convertViewIntoFolder_1() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -2209,6 +2260,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link PageLayoutInfo#convertIntoFolder(PageLayoutAddViewInfo)}.<br>
 	 * Converted view referenced other view.
 	 */
+	@Test
 	public void test_convertViewIntoFolder_2() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -2262,6 +2314,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * Test for {@link IPageLayout#createFolder(String, int, float, String)}.
 	 */
+	@Test
 	public void test_IFolderLayout_parse() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -2343,6 +2396,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * Test for {@link IPageLayout#createFolder(String, int, float, String)}.
 	 */
+	@Test
 	public void test_IFolderLayout_delete() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -2373,6 +2427,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * Test for morphing {@link PageLayoutCreateFolderInfo}.
 	 */
+	@Test
 	public void test_IFolderLayout_morphing() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -2439,6 +2494,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * Test for {@link PageLayoutCreateFolderInfo#command_CREATE(String, FolderViewInfo)}.
 	 */
+	@Test
 	public void test_IFolderLayout_CREATE_1() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -2473,6 +2529,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * Test for {@link PageLayoutCreateFolderInfo#command_MOVE(FolderViewInfo, FolderViewInfo)}.
 	 */
+	@Test
 	public void test_IFolderLayout_MOVE_1() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -2514,6 +2571,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link PageLayoutCreateFolderInfo#command_MOVE(PageLayoutAddViewInfo, FolderViewInfo)}
 	 * .
 	 */
+	@Test
 	public void test_IFolderLayout_MOVE_2() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -2552,6 +2610,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Test for {@link PageLayoutCreateFolderInfo#command_MOVE(PageLayoutAddViewInfo, FolderViewInfo)}
 	 * .
 	 */
+	@Test
 	public void test_IFolderLayout_MOVE_fromOtherFolder() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -2601,6 +2660,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * Test for palette for {@link PageLayoutInfo}.
 	 */
+	@Test
 	public void test_palette() throws Exception {
 		PageLayoutInfo page =
 				parsePerspective(
@@ -2672,6 +2732,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * Current project is not a plugin project, so no "Extension" property.
 	 */
+	@Test
 	public void test_extensionProperties_notPlugin() throws Exception {
 		PageLayoutInfo part =
 				parsePerspective(
@@ -2687,6 +2748,7 @@ public class PageLayoutTest extends RcpModelTest {
 	/**
 	 * No "perspective" extension for this {@link IPageLayout} class, so no "Extension" property.
 	 */
+	@Test
 	public void test_extensionProperties_noExtension() throws Exception {
 		PdeProjectConversionUtils.convertToPDE(m_testProject.getProject(), null, "testplugin.Activator");
 		AbstractPdeTest.createPluginXML(
@@ -2710,6 +2772,7 @@ public class PageLayoutTest extends RcpModelTest {
 	 * Valid "perspective" extension for this {@link IPageLayout} class, so we have "Extension"
 	 * property and its sub-properties.
 	 */
+	@Test
 	public void test_extensionProperties_hasExtension() throws Exception {
 		do_projectDispose();
 		do_projectCreate();

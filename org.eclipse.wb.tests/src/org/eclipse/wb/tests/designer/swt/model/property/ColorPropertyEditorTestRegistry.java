@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.property;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.rcp.ToolkitProvider;
 import org.eclipse.wb.internal.swt.model.jface.resource.ColorRegistryInfo;
@@ -41,6 +43,7 @@ public class ColorPropertyEditorTestRegistry extends ColorPropertyEditorTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_info() throws Exception {
 		createASTCompilationUnit(
 				"test",
@@ -82,6 +85,7 @@ public class ColorPropertyEditorTestRegistry extends ColorPropertyEditorTest {
 		assertNull(keyFieldInfo.value);
 	}
 
+	@Test
 	public void test_value() throws Exception {
 		createASTCompilationUnit(
 				"test",

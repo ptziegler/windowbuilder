@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.support;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.swt.support.LabelSupport;
 
 /**
@@ -48,12 +50,14 @@ public class LabelSupportTest extends AbstractSupportTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getLabelClass() throws Exception {
 		assertSame(
 				m_lastLoader.loadClass("org.eclipse.swt.widgets.Label"),
 				LabelSupport.getLabelClass());
 	}
 
+	@Test
 	public void test_text() throws Exception {
 		Object label = m_shell.getChildrenControls().get(0).getObject();
 		assertEquals("New Label", LabelSupport.getText(label));
@@ -64,6 +68,7 @@ public class LabelSupportTest extends AbstractSupportTest {
 	/**
 	 * Test for {@link LabelSupport#newInstance(Object)}.
 	 */
+	@Test
 	public void test_newInstance() throws Exception {
 		Object shell = m_shell.getObject();
 		Object label = LabelSupport.newInstance(shell);

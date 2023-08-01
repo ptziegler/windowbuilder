@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.nls.ui;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.nls.ui.NlsDialog;
 import org.eclipse.wb.tests.gef.UiContext;
 
@@ -28,6 +30,7 @@ public class NlsDialogTest extends AbstractDialogTest {
 	// Sources
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_noSources() throws Exception {
 		String initialSource =
 				getTestSource(
@@ -48,6 +51,7 @@ public class NlsDialogTest extends AbstractDialogTest {
 	/**
 	 * Now "real" sources, but two different "possible" sources.
 	 */
+	@Test
 	public void test_possibleSources() throws Exception {
 		setFileContentSrc(
 				"test/messages.properties",
@@ -84,6 +88,7 @@ public class NlsDialogTest extends AbstractDialogTest {
 		});
 	}
 
+	@Test
 	public void test_existingSources() throws Exception {
 		setFileContentSrc(
 				"test/messages.properties",

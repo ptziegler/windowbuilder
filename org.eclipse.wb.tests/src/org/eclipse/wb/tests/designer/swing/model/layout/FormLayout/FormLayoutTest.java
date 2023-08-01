@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.FormLayout;
 
+import org.junit.Test;
+
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
@@ -73,6 +75,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * Test for {@link Activator}.
 	 */
+	@Test
 	public void test_Activator() throws Exception {
 		assertNotNull(Activator.getDefault());
 	}
@@ -85,6 +88,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * Test for columns/rows.
 	 */
+	@Test
 	public void test_object() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -134,6 +138,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * There was {@link ClassCastException} when use {@link JPanel} with {@link FormLayout}.
 	 */
+	@Test
 	public void test_useJPannel_withFormLayout() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -165,6 +170,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * Test that on {@link JFrame} the {@link JTable} with grab/fill has big size.
 	 */
+	@Test
 	public void test_withJTable() throws Exception {
 		ContainerInfo frame =
 				parseContainer(
@@ -190,6 +196,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * Test {@link DimensionsProperty} for columns/rows.
 	 */
+	@Test
 	public void test_DimensionsProperty() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -227,6 +234,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * Test for "Edit columns" and "Edit rows" actions.
 	 */
+	@Test
 	public void test_editColumnsRowsActions() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -246,6 +254,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * Test {@link FormLayoutInfo#setColumns(List)}.
 	 */
+	@Test
 	public void test_setColumns() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -277,6 +286,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * Test {@link FormLayoutInfo#setRows(List)}.
 	 */
+	@Test
 	public void test_setRows() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -307,6 +317,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 				"}");
 	}
 
+	@Test
 	public void test_getMinimumSize() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -333,6 +344,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * More tests for {@link IGridInfo}.
 	 */
+	@Test
 	public void test_gridInfo() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -383,6 +395,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * {@link IGridInfo#getInsets()} should return insets of {@link Border}.
 	 */
+	@Test
 	public void test_gridInfo_insets() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -407,6 +420,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * No gaps, each column/row has component, so no change.
 	 */
+	@Test
 	public void test_normalizeSpanning_1() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -443,6 +457,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * With gaps, each column/row has component, so no change.
 	 */
+	@Test
 	public void test_normalizeSpanning_2() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -487,6 +502,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * With gaps, last column/row has no components, so delete them.
 	 */
+	@Test
 	public void test_normalizeSpanning_3() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -525,6 +541,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * With gaps, first column/row has no components, so delete them.
 	 */
+	@Test
 	public void test_normalizeSpanning_4() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -565,6 +582,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	// get*ComponentsCount()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getColumnComponentsCounts() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -595,6 +613,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * Test for {@link FormLayoutInfo#writeDimensions()} when there are no columns.
 	 */
+	@Test
 	public void test_writeEmpty() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -627,6 +646,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * Test for installing.
 	 */
+	@Test
 	public void test_setLayout() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -654,6 +674,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * Create: empty cell.
 	 */
+	@Test
 	public void test_CREATE_1() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -689,6 +710,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * Create: insert cell and replace unsupported arguments on {@link FormLayout}.
 	 */
+	@Test
 	public void test_CREATE_2() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -734,6 +756,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	 * Create: insert cell and move/resize existing children.<br>
 	 * Also, new component added before others, because it is in row/column before.
 	 */
+	@Test
 	public void test_CREATE_3() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -831,6 +854,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * Create: add more columns/rows.
 	 */
+	@Test
 	public void test_CREATE_4() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -874,6 +898,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * Test for copy/paste in {@link FormLayoutInfo}.
 	 */
+	@Test
 	public void test_PASTE() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -941,6 +966,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * Move component into different cell.
 	 */
+	@Test
 	public void test_MOVE() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -988,6 +1014,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * Add component from other container.
 	 */
+	@Test
 	public void test_ADD() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1050,6 +1077,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * Move button from {@link FormLayoutInfo}.
 	 */
+	@Test
 	public void test_ADD_OUT() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1107,6 +1135,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * Delete button from {@link FormLayoutInfo}.
 	 */
+	@Test
 	public void test_DELETE() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1151,6 +1180,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * Test for {@link FormLayoutInfo#canChangeDimensions()}.
 	 */
+	@Test
 	public void test_canChangeDimensions_constructor() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1167,6 +1197,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * Test for {@link FormLayoutInfo#canChangeDimensions()}.
 	 */
+	@Test
 	public void test_canChangeDimensions_implicit() throws Exception {
 		setFileContentSrc(
 				"test/MyPanel.java",
@@ -1201,6 +1232,7 @@ public class FormLayoutTest extends AbstractFormLayoutTest {
 	/**
 	 * {@link FormLayoutInfo} should contribute "Constraints" property only it is active on container.
 	 */
+	@Test
 	public void test_checkForActive_whenContributeProperties() throws Exception {
 		String[] lines =
 			{

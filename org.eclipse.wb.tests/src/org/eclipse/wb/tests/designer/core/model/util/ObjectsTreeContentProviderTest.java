@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.util;
 
+import org.junit.Test;
+
 import com.google.common.base.Predicate;
 
 import org.eclipse.wb.core.model.ObjectInfo;
@@ -27,6 +29,7 @@ import org.assertj.core.api.Assertions;
  * @author scheglov_ke
  */
 public class ObjectsTreeContentProviderTest extends DesignerTestCase {
+	@Test
 	public void test() throws Exception {
 		final TestObjectInfo parent = new TestObjectInfo("parent");
 		final TestObjectInfo child_1 = new TestObjectInfo("child_1");

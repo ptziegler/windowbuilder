@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.xml.model.AbstractComponentInfo;
 import org.eclipse.wb.tests.designer.XML.model.description.AbstractCoreTest;
 
@@ -40,6 +42,7 @@ public class AbstractComponentTest extends AbstractCoreTest {
 	 * so will not able to dispose its {@link Image}. We need some solution to clean up
 	 * {@link AbstractComponentInfo} during delete.
 	 */
+	@Test
 	public void test_disposeImage_whenDeleteModel() throws Exception {
 		parse(
 				"// filler filler filler filler filler",

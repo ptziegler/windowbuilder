@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.utils.exception.DesignerException;
 import org.eclipse.wb.internal.core.utils.exception.DesignerExceptionUtils;
 import org.eclipse.wb.internal.core.utils.state.EditorState.BadNodeInformation;
@@ -53,6 +55,7 @@ public class WizardPageTest extends RcpModelTest {
 	/**
 	 * Just parsing for some {@link WizardPage}.
 	 */
+	@Test
 	public void test_0() throws Exception {
 		WizardPageInfo wizardPage =
 				parseJavaInfo(
@@ -94,6 +97,7 @@ public class WizardPageTest extends RcpModelTest {
 	 * When we test/preview {@link WizardPage} and close {@link WizardDialog} its {@link Shell}
 	 * becomes disposed, so we should not try to close {@link WizardDialog} again.
 	 */
+	@Test
 	public void test_refresh_whenAlreadyDisposed() throws Exception {
 		WizardPageInfo wizardPage =
 				parseJavaInfo(
@@ -119,6 +123,7 @@ public class WizardPageTest extends RcpModelTest {
 	 * User may override {@link WizardPage#getControl()}, but we allow to visit it only one time, and
 	 * second time return <code>null</code>, and this causes problems.
 	 */
+	@Test
 	public void test_override_getControl() throws Exception {
 		WizardPageInfo wizardPage =
 				parseJavaInfo(
@@ -150,6 +155,7 @@ public class WizardPageTest extends RcpModelTest {
 	 * Some not-so-smart users (no, Eric just reproduced this :-)) may try to edit {@link WizardPage}
 	 * without {@link Control}.
 	 */
+	@Test
 	public void test_noControl() throws Exception {
 		try {
 			parseJavaInfo(
@@ -169,6 +175,7 @@ public class WizardPageTest extends RcpModelTest {
 		}
 	}
 
+	@Test
 	public void test_simulateException_inCreate() throws Exception {
 		String key = "__wbp_WizardPage_simulateException";
 		try {
@@ -196,6 +203,7 @@ public class WizardPageTest extends RcpModelTest {
 	/**
 	 * We replace bad control with placeholder in {@link WizardPage#createControl(Composite)} too.
 	 */
+	@Test
 	public void test_exceptionInCreate() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -235,6 +243,7 @@ public class WizardPageTest extends RcpModelTest {
 	 * We should invoke method only one time, and handle this correctly even for case of
 	 * "special rendering", i.e. when execution flow is not known for parser.
 	 */
+	@Test
 	public void test_duplicateMethodInvocation() throws Exception {
 		WizardPageInfo wizardPage =
 				parseJavaInfo(
@@ -268,6 +277,7 @@ public class WizardPageTest extends RcpModelTest {
 	/**
 	 * Here we test, that assignments made in constructor are visible in "render" method.
 	 */
+	@Test
 	public void test_specialRendering_andAssignmentInConstructor() throws Exception {
 		WizardPageInfo wizardPage =
 				parseJavaInfo(
@@ -301,6 +311,7 @@ public class WizardPageTest extends RcpModelTest {
 	 * Use tried to render {@link WizardPage} which requires not <code>null</code>
 	 * {@link IStructuredSelection} argument. We always can provide good, empty instance for it.
 	 */
+	@Test
 	public void test_ISelection_constructorArgument() throws Exception {
 		setFileContentSrc(
 				"test/MyWizardPage.java",

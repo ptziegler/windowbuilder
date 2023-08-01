@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.editor;
 
+import org.junit.Test;
+
 import org.eclipse.wb.draw2d.IPositionConstants;
 import org.eclipse.wb.internal.core.xml.gef.policy.TopSelectionEditPolicy;
 import org.eclipse.wb.internal.xwt.model.widgets.CompositeInfo;
@@ -39,6 +41,7 @@ public class TopSelectionEditPolicyTest extends XwtGefTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_resizeBoth() throws Exception {
 		CompositeInfo shell = openEditor("<Shell/>");
 		// initial size
@@ -57,6 +60,7 @@ public class TopSelectionEditPolicyTest extends XwtGefTest {
 		}
 	}
 
+	@Test
 	public void test_resizeEast_toNegative() throws Exception {
 		CompositeInfo shell = openEditor("<Shell/>");
 		// initial size
@@ -77,6 +81,7 @@ public class TopSelectionEditPolicyTest extends XwtGefTest {
 		}
 	}
 
+	@Test
 	public void test_resizeSouth_toNegative() throws Exception {
 		CompositeInfo shell = openEditor("<Shell/>");
 		// initial size

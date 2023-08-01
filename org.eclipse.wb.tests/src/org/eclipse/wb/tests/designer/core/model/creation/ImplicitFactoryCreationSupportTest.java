@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.creation;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.model.JavaInfoUtils;
 import org.eclipse.wb.internal.core.model.JavaInfoUtils.HierarchyProvider;
@@ -55,6 +57,7 @@ public class ImplicitFactoryCreationSupportTest extends SwingModelTest {
 	/**
 	 * Factory method that accepts {@link String} as argument.
 	 */
+	@Test
 	public void test_String_parse() throws Exception {
 		ContainerInfo panel = prepare_String_parse();
 		// check hierarchy
@@ -92,6 +95,7 @@ public class ImplicitFactoryCreationSupportTest extends SwingModelTest {
 	/**
 	 * Factory method that accepts {@link String} as argument.
 	 */
+	@Test
 	public void test_String_clipboard() throws Exception {
 		ContainerInfo panel = prepare_String_parse();
 		ContainerInfo bar = (ContainerInfo) panel.getChildrenComponents().get(0);
@@ -181,6 +185,7 @@ public class ImplicitFactoryCreationSupportTest extends SwingModelTest {
 	 * returned component object is parent of argument component object), see
 	 * {@link HierarchyProvider}.
 	 */
+	@Test
 	public void test_Component_parse() throws Exception {
 		setFileContentSrc(
 				"test/MyBar.java",
@@ -239,6 +244,7 @@ public class ImplicitFactoryCreationSupportTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_sameMethodAndParent_CREATE() throws Exception {
 		setFileContentSrc(
 				"test/MyBar.java",
@@ -328,6 +334,7 @@ public class ImplicitFactoryCreationSupportTest extends SwingModelTest {
 	 * {@link JavaInfo} which method is implicit factory is not always parent, in JFace Dialog parent
 	 * is passed separately.
 	 */
+	@Test
 	public void test_separateMethodAndParent_parse() throws Exception {
 		prepare_separateMethodAndParent();
 		ContainerInfo panel =
@@ -365,6 +372,7 @@ public class ImplicitFactoryCreationSupportTest extends SwingModelTest {
 	/**
 	 * We should be able to add new components with such separate declaration/parent.
 	 */
+	@Test
 	public void test_separateMethodAndParent_CREATE() throws Exception {
 		prepare_separateMethodAndParent();
 		ContainerInfo panel =
@@ -458,6 +466,7 @@ public class ImplicitFactoryCreationSupportTest extends SwingModelTest {
 	 * Factory method can have arguments that are bound to some {@link Property} of created
 	 * {@link JavaInfo}.
 	 */
+	@Test
 	public void test_argumentToProperty() throws Exception {
 		setFileContentSrc(
 				"test/MyBar.java",
@@ -524,6 +533,7 @@ public class ImplicitFactoryCreationSupportTest extends SwingModelTest {
 	/**
 	 * Materialize variable when set property.
 	 */
+	@Test
 	public void test_materializeVariable() throws Exception {
 		setFileContentSrc(
 				"test/MyBar.java",

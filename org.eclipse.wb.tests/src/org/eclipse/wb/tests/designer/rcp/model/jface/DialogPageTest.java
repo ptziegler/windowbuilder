@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.AbstractComponentInfo;
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.rcp.model.jface.DialogPageInfo;
@@ -42,6 +44,7 @@ public class DialogPageTest extends RcpModelTest {
 	 * {@link DialogPage} is not {@link AbstractComponentInfo}, so there was problem that we don't
 	 * have "active" {@link JavaInfo} during parsing.
 	 */
+	@Test
 	public void test_empty() throws Exception {
 		DialogPageInfo dialog =
 				parseJavaInfo(
@@ -63,6 +66,7 @@ public class DialogPageTest extends RcpModelTest {
 		assertEquals(500, dialog.getBounds().height);
 	}
 
+	@Test
 	public void test_emptyContainer() throws Exception {
 		DialogPageInfo dialog =
 				parseJavaInfo(
@@ -94,6 +98,7 @@ public class DialogPageTest extends RcpModelTest {
 	 * that "container" does not have incompatible "LayoutData". Easiest way - just clear
 	 * "LayoutData".
 	 */
+	@Test
 	public void test_containerLayoutData() throws Exception {
 		parseJavaInfo(
 				"import org.eclipse.jface.dialogs.*;",

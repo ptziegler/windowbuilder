@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.description;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.xml.model.property.accessor.EmptyExpressionAccessor;
 import org.eclipse.wb.internal.core.xml.model.property.accessor.ExpressionAccessor;
@@ -34,6 +36,7 @@ public class EmptyExpressionAccessorTest extends AbstractCoreTest {
 	// Types
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_0() throws Exception {
 		ExpressionAccessor accessor = EmptyExpressionAccessor.INSTANCE;
 		assertSame(Property.UNKNOWN_VALUE, accessor.getValue(null));

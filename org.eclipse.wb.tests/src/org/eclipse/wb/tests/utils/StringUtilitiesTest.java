@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.utils;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.utils.StringUtilities;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 
@@ -22,6 +24,7 @@ import org.assertj.core.api.Assertions;
  * @author scheglov_ke
  */
 public class StringUtilitiesTest extends DesignerTestCase {
+	@Test
 	public void test_normalizeWhitespaces() throws Exception {
 		assertEquals("", StringUtilities.normalizeWhitespaces(""));
 		assertEquals("a", StringUtilities.normalizeWhitespaces("a"));
@@ -34,6 +37,7 @@ public class StringUtilitiesTest extends DesignerTestCase {
 	/**
 	 * Test for {@link StringUtilities#getLinePrefix(String, int)}.
 	 */
+	@Test
 	public void test_getLinePrefix() throws Exception {
 		// good prefix
 		{
@@ -71,6 +75,7 @@ public class StringUtilitiesTest extends DesignerTestCase {
 		}
 	}
 
+	@Test
 	public void test_removeFirstWord() throws Exception {
 		assertEquals("bbb", StringUtilities.removeFirstWord("aaa bbb"));
 		assertEquals("bbb", StringUtilities.removeFirstWord("   aaa   bbb  "));
@@ -78,6 +83,7 @@ public class StringUtilitiesTest extends DesignerTestCase {
 		assertEquals("", StringUtilities.removeFirstWord(" \t\r\n"));
 	}
 
+	@Test
 	public void test_extractCamelCaps() throws Exception {
 		assertEquals(null, StringUtilities.extractCamelCaps(null));
 		assertEquals("NPE", StringUtilities.extractCamelCaps("NullPoinerException"));
@@ -86,6 +92,7 @@ public class StringUtilitiesTest extends DesignerTestCase {
 	/**
 	 * Test for {@link StringUtilities#extractCamelWords(String)}.
 	 */
+	@Test
 	public void test_extractCamelWords() throws Exception {
 		{
 			String[] words = StringUtilities.extractCamelWords(null);
@@ -97,6 +104,7 @@ public class StringUtilitiesTest extends DesignerTestCase {
 		}
 	}
 
+	@Test
 	public void test_indexOfFirstLowerCase() throws Exception {
 		assertEquals(-1, StringUtilities.indexOfFirstLowerCase(null));
 		assertEquals(-1, StringUtilities.indexOfFirstLowerCase(""));
@@ -105,6 +113,7 @@ public class StringUtilitiesTest extends DesignerTestCase {
 		assertEquals(-1, StringUtilities.indexOfFirstLowerCase("ABC"));
 	}
 
+	@Test
 	public void test_stripLeadingUppercaseChars() throws Exception {
 		assertEquals(null, StringUtilities.stripLeadingUppercaseChars(null, -1));
 		assertEquals("", StringUtilities.stripLeadingUppercaseChars("", -1));
@@ -118,6 +127,7 @@ public class StringUtilitiesTest extends DesignerTestCase {
 		assertEquals("AbcButton", StringUtilities.stripLeadingUppercaseChars("AbcButton", 2));
 	}
 
+	@Test
 	public void test_stripHtml() throws Exception {
 		assertEquals(null, StringUtilities.stripHtml(null));
 		assertEquals("", StringUtilities.stripHtml(""));
@@ -126,6 +136,7 @@ public class StringUtilitiesTest extends DesignerTestCase {
 		assertEquals("ac", StringUtilities.stripHtml("a<b attr=\"123\">c"));
 	}
 
+	@Test
 	public void test_deleteDuplicateCharacters() throws Exception {
 		assertEquals(null, StringUtilities.removeDuplicateCharacters(null));
 		assertEquals("", StringUtilities.removeDuplicateCharacters(""));
@@ -138,38 +149,46 @@ public class StringUtilitiesTest extends DesignerTestCase {
 	// getDifferenceIntervals()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getDifferenceIntervals_same() throws Exception {
 		assertIntervals(new int[]{4, 0, 4, 0}, StringUtilities.getDifferenceIntervals("0123", "0123"));
 	}
 
+	@Test
 	public void test_getDifferenceIntervals_inner() throws Exception {
 		assertIntervals(new int[]{1, 2, 1, 2}, StringUtilities.getDifferenceIntervals("0123", "0ab3"));
 	}
 
+	@Test
 	public void test_getDifferenceIntervals_inner2() throws Exception {
 		assertIntervals(
 				new int[]{2, 2, 2, 3},
 				StringUtilities.getDifferenceIntervals("0123456", "01abc456"));
 	}
 
+	@Test
 	public void test_getDifferenceIntervals_insert() throws Exception {
 		assertIntervals(
 				new int[]{3, 0, 3, 3},
 				StringUtilities.getDifferenceIntervals("0123", "012abc3"));
 	}
 
+	@Test
 	public void test_getDifferenceIntervals_end1() throws Exception {
 		assertIntervals(new int[]{3, 1, 3, 0}, StringUtilities.getDifferenceIntervals("0123", "012"));
 	}
 
+	@Test
 	public void test_getDifferenceIntervals_end2() throws Exception {
 		assertIntervals(new int[]{3, 0, 3, 1}, StringUtilities.getDifferenceIntervals("012", "0123"));
 	}
 
+	@Test
 	public void test_getDifferenceIntervals_begin1() throws Exception {
 		assertIntervals(new int[]{0, 1, 0, 0}, StringUtilities.getDifferenceIntervals("0123", "123"));
 	}
 
+	@Test
 	public void test_getDifferenceIntervals_begin2() throws Exception {
 		assertIntervals(new int[]{0, 0, 0, 1}, StringUtilities.getDifferenceIntervals("123", "0123"));
 	}
@@ -191,6 +210,7 @@ public class StringUtilitiesTest extends DesignerTestCase {
 	/**
 	 * Test for {@link StringUtilities#escapeJava(String)}.
 	 */
+	@Test
 	public void test_escapeJava() throws Exception {
 		assertEquals("a", StringUtilities.escapeJava("a"));
 		assertEquals("\\t", StringUtilities.escapeJava("\t"));
@@ -206,6 +226,7 @@ public class StringUtilitiesTest extends DesignerTestCase {
 	/**
 	 * Test for {@link StringUtilities#escapeForJavaSource(String)}.
 	 */
+	@Test
 	public void test_escapeForJavaSource() throws Exception {
 		assertEquals(null, StringUtilities.escapeForJavaSource(null));
 		assertEquals("abc", StringUtilities.escapeForJavaSource("abc"));
@@ -236,6 +257,7 @@ public class StringUtilitiesTest extends DesignerTestCase {
 	/**
 	 * Test for {@link StringUtilities#replace(String[], String, String)}.
 	 */
+	@Test
 	public void test_replace() throws Exception {
 		String[] source = {"my text", "some text"};
 		// replace
@@ -253,6 +275,7 @@ public class StringUtilitiesTest extends DesignerTestCase {
 	/**
 	 * Test for {@link StringUtilities#isLatinCharacter(char)}.
 	 */
+	@Test
 	public void test_isLatinCharacter() throws Exception {
 		assertTrue(StringUtilities.isLatinCharacter('A'));
 		assertTrue(StringUtilities.isLatinCharacter('P'));
@@ -268,6 +291,7 @@ public class StringUtilitiesTest extends DesignerTestCase {
 	/**
 	 * Test for {@link StringUtilities#removeNonLatinCharacters(String)}.
 	 */
+	@Test
 	public void test_removeNonLatinCharacters() throws Exception {
 		assertEquals("abc", StringUtilities.removeNonLatinCharacters("abc"));
 		assertEquals("ab", StringUtilities.removeNonLatinCharacters("a\u0410b"));

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.nebula;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.rcp.nebula.pshelf.PShelfInfo;
 import org.eclipse.wb.internal.rcp.nebula.pshelf.PShelfItemInfo;
@@ -43,6 +45,7 @@ public class PShelfTest extends AbstractNebulaTest {
 	/**
 	 * General test {@link PShelfInfo}.
 	 */
+	@Test
 	public void test_General() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

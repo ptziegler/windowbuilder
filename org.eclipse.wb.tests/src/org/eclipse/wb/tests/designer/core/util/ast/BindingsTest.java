@@ -9,7 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.ast;
-
 import static org.eclipse.wb.internal.core.utils.ast.AstNodeUtils.getFullyQualifiedName;
 import static org.eclipse.wb.internal.core.utils.ast.AstNodeUtils.getMethodBinding;
 import static org.eclipse.wb.internal.core.utils.ast.AstNodeUtils.getMethodBySignature;
@@ -39,6 +38,9 @@ import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.BeforeClass;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
@@ -57,7 +59,8 @@ public class BindingsTest extends AbstractJavaTest {
 	// Project creation
 	//
 	////////////////////////////////////////////////////////////////////////////
-	public void test_setUp() throws Exception {
+	@BeforeClass
+	public static void setUpClass() throws Exception {
 		do_projectCreate();
 	}
 
@@ -78,7 +81,9 @@ public class BindingsTest extends AbstractJavaTest {
 	/**
 	 * Object type.
 	 */
-	public void DISABLE_test_DesignerTypeBinding_1() throws Exception {
+	@Ignore
+	@Test
+	public void test_DesignerTypeBinding_1() throws Exception {
 		String code = "private java.util.List foo() {return null;}";
 		check_DesignerTypeBinding(code);
 	}
@@ -86,7 +91,9 @@ public class BindingsTest extends AbstractJavaTest {
 	/**
 	 * Primitive type.
 	 */
-	public void DISABLE_test_DesignerTypeBinding_2() throws Exception {
+	@Ignore
+	@Test
+	public void test_DesignerTypeBinding_2() throws Exception {
 		String code = "private int foo() {return 0;}";
 		check_DesignerTypeBinding(code);
 	}
@@ -94,7 +101,9 @@ public class BindingsTest extends AbstractJavaTest {
 	/**
 	 * Array type.
 	 */
-	public void DISABLE_test_DesignerTypeBinding_3() throws Exception {
+	@Ignore
+	@Test
+	public void test_DesignerTypeBinding_3() throws Exception {
 		String code = "private int[] foo() {return null;}";
 		check_DesignerTypeBinding(code);
 	}
@@ -102,7 +111,9 @@ public class BindingsTest extends AbstractJavaTest {
 	/**
 	 * Inner type.
 	 */
-	public void DISABLE_test_DesignerTypeBinding_4() throws Exception {
+	@Ignore
+	@Test
+	public void test_DesignerTypeBinding_4() throws Exception {
 		String code = "class Foo {} private Foo foo() {return null;}";
 		check_DesignerTypeBinding(code);
 	}
@@ -110,6 +121,7 @@ public class BindingsTest extends AbstractJavaTest {
 	/**
 	 * Our copy of {@link ITypeBinding} should implement {@link ITypeBinding#getDeclaredMethods()}.
 	 */
+	@Test
 	public void test_DesignerTypeBinding_getDeclaredMethods() throws Exception {
 		createTypeDeclaration_TestC(getSourceDQ(
 				"  // filler filler filler filler filler",
@@ -128,6 +140,7 @@ public class BindingsTest extends AbstractJavaTest {
 	/**
 	 * Our copy of {@link ITypeBinding} should implement {@link ITypeBinding#getTypeBounds()}.
 	 */
+	@Test
 	public void test_DesignerTypeBinding_getTypeBounds() throws Exception {
 		createTypeDeclaration_TestC(getSourceDQ(
 				"  // filler filler filler filler filler",
@@ -147,6 +160,7 @@ public class BindingsTest extends AbstractJavaTest {
 	 * Our copy of {@link ITypeBinding} should implement {@link ITypeBinding#getTypeArguments()},
 	 * {@link ITypeBinding#getTypeDeclaration()} and {@link ITypeBinding#getTypeParameters()}.
 	 */
+	@Test
 	public void test_DesignerTypeBinding_getTypeDeclaration() throws Exception {
 		createTypeDeclaration_TestC(getSourceDQ(
 				"  // filler filler filler filler filler",
@@ -212,6 +226,7 @@ public class BindingsTest extends AbstractJavaTest {
 	/**
 	 * Check different {@link DesignerTypeBinding} in {@link BindingContext} for anonymous classes.
 	 */
+	@Test
 	public void test_DesignerTypeBinding_anonymous() throws Exception {
 		createTypeDeclaration_TestC(getSourceDQ(
 				"  // filler filler filler filler filler",
@@ -234,6 +249,7 @@ public class BindingsTest extends AbstractJavaTest {
 	 * Check {@link DesignerTypeBinding} (arguments & etc.) in {@link BindingContext} for generic
 	 * instance classes.
 	 */
+	@Test
 	public void test_DesignerTypeBinding_generics() throws Exception {
 		createModelType(
 				"test",
@@ -288,7 +304,9 @@ public class BindingsTest extends AbstractJavaTest {
 	// DesignerPackageBinding
 	//
 	////////////////////////////////////////////////////////////////////////////
-	public void DISABLE_test_DesignerPackageBinding() throws Exception {
+	@Ignore
+	@Test
+	public void test_DesignerPackageBinding() throws Exception {
 		TypeDeclaration typeDeclaration = createTypeDeclaration_TestC("");
 		IPackageBinding originalBinding = typeDeclaration.resolveBinding().getPackage();
 		IPackageBinding ourBinding = m_lastEditor.getBindingContext().get(originalBinding);
@@ -306,7 +324,9 @@ public class BindingsTest extends AbstractJavaTest {
 	/**
 	 * Basic test for {@link DesignerMethodBinding}.
 	 */
-	public void DISABLE_test_DesignerMethodBinding_1() throws Exception {
+	@Ignore
+	@Test
+	public void test_DesignerMethodBinding_1() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestC(getSourceDQ("  private int foo() {", "    return 0;", "  }"));
 		MethodDeclaration methodDeclaration = typeDeclaration.getMethods()[0];
@@ -332,6 +352,7 @@ public class BindingsTest extends AbstractJavaTest {
 	/**
 	 * Basic test for {@link DesignerMethodBinding#getMethodDeclaration()}.
 	 */
+	@Test
 	public void test_DesignerMethodBinding_getMethodDeclaration() throws Exception {
 		createTypeDeclaration_TestC(getSourceDQ(
 				"// filler filler filler filler filler",
@@ -369,6 +390,7 @@ public class BindingsTest extends AbstractJavaTest {
 	 * Test for {@link IMethodBinding} with parameters and
 	 * {@link DesignerMethodBinding#removeParameterType(int)}.
 	 */
+	@Test
 	public void test_DesignerMethodBinding_removeParameterType() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestC(getSourceDQ(
@@ -390,7 +412,9 @@ public class BindingsTest extends AbstractJavaTest {
 	 * When we remove parameter from generic {@link IMethodBinding} we should also update its
 	 * {@link IMethodBinding#getMethodDeclaration()}.
 	 */
-	public void DISABLE_test_DesignerMethodBinding_removeParameterType_whenGenerics() throws Exception {
+	@Ignore
+	@Test
+	public void test_DesignerMethodBinding_removeParameterType_whenGenerics() throws Exception {
 		createTypeDeclaration_TestC(getSourceDQ(
 				"  // filler filler filler filler filler",
 				"  public <T extends java.util.List> void foo(int a, T b, double c) {",
@@ -420,7 +444,9 @@ public class BindingsTest extends AbstractJavaTest {
 	/**
 	 * Basic test for {@link DesignerVariableBinding}.
 	 */
-	public void DISABLE_test_DesignerVariableBinding_1() throws Exception {
+	@Ignore
+	@Test
+	public void test_DesignerVariableBinding_1() throws Exception {
 		TypeDeclaration typeDeclaration = createTypeDeclaration_TestC("private int m_value;");
 		FieldDeclaration fieldDeclaration = typeDeclaration.getFields()[0];
 		IVariableBinding originalBinding =
@@ -438,6 +464,7 @@ public class BindingsTest extends AbstractJavaTest {
 	/**
 	 * Test for "manual" constructor of {@link DesignerVariableBinding}.
 	 */
+	@Test
 	public void test_DesignerVariableBinding_2() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_TestC("private java.util.List m_value;");
@@ -470,7 +497,9 @@ public class BindingsTest extends AbstractJavaTest {
 	/**
 	 * Test for {@link BindingContext#getCopy(ITypeBinding)}.
 	 */
-	public void DISABLE_test_getCopy() throws Exception {
+	@Ignore
+	@Test
+	public void test_getCopy() throws Exception {
 		TypeDeclaration typeDeclaration =
 				createTypeDeclaration_Test(
 						"public class Test extends javax.swing.JFrame {",
@@ -483,16 +512,6 @@ public class BindingsTest extends AbstractJavaTest {
 		assertNotSame(typeBinding, typeBinding2);
 		// ...but with same properties
 		assert_sameTypeBindings(typeBinding, typeBinding2);
-	}
-
-	////////////////////////////////////////////////////////////////////////////
-	//
-	// Project disposing
-	//
-	////////////////////////////////////////////////////////////////////////////
-	@Override
-	public void test_tearDown() throws Exception {
-		do_projectDispose();
 	}
 
 	////////////////////////////////////////////////////////////////////////////

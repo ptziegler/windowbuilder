@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.databinding.swing;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.databinding.model.IObserveInfo;
 import org.eclipse.wb.internal.core.databinding.ui.ObserveType;
 import org.eclipse.wb.internal.core.utils.GenericsUtils;
@@ -33,6 +35,7 @@ public class GenericUtilsTest extends AbstractBindingTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getObjectType() throws Exception {
 		JPanelInfo shell =
 				DatabindingTestUtils.parseTestSource(this, new String[]{

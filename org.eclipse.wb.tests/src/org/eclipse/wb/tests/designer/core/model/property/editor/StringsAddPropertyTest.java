@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property.editor;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.configurable.StringsAddPropertyEditor;
 import org.eclipse.wb.internal.core.model.property.configurable.StringsAddPropertyFactory;
@@ -29,6 +31,7 @@ public class StringsAddPropertyTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_0() throws Exception {
 		createMyPanel();
 		setFileContentSrc(
@@ -82,6 +85,7 @@ public class StringsAddPropertyTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_removeMethods() throws Exception {
 		createMyPanel();
 		setFileContentSrc(

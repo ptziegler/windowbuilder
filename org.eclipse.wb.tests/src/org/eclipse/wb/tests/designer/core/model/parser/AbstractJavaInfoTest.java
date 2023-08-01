@@ -9,7 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.parser;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.internal.core.DesignerPlugin;
@@ -53,6 +52,8 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 import org.assertj.core.api.Assertions;
 import org.assertj.core.description.Description;
+import org.junit.After;
+import org.junit.Before;
 
 import java.util.List;
 
@@ -63,7 +64,8 @@ public class AbstractJavaInfoTest extends AbstractJavaInfoRelatedTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		m_ignoreCompilationProblems = false;
 		m_waitForAutoBuild = false;
@@ -82,7 +84,8 @@ public class AbstractJavaInfoTest extends AbstractJavaInfoRelatedTest {
 	}
 
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		disposeLastModel();
 		tearDown_afterLastModelDispose();
 		super.tearDown();
@@ -110,16 +113,6 @@ public class AbstractJavaInfoTest extends AbstractJavaInfoRelatedTest {
 			m_lastLoadingContext = null;
 		}
 		m_lastLoader = null;
-	}
-
-	////////////////////////////////////////////////////////////////////////////
-	//
-	// Project disposing
-	//
-	////////////////////////////////////////////////////////////////////////////
-	@Override
-	public void test_tearDown() throws Exception {
-		do_projectDispose();
 	}
 
 	////////////////////////////////////////////////////////////////////////////

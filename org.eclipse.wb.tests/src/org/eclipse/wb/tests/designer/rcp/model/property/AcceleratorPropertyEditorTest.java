@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.property;
+import org.junit.Before;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
@@ -30,7 +33,8 @@ public class AcceleratorPropertyEditorTest extends RcpModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		// prepare Control with "accelerator" property
 		setFileContentSrc(
@@ -63,6 +67,7 @@ public class AcceleratorPropertyEditorTest extends RcpModelTest {
 	/**
 	 * Test for <code>getText()</code>.
 	 */
+	@Test
 	public void test_getText_0() throws Exception {
 		CompositeInfo composite =
 				parseComposite(
@@ -78,6 +83,7 @@ public class AcceleratorPropertyEditorTest extends RcpModelTest {
 	/**
 	 * Test for <code>getText()</code>.
 	 */
+	@Test
 	public void test_getText_1() throws Exception {
 		CompositeInfo composite =
 				parseComposite(
@@ -94,6 +100,7 @@ public class AcceleratorPropertyEditorTest extends RcpModelTest {
 	/**
 	 * Test for <code>getText()</code>.
 	 */
+	@Test
 	public void test_getText_2() throws Exception {
 		dontConvertSingleQuotesToDouble();
 		CompositeInfo composite =
@@ -111,6 +118,7 @@ public class AcceleratorPropertyEditorTest extends RcpModelTest {
 	/**
 	 * Test for <code>getText()</code>.
 	 */
+	@Test
 	public void test_getText_3() throws Exception {
 		dontConvertSingleQuotesToDouble();
 		CompositeInfo composite =
@@ -128,6 +136,7 @@ public class AcceleratorPropertyEditorTest extends RcpModelTest {
 	/**
 	 * Test for <code>getText()</code>.
 	 */
+	@Test
 	public void test_getText_4() throws Exception {
 		CompositeInfo composite =
 				parseComposite(
@@ -146,6 +155,7 @@ public class AcceleratorPropertyEditorTest extends RcpModelTest {
 	// getSource()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_getSource() throws Exception {
 		// only key
 		{

@@ -9,7 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.gef;
-
 import org.eclipse.wb.gef.core.EditPart;
 import org.eclipse.wb.gef.core.tools.Tool;
 import org.eclipse.wb.internal.gef.core.EditDomain;
@@ -17,6 +16,9 @@ import org.eclipse.wb.internal.gef.graphical.GraphicalViewer;
 
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.widgets.Shell;
+
+import org.junit.After;
+import org.junit.Before;
 
 /**
  * @author lobas_av
@@ -30,20 +32,12 @@ public class RequestTestCase extends GefTestCase {
 
 	////////////////////////////////////////////////////////////////////////////
 	//
-	// Constructor
-	//
-	////////////////////////////////////////////////////////////////////////////
-	public RequestTestCase(Class<?> _class) {
-		super(_class);
-	}
-
-	////////////////////////////////////////////////////////////////////////////
-	//
 	// SetUp
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		//
 		m_shell = new Shell();
@@ -62,8 +56,8 @@ public class RequestTestCase extends GefTestCase {
 		m_sender = new EventSender(m_viewer.getControl());
 	}
 
-	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		m_shell.dispose();
 	}
 

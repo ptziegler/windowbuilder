@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.MigLayout;
+import org.junit.After;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.swing.MigLayout.Activator;
 import org.eclipse.wb.internal.swing.MigLayout.model.IPreferenceConstants;
@@ -34,7 +37,8 @@ public class MigLayoutAutoAlignmentTest extends AbstractMigLayoutTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		IPreferenceStore preferences = Activator.getDefault().getPreferenceStore();
 		preferences.setToDefault(IPreferenceConstants.P_ENABLE_GRAB);
 		preferences.setToDefault(IPreferenceConstants.P_ENABLE_RIGHT_ALIGNMENT);
@@ -58,6 +62,7 @@ public class MigLayoutAutoAlignmentTest extends AbstractMigLayoutTest {
 	/**
 	 * {@link JTextField} marked as required horizontal grab/fill.
 	 */
+	@Test
 	public void test_CREATE_Text() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -90,6 +95,7 @@ public class MigLayoutAutoAlignmentTest extends AbstractMigLayoutTest {
 	/**
 	 * Test that horizontal grab/fill for {@link JTextField} can be disabled.
 	 */
+	@Test
 	public void test_CREATE_Text_disabled() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -123,6 +129,7 @@ public class MigLayoutAutoAlignmentTest extends AbstractMigLayoutTest {
 	/**
 	 * For {@link JTable} marked as required horizontal/vertical grab/fill.
 	 */
+	@Test
 	public void test_CREATE_Table() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -155,6 +162,7 @@ public class MigLayoutAutoAlignmentTest extends AbstractMigLayoutTest {
 	 * {@link JLabel} is marked as "right" aligned and next widget is {@link JTextField}, so when add
 	 * {@link JLabel} before {@link JTextField}, use "right" alignment.
 	 */
+	@Test
 	public void test_CREATE_LabelBeforeText() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -194,6 +202,7 @@ public class MigLayoutAutoAlignmentTest extends AbstractMigLayoutTest {
 	/**
 	 * Check that automatic "right alignment" feature for {@link JLabel} can be disabled.
 	 */
+	@Test
 	public void test_CREATE_LabelBeforeText_disabled() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -237,6 +246,7 @@ public class MigLayoutAutoAlignmentTest extends AbstractMigLayoutTest {
 	 * {@link JLabel} is marked as "right" aligned and next widget is {@link JTextField}, so when add
 	 * {@link JTextField} after {@link JLabel} , use "right" alignment for {@link JLabel}.
 	 */
+	@Test
 	public void test_CREATE_TextAfterLabel() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

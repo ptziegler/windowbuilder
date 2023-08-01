@@ -9,6 +9,8 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing;
+import org.junit.Before;
+import org.junit.After;
 
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.gef.core.tools.CreationTool;
@@ -38,7 +40,8 @@ public class SwingGefTest extends DesignerEditorTestCase {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		configureDefaults(org.eclipse.wb.internal.swing.ToolkitProvider.DESCRIPTION);
 		if (m_testProject == null) {
@@ -55,7 +58,8 @@ public class SwingGefTest extends DesignerEditorTestCase {
 	}
 
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		configureDefaults();
 		super.tearDown();
 	}

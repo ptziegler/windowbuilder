@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.layout.grid;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.gef.policy.selection.NonResizableSelectionEditPolicy;
 import org.eclipse.wb.draw2d.IPositionConstants;
 import org.eclipse.wb.gef.core.policies.EditPolicy;
@@ -58,6 +60,7 @@ public class GridLayoutGefTest extends XwtGefTest {
 	 * ancestor resize event, so tries to update {@link Handle} location. However at this time
 	 * component may be already deleted, so we can not ask for its cell/bounds.
 	 */
+	@Test
 	public void test_deleteChildAndAncestorResize() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -102,6 +105,7 @@ public class GridLayoutGefTest extends XwtGefTest {
 	 * When user externally (not using design canvas) changes "numColumns", we should recalculate
 	 * positions of controls, in other case we will have incorrect count of column/row headers.
 	 */
+	@Test
 	public void test_change_numColumns() throws Exception {
 		CompositeInfo shell =
 				openEditor(
@@ -140,6 +144,7 @@ public class GridLayoutGefTest extends XwtGefTest {
 	 * When user marks {@link Control} as excluded, we should not use {@link GridSelectionEditPolicy}
 	 * for it.
 	 */
+	@Test
 	public void test_markAsExcluded() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -179,6 +184,7 @@ public class GridLayoutGefTest extends XwtGefTest {
 	// Size hint
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_setSizeHint_width() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -206,6 +212,7 @@ public class GridLayoutGefTest extends XwtGefTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_setSizeHint_height() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -238,6 +245,7 @@ public class GridLayoutGefTest extends XwtGefTest {
 	// CREATE
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_CREATE_filled() throws Exception {
 		CompositeInfo composite =
 				openEditor(
@@ -254,6 +262,7 @@ public class GridLayoutGefTest extends XwtGefTest {
 		canvas.assertCommandNull();
 	}
 
+	@Test
 	public void test_CREATE_virtual_0x0() throws Exception {
 		CompositeInfo composite =
 				openEditor(
@@ -277,6 +286,7 @@ public class GridLayoutGefTest extends XwtGefTest {
 				"</Composite>");
 	}
 
+	@Test
 	public void test_CREATE_virtual_0x1() throws Exception {
 		CompositeInfo composite =
 				openEditor(
@@ -301,6 +311,7 @@ public class GridLayoutGefTest extends XwtGefTest {
 				"</Composite>");
 	}
 
+	@Test
 	public void test_CREATE_appendToColumn_1x0() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -326,6 +337,7 @@ public class GridLayoutGefTest extends XwtGefTest {
 				"</Composite>");
 	}
 
+	@Test
 	public void test_CREATE_appendToRow_0x1() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -351,6 +363,7 @@ public class GridLayoutGefTest extends XwtGefTest {
 				"</Composite>");
 	}
 
+	@Test
 	public void test_CREATE_beforeFirstRow() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -376,6 +389,7 @@ public class GridLayoutGefTest extends XwtGefTest {
 				"</Composite>");
 	}
 
+	@Test
 	public void test_CREATE_beforeFirstColumn() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -401,6 +415,7 @@ public class GridLayoutGefTest extends XwtGefTest {
 				"</Composite>");
 	}
 
+	@Test
 	public void test_CREATE_insertColumn() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -428,6 +443,7 @@ public class GridLayoutGefTest extends XwtGefTest {
 				"</Composite>");
 	}
 
+	@Test
 	public void test_CREATE_insertRow() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -460,6 +476,7 @@ public class GridLayoutGefTest extends XwtGefTest {
 	// PASTE
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_PASTE_virtual_1x0() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -490,6 +507,7 @@ public class GridLayoutGefTest extends XwtGefTest {
 	// MOVE
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_MOVE_virtual_1x0() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -515,6 +533,7 @@ public class GridLayoutGefTest extends XwtGefTest {
 				"</Composite>");
 	}
 
+	@Test
 	public void test_ADD_virtual_0x0() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.core.model.broadcast.ObjectInfoChildGraphical;
 import org.eclipse.wb.core.model.broadcast.ObjectInfoChildTree;
@@ -32,6 +34,7 @@ public class DefaultObjectPresentationTest extends DesignerTestCase {
 	/**
 	 * Test for {@link IObjectPresentation#getIcon()}.
 	 */
+	@Test
 	public void test_getIcon() throws Exception {
 		ObjectInfo parent = new TestObjectInfo();
 		assertNull(parent.getPresentation().getIcon());
@@ -40,6 +43,7 @@ public class DefaultObjectPresentationTest extends DesignerTestCase {
 	/**
 	 * Test for {@link IObjectPresentation#getChildrenTree()}.
 	 */
+	@Test
 	public void test_getChildrenTree() throws Exception {
 		ObjectInfo parent = new TestObjectInfo();
 		ObjectInfo child_1 = new TestObjectInfo("1");
@@ -69,6 +73,7 @@ public class DefaultObjectPresentationTest extends DesignerTestCase {
 	 * <p>
 	 * Using {@link ObjectInfoChildrenTree}.
 	 */
+	@Test
 	public void test_getChildrenTree_childrenBroadcast() throws Exception {
 		ObjectInfo parent = new TestObjectInfo();
 		final ObjectInfo child_1 = new TestObjectInfo("1");
@@ -93,6 +98,7 @@ public class DefaultObjectPresentationTest extends DesignerTestCase {
 	/**
 	 * Test for {@link IObjectPresentation#getChildrenGraphical()}.
 	 */
+	@Test
 	public void test_getChildrenGraphical() throws Exception {
 		ObjectInfo parent = new TestObjectInfo();
 		ObjectInfo child_1 = new TestObjectInfo("1");
@@ -122,6 +128,7 @@ public class DefaultObjectPresentationTest extends DesignerTestCase {
 	 * <p>
 	 * Using {@link ObjectInfoChildrenGraphical}.
 	 */
+	@Test
 	public void test_getChildrenGraphical_childrenBroadcast() throws Exception {
 		ObjectInfo parent = new TestObjectInfo();
 		final ObjectInfo child_1 = new TestObjectInfo("1");

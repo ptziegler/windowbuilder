@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.util.generic;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.category.PropertyCategory;
 import org.eclipse.wb.internal.core.model.util.generic.CopyPropertyTopSupport;
@@ -37,6 +39,7 @@ public class CopyPropertyTopTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_copyExisting() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -76,6 +79,7 @@ public class CopyPropertyTopTest extends SwingModelTest {
 		assertSame(property, button.getPropertyByTitle("MyButtonText"));
 	}
 
+	@Test
 	public void test_ignoreNotExisting() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",

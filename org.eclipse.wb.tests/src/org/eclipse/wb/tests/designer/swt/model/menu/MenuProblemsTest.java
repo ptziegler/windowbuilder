@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.menu;
 
+import org.junit.Test;
+
 import org.eclipse.wb.gef.core.EditPart;
 import org.eclipse.wb.gef.graphical.GraphicalEditPart;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
@@ -43,6 +45,7 @@ public class MenuProblemsTest extends RcpGefTest {
 	 * When form has component that requires executing "async" runnables, this may interfere with
 	 * menu.
 	 */
+	@Test
 	public void test_AsyncMessagesSupport_andMenuGEF() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",
@@ -119,6 +122,7 @@ public class MenuProblemsTest extends RcpGefTest {
 	 *
 	 * @throws Exception
 	 */
+	@Test
 	public void test_cascadeSubMenu_andRCP() throws Exception {
 		CompositeInfo shellInfo =
 				openComposite(
@@ -166,6 +170,7 @@ public class MenuProblemsTest extends RcpGefTest {
 	 * This case is not problem, because {@link EditPart} for {@link MenuInfo} is first, so we click
 	 * it.
 	 */
+	@Test
 	public void test_TableColumn_PopupMenu_menuFirst() throws Exception {
 		check_TableColumn_PopupMenu(
 				"public class Test extends Shell {",
@@ -191,6 +196,7 @@ public class MenuProblemsTest extends RcpGefTest {
 	 * {@link EditPart} of {@link MenuInfo} is second, so we should place it on menu primary layer to
 	 * make it above {@link TableColumnInfo}.
 	 */
+	@Test
 	public void test_TableColumn_PopupMenu_menuSecond() throws Exception {
 		check_TableColumn_PopupMenu(
 				"public class Test extends Shell {",

@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
+import org.junit.After;
+
+import org.junit.Test;
 
 import com.google.common.collect.Lists;
 
@@ -65,7 +68,8 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		super.tearDown();
 		preferences.setToDefault(IPreferenceConstants.PREF_FIELD_USUAL_CODE);
 	}
@@ -87,6 +91,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 	/**
 	 * Parse with implicit {@link FieldEditorPreferencePage#FLAT} flag.
 	 */
+	@Test
 	public void test_FLATimplicit() throws Exception {
 		FieldEditorPreferencePageInfo page =
 				parseJavaInfo(
@@ -136,6 +141,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 	/**
 	 * Parse with explicit {@link FieldEditorPreferencePage#FLAT} flag.
 	 */
+	@Test
 	public void test_FLATexplicit() throws Exception {
 		FieldEditorPreferencePageInfo page =
 				parseJavaInfo(
@@ -169,6 +175,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 	/**
 	 * Parse with {@link FieldEditorPreferencePage#GRID} flag.
 	 */
+	@Test
 	public void test_GRID() throws Exception {
 		FieldEditorPreferencePageInfo page =
 				parseJavaInfo(
@@ -220,6 +227,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 	 * {@link RadioGroupFieldEditor} consists of several {@link Control}'s, including
 	 * {@link Composite}. We should correctly handle this case.
 	 */
+	@Test
 	public void test_complexFieldEditor_bounds() throws Exception {
 		FieldEditorPreferencePageInfo page =
 				parseJavaInfo(
@@ -255,6 +263,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 	/**
 	 * Test for {@link IntegerFieldEditor} properties.
 	 */
+	@Test
 	public void test_IntegerFieldEditor_properties() throws Exception {
 		FieldEditorPreferencePageInfo page =
 				parseJavaInfo(
@@ -291,6 +300,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 	 * Root is {@link FieldEditorPreferencePageInfo}.<br>
 	 * "System" and "FieldEditors" categories should be visible, and all other - invisible.
 	 */
+	@Test
 	public void test_paletteTweaks_1() throws Exception {
 		FieldEditorPreferencePageInfo page =
 				parseJavaInfo(
@@ -328,6 +338,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 	 * Root is <b>not</b> {@link FieldEditorPreferencePageInfo}.<br>
 	 * "FieldEditors" category should be NOT visible, and all other - untouched.
 	 */
+	@Test
 	public void test_paletteTweaks_2() throws Exception {
 		JavaInfo javaInfo =
 				parseJavaInfo(
@@ -371,6 +382,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 	 * .<br>
 	 * Before some existing {@link FieldEditorInfo}.
 	 */
+	@Test
 	public void test_CREATE_1() throws Exception {
 		FieldEditorPreferencePageInfo page =
 				parseJavaInfo(
@@ -405,6 +417,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 	 * .<br>
 	 * As last {@link FieldEditorInfo}.
 	 */
+	@Test
 	public void test_CREATE_2() throws Exception {
 		FieldEditorPreferencePageInfo page =
 				parseJavaInfo(
@@ -439,6 +452,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 	 * <p>
 	 * Users asked for "usual" code generation, with variables and fields
 	 */
+	@Test
 	public void test_CREATE_withControlCodeStyle() throws Exception {
 		FieldEditorPreferencePageInfo page =
 				parseJavaInfo(
@@ -474,6 +488,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 	 * Move {@link FieldEditorInfo} with {@link EmptyVariableSupport}, should just move
 	 * {@link Statement}.
 	 */
+	@Test
 	public void test_MOVE_1() throws Exception {
 		FieldEditorPreferencePageInfo page =
 				parseJavaInfo(
@@ -508,6 +523,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 	 * Test for {@link FieldEditorPreferencePageInfo#command_MOVE(FieldEditorInfo, FieldEditorInfo)}.<br>
 	 * Move {@link FieldEditorInfo} with "real" {@link VariableSupport}, should do general move.
 	 */
+	@Test
 	public void test_MOVE_2() throws Exception {
 		FieldEditorPreferencePageInfo page =
 				parseJavaInfo(
@@ -547,6 +563,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 	 * Test for {@link FieldEditorPreferencePageInfo#command_MOVE(FieldEditorInfo, FieldEditorInfo)}.<br>
 	 * Move to last.
 	 */
+	@Test
 	public void test_MOVE_3() throws Exception {
 		FieldEditorPreferencePageInfo page =
 				parseJavaInfo(
@@ -584,6 +601,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 	 * require some "real" {@link VariableSupport}, so to keep code good we should move
 	 * {@link Statement} into {@link Block}.
 	 */
+	@Test
 	public void test_convertToBlock() throws Exception {
 		FieldEditorPreferencePageInfo page =
 				parseJavaInfo(
@@ -623,6 +641,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 	/**
 	 * Test for {@link FieldEditorInfo} copy/paste.
 	 */
+	@Test
 	public void test_copyPaste() throws Exception {
 		FieldEditorPreferencePageInfo page =
 				parseJavaInfo(
@@ -667,6 +686,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 	 * Mostly for {@link FieldEditorSubComponentCreationSupport} and
 	 * {@link FieldEditorSubComponentVariableSupport}.
 	 */
+	@Test
 	public void test_subComponents_0() throws Exception {
 		FieldEditorPreferencePageInfo page =
 				parseJavaInfo(
@@ -748,6 +768,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 	 * Test for exposed sub-components of {@link FieldEditorInfo}.<br>
 	 * Materializing sub-component on property change.
 	 */
+	@Test
 	public void test_subComponents_1() throws Exception {
 		FieldEditorPreferencePageInfo page =
 				parseJavaInfo(
@@ -808,6 +829,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 	 * Materializing sub-component on property change.<br>
 	 * Even if {@link FieldEditor} is not in {@link Block}.
 	 */
+	@Test
 	public void test_subComponents_2() throws Exception {
 		FieldEditorPreferencePageInfo page =
 				parseJavaInfo(
@@ -846,6 +868,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 	 * Test for exposed sub-components of {@link FieldEditorInfo}.<br>
 	 * Parse materialized sub-components.
 	 */
+	@Test
 	public void test_subComponents_3() throws Exception {
 		FieldEditorPreferencePageInfo page =
 				parseJavaInfo(
@@ -904,6 +927,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 	 * Test for exposed sub-components of {@link FieldEditorInfo}.<br>
 	 * Copy/paste materialized sub-components.
 	 */
+	@Test
 	public void test_subComponents_4() throws Exception {
 		FieldEditorPreferencePageInfo page =
 				parseJavaInfo(
@@ -964,6 +988,7 @@ public class FieldEditorPreferencePageTest extends RcpModelTest {
 	 * {@link FieldEditorInfo}, but relative to its parent (as {@link FieldEditorInfo} itself). Not
 	 * big problem right now, because we don't show these sub-component on design canvas...
 	 */
+	@Test
 	public void test_subComponents_5() throws Exception {
 		FieldEditorPreferencePageInfo page =
 				parseJavaInfo(

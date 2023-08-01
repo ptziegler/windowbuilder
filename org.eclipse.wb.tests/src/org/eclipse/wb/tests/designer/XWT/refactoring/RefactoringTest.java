@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.refactoring;
 
+import org.junit.Test;
+
 import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
 import org.eclipse.wb.tests.designer.core.RefactoringTestUtils;
 
@@ -36,6 +38,7 @@ public class RefactoringTest extends XwtModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_renameEventListenerMethod() throws Exception {
 		setFileContentSrc(
 				"test/Test.java",

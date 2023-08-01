@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.palette.ui;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.controls.palette.PaletteComposite;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.core.xml.editor.palette.PaletteEventListener;
@@ -61,6 +63,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 	/**
 	 * Touch no-op implementations of {@link PaletteEventListener}.
 	 */
+	@Test
 	public void test_PaletteEventListener() throws Exception {
 		PaletteEventListener listener = new PaletteEventListener() {
 		};
@@ -69,6 +72,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 		listener.entries(null, null);
 	}
 
+	@Test
 	public void test_restorePalette() throws Exception {
 		openEditor("<Shell/>");
 		// remove "System"
@@ -113,6 +117,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 	/**
 	 * Test for configuring palette settings.
 	 */
+	@Test
 	public void test_settings() throws Exception {
 		openEditor("<Shell/>");
 		// animate dialog
@@ -137,6 +142,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 	// Category
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_addCategory_beforeFirst() throws Exception {
 		openEditor("<Shell/>");
 		// use "System" as target
@@ -175,6 +181,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 		}
 	}
 
+	@Test
 	public void test_addCategory_asLast() throws Exception {
 		openEditor("<Shell/>");
 		// animate dialog
@@ -205,6 +212,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 		}
 	}
 
+	@Test
 	public void test_editCategory() throws Exception {
 		openEditor("<Shell/>");
 		// use "System" as target
@@ -236,6 +244,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 		assertEquals("System2", category.getName());
 	}
 
+	@Test
 	public void test_removeCategory() throws Exception {
 		openEditor("<Shell/>");
 		// use "System" as target
@@ -269,6 +278,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 	// Component
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_addComponent() throws Exception {
 		openEditor("<Shell/>");
 		// use "System" as target
@@ -313,6 +323,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 		}
 	}
 
+	@Test
 	public void test_editComponent() throws Exception {
 		openEditor("<Shell/>");
 		// add Button component to "System" and use it as target
@@ -389,6 +400,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 		});
 	}
 
+	@Test
 	public void test_removeEntry() throws Exception {
 		openEditor("<Shell/>");
 		// use "System" as target
@@ -420,6 +432,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 		Assertions.assertThat(entry.getName()).isNotEqualTo("Selection");
 	}
 
+	@Test
 	public void test_paletteManager_dragEntry_onCategory() throws Exception {
 		openEditor("<Shell/>");
 		// animate dialog
@@ -453,6 +466,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 		assertEquals("Selection", entries.get(entries.size() - 1).getName());
 	}
 
+	@Test
 	public void test_paletteManager_dragEntry_beforeOther() throws Exception {
 		openEditor("<Shell/>");
 		// animate dialog
@@ -485,6 +499,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 		assertEquals("Selection", entries.get(1).getName());
 	}
 
+	@Test
 	public void test_paletteManager_dragEntry_afterOther() throws Exception {
 		openEditor("<Shell/>");
 		// animate dialog
@@ -522,6 +537,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 	// Palette manager dialog
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_paletteManager_filter() throws Exception {
 		openEditor("<Shell/>");
 		// animate dialog
@@ -558,6 +574,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 		});
 	}
 
+	@Test
 	public void test_paletteManager_expandCollapse() throws Exception {
 		openEditor("<Shell/>");
 		// animate dialog
@@ -587,6 +604,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 		});
 	}
 
+	@Test
 	public void test_paletteManager_dragCategory() throws Exception {
 		openEditor("<Shell/>");
 		// animate dialog
@@ -618,6 +636,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 		assertEquals("System", m_paletteManager.getPalette().getCategories().get(1).getName());
 	}
 
+	@Test
 	public void test_paletteManager_addCategory() throws Exception {
 		openEditor("<Shell/>");
 		// animate dialog
@@ -670,6 +689,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 		}
 	}
 
+	@Test
 	public void test_paletteManager_addComponent() throws Exception {
 		openEditor("<Shell/>");
 		// animate dialog
@@ -729,6 +749,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 		}
 	}
 
+	@Test
 	public void test_paletteManager_editCategory() throws Exception {
 		openEditor("<Shell/>");
 		// animate dialog
@@ -778,6 +799,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 		}
 	}
 
+	@Test
 	public void test_paletteManager_editComponent() throws Exception {
 		openEditor("<Shell/>");
 		// animate dialog
@@ -829,6 +851,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 		}
 	}
 
+	@Test
 	public void test_paletteManager_moveCategory() throws Exception {
 		openEditor("<Shell/>");
 		// animate dialog
@@ -865,6 +888,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 		}
 	}
 
+	@Test
 	public void test_paletteManager_moveEntry() throws Exception {
 		openEditor("<Shell/>");
 		// animate dialog
@@ -902,6 +926,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 		}
 	}
 
+	@Test
 	public void test_paletteManager_removeCategory() throws Exception {
 		openEditor("<Shell/>");
 		// animate dialog
@@ -950,6 +975,7 @@ public class PaletteUiTest extends AbstractPaletteUiTest {
 		}
 	}
 
+	@Test
 	public void test_paletteManager_removeEntry() throws Exception {
 		openEditor("<Shell/>");
 		// animate dialog

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.component;
 
+import org.junit.Test;
+
 import com.google.common.collect.ImmutableList;
 
 import org.eclipse.wb.internal.core.model.property.Property;
@@ -53,6 +55,7 @@ public class JTableTest extends SwingModelTest {
 	/**
 	 * We should ignore {@link TableModel} from inner class.
 	 */
+	@Test
 	public void test_evaluate_innerTableModel() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -75,6 +78,7 @@ public class JTableTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_evaluate_valuesAndColumns() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -127,6 +131,7 @@ public class JTableTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_evaluate_anonymous_noColumnClass() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -172,6 +177,7 @@ public class JTableTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_evaluate_anonymous_withColumnClass() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -231,6 +237,7 @@ public class JTableTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_evaluate_anonymous_withColumnEditable() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -282,6 +289,7 @@ public class JTableTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_evaluate_getColumnModel_invocations() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -318,6 +326,7 @@ public class JTableTest extends SwingModelTest {
 	// Editor
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_editor_getText_noModel() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -338,6 +347,7 @@ public class JTableTest extends SwingModelTest {
 		}
 	}
 
+	@Test
 	public void test_editor_getText_someModel() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -376,6 +386,7 @@ public class JTableTest extends SwingModelTest {
 	/**
 	 * Simple case. String values and column names.
 	 */
+	@Test
 	public void test_TableModelDescription_simple() throws Exception {
 		JTable table;
 		{
@@ -423,6 +434,7 @@ public class JTableTest extends SwingModelTest {
 	/**
 	 * Simple case. No column/values.
 	 */
+	@Test
 	public void test_TableModelDescription_noValues() throws Exception {
 		JTable table;
 		{
@@ -452,6 +464,7 @@ public class JTableTest extends SwingModelTest {
 	/**
 	 * Test various types of values.
 	 */
+	@Test
 	public void test_TableModelDescription_valueTypes() throws Exception {
 		JTable table;
 		{
@@ -498,6 +511,7 @@ public class JTableTest extends SwingModelTest {
 	/**
 	 * Test for properties of column in {@link TableColumnModel}.
 	 */
+	@Test
 	public void test_TableModelDescription_columnProperties() throws Exception {
 		JTable table;
 		{
@@ -582,6 +596,7 @@ public class JTableTest extends SwingModelTest {
 	/**
 	 * Test for type of column in {@link TableColumnModel}.
 	 */
+	@Test
 	public void test_TableModelDescription_getColumnClass() throws Exception {
 		JTable table;
 		{
@@ -645,6 +660,7 @@ public class JTableTest extends SwingModelTest {
 	/**
 	 * Test for {@link TableModelDescription#insertColumn(int)}.
 	 */
+	@Test
 	public void test_TableModelDescription_insertColumn() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -694,6 +710,7 @@ public class JTableTest extends SwingModelTest {
 	/**
 	 * Test for {@link TableModelDescription#removeColumn(int)}.
 	 */
+	@Test
 	public void test_TableModelDescription_removeColumn() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -742,6 +759,7 @@ public class JTableTest extends SwingModelTest {
 	/**
 	 * Test for {@link TableModelDescription#setColumnCount(int)}.
 	 */
+	@Test
 	public void test_TableModelDescription_setColumnCount() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -809,6 +827,7 @@ public class JTableTest extends SwingModelTest {
 	/**
 	 * Test for {@link TableModelDescription#moveColumn(int, int)}.
 	 */
+	@Test
 	public void test_TableModelDescription_moveColumn() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -901,6 +920,7 @@ public class JTableTest extends SwingModelTest {
 	/**
 	 * Test for {@link TableModelDescription#setColumnType(int, Class)}.
 	 */
+	@Test
 	public void test_TableModelDescription_setColumnType() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -962,6 +982,7 @@ public class JTableTest extends SwingModelTest {
 	/**
 	 * Test for {@link TableModelDescription#insertRow(int)}.
 	 */
+	@Test
 	public void test_TableModelDescription_insertRow() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1011,6 +1032,7 @@ public class JTableTest extends SwingModelTest {
 	/**
 	 * Test for {@link TableModelDescription#removeRow(int)}.
 	 */
+	@Test
 	public void test_TableModelDescription_removeRow() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1060,6 +1082,7 @@ public class JTableTest extends SwingModelTest {
 	/**
 	 * Test for {@link TableModelDescription#setRowCount(int)}.
 	 */
+	@Test
 	public void test_TableModelDescription_setRowCount() throws Exception {
 		ContainerInfo panel =
 				parseContainer(
@@ -1126,6 +1149,7 @@ public class JTableTest extends SwingModelTest {
 	/**
 	 * Test for {@link TableModelDescription#moveRow(int, int)}.
 	 */
+	@Test
 	public void test_TableModelDescription_moveRow() throws Exception {
 		ContainerInfo panel =
 				parseContainer(

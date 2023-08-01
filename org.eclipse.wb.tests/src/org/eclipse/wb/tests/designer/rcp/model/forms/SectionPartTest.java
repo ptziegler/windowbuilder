@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.forms;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.rcp.model.forms.SectionInfo;
@@ -40,6 +42,7 @@ public class SectionPartTest extends AbstractFormsTest {
 	// Design SectionPart
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_withFormToolkit() throws Exception {
 		SectionPartInfo part =
 				parseJavaInfo(
@@ -74,6 +77,7 @@ public class SectionPartTest extends AbstractFormsTest {
 	/**
 	 * We should not be too strict and should allow additional parameters in constructor.
 	 */
+	@Test
 	public void test_additionalConstructorParameter() throws Exception {
 		SectionPartInfo part =
 				parseJavaInfo(
@@ -102,6 +106,7 @@ public class SectionPartTest extends AbstractFormsTest {
 	/**
 	 * Test for disposing {@link Font} of {@link SectionInfo} (should not happen).
 	 */
+	@Test
 	public void test_disposing() throws Exception {
 		SectionPartInfo part =
 				parseJavaInfo(
@@ -128,6 +133,7 @@ public class SectionPartTest extends AbstractFormsTest {
 		}
 	}
 
+	@Test
 	public void test_withFormPage() throws Exception {
 		parseJavaInfo(
 				"public class Test extends SectionPart {",
@@ -160,6 +166,7 @@ public class SectionPartTest extends AbstractFormsTest {
 	// Use SectionPart
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_useSectionPart() throws Exception {
 		setFileContentSrc(
 				"test/MySectionPart.java",
@@ -192,6 +199,7 @@ public class SectionPartTest extends AbstractFormsTest {
 		assertNoErrors(shell);
 	}
 
+	@Test
 	public void test_liveImage() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -206,6 +214,7 @@ public class SectionPartTest extends AbstractFormsTest {
 		assertNotNull(newSection.getImage());
 	}
 
+	@Test
 	public void test_CREATE() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
@@ -231,6 +240,7 @@ public class SectionPartTest extends AbstractFormsTest {
 				"}");
 	}
 
+	@Test
 	public void test_CREATE_withToolkit() throws Exception {
 		CompositeInfo shell =
 				parseComposite(

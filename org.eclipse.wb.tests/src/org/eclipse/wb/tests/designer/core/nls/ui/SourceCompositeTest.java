@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.nls.ui;
 
+import org.junit.Test;
+
 import org.eclipse.wb.core.controls.CTableCombo;
 import org.eclipse.wb.internal.core.model.property.GenericProperty;
 import org.eclipse.wb.internal.core.nls.edit.IEditableSource;
@@ -111,6 +113,7 @@ public class SourceCompositeTest extends AbstractDialogTest {
 	// Context menu
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_contextMenu_removeLocale() throws Exception {
 		setFileContentSrc(
 				"test/messages.properties",
@@ -189,6 +192,7 @@ public class SourceCompositeTest extends AbstractDialogTest {
 		assertFalse(getFileSrc("test/messages_it.properties").exists());
 	}
 
+	@Test
 	public void test_contextMenu_internalizeKey() throws Exception {
 		setFileContentSrc("test/messages.properties", getSourceDQ("frame.title=My JFrame"));
 		waitForAutoBuild();
@@ -262,6 +266,7 @@ public class SourceCompositeTest extends AbstractDialogTest {
 		assertFalse(getFileContentSrc("test/messages.properties").contains("frame.title"));
 	}
 
+	@Test
 	public void test_contextMenu_addLocale() throws Exception {
 		setFileContentSrc("test/messages.properties", getSourceDQ("frame.title=My JFrame"));
 		waitForAutoBuild();
@@ -320,6 +325,7 @@ public class SourceCompositeTest extends AbstractDialogTest {
 		assertTrue(getFileSrc("test/messages_it.properties").exists());
 	}
 
+	@Test
 	public void test_contextMenu_addLocaleWithButton() throws Exception {
 		setFileContentSrc("test/messages.properties", getSourceDQ("frame.title=My JFrame"));
 		waitForAutoBuild();
@@ -371,6 +377,7 @@ public class SourceCompositeTest extends AbstractDialogTest {
 	// SourceComposite
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_SourceComposite_edit() throws Exception {
 		setFileContentSrc("test/messages.properties", getSourceDQ("frame.title=My JFrame"));
 		setFileContentSrc("test/messages_it.properties", getSourceDQ(""));
@@ -459,6 +466,7 @@ public class SourceCompositeTest extends AbstractDialogTest {
 		});
 	}
 
+	@Test
 	public void test_SourceComposite_update_externalize() throws Exception {
 		setFileContentSrc("test/messages.properties", getSourceDQ("frame.title=My JFrame"));
 		waitForAutoBuild();
@@ -505,6 +513,7 @@ public class SourceCompositeTest extends AbstractDialogTest {
 		});
 	}
 
+	@Test
 	public void test_SourceComposite_update_renameOver() throws Exception {
 		setFileContentSrc(
 				"test/messages.properties",
@@ -561,6 +570,7 @@ public class SourceCompositeTest extends AbstractDialogTest {
 		});
 	}
 
+	@Test
 	public void test_SourceComposite_onlyCurrentForm() throws Exception {
 		setFileContentSrc(
 				"test/messages.properties",
@@ -602,6 +612,7 @@ public class SourceCompositeTest extends AbstractDialogTest {
 		});
 	}
 
+	@Test
 	public void test_SourceComposite_navigation() throws Exception {
 		setFileContentSrc(
 				"test/messages.properties",

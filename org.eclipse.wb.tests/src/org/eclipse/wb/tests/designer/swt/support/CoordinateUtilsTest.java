@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.support;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.EnvironmentUtils;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
@@ -47,7 +50,9 @@ public class CoordinateUtilsTest extends RcpModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	// Disabled because of https://github.com/eclipse-windowbuilder/windowbuilder/issues/389
-	public void DISABLE_test_1() throws Exception {
+	@Ignore
+	@Test
+	public void test_1() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
 						"public class Test extends Shell {",
@@ -94,7 +99,9 @@ public class CoordinateUtilsTest extends RcpModelTest {
 	/**
 	 * Test for {@link CoordinateUtils#getClientAreaInsets2(Object)} for {@link Group}.
 	 */
-	public void DISABLE_test_withGroup() throws Exception {
+	@Ignore
+	@Test
+	public void test_withGroup() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
 						"public class Test extends Shell {",

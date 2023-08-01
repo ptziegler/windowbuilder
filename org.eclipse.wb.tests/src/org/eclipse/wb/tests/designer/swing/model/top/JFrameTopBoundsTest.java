@@ -9,6 +9,9 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.top;
+import org.junit.Ignore;
+
+import org.junit.Test;
 
 import org.eclipse.wb.draw2d.IPositionConstants;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
@@ -52,6 +55,7 @@ public class JFrameTopBoundsTest extends SwingGefTest {
 	/**
 	 * Size in properties of {@link IResource}.
 	 */
+	@Test
 	public void test_defaultSize() throws Exception {
 		Dimension oldSize = new Dimension(450, 300);
 		Dimension resizeSize = new Dimension(350, 200);
@@ -63,6 +67,7 @@ public class JFrameTopBoundsTest extends SwingGefTest {
 	/**
 	 * If {@link JFrame} has big size, which was set in superclass, then use this size.
 	 */
+	@Test
 	public void test_JFrame_bigSize_setInSuperclass() throws Exception {
 		setFileContentSrc(
 				"test/MyBigFrame.java",
@@ -91,6 +96,7 @@ public class JFrameTopBoundsTest extends SwingGefTest {
 	/**
 	 * If {@link JInternalFrame} has big size, which was set in superclass, then use this size.
 	 */
+	@Test
 	public void test_JInternalFrame_bigSize_setInSuperclass() throws Exception {
 		setFileContentSrc(
 				"test/MyBigFrame.java",
@@ -119,7 +125,9 @@ public class JFrameTopBoundsTest extends SwingGefTest {
 	/**
 	 * Using {@link JFrame#pack()}.
 	 */
-	public void DISABLE_test_resize_pack() throws Exception {
+	@Ignore
+	@Test
+	public void test_resize_pack() throws Exception {
 		Dimension packSize =
 				Expectations.get(new Dimension(132, 89), new DimValue[]{
 						new DimValue("flanker-windows", new Dimension(132, 83)),
@@ -134,6 +142,7 @@ public class JFrameTopBoundsTest extends SwingGefTest {
 	 * There was request to handle {@link Window} as if there was "pack()" invocation, for example
 	 * when superclass has its invocation.
 	 */
+	@Test
 	public void test_packAlways() throws Exception {
 		setFileContentSrc(
 				"test/MyFrame.java",
@@ -174,6 +183,7 @@ public class JFrameTopBoundsTest extends SwingGefTest {
 	/**
 	 * Size in setSize(int,int)
 	 */
+	@Test
 	public void test_resize_setSize_ints() throws Exception {
 		Dimension oldSize = new Dimension(300, 200);
 		Dimension newSize = new Dimension(400, 300);
@@ -183,6 +193,7 @@ public class JFrameTopBoundsTest extends SwingGefTest {
 	/**
 	 * Size in setBounds(int,int,int,int)
 	 */
+	@Test
 	public void test_resize_setBounds_ints() throws Exception {
 		Dimension oldSize = new Dimension(300, 200);
 		Dimension newSize = new Dimension(400, 300);

@@ -9,6 +9,10 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.xml;
+import org.junit.Before;
+import org.junit.After;
+
+import org.junit.Test;
 
 import org.eclipse.wb.internal.core.utils.exception.DesignerExceptionUtils;
 import org.eclipse.wb.internal.core.utils.xml.AbstractDocumentEditContext;
@@ -61,7 +65,8 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		if (m_testProject == null) {
 			do_projectCreate();
@@ -69,7 +74,8 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	}
 
 	@Override
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		if (context != null) {
 			context.disconnect();
 			context = null;
@@ -214,6 +220,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Attempt to parse bad XML throws exception.
 	 */
+	@Test
 	public void test_parse_error() throws Exception {
 		try {
 			prepareContext("bad");
@@ -227,6 +234,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Test for basic parsing - attribute and child {@link DocumentElement}.
 	 */
+	@Test
 	public void test_parse() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -285,6 +293,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Test for {@link DocumentElement#getRoot()}.
 	 */
+	@Test
 	public void test_getRoot() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -304,6 +313,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Test for {@link DocumentElement#getTagLocal()}.
 	 */
+	@Test
 	public void test_getTagLocal() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -329,6 +339,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Test for {@link DocumentElement#getTagNS()}.
 	 */
+	@Test
 	public void test_getTagNS() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -354,6 +365,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Test for {@link DocumentElement#getChild(String)}.
 	 */
+	@Test
 	public void test_getChild_byTag() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -376,6 +388,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Test for {@link DocumentElement#getDirectChild(DocumentElement)}.
 	 */
+	@Test
 	public void test_getDirectChild() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -404,6 +417,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	// Text node
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_textNode_parse() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -445,6 +459,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"</root>");
 	}
 
+	@Test
 	public void test_textNode_edit() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -519,6 +534,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 		}
 	}
 
+	@Test
 	public void test_textNode_edit_CDATA() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -557,6 +573,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 		}
 	}
 
+	@Test
 	public void test_textNode_edit_CDATA2() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -581,6 +598,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"</root>");
 	}
 
+	@Test
 	public void test_textNode_add_whenOpen() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -604,6 +622,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"</root>");
 	}
 
+	@Test
 	public void test_textNode_add_whenClosed() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -627,6 +646,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"</root>");
 	}
 
+	@Test
 	public void test_textNode_add_CDATA() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -656,6 +676,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	// setText()
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_textNode_setText_new() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -676,6 +697,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"</root>");
 	}
 
+	@Test
 	public void test_textNode_setText_new_CDATA() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -696,6 +718,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"</root>");
 	}
 
+	@Test
 	public void test_textNode_setText_replace() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -714,6 +737,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"</root>");
 	}
 
+	@Test
 	public void test_textNode_setText_remove() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -740,6 +764,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Test for {@link DocumentElement#setAttribute(String, String)}.
 	 */
+	@Test
 	public void test_attribute_addFirst() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -763,6 +788,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Test for {@link DocumentElement#setAttribute(String, String)}.
 	 */
+	@Test
 	public void test_attribute_addSecond() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -786,6 +812,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Test for {@link DocumentElement#setAttribute(String, String)}.
 	 */
+	@Test
 	public void test_attribute_addThird() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -809,6 +836,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Test for {@link DocumentElement#setAttribute(String, String)}.
 	 */
+	@Test
 	public void test_attribute_addNullValue() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -832,6 +860,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	 * <p>
 	 * Depending on charset we should or should not encode non-Latin characters.
 	 */
+	@Test
 	public void test_attribute_charset() throws Exception {
 		String rusValue = "\u0410\u0411\u0412";
 		prepareContext(
@@ -870,6 +899,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Test for {@link DocumentElement#setAttribute(String, String)}.
 	 */
+	@Test
 	public void test_attribute_edit() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -894,6 +924,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Test for {@link DocumentAttribute#setValue(String)}.
 	 */
+	@Test
 	public void test_attribute_setValue() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -918,6 +949,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Test for {@link DocumentElement#removeDocumentAttribute(DocumentAttribute)}.
 	 */
+	@Test
 	public void test_attribute_deleteAsObject() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -944,6 +976,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Test for using {@link DocumentElement#setAttribute(String, String)} to delete attribute.
 	 */
+	@Test
 	public void test_attribute_deleteAsValue() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -966,6 +999,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	// Elements
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_element_add_whenClosed() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -997,6 +1031,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"</root>");
 	}
 
+	@Test
 	public void test_element_add_whenSecond() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -1016,6 +1051,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"</root>");
 	}
 
+	@Test
 	public void test_element_add_whenOnSameLine() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -1034,6 +1070,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				" \t<child/></parent> </root>");
 	}
 
+	@Test
 	public void test_element_add_whenSingleLine_whenClosed() throws Exception {
 		m_removeTrailingEOL = true;
 		prepareContext("<root/>");
@@ -1044,6 +1081,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 		assertContext("<root>\n\t<child/>\n</root>");
 	}
 
+	@Test
 	public void test_element_add_whenSingleLine_whenOpen() throws Exception {
 		m_removeTrailingEOL = true;
 		prepareContext("<root></root>");
@@ -1054,6 +1092,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 		assertContext("<root><child/></root>");
 	}
 
+	@Test
 	public void test_element_removeFirst() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -1073,6 +1112,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"</root>");
 	}
 
+	@Test
 	public void test_element_removeSecond() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -1095,6 +1135,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * When remove last child, parent {@link DocumentElement} should be converted into closed.
 	 */
+	@Test
 	public void test_element_removeLast() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -1112,6 +1153,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 		assertTrue(rootElement.isClosed());
 	}
 
+	@Test
 	public void test_element_remove_parentHasText() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -1133,6 +1175,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Test for {@link DocumentElement#removeChildren()}.
 	 */
+	@Test
 	public void test_element_removeChildren() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -1149,6 +1192,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"<root/>");
 	}
 
+	@Test
 	public void test_element_setTag() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -1172,6 +1216,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"</root>");
 	}
 
+	@Test
 	public void test_element_setTagLocal() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -1205,6 +1250,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	// Element move
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_element_move_newParent() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -1239,6 +1285,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * We should handle moving out of {@link DocumentElement} from parent with text.
 	 */
+	@Test
 	public void test_element_move_newParent_oldHasText() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -1272,6 +1319,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"</root>");
 	}
 
+	@Test
 	public void test_element_move_newParent_newIndentation() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -1304,6 +1352,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"</root>");
 	}
 
+	@Test
 	public void test_element_move_reorder_asFirst() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -1334,6 +1383,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"</root>");
 	}
 
+	@Test
 	public void test_element_move_reorder_asLast() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -1367,6 +1417,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Use <code>-1</code> as target index to add as last.
 	 */
+	@Test
 	public void test_element_move_reorder_asLast2() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -1397,6 +1448,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"</root>");
 	}
 
+	@Test
 	public void test_element_move_closedElement() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -1428,6 +1480,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"</root>");
 	}
 
+	@Test
 	public void test_element_move_closedTarget() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -1458,6 +1511,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 				"</root>");
 	}
 
+	@Test
 	public void test_element_move_openWithText() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -1497,6 +1551,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Test for {@link DocumentElement#accept(DocumentModelVisitor)}.
 	 */
+	@Test
 	public void test_visitor() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -1568,6 +1623,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Test for {@link DocumentElement#getChildren(Class)}.
 	 */
+	@Test
 	public void test_getElements() throws Exception {
 		prepareContext(
 				"<?xml version='1.0' encoding='UTF-8'?>",
@@ -1591,6 +1647,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Test for {@link DocumentElement#toString()}.
 	 */
+	@Test
 	public void test_toString_rootWithoutChildren() throws Exception {
 		String content = getDoubleQuotes2("<root/>");
 		prepareContext(content);
@@ -1600,6 +1657,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Test for {@link DocumentElement#toString()}.
 	 */
+	@Test
 	public void test_toString_rootWithAttributes() throws Exception {
 		String content = getDoubleQuotes2("<root name='value'/>");
 		prepareContext(content);
@@ -1609,6 +1667,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Test for {@link DocumentElement#toString()}.
 	 */
+	@Test
 	public void test_toString_rootOnlyText() throws Exception {
 		String content = getDoubleQuotes2("<root>aaa bbb</root>");
 		prepareContext(content);
@@ -1618,6 +1677,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Test for {@link DocumentElement#toString()}.
 	 */
+	@Test
 	public void test_toString_twoLevels() throws Exception {
 		String content =
 				getDoubleQuotes2(
@@ -1638,6 +1698,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Test for {@link DocumentElement#writeShort(PrintWriter)}.
 	 */
+	@Test
 	public void test_writeShort_rootWithAttributes() throws Exception {
 		prepareContext("<root name='value'/>");
 		assertEquals(getSourceDQ("<root name='value'>"), writeShort(rootElement));
@@ -1646,6 +1707,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	/**
 	 * Test for {@link DocumentElement#writeShort(PrintWriter)}.
 	 */
+	@Test
 	public void test_writeShort_twoLevels() throws Exception {
 		prepareContext(
 				"<root>",
@@ -1669,6 +1731,7 @@ public class XmlDocumentTest extends AbstractJavaProjectTest {
 	// File
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_fileContext() throws Exception {
 		String filePath = "test/1.xml";
 		// parse

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property.editor;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.editor.LocalePropertyEditor;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
@@ -29,6 +31,7 @@ public class LocalePropertyEditorTest extends SwingModelTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_setText() throws Exception {
 		setFileContentSrc(
 				"test/MyButton.java",

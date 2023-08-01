@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.nls.ui;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.nls.bundle.pure.direct.DirectSourceNewComposite;
 import org.eclipse.wb.internal.core.nls.ui.NewSourceDialog;
 import org.eclipse.wb.internal.core.nls.ui.PropertiesComposite;
@@ -37,6 +39,7 @@ public class NewSourceDialogTest extends SwingModelTest {
 	/**
 	 * Open {@link NewSourceDialog} from {@link PropertiesComposite}.
 	 */
+	@Test
 	public void test_openDialog() throws Exception {
 		ContainerInfo frame =
 				parseContainer(
@@ -68,6 +71,7 @@ public class NewSourceDialogTest extends SwingModelTest {
 	/**
 	 * Test for {@link DirectSourceNewComposite}.
 	 */
+	@Test
 	public void test_DirectSource() throws Exception {
 		ContainerInfo frame =
 				parseContainer(

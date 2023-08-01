@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.palette;
 
+import org.junit.Test;
+
 import org.eclipse.wb.gef.graphical.tools.MarqueeSelectionTool;
 import org.eclipse.wb.internal.core.xml.editor.palette.model.MarqueeSelectionToolEntryInfo;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
@@ -20,6 +22,7 @@ import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
  * @author scheglov_ke
  */
 public class MarqueeSelectionToolEntryInfoTest extends DesignerTestCase {
+	@Test
 	public void test() throws Exception {
 		MarqueeSelectionToolEntryInfo entry = new MarqueeSelectionToolEntryInfo();
 		assertEquals("Marquee", entry.getName());

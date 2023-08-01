@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.gef;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.internal.core.xml.gef.policy.OpenListenerEditPolicy;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
@@ -31,6 +33,7 @@ public class OpenListenerEditPolicyTest extends XwtGefTest {
 	// Tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_0() throws Exception {
 		setFileContentSrc(
 				"test/Test.java",

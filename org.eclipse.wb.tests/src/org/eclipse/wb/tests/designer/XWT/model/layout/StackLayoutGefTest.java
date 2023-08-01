@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.layout;
 
+import org.junit.Test;
+
 import org.eclipse.wb.internal.rcp.gef.policy.layout.StackLayoutNavigationFigure;
 import org.eclipse.wb.internal.xwt.model.layout.StackLayoutInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.CompositeInfo;
@@ -36,6 +38,7 @@ public class StackLayoutGefTest extends XwtGefTest {
 	// CREATE on canvas
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_CREATE_onCanvas_empty() throws Exception {
 		CompositeInfo shell =
 				openEditor(
@@ -58,6 +61,7 @@ public class StackLayoutGefTest extends XwtGefTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_CREATE_onCanvas_beforeExisting() throws Exception {
 		CompositeInfo shell =
 				openEditor(
@@ -85,6 +89,7 @@ public class StackLayoutGefTest extends XwtGefTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_CREATE_onCanvas_afterExisting() throws Exception {
 		CompositeInfo shell =
 				openEditor(
@@ -117,6 +122,7 @@ public class StackLayoutGefTest extends XwtGefTest {
 	// CREATE in tree
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_CREATE_inTree_empty() throws Exception {
 		CompositeInfo shell =
 				openEditor(
@@ -141,6 +147,7 @@ public class StackLayoutGefTest extends XwtGefTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_CREATE_inTree_beforeExisting() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -165,6 +172,7 @@ public class StackLayoutGefTest extends XwtGefTest {
 				"</Shell>");
 	}
 
+	@Test
 	public void test_CREATE_inTree_afterExisting() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -194,6 +202,7 @@ public class StackLayoutGefTest extends XwtGefTest {
 	// MOVE in tree
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_MOVE_inTree() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -224,6 +233,7 @@ public class StackLayoutGefTest extends XwtGefTest {
 	// Navigation
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_navigation_next() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -260,6 +270,7 @@ public class StackLayoutGefTest extends XwtGefTest {
 		canvas.assertNullEditPart(button_3);
 	}
 
+	@Test
 	public void test_navigation_prev() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",

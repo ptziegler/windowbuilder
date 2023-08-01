@@ -9,7 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.draw2d;
-
 import org.eclipse.wb.draw2d.Figure;
 import org.eclipse.wb.draw2d.border.LineBorder;
 import org.eclipse.wb.tests.gef.TestLogger;
@@ -21,6 +20,9 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
+import org.junit.Before;
+import org.junit.Test;
+
 /**
  * @author lobas_av
  *
@@ -31,20 +33,12 @@ public class FigurePaintingTest extends Draw2dFigureTestCase {
 
 	////////////////////////////////////////////////////////////////////////////
 	//
-	// Constructor
-	//
-	////////////////////////////////////////////////////////////////////////////
-	public FigurePaintingTest() {
-		super(Figure.class);
-	}
-
-	////////////////////////////////////////////////////////////////////////////
-	//
 	// SetUp
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		m_actualLogger = new TestLogger();
 		m_root = new TestCaseRootFigure(m_actualLogger);
@@ -69,6 +63,7 @@ public class FigurePaintingTest extends Draw2dFigureTestCase {
 	// Figure notify tests
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
 	public void test_reset() throws Exception {
 		Figure testFigure = addFigure(10, 11, 50, 78);
 		TestLogger expectedLogger = new TestLogger();
@@ -94,6 +89,7 @@ public class FigurePaintingTest extends Draw2dFigureTestCase {
 		m_actualLogger.assertEmpty();
 	}
 
+	@Test
 	public void test_repaint() throws Exception {
 		Figure testFigure = addFigure(10, 11, 50, 78);
 		TestLogger expectedLogger = new TestLogger();
@@ -111,6 +107,7 @@ public class FigurePaintingTest extends Draw2dFigureTestCase {
 		m_actualLogger.assertEmpty();
 	}
 
+	@Test
 	public void test_add() throws Exception {
 		Figure testFigure = addFigure(10, 11, 50, 78);
 		TestLogger expectedLogger = new TestLogger();
@@ -140,6 +137,7 @@ public class FigurePaintingTest extends Draw2dFigureTestCase {
 		m_actualLogger.assertEquals(expectedLogger);
 	}
 
+	@Test
 	public void test_remove() throws Exception {
 		Figure testFigure = addFigure(10, 11, 50, 78);
 		TestLogger expectedLogger = new TestLogger();
@@ -164,6 +162,7 @@ public class FigurePaintingTest extends Draw2dFigureTestCase {
 		m_actualLogger.assertEmpty();
 	}
 
+	@Test
 	public void test_bounds() throws Exception {
 		Figure testFigure = addFigure();
 		TestLogger expectedLogger = new TestLogger();
@@ -214,6 +213,7 @@ public class FigurePaintingTest extends Draw2dFigureTestCase {
 		m_actualLogger.assertEmpty();
 	}
 
+	@Test
 	public void test_border() throws Exception {
 		Figure testFigure = addFigure();
 		TestLogger expectedLogger = new TestLogger();
@@ -243,6 +243,7 @@ public class FigurePaintingTest extends Draw2dFigureTestCase {
 		m_actualLogger.assertEmpty();
 	}
 
+	@Test
 	public void test_background() throws Exception {
 		Figure testFigure = addFigure();
 		TestLogger expectedLogger = new TestLogger();
@@ -271,6 +272,7 @@ public class FigurePaintingTest extends Draw2dFigureTestCase {
 		m_actualLogger.assertEmpty();
 	}
 
+	@Test
 	public void test_foreground() throws Exception {
 		Figure testFigure = addFigure();
 		TestLogger expectedLogger = new TestLogger();
@@ -299,6 +301,7 @@ public class FigurePaintingTest extends Draw2dFigureTestCase {
 		m_actualLogger.assertEmpty();
 	}
 
+	@Test
 	public void test_font() throws Exception {
 		Figure testFigure = addFigure();
 		TestLogger expectedLogger = new TestLogger();
@@ -327,6 +330,7 @@ public class FigurePaintingTest extends Draw2dFigureTestCase {
 		m_actualLogger.assertEmpty();
 	}
 
+	@Test
 	public void test_cursor() throws Exception {
 		Figure testFigure = addFigure();
 		TestLogger expectedLogger = new TestLogger();
@@ -355,6 +359,7 @@ public class FigurePaintingTest extends Draw2dFigureTestCase {
 		m_actualLogger.assertEmpty();
 	}
 
+	@Test
 	public void test_opaque() throws Exception {
 		Figure testFigure = addFigure();
 		TestLogger expectedLogger = new TestLogger();
@@ -378,6 +383,7 @@ public class FigurePaintingTest extends Draw2dFigureTestCase {
 		m_actualLogger.assertEmpty();
 	}
 
+	@Test
 	public void test_visible() throws Exception {
 		Figure testFigure = addFigure();
 		TestLogger expectedLogger = new TestLogger();
