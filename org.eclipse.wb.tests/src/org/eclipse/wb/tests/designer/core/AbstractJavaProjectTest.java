@@ -52,7 +52,7 @@ import java.util.List;
  *
  * @author scheglov_ke
  */
-public class AbstractJavaProjectTest extends DesignerTestCase {
+public abstract class AbstractJavaProjectTest extends DesignerTestCase {
 	private static final List<IFile> m_createdResources = new ArrayList<>();
 
 	////////////////////////////////////////////////////////////////////////////

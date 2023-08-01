@@ -58,7 +58,7 @@ import java.util.List;
 /**
  * @author scheglov_ke
  */
-public class AbstractJavaTest extends AbstractJavaProjectTest {
+public abstract class AbstractJavaTest extends AbstractJavaProjectTest {
 	////////////////////////////////////////////////////////////////////////////
 	//
 	// Life cycle

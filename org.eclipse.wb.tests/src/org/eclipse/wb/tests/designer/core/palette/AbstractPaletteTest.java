@@ -9,8 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.palette;
-import org.junit.After;
-
 import org.eclipse.wb.core.editor.palette.model.CategoryInfo;
 import org.eclipse.wb.core.editor.palette.model.EntryInfo;
 import org.eclipse.wb.core.editor.palette.model.PaletteInfo;
@@ -21,6 +19,7 @@ import org.eclipse.wb.tests.designer.TestUtils;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
 import org.apache.commons.lang.StringUtils;
+import org.junit.After;
 
 import javax.swing.JPanel;
 
@@ -29,7 +28,7 @@ import javax.swing.JPanel;
  *
  * @author scheglov_ke
  */
-public class AbstractPaletteTest extends SwingModelTest {
+public abstract class AbstractPaletteTest extends SwingModelTest {
 	private static final String POINT_ID = "org.eclipse.wb.core.toolkits";
 	protected static final String PALETTE_EXTENSION_ID = "testPaletteId";
 	protected static final String TOOLKIT_ID = "test.toolkit";

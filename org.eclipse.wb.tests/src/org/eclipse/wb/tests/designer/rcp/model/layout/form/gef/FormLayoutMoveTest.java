@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.layout.form.gef;
 
-import org.junit.Test;
-
 import org.eclipse.wb.draw2d.IPositionConstants;
 import org.eclipse.wb.gef.core.policies.EditPolicy;
 import org.eclipse.wb.gef.graphical.GraphicalEditPart;
@@ -25,6 +23,7 @@ import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * GEF tests for FormLayout support moving.
@@ -179,7 +178,8 @@ public class FormLayoutMoveTest extends RcpGefTest {
 				"data2.left = new FormAttachment(button, 0, SWT.LEFT);");
 	}
 
-	public void _test_delete_with_another_attached() throws Exception {
+	@Test
+	public void test_delete_with_another_attached() throws Exception {
 		prepareComponent();
 		CompositeInfo shell =
 				openComposite(

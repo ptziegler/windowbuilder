@@ -44,7 +44,7 @@ import java.util.List;
  * @author lobas_av
  *
  */
-public class GefCursorTestCase extends GefTestCase {
+public abstract class GefCursorTestCase extends GefTestCase {
 	protected Shell m_shell;
 	protected GraphicalViewer m_viewer;
 	protected EditDomain m_domain;

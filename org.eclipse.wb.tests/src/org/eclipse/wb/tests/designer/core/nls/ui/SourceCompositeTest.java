@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.nls.ui;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.controls.CTableCombo;
 import org.eclipse.wb.internal.core.model.property.GenericProperty;
 import org.eclipse.wb.internal.core.nls.edit.IEditableSource;
@@ -36,6 +34,8 @@ import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
 
+import org.junit.Test;
+
 import java.util.Locale;
 
 /**
@@ -49,8 +49,8 @@ public class SourceCompositeTest extends AbstractDialogTest {
 	// ITableTooltipProvider
 	//
 	////////////////////////////////////////////////////////////////////////////
-	// XXX
-	public void _test_ITableTooltipProvider() throws Exception {
+	@Test
+	public void test_ITableTooltipProvider() throws Exception {
 		setFileContentSrc(
 				"test/messages.properties",
 				getSourceDQ("frame.title=My JFrame", "frame.name=My name"));

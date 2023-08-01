@@ -9,16 +9,16 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.nls;
-import org.junit.After;
-
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
+
+import org.junit.After;
 
 /**
  * Abstract test for NLS.
  *
  * @author scheglov_ke
  */
-public class AbstractNlsTest extends SwingModelTest {
+public abstract class AbstractNlsTest extends SwingModelTest {
 	////////////////////////////////////////////////////////////////////////////
 	//
 	// Life cycle

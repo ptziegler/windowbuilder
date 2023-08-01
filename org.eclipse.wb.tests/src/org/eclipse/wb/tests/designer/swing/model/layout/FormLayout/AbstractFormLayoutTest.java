@@ -9,8 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.FormLayout;
-import org.junit.Before;
-
 import org.eclipse.wb.internal.core.utils.jdt.core.CodeUtils;
 import org.eclipse.wb.internal.swing.laf.LafSupport;
 import org.eclipse.wb.tests.designer.swing.model.layout.AbstractLayoutTest;
@@ -20,6 +18,7 @@ import org.eclipse.core.runtime.Platform;
 
 import com.jgoodies.forms.layout.FormLayout;
 
+import org.junit.Before;
 import org.osgi.framework.Bundle;
 
 /**
@@ -27,7 +26,7 @@ import org.osgi.framework.Bundle;
  *
  * @author scheglov_ke
  */
-public class AbstractFormLayoutTest extends AbstractLayoutTest {
+public abstract class AbstractFormLayoutTest extends AbstractLayoutTest {
 	protected boolean m_useFormsImports = true;
 
 	////////////////////////////////////////////////////////////////////////////

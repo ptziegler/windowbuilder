@@ -57,7 +57,7 @@ import org.junit.Before;
 
 import java.util.List;
 
-public class AbstractJavaInfoTest extends AbstractJavaInfoRelatedTest {
+public abstract class AbstractJavaInfoTest extends AbstractJavaInfoRelatedTest {
 	////////////////////////////////////////////////////////////////////////////
 	//
 	// Life cycle

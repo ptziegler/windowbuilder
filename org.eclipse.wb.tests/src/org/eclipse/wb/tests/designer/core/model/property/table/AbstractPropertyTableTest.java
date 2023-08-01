@@ -9,9 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property.table;
-import org.junit.Before;
-import org.junit.After;
-
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.editor.PropertyEditor;
 import org.eclipse.wb.internal.core.model.property.editor.TextDisplayPropertyEditor;
@@ -24,7 +21,10 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Shell;
 
-public class AbstractPropertyTableTest extends DesignerTestCase {
+import org.junit.After;
+import org.junit.Before;
+
+public abstract class AbstractPropertyTableTest extends DesignerTestCase {
 	protected Shell m_shell;
 	protected PropertyTable m_propertyTable;
 	protected EventSender m_sender;

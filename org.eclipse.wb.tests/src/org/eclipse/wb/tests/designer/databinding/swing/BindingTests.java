@@ -22,7 +22,8 @@ import org.junit.runners.Suite.SuiteClasses;
 @SuiteClasses({
 		SwingDatabindingsFactoryTest.class,
 		GenericUtilsTest.class,
-		BindValueTest.class
+		BindValueTest.class,
+		DatabindingTestUtils.class
 })
 public class BindingTests {
 }

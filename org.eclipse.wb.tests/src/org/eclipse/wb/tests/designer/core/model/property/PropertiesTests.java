@@ -24,6 +24,7 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses({
 		StandardConvertersTest.class,
+		PropertyCategoryProvidersTest.class,
 		PropertyCategoryTest.class,
 		PropertyTest.class,
 		PropertyManagerTest.class,

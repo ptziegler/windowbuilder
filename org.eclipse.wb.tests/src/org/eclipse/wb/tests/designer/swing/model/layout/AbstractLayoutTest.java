@@ -9,9 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout;
-import org.junit.Before;
-import org.junit.After;
-
 import org.eclipse.wb.internal.core.model.JavaInfoUtils;
 import org.eclipse.wb.internal.core.model.creation.ConstructorCreationSupport;
 import org.eclipse.wb.internal.core.model.variable.SyncParentChildVariableNameSupport;
@@ -23,9 +20,12 @@ import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
 import org.eclipse.jface.preference.IPreferenceStore;
 
+import org.junit.After;
+import org.junit.Before;
+
 import java.awt.LayoutManager;
 
-public class AbstractLayoutTest extends SwingModelTest {
+public abstract class AbstractLayoutTest extends SwingModelTest {
 	////////////////////////////////////////////////////////////////////////////
 	//
 	// Life cycle

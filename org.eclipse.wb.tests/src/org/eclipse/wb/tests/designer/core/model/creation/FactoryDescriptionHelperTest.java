@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.creation;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.model.creation.factory.StaticFactoryCreationSupport;
 import org.eclipse.wb.internal.core.model.description.CreationInvocationDescription;
@@ -37,6 +33,8 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jface.resource.ImageDescriptor;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.util.List;
 import java.util.Map;
@@ -968,7 +966,8 @@ public class FactoryDescriptionHelperTest extends SwingModelTest {
 	 * <p>
 	 * Kosta.20080407: I consider this not correct anymore, so disable this test.
 	 */
-	public void _test_descriptionsInstanceStatic() throws Exception {
+	@Test
+	public void test_descriptionsInstanceStatic() throws Exception {
 		setFileContentSrc(
 				"test/InstanceFactory.java",
 				getTestSource(

@@ -12,6 +12,7 @@ package org.eclipse.wb.tests.designer.databinding.rcp;
 
 import org.eclipse.wb.tests.designer.databinding.rcp.model.CodeGenerationTest;
 import org.eclipse.wb.tests.designer.databinding.rcp.model.DatabindingsProviderTest;
+import org.eclipse.wb.tests.designer.databinding.rcp.model.ReferenceProvidersTest;
 import org.eclipse.wb.tests.designer.databinding.rcp.model.UiConfigurationTest;
 import org.eclipse.wb.tests.designer.databinding.rcp.model.ViewerCodeGenerationTest;
 import org.eclipse.wb.tests.designer.databinding.rcp.model.beans.BeanBindableTest;
@@ -44,11 +45,13 @@ import org.junit.runners.Suite.SuiteClasses;
 		BindListTest.class,
 		BindSetTest.class,
 		DatabindingsProviderTest.class,
+		ReferenceProvidersTest.class,
 		CodeGenerationTest.class,
 		ViewerCodeGenerationTest.class,
 		UiConfigurationTest.class,
 		JFaceDatabindingsFactoryTestRcp.class,
-		JFaceDatabindingsFactoryTestSwing.class
+		JFaceDatabindingsFactoryTestSwing.class,
+		org.eclipse.wb.tests.designer.databinding.swing.BindingTests.class
 })
 public class BindingTests {
 }

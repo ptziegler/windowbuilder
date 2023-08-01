@@ -68,7 +68,7 @@ import java.util.List;
  *
  * @author scheglov_ke
  */
-public class DesignerTestCase extends Assert {
+public abstract class DesignerTestCase extends Assert {
 
 	private static boolean m_firstDesignerTest = true;
 

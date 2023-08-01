@@ -36,7 +36,8 @@ import org.junit.runners.Suite.SuiteClasses;
 		RenameConvertSupportTest.class,
 		PredicatesTest.class,
 		StackContainerSupportTest.class,
-		GenericTests.class
+		GenericTests.class,
+		PropertyUtilsTest.class
 })
 public class UtilTests {
 }

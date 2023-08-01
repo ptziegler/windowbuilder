@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.forms.table;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.rcp.model.forms.layout.table.TableWrapLayoutConverter;
 import org.eclipse.wb.internal.xwt.model.forms.layout.table.TableWrapDataInfo;
@@ -24,6 +22,8 @@ import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.ui.forms.widgets.TableWrapLayout;
+
+import org.junit.Test;
 
 /**
  * Tests for {@link TableWrapLayoutConverter}.
@@ -233,7 +233,8 @@ public class TableWrapLayoutConverterTest extends XwtModelTest {
 	 * Test switching layouts from {@link GridLayout} to {@link TableWrapLayout}, and restore
 	 * component positions & alignments.
 	 */
-	public void _test_Switching_fromGridLayout() throws Exception {
+	@Test
+	public void test_Switching_fromGridLayout() throws Exception {
 		CompositeInfo composite =
 				parse(
 						"// filler filler filler filler filler",

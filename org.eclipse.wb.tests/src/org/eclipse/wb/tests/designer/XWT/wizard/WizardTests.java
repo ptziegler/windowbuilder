@@ -24,7 +24,8 @@ import org.junit.runners.Suite.SuiteClasses;
 		ApplicationWizardTest.class,
 		CompositeWizardTest.class,
 		FormsApplicationWizardTest.class,
-		FormsCompositeWizardTest.class
+		FormsCompositeWizardTest.class,
+		XwtWizardTest.class
 })
 public class WizardTests {
 }

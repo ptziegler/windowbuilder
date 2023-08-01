@@ -9,8 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp;
-import org.junit.Before;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.gef.core.tools.CreationTool;
 import org.eclipse.wb.internal.core.utils.ast.AstEditor;
@@ -23,12 +21,14 @@ import org.eclipse.wb.tests.designer.editor.DesignerEditorTestCase;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.swt.widgets.Button;
 
+import org.junit.Before;
+
 /**
  * Abstract test for RCP in editor.
  *
  * @author scheglov_ke
  */
-public class RcpGefTest extends DesignerEditorTestCase {
+public abstract class RcpGefTest extends DesignerEditorTestCase {
 	////////////////////////////////////////////////////////////////////////////
 	//
 	// Life cycle

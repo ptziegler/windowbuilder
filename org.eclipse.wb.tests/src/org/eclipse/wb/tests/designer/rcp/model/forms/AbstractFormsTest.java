@@ -14,6 +14,8 @@ import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.model.creation.factory.InstanceFactoryInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
+import junit.framework.TestCase;
+
 
 
 /**
@@ -21,7 +23,7 @@ import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
  *
  * @author scheglov_ke
  */
-public class AbstractFormsTest extends RcpModelTest {
+public abstract class AbstractFormsTest extends RcpModelTest {
 	////////////////////////////////////////////////////////////////////////////
 	//
 	// Utils

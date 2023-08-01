@@ -24,7 +24,7 @@ import org.junit.Before;
  * @author lobas_av
  *
  */
-public class RequestTestCase extends GefTestCase {
+public abstract class RequestTestCase extends GefTestCase {
 	protected Shell m_shell;
 	protected EditDomain m_domain;
 	protected GraphicalViewer m_viewer;

@@ -9,18 +9,18 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.palette.ui;
-import org.junit.Before;
-import org.junit.After;
-
 import org.eclipse.wb.internal.core.xml.editor.palette.DesignerPalette;
 import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
+
+import org.junit.After;
+import org.junit.Before;
 
 /**
  * Test for palette UI.
  *
  * @author scheglov_ke
  */
-public class AbstractPaletteUiTest extends XwtGefTest {
+public abstract class AbstractPaletteUiTest extends XwtGefTest {
 	////////////////////////////////////////////////////////////////////////////
 	//
 	// Life cycle

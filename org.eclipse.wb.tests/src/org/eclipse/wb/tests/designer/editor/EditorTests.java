@@ -10,6 +10,10 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor;
 
+import org.eclipse.wb.tests.designer.editor.action.ActionTests;
+import org.eclipse.wb.tests.designer.editor.actions.DesignerEditorTests;
+import org.eclipse.wb.tests.designer.editor.validator.LayoutRequestValidatorTests;
+
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
@@ -27,7 +31,12 @@ import org.junit.runners.Suite.SuiteClasses;
 	ReparseOnModificationTest.class,
 	SelectSupportTest.class,
 	ComponentsPropertiesPageTest.class,
-	JavaPropertiesToolBarContributorTest.class
+	JavaPropertiesToolBarContributorTest.class,
+	ComponentsTreePageTest.class,
+	SplitModeTest.class,
+	ActionTests.class,
+	DesignerEditorTests.class,
+	LayoutRequestValidatorTests.class
 })
 
 public class EditorTests {

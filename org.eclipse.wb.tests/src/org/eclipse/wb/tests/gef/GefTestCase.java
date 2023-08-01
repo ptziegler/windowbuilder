@@ -22,7 +22,7 @@ import java.lang.reflect.Method;
  * @author lobas_av
  *
  */
-public class GefTestCase extends Assert {
+public abstract class GefTestCase extends Assert {
 
 	@Before
 	public void setUp() throws Exception {

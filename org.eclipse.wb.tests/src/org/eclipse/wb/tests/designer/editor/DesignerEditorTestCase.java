@@ -9,9 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor;
-import org.junit.Before;
-import org.junit.After;
-
 import org.eclipse.wb.core.editor.IDesignPage;
 import org.eclipse.wb.core.editor.IDesignerEditor;
 import org.eclipse.wb.core.model.JavaInfo;
@@ -57,9 +54,11 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.ide.IDE;
 
-
+import junit.framework.TestCase;
 
 import org.apache.commons.lang.ArrayUtils;
+import org.junit.After;
+import org.junit.Before;
 
 import java.util.List;
 
@@ -68,7 +67,7 @@ import java.util.List;
  *
  * @author scheglov_ke
  */
-public class DesignerEditorTestCase extends AbstractJavaInfoRelatedTest {
+public abstract class DesignerEditorTestCase extends AbstractJavaInfoRelatedTest {
 	////////////////////////////////////////////////////////////////////////////
 	//
 	// Life cycle

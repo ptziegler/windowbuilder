@@ -25,7 +25,7 @@ import org.junit.BeforeClass;
  *
  * @author scheglov_ke
  */
-public class AbstractNlsUiTest extends SwingGefTest {
+public abstract class AbstractNlsUiTest extends SwingGefTest {
 	protected ToolItem m_dialogItem;
 
 	////////////////////////////////////////////////////////////////////////////

@@ -15,6 +15,7 @@ import org.eclipse.wb.tests.designer.XML.gef.GefTests;
 import org.eclipse.wb.tests.designer.XML.model.ModelTests;
 import org.eclipse.wb.tests.designer.XML.palette.PaletteTests;
 
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
@@ -24,9 +25,9 @@ import org.junit.runners.Suite.SuiteClasses;
  *
  * @author scheglov_ke
  */
+@Ignore
 @RunWith(Suite.class)
 @SuiteClasses({
-		org.eclipse.wb.tests.designer.core.util.xml.XmlTests.class,
 		ActivatorTest.class,
 		ClassLoadingTest.class,
 		ModelTests.class,

@@ -9,8 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.MigLayout;
-import org.junit.Before;
-
 import org.eclipse.wb.internal.core.utils.jdt.core.CodeUtils;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.swing.MigLayout.model.CellConstraintsSupport;
@@ -21,6 +19,7 @@ import org.eclipse.wb.tests.designer.swing.model.layout.AbstractLayoutTest;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Platform;
 
+import org.junit.Before;
 import org.osgi.framework.Bundle;
 
 /**
@@ -28,7 +27,7 @@ import org.osgi.framework.Bundle;
  *
  * @author scheglov_ke
  */
-public class AbstractMigLayoutTest extends AbstractLayoutTest {
+public abstract class AbstractMigLayoutTest extends AbstractLayoutTest {
 	////////////////////////////////////////////////////////////////////////////
 	//
 	// Life cycle

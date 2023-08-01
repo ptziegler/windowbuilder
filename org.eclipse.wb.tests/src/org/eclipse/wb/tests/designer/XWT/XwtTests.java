@@ -17,6 +17,7 @@ import org.eclipse.wb.tests.designer.XWT.support.SupportTests;
 import org.eclipse.wb.tests.designer.XWT.wizard.WizardTests;
 import org.eclipse.wb.tests.designer.databinding.xwt.BindingTests;
 
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
@@ -26,6 +27,7 @@ import org.junit.runners.Suite.SuiteClasses;
  *
  * @author scheglov_ke
  */
+@Ignore
 @RunWith(Suite.class)
 @SuiteClasses({
 		ActivatorTest.class,

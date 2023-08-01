@@ -9,9 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing;
-import org.junit.Before;
-import org.junit.After;
-
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.gef.core.tools.CreationTool;
 import org.eclipse.wb.internal.core.model.variable.SyncParentChildVariableNameSupport;
@@ -26,6 +23,9 @@ import org.eclipse.wb.tests.designer.editor.DesignerEditorTestCase;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jface.preference.IPreferenceStore;
 
+import org.junit.After;
+import org.junit.Before;
+
 import javax.swing.JButton;
 
 /**
@@ -33,7 +33,7 @@ import javax.swing.JButton;
  *
  * @author scheglov_ke
  */
-public class SwingGefTest extends DesignerEditorTestCase {
+public abstract class SwingGefTest extends DesignerEditorTestCase {
 	////////////////////////////////////////////////////////////////////////////
 	//
 	// Life cycle

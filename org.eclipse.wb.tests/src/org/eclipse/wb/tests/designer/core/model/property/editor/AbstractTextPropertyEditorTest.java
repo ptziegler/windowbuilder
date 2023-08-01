@@ -32,7 +32,7 @@ import java.util.Map;
  *
  * @author sablin_aa
  */
-public class AbstractTextPropertyEditorTest extends SwingModelTest {
+public abstract class AbstractTextPropertyEditorTest extends SwingModelTest {
 	////////////////////////////////////////////////////////////////////////////
 	//
 	// Assertions
