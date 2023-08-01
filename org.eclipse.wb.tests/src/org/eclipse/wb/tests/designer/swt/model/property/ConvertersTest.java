@@ -9,11 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.property;
-import org.junit.Before;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.converter.ExpressionConverter;
 import org.eclipse.wb.internal.swt.model.property.converter.PointConverter;
 import org.eclipse.wb.internal.swt.model.property.converter.RectangleConverter;
@@ -21,6 +16,10 @@ import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.internal.swt.support.PointSupport;
 import org.eclipse.wb.internal.swt.support.RectangleSupport;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Tests for SWT converters.

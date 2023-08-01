@@ -1,10 +1,7 @@
 package org.eclipse.wb.tests.designer.core.util;
 
-import org.junit.Assert;
-
-
-
 import org.apache.commons.lang.SystemUtils;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.lang.reflect.Method;

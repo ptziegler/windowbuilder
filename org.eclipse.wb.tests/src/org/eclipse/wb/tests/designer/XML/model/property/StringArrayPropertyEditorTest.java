@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.property;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.EmptyProperty;
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.editor.StringArrayPropertyEditor;
@@ -21,6 +19,8 @@ import org.eclipse.wb.tests.gef.UIRunnable;
 import org.eclipse.wb.tests.gef.UiContext;
 
 import org.eclipse.swt.widgets.Text;
+
+import org.junit.Test;
 
 /**
  * Test for {@link StringArrayPropertyEditor}.

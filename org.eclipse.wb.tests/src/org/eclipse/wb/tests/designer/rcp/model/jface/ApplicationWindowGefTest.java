@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
 
-import org.junit.Test;
-
 import com.google.common.base.Predicate;
 
 import org.eclipse.wb.core.model.ObjectInfo;
@@ -30,6 +28,8 @@ import org.eclipse.wb.tests.designer.rcp.RcpGefTest;
 import org.eclipse.jface.window.ApplicationWindow;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Shell;
+
+import org.junit.Test;
 
 /**
  * Tests for {@link ApplicationWindowInfo} in GEF.

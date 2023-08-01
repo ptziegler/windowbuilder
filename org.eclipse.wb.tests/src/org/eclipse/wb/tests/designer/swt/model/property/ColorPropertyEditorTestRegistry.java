@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.property;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.rcp.ToolkitProvider;
 import org.eclipse.wb.internal.swt.model.jface.resource.ColorRegistryInfo;
@@ -20,6 +18,8 @@ import org.eclipse.wb.internal.swt.model.jface.resource.RegistryContainerInfo;
 import org.eclipse.wb.internal.swt.model.property.editor.color.ColorPropertyEditor;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.internal.swt.preferences.IPreferenceConstants;
+
+import org.junit.Test;
 
 import java.util.List;
 

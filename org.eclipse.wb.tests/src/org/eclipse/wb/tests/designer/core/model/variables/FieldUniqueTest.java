@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.variables;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.model.generation.statement.block.BlockStatementGeneratorDescription;
 import org.eclipse.wb.internal.core.model.variable.FieldUniqueVariableSupport;
@@ -35,6 +33,8 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.Statement;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclaration;
+
+import org.junit.Test;
 
 import java.util.Map;
 

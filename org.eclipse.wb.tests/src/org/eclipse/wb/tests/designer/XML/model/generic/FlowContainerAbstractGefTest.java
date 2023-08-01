@@ -10,12 +10,12 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.generic;
 
-import org.junit.Test;
-
 import org.eclipse.wb.draw2d.IPositionConstants;
 import org.eclipse.wb.internal.core.utils.GenericsUtils;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
+
+import org.junit.Test;
 
 /**
  * Tests for "flow container" support for container itself or for its "layout manager".

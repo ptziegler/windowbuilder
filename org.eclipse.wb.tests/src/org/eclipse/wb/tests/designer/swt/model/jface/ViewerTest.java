@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.jface;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.IWrapper;
 import org.eclipse.wb.core.model.association.Association;
 import org.eclipse.wb.core.model.association.ConstructorParentAssociation;
@@ -56,6 +54,7 @@ import org.eclipse.swt.widgets.Text;
 
 import org.apache.commons.lang.StringUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Test for {@link ViewerInfo}.

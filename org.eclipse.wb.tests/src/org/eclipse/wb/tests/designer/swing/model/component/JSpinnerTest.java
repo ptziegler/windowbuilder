@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.component;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.editor.PropertyEditor;
 import org.eclipse.wb.internal.core.model.property.table.PropertyTooltipProvider;
@@ -23,6 +19,9 @@ import org.eclipse.wb.internal.swing.model.property.editor.models.spinner.Spinne
 import org.eclipse.wb.tests.designer.Expectations;
 import org.eclipse.wb.tests.designer.Expectations.StrValue;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
+
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;

@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.layouts;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.association.Association;
 import org.eclipse.wb.core.model.association.ConstructorAssociation;
 import org.eclipse.wb.internal.core.model.creation.ConstructorCreationSupport;
@@ -27,6 +25,7 @@ import org.eclipse.wb.tests.designer.rcp.BTestUtils;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
 import org.apache.commons.lang.NotImplementedException;
+import org.junit.Test;
 
 /**
  * Test for {@link FillLayoutInfo}.

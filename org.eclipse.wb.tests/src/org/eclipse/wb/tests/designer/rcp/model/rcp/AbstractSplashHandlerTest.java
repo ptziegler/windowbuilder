@@ -10,13 +10,12 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.rcp;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.rcp.model.rcp.AbstractSplashHandlerInfo;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Test for {@link AbstractSplashHandlerInfo}.

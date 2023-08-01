@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.util;
 
-import org.junit.Test;
-
 import com.google.common.collect.ImmutableList;
 
 import org.eclipse.wb.core.model.JavaInfo;
@@ -41,6 +39,7 @@ import org.eclipse.jface.action.MenuManager;
 import static org.mockito.Mockito.mock;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.util.List;
 

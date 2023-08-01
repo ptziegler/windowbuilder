@@ -10,11 +10,11 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.widgets;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.xwt.model.widgets.ButtonInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.StylePresentation;
 import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
+
+import org.junit.Test;
 
 /**
  * Tests for {@link ButtonInfo}.

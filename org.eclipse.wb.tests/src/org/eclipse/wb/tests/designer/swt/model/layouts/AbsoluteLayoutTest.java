@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.layouts;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.core.model.ObjectInfoUtils;
 import org.eclipse.wb.core.model.association.InvocationChildAssociation;
@@ -50,6 +46,8 @@ import org.eclipse.jface.preference.IPreferenceStore;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
+import org.junit.After;
+import org.junit.Test;
 
 import java.util.Collections;
 

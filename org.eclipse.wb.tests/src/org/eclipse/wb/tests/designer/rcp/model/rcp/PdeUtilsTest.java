@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.rcp;
 
-import org.junit.Test;
-
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 
@@ -35,6 +33,7 @@ import org.eclipse.ui.IPageLayout;
 
 import org.apache.commons.io.FilenameUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.io.File;
 import java.util.List;

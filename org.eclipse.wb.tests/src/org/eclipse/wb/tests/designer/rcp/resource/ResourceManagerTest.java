@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.resource;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.description.ToolkitDescriptionJava;
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
@@ -24,6 +22,8 @@ import org.eclipse.wb.tests.designer.core.PdeProjectConversionUtils;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
 import org.eclipse.swt.graphics.Image;
+
+import org.junit.Test;
 
 import java.util.List;
 

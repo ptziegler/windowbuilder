@@ -10,13 +10,13 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.model;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.swing.gef.policy.layout.CardNavigationFigure;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.internal.swing.model.layout.CardLayoutInfo;
 import org.eclipse.wb.tests.designer.swing.model.layout.gef.AbstractLayoutPolicyTest;
+
+import org.junit.Test;
 
 /**
  * Test for {@link CardLayoutInfo} in GEF.

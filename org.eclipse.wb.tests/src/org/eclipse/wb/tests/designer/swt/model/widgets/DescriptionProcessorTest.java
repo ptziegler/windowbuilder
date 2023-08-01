@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.widgets;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.description.ComponentDescription;
 import org.eclipse.wb.internal.core.model.description.ComponentDescriptionKey;
 import org.eclipse.wb.internal.core.model.description.ConstructorDescription;
@@ -29,6 +27,7 @@ import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 import org.eclipse.swt.widgets.Composite;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Tests for {@link DescriptionProcessor} for SWT.

@@ -9,11 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.variables;
-import org.junit.Before;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.model.JavaInfoUtils;
 import org.eclipse.wb.internal.core.model.generation.GenerationSettings;
@@ -27,6 +22,10 @@ import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 import org.eclipse.jdt.core.dom.Statement;
 import org.eclipse.jdt.core.dom.SuperConstructorInvocation;
 import org.eclipse.jface.preference.IPreferenceStore;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import javax.swing.JFrame;
 

@@ -10,13 +10,13 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.component.menu;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.internal.swing.model.component.menu.JMenuBarInfo;
 import org.eclipse.wb.internal.swing.model.component.menu.JMenuInfo;
 import org.eclipse.wb.tests.designer.swing.SwingGefTest;
+
+import org.junit.Test;
 
 import javax.swing.JMenu;
 

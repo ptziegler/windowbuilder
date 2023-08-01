@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.nls;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.nls.NlsSupport;
 import org.eclipse.wb.internal.core.nls.SourceDescription;
 import org.eclipse.wb.internal.core.nls.bundle.pure.direct.DirectSource;
@@ -30,6 +28,8 @@ import org.eclipse.wb.tests.designer.core.PreferencesRepairer;
 
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.IJavaProject;
+
+import org.junit.Test;
 
 import java.util.List;
 

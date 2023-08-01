@@ -9,9 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.editor;
-import org.junit.Before;
-import org.junit.After;
-
 import org.eclipse.wb.core.controls.palette.PaletteComposite;
 import org.eclipse.wb.gef.core.requests.ICreationFactory;
 import org.eclipse.wb.gef.core.tools.CreationTool;
@@ -46,6 +43,9 @@ import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.ide.IDE;
+
+import org.junit.After;
+import org.junit.Before;
 
 /**
  * Test for {@link AbstractXmlEditor} and its parts.

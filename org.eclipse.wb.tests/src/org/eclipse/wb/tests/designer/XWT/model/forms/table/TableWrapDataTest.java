@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.forms.table;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.rcp.model.forms.layout.table.TableWrapLayoutImages;
 import org.eclipse.wb.internal.xwt.model.forms.layout.table.TableWrapDataInfo;
@@ -23,6 +21,8 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.forms.widgets.TableWrapData;
+
+import org.junit.Test;
 
 /**
  * Test for {@link TableWrapDataInfo}.

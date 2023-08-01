@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.property;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.internal.core.model.property.ITypedProperty;
 import org.eclipse.wb.internal.core.model.property.Property;
@@ -24,6 +22,7 @@ import org.eclipse.wb.tests.designer.XML.model.description.AbstractCoreTest;
 import org.eclipse.wb.tests.designer.tests.common.PropertyNoValue;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;

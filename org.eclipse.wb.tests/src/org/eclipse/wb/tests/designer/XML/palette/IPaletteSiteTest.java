@@ -10,9 +10,9 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.palette;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.xml.editor.palette.model.IPaletteSite;
+
+import org.junit.Test;
 
 /**
  * Tests for {@link IPaletteSite}.

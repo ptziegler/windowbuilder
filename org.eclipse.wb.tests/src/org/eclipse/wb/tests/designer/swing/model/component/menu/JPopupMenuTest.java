@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.component.menu;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.association.Association;
 import org.eclipse.wb.core.model.association.InvocationVoidAssociation;
 import org.eclipse.wb.internal.core.model.JavaInfoUtils;
@@ -38,6 +34,8 @@ import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 import org.eclipse.draw2d.geometry.Rectangle;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.awt.event.MouseListener;
 import java.util.List;

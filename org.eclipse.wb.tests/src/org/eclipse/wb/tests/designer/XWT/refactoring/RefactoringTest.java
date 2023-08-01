@@ -10,13 +10,13 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.refactoring;
 
-import org.junit.Test;
-
 import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
 import org.eclipse.wb.tests.designer.core.RefactoringTestUtils;
 
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
+
+import org.junit.Test;
 
 /**
  * Test for XWT refactoring participants.

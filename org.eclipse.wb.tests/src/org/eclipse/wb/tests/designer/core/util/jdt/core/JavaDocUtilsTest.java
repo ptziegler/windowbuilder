@@ -9,11 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.jdt.core;
-import org.junit.Ignore;
-import org.junit.Before;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.jdt.core.JavaDocUtils;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.tests.designer.core.AbstractJavaTest;
@@ -24,6 +19,10 @@ import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.dom.IMethodBinding;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
+
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  * Tests for {@link JavaDocUtils}.

@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.EnvironmentUtils;
 import org.eclipse.wb.internal.core.model.presentation.IObjectPresentation;
 import org.eclipse.wb.internal.core.model.property.GenericProperty;
@@ -26,6 +22,9 @@ import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.jface.fieldassist.ControlDecoration;
+
+import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  * Test for {@link ControlDecorationInfo}.

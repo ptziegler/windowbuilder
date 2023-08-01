@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.model;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.core.model.association.InvocationAssociation;
 import org.eclipse.wb.core.model.association.InvocationChildAssociation;
@@ -28,6 +26,7 @@ import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jdt.core.dom.StringLiteral;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.awt.CardLayout;
 import java.awt.Component;

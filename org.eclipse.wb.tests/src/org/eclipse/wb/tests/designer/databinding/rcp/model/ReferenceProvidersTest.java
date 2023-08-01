@@ -10,12 +10,11 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.databinding.rcp.model;
 
-import org.junit.Test;
-
-import org.junit.Assert;
-
 import org.eclipse.wb.internal.core.databinding.model.reference.CompoundReferenceProvider;
 import org.eclipse.wb.internal.core.databinding.model.reference.StringReferenceProvider;
+
+import org.junit.Assert;
+import org.junit.Test;
 
 
 

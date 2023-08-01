@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.palette;
 
-import org.junit.Test;
-
 import com.google.common.collect.ImmutableList;
 
 import org.eclipse.wb.core.editor.palette.model.entry.TabOrderToolEntryInfo;
@@ -28,6 +26,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
+import org.junit.Test;
 import org.mockito.ArgumentMatchers;
 import org.mockito.InOrder;
 

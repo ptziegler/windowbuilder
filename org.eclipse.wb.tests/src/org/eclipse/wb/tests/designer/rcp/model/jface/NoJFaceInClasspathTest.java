@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
-import org.junit.Before;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.editor.palette.model.EntryInfo;
 import org.eclipse.wb.core.editor.palette.model.entry.ComponentEntryInfo;
 import org.eclipse.wb.core.model.JavaInfo;
@@ -25,6 +21,9 @@ import org.eclipse.wb.tests.designer.core.model.parser.AbstractJavaInfoTest;
 import org.eclipse.wb.tests.designer.rcp.BTestUtils;
 
 import org.eclipse.jdt.core.IJavaProject;
+
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * If no JFace in classpath, in {@link IJavaProject}, then corresponding entries should no be

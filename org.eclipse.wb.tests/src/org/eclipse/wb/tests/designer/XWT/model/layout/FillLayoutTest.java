@@ -10,12 +10,12 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.layout;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.xml.model.clipboard.XmlObjectMemento;
 import org.eclipse.wb.internal.xwt.model.layout.FillLayoutInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.CompositeInfo;
 import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
+
+import org.junit.Test;
 
 /**
  * Test for {@link FillLayoutInfo}.

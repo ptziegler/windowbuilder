@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.component;
 
-import org.junit.Test;
-
 import com.google.common.collect.ImmutableList;
 
 import org.eclipse.wb.core.model.ObjectInfo;
@@ -23,6 +21,7 @@ import org.eclipse.wb.internal.swing.model.component.JLayeredPaneInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.awt.Container;
 import java.util.List;

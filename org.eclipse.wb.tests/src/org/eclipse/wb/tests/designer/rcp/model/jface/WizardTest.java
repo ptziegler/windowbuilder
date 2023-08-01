@@ -10,14 +10,14 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.exception.DesignerException;
 import org.eclipse.wb.internal.core.utils.exception.DesignerExceptionUtils;
 import org.eclipse.wb.internal.rcp.IExceptionConstants;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
 import org.eclipse.jface.wizard.Wizard;
+
+import org.junit.Test;
 
 /**
  * Test for {@link Wizard} support (rather not support).

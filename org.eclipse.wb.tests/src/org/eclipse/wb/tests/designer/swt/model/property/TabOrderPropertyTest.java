@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.property;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.order.TabOrderInfo;
 import org.eclipse.wb.internal.core.model.property.table.PropertyTooltipProvider;
@@ -21,6 +19,8 @@ import org.eclipse.wb.internal.swt.model.property.TabOrderProperty;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.internal.swt.model.widgets.ControlInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
+
+import org.junit.Test;
 
 import java.util.List;
 

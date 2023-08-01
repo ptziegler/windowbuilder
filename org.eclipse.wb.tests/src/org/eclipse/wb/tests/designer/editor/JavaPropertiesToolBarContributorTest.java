@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.editor.multi.MultiMode;
 import org.eclipse.wb.internal.core.editor.structure.property.JavaPropertiesToolBarContributor;
@@ -21,6 +17,9 @@ import org.eclipse.wb.tests.gef.UiContext;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.ToolItem;
+
+import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  * Test for {@link JavaPropertiesToolBarContributor}.

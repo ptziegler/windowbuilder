@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.description;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.exception.DesignerException;
 import org.eclipse.wb.internal.core.utils.exception.DesignerExceptionUtils;
 import org.eclipse.wb.internal.core.utils.ui.UiUtils;
@@ -40,6 +38,7 @@ import org.apache.commons.digester3.Digester;
 import org.apache.commons.digester3.Rule;
 import org.apache.commons.lang.ArrayUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.util.List;
 import java.util.Map;

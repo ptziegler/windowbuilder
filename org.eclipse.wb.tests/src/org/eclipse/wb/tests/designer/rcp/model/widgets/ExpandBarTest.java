@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.widgets;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.rcp.model.widgets.ExpandBarInfo;
 import org.eclipse.wb.internal.rcp.model.widgets.ExpandItemInfo;
@@ -26,6 +22,8 @@ import org.eclipse.swt.widgets.ExpandBar;
 import org.eclipse.swt.widgets.ExpandItem;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.util.List;
 

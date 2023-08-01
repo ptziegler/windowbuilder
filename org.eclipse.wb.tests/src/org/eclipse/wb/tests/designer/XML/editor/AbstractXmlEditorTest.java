@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.editor;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.xml.editor.AbstractXmlEditor;
 import org.eclipse.wb.internal.core.xml.editor.XmlDesignPage;
 import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
@@ -22,6 +20,7 @@ import org.eclipse.ui.internal.part.NullEditorInput;
 import org.eclipse.wst.sse.ui.StructuredTextEditor;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Test for {@link AbstractXmlEditor}.

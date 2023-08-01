@@ -9,11 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.jdt.core;
-import org.junit.Ignore;
-import org.junit.Before;
-
-import org.junit.Test;
-
 import com.google.common.base.Predicate;
 
 import org.eclipse.wb.internal.core.utils.jdt.core.ProjectUtils;
@@ -45,6 +40,9 @@ import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaCore;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
 import org.osgi.framework.Bundle;
 
 import java.io.File;

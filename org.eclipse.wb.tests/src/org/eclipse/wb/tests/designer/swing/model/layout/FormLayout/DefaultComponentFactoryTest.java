@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.FormLayout;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.editor.palette.model.entry.ToolEntryInfo;
 import org.eclipse.wb.gef.core.requests.ICreationFactory;
 import org.eclipse.wb.gef.core.tools.CreationTool;
@@ -30,6 +26,8 @@ import org.eclipse.swt.graphics.Image;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  * Tests for components from {@link DefaultComponentFactory}.

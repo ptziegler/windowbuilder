@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.palette;
 
-import org.junit.Test;
-
 import com.google.common.collect.ImmutableMap;
 
 import org.eclipse.wb.internal.core.editor.palette.model.entry.AttributesProvider;
@@ -22,6 +20,7 @@ import org.eclipse.wb.tests.designer.TestUtils;
 import org.eclipse.core.runtime.IConfigurationElement;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;

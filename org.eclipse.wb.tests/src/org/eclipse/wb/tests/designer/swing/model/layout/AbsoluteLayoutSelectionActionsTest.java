@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout;
 
-import org.junit.Test;
-
 import com.google.common.collect.Lists;
 
 import org.eclipse.wb.core.model.ObjectInfo;
@@ -25,6 +23,7 @@ import org.eclipse.wb.internal.swing.model.layout.absolute.SelectionActionsSuppo
 import org.eclipse.wb.tests.designer.core.model.TestObjectInfo;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.util.List;
 

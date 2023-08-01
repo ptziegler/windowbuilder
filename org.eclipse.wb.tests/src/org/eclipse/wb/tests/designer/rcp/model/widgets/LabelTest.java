@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.widgets;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.swt.model.widgets.ButtonStylePresentation;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
@@ -20,6 +18,8 @@ import org.eclipse.wb.internal.swt.model.widgets.LabelInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
 import org.eclipse.swt.widgets.Label;
+
+import org.junit.Test;
 
 /**
  * Test for {@link Label}.

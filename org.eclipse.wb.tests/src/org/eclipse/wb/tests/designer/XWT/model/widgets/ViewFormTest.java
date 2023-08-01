@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.widgets;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.internal.core.model.presentation.IObjectPresentation;
 import org.eclipse.wb.internal.core.utils.GenericsUtils;
@@ -20,6 +18,8 @@ import org.eclipse.wb.internal.xwt.model.widgets.CompositeInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.ControlInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.ViewFormInfo;
 import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
+
+import org.junit.Test;
 
 import java.util.List;
 

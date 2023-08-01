@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.component;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.association.Association;
 import org.eclipse.wb.core.model.association.InvocationChildAssociation;
 import org.eclipse.wb.core.model.association.InvocationVoidAssociation;
@@ -38,6 +36,7 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.Statement;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import javax.swing.Action;
 import javax.swing.JButton;

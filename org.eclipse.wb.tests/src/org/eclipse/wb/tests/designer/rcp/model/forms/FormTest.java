@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.forms;
 
-import org.junit.Test;
-
 import com.google.common.collect.ImmutableList;
 
 import org.eclipse.wb.internal.core.model.menu.IMenuPopupInfo;
@@ -32,6 +30,7 @@ import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.util.List;
 

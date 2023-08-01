@@ -10,14 +10,14 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.widgets;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.creation.factory.InstanceFactoryContainerInfo;
 import org.eclipse.wb.internal.core.model.creation.factory.InstanceFactoryCreationSupport;
 import org.eclipse.wb.internal.core.model.creation.factory.InstanceFactoryInfo;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.internal.swt.model.widgets.ControlInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
+
+import org.junit.Test;
 
 import java.util.List;
 

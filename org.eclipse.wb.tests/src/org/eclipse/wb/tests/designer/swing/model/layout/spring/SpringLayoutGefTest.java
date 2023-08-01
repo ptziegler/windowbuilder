@@ -9,11 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.spring;
-import org.junit.Before;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.draw2d.IPositionConstants;
 import org.eclipse.wb.internal.core.model.layout.absolute.IPreferenceConstants;
 import org.eclipse.wb.internal.core.utils.jdt.core.CodeUtils;
@@ -25,6 +20,10 @@ import org.eclipse.wb.tests.designer.Expectations.IntValue;
 import org.eclipse.wb.tests.designer.swing.SwingGefTest;
 
 import org.eclipse.jface.preference.IPreferenceStore;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.lang.reflect.Field;
 import java.util.List;

@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.creation;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.model.JavaInfoUtils;
 import org.eclipse.wb.internal.core.model.JavaInfoUtils.HierarchyProvider;
@@ -28,6 +26,7 @@ import org.eclipse.wb.internal.swing.model.layout.FlowLayoutInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.awt.Component;
 import java.io.ByteArrayOutputStream;

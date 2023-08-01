@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.variables;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.association.AssociationObjects;
 import org.eclipse.wb.internal.core.model.JavaInfoUtils;
 import org.eclipse.wb.internal.core.model.creation.ConstructorCreationSupport;
@@ -20,6 +18,8 @@ import org.eclipse.wb.internal.core.model.variable.EmptyInvocationVariableSuppor
 import org.eclipse.wb.internal.core.model.variable.EmptyVariableSupport;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
+
+import org.junit.Test;
 
 import javax.swing.JButton;
 

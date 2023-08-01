@@ -9,11 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.property;
-import org.junit.Ignore;
-import org.junit.Before;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.swt.model.jface.resource.ColorRegistryInfo;
 import org.eclipse.wb.internal.swt.model.jface.resource.KeyFieldInfo;
@@ -23,6 +18,10 @@ import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
 import org.eclipse.swt.widgets.Display;
+
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.lang.reflect.Array;
 import java.util.List;

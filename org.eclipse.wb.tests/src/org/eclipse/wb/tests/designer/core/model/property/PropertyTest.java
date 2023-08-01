@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.core.model.broadcast.GenericPropertyGetValue;
@@ -43,6 +41,7 @@ import org.eclipse.wb.tests.designer.tests.common.PropertyNoValue;
 import org.eclipse.jdt.core.dom.Expression;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.lang.reflect.Method;
 import java.util.List;

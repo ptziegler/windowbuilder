@@ -10,12 +10,12 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.xml.model.property.editor.StaticFieldPropertyEditorGetExpression;
 import org.eclipse.wb.internal.xwt.model.util.XwtStaticFieldSupport;
 
 import org.eclipse.swt.SWT;
+
+import org.junit.Test;
 
 import javax.swing.SwingConstants;
 

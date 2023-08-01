@@ -10,13 +10,12 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.creation;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.model.creation.ICreationSupportPermissions;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
 import org.apache.commons.lang.NotImplementedException;
+import org.junit.Test;
 
 /**
  * Test for {@link ICreationSupportPermissions}.

@@ -9,9 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.gef;
-import org.junit.Before;
-import org.junit.After;
-
 import org.eclipse.wb.gef.core.tools.CreationTool;
 import org.eclipse.wb.internal.core.preferences.IPreferenceConstants;
 import org.eclipse.wb.internal.core.utils.jdt.core.CodeUtils;
@@ -28,6 +25,8 @@ import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.swt.widgets.Button;
 
 import org.apache.commons.lang.ArrayUtils;
+import org.junit.After;
+import org.junit.Before;
 
 /**
  * Abstract super class for XWT GEF tests.

@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.layout;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import org.eclipse.wb.draw2d.IPositionConstants;
 import org.eclipse.wb.internal.swt.model.layout.absolute.AbsoluteLayoutInfo;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
@@ -20,6 +16,9 @@ import org.eclipse.wb.internal.swt.model.widgets.ControlInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpGefTest;
 
 import org.eclipse.jface.action.IAction;
+
+import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  * Tests for {@link AbsoluteLayoutInfo}.

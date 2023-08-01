@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.gbl;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import com.google.common.collect.Lists;
 
 import org.eclipse.wb.core.model.ObjectInfo;
@@ -21,6 +17,9 @@ import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.internal.swing.model.layout.gbl.GridBagLayoutInfo;
 
 import org.eclipse.jface.action.IAction;
+
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.util.List;
 

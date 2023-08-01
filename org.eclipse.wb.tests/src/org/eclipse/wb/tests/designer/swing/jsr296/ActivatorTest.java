@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.jsr296;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.IOUtils2;
 import org.eclipse.wb.internal.swing.jsr296.Activator;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
@@ -21,6 +19,7 @@ import org.eclipse.swt.graphics.Image;
 
 import org.apache.commons.io.IOUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.io.InputStream;
 

@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.description.MorphingTargetDescription;
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
@@ -19,6 +17,8 @@ import org.eclipse.wb.internal.core.xml.model.utils.MorphingSupport;
 import org.eclipse.wb.internal.xwt.model.widgets.ControlInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.ShellInfo;
 import org.eclipse.wb.tests.designer.XML.model.description.AbstractCoreTest;
+
+import org.junit.Test;
 
 import java.util.List;
 

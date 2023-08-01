@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.editor;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.editor.IDesignPageSite;
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.xml.editor.UndoManager;
@@ -24,6 +22,8 @@ import org.eclipse.jface.text.IDocument;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
+
+import org.junit.Test;
 
 /**
  * Test for {@link UndoManager}.

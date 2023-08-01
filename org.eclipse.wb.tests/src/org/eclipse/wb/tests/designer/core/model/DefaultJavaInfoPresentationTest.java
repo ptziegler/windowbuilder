@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.creation.factory.StaticFactoryCreationSupport;
 import org.eclipse.wb.internal.core.model.presentation.DefaultJavaInfoPresentation;
 import org.eclipse.wb.internal.core.model.presentation.IObjectPresentation;
@@ -21,6 +19,8 @@ import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 import org.eclipse.wb.tests.designer.tests.Activator;
 
 import org.eclipse.core.resources.IFile;
+
+import org.junit.Test;
 
 /**
  * Test for {@link DefaultJavaInfoPresentation}.

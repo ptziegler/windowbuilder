@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.component;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.editor.PropertyEditor;
 import org.eclipse.wb.internal.core.model.property.table.PropertyTooltipProvider;
@@ -22,6 +20,7 @@ import org.eclipse.wb.internal.swing.model.property.editor.models.tree.TreeModel
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
 import org.apache.commons.lang.StringUtils;
+import org.junit.Test;
 
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;

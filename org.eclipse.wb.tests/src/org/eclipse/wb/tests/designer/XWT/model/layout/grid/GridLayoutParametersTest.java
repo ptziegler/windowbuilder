@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.layout.grid;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.rcp.ToolkitProvider;
 import org.eclipse.wb.internal.swt.model.layout.grid.IPreferenceConstants;
 import org.eclipse.wb.internal.xwt.model.layout.grid.GridLayoutInfo;
@@ -23,6 +21,8 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
+
+import org.junit.Test;
 
 /**
  * Test for {@link GridLayoutInfo} and special parameters for grab/alignment.

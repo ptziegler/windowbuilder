@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.layouts;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.description.ToolkitDescription;
 import org.eclipse.wb.internal.core.model.generation.GenerationSettings;
 import org.eclipse.wb.internal.core.model.generation.statement.flat.FlatStatementGeneratorDescription;
@@ -28,6 +26,8 @@ import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Layout;
+
+import org.junit.Test;
 
 /**
  * Tests for {@link LayoutDataInfo}.

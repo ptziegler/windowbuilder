@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.IOUtils2;
 import org.eclipse.wb.internal.core.xml.Activator;
 import org.eclipse.wb.internal.core.xml.IExceptionConstants;
@@ -22,6 +20,7 @@ import org.eclipse.swt.graphics.Image;
 
 import org.apache.commons.io.IOUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.io.InputStream;
 

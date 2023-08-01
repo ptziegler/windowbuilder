@@ -10,11 +10,11 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.association;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.association.RootAssociation;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
+
+import org.junit.Test;
 
 /**
  * Tests for {@link RootAssociation}.

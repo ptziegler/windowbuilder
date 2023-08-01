@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.creation;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.association.Association;
 import org.eclipse.wb.core.model.association.InvocationChildAssociation;
 import org.eclipse.wb.internal.core.DesignerPlugin;
@@ -47,6 +45,8 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.jdt.core.dom.ExpressionStatement;
 import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jface.resource.ImageDescriptor;
+
+import org.junit.Test;
 
 import java.util.List;
 

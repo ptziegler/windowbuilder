@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.generic;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.ITypedProperty;
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.category.PropertyCategory;
@@ -29,6 +27,7 @@ import org.eclipse.wb.tests.designer.XML.model.description.AbstractCoreTest;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.util.List;
 

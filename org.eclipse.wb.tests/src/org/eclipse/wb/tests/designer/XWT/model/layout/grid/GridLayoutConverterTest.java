@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.layout.grid;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.swt.model.layout.grid.GridLayoutConverter;
 import org.eclipse.wb.internal.xwt.model.layout.grid.GridDataInfo;
@@ -22,6 +20,8 @@ import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
 
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.layout.GridLayout;
+
+import org.junit.Test;
 
 /**
  * Tests for {@link GridLayoutConverter}.

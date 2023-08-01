@@ -10,13 +10,13 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.editor;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.editor.actions.DeleteAction;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
 
 import org.eclipse.jface.action.IAction;
+
+import org.junit.Test;
 
 /**
  * Test for {@link DeleteAction}.

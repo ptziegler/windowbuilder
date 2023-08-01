@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.nebula;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.JavaInfoUtils;
 import org.eclipse.wb.internal.core.model.creation.ConstructorCreationSupport;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
@@ -28,6 +26,7 @@ import org.eclipse.nebula.widgets.grid.GridItem;
 import net.miginfocom.layout.Grid;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Test for {@link Grid} items models.

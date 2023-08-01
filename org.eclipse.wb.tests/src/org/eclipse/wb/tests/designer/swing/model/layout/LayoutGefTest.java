@@ -10,13 +10,13 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout;
 
-import org.junit.Test;
-
 import org.eclipse.wb.gef.tree.policies.LayoutEditPolicy;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.internal.swing.model.layout.LayoutInfo;
 import org.eclipse.wb.tests.designer.swing.SwingGefTest;
 import org.eclipse.wb.tests.designer.swing.model.component.ContainerTest;
+
+import org.junit.Test;
 
 import java.awt.LayoutManager;
 

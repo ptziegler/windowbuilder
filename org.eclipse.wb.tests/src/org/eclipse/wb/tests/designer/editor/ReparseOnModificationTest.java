@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.core.model.broadcast.EditorActivatedListener;
 import org.eclipse.wb.core.model.broadcast.EditorActivatedRequest;
@@ -22,6 +20,8 @@ import org.eclipse.wb.tests.designer.swing.SwingGefTest;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.ui.JavaUI;
 import org.eclipse.ui.IEditorPart;
+
+import org.junit.Test;
 
 /**
  * Test for reparsing on dependency modification, for example modification of used component (it

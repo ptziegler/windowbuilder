@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.forms;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.internal.xwt.model.forms.ExpandableCompositeInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.AbstractPositionInfo;
@@ -19,6 +17,7 @@ import org.eclipse.wb.internal.xwt.model.widgets.ControlInfo;
 import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.util.List;
 

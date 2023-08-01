@@ -10,13 +10,13 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.util;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.util.GenericTypeResolverJavaInfo;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
 import org.eclipse.jdt.core.dom.ClassInstanceCreation;
+
+import org.junit.Test;
 
 import java.lang.reflect.TypeVariable;
 

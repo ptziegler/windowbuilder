@@ -10,13 +10,13 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.nebula;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.rcp.nebula.ganttchart.GanttGroupEditPart;
 import org.eclipse.wb.internal.rcp.nebula.ganttchart.GanttGroupInfo;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 
 import org.eclipse.nebula.widgets.ganttchart.GanttChart;
+
+import org.junit.Test;
 
 /**
  * Test for {@link GanttChart} items models.

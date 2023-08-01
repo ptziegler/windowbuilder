@@ -10,11 +10,11 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.description;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.xml.model.property.accessor.EmptyExpressionAccessor;
 import org.eclipse.wb.internal.core.xml.model.property.accessor.ExpressionAccessor;
+
+import org.junit.Test;
 
 /**
  * Test for {@link EmptyExpressionAccessor}.

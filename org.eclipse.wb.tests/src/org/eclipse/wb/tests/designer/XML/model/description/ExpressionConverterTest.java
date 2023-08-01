@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.description;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.editor.PropertyEditor;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.internal.core.xml.model.description.DescriptionPropertiesHelper;
@@ -21,6 +19,8 @@ import org.eclipse.wb.internal.core.xml.model.property.converter.EnumConverter;
 import org.eclipse.wb.internal.core.xml.model.property.converter.ExpressionConverter;
 import org.eclipse.wb.internal.core.xml.model.property.converter.IntegerConverter;
 import org.eclipse.wb.internal.core.xml.model.property.converter.StringConverter;
+
+import org.junit.Test;
 
 /**
  * Tests for standard {@link ExpressionConverter}'s.

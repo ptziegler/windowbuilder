@@ -9,14 +9,13 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.widgets;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.draw2d.IPositionConstants;
 import org.eclipse.wb.internal.rcp.model.widgets.TableInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpGefTest;
+
+import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  * Test for {@link TableInfo} in GEF.

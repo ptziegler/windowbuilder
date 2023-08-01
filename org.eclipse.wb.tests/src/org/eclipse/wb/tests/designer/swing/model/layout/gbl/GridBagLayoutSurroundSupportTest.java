@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.gbl;
 
-import org.junit.Test;
-
 import com.google.common.collect.ImmutableList;
 
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
@@ -19,6 +17,8 @@ import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.internal.swing.model.layout.gbl.GridBagConstraintsInfo;
 import org.eclipse.wb.internal.swing.model.layout.gbl.GridBagLayoutInfo;
 import org.eclipse.wb.tests.designer.swing.model.util.SurroundSupportTest;
+
+import org.junit.Test;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;

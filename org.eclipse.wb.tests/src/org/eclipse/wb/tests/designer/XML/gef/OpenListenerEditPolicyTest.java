@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.gef;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.internal.core.xml.gef.policy.OpenListenerEditPolicy;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
@@ -21,6 +19,7 @@ import org.eclipse.jdt.internal.ui.javaeditor.CompilationUnitEditor;
 import org.eclipse.ui.IEditorPart;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Test for {@link OpenListenerEditPolicy}.

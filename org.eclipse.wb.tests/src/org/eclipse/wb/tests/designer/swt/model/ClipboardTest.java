@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.clipboard.ComponentInfoMemento;
 import org.eclipse.wb.internal.core.model.clipboard.JavaInfoMemento;
 import org.eclipse.wb.internal.core.utils.check.AssertionFailedException;
@@ -26,6 +22,9 @@ import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Rectangle;
+
+import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  * Test for {@link JavaInfoMemento} and other clipboard related operations.

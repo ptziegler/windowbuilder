@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.editor;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.internal.core.EnvironmentUtils;
 import org.eclipse.wb.internal.core.utils.exception.DesignerExceptionUtils;
@@ -23,6 +19,9 @@ import org.eclipse.wb.tests.gef.UiContext;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.ToolItem;
+
+import org.junit.After;
+import org.junit.Test;
 
 /**
  * Test for {@link XmlPropertiesToolBarContributor}.

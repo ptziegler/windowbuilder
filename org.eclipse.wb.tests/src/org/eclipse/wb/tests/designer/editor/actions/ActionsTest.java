@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor.actions;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.internal.core.editor.multi.DesignerEditor;
 import org.eclipse.wb.tests.designer.swing.SwingGefTest;
@@ -21,6 +19,8 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.texteditor.ITextEditor;
+
+import org.junit.Test;
 
 /**
  * Test for {@link IAction} management in {@link DesignerEditor}.

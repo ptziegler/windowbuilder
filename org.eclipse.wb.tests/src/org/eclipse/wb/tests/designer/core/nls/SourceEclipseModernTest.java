@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.nls;
-import org.junit.Before;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.GenericProperty;
 import org.eclipse.wb.internal.core.nls.NlsSupport;
 import org.eclipse.wb.internal.core.nls.SourceDescription;
@@ -36,6 +32,8 @@ import org.eclipse.jdt.core.dom.StringLiteral;
 
 import org.apache.commons.lang.StringUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.List;
 

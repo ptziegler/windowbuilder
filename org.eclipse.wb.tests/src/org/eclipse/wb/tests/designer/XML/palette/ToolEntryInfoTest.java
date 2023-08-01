@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.palette;
 
-import org.junit.Test;
-
 import org.eclipse.wb.gef.core.IEditPartViewer;
 import org.eclipse.wb.gef.core.tools.Tool;
 import org.eclipse.wb.gef.graphical.tools.SelectionTool;
@@ -21,6 +19,8 @@ import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.tests.gef.EmptyEditPartViewer;
 
 import org.eclipse.jface.resource.ImageDescriptor;
+
+import org.junit.Test;
 
 /**
  * Tests for abstract {@link ToolEntryInfo}.

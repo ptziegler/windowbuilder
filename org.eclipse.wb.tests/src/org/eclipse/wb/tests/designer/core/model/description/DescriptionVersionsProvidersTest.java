@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.description;
 
-import org.junit.Test;
-
 import com.google.common.collect.ImmutableList;
 
 import org.eclipse.wb.internal.core.model.description.ComponentDescription;
@@ -30,6 +28,7 @@ import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.jdt.core.IJavaProject;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 import org.osgi.framework.Bundle;
 
 import java.awt.Component;

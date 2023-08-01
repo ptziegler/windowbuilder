@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.palette;
 
-import org.junit.Test;
-
 import com.google.common.collect.ImmutableMap;
 
 import org.eclipse.wb.internal.core.DesignerPlugin;
@@ -37,6 +35,7 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.io.File;
 import java.util.List;

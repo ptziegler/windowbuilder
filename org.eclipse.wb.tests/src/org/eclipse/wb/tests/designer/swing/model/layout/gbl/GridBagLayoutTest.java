@@ -9,11 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.gbl;
-import org.junit.Ignore;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.gef.policy.layout.grid.IGridInfo;
 import org.eclipse.wb.internal.core.model.clipboard.JavaInfoMemento;
 import org.eclipse.wb.internal.core.model.description.ParameterDescription;
@@ -41,6 +36,9 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.jface.preference.IPreferenceStore;
 
 import org.assertj.core.api.Assertions;
+import org.junit.After;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.awt.Component;
 import java.awt.Container;

@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.refactoring;
-import org.junit.Before;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.refactoring.RefactoringUtils;
 import org.eclipse.wb.internal.core.utils.xml.AbstractDocumentEditContext;
 import org.eclipse.wb.internal.core.utils.xml.DocumentElement;
@@ -37,6 +33,8 @@ import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Tests for {@link RefactoringUtils}.

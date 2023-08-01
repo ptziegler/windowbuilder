@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.databinding.rcp.model;
 
-import org.junit.Test;
-
 import com.google.common.collect.Lists;
 
 import org.eclipse.wb.internal.core.databinding.ui.editor.IPageListener;
@@ -39,6 +37,7 @@ import org.eclipse.wb.tests.designer.databinding.rcp.DatabindingTestUtils;
 import org.eclipse.swt.graphics.Image;
 
 import org.apache.commons.lang.ArrayUtils;
+import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;

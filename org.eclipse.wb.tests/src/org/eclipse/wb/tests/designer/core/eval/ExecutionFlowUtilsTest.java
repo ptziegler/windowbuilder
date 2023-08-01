@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.eval;
-import org.junit.Before;
-
-import org.junit.Test;
-
 import com.google.common.collect.Lists;
 
 import static org.eclipse.wb.core.eval.ExecutionFlowUtils.getAssignments;
@@ -59,6 +55,8 @@ import org.eclipse.jdt.core.dom.VariableDeclarationStatement;
 
 import org.apache.commons.lang.StringUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

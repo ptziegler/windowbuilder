@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.description;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.category.PropertyCategory;
 import org.eclipse.wb.internal.core.model.property.editor.BooleanPropertyEditor;
@@ -32,6 +30,7 @@ import org.eclipse.wb.internal.core.xml.model.property.editor.StaticFieldPropert
 import org.eclipse.wb.tests.designer.XML.NoopConfigurablePropertyEditor;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Test for {@link GenericPropertyDescription} loading.

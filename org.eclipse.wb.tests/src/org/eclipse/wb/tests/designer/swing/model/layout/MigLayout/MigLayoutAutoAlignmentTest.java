@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.MigLayout;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.swing.MigLayout.Activator;
 import org.eclipse.wb.internal.swing.MigLayout.model.IPreferenceConstants;
 import org.eclipse.wb.internal.swing.MigLayout.model.MigLayoutInfo;
@@ -20,6 +16,9 @@ import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 
 import org.eclipse.jface.preference.IPreferenceStore;
+
+import org.junit.After;
+import org.junit.Test;
 
 import javax.swing.JLabel;
 import javax.swing.JTable;

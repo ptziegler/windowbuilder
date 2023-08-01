@@ -9,16 +9,15 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.nls;
-import org.junit.Before;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.nls.bundle.BundleInfo;
 import org.eclipse.wb.internal.core.nls.bundle.StandardPropertiesAccessor;
 import org.eclipse.wb.internal.core.nls.model.LocaleInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
 import org.eclipse.core.resources.IFile;
+
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.Locale;
 import java.util.Map;

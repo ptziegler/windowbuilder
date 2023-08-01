@@ -10,12 +10,11 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.gef;
 
-import org.junit.Test;
-
-import org.junit.Assert;
-
 import org.eclipse.wb.gef.core.Command;
 import org.eclipse.wb.internal.gef.core.CompoundCommand;
+
+import org.junit.Assert;
+import org.junit.Test;
 
 
 

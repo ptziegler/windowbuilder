@@ -10,11 +10,11 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.forms;
 
-import org.junit.Test;
-
 import org.eclipse.wb.gef.core.EditPart;
 import org.eclipse.wb.internal.xwt.model.forms.ExpandableCompositeInfo;
 import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
+
+import org.junit.Test;
 
 /**
  * Test for {@link ExpandableCompositeInfo} in GEF.

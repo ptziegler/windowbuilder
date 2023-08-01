@@ -10,11 +10,11 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.gef;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.swing.gef.policy.layout.GridLayoutEditPolicy;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
+
+import org.junit.Test;
 
 /**
  * Test for {@link GridLayoutEditPolicy}.

@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.PropertyManager;
 import org.eclipse.wb.internal.core.model.property.category.PropertyCategory;
@@ -20,6 +18,8 @@ import org.eclipse.wb.internal.core.model.property.category.PropertyCategoryProv
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 import org.eclipse.wb.tests.designer.tests.common.PropertyWithTitle;
+
+import org.junit.Test;
 
 /**
  * Test for {@link PropertyCategoryProviders}.

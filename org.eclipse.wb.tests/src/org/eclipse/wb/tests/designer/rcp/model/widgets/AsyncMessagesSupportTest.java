@@ -10,13 +10,13 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.widgets;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.internal.swt.model.widgets.ControlInfo;
 import org.eclipse.wb.internal.swt.utils.AsyncMessagesSupport;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
+
+import org.junit.Test;
 
 /**
  * Test for {@link AsyncMessagesSupport}.

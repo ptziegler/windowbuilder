@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.swingx;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.creation.factory.ImplicitFactoryCreationSupport;
 import org.eclipse.wb.internal.swing.model.bean.ActionContainerInfo;
 import org.eclipse.wb.internal.swing.model.bean.ActionInfo;
@@ -22,6 +20,7 @@ import org.eclipse.wb.internal.swing.swingx.JXTaskPaneInfo;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.awt.Component;
 import java.util.List;

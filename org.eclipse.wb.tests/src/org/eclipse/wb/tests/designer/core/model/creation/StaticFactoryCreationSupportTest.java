@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.creation;
 
-import org.junit.Test;
-
 import com.google.common.collect.Lists;
 
 import org.eclipse.wb.core.editor.palette.PaletteEventListener;
@@ -48,6 +46,7 @@ import org.eclipse.wb.tests.designer.swing.SwingTestUtils;
 import org.eclipse.jdt.core.IMethod;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.util.List;
 

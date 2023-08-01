@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.widgets;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.creation.ExposedPropertyCreationSupport;
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.variable.ExposedPropertyVariableSupport;
@@ -29,6 +27,8 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Widget;
+
+import org.junit.Test;
 
 /**
  * Tests for {@link WidgetInfo}.

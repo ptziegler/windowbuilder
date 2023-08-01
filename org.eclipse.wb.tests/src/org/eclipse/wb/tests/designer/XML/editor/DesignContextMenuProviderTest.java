@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.editor;
 
-import org.junit.Test;
-
 import org.eclipse.wb.gef.core.IEditPartViewer;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.core.xml.editor.DesignContextMenuProvider;
@@ -22,6 +20,8 @@ import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.swt.widgets.Menu;
+
+import org.junit.Test;
 
 /**
  * Test for {@link DesignContextMenuProvider}.

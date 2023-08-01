@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.check.AssertionFailedException;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.core.utils.xml.DocumentElement;
@@ -27,6 +25,7 @@ import static org.mockito.Mockito.mock;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.NotImplementedException;
+import org.junit.Test;
 
 /**
  * Test for {@link ElementCreationSupport}.

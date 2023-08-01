@@ -10,11 +10,11 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.palette;
 
-import org.junit.Test;
-
 import org.eclipse.wb.gef.graphical.tools.MarqueeSelectionTool;
 import org.eclipse.wb.internal.core.xml.editor.palette.model.MarqueeSelectionToolEntryInfo;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
+
+import org.junit.Test;
 
 /**
  * Test for {@link MarqueeSelectionToolEntryInfo}.

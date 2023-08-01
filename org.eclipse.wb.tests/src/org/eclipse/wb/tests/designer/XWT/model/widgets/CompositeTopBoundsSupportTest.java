@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.widgets;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.xwt.model.widgets.CompositeInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.CompositeTopBoundsSupport;
 import org.eclipse.wb.internal.xwt.model.widgets.ControlInfo;
@@ -24,6 +22,8 @@ import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
+
+import org.junit.Test;
 
 /**
  * Test for {@link CompositeTopBoundsSupport}.

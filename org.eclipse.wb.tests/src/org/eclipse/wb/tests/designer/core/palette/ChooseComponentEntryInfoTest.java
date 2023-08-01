@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.palette;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.editor.palette.model.CategoryInfo;
 import org.eclipse.wb.core.editor.palette.model.IPaletteSite;
 import org.eclipse.wb.core.editor.palette.model.PaletteInfo;
@@ -34,6 +30,9 @@ import org.eclipse.jdt.core.IType;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
+
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 

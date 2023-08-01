@@ -10,13 +10,13 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.generic;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.broadcast.ObjectEventListener;
 import org.eclipse.wb.internal.core.editor.multi.MultiMode;
 import org.eclipse.wb.internal.core.gef.policy.OpenListenerEditPolicy;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.tests.designer.swing.SwingGefTest;
+
+import org.junit.Test;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 

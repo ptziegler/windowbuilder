@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.association;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.core.model.association.InvocationSecondaryAssociation;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
@@ -19,6 +17,7 @@ import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
 import org.apache.commons.lang.NotImplementedException;
+import org.junit.Test;
 
 import java.awt.BorderLayout;
 import java.awt.Component;

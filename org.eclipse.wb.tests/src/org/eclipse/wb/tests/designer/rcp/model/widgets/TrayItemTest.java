@@ -10,14 +10,14 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.widgets;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.nonvisual.NonVisualBeanContainerInfo;
 import org.eclipse.wb.internal.rcp.model.widgets.TrayItemInfo;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
 import org.eclipse.swt.widgets.TrayItem;
+
+import org.junit.Test;
 
 /**
  * Test {@link TrayItemInfo}.

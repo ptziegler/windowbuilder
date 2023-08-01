@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.parser;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.core.model.association.RootAssociation;
 import org.eclipse.wb.core.model.broadcast.JavaInfoSetObjectAfter;
@@ -40,6 +38,7 @@ import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jdt.core.dom.SuperMethodInvocation;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.awt.Component;
 import java.awt.Container;

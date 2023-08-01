@@ -10,13 +10,12 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.description;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.description.MorphingTargetDescription;
 import org.eclipse.wb.internal.core.xml.model.description.ComponentDescription;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.util.List;
 

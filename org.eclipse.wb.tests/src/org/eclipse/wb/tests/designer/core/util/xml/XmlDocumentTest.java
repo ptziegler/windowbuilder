@@ -9,11 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.xml;
-import org.junit.Before;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.exception.DesignerExceptionUtils;
 import org.eclipse.wb.internal.core.utils.xml.AbstractDocumentEditContext;
 import org.eclipse.wb.internal.core.utils.xml.AbstractDocumentHandler;
@@ -33,6 +28,9 @@ import org.eclipse.jface.text.Document;
 
 import org.apache.commons.lang.StringUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

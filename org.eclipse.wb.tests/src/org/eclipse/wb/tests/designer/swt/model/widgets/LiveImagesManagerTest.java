@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.widgets;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.AbstractComponentInfo;
 import org.eclipse.wb.internal.core.model.JavaInfoUtils;
 import org.eclipse.wb.internal.core.model.clipboard.JavaInfoMemento;
@@ -32,6 +30,8 @@ import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
+
+import org.junit.Test;
 
 /**
  * Tests for {@link LiveImagesManager}.

@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.model;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.converter.IntegerConverter;
 import org.eclipse.wb.internal.core.model.util.PropertyUtils;
@@ -22,6 +20,8 @@ import org.eclipse.wb.internal.swing.model.layout.BoxSupport;
 import org.eclipse.wb.internal.swing.model.property.editor.alignment.AlignmentXPropertyEditor;
 import org.eclipse.wb.internal.swing.model.property.editor.alignment.AlignmentYPropertyEditor;
 import org.eclipse.wb.tests.designer.swing.model.layout.AbstractLayoutTest;
+
+import org.junit.Test;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;

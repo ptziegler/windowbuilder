@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor.validator;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.gef.policy.validator.BorderOfChildLayoutRequestValidator;
 import org.eclipse.wb.draw2d.IPositionConstants;
 import org.eclipse.wb.internal.core.model.JavaInfoUtils;
@@ -20,6 +18,8 @@ import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.swing.SwingGefTest;
 
 import org.eclipse.jface.action.IAction;
+
+import org.junit.Test;
 
 /**
  * Test {@link BorderOfChildLayoutRequestValidator}.

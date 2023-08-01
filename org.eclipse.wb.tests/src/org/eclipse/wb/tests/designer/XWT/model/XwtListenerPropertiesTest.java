@@ -9,16 +9,15 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.util.PropertyUtils;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.internal.xwt.model.util.XwtListenerProperties;
+
+import org.junit.After;
+import org.junit.Test;
 
 /**
  * Test for {@link XwtListenerProperties}.

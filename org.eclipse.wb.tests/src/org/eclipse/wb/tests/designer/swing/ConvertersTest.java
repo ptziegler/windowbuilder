@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.converter.ExpressionConverter;
 import org.eclipse.wb.internal.swing.model.property.converter.ColorConverter;
 import org.eclipse.wb.internal.swing.model.property.converter.DimensionConverter;
@@ -22,6 +20,8 @@ import org.eclipse.wb.tests.designer.Expectations;
 import org.eclipse.wb.tests.designer.Expectations.KeyValue;
 import org.eclipse.wb.tests.designer.Expectations.StrValue;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
+
+import org.junit.Test;
 
 import java.awt.EventQueue;
 import java.awt.SystemColor;

@@ -9,9 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.property;
-import org.junit.Before;
-import org.junit.After;
-
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.rcp.ToolkitProvider;
 import org.eclipse.wb.internal.rcp.model.property.CursorPropertyEditor;
@@ -23,6 +20,9 @@ import org.eclipse.wb.tests.designer.swt.model.property.PropertyEditorTestUtils;
 
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.widgets.Shell;
+
+import org.junit.After;
+import org.junit.Before;
 
 /**
  * Tests for {@link CursorPropertyEditor}.

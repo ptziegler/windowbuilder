@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.forms.table;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.creation.ConstructorCreationSupport;
 import org.eclipse.wb.internal.core.model.creation.ExposedPropertyCreationSupport;
 import org.eclipse.wb.internal.core.model.variable.EmptyVariableSupport;
@@ -23,6 +21,8 @@ import org.eclipse.wb.internal.swt.model.layout.LayoutDataInfo;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.internal.swt.model.widgets.ControlInfo;
 import org.eclipse.wb.tests.designer.rcp.model.forms.AbstractFormsTest;
+
+import org.junit.Test;
 
 /**
  * Test for {@link TableWrapLayoutInfo} and exposed {@link ControlInfo}'s.

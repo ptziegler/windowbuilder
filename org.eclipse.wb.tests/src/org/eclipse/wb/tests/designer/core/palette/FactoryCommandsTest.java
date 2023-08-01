@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.palette;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.editor.palette.model.CategoryInfo;
 import org.eclipse.wb.core.editor.palette.model.PaletteInfo;
 import org.eclipse.wb.internal.core.editor.palette.PaletteManager;
@@ -22,6 +20,8 @@ import org.eclipse.wb.internal.core.editor.palette.command.factory.FactoryEditCo
 import org.eclipse.wb.internal.core.editor.palette.model.entry.FactoryEntryInfo;
 import org.eclipse.wb.internal.core.editor.palette.model.entry.InstanceFactoryEntryInfo;
 import org.eclipse.wb.internal.core.editor.palette.model.entry.StaticFactoryEntryInfo;
+
+import org.junit.Test;
 
 /**
  * Tests for palette {@link FactoryEntryInfo} {@link Command}'s.

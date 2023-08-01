@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.editor;
 
-import org.junit.Test;
-
 import org.eclipse.wb.draw2d.IPositionConstants;
 import org.eclipse.wb.internal.core.xml.gef.policy.TopSelectionEditPolicy;
 import org.eclipse.wb.internal.xwt.model.widgets.CompositeInfo;
@@ -20,6 +18,7 @@ import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
 import org.eclipse.draw2d.geometry.Rectangle;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Test for {@link TopSelectionEditPolicy}.

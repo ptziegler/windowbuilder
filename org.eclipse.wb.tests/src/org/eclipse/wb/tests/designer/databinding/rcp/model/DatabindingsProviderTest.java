@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.databinding.rcp.model;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.databinding.model.IBindingInfo;
 import org.eclipse.wb.internal.core.databinding.model.IObserveInfo;
@@ -53,6 +51,8 @@ import org.eclipse.wb.internal.swt.model.widgets.ControlInfo;
 import org.eclipse.wb.tests.designer.core.model.parser.AbstractJavaInfoRelatedTest;
 import org.eclipse.wb.tests.designer.core.model.util.MorphingSupportTest;
 import org.eclipse.wb.tests.designer.databinding.rcp.DatabindingTestUtils;
+
+import org.junit.Test;
 
 import java.util.List;
 

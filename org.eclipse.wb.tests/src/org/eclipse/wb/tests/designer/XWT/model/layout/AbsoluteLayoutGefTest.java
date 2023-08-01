@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.layout;
-import org.junit.Before;
-
-import org.junit.Test;
-
 import org.eclipse.wb.draw2d.IPositionConstants;
 import org.eclipse.wb.gef.core.tools.Tool;
 import org.eclipse.wb.internal.xwt.model.layout.AbsoluteLayoutInfo;
@@ -20,6 +16,9 @@ import org.eclipse.wb.internal.xwt.model.widgets.CompositeInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.ControlInfo;
 import org.eclipse.wb.internal.xwt.palette.AbsoluteLayoutEntryInfo;
 import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
+
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Tests for {@link AbsoluteLayoutInfo}.

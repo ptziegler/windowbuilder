@@ -10,12 +10,12 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.jface;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.xwt.model.jface.TableViewerInfo;
 import org.eclipse.wb.internal.xwt.model.jface.ViewerInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.ControlInfo;
 import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
+
+import org.junit.Test;
 
 /**
  * Test for {@link TableViewerInfo} in GEF.

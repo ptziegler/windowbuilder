@@ -10,9 +10,9 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.support;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.swt.support.ImageSupport;
+
+import org.junit.Test;
 
 /**
  * Test for {@link ImageSupport}.

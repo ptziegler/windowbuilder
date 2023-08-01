@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.wizard;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.xwt.wizards.CompositeWizard;
 import org.eclipse.wb.tests.designer.TestUtils;
 import org.eclipse.wb.tests.designer.core.annotations.DisposeProjectAfter;
@@ -21,6 +19,7 @@ import org.eclipse.wb.tests.gef.UiContext;
 import org.eclipse.jface.viewers.StructuredSelection;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Tests for {@link CompositeWizard}.

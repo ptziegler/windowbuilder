@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.controls.BrowserComposite;
 import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.internal.core.editor.errors.ErrorEntryInfo;
@@ -24,6 +20,8 @@ import org.eclipse.wb.tests.designer.core.TestBundle;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 
 import org.assertj.core.api.Assertions;
+import org.junit.After;
+import org.junit.Test;
 
 /**
  * Test for {@link DesignerExceptionUtils}.

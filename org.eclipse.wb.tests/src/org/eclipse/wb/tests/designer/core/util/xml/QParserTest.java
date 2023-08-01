@@ -9,11 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.xml;
-import org.junit.Before;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.xml.parser.QAttribute;
 import org.eclipse.wb.internal.core.utils.xml.parser.QException;
 import org.eclipse.wb.internal.core.utils.xml.parser.QHandlerAdapter;
@@ -22,6 +17,9 @@ import org.eclipse.wb.tests.designer.core.AbstractJavaProjectTest;
 
 import org.apache.commons.lang.StringUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.io.StringReader;
 import java.text.MessageFormat;

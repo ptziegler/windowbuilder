@@ -9,15 +9,14 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.rcp;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.rcp.model.rcp.ViewPartInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpGefTest;
 
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.ui.part.ViewPart;
+
+import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  * Test for {@link ViewPartInfo} in GEF.

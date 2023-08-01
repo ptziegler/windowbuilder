@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.editor.errors.CoreExceptionRewriter;
 import org.eclipse.wb.internal.core.editor.errors.CoreExceptionRewriter2;
 import org.eclipse.wb.internal.core.eval.evaluators.AnonymousEvaluationError;
@@ -21,6 +19,7 @@ import org.eclipse.wb.os.OSSupportError;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Test for {@link CoreExceptionRewriter}.

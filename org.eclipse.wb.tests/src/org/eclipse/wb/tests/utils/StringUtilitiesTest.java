@@ -10,13 +10,12 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.utils;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.StringUtilities;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Test for {@link StringUtilities}.

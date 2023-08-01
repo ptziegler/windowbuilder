@@ -10,9 +10,9 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.support;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.swt.support.LabelSupport;
+
+import org.junit.Test;
 
 /**
  * Tests for {@link LabelSupport}.

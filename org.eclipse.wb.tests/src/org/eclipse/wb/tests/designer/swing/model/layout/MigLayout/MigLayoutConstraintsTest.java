@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.MigLayout;
 
-import org.junit.Test;
-
 import com.google.common.collect.ImmutableList;
 
 import org.eclipse.wb.core.model.association.InvocationChildAssociation;
@@ -37,6 +35,8 @@ import org.eclipse.jface.action.MenuManager;
 import org.eclipse.swt.widgets.Text;
 
 import net.miginfocom.layout.LC;
+
+import org.junit.Test;
 
 import java.awt.Container;
 import java.util.List;

@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.controls.Separator;
 import org.eclipse.wb.core.model.AbstractComponentInfo;
 import org.eclipse.wb.core.model.association.InvocationVoidAssociation;
@@ -36,6 +34,7 @@ import org.eclipse.jface.action.MenuManager;
 import org.eclipse.swt.widgets.Menu;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.util.List;
 

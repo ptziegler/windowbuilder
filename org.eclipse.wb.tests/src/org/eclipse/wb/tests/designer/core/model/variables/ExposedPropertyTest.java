@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.variables;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.JavaInfoUtils;
 import org.eclipse.wb.internal.core.model.variable.ExposedPropertyVariableSupport;
 import org.eclipse.wb.internal.core.model.variable.VariableSupport;
@@ -22,6 +20,8 @@ import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.internal.swing.model.layout.BorderLayoutInfo;
 
 import org.eclipse.jdt.core.dom.Statement;
+
+import org.junit.Test;
 
 import java.awt.Component;
 

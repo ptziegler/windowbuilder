@@ -9,11 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.gbl;
-import org.junit.Before;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.execution.ExecutionUtils;
 import org.eclipse.wb.internal.core.utils.execution.RunnableEx;
 import org.eclipse.wb.internal.draw2d.FigureCanvas;
@@ -27,6 +22,10 @@ import org.eclipse.wb.os.OSSupport;
 import org.eclipse.wb.tests.designer.swing.SwingGefTest;
 
 import org.eclipse.swt.graphics.Image;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Test {@link GridBagLayoutInfo} in GEF.

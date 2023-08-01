@@ -10,14 +10,14 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor.actions;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.editor.actions.CutAction;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.swing.SwingGefTest;
 
 import org.eclipse.jface.action.IAction;
+
+import org.junit.Test;
 
 /**
  * Test for {@link CutAction}.

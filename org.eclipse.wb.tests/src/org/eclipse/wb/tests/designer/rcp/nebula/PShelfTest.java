@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.nebula;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.rcp.nebula.pshelf.PShelfInfo;
 import org.eclipse.wb.internal.rcp.nebula.pshelf.PShelfItemInfo;
@@ -21,6 +19,7 @@ import org.eclipse.wb.internal.swt.support.ControlSupport;
 import org.eclipse.draw2d.geometry.Rectangle;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Test for {@link PShelfInfo}.

@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.palette;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.editor.palette.model.CategoryInfo;
 import org.eclipse.wb.core.editor.palette.model.PaletteInfo;
 import org.eclipse.wb.core.model.JavaInfo;
@@ -29,6 +27,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.jface.resource.ImageDescriptor;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Tests for {@link StaticFactoryEntryInfo}.

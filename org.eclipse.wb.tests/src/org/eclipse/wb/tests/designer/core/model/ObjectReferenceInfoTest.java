@@ -10,11 +10,11 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.internal.core.model.ObjectReferenceInfo;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
+
+import org.junit.Test;
 
 /**
  * Test for {@link ObjectReferenceInfo}.

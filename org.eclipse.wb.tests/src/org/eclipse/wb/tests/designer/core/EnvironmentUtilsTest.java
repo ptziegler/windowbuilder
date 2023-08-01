@@ -10,10 +10,10 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.EnvironmentUtils;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
+
+import org.junit.Test;
 
 /**
  * Test for {@link EnvironmentUtils}.

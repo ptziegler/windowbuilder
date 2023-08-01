@@ -9,11 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor;
-import org.junit.Ignore;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.editor.IDesignPageSite;
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.core.model.ObjectInfo;
@@ -50,6 +45,9 @@ import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.part.FileEditorInput;
 
 import org.apache.commons.lang.ArrayUtils;
+import org.junit.After;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

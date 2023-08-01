@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.forms.table;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.draw2d.IPositionConstants;
 import org.eclipse.wb.gef.graphical.handles.Handle;
@@ -24,6 +20,9 @@ import org.eclipse.wb.tests.designer.rcp.RcpGefTest;
 
 import org.eclipse.jface.action.IAction;
 import org.eclipse.ui.forms.widgets.TableWrapLayout;
+
+import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  * Tests for {@link TableWrapLayout} in GEF.

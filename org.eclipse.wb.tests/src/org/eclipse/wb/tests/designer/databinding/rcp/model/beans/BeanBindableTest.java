@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.databinding.rcp.model.beans;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.databinding.model.IObserveInfo;
 import org.eclipse.wb.internal.core.databinding.model.IObserveInfo.ChildrenContext;
 import org.eclipse.wb.internal.core.databinding.ui.ObserveType;
@@ -25,6 +23,8 @@ import org.eclipse.wb.internal.rcp.databinding.model.beans.bindables.MethodBeanB
 import org.eclipse.wb.internal.rcp.databinding.model.beans.bindables.ViewerObservablePropertyBindableInfo;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.tests.designer.databinding.rcp.model.AbstractBindingTest;
+
+import org.junit.Test;
 
 import java.util.List;
 

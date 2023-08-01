@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.palette;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.editor.palette.model.CategoryInfo;
 import org.eclipse.wb.core.editor.palette.model.PaletteInfo;
 import org.eclipse.wb.internal.core.editor.palette.PaletteManager;
@@ -22,6 +20,8 @@ import org.eclipse.wb.internal.core.editor.palette.command.CategoryRemoveCommand
 import org.eclipse.wb.internal.core.editor.palette.command.Command;
 import org.eclipse.wb.internal.core.editor.palette.command.ElementVisibilityCommand;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
+
+import org.junit.Test;
 
 import java.util.List;
 

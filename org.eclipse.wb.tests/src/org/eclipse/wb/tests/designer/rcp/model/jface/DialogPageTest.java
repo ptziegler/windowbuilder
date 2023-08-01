@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.AbstractComponentInfo;
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.rcp.model.jface.DialogPageInfo;
@@ -19,6 +17,8 @@ import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
 import org.eclipse.jface.dialogs.DialogPage;
 import org.eclipse.swt.layout.FillLayout;
+
+import org.junit.Test;
 
 /**
  * Test for {@link DialogPageInfo}.

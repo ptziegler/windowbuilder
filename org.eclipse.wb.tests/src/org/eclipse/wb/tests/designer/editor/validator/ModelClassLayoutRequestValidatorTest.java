@@ -10,12 +10,12 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor.validator;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.gef.policy.validator.ModelClassLayoutRequestValidator;
 import org.eclipse.wb.gef.core.policies.ILayoutRequestValidator;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
+
+import org.junit.Test;
 
 /**
  * Test {@link ModelClassLayoutRequestValidator}.

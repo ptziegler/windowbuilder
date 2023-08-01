@@ -9,9 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp;
-import org.junit.Before;
-import org.junit.After;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.model.variable.SyncParentChildVariableNameSupport;
 import org.eclipse.wb.internal.core.utils.ast.AstEditor;
@@ -21,6 +18,9 @@ import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.tests.designer.core.model.parser.AbstractJavaInfoTest;
 
 import org.eclipse.jface.preference.IPreferenceStore;
+
+import org.junit.After;
+import org.junit.Before;
 
 /**
  * Abstract super class for RCP tests.

@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.generic;
 
-import org.junit.Test;
-
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 
@@ -37,6 +35,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 import org.mockito.InOrder;
 
 import java.text.MessageFormat;

@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.description;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.table.PropertyTooltipProvider;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
@@ -21,6 +19,7 @@ import org.eclipse.wb.internal.core.xml.model.property.accessor.ExpressionAccess
 import org.eclipse.wb.internal.core.xml.model.property.accessor.FieldExpressionAccessor;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Test for {@link FieldExpressionAccessor}.

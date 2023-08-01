@@ -9,8 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing;
-import org.junit.Before;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.model.creation.ConstructorCreationSupport;
 import org.eclipse.wb.internal.core.utils.ast.AstEditor;
@@ -20,6 +18,7 @@ import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.core.model.parser.AbstractJavaInfoTest;
 
 import org.apache.commons.lang.ArrayUtils;
+import org.junit.Before;
 
 import javax.swing.JButton;
 

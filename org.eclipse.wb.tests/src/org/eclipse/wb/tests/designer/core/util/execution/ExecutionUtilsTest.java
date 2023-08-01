@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.execution;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.internal.core.editor.DesignPageSite;
@@ -27,6 +25,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.swt.widgets.Display;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.beans.Beans;
 import java.util.concurrent.atomic.AtomicBoolean;

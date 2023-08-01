@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.utils;
 
-import org.junit.Test;
-
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
@@ -37,6 +35,7 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.io.File;
 import java.util.List;

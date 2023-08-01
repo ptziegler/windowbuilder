@@ -9,11 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.nls;
-import org.junit.Ignore;
-import org.junit.After;
-
-import org.junit.Test;
-
 import com.google.common.base.Function;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
@@ -47,6 +42,9 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Shell;
 
 import org.assertj.core.api.Assertions;
+import org.junit.After;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.util.List;
 import java.util.Locale;

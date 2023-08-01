@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.forms;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.clipboard.JavaInfoMemento;
 import org.eclipse.wb.internal.core.model.creation.ConstructorCreationSupport;
 import org.eclipse.wb.internal.core.utils.jdt.core.CodeUtils;
@@ -26,6 +24,7 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.ui.forms.widgets.ColumnLayout;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.util.List;
 

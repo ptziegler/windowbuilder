@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.description;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.ToolkitProvider;
 import org.eclipse.wb.internal.core.model.creation.ThisCreationSupport;
@@ -28,6 +26,7 @@ import org.eclipse.jdt.core.dom.IMethodBinding;
 import org.eclipse.jdt.core.dom.SuperConstructorInvocation;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Tests for {@link ComponentDescriptionHelper}, {@link ComponentDescription}, etc.

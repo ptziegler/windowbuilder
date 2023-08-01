@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.editor.palette.model.entry.ToolEntryInfo;
 import org.eclipse.wb.gef.core.requests.ICreationFactory;
 import org.eclipse.wb.gef.core.tools.CreationTool;
@@ -19,6 +17,8 @@ import org.eclipse.wb.internal.rcp.model.jface.FieldEditorInfo;
 import org.eclipse.wb.internal.rcp.model.jface.FieldEditorPreferencePageInfo;
 import org.eclipse.wb.internal.rcp.palette.DoubleFieldEditorEntryInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
+
+import org.junit.Test;
 
 /**
  * Test for {@link DoubleFieldEditorEntryInfo}.

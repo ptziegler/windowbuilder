@@ -10,13 +10,13 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property.editor;
 
-import org.junit.Test;
-
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 import org.eclipse.wb.internal.core.model.property.editor.ExpressionListPropertyEditor;
 import org.eclipse.wb.internal.core.utils.check.AssertionFailedException;
+
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;

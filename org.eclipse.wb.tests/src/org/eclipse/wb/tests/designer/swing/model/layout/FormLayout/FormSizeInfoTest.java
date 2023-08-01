@@ -9,11 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.FormLayout;
-import org.junit.Ignore;
-import org.junit.Before;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.swing.FormLayout.model.FormSizeConstantInfo;
 import org.eclipse.wb.internal.swing.FormLayout.model.FormSizeInfo;
 import org.eclipse.wb.internal.swing.laf.LafSupport;
@@ -26,6 +21,10 @@ import com.jgoodies.forms.layout.ConstantSize;
 import com.jgoodies.forms.layout.ConstantSize.Unit;
 import com.jgoodies.forms.layout.Size;
 import com.jgoodies.forms.layout.Sizes;
+
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  * Test for {@link FormSizeInfo}.

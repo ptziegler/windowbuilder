@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.widgets;
-import org.junit.Before;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.association.Association;
 import org.eclipse.wb.core.model.association.FactoryParentAssociation;
 import org.eclipse.wb.core.model.association.WrappedObjectAssociation;
@@ -29,6 +25,9 @@ import org.eclipse.wb.internal.swt.model.widgets.ControlInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
 import org.eclipse.swt.graphics.Image;
+
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Test for static factory and eSWT.

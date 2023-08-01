@@ -10,12 +10,11 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.base64;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.base64.Base64Utils;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 
 import org.apache.commons.lang.StringUtils;
+import org.junit.Test;
 
 import java.util.Arrays;
 

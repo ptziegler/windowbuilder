@@ -10,11 +10,11 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.xml.model.description.ComponentDescription;
 import org.eclipse.wb.internal.core.xml.model.description.ComponentDescriptionHelper;
 import org.eclipse.wb.internal.xwt.parser.XwtDescriptionProcessor;
+
+import org.junit.Test;
 
 /**
  * Test for {@link XwtDescriptionProcessor}.

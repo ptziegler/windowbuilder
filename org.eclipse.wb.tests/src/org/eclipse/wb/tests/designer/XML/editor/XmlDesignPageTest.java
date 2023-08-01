@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.editor;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.controls.palette.PaletteComposite;
 import org.eclipse.wb.core.editor.DesignerState;
 import org.eclipse.wb.core.editor.IDesignPageSite;
@@ -42,6 +38,9 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.IWorkbenchPage;
+
+import org.junit.After;
+import org.junit.Test;
 
 /**
  * Test for {@link XmlDesignPage} with {@link XmlExceptionComposite} and {@link XmlWarningComposite}

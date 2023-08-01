@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.layout;
 
-import org.junit.Test;
-
 import com.google.common.collect.Lists;
 
 import org.eclipse.wb.internal.core.model.property.Property;
@@ -43,6 +41,7 @@ import org.eclipse.swt.widgets.Shell;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.util.Collection;
 import java.util.List;

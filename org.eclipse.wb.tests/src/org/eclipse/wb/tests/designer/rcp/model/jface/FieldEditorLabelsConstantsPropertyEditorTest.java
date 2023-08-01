@@ -9,11 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
-import org.junit.Before;
-import org.junit.After;
-
-import org.junit.Test;
-
 import com.google.common.collect.Lists;
 
 import org.eclipse.wb.internal.core.model.property.GenericProperty;
@@ -29,6 +24,9 @@ import org.eclipse.swt.widgets.Text;
 
 import org.apache.commons.lang.StringUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.List;
 

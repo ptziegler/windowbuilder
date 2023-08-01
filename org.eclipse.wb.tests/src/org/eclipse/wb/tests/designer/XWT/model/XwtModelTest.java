@@ -9,9 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model;
-import org.junit.Before;
-import org.junit.After;
-
 import com.google.common.collect.ImmutableList;
 
 import org.eclipse.wb.internal.core.model.description.ToolkitDescription;
@@ -35,6 +32,8 @@ import org.eclipse.swt.widgets.Button;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
+import org.junit.After;
+import org.junit.Before;
 
 /**
  * Abstract super class for XWT tests.

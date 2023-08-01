@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.association;
 
-import org.junit.Test;
-
 import com.google.common.collect.ImmutableMap;
 
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
@@ -21,6 +19,8 @@ import org.eclipse.wb.internal.core.xml.model.association.IntermediateAssociatio
 import org.eclipse.wb.internal.core.xml.model.utils.ElementTarget;
 import org.eclipse.wb.internal.core.xml.model.utils.XmlObjectUtils;
 import org.eclipse.wb.tests.designer.XML.model.description.AbstractCoreTest;
+
+import org.junit.Test;
 
 /**
  * Test for {@link IntermediateAssociation}.

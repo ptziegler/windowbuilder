@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.property;
-import org.junit.Before;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.rcp.ToolkitProvider;
 import org.eclipse.wb.internal.swt.model.property.editor.image.ImageDescriptorPropertyEditor;
@@ -22,6 +18,8 @@ import org.eclipse.wb.tests.designer.tests.common.GenericPropertyNoValue;
 import org.eclipse.jface.resource.ImageDescriptor;
 
 import org.apache.commons.io.FilenameUtils;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.io.File;
 

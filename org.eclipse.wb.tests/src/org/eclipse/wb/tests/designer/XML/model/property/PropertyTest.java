@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.property;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.table.PropertyTooltipProvider;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
@@ -34,6 +32,7 @@ import org.eclipse.wb.tests.designer.XML.model.description.AbstractCoreTest;
 import org.eclipse.swt.SWT;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.lang.reflect.TypeVariable;
 

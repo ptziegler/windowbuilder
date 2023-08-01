@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.layout.grid;
 
-import org.junit.Test;
-
 import static org.eclipse.wb.internal.xwt.model.layout.grid.GridLayoutInfo.getGridData;
 
 import org.eclipse.wb.internal.core.model.property.Property;
@@ -26,6 +24,8 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
+
+import org.junit.Test;
 
 /**
  * Test for {@link GridDataInfo}.

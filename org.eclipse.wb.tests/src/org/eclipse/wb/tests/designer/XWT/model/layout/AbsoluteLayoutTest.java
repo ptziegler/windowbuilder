@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.layout;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.layout.absolute.IPreferenceConstants;
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.util.PropertyUtils;
@@ -33,6 +29,8 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.preference.IPreferenceStore;
 
 import org.assertj.core.api.Assertions;
+import org.junit.After;
+import org.junit.Test;
 
 /**
  * Test for {@link AbsoluteLayoutInfo}.

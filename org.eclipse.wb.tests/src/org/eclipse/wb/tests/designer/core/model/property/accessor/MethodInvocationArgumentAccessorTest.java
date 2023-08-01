@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property.accessor;
-import org.junit.Before;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.model.property.accessor.ExpressionAccessor;
 import org.eclipse.wb.internal.core.model.property.accessor.IAccessibleExpressionAccessor;
@@ -21,6 +17,9 @@ import org.eclipse.wb.internal.core.model.property.table.PropertyTooltipProvider
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
+
+import org.junit.Before;
+import org.junit.Test;
 
 import java.lang.reflect.Method;
 

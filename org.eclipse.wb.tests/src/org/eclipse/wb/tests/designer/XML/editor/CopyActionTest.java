@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.editor;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.gef.core.EditPart;
 import org.eclipse.wb.gef.tree.TreeEditPart;
@@ -23,6 +21,8 @@ import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
 import org.eclipse.wb.tests.designer.core.model.TestObjectInfo;
 
 import org.eclipse.jface.action.IAction;
+
+import org.junit.Test;
 
 /**
  * Test for {@link CopyAction} and {@link PasteAction}.

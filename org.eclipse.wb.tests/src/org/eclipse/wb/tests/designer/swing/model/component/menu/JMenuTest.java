@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.component.menu;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import com.google.common.collect.ImmutableList;
 
 import org.eclipse.wb.core.model.JavaInfo;
@@ -47,6 +43,8 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.swt.graphics.Image;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.awt.Component;
 import java.awt.Container;

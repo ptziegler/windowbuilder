@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.laf;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.EnvironmentUtils;
 import org.eclipse.wb.internal.core.parser.JavaInfoParser;
 import org.eclipse.wb.internal.swing.laf.LafSupport;
@@ -29,6 +25,8 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
 
 import org.assertj.core.api.Assertions;
+import org.junit.After;
+import org.junit.Test;
 
 import java.util.List;
 

@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.eval;
-import org.junit.Before;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.eval.ExecutionFlowDescription;
 import org.eclipse.wb.core.eval.ExecutionFlowUtils2;
 import org.eclipse.wb.core.eval.ExpressionValue;
@@ -25,6 +21,9 @@ import org.eclipse.jdt.core.dom.PostfixExpression;
 import org.eclipse.jdt.core.dom.ReturnStatement;
 import org.eclipse.jdt.core.dom.SimpleName;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
+
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Tests for {@link ExecutionFlowUtils2}.

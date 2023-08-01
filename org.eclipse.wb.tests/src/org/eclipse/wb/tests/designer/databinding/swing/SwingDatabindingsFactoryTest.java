@@ -9,15 +9,14 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.databinding.swing;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.swing.databinding.DesignPageFactory;
 import org.eclipse.wb.internal.swing.databinding.SwingDatabindingFactory;
 import org.eclipse.wb.internal.swing.databinding.model.DataBindingsCodeUtils;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
+
+import org.junit.After;
+import org.junit.Test;
 
 /**
  * @author sablin_aa

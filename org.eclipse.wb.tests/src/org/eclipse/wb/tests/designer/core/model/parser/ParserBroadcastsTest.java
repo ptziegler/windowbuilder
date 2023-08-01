@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.parser;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.IJavaInfoInitializationParticipator;
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.core.model.ObjectInfo;
@@ -24,6 +22,8 @@ import org.eclipse.wb.internal.swing.laf.ui.LafRootProcessor;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.TestUtils;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
+
+import org.junit.Test;
 
 import javax.swing.JTextField;
 

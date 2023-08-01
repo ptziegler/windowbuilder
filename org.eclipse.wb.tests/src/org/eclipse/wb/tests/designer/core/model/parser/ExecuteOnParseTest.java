@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.parser;
 
-import org.junit.Test;
-
 import com.google.common.collect.ImmutableList;
 
 import org.eclipse.wb.core.eval.AstEvaluationEngine;
@@ -74,6 +72,7 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jface.dialogs.Dialog;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.awt.BorderLayout;
 import java.awt.Component;

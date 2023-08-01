@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.property;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.utils.jdt.core.ProjectUtils;
 import org.eclipse.wb.internal.rcp.Activator;
@@ -20,6 +18,8 @@ import org.eclipse.wb.internal.swt.model.property.editor.image.ImagePropertyEdit
 import org.eclipse.wb.tests.designer.core.PdeProjectConversionUtils;
 
 import org.eclipse.core.resources.IFile;
+
+import org.junit.Test;
 
 /**
  * Tests for {@link ImagePropertyEditor} with plugin images.

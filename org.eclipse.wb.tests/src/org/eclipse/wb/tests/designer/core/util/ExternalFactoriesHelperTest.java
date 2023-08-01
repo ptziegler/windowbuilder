@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.external.ExternalFactoriesHelper;
 import org.eclipse.wb.tests.designer.TestUtils;
 import org.eclipse.wb.tests.designer.core.TestBundle;
@@ -25,6 +21,8 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 
 import org.assertj.core.api.Assertions;
+import org.junit.After;
+import org.junit.Test;
 import org.osgi.framework.Bundle;
 
 import java.util.List;

@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.util;
 
-import org.junit.Test;
-
 import com.google.common.base.Predicate;
 
 import org.eclipse.wb.core.model.ObjectInfo;
@@ -22,6 +20,7 @@ import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Test for {@link ObjectsTreeContentProvider}.

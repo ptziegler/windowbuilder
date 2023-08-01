@@ -9,12 +9,12 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.support;
-import org.junit.Before;
-import org.junit.After;
-
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.internal.swt.support.AbstractSupport;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
+
+import org.junit.After;
+import org.junit.Before;
 
 /**
  * Abstract test for any {@link AbstractSupport}.

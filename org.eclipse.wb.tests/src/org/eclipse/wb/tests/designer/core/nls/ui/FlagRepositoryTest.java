@@ -10,14 +10,13 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.nls.ui;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.nls.ui.FlagImagesRepository;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 
 import org.eclipse.swt.graphics.Image;
 
 import org.apache.commons.lang.ArrayUtils;
+import org.junit.Test;
 
 import java.util.Locale;
 

@@ -9,14 +9,13 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.eval.other;
-import org.junit.Before;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.eval.evaluators.FieldAccessEvaluator;
 import org.eclipse.wb.tests.designer.core.eval.AbstractEngineTest;
 
 import org.eclipse.jdt.core.dom.TypeDeclaration;
+
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Test for {@link FieldAccessEvaluator}.

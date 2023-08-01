@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.description;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.description.ComponentDescription;
 import org.eclipse.wb.internal.core.model.description.CreationDescription;
 import org.eclipse.wb.internal.core.model.description.CreationDescription.TypeParameterDescription;
@@ -27,6 +23,8 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import static org.assertj.core.data.MapEntry.entry;
 
 import org.assertj.core.api.Assertions;
+import org.junit.After;
+import org.junit.Test;
 
 import java.util.Map;
 

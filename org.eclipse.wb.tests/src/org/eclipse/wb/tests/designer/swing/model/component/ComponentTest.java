@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.component;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.generation.statement.lazy.LazyStatementGeneratorDescription;
 import org.eclipse.wb.internal.core.model.variable.description.LazyVariableDescription;
 import org.eclipse.wb.internal.core.preferences.IPreferenceConstants;
@@ -32,6 +28,8 @@ import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.graphics.RGB;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.awt.Component;
 import java.awt.Container;

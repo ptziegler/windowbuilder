@@ -10,16 +10,12 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util;
 
-import org.junit.Test;
-
-import org.junit.Assert;
-
 import org.eclipse.wb.internal.core.utils.exception.DesignerException;
 import org.eclipse.wb.internal.core.utils.exception.ICoreExceptionConstants;
 
-
-
 import org.assertj.core.api.Assertions;
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.lang.reflect.Field;
 

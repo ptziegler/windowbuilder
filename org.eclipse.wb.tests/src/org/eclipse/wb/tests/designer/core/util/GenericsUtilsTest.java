@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util;
 
-import org.junit.Test;
-
 import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
@@ -28,6 +26,7 @@ import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.StructuredSelection;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;

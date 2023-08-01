@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.model;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.association.Association;
 import org.eclipse.wb.core.model.association.InvocationChildAssociation;
 import org.eclipse.wb.internal.core.model.property.Property;
@@ -23,6 +21,8 @@ import org.eclipse.wb.tests.designer.swing.model.layout.AbstractLayoutTest;
 
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.Statement;
+
+import org.junit.Test;
 
 import java.awt.BorderLayout;
 

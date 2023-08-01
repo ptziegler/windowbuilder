@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.layout.form;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import com.google.common.collect.ImmutableList;
 
 import org.eclipse.wb.internal.core.gef.policy.snapping.PlacementInfo;
@@ -25,6 +21,9 @@ import org.eclipse.wb.tests.designer.Expectations.IntValue;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
 import org.eclipse.draw2d.geometry.Rectangle;
+
+import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  * Tests for {@link FormLayoutInfoImplAutomatic}.

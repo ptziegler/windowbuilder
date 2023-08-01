@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.description;
 
-import org.junit.Test;
-
 import com.google.common.collect.Sets;
 
 import org.eclipse.wb.internal.core.model.description.ToolkitDescription;
@@ -27,6 +25,7 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.util.List;
 import java.util.Set;

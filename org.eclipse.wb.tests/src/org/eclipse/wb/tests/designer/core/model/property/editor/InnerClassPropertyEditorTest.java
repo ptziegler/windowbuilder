@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property.editor;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.editor.IDesignPageSite;
 import org.eclipse.wb.internal.core.editor.DesignPageSite;
 import org.eclipse.wb.internal.core.model.property.GenericProperty;
@@ -30,6 +28,8 @@ import org.eclipse.swt.widgets.Text;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
+
+import org.junit.Test;
 
 /**
  * Test for {@link InnerClassPropertyEditor}.

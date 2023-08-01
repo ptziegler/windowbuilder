@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.model.description.ToolkitDescription;
 import org.eclipse.wb.internal.rcp.RcpToolkitDescription;
@@ -22,6 +18,9 @@ import org.eclipse.wb.tests.designer.core.annotations.DisposeProjectAfter;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
 import org.eclipse.jdt.core.IJavaProject;
+
+import org.junit.After;
+import org.junit.Test;
 
 /**
  * Tests for {@link ManagerUtils}.

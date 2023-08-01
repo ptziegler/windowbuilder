@@ -9,11 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor;
-import org.junit.Before;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.internal.core.editor.describer.JavaSourceUiDescriber;
 import org.eclipse.wb.internal.core.preferences.IPreferenceConstants;
@@ -23,6 +18,10 @@ import org.eclipse.wb.tests.designer.core.TestBundle;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.content.IContentType;
 import org.eclipse.ui.ide.IDE;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Test for {@link JavaSourceUiDescriber}.

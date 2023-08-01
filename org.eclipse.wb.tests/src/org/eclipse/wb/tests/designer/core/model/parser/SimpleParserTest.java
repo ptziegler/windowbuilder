@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.parser;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.parser.ParseFactoryNoModel;
 import org.eclipse.wb.internal.core.utils.ast.AstNodeUtils;
 import org.eclipse.wb.tests.designer.TestUtils;
@@ -24,6 +22,8 @@ import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.QualifiedName;
 import org.eclipse.jdt.core.dom.SimpleName;
+
+import org.junit.Test;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;

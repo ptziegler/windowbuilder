@@ -10,14 +10,13 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.forms;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.rcp.model.forms.DetailsPageInfo;
 
 import org.eclipse.ui.forms.IDetailsPage;
 import org.eclipse.ui.forms.IManagedForm;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Test for {@link DetailsPageInfo}.

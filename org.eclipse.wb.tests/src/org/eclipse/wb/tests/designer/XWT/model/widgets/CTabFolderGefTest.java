@@ -10,13 +10,13 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.widgets;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.xwt.model.widgets.CTabFolderInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.CTabItemInfo;
 import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
 
 import org.eclipse.swt.custom.CTabItem;
+
+import org.junit.Test;
 
 /**
  * Test for {@link CTabFolderInfo} in GEF.

@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.variables;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.JavaInfoUtils;
 import org.eclipse.wb.internal.core.model.variable.ExposedFieldVariableSupport;
 import org.eclipse.wb.internal.core.model.variable.VariableSupport;
@@ -23,6 +21,8 @@ import org.eclipse.wb.internal.swing.model.layout.FlowLayoutInfo;
 
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.Statement;
+
+import org.junit.Test;
 
 /**
  * Test for {@link ExposedFieldVariableSupport}.

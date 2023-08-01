@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.editor.IDesignPageSite;
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.core.editor.actions.SelectSupport;
@@ -21,6 +19,8 @@ import org.eclipse.wb.tests.gef.EventSender;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Control;
+
+import org.junit.Test;
 
 /**
  * Test for {@link SelectSupport}.

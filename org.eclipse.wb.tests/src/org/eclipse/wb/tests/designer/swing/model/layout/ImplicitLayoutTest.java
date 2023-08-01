@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.association.ImplicitObjectAssociation;
 import org.eclipse.wb.internal.core.model.creation.ConstructorCreationSupport;
 import org.eclipse.wb.internal.core.model.creation.CreationSupport;
@@ -29,6 +27,8 @@ import org.eclipse.wb.internal.swing.model.layout.LayoutInfo;
 import org.eclipse.jdt.core.dom.CastExpression;
 import org.eclipse.jdt.core.dom.ClassInstanceCreation;
 import org.eclipse.jdt.core.dom.Statement;
+
+import org.junit.Test;
 
 import java.awt.FlowLayout;
 import java.awt.LayoutManager;

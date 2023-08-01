@@ -10,14 +10,14 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property.table;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.editor.PropertyEditor;
 import org.eclipse.wb.internal.core.model.property.editor.string.StringPropertyEditor;
 import org.eclipse.wb.internal.core.model.property.table.PropertyTable;
 
 import org.eclipse.swt.graphics.Point;
+
+import org.junit.Test;
 
 /**
  * Tests for {@link PropertyEditor}'s in {@link PropertyTable}.

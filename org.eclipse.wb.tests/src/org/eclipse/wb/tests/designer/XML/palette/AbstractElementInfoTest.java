@@ -10,12 +10,12 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.palette;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.check.AssertionFailedException;
 import org.eclipse.wb.internal.core.xml.editor.palette.model.AbstractElementInfo;
 import org.eclipse.wb.internal.core.xml.editor.palette.model.ComponentEntryInfo;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
+
+import org.junit.Test;
 
 /**
  * Tests for {@link AbstractElementInfo}.

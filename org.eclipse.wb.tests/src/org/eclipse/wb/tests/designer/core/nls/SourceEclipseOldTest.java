@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.nls;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.nls.NlsSupport;
 import org.eclipse.wb.internal.core.nls.SourceDescription;
 import org.eclipse.wb.internal.core.nls.bundle.eclipse.old.EclipseSource;
@@ -27,6 +23,8 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.IJavaProject;
 
 import org.apache.commons.lang.StringUtils;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import javax.swing.JFrame;
 

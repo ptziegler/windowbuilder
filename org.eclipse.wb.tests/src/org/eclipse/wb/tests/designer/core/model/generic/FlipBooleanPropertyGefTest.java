@@ -10,10 +10,10 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.generic;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.swing.SwingGefTest;
+
+import org.junit.Test;
 
 /**
  * Tests for <code>double-click.flipBooleanProperty</code> support.

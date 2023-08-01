@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.bean;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import org.eclipse.wb.gef.core.tools.Tool;
 import org.eclipse.wb.internal.swing.model.bean.ActionContainerInfo;
 import org.eclipse.wb.internal.swing.model.bean.ActionInfo;
@@ -32,6 +28,9 @@ import org.eclipse.wb.tests.gef.UiContext;
 
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
+
+import org.junit.Ignore;
+import org.junit.Test;
 
 import javax.swing.JButton;
 import javax.swing.JMenu;

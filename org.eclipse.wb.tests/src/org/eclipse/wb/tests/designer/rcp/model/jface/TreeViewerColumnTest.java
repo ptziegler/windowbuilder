@@ -10,10 +10,10 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.rcp.model.jface.viewers.ViewerColumnInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
+
+import org.junit.Test;
 
 /**
  * Test for {@link ViewerColumnInfo}.

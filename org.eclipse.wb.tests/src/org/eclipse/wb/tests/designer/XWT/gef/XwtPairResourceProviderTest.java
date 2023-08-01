@@ -10,12 +10,12 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.gef;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.xwt.editor.XwtPairResourceProvider;
 import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
 
 import org.eclipse.core.resources.IFile;
+
+import org.junit.Test;
 
 /**
  * Test for {@link XwtPairResourceProvider}.

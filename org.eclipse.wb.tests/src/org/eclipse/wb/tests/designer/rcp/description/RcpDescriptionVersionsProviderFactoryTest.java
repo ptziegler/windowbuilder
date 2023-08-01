@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.description;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.description.resource.IDescriptionVersionsProvider;
 import org.eclipse.wb.internal.core.model.description.resource.IDescriptionVersionsProviderFactory;
 import org.eclipse.wb.internal.rcp.RcpDescriptionVersionsProviderFactory;
@@ -22,6 +18,8 @@ import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 import static org.assertj.core.data.MapEntry.entry;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.util.List;
 

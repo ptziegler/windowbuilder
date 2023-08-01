@@ -9,11 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.property;
-import org.junit.Ignore;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.order.TabOrderInfo;
 import org.eclipse.wb.internal.core.utils.jdt.core.ProjectUtils;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
@@ -23,6 +18,10 @@ import org.eclipse.wb.internal.swing.model.property.TabOrderProperty;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
 import org.eclipse.jdt.core.IJavaProject;
+
+import org.junit.After;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.util.List;
 

@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.gef.core.EditPart;
 import org.eclipse.wb.gef.graphical.GraphicalEditPart;
 import org.eclipse.wb.internal.core.model.menu.IMenuInfo;
@@ -29,6 +25,8 @@ import org.eclipse.wb.tests.designer.swt.model.menu.MenuFeedbackTester;
 import org.eclipse.wb.tests.gef.GraphicalRobot;
 
 import org.assertj.core.api.Assertions;
+import org.junit.After;
+import org.junit.Test;
 
 /**
  * Test for {@link MenuManagerInfo} in GEF.

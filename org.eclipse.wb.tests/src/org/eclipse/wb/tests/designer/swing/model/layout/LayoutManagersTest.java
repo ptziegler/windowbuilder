@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.core.model.broadcast.ObjectInfoChildAddAfter;
 import org.eclipse.wb.internal.core.model.JavaInfoUtils;
@@ -40,6 +36,8 @@ import org.eclipse.wb.internal.swing.model.layout.LayoutInfo;
 import org.eclipse.wb.tests.designer.swing.SwingTestUtils;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.awt.BorderLayout;
 import java.awt.Component;

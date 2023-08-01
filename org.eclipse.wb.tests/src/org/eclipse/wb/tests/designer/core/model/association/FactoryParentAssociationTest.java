@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.association;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.association.CompoundAssociation;
 import org.eclipse.wb.core.model.association.ConstructorParentAssociation;
 import org.eclipse.wb.core.model.association.FactoryParentAssociation;
@@ -26,6 +24,8 @@ import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.internal.swing.model.layout.FlowLayoutInfo;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
+
+import org.junit.Test;
 
 /**
  * Tests for {@link FactoryParentAssociation}.

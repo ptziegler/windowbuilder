@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.util;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.util.ExposeComponentSupport;
 import org.eclipse.wb.internal.core.model.variable.VariableSupport;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
@@ -21,6 +19,8 @@ import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.MenuManager;
+
+import org.junit.Test;
 
 /**
  * Tests for {@link ExposeComponentSupport}.

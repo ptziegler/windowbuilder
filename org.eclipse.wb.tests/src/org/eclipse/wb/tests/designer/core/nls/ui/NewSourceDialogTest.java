@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.nls.ui;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.nls.bundle.pure.direct.DirectSourceNewComposite;
 import org.eclipse.wb.internal.core.nls.ui.NewSourceDialog;
 import org.eclipse.wb.internal.core.nls.ui.PropertiesComposite;
@@ -24,6 +22,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Text;
+
+import org.junit.Test;
 
 /**
  * Tests for {@link NewSourceDialog}.

@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.editor;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.xml.editor.actions.TestAction;
 import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
 import org.eclipse.wb.tests.gef.EventSender;
@@ -20,6 +18,8 @@ import org.eclipse.wb.tests.gef.UiContext;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Shell;
+
+import org.junit.Test;
 
 /**
  * Test for {@link TestAction}.

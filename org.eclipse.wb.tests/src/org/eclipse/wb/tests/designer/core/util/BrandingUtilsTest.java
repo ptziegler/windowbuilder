@@ -9,13 +9,12 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.branding.BrandingUtils;
 import org.eclipse.wb.core.branding.IBrandingDescription;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
+
+import org.junit.After;
+import org.junit.Test;
 
 /**
  * Test for {@link BrandingUtils}.

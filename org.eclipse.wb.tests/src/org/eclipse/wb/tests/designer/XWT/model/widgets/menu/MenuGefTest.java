@@ -10,12 +10,12 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.widgets.menu;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.ShellInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.menu.MenuInfo;
 import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
+
+import org.junit.Test;
 
 /**
  * Test for {@link MenuInfo} in GEF.

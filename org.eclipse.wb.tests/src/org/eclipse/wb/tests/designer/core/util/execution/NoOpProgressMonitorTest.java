@@ -10,10 +10,10 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.execution;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.execution.NoOpProgressMonitor;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
+
+import org.junit.Test;
 
 /**
  * Test for {@link NoOpProgressMonitor}.

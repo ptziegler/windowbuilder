@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.forms;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.rcp.model.forms.FormPageInfo;
 import org.eclipse.wb.internal.rcp.model.forms.ManagedFormInfo;
 import org.eclipse.wb.internal.rcp.model.forms.ScrolledFormInfo;
@@ -19,6 +17,7 @@ import org.eclipse.wb.internal.rcp.model.forms.ScrolledFormInfo;
 import org.eclipse.ui.forms.editor.FormEditor;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Test for {@link FormPageInfo}.

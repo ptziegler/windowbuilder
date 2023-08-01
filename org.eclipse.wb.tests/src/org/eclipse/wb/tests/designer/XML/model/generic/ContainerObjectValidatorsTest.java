@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.generic;
 
-import org.junit.Test;
-
 import com.google.common.base.Predicate;
 
 import org.eclipse.wb.core.model.JavaInfo;
@@ -21,6 +19,7 @@ import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.tests.designer.XML.model.description.AbstractCoreTest;
 
 import org.apache.commons.lang.StringUtils;
+import org.junit.Test;
 
 /**
  * Test for {@link ContainerObjectValidators}.

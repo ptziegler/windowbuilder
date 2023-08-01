@@ -10,14 +10,14 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.nls.ui;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.nls.ui.NlsDialog;
 import org.eclipse.wb.tests.gef.UiContext;
 
 import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Table;
+
+import org.junit.Test;
 
 /**
  * Tests for {@link NlsDialog}.

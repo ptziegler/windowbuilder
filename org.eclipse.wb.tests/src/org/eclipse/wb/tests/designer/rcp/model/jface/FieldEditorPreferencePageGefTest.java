@@ -10,13 +10,13 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.internal.rcp.model.jface.FieldEditorPreferencePageInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpGefTest;
 
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
+
+import org.junit.Test;
 
 /**
  * Tests for {@link FieldEditorPreferencePage} in GEF.

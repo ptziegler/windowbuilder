@@ -9,15 +9,14 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.property;
-import org.junit.Before;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.GenericProperty;
 import org.eclipse.wb.internal.rcp.ToolkitProvider;
 import org.eclipse.wb.internal.swt.model.property.editor.color.ColorPropertyEditor;
 import org.eclipse.wb.internal.swt.preferences.IPreferenceConstants;
 import org.eclipse.wb.tests.designer.tests.common.GenericPropertyNoValue;
+
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Tests for {@link ColorPropertyEditor} without <code>SWTResourceManager</code>.

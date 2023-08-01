@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.ast;
-import org.junit.Before;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.ast.AstVisitorEx;
 import org.eclipse.wb.tests.designer.core.AbstractJavaTest;
 
@@ -23,6 +19,9 @@ import org.eclipse.jdt.core.dom.QualifiedName;
 import org.eclipse.jdt.core.dom.SuperMethodInvocation;
 import org.eclipse.jdt.core.dom.TryStatement;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
+
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Tests for {@link AstVisitorEx}.

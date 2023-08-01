@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.gbl;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.execution.ExecutionUtils;
 import org.eclipse.wb.internal.core.utils.execution.RunnableEx;
 import org.eclipse.wb.internal.swing.Activator;
@@ -23,6 +19,9 @@ import org.eclipse.wb.internal.swing.model.layout.gbl.GridBagLayoutInfo;
 import org.eclipse.wb.internal.swing.model.layout.gbl.IPreferenceConstants;
 
 import org.eclipse.jface.preference.IPreferenceStore;
+
+import org.junit.After;
+import org.junit.Test;
 
 import javax.swing.JLabel;
 import javax.swing.JTable;

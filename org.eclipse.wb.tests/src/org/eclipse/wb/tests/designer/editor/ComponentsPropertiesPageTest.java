@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.editor.structure.property.PropertyCategoryProviderProvider;
 import org.eclipse.wb.core.editor.structure.property.PropertyListProcessor;
 import org.eclipse.wb.core.model.ObjectInfo;
@@ -23,6 +21,8 @@ import org.eclipse.wb.internal.core.model.property.category.PropertyCategoryProv
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.tests.designer.core.TestBundle;
 import org.eclipse.wb.tests.designer.swing.SwingGefTest;
+
+import org.junit.Test;
 
 import java.util.List;
 

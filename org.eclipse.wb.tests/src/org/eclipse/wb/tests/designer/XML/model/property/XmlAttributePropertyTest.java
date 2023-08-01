@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model.property;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.category.PropertyCategory;
 import org.eclipse.wb.internal.core.model.property.editor.string.StringPropertyEditor;
@@ -19,6 +17,8 @@ import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.internal.core.xml.model.property.XmlAttributeProperty;
 import org.eclipse.wb.internal.core.xml.model.property.XmlProperty;
 import org.eclipse.wb.tests.designer.XML.model.description.AbstractCoreTest;
+
+import org.junit.Test;
 
 /**
  * Test for {@link XmlAttributeProperty}.

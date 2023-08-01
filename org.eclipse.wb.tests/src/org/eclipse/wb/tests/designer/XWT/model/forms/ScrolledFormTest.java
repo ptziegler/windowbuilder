@@ -10,11 +10,11 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model.forms;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.xwt.model.forms.ScrolledFormInfo;
 import org.eclipse.wb.internal.xwt.model.widgets.CompositeInfo;
 import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
+
+import org.junit.Test;
 
 /**
  * Test for {@link ScrolledFormInfo}.

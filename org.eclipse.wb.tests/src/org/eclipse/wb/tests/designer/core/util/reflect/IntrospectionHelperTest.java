@@ -10,10 +10,10 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.reflect;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.reflect.IntrospectionHelper;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
+
+import org.junit.Test;
 
 import java.beans.BeanDescriptor;
 import java.beans.Customizer;

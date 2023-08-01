@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.rcp;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.association.EmptyAssociation;
 import org.eclipse.wb.internal.core.utils.jdt.core.CodeUtils;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
@@ -28,6 +26,8 @@ import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.actions.ActionFactory;
+
+import org.junit.Test;
 
 /**
  * Test for {@link Action}'s from {@link ActionFactory}.

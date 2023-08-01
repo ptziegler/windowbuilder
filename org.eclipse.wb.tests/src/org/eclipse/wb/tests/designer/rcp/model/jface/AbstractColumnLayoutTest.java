@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.editor.palette.model.entry.ToolEntryInfo;
 import org.eclipse.wb.core.model.association.InvocationSecondaryAssociation;
 import org.eclipse.wb.gef.core.requests.ICreationFactory;
@@ -49,6 +47,8 @@ import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Tree;
+
+import org.junit.Test;
 
 /**
  * Test for {@link AbstractColumnLayoutInfo}.

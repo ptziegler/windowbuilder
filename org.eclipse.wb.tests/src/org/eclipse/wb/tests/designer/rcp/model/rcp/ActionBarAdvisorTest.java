@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.rcp;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.utils.jdt.core.CodeUtils;
@@ -32,6 +30,7 @@ import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 
 import org.apache.commons.lang.NotImplementedException;
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Test for {@link ActionBarAdvisorInfo}.

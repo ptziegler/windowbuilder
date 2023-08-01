@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.widgets;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.draw2d.IPositionConstants;
 import org.eclipse.wb.internal.rcp.model.widgets.AbstractTabFolderInfo;
@@ -20,6 +18,8 @@ import org.eclipse.wb.internal.rcp.model.widgets.TabFolderInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpGefTest;
 
 import org.eclipse.swt.widgets.TabItem;
+
+import org.junit.Test;
 
 /**
  * Test for {@link TabFolderInfo} in GEF.

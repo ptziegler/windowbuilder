@@ -9,11 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.rcp;
-import org.junit.Before;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.rcp.wizards.rcp.editor.EditorPartWizard;
 import org.eclipse.wb.internal.rcp.wizards.rcp.view.ViewPartWizard;
 import org.eclipse.wb.tests.designer.TestUtils;
@@ -28,6 +23,9 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.part.ViewPart;
 
 import org.assertj.core.api.Assertions;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Tests for RCP wizards, such as {@link ViewPart}.

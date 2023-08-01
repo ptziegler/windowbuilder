@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.util.ScriptUtils;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
@@ -22,6 +20,8 @@ import org.eclipse.wb.tests.gef.UiContext;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.swt.widgets.Button;
+
+import org.junit.Test;
 
 /**
  * Support "Customize" tests.

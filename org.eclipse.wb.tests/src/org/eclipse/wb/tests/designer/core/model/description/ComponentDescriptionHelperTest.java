@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.description;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.core.model.association.UnknownAssociation;
 import org.eclipse.wb.internal.core.model.creation.ExposedPropertyCreationSupport;
@@ -48,6 +46,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import static org.assertj.core.data.MapEntry.entry;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 import org.osgi.framework.Bundle;
 import org.xml.sax.SAXParseException;
 

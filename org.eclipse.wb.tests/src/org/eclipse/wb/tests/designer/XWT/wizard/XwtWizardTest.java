@@ -9,14 +9,14 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.wizard;
-import org.junit.Before;
-import org.junit.After;
-
 import org.eclipse.wb.internal.xwt.wizards.XwtWizard;
 import org.eclipse.wb.tests.designer.TestUtils;
 import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
 
 import org.eclipse.jdt.core.IPackageFragment;
+
+import org.junit.After;
+import org.junit.Before;
 
 /**
  * Tests for {@link XwtWizard}.

@@ -10,13 +10,13 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.support;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.core.utils.ui.dialogs.color.ColorInfo;
 import org.eclipse.wb.internal.swt.support.ColorSupport;
 
 import org.eclipse.swt.graphics.Color;
+
+import org.junit.Test;
 
 /**
  * Test for {@link ColorSupport}.

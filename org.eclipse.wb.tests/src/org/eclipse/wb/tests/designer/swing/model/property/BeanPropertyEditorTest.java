@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.property;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.description.helpers.DescriptionPropertiesHelper;
 import org.eclipse.wb.internal.core.model.property.GenericProperty;
 import org.eclipse.wb.internal.core.model.property.Property;
@@ -27,6 +25,7 @@ import org.eclipse.wb.internal.swing.model.property.editor.color.ColorPropertyEd
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.beans.PropertyEditorSupport;
 import java.lang.reflect.Constructor;

@@ -10,11 +10,11 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.rcp;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.jdt.core.CodeUtils;
 import org.eclipse.wb.internal.rcp.model.rcp.perspective.PageLayoutInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpGefTest;
+
+import org.junit.Test;
 
 /**
  * Test for {@link PageLayoutInfo} in GEF.

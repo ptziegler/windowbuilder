@@ -10,14 +10,13 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.swing2swt;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.generic.FlowContainerFactory;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.rcp.swing2swt.layout.BoxLayoutInfo;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Test {@link BoxLayoutInfo}.

@@ -9,15 +9,15 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.gbl;
-import org.junit.Before;
-import org.junit.After;
-
 import org.eclipse.wb.internal.core.model.variable.SyncParentChildVariableNameSupport;
 import org.eclipse.wb.internal.swing.SwingToolkitDescription;
 import org.eclipse.wb.internal.swing.model.layout.gbl.IPreferenceConstants;
 import org.eclipse.wb.tests.designer.swing.model.layout.AbstractLayoutTest;
 
 import org.eclipse.jface.preference.IPreferenceStore;
+
+import org.junit.After;
+import org.junit.Before;
 
 import java.awt.GridBagLayout;
 

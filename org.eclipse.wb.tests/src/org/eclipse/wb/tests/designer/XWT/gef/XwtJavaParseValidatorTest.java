@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.gef;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.editor.IDesignerEditor;
 import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.internal.core.EnvironmentUtils;
@@ -25,6 +21,9 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.ide.IDE;
+
+import org.junit.After;
+import org.junit.Test;
 
 /**
  * Test for {@link XwtJavaParseValidator}.

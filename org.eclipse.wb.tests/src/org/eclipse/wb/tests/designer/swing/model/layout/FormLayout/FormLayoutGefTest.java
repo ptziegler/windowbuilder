@@ -9,12 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.FormLayout;
-import org.junit.Ignore;
-import org.junit.Before;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.gef.policy.layout.grid.IGridInfo;
 import org.eclipse.wb.gef.graphical.policies.LayoutEditPolicy;
 import org.eclipse.wb.internal.core.utils.jdt.core.CodeUtils;
@@ -30,6 +24,10 @@ import org.eclipse.wb.tests.gef.GraphicalRobot;
 import com.jgoodies.forms.layout.FormLayout;
 
 import org.assertj.core.api.Assertions;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.awt.GridBagLayout;
 import java.util.List;

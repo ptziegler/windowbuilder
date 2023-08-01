@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.palette;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.core.xml.editor.palette.PaletteManager;
 import org.eclipse.wb.internal.core.xml.editor.palette.command.CategoryAddCommand;
@@ -25,6 +23,8 @@ import org.eclipse.wb.internal.core.xml.editor.palette.model.CategoryInfo;
 import org.eclipse.wb.internal.core.xml.editor.palette.model.ComponentEntryInfo;
 import org.eclipse.wb.internal.core.xml.editor.palette.model.EntryInfo;
 import org.eclipse.wb.internal.core.xml.editor.palette.model.PaletteInfo;
+
+import org.junit.Test;
 
 import java.util.List;
 

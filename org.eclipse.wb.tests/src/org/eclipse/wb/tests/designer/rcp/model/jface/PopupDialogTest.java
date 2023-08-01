@@ -10,12 +10,12 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.jface;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.rcp.model.jface.PopupDialogInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
 import org.eclipse.jface.dialogs.PopupDialog;
+
+import org.junit.Test;
 
 /**
  * Test for {@link PopupDialogInfo}.

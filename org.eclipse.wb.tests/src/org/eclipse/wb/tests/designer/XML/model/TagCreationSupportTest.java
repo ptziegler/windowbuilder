@@ -10,13 +10,13 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.xml.DocumentElement;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.internal.core.xml.model.creation.CreationSupport;
 import org.eclipse.wb.internal.core.xml.model.creation.TagCreationSupport;
 import org.eclipse.wb.tests.designer.XML.model.description.AbstractCoreTest;
+
+import org.junit.Test;
 
 /**
  * Test for {@link TagCreationSupport}.

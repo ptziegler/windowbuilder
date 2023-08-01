@@ -9,8 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.model;
-import org.junit.After;
-
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.internal.core.model.generic.FlowContainer;
 import org.eclipse.wb.internal.core.model.generic.SimpleContainer;
@@ -29,6 +27,7 @@ import org.eclipse.wb.tests.designer.XML.AbstractXmlObjectTest;
 
 import org.assertj.core.api.Assertions;
 import org.assertj.core.description.Description;
+import org.junit.After;
 
 import java.util.List;
 

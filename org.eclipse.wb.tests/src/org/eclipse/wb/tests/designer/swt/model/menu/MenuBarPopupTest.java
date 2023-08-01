@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.menu;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableList;
 
@@ -24,6 +20,9 @@ import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.internal.swt.model.widgets.ControlInfo;
 import org.eclipse.wb.internal.swt.model.widgets.menu.MenuInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpGefTest;
+
+import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  * Tests for "bar" and "popup" menu, create/move them.

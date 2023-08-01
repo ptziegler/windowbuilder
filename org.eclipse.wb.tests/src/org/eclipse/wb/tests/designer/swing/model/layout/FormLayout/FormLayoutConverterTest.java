@@ -9,15 +9,14 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.FormLayout;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.swing.FormLayout.model.FormLayoutConverter;
 import org.eclipse.wb.internal.swing.FormLayout.model.FormLayoutInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 
 import com.jgoodies.forms.layout.FormLayout;
+
+import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  * Test for {@link FormLayoutConverter}.

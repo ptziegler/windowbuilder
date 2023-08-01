@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.wizard;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.jdt.core.ProjectUtils;
 import org.eclipse.wb.internal.xwt.wizards.ApplicationWizard;
 import org.eclipse.wb.tests.designer.TestUtils;
@@ -26,6 +24,7 @@ import org.eclipse.jface.viewers.StructuredSelection;
 
 import org.apache.commons.lang.StringUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Tests for {@link ApplicationWizard}.

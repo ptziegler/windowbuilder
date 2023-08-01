@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.palette;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.editor.palette.model.entry.ToolEntryInfo;
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.gef.core.IEditPartViewer;
@@ -21,6 +19,8 @@ import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.tests.gef.EmptyEditPartViewer;
 
 import org.eclipse.jface.resource.ImageDescriptor;
+
+import org.junit.Test;
 
 /**
  * Tests for abstract {@link ToolEntryInfo}.

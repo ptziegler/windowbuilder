@@ -9,11 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout;
-import org.junit.Ignore;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.IJavaInfoInitializationParticipator;
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.core.model.ObjectInfoUtils;
@@ -53,6 +48,9 @@ import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.preference.IPreferenceStore;
 
 import org.assertj.core.api.Assertions;
+import org.junit.After;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.awt.BorderLayout;
 import java.util.Collections;

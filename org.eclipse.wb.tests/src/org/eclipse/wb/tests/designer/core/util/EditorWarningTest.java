@@ -10,10 +10,10 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.state.EditorWarning;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
+
+import org.junit.Test;
 
 /**
  * Test for {@link EditorWarning}.

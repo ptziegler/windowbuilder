@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.databinding;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.databinding.ui.providers.ObjectsTreeContentProvider;
 import org.eclipse.wb.internal.core.model.presentation.DefaultObjectPresentation;
 import org.eclipse.wb.internal.core.model.presentation.IObjectPresentation;
@@ -20,6 +18,7 @@ import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;

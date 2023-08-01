@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.databinding.rcp.model;
 
-import org.junit.Test;
-
 import com.google.common.collect.Lists;
 
 import org.eclipse.wb.internal.core.databinding.model.CodeGenerationSupport;
@@ -85,6 +83,8 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.swt.SWT;
+
+import org.junit.Test;
 
 import java.util.List;
 

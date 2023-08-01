@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.gbl;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import com.google.common.collect.ImmutableList;
 
 import org.eclipse.wb.core.gef.policy.layout.grid.IGridInfo;
@@ -50,6 +46,8 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
 
 import org.apache.commons.lang.StringUtils;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;

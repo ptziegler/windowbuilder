@@ -9,9 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.rcp;
-import org.junit.Before;
-import org.junit.After;
-
 import org.eclipse.wb.internal.core.utils.IOUtils2;
 import org.eclipse.wb.internal.rcp.model.rcp.PdeUtils;
 import org.eclipse.wb.tests.designer.core.AbstractJavaProjectTest;
@@ -23,7 +20,10 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.pde.core.plugin.IPluginElement;
 
+import junit.framework.TestCase;
 
+import org.junit.After;
+import org.junit.Before;
 
 import java.io.ByteArrayInputStream;
 

@@ -9,13 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.jdt.core;
-import org.junit.Ignore;
-import org.junit.Before;
-
-import org.junit.Test;
-
-import org.junit.BeforeClass;
-
 import org.eclipse.wb.internal.core.utils.jdt.core.SubtypesScope;
 import org.eclipse.wb.tests.designer.core.AbstractJavaTest;
 
@@ -23,6 +16,11 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IType;
+
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  * Tests for {@link SubtypesScope}.

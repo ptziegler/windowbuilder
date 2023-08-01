@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property.editor;
 
-import org.junit.Test;
-
 import com.google.common.collect.Maps;
 
 import org.eclipse.wb.internal.core.model.property.Property;
@@ -19,6 +17,8 @@ import org.eclipse.wb.internal.core.model.property.editor.DatePropertyEditor;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
+
+import org.junit.Test;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

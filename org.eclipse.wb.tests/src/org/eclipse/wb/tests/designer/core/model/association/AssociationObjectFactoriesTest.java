@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.association;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.association.AssociationObject;
 import org.eclipse.wb.core.model.association.AssociationObjectFactories;
 import org.eclipse.wb.core.model.association.AssociationObjectFactory;
@@ -19,6 +17,7 @@ import org.eclipse.wb.core.model.association.InvocationChildAssociation;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Tests for {@link AssociationObjectFactories}.

@@ -9,15 +9,14 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.rcp;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.rcp.model.rcp.ViewCategoryPropertyEditor;
 import org.eclipse.wb.internal.rcp.model.rcp.ViewPartInfo;
 import org.eclipse.wb.tests.designer.core.PdeProjectConversionUtils;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
+
+import org.junit.After;
+import org.junit.Test;
 
 /**
  * Test for {@link ViewCategoryPropertyEditor}.

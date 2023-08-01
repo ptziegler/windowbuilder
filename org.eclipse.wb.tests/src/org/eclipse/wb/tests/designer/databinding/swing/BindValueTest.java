@@ -10,13 +10,13 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.databinding.swing;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.databinding.model.IBindingInfo;
 import org.eclipse.wb.internal.swing.databinding.DatabindingsProvider;
 import org.eclipse.wb.internal.swing.databinding.model.bindings.AutoBindingInfo;
 import org.eclipse.wb.internal.swing.databinding.model.bindings.UpdateStrategyInfo;
 import org.eclipse.wb.internal.swing.model.component.JPanelInfo;
+
+import org.junit.Test;
 
 import java.util.List;
 

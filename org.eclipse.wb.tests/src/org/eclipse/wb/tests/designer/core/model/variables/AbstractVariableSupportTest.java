@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.variables;
 
-import org.junit.Test;
-
 import com.google.common.collect.Lists;
 
 import org.eclipse.wb.core.model.JavaInfo;
@@ -23,6 +21,7 @@ import net.bytebuddy.ByteBuddy;
 import static org.mockito.Mockito.mock;
 
 import org.apache.commons.lang.NotImplementedException;
+import org.junit.Test;
 
 import java.util.List;
 

@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.util;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.core.model.broadcast.ObjectInfoPresentationDecorateIcon;
 import org.eclipse.wb.core.model.broadcast.ObjectInfoPresentationDecorateText;
@@ -24,6 +22,8 @@ import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.DecorationOverlayIcon;
 import org.eclipse.jface.viewers.IDecoration;
+
+import org.junit.Test;
 
 /**
  * Test for {@link ObjectsLabelProvider}.

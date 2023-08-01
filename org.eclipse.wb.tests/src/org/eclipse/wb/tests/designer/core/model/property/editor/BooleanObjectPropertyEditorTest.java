@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.property.editor;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.editor.BooleanObjectPropertyEditor;
 import org.eclipse.wb.internal.core.model.property.editor.BooleanPropertyEditor;
@@ -19,6 +17,8 @@ import org.eclipse.wb.internal.core.model.property.table.PropertyTable;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 
 import org.eclipse.swt.graphics.Point;
+
+import org.junit.Test;
 
 /**
  * Test for {@link BooleanPropertyEditor}.

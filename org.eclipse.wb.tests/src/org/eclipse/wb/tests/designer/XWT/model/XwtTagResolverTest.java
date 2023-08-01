@@ -10,13 +10,12 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XWT.model;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.internal.core.xml.model.broadcast.XmlObjectResolveTag;
 import org.eclipse.wb.internal.xwt.model.util.XwtTagResolver;
 
 import org.apache.commons.lang.ArrayUtils;
+import org.junit.Test;
 
 /**
  * Test for {@link XwtTagResolver}.

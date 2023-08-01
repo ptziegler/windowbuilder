@@ -9,10 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.menu;
-import org.junit.Before;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.menu.AbstractMenuObject;
 import org.eclipse.wb.internal.core.model.menu.IMenuObjectInfo;
 import org.eclipse.wb.internal.core.model.menu.IMenuObjectListener;
@@ -29,6 +25,8 @@ import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 
 import org.apache.commons.lang.NotImplementedException;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Tests for {@link AbstractMenuObject}.

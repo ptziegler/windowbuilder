@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.XML.editor;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.preferences.IPreferenceConstants;
 import org.eclipse.wb.internal.core.xml.gef.policy.DirectTextPropertyEditPolicy;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
@@ -20,6 +18,8 @@ import org.eclipse.wb.internal.xwt.model.widgets.ControlInfo;
 import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
 
 import org.eclipse.jface.preference.IPreferenceStore;
+
+import org.junit.Test;
 
 /**
  * Test for {@link DirectTextPropertyEditPolicy}.

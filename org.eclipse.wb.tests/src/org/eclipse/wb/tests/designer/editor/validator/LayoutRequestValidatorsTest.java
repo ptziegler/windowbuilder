@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.editor.validator;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.gef.policy.validator.BorderOfChildLayoutRequestValidator;
 import org.eclipse.wb.core.gef.policy.validator.CachingLayoutRequestValidator;
 import org.eclipse.wb.core.gef.policy.validator.CompatibleLayoutRequestValidator;
@@ -24,6 +22,7 @@ import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 
 import org.apache.commons.lang.ObjectUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Tests for {@link LayoutRequestValidators}.

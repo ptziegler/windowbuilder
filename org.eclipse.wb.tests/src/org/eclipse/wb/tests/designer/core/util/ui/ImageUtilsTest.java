@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.util.ui;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.utils.ui.ImageUtils;
 import org.eclipse.wb.tests.designer.TestUtils;
 import org.eclipse.wb.tests.designer.tests.DesignerTestCase;
@@ -20,6 +18,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Rectangle;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;

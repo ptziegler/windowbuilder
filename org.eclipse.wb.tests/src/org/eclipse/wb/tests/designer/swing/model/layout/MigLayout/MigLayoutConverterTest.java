@@ -9,15 +9,14 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swing.model.layout.MigLayout;
-import org.junit.Ignore;
-
-import org.junit.Test;
-
 import org.eclipse.wb.internal.swing.MigLayout.model.MigLayoutConverter;
 import org.eclipse.wb.internal.swing.MigLayout.model.MigLayoutInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 
 import net.miginfocom.swing.MigLayout;
+
+import org.junit.Ignore;
+import org.junit.Test;
 
 import javax.swing.JTable;
 

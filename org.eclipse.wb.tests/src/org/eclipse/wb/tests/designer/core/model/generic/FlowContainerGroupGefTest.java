@@ -10,13 +10,13 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.core.model.generic;
 
-import org.junit.Test;
-
 import org.eclipse.wb.core.gef.policy.layout.ILayoutEditPolicyFactory;
 import org.eclipse.wb.gef.tree.TreeEditPart;
 import org.eclipse.wb.internal.core.model.nonvisual.FlowContainerGroupInfo;
 import org.eclipse.wb.internal.swing.model.component.ComponentInfo;
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
+
+import org.junit.Test;
 
 /**
  * Tests for "flow container" support for "layout manager", created by

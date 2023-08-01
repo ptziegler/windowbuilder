@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.databinding.rcp.model.widgets;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.databinding.model.IBindingInfo;
 import org.eclipse.wb.internal.core.databinding.ui.ObserveType;
 import org.eclipse.wb.internal.rcp.databinding.DatabindingsProvider;
@@ -26,6 +24,8 @@ import org.eclipse.wb.tests.designer.databinding.rcp.DatabindingTestUtils;
 import org.eclipse.wb.tests.designer.databinding.rcp.model.AbstractBindingTest;
 
 import org.eclipse.swt.SWT;
+
+import org.junit.Test;
 
 import java.util.List;
 

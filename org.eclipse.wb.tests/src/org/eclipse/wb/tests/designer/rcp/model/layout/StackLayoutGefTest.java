@@ -10,13 +10,13 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.layout;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.rcp.gef.policy.layout.StackLayoutNavigationFigure;
 import org.eclipse.wb.internal.rcp.model.layout.StackLayoutInfo;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.internal.swt.model.widgets.ControlInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpGefTest;
+
+import org.junit.Test;
 
 /**
  * Test for {@link StackLayoutInfo} in GEF.

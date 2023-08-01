@@ -9,11 +9,6 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.menu;
-import org.junit.Before;
-import org.junit.After;
-
-import org.junit.Test;
-
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.draw2d.IPositionConstants;
 import org.eclipse.wb.gef.core.EditPart;
@@ -31,6 +26,10 @@ import org.eclipse.wb.tests.designer.rcp.RcpGefTest;
 import org.eclipse.wb.tests.gef.GraphicalRobot;
 
 import org.eclipse.draw2d.geometry.Rectangle;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.List;
 

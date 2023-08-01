@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.rcp.model.rcp;
 
-import org.junit.Test;
-
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.property.editor.string.StringPropertyEditor;
 import org.eclipse.wb.internal.core.utils.execution.RunnableEx;
@@ -19,6 +17,7 @@ import org.eclipse.wb.internal.rcp.model.rcp.ExtensionElementProperty;
 import org.eclipse.wb.internal.rcp.model.rcp.PdeUtils;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 /**
  * Tests for {@link ExtensionElementProperty}.
