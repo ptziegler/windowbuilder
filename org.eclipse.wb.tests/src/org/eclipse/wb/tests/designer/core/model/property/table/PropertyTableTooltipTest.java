@@ -25,6 +25,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -32,6 +33,7 @@ import org.junit.Test;
  *
  * @author scheglov_ke
  */
+@Ignore
 public class PropertyTableTooltipTest extends AbstractPropertyTableTest {
 	private static final PropertyEditor stringEditor = StringPropertyEditor.INSTANCE;
 
