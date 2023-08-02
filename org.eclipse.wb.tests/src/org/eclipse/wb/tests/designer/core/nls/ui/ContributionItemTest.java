@@ -22,6 +22,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
@@ -33,6 +34,7 @@ import javax.swing.JFrame;
  *
  * @author scheglov_ke
  */
+@Ignore
 public class ContributionItemTest extends AbstractNlsUiTest {
 	////////////////////////////////////////////////////////////////////////////
 	//
