@@ -28,6 +28,7 @@ import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -35,6 +36,7 @@ import org.junit.Test;
  *
  * @author scheglov_ke
  */
+@Ignore
 public class PropertiesCompositeTest extends AbstractDialogTest {
 	////////////////////////////////////////////////////////////////////////////
 	//

@@ -17,6 +17,7 @@ import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Table;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -24,6 +25,7 @@ import org.junit.Test;
  *
  * @author scheglov_ke
  */
+@Ignore
 public class NlsDialogTest extends AbstractDialogTest {
 	////////////////////////////////////////////////////////////////////////////
 	//

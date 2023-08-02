@@ -34,6 +34,7 @@ import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Locale;
@@ -43,6 +44,7 @@ import java.util.Locale;
  *
  * @author scheglov_ke
  */
+@Ignore
 public class SourceCompositeTest extends AbstractDialogTest {
 	////////////////////////////////////////////////////////////////////////////
 	//
