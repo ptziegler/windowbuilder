@@ -25,6 +25,7 @@ import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -35,6 +36,7 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
@@ -58,6 +60,20 @@ public class ProjectClassLoaderTest extends SwingModelTest {
 	////////////////////////////////////////////////////////////////////////////
 	public void _test_exit() throws Exception {
 		System.exit(0);
+	}
+
+	////////////////////////////////////////////////////////////////////////////
+	//
+	// Life cycle
+	//
+	////////////////////////////////////////////////////////////////////////////
+	@Override
+	@Before
+	public void setUp() throws Exception {
+		super.setUp();
+		if (m_project != null) {
+			m_project.refreshLocal(IResource.DEPTH_INFINITE, null);
+		}
 	}
 
 	////////////////////////////////////////////////////////////////////////////
