@@ -12,7 +12,6 @@ package org.eclipse.wb.tests.designer.core.model.description;
 import org.eclipse.wb.internal.core.model.description.ComponentDescription;
 import org.eclipse.wb.internal.core.model.description.MorphingTargetDescription;
 import org.eclipse.wb.internal.core.model.description.helpers.ComponentDescriptionHelper;
-import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
 import org.assertj.core.api.Assertions;
@@ -36,16 +35,12 @@ public class MorphingTargetDescriptionTest extends SwingModelTest {
 	@Before
 	public void setUp() throws Exception {
 		super.setUp();
-		// prepare fixture
-		String testName = (String) ReflectionUtils.getFieldObject(this, "fName");
-		if (!"test_tearDown".equals(testName)) {
-			parseContainer(
-					"// filler filler filler",
-					"public class Test extends JPanel {",
-					"  public Test() {",
-					"  }",
-					"}");
-		}
+		parseContainer(
+				"// filler filler filler",
+				"public class Test extends JPanel {",
+				"  public Test() {",
+				"  }",
+				"}");
 	}
 
 	////////////////////////////////////////////////////////////////////////////
