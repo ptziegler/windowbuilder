@@ -147,6 +147,7 @@ public abstract class AbstractJavaProjectTest extends DesignerTestCase {
 		if (m_testProject == null) {
 			m_testProject = new TestProject();
 			m_project = m_testProject.getProject();
+			m_project.refreshLocal(IResource.DEPTH_INFINITE, null);
 			m_javaProject = m_testProject.getJavaProject();
 		}
 	}
