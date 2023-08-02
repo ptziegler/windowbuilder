@@ -20,10 +20,9 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-	SwingDatabindingsFactoryTest.class,
-	GenericUtilsTest.class,
-	BindValueTest.class,
-	DatabindingTestUtils.class
+		SwingDatabindingsFactoryTest.class,
+		GenericUtilsTest.class,
+		BindValueTest.class
 })
 public class BindingTests {
 }

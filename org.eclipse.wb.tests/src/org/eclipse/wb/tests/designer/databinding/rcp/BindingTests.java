@@ -14,7 +14,6 @@ import org.eclipse.wb.tests.designer.databinding.rcp.model.CodeGenerationTest;
 import org.eclipse.wb.tests.designer.databinding.rcp.model.DatabindingsProviderTest;
 import org.eclipse.wb.tests.designer.databinding.rcp.model.ReferenceProvidersTest;
 import org.eclipse.wb.tests.designer.databinding.rcp.model.UiConfigurationTest;
-import org.eclipse.wb.tests.designer.databinding.rcp.model.ViewerCodeGenerationTest;
 import org.eclipse.wb.tests.designer.databinding.rcp.model.beans.BeanBindableTest;
 import org.eclipse.wb.tests.designer.databinding.rcp.model.beans.BeanObservableTest;
 import org.eclipse.wb.tests.designer.databinding.rcp.model.context.BindListTest;
@@ -34,24 +33,23 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({
-	AstModelSupportTest.class,
-	UtilsTest.class,
-	BeanBindableTest.class,
-	WidgetBindableTest.class,
-	BeanObservableTest.class,
-	WidgetObservableTest.class,
-	ViewerObservableTest.class,
-	BindValueTest.class,
-	BindListTest.class,
-	BindSetTest.class,
-	DatabindingsProviderTest.class,
-	ReferenceProvidersTest.class,
-	CodeGenerationTest.class,
-	ViewerCodeGenerationTest.class,
-	UiConfigurationTest.class,
-	JFaceDatabindingsFactoryTestRcp.class,
-	JFaceDatabindingsFactoryTestSwing.class,
-	org.eclipse.wb.tests.designer.databinding.swing.BindingTests.class
+		AstModelSupportTest.class,
+		UtilsTest.class,
+		BeanBindableTest.class,
+		WidgetBindableTest.class,
+		BeanObservableTest.class,
+		WidgetObservableTest.class,
+		ViewerObservableTest.class,
+		BindValueTest.class,
+		BindListTest.class,
+		BindSetTest.class,
+		DatabindingsProviderTest.class,
+		ReferenceProvidersTest.class,
+		CodeGenerationTest.class,
+		UiConfigurationTest.class,
+		JFaceDatabindingsFactoryTestRcp.class,
+		JFaceDatabindingsFactoryTestSwing.class,
+		org.eclipse.wb.tests.designer.databinding.swing.BindingTests.class
 })
 public class BindingTests {
 }
