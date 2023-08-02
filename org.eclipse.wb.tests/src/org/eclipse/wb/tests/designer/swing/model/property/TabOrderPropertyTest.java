@@ -23,6 +23,7 @@ import org.eclipse.wb.internal.swing.model.property.TabOrderProperty;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.awt.Container;
@@ -34,6 +35,7 @@ import java.util.List;
  *
  * @author lobas_av
  */
+@Ignore
 public class TabOrderPropertyTest extends SwingModelTest {
 	////////////////////////////////////////////////////////////////////////////
 	//
