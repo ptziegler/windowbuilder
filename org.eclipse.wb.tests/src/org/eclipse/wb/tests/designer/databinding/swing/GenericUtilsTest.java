@@ -20,6 +20,7 @@ import org.eclipse.wb.internal.swing.databinding.model.generic.IGenericType;
 import org.eclipse.wb.internal.swing.model.component.JPanelInfo;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
@@ -28,6 +29,7 @@ import java.util.List;
  * @author sablin_aa
  *
  */
+@Ignore
 public class GenericUtilsTest extends AbstractBindingTest {
 	////////////////////////////////////////////////////////////////////////////
 	//

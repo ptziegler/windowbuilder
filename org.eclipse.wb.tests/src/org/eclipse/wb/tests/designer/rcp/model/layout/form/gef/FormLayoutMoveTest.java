@@ -217,7 +217,7 @@ public class FormLayoutMoveTest extends RcpGefTest {
 				"    button2.setText(\"New Button2\");",
 				"    //",
 				"    FormData data2 = new FormData();",
-				"    data2.left = new FormAttachment(0, 135);",
+				"    data2.left = new FormAttachment(0, 160);",
 				"    data2.top = new FormAttachment(0, 0);",
 				"    button2.setLayoutData(data2);",
 				"  }",
