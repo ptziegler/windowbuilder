@@ -12,6 +12,7 @@ package org.eclipse.wb.tests.designer;
 
 import org.eclipse.wb.tests.designer.core.TestProject;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.CoreException;
@@ -48,6 +49,16 @@ public class ResourceUtils {
 		return getEntry(path + "/" + name);
 	}
 
+	private static void createFolderStructure(IContainer container) throws CoreException {
+		if (!container.exists() && container instanceof IFolder && container.getParent() != null) {
+			if (container.getParent().exists()) {
+				((IFolder) container).create(true, true, null);
+			} else {
+				createFolderStructure(container.getParent());
+			}
+		}
+	}
+
 	/**
 	 * Copy test resources from specified subpath to test project.
 	 */
@@ -71,6 +82,7 @@ public class ResourceUtils {
 					if (file.exists()) {
 						file.setContents(entryStream, true, false, null);
 					} else {
+						createFolderStructure(file.getParent());
 						file.create(entryStream, true, null);
 					}
 				}
