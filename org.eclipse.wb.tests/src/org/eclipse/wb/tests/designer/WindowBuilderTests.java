@@ -46,5 +46,6 @@ import org.junit.runners.Suite.SuiteClasses;
 	XwtTests.class
 
 })
+
 public class WindowBuilderTests {
 }
