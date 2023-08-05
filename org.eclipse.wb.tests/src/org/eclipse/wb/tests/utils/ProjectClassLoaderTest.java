@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Google, Inc.
+ * Copyright (c) 2011, 2023 Google, Inc.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -540,7 +540,7 @@ public class ProjectClassLoaderTest extends SwingModelTest {
 	public static String moveProjectIntoWorkspaceSubFolder() throws Exception {
 		String newProjectLocation = workspaceLocation + "/subFolder/Test";
 		// move project content
-		FileUtils.deleteQuietly(new File(newProjectLocation));
+		FileUtils.forceDelete(new File(newProjectLocation));
 		FileUtils.moveDirectory(
 				new File(m_project.getLocation().toPortableString()),
 				new File(newProjectLocation));
