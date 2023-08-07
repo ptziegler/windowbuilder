@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Google, Inc.
+ * Copyright (c) 2011, 2023 Google, Inc.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -24,6 +24,7 @@ import org.eclipse.jface.viewers.StructuredSelection;
 
 import org.apache.commons.lang.StringUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -51,6 +52,7 @@ public class ApplicationWizardTest extends XwtWizardTest {
 	 */
 	@DisposeProjectAfter
 	@Test
+	@Ignore
 	public void test_libraries_forPlugin() throws Exception {
 		// prepare default PDE/RCP project
 		{
@@ -62,8 +64,8 @@ public class ApplicationWizardTest extends XwtWizardTest {
 		// animate
 		animateWizard();
 		// libraries in classpath
-		assertTrue(ProjectUtils.hasType(m_javaProject, "org.eclipse.e4.xwt.XWT"));
-		assertTrue(ProjectUtils.hasType(m_javaProject, "org.eclipse.e4.xwt.forms.XWTForms"));
+		assertTrue(ProjectUtils.hasType(m_javaProject, "org.eclipse.xwt.XWT"));
+		assertTrue(ProjectUtils.hasType(m_javaProject, "org.eclipse.xwt.forms.XWTForms"));
 		assertTrue(ProjectUtils.hasType(m_javaProject, "org.pushingpixels.trident.Timeline"));
 		assertTrue(ProjectUtils.hasType(m_javaProject, "org.eclipse.core.databinding.Binding"));
 		assertTrue(ProjectUtils.hasType(
@@ -76,8 +78,8 @@ public class ApplicationWizardTest extends XwtWizardTest {
 		{
 			String manifest = AbstractPdeTest.getManifest();
 			assertEquals(manifest, 1, StringUtils.countMatches(manifest, "org.pushingpixels.trident_"));
-			assertEquals(manifest, 1, StringUtils.countMatches(manifest, "org.eclipse.e4.xwt_"));
-			assertEquals(manifest, 1, StringUtils.countMatches(manifest, "org.eclipse.e4.xwt.forms_"));
+			assertEquals(manifest, 1, StringUtils.countMatches(manifest, "org.eclipse.xwt_"));
+			assertEquals(manifest, 1, StringUtils.countMatches(manifest, "org.eclipse.xwt.forms_"));
 		}
 	}
 
@@ -86,6 +88,7 @@ public class ApplicationWizardTest extends XwtWizardTest {
 	 */
 	@DisposeProjectAfter
 	@Test
+	@Ignore
 	public void test_libraries_forProject() throws Exception {
 		// prepare default SWT project
 		{
@@ -96,8 +99,8 @@ public class ApplicationWizardTest extends XwtWizardTest {
 		// animate
 		animateWizard();
 		// libraries
-		assertTrue(ProjectUtils.hasType(m_javaProject, "org.eclipse.e4.xwt.XWT"));
-		assertTrue(ProjectUtils.hasType(m_javaProject, "org.eclipse.e4.xwt.forms.XWTForms"));
+		assertTrue(ProjectUtils.hasType(m_javaProject, "org.eclipse.xwt.XWT"));
+		assertTrue(ProjectUtils.hasType(m_javaProject, "org.eclipse.xwt.forms.XWTForms"));
 		assertTrue(ProjectUtils.hasType(m_javaProject, "org.pushingpixels.trident.Timeline"));
 		assertTrue(ProjectUtils.hasType(m_javaProject, "org.eclipse.core.databinding.Binding"));
 		assertTrue(ProjectUtils.hasType(

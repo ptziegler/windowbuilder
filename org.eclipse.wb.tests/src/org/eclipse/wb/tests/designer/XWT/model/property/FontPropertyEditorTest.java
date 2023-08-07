@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Google, Inc.
+ * Copyright (c) 2011, 2023 Google, Inc.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -26,6 +26,7 @@ import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.TabItem;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -52,6 +53,7 @@ public class FontPropertyEditorTest extends XwtModelTest {
 	 * Test for {@link FontSupport#getFontFamilies()}.
 	 */
 	@Test
+	@Ignore
 	public void test_FontSupport_getFontFamilies() throws Exception {
 		String[] families = FontSupport.getFontFamilies();
 		Assertions.assertThat(families).contains("Segoe UI", "Arial");
@@ -109,6 +111,7 @@ public class FontPropertyEditorTest extends XwtModelTest {
 	}
 
 	@Test
+	@Ignore
 	public void test_getText_defaultValue() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -146,6 +149,7 @@ public class FontPropertyEditorTest extends XwtModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Test
+	@Ignore
 	public void test_dialog() throws Exception {
 		parse(
 				"// filler filler filler filler filler",

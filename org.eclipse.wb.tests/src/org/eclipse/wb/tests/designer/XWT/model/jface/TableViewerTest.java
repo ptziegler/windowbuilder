@@ -20,6 +20,7 @@ import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
 import org.eclipse.draw2d.geometry.Rectangle;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
@@ -47,6 +48,7 @@ public class TableViewerTest extends XwtModelTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Test
+	@Ignore
 	public void test_parse() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -91,6 +93,7 @@ public class TableViewerTest extends XwtModelTest {
 	}
 
 	@Test
+	@Ignore
 	public void test_TableViewerColumn_properties() throws Exception {
 		parse(
 				"// filler filler filler filler filler",

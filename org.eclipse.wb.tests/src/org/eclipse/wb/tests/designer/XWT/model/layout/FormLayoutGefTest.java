@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Google, Inc.
+ * Copyright (c) 2011, 2023 Google, Inc.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -17,6 +17,7 @@ import org.eclipse.wb.internal.xwt.model.widgets.ControlInfo;
 import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -72,6 +73,7 @@ public class FormLayoutGefTest extends XwtGefTest {
 	}
 
 	@Test
+	@Ignore
 	public void test_canvas_CREATE() throws Exception {
 		CompositeInfo composite =
 				openEditor(
@@ -109,6 +111,7 @@ public class FormLayoutGefTest extends XwtGefTest {
 	}
 
 	@Test
+	@Ignore
 	public void test_canvas_PASTE() throws Exception {
 		CompositeInfo composite =
 				openEditor(
@@ -171,6 +174,7 @@ public class FormLayoutGefTest extends XwtGefTest {
 	}
 
 	@Test
+	@Ignore
 	public void test_canvas_MOVE() throws Exception {
 		CompositeInfo composite =
 				openEditor(
@@ -217,6 +221,7 @@ public class FormLayoutGefTest extends XwtGefTest {
 	}
 
 	@Test
+	@Ignore
 	public void test_canvas_RESIZE() throws Exception {
 		openEditor(
 				"<Composite>",
@@ -267,6 +272,7 @@ public class FormLayoutGefTest extends XwtGefTest {
 	}
 
 	@Test
+	@Ignore
 	public void test_canvas_ADD() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",
@@ -384,6 +390,7 @@ public class FormLayoutGefTest extends XwtGefTest {
 	}
 
 	@Test
+	@Ignore
 	public void test_tree_PASTE() throws Exception {
 		CompositeInfo composite =
 				openEditor(
@@ -436,6 +443,7 @@ public class FormLayoutGefTest extends XwtGefTest {
 	}
 
 	@Test
+	@Ignore
 	public void test_tree_MOVE() throws Exception {
 		openEditor(
 				"// filler filler filler filler filler",

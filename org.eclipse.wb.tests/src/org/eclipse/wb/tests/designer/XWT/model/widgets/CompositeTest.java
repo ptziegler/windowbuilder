@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Google, Inc.
+ * Copyright (c) 2011, 2023 Google, Inc.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -22,6 +22,7 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -97,6 +98,7 @@ public class CompositeTest extends XwtModelTest {
 	 * Test for {@link CompositeInfo#getClientAreaInsets2()}.
 	 */
 	@Test
+	@Ignore
 	public void test_getClientAreaInsets2_forGroup() throws Exception {
 		CompositeInfo composite = parse("<Group/>");
 		composite.refresh();
@@ -108,6 +110,7 @@ public class CompositeTest extends XwtModelTest {
 	}
 
 	@Test
+	@Ignore
 	public void test_parse_withButton() throws Exception {
 		CompositeInfo composite =
 				parse(

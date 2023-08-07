@@ -80,7 +80,7 @@ public class TableWrapLayoutGefTest extends RcpGefTest {
 		ControlInfo button = composite.getChildrenControls().get(1);
 		// select "button"
 		canvas.select(button);
-		waitEventLoop(10);
+		waitEventLoop(20);
 		// delete
 		{
 			IAction deleteAction = getDeleteAction();

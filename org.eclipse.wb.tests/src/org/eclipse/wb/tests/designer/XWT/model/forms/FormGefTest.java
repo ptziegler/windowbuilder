@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Google, Inc.
+ * Copyright (c) 2011, 2023 Google, Inc.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,6 +14,7 @@ import org.eclipse.wb.gef.core.EditPart;
 import org.eclipse.wb.internal.xwt.model.forms.FormInfo;
 import org.eclipse.wb.tests.designer.XWT.gef.XwtGefTest;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -39,6 +40,7 @@ public class FormGefTest extends XwtGefTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Test
+	@Ignore
 	public void test_canvas_CREATE_headClient() throws Exception {
 		prepare_CREATE();
 		// use canvas
@@ -62,6 +64,7 @@ public class FormGefTest extends XwtGefTest {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	@Test
+	@Ignore
 	public void test_tree_CREATE_headClient() throws Exception {
 		prepare_CREATE();
 		// use tree

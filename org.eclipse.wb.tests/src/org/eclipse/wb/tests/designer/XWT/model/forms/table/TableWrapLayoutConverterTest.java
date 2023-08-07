@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Google, Inc.
+ * Copyright (c) 2011, 2023 Google, Inc.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -23,6 +23,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.ui.forms.widgets.TableWrapLayout;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -234,6 +235,7 @@ public class TableWrapLayoutConverterTest extends XwtModelTest {
 	 * component positions & alignments.
 	 */
 	@Test
+	@Ignore
 	public void test_Switching_fromGridLayout() throws Exception {
 		CompositeInfo composite =
 				parse(

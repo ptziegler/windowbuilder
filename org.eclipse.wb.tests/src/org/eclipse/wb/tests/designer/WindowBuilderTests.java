@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Google, Inc.
+ * Copyright (c) 2011, 2023 Google, Inc.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -41,7 +41,6 @@ import org.junit.runners.Suite.SuiteClasses;
 	EditorTests.class,
 	SwingTests.class,
 	RcpTests.class,
-	// not yet ready to run, need work to run successfully
 	XmlTests.class,
 	XwtTests.class
 

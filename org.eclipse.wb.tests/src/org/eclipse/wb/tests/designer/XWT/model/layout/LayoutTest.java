@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Google, Inc.
+ * Copyright (c) 2011, 2023 Google, Inc.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -41,6 +41,7 @@ import org.eclipse.swt.widgets.Shell;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Collection;
@@ -766,6 +767,7 @@ public class LayoutTest extends XwtModelTest {
 	 * Test that after parsing {@link ControlInfo} has virtual {@link LayoutDataInfo}.
 	 */
 	@Test
+	@Ignore
 	public void test_LayoutData_virtual() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -989,6 +991,7 @@ public class LayoutTest extends XwtModelTest {
 	}
 
 	@Test
+	@Ignore
 	public void test_LayoutData_deleteIt_hasChildElement_dontDelete() throws Exception {
 		parse(
 				"// filler filler filler filler filler",

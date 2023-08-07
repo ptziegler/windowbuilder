@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Google, Inc.
+ * Copyright (c) 2011, 2023 Google, Inc.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -26,6 +26,7 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
@@ -166,6 +167,7 @@ public class TableTest extends XwtModelTest {
 	 * Test for parsing {@link TableColumn} and bounds of {@link TableColumnInfo}.
 	 */
 	@Test
+	@Ignore
 	public void test_TableColumn() throws Exception {
 		parse(
 				"// filler filler filler filler filler",

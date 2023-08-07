@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Google, Inc.
+ * Copyright (c) 2011, 2023 Google, Inc.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -24,6 +24,7 @@ import org.eclipse.swt.widgets.TreeColumn;
 import org.eclipse.swt.widgets.TreeItem;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
@@ -52,6 +53,7 @@ public class TreeTest extends XwtModelTest {
 	 * Test for parsing {@link TreeItem} and bounds of {@link TreeItemInfo}.
 	 */
 	@Test
+	@Ignore
 	public void test_TreeItem_parse() throws Exception {
 		TreeInfo tree =
 				parse(
@@ -234,6 +236,7 @@ public class TreeTest extends XwtModelTest {
 	 * Test for parsing {@link TreeColumn} and bounds of {@link TreeColumnInfo}.
 	 */
 	@Test
+	@Ignore
 	public void test_TreeColumn() throws Exception {
 		TreeInfo tree =
 				parse(

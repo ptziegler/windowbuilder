@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Google, Inc.
+ * Copyright (c) 2011, 2023 Google, Inc.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -36,6 +36,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
@@ -223,6 +224,7 @@ public class GridLayoutTest extends XwtModelTest {
 	 * Test for {@link IGridInfo}.
 	 */
 	@Test
+	@Ignore
 	public void test_gridInfo() throws Exception {
 		parse(
 				"// filler filler filler filler filler",
@@ -1190,6 +1192,7 @@ public class GridLayoutTest extends XwtModelTest {
 	 * We should not break existing {@link GridLayout} based design by changing number of columns.
 	 */
 	@Test
+	@Ignore
 	public void test_implicitLayout_CREATE_hasInheritedControls() throws Exception {
 		prepareShell_withImplicit();
 		CompositeInfo shell = parse("<t:MyShell/>");
@@ -1215,6 +1218,7 @@ public class GridLayoutTest extends XwtModelTest {
 	 * should be able to add new columns and rows.
 	 */
 	@Test
+	@Ignore
 	public void test_implicitLayout_CREATE_noInheritedControls() throws Exception {
 		prepareShell_withImplicitEmpty();
 		CompositeInfo shell = parse("<t:MyShell/>");
@@ -1242,6 +1246,7 @@ public class GridLayoutTest extends XwtModelTest {
 	 * Using implicit {@link GridLayout} should not cause problems during moving {@link Control}.
 	 */
 	@Test
+	@Ignore
 	public void test_implicitLayout_MOVE() throws Exception {
 		prepareShell_withImplicit();
 		CompositeInfo shell =

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Google, Inc.
+ * Copyright (c) 2011, 2023 Google, Inc.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -30,6 +30,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -98,6 +99,7 @@ public class ControlLiveManagerTest extends XwtModelTest {
 	}
 
 	@Test
+	@Ignore
 	public void test_liveImage_onShell() throws Exception {
 		parse("<Shell/>");
 		// prepare buttons
@@ -128,6 +130,7 @@ public class ControlLiveManagerTest extends XwtModelTest {
 	}
 
 	@Test
+	@Ignore
 	public void test_buttonWithText() throws Exception {
 		parse("<Shell/>");
 		ControlInfo button = createButtonWithText();

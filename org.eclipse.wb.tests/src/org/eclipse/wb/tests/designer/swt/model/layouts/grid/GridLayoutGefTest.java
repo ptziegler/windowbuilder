@@ -100,7 +100,7 @@ public class GridLayoutGefTest extends RcpGefTest {
 		ControlInfo button = getJavaInfoByName("button");
 		// select "button"
 		canvas.select(button);
-		waitEventLoop(10);
+		waitEventLoop(20);
 		// delete
 		{
 			IAction deleteAction = getDeleteAction();

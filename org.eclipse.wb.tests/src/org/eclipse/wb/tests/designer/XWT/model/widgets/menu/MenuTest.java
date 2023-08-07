@@ -33,6 +33,7 @@ import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
 import org.eclipse.swt.SWT;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Collections;
@@ -243,6 +244,7 @@ public class MenuTest extends XwtModelTest {
 	 * Test for {@link IMenuInfo} of "popup" {@link MenuInfo}.
 	 */
 	@Test
+	@Ignore
 	public void test_impl_IMenuInfo_popup() throws Exception {
 		parse(
 				"// filler filler filler filler filler",

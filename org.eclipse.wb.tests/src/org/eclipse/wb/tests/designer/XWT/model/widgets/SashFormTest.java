@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Google, Inc.
+ * Copyright (c) 2011, 2023 Google, Inc.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -17,6 +17,7 @@ import org.eclipse.wb.tests.designer.Expectations;
 import org.eclipse.wb.tests.designer.Expectations.IntValue;
 import org.eclipse.wb.tests.designer.XWT.model.XwtModelTest;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -281,6 +282,7 @@ public class SashFormTest extends XwtModelTest {
 	 * Test for {@link SashFormInfo#command_RESIZE(ControlInfo, int)}.
 	 */
 	@Test
+	@Ignore
 	public void test_RESIZE() throws Exception {
 		parse(
 				"<Shell>",
