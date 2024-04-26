@@ -130,7 +130,7 @@ public class EventSender {
 		Event event = createEvent(x, y, 0);
 		m_control.notifyListeners(SWT.MouseMove, event);
 		// process "async" runnables
-		waitEventLoop(0);
+		waitEventLoop(10);
 		return this;
 	}
 
