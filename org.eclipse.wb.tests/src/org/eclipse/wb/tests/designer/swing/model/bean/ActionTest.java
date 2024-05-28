@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2023 Google, Inc.
+ * Copyright (c) 2011, 2024 Google, Inc. and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -1159,7 +1159,7 @@ public class ActionTest extends SwingModelTest {
 				ActionExpressionAccessor accessor =
 						new ActionExpressionAccessor(new LazyActionSupport(constructor) {
 							@Override
-							public ConstructorDescription getConstructorDescription() throws Exception {
+							public ConstructorDescription getConstructorDescription() {
 								ComponentDescription description =
 										ComponentDescriptionHelper.getDescription(
 												panel.getEditor(),
@@ -1177,7 +1177,7 @@ public class ActionTest extends SwingModelTest {
 				ActionExpressionAccessor accessor =
 						new ActionExpressionAccessor(new LazyActionSupport(constructor) {
 							@Override
-							public ConstructorDescription getConstructorDescription() throws Exception {
+							public ConstructorDescription getConstructorDescription() {
 								ComponentDescription description =
 										ComponentDescriptionHelper.getDescription(
 												panel.getEditor(),
@@ -1888,7 +1888,7 @@ public class ActionTest extends SwingModelTest {
 		}
 
 		@Override
-		public ConstructorDescription getConstructorDescription() throws Exception {
+		public ConstructorDescription getConstructorDescription() {
 			return null;
 		}
 	}

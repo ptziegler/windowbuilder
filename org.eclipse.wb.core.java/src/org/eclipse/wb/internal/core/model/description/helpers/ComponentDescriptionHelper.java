@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2023 Google, Inc.
+ * Copyright (c) 2011, 2024 Google, Inc. and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -75,7 +75,6 @@ import org.eclipse.wb.internal.core.utils.check.Assert;
 import org.eclipse.wb.internal.core.utils.exception.DesignerException;
 import org.eclipse.wb.internal.core.utils.exception.ICoreExceptionConstants;
 import org.eclipse.wb.internal.core.utils.execution.ExecutionUtils;
-import org.eclipse.wb.internal.core.utils.execution.RunnableEx;
 import org.eclipse.wb.internal.core.utils.external.ExternalFactoriesHelper;
 import org.eclipse.wb.internal.core.utils.jdt.core.CodeUtils;
 import org.eclipse.wb.internal.core.utils.reflect.ClassMap;
@@ -97,7 +96,6 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.impl.NoOpLog;
 import org.osgi.framework.Bundle;
 import org.xml.sax.Attributes;
-import org.xml.sax.SAXParseException;
 
 import java.io.InputStream;
 import java.lang.reflect.Constructor;
@@ -242,9 +240,9 @@ public final class ComponentDescriptionHelper {
 	 *
 	 * @return the {@link ComponentDescription} of component with given
 	 *         {@link Class}.
-	 * @throws Exception if no {@link ComponentDescription} can be found.
+	 * @throws DesignerException if no {@link ComponentDescription} can be found.
 	 */
-	public static ComponentDescription getDescription(AstEditor editor, Class<?> componentClass) throws Exception {
+	public static ComponentDescription getDescription(AstEditor editor, Class<?> componentClass) {
 		ComponentDescription description = m_getDescription_Class.get(componentClass);
 		if (description == null) {
 			description = getDescription0(editor, componentClass);
@@ -256,7 +254,7 @@ public final class ComponentDescriptionHelper {
 	/**
 	 * Implementation for {@link #getDescription(AstEditor, Class)}.
 	 */
-	private static ComponentDescription getDescription0(AstEditor editor, Class<?> componentClass) throws Exception {
+	private static ComponentDescription getDescription0(AstEditor editor, Class<?> componentClass) {
 		// we should use component class that can be loaded, for example ignore
 		// anonymous classes
 		for (;; componentClass = componentClass.getSuperclass()) {
@@ -332,10 +330,10 @@ public final class ComponentDescriptionHelper {
 	 *
 	 * @return the {@link ComponentDescription} of component with given
 	 *         {@link Class}.
-	 * @throws Exception if no {@link ComponentDescription} can be found.
+	 * @throws DesignerException if no {@link ComponentDescription} can be found.
 	 */
 	private static ComponentDescription getDescription0(AstEditor editor, ComponentDescriptionKey key,
-			List<ClassResourceInfo> additionalDescriptionInfos) throws Exception {
+			List<ClassResourceInfo> additionalDescriptionInfos) {
 		EditorState state = EditorState.get(editor);
 		ILoadingContext context = EditorStateLoadingContext.get(state);
 		Class<?> componentClass = key.getComponentClass();
@@ -422,8 +420,8 @@ public final class ComponentDescriptionHelper {
 			}
 			// well, we have result
 			return componentDescription;
-		} catch (SAXParseException e) {
-			throw new DesignerException(ICoreExceptionConstants.DESCRIPTION_LOAD_ERROR, e.getException(),
+		} catch (Exception e) {
+			throw new DesignerException(ICoreExceptionConstants.DESCRIPTION_LOAD_ERROR, e,
 					componentClass.getName());
 		}
 	}
@@ -527,19 +525,16 @@ public final class ComponentDescriptionHelper {
 		if (!methodDescription.isInitialized()) {
 			methodDescription.setInitialized(true);
 			// do initialize
-			ExecutionUtils.runIgnore(new RunnableEx() {
-				@Override
-				public void run() throws Exception {
-					IMethod method = CodeUtils.findMethod(javaProject, methodDescription.getDeclaringClass().getName(),
-							methodDescription.getSignature());
-					if (method != null) {
-						String[] parameterNames = method.getParameterNames();
-						for (ParameterDescription parameter : methodDescription.getParameters()) {
-							if (parameter.getName() == null) {
-								int parameterIndex = parameter.getIndex();
-								String parameterName = parameterNames[parameterIndex];
-								parameter.setName(parameterName);
-							}
+			ExecutionUtils.runIgnore(() -> {
+				IMethod method = CodeUtils.findMethod(javaProject, methodDescription.getDeclaringClass().getName(),
+						methodDescription.getSignature());
+				if (method != null) {
+					String[] parameterNames = method.getParameterNames();
+					for (ParameterDescription parameter : methodDescription.getParameters()) {
+						if (parameter.getName() == null) {
+							int parameterIndex = parameter.getIndex();
+							String parameterName = parameterNames[parameterIndex];
+							parameter.setName(parameterName);
 						}
 					}
 				}

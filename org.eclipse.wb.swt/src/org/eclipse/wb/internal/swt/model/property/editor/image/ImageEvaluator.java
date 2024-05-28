@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Google, Inc.
+ * Copyright (c) 2011, 2024 Google, Inc and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -81,12 +81,9 @@ public class ImageEvaluator implements IExpressionEvaluator {
 			EvaluationContext context,
 			final IProject project) throws Exception {
 		if (project != null) {
-			return getPluginImage(invocation, arguments, context, new InputStreamProvider() {
-				@Override
-				public InputStream getInputStream(String imagePath) throws Exception {
-					IFile file = project.getFile(imagePath);
-					return file.exists() ? file.getContents(true) : null;
-				}
+			return getPluginImage(invocation, arguments, context, imagePath -> {
+				IFile file = project.getFile(imagePath);
+				return file.exists() ? file.getContents(true) : null;
 			});
 		}
 		return null;
@@ -139,7 +136,7 @@ public class ImageEvaluator implements IExpressionEvaluator {
 	 * @return <code>[symbolic name, image path]</code> for image property if is't set as
 	 *         <code>ResourceManager.getPluginImageXXX()</code> or <code>null</code> otherwise.
 	 */
-	public static String[] getPluginImageValue(Property property) throws Exception {
+	public static String[] getPluginImageValue(Property property) {
 		Expression expression = ((GenericProperty) property).getExpression();
 		// check for new version ResourceManager
 		if (AstNodeUtils.isMethodInvocation(
@@ -177,7 +174,7 @@ public class ImageEvaluator implements IExpressionEvaluator {
 	// Workspace utils
 	//
 	////////////////////////////////////////////////////////////////////////////
-	private static IProject getProjectOverActivator(Expression activatorAccessNode) throws Exception {
+	private static IProject getProjectOverActivator(Expression activatorAccessNode) {
 		if (activatorAccessNode instanceof MethodInvocation pluginAccessInvocation) {
 			String activatorClass =
 					AstNodeUtils.getFullyQualifiedName(pluginAccessInvocation.getExpression(), false);
