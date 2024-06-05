@@ -3,6 +3,54 @@
 This page describes all changes introduced by each release which may impact user
 code.
 
+## 1.17.0 (2024-09)
+
+### New extension point for Swing/SWT image processing
+
+It is now possible to contribute custom image processors using the
+`org.eclipse.wb.core.java.imageProcessor` extension point. Those
+contributes are used by the property table to generate the Java code responsible
+for setting the image of a composite.
+
+## 1.15.0 (2024-03)
+
+### Support of lambda expressions for event Listeners
+
+It is now possible to use lambda expressions to implement (event) listeners,
+in addition to anonymous classes.
+
+Example:
+addHelpListener(e -> {
+   ...
+});
+
+With limited functionality, it is also possible to use factory methods
+used by e.g. SWT.
+
+The name of the factory method is expected to be of the form
+`&lt;method&gt;Adapter(Consumer&lt;Event&gt; c)`
+
+Example:
+addMouseListener(MouseListener.mouseUpAdapter(e -> {
+   ...
+}));
+
+### Deprecation and removal of XWT editor
+
+The technology is effectively dead and the project no longer actively maintained.
+In prevent compilation errors inside the workspace, those components have been
+removed from the project.
+
+### Changes to wbp-component.xml & wbp-factory.xml schema
+
+All special characters in the description need to be properly encoded.
+
+Example:
+&lt;b&gt;...&lt;/b&gt;
+
+The wbp-factory.xml files should use the http://www.eclipse.org/wb/WBPComponent
+namespace.
+
 ## 1.14.0 (2023-12)
 
 ### Deprecation of SWTResourceManager

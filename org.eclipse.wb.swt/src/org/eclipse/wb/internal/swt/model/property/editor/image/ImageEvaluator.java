@@ -13,9 +13,8 @@ package org.eclipse.wb.internal.swt.model.property.editor.image;
 import org.eclipse.wb.core.eval.AstEvaluationEngine;
 import org.eclipse.wb.core.eval.EvaluationContext;
 import org.eclipse.wb.core.eval.IExpressionEvaluator;
+import org.eclipse.wb.core.model.IGenericProperty;
 import org.eclipse.wb.internal.core.model.JavaInfoEvaluationHelper;
-import org.eclipse.wb.internal.core.model.property.GenericProperty;
-import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.utils.ast.AstNodeUtils;
 import org.eclipse.wb.internal.core.utils.ast.DomGenerics;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
@@ -28,6 +27,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jdt.core.dom.Expression;
 import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.MethodInvocation;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import java.io.InputStream;
 import java.util.List;
@@ -46,6 +46,8 @@ public class ImageEvaluator implements IExpressionEvaluator {
 	private static final String[] IMAGE_SIGNATURES_NEW = {
 			"getPluginImage(java.lang.String,java.lang.String)",
 	"getPluginImageDescriptor(java.lang.String,java.lang.String)"};
+	private static final String[] IMAGE_SIGNATURES_ABSTRACTUI = {
+			"imageDescriptorFromPlugin(java.lang.String,java.lang.String)" };
 
 	////////////////////////////////////////////////////////////////////////////
 	//
@@ -58,10 +60,7 @@ public class ImageEvaluator implements IExpressionEvaluator {
 			ITypeBinding typeBinding,
 			String typeQualifiedName) throws Exception {
 		// check for old version ResourceManager
-		if (AstNodeUtils.isMethodInvocation(
-				expression,
-				"org.eclipse.wb.swt.ResourceManager",
-				IMAGE_SIGNATURES_OLD)) {
+		if (isOldResourceManager(expression)) {
 			MethodInvocation invocation = (MethodInvocation) expression;
 			List<Expression> arguments = DomGenerics.arguments(invocation);
 			IProject project = getProjectOverActivator(arguments.get(0));
@@ -81,9 +80,12 @@ public class ImageEvaluator implements IExpressionEvaluator {
 			EvaluationContext context,
 			final IProject project) throws Exception {
 		if (project != null) {
-			return getPluginImage(invocation, arguments, context, imagePath -> {
-				IFile file = project.getFile(imagePath);
-				return file.exists() ? file.getContents(true) : null;
+			return getPluginImage(invocation, arguments, context, new InputStreamProvider() {
+				@Override
+				public InputStream getInputStream(String imagePath) throws Exception {
+					IFile file = project.getFile(imagePath);
+					return file.exists() ? file.getContents(true) : null;
+				}
 			});
 		}
 		return null;
@@ -133,16 +135,13 @@ public class ImageEvaluator implements IExpressionEvaluator {
 	//
 	////////////////////////////////////////////////////////////////////////////
 	/**
-	 * @return <code>[symbolic name, image path]</code> for image property if is't set as
-	 *         <code>ResourceManager.getPluginImageXXX()</code> or <code>null</code> otherwise.
+	 * @return {@code [symbolic name, image path]} for image property if it's set as
+	 *         {@link AbstractUIPlugin#imageDescriptorFromPlugin(String,String)} or
+	 *         {@code null} otherwise.
 	 */
-	public static String[] getPluginImageValue(Property property) {
-		Expression expression = ((GenericProperty) property).getExpression();
-		// check for new version ResourceManager
-		if (AstNodeUtils.isMethodInvocation(
-				expression,
-				"org.eclipse.wb.swt.ResourceManager",
-				IMAGE_SIGNATURES_NEW)) {
+	public static String[] getPluginImageValue(IGenericProperty property) {
+		Expression expression = property.getExpression();
+		if (isAbstractUiPlugin(expression) || isNewResourceManager(expression)) {
 			MethodInvocation invocation = (MethodInvocation) expression;
 			List<Expression> arguments = DomGenerics.arguments(invocation);
 			String symbolicName = (String) JavaInfoEvaluationHelper.getValue(arguments.get(0));
@@ -150,10 +149,7 @@ public class ImageEvaluator implements IExpressionEvaluator {
 			return new String[]{symbolicName, imagePath};
 		}
 		// check for old version ResourceManager
-		if (AstNodeUtils.isMethodInvocation(
-				expression,
-				"org.eclipse.wb.swt.ResourceManager",
-				IMAGE_SIGNATURES_OLD)) {
+		if (isOldResourceManager(expression)) {
 			MethodInvocation invocation = (MethodInvocation) expression;
 			List<Expression> arguments = DomGenerics.arguments(invocation);
 			IProject project = getProjectOverActivator(arguments.get(0));
@@ -187,4 +183,26 @@ public class ImageEvaluator implements IExpressionEvaluator {
 		}
 		return null;
 	}
+
+	private static boolean isOldResourceManager(Expression expression) {
+		return AstNodeUtils.isMethodInvocation(expression, "org.eclipse.wb.swt.ResourceManager", IMAGE_SIGNATURES_OLD);
+	}
+
+	private static boolean isNewResourceManager(Expression expression) {
+		return AstNodeUtils.isMethodInvocation(expression, "org.eclipse.wb.swt.ResourceManager", IMAGE_SIGNATURES_NEW);
+	}
+
+	private static boolean isAbstractUiPlugin(Expression expression) {
+		return AstNodeUtils.isMethodInvocation(expression, "org.eclipse.ui.plugin.AbstractUIPlugin",
+				IMAGE_SIGNATURES_ABSTRACTUI);
+	}
+
+	/* package */ static String getPluginDescriptorInvocationSource(String symbolicName, String pathSource) {
+		return "org.eclipse.ui.plugin.AbstractUIPlugin.imageDescriptorFromPlugin("
+				+ symbolicName
+				+ ", "
+				+ pathSource
+				+ ")";
+	}
+
 }
