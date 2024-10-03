@@ -350,6 +350,13 @@ public final class PaletteComposite extends Composite {
 		m_paletteFigure.layout();
 	}
 
+	/**
+	 * @noreference This method is not intended to be referenced by clients.
+	 */
+	public PaletteRootFigure getPaletteFigure() {
+		return m_paletteFigure;
+	}
+
 	////////////////////////////////////////////////////////////////////////////
 	//
 	// PaletteFigure
