@@ -143,7 +143,7 @@ public class EventManager extends EventDispatcher {
 	 * {@link #setCapture(null)} is called.
 	 */
 	@Override
-	public void setCapture(IFigure captureFigure) {
+	protected void setCapture(IFigure captureFigure) {
 		m_captureFigure = captureFigure;
 	}
 
@@ -191,6 +191,9 @@ public class EventManager extends EventDispatcher {
 		delayEvent(() -> {
 			updateFigureUnderCursor(event);
 			sendEvent(() -> m_targetFigure.handleMousePressed(m_currentEvent), event);
+			if (isEventConsumed()) {
+				setCapture(m_targetFigure);
+			}
 		}, event);
 	}
 
@@ -199,6 +202,7 @@ public class EventManager extends EventDispatcher {
 		delayEvent(() -> {
 			updateFigureUnderCursor(event);
 			sendEvent(() -> m_targetFigure.handleMouseReleased(m_currentEvent), event);
+			releaseCapture();
 		}, event);
 	}
 
