@@ -202,6 +202,7 @@ public final class PaletteComposite extends Composite {
 	/**
 	 * Sets {@link IPalette} for displaying.
 	 */
+	@SuppressWarnings("removal")
 	public void setPalette(IPalette palette) {
 		m_palette = palette;
 		refreshPalette();
@@ -230,6 +231,7 @@ public final class PaletteComposite extends Composite {
 	 *          is <code>true</code> if after first using this {@link IEntry} should be loaded again,
 	 *          not switched to default entry (usually selection).
 	 */
+	@SuppressWarnings("removal")
 	public void selectEntry(IEntry selectedEntry, boolean reload) {
 		// activate new entry
 		m_selectedEntry = selectedEntry;
@@ -247,6 +249,7 @@ public final class PaletteComposite extends Composite {
 	/**
 	 * @return the {@link Figure} used for displaying {@link ICategory}.
 	 */
+	@SuppressWarnings("removal")
 	public Figure getCategoryFigure(ICategory category) {
 		return m_categoryFigures.get(category);
 	}
@@ -254,6 +257,7 @@ public final class PaletteComposite extends Composite {
 	/**
 	 * @return the {@link Figure} used for displaying {@link IEntry}.
 	 */
+	@SuppressWarnings("removal")
 	public Figure getEntryFigure(ICategory category, IEntry entry) {
 		CategoryFigure categoryFigure = m_categoryFigures.get(category);
 		return categoryFigure.m_entryFigures.get(entry);
@@ -266,6 +270,13 @@ public final class PaletteComposite extends Composite {
 		m_paletteFigure.layout();
 	}
 
+	/**
+	 * @noreference This method is not intended to be referenced by clients.
+	 */
+	public PaletteFigure getPaletteFigure() {
+		return m_paletteFigure;
+	}
+
 	////////////////////////////////////////////////////////////////////////////
 	//
 	// PaletteFigure
@@ -275,8 +286,10 @@ public final class PaletteComposite extends Composite {
 	 * Top level {@link Figure} for palette - container for {@link CategoryFigure}'s.
 	 *
 	 * @author scheglov_ke
+	 * @noreference This class is not intended to be referenced by clients.
 	 */
-	private final class PaletteFigure extends Layer {
+	@SuppressWarnings("removal")
+	/* package */ final class PaletteFigure extends Layer {
 		////////////////////////////////////////////////////////////////////////////
 		//
 		// Constructor
@@ -345,8 +358,10 @@ public final class PaletteComposite extends Composite {
 	 * {@link Figure} implementation for {@link ICategory}.
 	 *
 	 * @author scheglov_ke
+	 * @noreference This class is not intended to be referenced by clients.
 	 */
-	private final class CategoryFigure extends Figure {
+	@SuppressWarnings("removal")
+	/* package */ final class CategoryFigure extends Figure {
 		private static final int IMAGE_SPACE_LEFT = 4;
 		private static final int IMAGE_SPACE_RIGHT = 4;
 		private static final int MARGIN_HEIGHT = 2;
@@ -685,8 +700,10 @@ public final class PaletteComposite extends Composite {
 	 * {@link Figure} implementation for {@link IEntry}.
 	 *
 	 * @author scheglov_ke
+	 * @noreference This class is not intended to be referenced by clients.
 	 */
-	private final class EntryFigure extends Figure {
+	@SuppressWarnings("removal")
+	/* package */ final class EntryFigure extends Figure {
 		private static final int IMAGE_SPACE_RIGHT = 2;
 		private static final int MARGIN_WIDTH_1 = 3;
 		private static final int MARGIN_WIDTH_2 = 6;
