@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Google, Inc.
+ * Copyright (c) 2011, 2025 Google, Inc. and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -24,6 +24,7 @@ import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 
+import java.io.IOException;
 import java.io.InputStream;
 
 /**
@@ -35,6 +36,7 @@ import java.io.InputStream;
  * @coverage rcp.util
  */
 public final class ActivatorGetImagesByteCodeProcessor implements IByteCodeProcessor {
+	private static final String INTERNAL_IMAGE_MANAGER_PATH = "org/eclipse/wb/internal/rcp/model/util/InternalImageManager.class";
 	private String m_activatorClassName;
 	private String m_activatorProjectPath;
 
@@ -63,22 +65,11 @@ public final class ActivatorGetImagesByteCodeProcessor implements IByteCodeProce
 	//
 	////////////////////////////////////////////////////////////////////////////
 	private void createInternalImageManager(ProjectClassLoader classLoader) {
-		try {
-			// prepare InternalImageManager bytes
-			ClassLoader localClassLoader = getClass().getClassLoader();
-			InputStream stream =
-					localClassLoader.getResourceAsStream("org/eclipse/wb/internal/rcp/model/util/InternalImageManager.class");
-			byte[] bytes = IOUtils.toByteArray(stream);
-			stream.close();
-			// inject InternalImageManager to project class loader
-			ReflectionUtils.invokeMethod(
-					classLoader,
-					"defineClass(java.lang.String,byte[],int,int)",
-					"org.eclipse.wb.internal.rcp.model.util.InternalImageManager",
-					bytes,
-					0,
-					bytes.length);
-		} catch (Throwable e) {
+		// prepare InternalImageManager bytes
+		try (InputStream is = getClass().getClassLoader().getResourceAsStream(INTERNAL_IMAGE_MANAGER_PATH)) {
+			ReflectionUtils.defineClass(classLoader, IOUtils.toByteArray(is));
+		} catch (IOException e) {
+			ReflectionUtils.propagate(e);
 		}
 	}
 

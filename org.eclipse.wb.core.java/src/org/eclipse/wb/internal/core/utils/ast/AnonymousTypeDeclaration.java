@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2024 Google, Inc.
+ * Copyright (c) 2011, 2025 Google, Inc. and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,16 +10,17 @@
  *******************************************************************************/
 package org.eclipse.wb.internal.core.utils.ast;
 
-import org.eclipse.wb.internal.core.utils.IOUtils2;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.AnonymousClassDeclaration;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
+import org.apache.commons.io.IOUtils;
+
+import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
 
 /**
  * Support for using {@link AnonymousClassDeclaration} as {@link TypeDeclaration}.
@@ -30,6 +31,7 @@ import java.lang.reflect.Method;
  */
 @Deprecated
 public class AnonymousTypeDeclaration {
+	private static final String ANONYMOUS_TYPE_DECLARATION_PATH = "AnonymousTypeDeclaration2.clazz";
 	private static final String KEY = "AnonymousTypeDeclaration";
 	private static Class<?> m_class;
 
@@ -65,27 +67,13 @@ public class AnonymousTypeDeclaration {
 	}
 
 	private static void ensureClass() {
-		try {
-			if (m_class == null) {
-				Method defineMethod =
-						ClassLoader.class.getDeclaredMethod("defineClass", new Class[]{
-								String.class,
-								byte[].class,
-								int.class,
-								int.class});
-				defineMethod.setAccessible(true);
-				InputStream stream =
-						AnonymousTypeDeclaration.class.getResourceAsStream("AnonymousTypeDeclaration2.clazz");
-				byte[] bytes = IOUtils2.readBytes(stream);
-				m_class =
-						(Class<?>) defineMethod.invoke(TypeDeclaration.class.getClassLoader(), new Object[]{
-								"org.eclipse.jdt.core.dom.AnonymousTypeDeclaration2",
-								bytes,
-								0,
-								bytes.length});
+		if (m_class == null) {
+			try (InputStream stream = AnonymousTypeDeclaration.class
+					.getResourceAsStream(ANONYMOUS_TYPE_DECLARATION_PATH)) {
+				ReflectionUtils.defineClass(TypeDeclaration.class.getClassLoader(), IOUtils.toByteArray(stream));
+			} catch (IOException e) {
+				ReflectionUtils.propagate(e);
 			}
-		} catch (Throwable e) {
-			throw ReflectionUtils.propagate(e);
 		}
 	}
 }

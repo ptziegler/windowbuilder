@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2024 Google, Inc.
+ * Copyright (c) 2011, 2025 Google, Inc. and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.wb.internal.core.utils.reflect;
 
+import org.eclipse.wb.internal.core.DesignerPlugin;
 import org.eclipse.wb.internal.core.EnvironmentUtils;
 import org.eclipse.wb.internal.core.utils.check.Assert;
 import org.eclipse.wb.internal.core.utils.execution.ExecutionUtils;
@@ -18,12 +19,14 @@ import org.apache.commons.collections4.MultiValuedMap;
 import org.apache.commons.collections4.multimap.HashSetValuedHashMap;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.reflect.FieldUtils;
 
 import java.beans.BeanInfo;
 import java.beans.IndexedPropertyDescriptor;
 import java.beans.IntrospectionException;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
+import java.lang.invoke.MethodHandles;
 import java.lang.ref.SoftReference;
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
@@ -685,11 +688,7 @@ public class ReflectionUtils {
 			for (Method method : c.getDeclaredMethods()) {
 				String signature = getMethodSignature(method);
 				if (!methods.containsKey(signature)) {
-					// InaccessibleObjectException thrown by methods hidden by strong encapsulation
-					ExecutionUtils.runIgnore(() -> {
-						method.setAccessible(true);
-						methods.put(signature, method);
-					});
+					methods.put(signature, method);
 				}
 			}
 		}
@@ -698,7 +697,6 @@ public class ReflectionUtils {
 			for (Method method : interfaceClass.getDeclaredMethods()) {
 				String signature = getMethodSignature(method);
 				if (!methods.containsKey(signature)) {
-					method.setAccessible(true);
 					methods.put(signature, method);
 				}
 			}
@@ -1059,7 +1057,6 @@ public class ReflectionUtils {
 		// check all declared constructors
 		for (Constructor<?> constructor : clazz.getDeclaredConstructors()) {
 			if (getConstructorSignature(constructor).equals(signature)) {
-				constructor.setAccessible(true);
 				return (Constructor<T>) constructor;
 			}
 		}
@@ -1082,7 +1079,6 @@ public class ReflectionUtils {
 		// check all declared constructors
 		for (Constructor<?> constructor : clazz.getDeclaredConstructors()) {
 			if (getConstructorGenericSignature(constructor).equals(signature)) {
-				constructor.setAccessible(true);
 				return (Constructor<T>) constructor;
 			}
 		}
@@ -1177,7 +1173,6 @@ public class ReflectionUtils {
 		while (clazz != null) {
 			// add all declared field
 			for (Field field : clazz.getDeclaredFields()) {
-				field.setAccessible(true);
 				fields.add(field);
 			}
 			// process superclass
@@ -1199,7 +1194,6 @@ public class ReflectionUtils {
 			Field[] declaredFields = clazz.getDeclaredFields();
 			for (Field field : declaredFields) {
 				if (field.getName().equals(name)) {
-					field.setAccessible(true);
 					return field;
 				}
 			}
@@ -1233,7 +1227,7 @@ public class ReflectionUtils {
 			if (field == null) {
 				throw new IllegalArgumentException("Unable to find '" + name + "' in " + refClass);
 			}
-			return field.get(refObject);
+			return FieldUtils.readField(field, refObject, true);
 		});
 	}
 
@@ -1465,7 +1459,6 @@ public class ReflectionUtils {
 			addPropertyDescriptor(descriptors, propertyName, propertyToGetter, propertyToSetter);
 		}
 		useSimplePropertyNamesWherePossible(descriptors);
-		makeMethodsAccessible(descriptors);
 		// OK, final result
 		m_propertyDescriptorsCache.put(componentClass, descriptors);
 		return descriptors;
@@ -1485,19 +1478,6 @@ public class ReflectionUtils {
 			String simplePropertyName = getSimplePropertyName(qualifiedPropertyName);
 			if (simplePropertyNames.get(simplePropertyName).size() == 1) {
 				propertyDescriptor.setName(simplePropertyName);
-			}
-		}
-	}
-
-	private static void makeMethodsAccessible(List<PropertyDescriptor> descriptors) {
-		for (PropertyDescriptor propertyDescriptor : descriptors) {
-			Method getMethod = getReadMethod(propertyDescriptor);
-			Method setMethod = getWriteMethod(propertyDescriptor);
-			if (getMethod != null) {
-				getMethod.setAccessible(true);
-			}
-			if (setMethod != null) {
-				setMethod.setAccessible(true);
 			}
 		}
 	}
@@ -1550,7 +1530,6 @@ public class ReflectionUtils {
 				continue;
 			}
 			if (!isStatic && (isPublic || isProtected)) {
-				method.setAccessible(true);
 				String methodName = method.getName();
 				if (methodName.startsWith("set") && method.getParameterTypes().length == 1) {
 					String propertyName = getQualifiedPropertyName(method);
@@ -1623,5 +1602,21 @@ public class ReflectionUtils {
 
 	private static String getSimplePropertyName(String qualifiedPropertyName) {
 		return StringUtils.substringBefore(qualifiedPropertyName, "(");
+	}
+
+	/**
+	 * Creates and links a class or interface from {@code bytes} within the given
+	 * class-loader.
+	 *
+	 * @return the {@link Class} object for the class
+	 */
+	public static Class<?> defineClass(ClassLoader cl, byte[] bytes) {
+		try {
+			Class<?> contextClass = cl.loadClass("java.lang.Class");
+			return MethodHandles.lookup().in(contextClass).defineClass(bytes);
+		} catch (ReflectiveOperationException e) {
+			DesignerPlugin.log(e);
+		}
+		return null;
 	}
 }

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Google, Inc.
+ * Copyright (c) 2011, 2025 Google, Inc. and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -9,6 +9,8 @@
  *    Google, Inc. - initial API and implementation
  *******************************************************************************/
 package org.eclipse.wb.internal.core.utils.reflect;
+
+import org.eclipse.core.runtime.Assert;
 
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.FieldVisitor;
@@ -35,17 +37,9 @@ public class ClassLoaderLocalMap implements Opcodes {
 	private static final String NAME = "GEN$$ClassLoaderProperties";
 	private static final Map<Object, Object> globalMap =
 			Collections.synchronizedMap(new WeakHashMap<>());
-	private static Method defineMethod;
 	private static Method findLoadedClass;
 	static {
 		try {
-			defineMethod =
-					ClassLoader.class.getDeclaredMethod("defineClass", new Class[]{
-							String.class,
-							byte[].class,
-							int.class,
-							int.class});
-			defineMethod.setAccessible(true);
 			findLoadedClass =
 					ClassLoader.class.getDeclaredMethod("findLoadedClass", new Class[]{String.class});
 			findLoadedClass.setAccessible(true);
@@ -129,21 +123,9 @@ public class ClassLoaderLocalMap implements Opcodes {
 		}
 		if (holderClass == null) {
 			byte[] classBytes = buildHolderByteCode(holderClassName);
-			try {
-				holderClass =
-						(Class<?>) defineMethod.invoke(
-								cl,
-								new Object[]{
-										holderClassName,
-										classBytes,
-										Integer.valueOf(0),
-										Integer.valueOf(classBytes.length)});
-			} catch (InvocationTargetException e1) {
-				throw new RuntimeException(e1.getTargetException());
-			} catch (Throwable e1) {
-				throw new RuntimeException(e1);
-			}
+			holderClass = ReflectionUtils.defineClass(cl, classBytes);
 		}
+		Assert.isNotNull(holderClass, "Unable to define " + holderClassName);
 		try {
 			return (Map<Object, Object>) holderClass.getDeclaredField("localMap").get(null);
 		} catch (Throwable e1) {
