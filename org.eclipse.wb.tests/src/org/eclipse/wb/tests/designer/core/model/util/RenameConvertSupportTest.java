@@ -26,7 +26,6 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.swtbot.swt.finder.SWTBot;
-import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotText;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotToolbarButton;
 
@@ -34,8 +33,6 @@ import static org.mockito.Mockito.mock;
 
 import org.apache.commons.lang3.function.FailableConsumer;
 import org.apache.commons.lang3.function.FailableRunnable;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.List;
@@ -46,15 +43,6 @@ import java.util.List;
  * @author scheglov_ke
  */
 public class RenameConvertSupportTest extends SwingModelTest {
-	@BeforeClass
-	public static void setUpAll() {
-		SWTBotPreferences.TIMEOUT = 30000;
-	}
-
-	@AfterClass
-	public static void tearDpwnAll() {
-		SWTBotPreferences.TIMEOUT = 5000;
-	}
 	
 	////////////////////////////////////////////////////////////////////////////
 	//
@@ -201,6 +189,7 @@ public class RenameConvertSupportTest extends SwingModelTest {
 				shell.button("Cancel").click();
 			}
 		});
+		waitEventLoop(10);
 	}
 
 	/**
@@ -236,6 +225,7 @@ public class RenameConvertSupportTest extends SwingModelTest {
 				shell.button("OK").click();
 			}
 		});
+		waitEventLoop(10);
 		assertEditor(
 				"public class Test extends JPanel {",
 				"  public Test() {",
@@ -278,6 +268,7 @@ public class RenameConvertSupportTest extends SwingModelTest {
 				shell.button("OK").click();
 			}
 		});
+		waitEventLoop(10);
 		assertEditor(
 				"public class Test extends JPanel {",
 				"  private JButton button;",
@@ -330,6 +321,7 @@ public class RenameConvertSupportTest extends SwingModelTest {
 				shell.button("OK").click();
 			}
 		});
+		waitEventLoop(10);
 		assertEditor(
 				"public class Test extends JPanel {",
 				"  private JButton myButton;",
