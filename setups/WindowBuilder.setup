@@ -216,6 +216,18 @@
               pattern="org\.eclipse\.wb\.releng.*|org\.eclipse\.windowbuilder"/>
         </predicate>
       </workingSet>
+      <workingSet
+          name="Window Builder Docs">
+        <predicate
+            xsi:type="predicates:AndPredicate">
+          <operand
+              xsi:type="predicates:RepositoryPredicate"
+              project="org.eclipse.wb.core"/>
+          <operand
+              xsi:type="predicates:NamePredicate"
+              pattern=".*\.doc\.user"/>
+        </predicate>
+      </workingSet>
       <description>The dynamic working sets for the Window Builder projects</description>
     </setupTask>
     <stream
