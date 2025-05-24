@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DataBindingTest
+Bundle-SymbolicName: DataBindingTest
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-24
+Automatic-Module-Name: DataBindingTest
+Export-Package: com.swtdesigner,
+ convert,
+ phonebook,
+ phonebook.model
