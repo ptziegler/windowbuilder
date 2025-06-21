@@ -15,6 +15,7 @@ package org.eclipse.wb.internal.gef.graphical;
 import org.eclipse.wb.draw2d.Figure;
 import org.eclipse.wb.draw2d.Layer;
 import org.eclipse.wb.gef.core.EditPart;
+import org.eclipse.wb.gef.graphical.handles.ResizeHandle;
 import org.eclipse.wb.internal.draw2d.FigureCanvas;
 import org.eclipse.wb.internal.draw2d.IRootFigure;
 import org.eclipse.wb.internal.draw2d.RootFigure;
@@ -24,6 +25,7 @@ import org.eclipse.wb.internal.gef.core.EditDomain;
 import org.eclipse.wb.internal.gef.core.TargetEditPartFindVisitor;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.TreeSearch;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.gef.Handle;
 import org.eclipse.swt.SWT;
@@ -223,7 +225,25 @@ public class GraphicalViewer extends AbstractEditPartViewer implements org.eclip
 	private Handle findTargetHandle(String layer, Point p) {
 		TargetFigureFindVisitor visitor = new TargetFigureFindVisitor(m_canvas, p.x, p.y);
 		((Layer) m_rootEditPart.getLayer(layer)).accept(visitor, false);
-		Figure targetFigure = visitor.getTargetFigure();
-		return targetFigure instanceof Handle ? (Handle) targetFigure : null;
+		IFigure targetFigure1 = visitor.getTargetFigure();
+
+		IFigure targetFigure2 = m_canvas.getLightweightSystem().getRootFigure().findFigureAt(p.x, p.y,
+				new TreeSearch() {
+			@Override
+			public boolean accept(IFigure figure) {
+				return figure instanceof Handle;
+			}
+
+			@Override
+			public boolean prune(IFigure figure) {
+				return figure instanceof Layer layerFigure && !layer.equals(layerFigure.getName());
+			}
+		});
+
+		if (targetFigure1 instanceof ResizeHandle && targetFigure1 != targetFigure2) {
+			System.out.println(targetFigure1 + " =/= " + targetFigure2);
+		}
+
+		return targetFigure2 instanceof Handle handle ? handle : null;
 	}
 }
