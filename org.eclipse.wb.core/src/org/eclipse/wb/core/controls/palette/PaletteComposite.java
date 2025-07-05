@@ -24,8 +24,10 @@ import org.eclipse.wb.internal.core.utils.ui.DrawUtils;
 import org.eclipse.wb.internal.draw2d.EventManager;
 import org.eclipse.wb.internal.draw2d.FigureCanvas;
 
+import org.eclipse.draw2d.AbstractLayout;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.FigureUtilities;
+import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MouseEvent;
@@ -372,6 +374,9 @@ public final class PaletteComposite extends Composite {
 		////////////////////////////////////////////////////////////////////////////
 		public PaletteRootFigure() {
 			super("palette");
+			FlowLayout paletteLayout = new FlowLayout();
+			paletteLayout.setMajorSpacing(0);
+			setLayoutManager(paletteLayout);
 		}
 
 		////////////////////////////////////////////////////////////////////////////
@@ -414,14 +419,7 @@ public final class PaletteComposite extends Composite {
 		 */
 		@Override
 		protected void layout() {
-			int width = m_figureCanvas.getClientArea().width;
-			width -= getInsets().getWidth();
-			//
-			int y = 0;
-			for (Iterator<? extends IFigure> I = getChildren().iterator(); I.hasNext();) {
-				CategoryFigure categoryFigure = (CategoryFigure) I.next();
-				y += categoryFigure.layout(y, width);
-			}
+			super.layout();
 		}
 	}
 
@@ -468,6 +466,7 @@ public final class PaletteComposite extends Composite {
 				m_entryFigures.put(entry, entryFigure);
 				add(entryFigure);
 			}
+			setLayoutManager(new CategoryLayout());
 		}
 
 		////////////////////////////////////////////////////////////////////////////
@@ -530,6 +529,7 @@ public final class PaletteComposite extends Composite {
 							}
 						} else if (m_mouseOnTitle) {
 							m_category.setOpen(!m_category.isOpen());
+							m_paletteFigure.invalidateTree();
 							m_paletteFigure.revalidate();
 							m_paletteFigure.layout();
 						}
@@ -645,66 +645,73 @@ public final class PaletteComposite extends Composite {
 		/**
 		 * Lays out inner {@link EntryFigure}'s and returns the height of this figure.
 		 */
-		public int layout(int y, int width) {
-			Dimension textExtent = FigureUtilities.getTextExtents(m_category.getText(), getFont());
-			m_titleHeight = MARGIN_HEIGHT + textExtent.height() + MARGIN_HEIGHT;
-			//
-			int height = m_titleHeight;
-			if (m_category.isOpen() && !getChildren().isEmpty()) {
-				// prepare max size of entry
-				int maxWidth = 0;
-				int maxHeight = 0;
-				boolean onlyIcons = m_preferences.getLayoutType() == ONLY_ICONS_TYPE;
-				for (IFigure child : getChildren()) {
-					EntryFigure entryFigure = (EntryFigure) child;
-					// update size
-					Dimension entrySize =
-							onlyIcons ? entryFigure.getIconSize() : entryFigure.getIconTextSize();
-					maxWidth = Math.max(maxWidth, entrySize.width);
-					maxHeight = Math.max(maxHeight, entrySize.height);
-				}
-				// prepare columns
-				{
-					m_columns = width / maxWidth;
-					if (!onlyIcons) {
-						m_columns = Math.max(m_columns, m_preferences.getMinColumns());
-					}
-					m_columns = Math.min(m_columns, getChildren().size());
-					m_columns = Math.max(m_columns, 1);
-					if (m_layoutType == LIST_ICONS_TYPE || m_layoutType == DETAIL_ICONS_TYPE) {
-						m_columns = 1;
-					}
-				}
-				// layout children
-				{
-					int column = 0;
-					int entryY = height;
+		private class CategoryLayout extends AbstractLayout {
+			@Override
+			public void layout(IFigure container) {
+				// No-Op
+			}
+
+			@Override
+			protected Dimension calculatePreferredSize(IFigure container, int wHint, int hHint) {
+				Dimension textExtent = FigureUtilities.getTextExtents(m_category.getText(), getFont());
+				m_titleHeight = MARGIN_HEIGHT + textExtent.height() + MARGIN_HEIGHT;
+				//
+				int width = wHint;
+				int height = m_titleHeight;
+				if (m_category.isOpen() && !getChildren().isEmpty()) {
+					// prepare max size of entry
+					int maxWidth = 0;
+					int maxHeight = 0;
+					boolean onlyIcons = m_preferences.getLayoutType() == ONLY_ICONS_TYPE;
 					for (IFigure child : getChildren()) {
 						EntryFigure entryFigure = (EntryFigure) child;
-						// relocate entry
-						if (onlyIcons) {
-							int x = maxWidth * column;
-							entryFigure.setBounds(new Rectangle(x, entryY, maxWidth, maxHeight));
-						} else {
-							int columnWidth = width / m_columns;
-							int x = columnWidth * column;
-							entryFigure.setBounds(new Rectangle(x, entryY, columnWidth, maxHeight));
+						// update size
+						Dimension entrySize =
+								onlyIcons ? entryFigure.getIconSize() : entryFigure.getIconTextSize();
+						maxWidth = Math.max(maxWidth, entrySize.width);
+						maxHeight = Math.max(maxHeight, entrySize.height);
+					}
+					// prepare columns
+					{
+						m_columns = width / maxWidth;
+						if (!onlyIcons) {
+							m_columns = Math.max(m_columns, m_preferences.getMinColumns());
 						}
-						// update category height
-						if (column == 0) {
-							height += maxHeight;
+						m_columns = Math.min(m_columns, getChildren().size());
+						m_columns = Math.max(m_columns, 1);
+						if (m_layoutType == LIST_ICONS_TYPE || m_layoutType == DETAIL_ICONS_TYPE) {
+							m_columns = 1;
 						}
-						// wrap to next column
-						if (++column == m_columns) {
-							column = 0;
-							entryY += maxHeight;
+					}
+					// layout children
+					{
+						int column = 0;
+						int entryY = height;
+						for (IFigure child : getChildren()) {
+							EntryFigure entryFigure = (EntryFigure) child;
+							// relocate entry
+							if (onlyIcons) {
+								int x = maxWidth * column;
+								entryFigure.setBounds(new Rectangle(x, entryY, maxWidth, maxHeight));
+							} else {
+								int columnWidth = width / m_columns;
+								int x = columnWidth * column;
+								entryFigure.setBounds(new Rectangle(x, entryY, columnWidth, maxHeight));
+							}
+							// update category height
+							if (column == 0) {
+								height += maxHeight;
+							}
+							// wrap to next column
+							if (++column == m_columns) {
+								column = 0;
+								entryY += maxHeight;
+							}
 						}
 					}
 				}
+				return new Dimension(width, height);
 			}
-			// set bounds
-			setBounds(new Rectangle(0, y, width, height));
-			return height;
 		}
 
 		////////////////////////////////////////////////////////////////////////////
