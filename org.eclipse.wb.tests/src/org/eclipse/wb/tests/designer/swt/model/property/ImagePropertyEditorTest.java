@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2024 Google, Inc. and others.
+ * Copyright (c) 2011, 2025 Google, Inc. and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -31,6 +31,13 @@ import java.io.File;
  * @author lobas_av
  */
 public abstract class ImagePropertyEditorTest extends RcpModelTest {
+
+	@Override
+	protected void configureNewProject() throws Exception {
+		super.configureNewProject();
+		m_testProject.addPlugin("org.eclipse.wb.core");
+	}
+
 	////////////////////////////////////////////////////////////////////////////
 	//
 	// Utils
