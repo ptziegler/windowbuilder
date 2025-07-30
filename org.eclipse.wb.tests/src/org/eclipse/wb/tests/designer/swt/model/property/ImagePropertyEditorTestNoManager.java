@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2023 Google, Inc.
+ * Copyright (c) 2011, 2025 Google, Inc. and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -22,7 +22,6 @@ import org.eclipse.jface.resource.LocalResourceManager;
 
 import org.apache.commons.io.FilenameUtils;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -97,24 +96,22 @@ public class ImagePropertyEditorTestNoManager extends ImagePropertyEditorTest {
 	/**
 	 * Image creation using constructor with input stream (over class resource).
 	 */
-	@Disabled
 	@Test
 	public void test_textSource_image_over_classpath() throws Exception {
 		assert_getText_getClipboardSource_forSource(
-				"new Image(null, getClass().getResourceAsStream(\"/javax/swing/plaf/basic/icons/JavaCup16.png\"))",
-				"Classpath: /javax/swing/plaf/basic/icons/JavaCup16.png",
-				"new org.eclipse.swt.graphics.Image(null, {wbp_classTop}.getResourceAsStream(\"/javax/swing/plaf/basic/icons/JavaCup16.png\"))");
+				"new Image(null, getClass().getResourceAsStream(\"/org/eclipse/wb/core/controls/flyout/icons/arrow_bottom.gif\"))",
+				"Classpath: /org/eclipse/wb/core/controls/flyout/icons/arrow_bottom.gif",
+				"new org.eclipse.swt.graphics.Image(null, {wbp_classTop}.getResourceAsStream(\"/org/eclipse/wb/core/controls/flyout/icons/arrow_bottom.gif\"))");
 	}
 
 	/**
 	 * Image creation using constructor with input stream (over class resource).
 	 */
-	@Disabled
 	@Test
 	public void test_textSource_image_over_classpath_OtherClass() throws Exception {
 		assert_getText_getClipboardSource_forSource(
-				"new Image(null, java.lang.String.class.getResourceAsStream(\"/javax/swing/plaf/basic/icons/JavaCup16.png\"))",
-				"Classpath: /javax/swing/plaf/basic/icons/JavaCup16.png",
-				"new org.eclipse.swt.graphics.Image(null, {wbp_classTop}.getResourceAsStream(\"/javax/swing/plaf/basic/icons/JavaCup16.png\"))");
+				"new Image(null, org.eclipse.wb.core.editor.constants.CoreImages.class.getResourceAsStream(\"/org/eclipse/wb/core/controls/flyout/icons/arrow_bottom.gif\"))",
+				"Classpath: /org/eclipse/wb/core/controls/flyout/icons/arrow_bottom.gif",
+				"new org.eclipse.swt.graphics.Image(null, {wbp_classTop}.getResourceAsStream(\"/org/eclipse/wb/core/controls/flyout/icons/arrow_bottom.gif\"))");
 	}
 }
