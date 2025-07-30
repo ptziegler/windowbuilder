@@ -32,7 +32,6 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -186,8 +185,6 @@ public class TableTest extends RcpModelTest {
 	 * In SWT Cocoa and Linux GTK, the column headers are excluded from the client
 	 * area, hence why we have to adjust them for the tests.
 	 */
-	// Disabled because of https://github.com/eclipse-windowbuilder/windowbuilder/issues/389
-	@Disabled
 	@Test
 	public void test_TableColumn() throws Exception {
 		CompositeInfo shell =
