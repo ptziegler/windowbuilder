@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2024 Google, Inc.
+ * Copyright (c) 2011, 2025 Google, Inc. and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -29,7 +29,6 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -327,7 +326,6 @@ public class SurroundSupportTest extends SwingModelTest {
 	/**
 	 * Single {@link ComponentInfo} on {@link AbsoluteLayoutInfo}.
 	 */
-	@Disabled
 	@Test
 	public void test_absolute_singleControl_onTitledJPanel() throws Exception {
 		ContainerInfo panel =

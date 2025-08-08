@@ -14,8 +14,6 @@ package org.eclipse.wb.tests.designer.swing.model.top;
 
 import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 import org.eclipse.wb.internal.swing.model.component.top.WindowTopBoundsSupport;
-import org.eclipse.wb.tests.designer.Expectations;
-import org.eclipse.wb.tests.designer.Expectations.DimValue;
 import org.eclipse.wb.tests.designer.TestUtils;
 import org.eclipse.wb.tests.designer.swing.SwingGefTest;
 
@@ -24,7 +22,6 @@ import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.jdt.core.ICompilationUnit;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.awt.Window;
@@ -162,13 +159,9 @@ public class JFrameTopBoundsTest extends SwingGefTest {
 	/**
 	 * Using {@link JFrame#pack()}.
 	 */
-	@Disabled
 	@Test
 	public void test_resize_pack() throws Exception {
-		Dimension packSize =
-				Expectations.get(new Dimension(132, 89), new DimValue[]{
-						new DimValue("flanker-windows", new Dimension(132, 83)),
-						new DimValue("scheglov-win", new Dimension(132, 83)),});
+		Dimension packSize = new Dimension(119, 80);
 		Dimension resizeSize = new Dimension(450, 300);
 		ICompilationUnit unit =
 				check_resize("// no size", "pack();", packSize, resizeSize, packSize, "// no size");
