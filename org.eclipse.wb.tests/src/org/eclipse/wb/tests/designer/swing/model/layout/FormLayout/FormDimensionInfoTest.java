@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2023 Google, Inc.
+ * Copyright (c) 2011, 2025 Google, Inc. and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -26,7 +26,6 @@ import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.layout.Size;
 import com.jgoodies.forms.layout.Sizes;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;
@@ -266,7 +265,6 @@ public class FormDimensionInfoTest extends AbstractFormLayoutTest {
 	// Convert to GAP template
 	//
 	////////////////////////////////////////////////////////////////////////////
-	@Disabled
 	@Test
 	public void test_convertToNearestGap_columns() throws Exception {
 		check_convertToNearestGap_column("4px", 5, "LABEL_COMPONENT_GAP_COLSPEC");
@@ -284,7 +282,6 @@ public class FormDimensionInfoTest extends AbstractFormLayoutTest {
 		check_convertToNearestGap_column("20px", 5, null);
 	}
 
-	@Disabled
 	@Test
 	public void test_convertToNearestGap_rows() throws Exception {
 		check_convertToNearestGap_row("4px", 5, "LABEL_COMPONENT_GAP_ROWSPEC");
