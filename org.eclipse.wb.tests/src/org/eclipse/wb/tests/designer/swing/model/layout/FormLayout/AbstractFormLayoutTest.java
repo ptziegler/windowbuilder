@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2024 Google, Inc.
+ * Copyright (c) 2011, 2025 Google, Inc. and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -17,8 +17,13 @@ import org.eclipse.wb.internal.swing.laf.LafSupport;
 import org.eclipse.wb.tests.designer.swing.model.layout.AbstractLayoutTest;
 
 import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.util.DefaultUnitConverter;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+
+import java.awt.Font;
 
 /**
  * Abstract test for {@link FormLayout}.
@@ -26,6 +31,7 @@ import org.junit.jupiter.api.BeforeEach;
  * @author scheglov_ke
  */
 public abstract class AbstractFormLayoutTest extends AbstractLayoutTest {
+	private static Font m_font;
 	protected boolean m_useFormsImports = true;
 
 	////////////////////////////////////////////////////////////////////////////
@@ -33,6 +39,20 @@ public abstract class AbstractFormLayoutTest extends AbstractLayoutTest {
 	// Life cycle
 	//
 	////////////////////////////////////////////////////////////////////////////
+
+	@BeforeAll
+	public static void setUpAll() {
+		m_font = DefaultUnitConverter.getInstance().getDefaultDialogFont();
+		Font newFont = new Font(Font.MONOSPACED, Font.PLAIN, 12);
+		DefaultUnitConverter.getInstance().setDefaultDialogFont(newFont);
+	}
+
+	@AfterAll
+	public static void tearDownAll() {
+		DefaultUnitConverter.getInstance().setDefaultDialogFont(m_font);
+		m_font = null;
+	}
+
 	@Override
 	@BeforeEach
 	public void setUp() throws Exception {
