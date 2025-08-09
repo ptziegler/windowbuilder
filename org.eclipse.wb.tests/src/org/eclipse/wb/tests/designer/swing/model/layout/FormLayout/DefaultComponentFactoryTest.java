@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2024 Google, Inc. and others.
+ * Copyright (c) 2011, 2025 Google, Inc. and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -29,7 +29,6 @@ import org.eclipse.swt.graphics.Image;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -109,7 +108,6 @@ public class DefaultComponentFactoryTest extends AbstractFormLayoutTest {
 	 * Test for {@link DefaultComponentFactoryCreateLabelEntryInfo}.
 	 */
 	@DisposeProjectAfter
-	@Disabled
 	@Test
 	public void test_createLabel_tool() throws Exception {
 		do_projectDispose();

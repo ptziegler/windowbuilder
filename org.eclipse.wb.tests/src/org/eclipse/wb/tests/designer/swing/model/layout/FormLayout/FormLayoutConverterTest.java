@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Google, Inc.
+ * Copyright (c) 2011, 2025 Google, Inc. and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -18,7 +18,6 @@ import org.eclipse.wb.internal.swing.model.component.ContainerInfo;
 
 import com.jgoodies.forms.layout.FormLayout;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -60,7 +59,6 @@ public class FormLayoutConverterTest extends AbstractFormLayoutTest {
 				"}");
 	}
 
-	@Disabled
 	@Test
 	public void test_oneRow() throws Exception {
 		ContainerInfo panel =
@@ -96,7 +94,7 @@ public class FormLayoutConverterTest extends AbstractFormLayoutTest {
 				"    setLayout(new FormLayout(new ColumnSpec[] {",
 				"        FormSpecs.LABEL_COMPONENT_GAP_COLSPEC,",
 				"        ColumnSpec.decode('100px'),",
-				"        ColumnSpec.decode('16px'),",
+				"        FormSpecs.UNRELATED_GAP_COLSPEC,",
 				"        ColumnSpec.decode('80px'),},",
 				"      new RowSpec[] {",
 				"        FormSpecs.UNRELATED_GAP_ROWSPEC,",
@@ -118,7 +116,6 @@ public class FormLayoutConverterTest extends AbstractFormLayoutTest {
 		}
 	}
 
-	@Disabled
 	@Test
 	public void test_twoRows_spanColumns() throws Exception {
 		ContainerInfo panel =
@@ -181,7 +178,6 @@ public class FormLayoutConverterTest extends AbstractFormLayoutTest {
 				"}");
 	}
 
-	@Disabled
 	@Test
 	public void test_Switching_fromGridBagLayout() throws Exception {
 		ContainerInfo panel =
@@ -243,17 +239,17 @@ public class FormLayoutConverterTest extends AbstractFormLayoutTest {
 				"public class Test extends JPanel {",
 				"  public Test() {",
 				"    setLayout(new FormLayout(new ColumnSpec[] {",
-				"        ColumnSpec.decode('46px'),",
+				"        ColumnSpec.decode('60px'),",
 				"        FormSpecs.LABEL_COMPONENT_GAP_COLSPEC,",
-				"        ColumnSpec.decode('305px'),",
+				"        ColumnSpec.decode('275px'),",
 				"        FormSpecs.LABEL_COMPONENT_GAP_COLSPEC,",
-				"        ColumnSpec.decode('89px'),},",
+				"        ColumnSpec.decode('105px'),},",
 				"      new RowSpec[] {",
-				"        RowSpec.decode('20px'),",
+				"        RowSpec.decode('26px'),",
 				"        FormSpecs.LINE_GAP_ROWSPEC,",
-				"        RowSpec.decode('20px'),",
+				"        RowSpec.decode('21px'),",
 				"        FormSpecs.LINE_GAP_ROWSPEC,",
-				"        RowSpec.decode('23px'),}));",
+				"        RowSpec.decode('27px'),}));",
 				"    {",
 				"      JComboBox comboBox = new JComboBox();",
 				"      add(comboBox, '3, 1, fill, center');",

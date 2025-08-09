@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2024 Google, Inc. and others.
+ * Copyright (c) 2011, 2025 Google, Inc. and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -31,7 +31,6 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.graphics.RGB;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.awt.Component;
@@ -88,7 +87,6 @@ public class ComponentTest extends SwingModelTest {
 	/**
 	 * We can not create {@link java.awt.Image} with zero size, so we should check this.
 	 */
-	@Disabled
 	@Test
 	public void test_zeroSize() throws Exception {
 		ContainerInfo panel =

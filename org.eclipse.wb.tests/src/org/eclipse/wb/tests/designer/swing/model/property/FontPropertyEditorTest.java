@@ -30,7 +30,6 @@ import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 import org.apache.commons.lang3.StringUtils;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.awt.Font;
@@ -709,10 +708,9 @@ public class FontPropertyEditorTest extends SwingModelTest {
 		check_copyPaste(originalSource, expectedSource);
 	}
 
-	@Disabled
 	@Test
 	public void test_copyPaste_explicit() throws Exception {
-		String originalSource = "new Font(\"Arial\", Font.BOLD | Font.ITALIC, 15)";
+		String originalSource = "new Font(\"%s\", Font.BOLD | Font.ITALIC, 15)".formatted(Font.SANS_SERIF);
 		String expectedSource = originalSource;
 		check_copyPaste(originalSource, expectedSource);
 	}

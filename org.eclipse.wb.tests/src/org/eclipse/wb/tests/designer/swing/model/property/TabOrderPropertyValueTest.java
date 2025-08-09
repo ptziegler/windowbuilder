@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Google, Inc.
+ * Copyright (c) 2011, 2025 Google, Inc. and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -23,7 +23,6 @@ import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 import org.eclipse.jdt.core.IJavaProject;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -97,7 +96,6 @@ public class TabOrderPropertyValueTest extends SwingModelTest {
 		assertSame(components.get(1), tabOrderInfo.getOrderedInfos().get(1));
 	}
 
-	@Disabled
 	@Test
 	public void test_getValue_2() throws Exception {
 		ProjectUtils.ensureResourceType(
@@ -138,7 +136,6 @@ public class TabOrderPropertyValueTest extends SwingModelTest {
 		assertSame(components.get(1), tabOrderInfo.getOrderedInfos().get(0));
 	}
 
-	@Disabled
 	@Test
 	public void test_setValue() throws Exception {
 		// create panel
