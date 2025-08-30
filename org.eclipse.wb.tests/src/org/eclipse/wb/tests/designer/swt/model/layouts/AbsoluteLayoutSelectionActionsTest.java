@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 Google, Inc.
+ * Copyright (c) 2011, 2025 Google, Inc. and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -23,7 +23,6 @@ import org.eclipse.wb.internal.swt.model.widgets.ControlInfo;
 import org.eclipse.wb.tests.designer.core.model.TestObjectInfo;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -1043,13 +1042,13 @@ public class AbsoluteLayoutSelectionActionsTest extends RcpModelTest {
 	// Center in window
 	//
 	////////////////////////////////////////////////////////////////////////////
-	@Disabled
 	@Test
 	public void test_align_center_in_window() throws Exception {
 		CompositeInfo shell =
 				parseComposite(
 						"class Test extends Shell {",
 						"  Test() {",
+						"    super(SWT.NO_TRIM);",
 						"    setSize(600, 400);",
 						"    {",
 						"      Button button = new Button(this, SWT.NONE);",
@@ -1073,10 +1072,11 @@ public class AbsoluteLayoutSelectionActionsTest extends RcpModelTest {
 		assertEditor(
 				"class Test extends Shell {",
 				"  Test() {",
+				"    super(SWT.NO_TRIM);",
 				"    setSize(600, 400);",
 				"    {",
 				"      Button button = new Button(this, SWT.NONE);",
-				"      button.setBounds(262, 180, 60, 40);",
+				"      button.setBounds(270, 180, 60, 40);",
 				"      button.setText('000');",
 				"    }",
 				"  }",

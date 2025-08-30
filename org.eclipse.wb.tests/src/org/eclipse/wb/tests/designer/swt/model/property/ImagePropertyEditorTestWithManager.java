@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2023 Google, Inc.
+ * Copyright (c) 2011, 2025 Google, Inc. and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -26,7 +26,6 @@ import org.eclipse.jface.resource.LocalResourceManager;
 
 import org.apache.commons.io.FilenameUtils;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -103,25 +102,23 @@ public class ImagePropertyEditorTestWithManager extends ImagePropertyEditorTest 
 	/**
 	 * Image creation using constructor with input stream (over class resource).
 	 */
-	@Disabled
 	@Test
 	public void test_textSource_image_over_classpath() throws Exception {
 		assert_getText_getClipboardSource_forSource(
-				"new Image(null, getClass().getResourceAsStream(\"/javax/swing/plaf/basic/icons/JavaCup16.png\"))",
-				"Classpath: /javax/swing/plaf/basic/icons/JavaCup16.png",
-				getInvocationSource(shell(), "{wbp_classTop}", "/javax/swing/plaf/basic/icons/JavaCup16.png"));
+				"new Image(null, getClass().getResourceAsStream(\"/org/eclipse/wb/core/controls/flyout/icons/arrow_bottom.gif\"))",
+				"Classpath: /org/eclipse/wb/core/controls/flyout/icons/arrow_bottom.gif",
+				getInvocationSource(shell(), "{wbp_classTop}", "\"/org/eclipse/wb/core/controls/flyout/icons/arrow_bottom.gif\""));
 	}
 
 	/**
 	 * Image creation using constructor with input stream (over class resource).
 	 */
-	@Disabled
 	@Test
 	public void test_textSource_image_over_classpath_OtherClass() throws Exception {
 		assert_getText_getClipboardSource_forSource(
-				"new Image(null, java.lang.String.class.getResourceAsStream(\"/javax/swing/plaf/basic/icons/JavaCup16.png\"))",
-				"Classpath: /javax/swing/plaf/basic/icons/JavaCup16.png",
-				getInvocationSource(shell(), "{wbp_classTop}", "/javax/swing/plaf/basic/icons/JavaCup16.png"));
+				"new Image(null, org.eclipse.wb.core.editor.constants.CoreImages.class.getResourceAsStream(\"/org/eclipse/wb/core/controls/flyout/icons/arrow_bottom.gif\"))",
+				"Classpath: /org/eclipse/wb/core/controls/flyout/icons/arrow_bottom.gif",
+				getInvocationSource(shell(), "{wbp_classTop}", "\"/org/eclipse/wb/core/controls/flyout/icons/arrow_bottom.gif\""));
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -154,9 +151,9 @@ public class ImagePropertyEditorTestWithManager extends ImagePropertyEditorTest 
 	public void test_textSource_image_over_classpath2() throws Exception {
 		CompositeInfo shell = shell();
 		assert_getText_getClipboardSource_forSource2(
-				getInvocationSource(shell, "getClass()", "\"/javax/swing/plaf/basic/icons/JavaCup16.png\""),
-				"Classpath: /javax/swing/plaf/basic/icons/JavaCup16.png",
-				getInvocationSource(shell, "{wbp_classTop}", "\"/javax/swing/plaf/basic/icons/JavaCup16.png\""));
+				getInvocationSource(shell, "getClass()", "\"/org/eclipse/wb/core/controls/flyout/icons/arrow_bottom.gif\""),
+				"Classpath: /org/eclipse/wb/core/controls/flyout/icons/arrow_bottom.gif",
+				getInvocationSource(shell, "{wbp_classTop}", "\"/org/eclipse/wb/core/controls/flyout/icons/arrow_bottom.gif\""));
 	}
 
 	/**
@@ -166,9 +163,9 @@ public class ImagePropertyEditorTestWithManager extends ImagePropertyEditorTest 
 	public void test_textSource_image_over_classpath_OtherClass2() throws Exception {
 		CompositeInfo shell = shell();
 		assert_getText_getClipboardSource_forSource2(
-				getInvocationSource(shell, "java.lang.String.class", "\"/javax/swing/plaf/basic/icons/JavaCup16.png\""),
-				"Classpath: /javax/swing/plaf/basic/icons/JavaCup16.png",
-				getInvocationSource(shell, "{wbp_classTop}", "\"/javax/swing/plaf/basic/icons/JavaCup16.png\""));
+				getInvocationSource(shell, "java.lang.String.class", "\"/org/eclipse/wb/core/controls/flyout/icons/arrow_bottom.gif\""),
+				"Classpath: /org/eclipse/wb/core/controls/flyout/icons/arrow_bottom.gif",
+				getInvocationSource(shell, "{wbp_classTop}", "\"/org/eclipse/wb/core/controls/flyout/icons/arrow_bottom.gif\""));
 	}
 
 	/**
@@ -210,7 +207,7 @@ public class ImagePropertyEditorTestWithManager extends ImagePropertyEditorTest 
 				"}");
 		ManagerContainerInfo.getResourceManagerInfo(shell);
 		shell.addMethodInvocation("setImage(org.eclipse.swt.graphics.Image)",
-				getInvocationSource(shell, "java.lang.String.class", "\"/javax/swing/plaf/basic/icons/JavaCup16.png\""));
+				getInvocationSource(shell, "java.lang.String.class", "\"/org/eclipse/wb/core/controls/flyout/icons/arrow_bottom.gif\""));
 		shell.refresh();
 		assertEditor(
 				"// filler filler filler",
@@ -218,7 +215,7 @@ public class ImagePropertyEditorTestWithManager extends ImagePropertyEditorTest 
 				"  private LocalResourceManager localResourceManager;",
 				"  public Test() {",
 				"    createResourceManager();",
-				"    setImage(localResourceManager.create(ImageDescriptor.createFromFile(String.class, \"/javax/swing/plaf/basic/icons/JavaCup16.png\")));",
+				"    setImage(localResourceManager.create(ImageDescriptor.createFromFile(String.class, \"/org/eclipse/wb/core/controls/flyout/icons/arrow_bottom.gif\")));",
 				"  }",
 				"  private void createResourceManager() {",
 				"    localResourceManager = new LocalResourceManager(JFaceResources.getResources(),this);",

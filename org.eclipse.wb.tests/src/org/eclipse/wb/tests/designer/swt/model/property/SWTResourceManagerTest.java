@@ -12,6 +12,7 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.designer.swt.model.property;
 
+import org.eclipse.wb.core.editor.constants.CoreImages;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.swt.model.widgets.CompositeInfo;
 import org.eclipse.wb.internal.swt.utils.ManagerUtils;
@@ -23,7 +24,6 @@ import org.eclipse.swt.graphics.ImageData;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -40,6 +40,12 @@ public class SWTResourceManagerTest extends RcpModelTest {
 	private Object m_defaultDisplay;
 	private Class<?> SWTManagerClass;
 	private Class<?> ImageClass;
+
+	@Override
+	protected void configureNewProject() throws Exception {
+		super.configureNewProject();
+		m_testProject.addPlugin("org.eclipse.wb.core");
+	}
 
 	////////////////////////////////////////////////////////////////////////////
 	//
@@ -212,7 +218,6 @@ public class SWTResourceManagerTest extends RcpModelTest {
 		}
 	}
 
-	@Disabled
 	@Test
 	public void test_getImage_classpath() throws Exception {
 		// create image over SWTResourceManager
@@ -221,7 +226,7 @@ public class SWTResourceManagerTest extends RcpModelTest {
 						SWTManagerClass,
 						"getImage(java.lang.Class,java.lang.String)",
 						SWTManagerClass,
-						"/javax/swing/plaf/basic/icons/JavaCup16.png");
+						"/org/eclipse/wb/core/controls/flyout/icons/arrow_bottom.gif");
 		// check create
 		assertNotNull(image);
 		// check state
@@ -230,10 +235,11 @@ public class SWTResourceManagerTest extends RcpModelTest {
 				SWTManagerClass,
 				"getImage(java.lang.Class,java.lang.String)",
 				SWTManagerClass,
-				"/javax/swing/plaf/basic/icons/JavaCup16.png"));
+				"/org/eclipse/wb/core/controls/flyout/icons/arrow_bottom.gif"));
 		// load image directly over Image
-		Image directImage = new Image(null,
-				getClass().getResourceAsStream("/javax/swing/plaf/basic/icons/JavaCup16.png"));
+		ImageData directImageData = new ImageData(
+				CoreImages.class.getResourceAsStream("/org/eclipse/wb/core/controls/flyout/icons/arrow_bottom.gif"));
+		Image directImage = new Image(null, directImageData);
 		// check equals images
 		try {
 			assertEqualsImage(image, directImage);
@@ -246,14 +252,14 @@ public class SWTResourceManagerTest extends RcpModelTest {
 						SWTManagerClass,
 						"getImage(java.lang.Class,java.lang.String)",
 						SWTManagerClass,
-						"/javax/swing/plaf/basic/icons/image-failed.png");
+						"/org/eclipse/wb/core/controls/flyout/icons/arrow_top.gif");
 		assertNotNull(image1);
 		assertFalse(image1.isDisposed());
 		assertSame(image1, ReflectionUtils.invokeMethod(
 				SWTManagerClass,
 				"getImage(java.lang.Class,java.lang.String)",
 				SWTManagerClass,
-				"/javax/swing/plaf/basic/icons/image-failed.png"));
+				"/org/eclipse/wb/core/controls/flyout/icons/arrow_top.gif"));
 		assertNotSame(image, image1);
 	}
 
@@ -314,18 +320,17 @@ public class SWTResourceManagerTest extends RcpModelTest {
 		ImageData data1 = image1.getImageData();
 		ImageData data2 = image2.getImageData();
 
-		assertEquals(data1.width, data2.width);
-		assertEquals(data1.height, data2.height);
-		assertEquals(data1.depth, data2.depth);
-		assertEquals(data1.scanlinePad, data2.scanlinePad);
-		assertEquals(data1.bytesPerLine, data2.bytesPerLine);
-		assertEquals(data1.transparentPixel, data2.transparentPixel);
-		assertEquals(data1.maskPad, data2.maskPad);
-		assertEquals(data1.alpha, data2.alpha);
-		// Type is only set when image was created via ImageData (Windows)
-//		assertEquals(data1.type, data2.type);
-		assertEquals(data1.x, data2.x);
-		assertEquals(data1.y, data2.y);
+		assertEquals(data1.width, data2.width, "width");
+		assertEquals(data1.height, data2.height, "height");
+		assertEquals(data1.depth, data2.depth, "depth");
+		assertEquals(data1.scanlinePad, data2.scanlinePad, "scanline pad");
+		assertEquals(data1.bytesPerLine, data2.bytesPerLine, "bytes per line");
+		assertEquals(data1.transparentPixel, data2.transparentPixel, "transparent pixel");
+		assertEquals(data1.maskPad, data2.maskPad, "mask pad");
+		assertEquals(data1.alpha, data2.alpha, "alpha");
+		assertEquals(data1.type, data2.type);
+		assertEquals(data1.x, data2.x, "x");
+		assertEquals(data1.y, data2.y, "y");
 	}
 
 	////////////////////////////////////////////////////////////////////////////
