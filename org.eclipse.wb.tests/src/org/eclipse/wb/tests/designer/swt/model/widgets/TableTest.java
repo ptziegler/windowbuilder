@@ -23,16 +23,19 @@ import org.eclipse.wb.internal.swt.model.widgets.TableColumnInfo;
 import org.eclipse.wb.internal.swt.model.widgets.TableInfo;
 import org.eclipse.wb.internal.swt.model.widgets.TableItemInfo;
 import org.eclipse.wb.internal.swt.model.widgets.WidgetInfo;
+import org.eclipse.wb.os.OSSupport;
 import org.eclipse.wb.tests.designer.rcp.RcpModelTest;
 
 import org.eclipse.draw2d.geometry.Insets;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -178,18 +181,55 @@ public class TableTest extends RcpModelTest {
 	// Columns
 	//
 	////////////////////////////////////////////////////////////////////////////
+	@Test
+	public void test_TableColumn0() throws Exception {
+		TestShell shell = new TestShell();
+		waitEventLoop(100);
+		OSSupport.get().beginShot(shell);
+		waitEventLoop(100);
+		OSSupport.get().makeShots(shell);
+		waitEventLoop(100);
+		OSSupport.get().endShot(shell);
+		waitEventLoop(100);
+
+		Table table = (Table) shell.getChildren()[0];
+		System.out.println(table.getColumn(0).getWidth());
+		System.out.println(table.getColumn(1).getWidth());
+
+		shell.dispose();
+	}
+
+	private static class TestShell extends Shell {
+		public TestShell() {
+			setLayout(new FillLayout());
+			Table table = new Table(this, SWT.BORDER);
+			table.setHeaderVisible(true);
+			{
+				TableColumn tableColumn_1 = new TableColumn(table, SWT.NONE);
+				tableColumn_1.setWidth(50);
+			}
+			{
+				TableColumn tableColumn_2 = new TableColumn(table, SWT.NONE);
+				tableColumn_2.setWidth(100);
+			}
+		}
+
+		@Override
+		protected void checkSubclass() {
+		}
+	}
+
 	/**
 	 * Test for parsing {@link TableColumn} and bounds of {@link TableColumnInfo}.
 	 * In SWT Cocoa and Linux GTK, the column headers are excluded from the client
 	 * area, hence why we have to adjust them for the tests.
 	 */
-	// Disabled because of https://github.com/eclipse-windowbuilder/windowbuilder/issues/389
-	@Disabled
 	@Test
 	public void test_TableColumn() throws Exception {
 		CompositeInfo shell = parseComposite("""
-				class Test extends Shell {
-					public Test() {
+				class Test extends Composite {
+					public Test(Composite parent, int style) {
+						super(parent, style);
 						setLayout(new FillLayout());
 						Table table = new Table(this, SWT.BORDER);
 						table.setHeaderVisible(true);
