@@ -251,21 +251,25 @@ public class ActionGefTest extends SwingGefTest {
 		panel.refresh();
 		JToolBarInfo toolBar = (JToolBarInfo) panel.getChildrenComponents().get(0);
 		// load "action" tool
-		new UiContext().executeAndCheck(new FailableRunnable<>() {
-			@Override
-			public void run() throws Exception {
-				ActionExternalEntryInfo entry = new ActionExternalEntryInfo();
-				entry.initialize(m_viewerCanvas, panel);
-				Tool tool = entry.createTool();
-				m_viewerCanvas.getEditDomain().setActiveTool(tool);
-				waitEventLoop(0);
-			}
-		}, new FailableConsumer<>() {
-			@Override
-			public void accept(SWTBot bot) {
-				animateOpenTypeSelection(bot, "ExternalAction", "OK");
-			}
-		});
+		try {
+			new UiContext().executeAndCheck(new FailableRunnable<>() {
+				@Override
+				public void run() throws Exception {
+					ActionExternalEntryInfo entry = new ActionExternalEntryInfo();
+					entry.initialize(m_viewerCanvas, panel);
+					Tool tool = entry.createTool();
+					m_viewerCanvas.getEditDomain().setActiveTool(tool);
+					waitEventLoop(10);
+				}
+			}, new FailableConsumer<>() {
+				@Override
+				public void accept(SWTBot bot) {
+					animateOpenTypeSelection(bot, "ExternalAction", "OK");
+				}
+			});
+		} finally {
+			System.err.println(getFileContentSrc("test/ExternalAction.java"));
+		}
 		// drop new "action" on "toolBar"...
 		canvas.target(toolBar).in(10, 5).move();
 		canvas.click();
