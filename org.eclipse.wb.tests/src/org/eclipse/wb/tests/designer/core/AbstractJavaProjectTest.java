@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2025 Google, Inc. and others.
+ * Copyright (c) 2011, 2026 Google, Inc. and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -39,6 +39,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.graphics.ImageLoader;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
@@ -48,6 +49,7 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.InputStream;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -225,8 +227,6 @@ public abstract class AbstractJavaProjectTest extends DesignerTestCase {
 	 * problems.
 	 */
 	public static void waitForAutoBuild() throws Exception {
-		// Wait for workspace jobs such as file creation
-		waitEventLoop(25);
 		// Wait for auto-builder to handle all newly created files
 		TestProject.waitForAutoBuild();
 		// check for compilation problems
@@ -493,21 +493,31 @@ public abstract class AbstractJavaProjectTest extends DesignerTestCase {
 	}
 
 	/**
-	 * Creates/updates {@link IFile} with given content.
+	 * Creates/updates {@link IFile} with given content. <i>Note:</i> This method
+	 * updates the file contents using Java I/O operations, to avoid the
+	 * asynchronous Eclipse refresh mechanism.
 	 *
 	 * @return <code>true</code> if {@link IFile} was created.
 	 */
-	public static boolean setFileContent(IFile file, byte[] bytes) throws CoreException {
-		return IOUtils2.setFileContents(file, new ByteArrayInputStream(bytes));
+	public static boolean setFileContent(IFile file, byte[] bytes) throws Exception {
+		try (ByteArrayInputStream is = new ByteArrayInputStream(bytes)) {
+			return setFileContent(file, is);
+		}
 	}
 
 	/**
-	 * Creates/updates {@link IFile} with given content.
+	 * Creates/updates {@link IFile} with given content.<i>Note:</i> This method
+	 * updates the file contents using Java I/O operations, to avoid the
+	 * asynchronous Eclipse refresh mechanism.
 	 *
 	 * @return <code>true</code> if {@link IFile} was created.
 	 */
-	public static boolean setFileContent(IFile file, InputStream inputStream) throws CoreException {
-		return IOUtils2.setFileContents(file, inputStream);
+	public static boolean setFileContent(IFile file, InputStream inputStream) throws Exception {
+		File javaFile = file.getLocation().toFile();
+		boolean exists = javaFile.exists();
+		FileUtils.copyToFile(inputStream, javaFile);
+		file.refreshLocal(IResource.DEPTH_INFINITE, null);
+		return !exists;
 	}
 
 	/**
@@ -576,16 +586,19 @@ public abstract class AbstractJavaProjectTest extends DesignerTestCase {
 	}
 
 	/**
-	 * Force deletes {@link IResource}.
+	 * Force deletes {@link IResource}. <i>Note:</i> This method removes the file
+	 * using Java I/O operations, to avoid the asynchronous Eclipse refresh
+	 * mechanism.
 	 */
 	public static void forceDeleteResource(IResource resource) {
 		while (resource.exists()) {
 			try {
-				resource.refreshLocal(IResource.DEPTH_INFINITE, null);
+				FileUtils.forceDelete(resource.getLocation().toFile());
 			} catch (Throwable e) {
+				waitEventLoop(100);
 			}
 			try {
-				resource.delete(true, null);
+				resource.refreshLocal(IResource.DEPTH_INFINITE, null);
 			} catch (Throwable e) {
 				waitEventLoop(100);
 			}
