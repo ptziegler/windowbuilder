@@ -199,6 +199,8 @@ public final class SwingScreenshotMaker {
 			java.awt.Image image2 = m_componentImages.get(keyComponent);
 			if (image2 != null) {
 				double zoom = SwingImageUtils.getDisplayZoom(keyComponent);
+				System.out.println(
+						"<-- makeShots: " + image2.getWidth(null) + ", " + image2.getHeight(null) + ", " + zoom);
 				convertedImages.put(keyComponent, SwingImageUtils.convertImage_AWT_to_SWT(image2, zoom).createImage());
 			}
 		}
@@ -220,6 +222,7 @@ public final class SwingScreenshotMaker {
 				if (objectInfo instanceof AbstractComponentInfo componentInfo) {
 					Object componentObject = componentInfo.getComponentObject();
 					Image image = convertedImages.get(componentObject);
+					System.out.println("--> makeShots: " + image.getBounds());
 					componentInfo.setImage(image);
 				}
 			}
