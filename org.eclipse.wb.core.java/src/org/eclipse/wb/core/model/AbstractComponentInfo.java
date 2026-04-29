@@ -175,8 +175,10 @@ public abstract class AbstractComponentInfo extends JavaInfo implements IAbstrac
 	@Override
 	public final Image getImage() {
 		if (m_image == null && getParent() == null) {
+			System.out.println("Live Image: " + getLiveImage());
 			return getLiveImage();
 		}
+		System.out.println("Image: " + m_image);
 		return m_image;
 	}
 

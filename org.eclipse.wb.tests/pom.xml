@@ -86,7 +86,7 @@
 						</dependency>
 					</dependencies>
 					<includes>
-						<include>**/org.eclipse.wb.tests.designer.WindowBuilderTests.java</include>
+						<include>**/org.eclipse.wb.tests.designer.swing.model.component.ComponentTest.java</include>
 					</includes>
 					<useUIHarness>true</useUIHarness>
 					<useUIThread>true</useUIThread>
