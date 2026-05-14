@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2024 Google, Inc. and others.
+ * Copyright (c) 2011, 2026 Google, Inc. and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -62,7 +62,7 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.FormSpec;
 import com.jgoodies.forms.layout.FormSpecs;
 import com.jgoodies.forms.layout.RowSpec;
-import com.jgoodies.forms.util.DefaultUnitConverter;
+import com.jgoodies.forms.util.UnitConverter;
 
 import org.apache.commons.collections4.BidiMap;
 import org.apache.commons.collections4.bidimap.DualHashBidiMap;
@@ -1456,7 +1456,7 @@ public final class FormLayoutInfo extends LayoutInfo implements IPreferenceConst
 		}
 		// initialize default sizes in pixels
 		{
-			DefaultUnitConverter converter = DefaultUnitConverter.getInstance();
+			UnitConverter converter = FormSizeConstantInfo.getUnitConverter();
 			//
 			m_defaultColumnSize = converter.millimeterAsPixel(DEFAULT_SIZE, container);
 			m_defaultRowSize = converter.millimeterAsPixel(DEFAULT_SIZE, container);
