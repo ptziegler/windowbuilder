@@ -12,12 +12,12 @@
  *******************************************************************************/
 package org.eclipse.wb.gef.core.tools;
 
-import org.eclipse.wb.gef.core.requests.CreateRequest;
 import org.eclipse.wb.gef.core.requests.DesignCreationFactory;
 
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.Request;
+import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gef.requests.CreationFactory;
 
 /**
@@ -75,7 +75,9 @@ public class CreationTool extends AbstractCreationTool {
 	 */
 	@Override
 	protected Request createTargetRequest() {
-		return new CreateRequest(m_factory);
+		CreateRequest request = new CreateRequest();
+		request.setFactory(m_factory);
+		return request;
 	}
 
 	@Override
@@ -91,7 +93,7 @@ public class CreationTool extends AbstractCreationTool {
 	@Override
 	protected void selectAddedObjects() {
 		CreateRequest request = (CreateRequest) getTargetRequest();
-		Object model = request.getSelectObject();
+		Object model = request.getNewObject();
 		if (model != null) {
 			EditPartViewer viewer = getCurrentViewer();
 			if (viewer != null) {

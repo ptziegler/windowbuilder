@@ -12,9 +12,9 @@
  *******************************************************************************/
 package org.eclipse.wb.tests.gef;
 
-import org.eclipse.wb.gef.core.requests.CreateRequest;
 import org.eclipse.wb.gef.core.tools.CreationTool;
 
+import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gef.requests.CreationFactory;
 import org.eclipse.gef.requests.SimpleFactory;
 
@@ -47,6 +47,7 @@ public class CreationToolTest extends AbstractCreationToolTest {
 		m_tool = new CreationTool(factory);
 		m_domain.setActiveTool(m_tool);
 		// create request
-		m_request = new CreateRequest(factory);
+		m_request = new CreateRequest();
+		m_request.setFactory(factory);
 	}
 }

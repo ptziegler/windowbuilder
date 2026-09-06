@@ -14,13 +14,13 @@ package org.eclipse.wb.tests.designer.editor.validator;
 
 import org.eclipse.wb.core.model.JavaInfo;
 import org.eclipse.wb.gef.core.policies.ILayoutRequestValidator;
-import org.eclipse.wb.gef.core.requests.CreateRequest;
 import org.eclipse.wb.gef.core.requests.PasteRequest;
 import org.eclipse.wb.internal.core.model.clipboard.JavaInfoMemento;
 import org.eclipse.wb.tests.designer.swing.SwingModelTest;
 
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
+import org.eclipse.gef.requests.CreateRequest;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -82,7 +82,7 @@ public abstract class AbstractLayoutRequestValidatorTest extends SwingModelTest 
 			boolean expected,
 			EditPart host,
 			final Object child) {
-		assertEquals(expected, validator.validateCreateRequest(host, new CreateRequest(null) {
+		assertEquals(expected, validator.validateCreateRequest(host, new CreateRequest() {
 			@Override
 			public Object getNewObject() {
 				return child;

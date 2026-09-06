@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2023 Google, Inc.
+ * Copyright (c) 2011, 2026 Google, Inc. and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -12,6 +12,8 @@
  *******************************************************************************/
 package org.eclipse.wb.gef.core.requests;
 
+import org.eclipse.gef.requests.CreateRequest;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -20,14 +22,12 @@ import java.util.List;
  * @author lobas_av
  * @coverage gef.core
  */
-public class PasteRequest extends AbstractCreateRequest {
+public class PasteRequest extends CreateRequest {
 	/**
 	 * Indicates that an object is to be pasted by the receiver of the Request.
 	 */
 	public static final String REQ_PASTE = "paste";
-	private static final int SNAP_TO = 16;
 	private final Object m_memento;
-	private int m_flags = 0;
 
 	////////////////////////////////////////////////////////////////////////////
 	//
@@ -84,32 +84,6 @@ public class PasteRequest extends AbstractCreateRequest {
 
 	////////////////////////////////////////////////////////////////////////////
 	//
-	// Snap to horizontal axis
-	//
-	////////////////////////////////////////////////////////////////////////////
-
-	/**
-	 * Used to set whether snap-to is being performed.
-	 *
-	 * @param value <code>true</code> if the request is for a creation with snap-to
-	 *              enabled
-	 */
-	public void setSnapToEnabled(boolean value) {
-		m_flags = value ? m_flags | SNAP_TO : m_flags & ~SNAP_TO;
-	}
-
-	/**
-	 * Returns <code>true</code> if snap-to is enabled
-	 *
-	 * @return <code>true</code> if the request is for a creation with snap-to
-	 *         enabled
-	 */
-	public boolean isSnapToEnabled() {
-		return (m_flags & SNAP_TO) != 0;
-	}
-
-	////////////////////////////////////////////////////////////////////////////
-	//
 	// Object
 	//
 	////////////////////////////////////////////////////////////////////////////
@@ -117,8 +91,6 @@ public class PasteRequest extends AbstractCreateRequest {
 	public String toString() {
 		StringBuffer buffer = new StringBuffer("PasteRequest(type=");
 		buffer.append(getType());
-		buffer.append(", flags=");
-		buffer.append(m_flags);
 		buffer.append(", location=");
 		buffer.append(getLocation());
 		buffer.append(", size=");
